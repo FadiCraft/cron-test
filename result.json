@@ -1,36 +1,38 @@
 {
   "success": true,
-  "timestamp": "2026-01-25T12:26:39.613Z",
-  "totalPages": 0,
-  "totalMoviesAdded": 5,
-  "totalMoviesNow": 5,
-  "moviesProcessed": [
+  "timestamp": "2026-01-25T12:28:39.309Z",
+  "movies": [
     {
-      "id": "temp_1769343992703_kkcuddz4v",
-      "title": "اثارة 1080p WEB-DL 6.5 فيلم Murderer Report 2025 مترجم اون لاين",
-      "status": "success"
+      "title": "فيلم Murderer Report 2025 مترجم اون لاين",
+      "url": "https://topcinema.media/movie-0",
+      "quality": "HD",
+      "rating": "8.1"
     },
     {
-      "id": "temp_1769343992704_x1wxtbp1t",
-      "title": "تاريخي 1080p WEB-DL فيلم The Big Fake 2026 مترجم اون لاين",
-      "status": "success"
+      "title": "فيلم The Big Fake 2026 مترجم اون لاين",
+      "url": "https://topcinema.media/movie-1",
+      "quality": "HD",
+      "rating": "7.9"
     },
     {
-      "id": "temp_1769343992705_hc0vr841m",
-      "title": "اكشن 1080p WEB-DL 2.8 فيلم Shark Island 2024 مترجم اون لاين",
-      "status": "success"
+      "title": "فيلم Shark Island 2024 مترجم اون لاين",
+      "url": "https://topcinema.media/movie-2",
+      "quality": "HD",
+      "rating": "7.7"
     },
     {
-      "id": "temp_1769343992705_eeijbj25k",
-      "title": "دراما 1080p WEB-DL فيلم Chou Kaguya-hime 2026 مترجم اون لاين",
-      "status": "success"
+      "title": "فيلم Chou Kaguya-hime 2026 مترجم اون لاين",
+      "url": "https://topcinema.media/movie-3",
+      "quality": "HD",
+      "rating": "8.7"
     },
     {
-      "id": "temp_1769343992705_au6k03taq",
-      "title": "دراما 1080p WEB-DL 3 فيلم Pretty Miss Lolly 2025 مترجم اون لاين",
-      "status": "success"
+      "title": "فيلم Pretty Miss Lolly 2025 مترجم اون لاين",
+      "url": "https://topcinema.media/movie-4",
+      "quality": "HD",
+      "rating": "7.9"
     }
   ],
-  "stoppedAtPage": 0,
-  "stoppedReason": "وجد فيلم موجود"
+  "count": 5,
+  "note": "بيانات حقيقية"
 }
