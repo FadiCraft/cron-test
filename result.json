@@ -1,10 +1,96 @@
 {
   "success": true,
-  "timestamp": "2026-01-25T13:23:25.929Z",
-  "lastPageProcessed": 0,
-  "totalPagesProcessed": 0,
-  "newMoviesAdded": 3,
-  "totalMoviesNow": 8,
-  "stoppedBecauseExisting": true,
-  "note": "استخراج ذكي - توقف عند أول فيلم موجود"
+  "timestamp": "2026-01-25T13:46:48.675Z",
+  "page": 1,
+  "totalMoviesFound": 10,
+  "totalMoviesSaved": 10,
+  "movies": [
+    {
+      "id": "198000",
+      "title": "فيلم Murderer Report 2025 مترجم اون لاين",
+      "imdbRating": "6.5",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197436",
+      "title": "فيلم The Big Fake 2026 مترجم اون لاين",
+      "imdbRating": "",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197811",
+      "title": "فيلم Shark Island 2024 مترجم اون لاين",
+      "imdbRating": "2.8",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197296",
+      "title": "فيلم Chou Kaguya-hime 2026 مترجم اون لاين",
+      "imdbRating": "",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197293",
+      "title": "فيلم Pretty Miss Lolly 2025 مترجم اون لاين",
+      "imdbRating": "3",
+      "hasStory": true,
+      "detailsCount": 8
+    },
+    {
+      "id": "197133",
+      "title": "فيلم The Priest: Thanksgiving Massacre 2025 مترجم اون لاين",
+      "imdbRating": "4.9",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197130",
+      "title": "فيلم Savage Flowers 2025 مترجم اون لاين",
+      "imdbRating": "5.2",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197124",
+      "title": "فيلم Kidnapped: Elizabeth Smart 2026 مترجم اون لاين",
+      "imdbRating": "",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "197120",
+      "title": "فيلم Kayara 2025 مترجم اون لاين",
+      "imdbRating": "5.1",
+      "hasStory": true,
+      "detailsCount": 7
+    },
+    {
+      "id": "196884",
+      "title": "فيلم The Secret Agent 2025 مترجم اون لاين",
+      "imdbRating": "7.8",
+      "hasStory": true,
+      "detailsCount": 7
+    }
+  ],
+  "files": {
+    "pages": [
+      "pages/page_1.json"
+    ],
+    "movies": [
+      "movies/movie_198000.json",
+      "movies/movie_197436.json",
+      "movies/movie_197811.json",
+      "movies/movie_197296.json",
+      "movies/movie_197293.json",
+      "movies/movie_197133.json",
+      "movies/movie_197130.json",
+      "movies/movie_197124.json",
+      "movies/movie_197120.json",
+      "movies/movie_196884.json"
+    ]
+  }
 }
