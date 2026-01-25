@@ -1,0 +1,25 @@
+name: Cron Test
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - run: node fetch.js
+
+      - run: |
+          git config user.name "cron-bot"
+          git config user.email "cron@bot.com"
+          git add .
+          git commit -m "update result"
+          git push
