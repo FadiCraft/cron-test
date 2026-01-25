@@ -88,8 +88,8 @@ async function fetchFirstPage() {
         
         console.log(`✅ وجدت ${movieElements.length} رابط أفلام`);
         
-        // استخراج أول 10 أفلام فقط للاختبار
-        const maxMovies = Math.min(10, movieElements.length);
+        // استخراج أول 5 أفلام فقط للاختبار
+        const maxMovies = Math.min(5, movieElements.length);
         
         for (let i = 0; i < maxMovies; i++) {
             const element = movieElements[i];
@@ -118,6 +118,130 @@ async function fetchFirstPage() {
     } catch (error) {
         console.error(`❌ خطأ في تحليل الصفحة:`, error.message);
         return [];
+    }
+}
+
+// دالة لاستخراج سيرفر المشاهدة
+async function fetchWatchServer(watchPageUrl) {
+    try {
+        console.log(`   🎥 جاري جلب صفحة المشاهدة...`);
+        
+        const html = await fetchPage(watchPageUrl);
+        
+        if (!html) {
+            console.log("   ⚠️ فشل جلب صفحة المشاهدة");
+            return null;
+        }
+        
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        // البحث عن meta tag للفيديو
+        const videoMeta = doc.querySelector('meta[property="og:video"], meta[property="og:video:secure_url"]');
+        
+        if (videoMeta) {
+            const videoUrl = videoMeta.getAttribute('content');
+            console.log(`   ✅ وجد رابط فيديو: ${videoUrl.substring(0, 60)}...`);
+            return {
+                type: "embed",
+                url: videoUrl,
+                source: "meta_tag"
+            };
+        }
+        
+        // البحث عن iframe
+        const iframe = doc.querySelector('iframe');
+        if (iframe) {
+            const iframeSrc = iframe.getAttribute('src');
+            console.log(`   ✅ وجد iframe: ${iframeSrc.substring(0, 60)}...`);
+            return {
+                type: "iframe",
+                url: iframeSrc,
+                source: "iframe"
+            };
+        }
+        
+        console.log("   ⚠️ لم يتم العثور على سيرفر مشاهدة");
+        return null;
+        
+    } catch (error) {
+        console.log(`   ❌ خطأ في جلب سيرفر المشاهدة: ${error.message}`);
+        return null;
+    }
+}
+
+// دالة لاستخراج سيرفرات التحميل
+async function fetchDownloadServers(downloadPageUrl) {
+    try {
+        console.log(`   📥 جاري جلب صفحة التحميل...`);
+        
+        const html = await fetchPage(downloadPageUrl);
+        
+        if (!html) {
+            console.log("   ⚠️ فشل جلب صفحة التحميل");
+            return null;
+        }
+        
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        const servers = {
+            multiQuality: [],
+            byQuality: {}
+        };
+        
+        // سيرفرات متعددة الجودات
+        const proServers = doc.querySelectorAll('.proServer a');
+        if (proServers.length > 0) {
+            console.log(`   ✅ وجد ${proServers.length} سيرفر متعدد الجودات`);
+            
+            proServers.forEach(server => {
+                const name = cleanText(server.querySelector('p')?.textContent) || "غير معروف";
+                const url = server.href;
+                
+                servers.multiQuality.push({
+                    name: name,
+                    url: url,
+                    type: "multi_quality"
+                });
+            });
+        }
+        
+        // سيرفرات حسب الجودة
+        const downloadBlocks = doc.querySelectorAll('.DownloadBlock');
+        
+        if (downloadBlocks.length > 0) {
+            console.log(`   ✅ وجد ${downloadBlocks.length} نوع جودة`);
+            
+            downloadBlocks.forEach(block => {
+                const qualityElement = block.querySelector('span');
+                const quality = qualityElement ? cleanText(qualityElement.textContent) : "غير معروف";
+                
+                servers.byQuality[quality] = [];
+                
+                const serverLinks = block.querySelectorAll('.download-items a');
+                
+                serverLinks.forEach(link => {
+                    const name = cleanText(link.querySelector('span')?.textContent) || "غير معروف";
+                    const serverQuality = cleanText(link.querySelector('p')?.textContent) || quality;
+                    const url = link.href;
+                    
+                    servers.byQuality[quality].push({
+                        name: name,
+                        quality: serverQuality,
+                        url: url
+                    });
+                });
+                
+                console.log(`   📊 جودة ${quality}: ${servers.byQuality[quality].length} سيرفر`);
+            });
+        }
+        
+        return servers;
+        
+    } catch (error) {
+        console.log(`   ❌ خطأ في جلب سيرفرات التحميل: ${error.message}`);
+        return null;
     }
 }
 
@@ -172,7 +296,33 @@ async function fetchSingleMovie(movie) {
             }
         });
         
-        // البيانات النهائية
+        // استخراج روابط المشاهدة والتحميل
+        const watchButton = doc.querySelector('a.watch');
+        const downloadButton = doc.querySelector('a.download');
+        
+        const watchPageUrl = watchButton ? watchButton.href : null;
+        const downloadPageUrl = downloadButton ? downloadButton.href : null;
+        
+        let watchServer = null;
+        let downloadServers = null;
+        
+        // استخراج سيرفر المشاهدة
+        if (watchPageUrl) {
+            console.log(`   🔗 صفحة المشاهدة: ${watchPageUrl}`);
+            watchServer = await fetchWatchServer(watchPageUrl);
+        } else {
+            console.log("   ⚠️ لا يوجد رابط مشاهدة");
+        }
+        
+        // استخراج سيرفرات التحميل
+        if (downloadPageUrl) {
+            console.log(`   🔗 صفحة التحميل: ${downloadPageUrl}`);
+            downloadServers = await fetchDownloadServers(downloadPageUrl);
+        } else {
+            console.log("   ⚠️ لا يوجد رابط تحميل");
+        }
+        
+        // البيانات النهائية للفيلم
         const movieData = {
             id: movieId,
             title: title,
@@ -182,16 +332,15 @@ async function fetchSingleMovie(movie) {
             imdbRating: imdbRating,
             story: story || "غير متوفر",
             details: details,
+            watchPage: watchPageUrl,
+            watchServer: watchServer,
+            downloadPage: downloadPageUrl,
+            downloadServers: downloadServers,
             page: 1,
             scrapedAt: new Date().toISOString()
         };
         
-        // حفظ الفيلم
-        const movieFile = path.join(MOVIES_DIR, `movie_${movieId}.json`);
-        fs.writeFileSync(movieFile, JSON.stringify(movieData, null, 2));
-        
-        console.log(`   ✅ تم حفظ: ${movieId}.json`);
-        console.log(`   🏆 IMDB: ${imdbRating || "غير متوفر"}`);
+        console.log(`   ✅ تم استخراج بيانات الفيلم بنجاح`);
         
         return movieData;
         
@@ -201,47 +350,76 @@ async function fetchSingleMovie(movie) {
     }
 }
 
-// دالة لحفظ الصفحة
-function savePageData(movies) {
-    const pageData = {
+// دالة لحفظ كل الأفلام في ملف واحد
+function saveAllMoviesInOneFile(moviesData, filename = "all_movies.json") {
+    const allMovies = {
+        total: moviesData.length,
         page: 1,
-        url: "https://topcinema.rip/movies/",
-        moviesCount: movies.length,
-        movies: movies.map(m => ({
-            id: m.id,
-            title: m.title,
-            url: m.url,
-            index: m.index
-        })),
-        savedAt: new Date().toISOString()
+        scrapedAt: new Date().toISOString(),
+        movies: moviesData
     };
     
-    const pageFile = path.join(PAGES_DIR, "page_1.json");
-    fs.writeFileSync(pageFile, JSON.stringify(pageData, null, 2));
+    const filePath = path.join(__dirname, filename);
+    fs.writeFileSync(filePath, JSON.stringify(allMovies, null, 2));
     
-    console.log(`\n📄 تم حفظ بيانات الصفحة في: pages/page_1.json`);
-    return pageData;
+    console.log(`\n💾 تم حفظ جميع الأفلام في: ${filename}`);
+    console.log(`   📊 عدد الأفلام: ${moviesData.length}`);
+    
+    return filePath;
+}
+
+// دالة لحفظ كل فيلم في ملف منفصل
+function saveEachMovieSeparately(moviesData) {
+    let savedCount = 0;
+    
+    moviesData.forEach(movie => {
+        if (movie && movie.id) {
+            const movieFile = path.join(MOVIES_DIR, `movie_${movie.id}.json`);
+            fs.writeFileSync(movieFile, JSON.stringify(movie, null, 2));
+            savedCount++;
+        }
+    });
+    
+    console.log(`💾 تم حفظ ${savedCount} فيلم في مجلد movies/`);
+    return savedCount;
 }
 
 // دالة لعرض النتائج
 function displayResults(movies, moviesData) {
-    console.log("\n" + "=".repeat(60));
-    console.log("📊 نتائج الاستخراج:");
-    console.log("=".repeat(60));
+    console.log("\n" + "=".repeat(70));
+    console.log("📊 نتائج الاستخراج الكاملة:");
+    console.log("=".repeat(70));
     
     console.log(`🔗 الصفحة: https://topcinema.rip/movies/`);
     console.log(`🎬 عدد الأفلام المستخرجة: ${movies.length}`);
     console.log(`✅ عدد الأفلام المحفوظة: ${moviesData.length}`);
     
     if (moviesData.length > 0) {
-        console.log("\n📋 قائمة الأفلام المحفوظة:");
+        console.log("\n📋 تفاصيل الأفلام:");
         moviesData.forEach((data, index) => {
-            console.log(`${index + 1}. ${data.title}`);
-            console.log(`   📁 ملف: movie_${data.id}.json`);
+            console.log(`\n${index + 1}. ${data.title}`);
+            console.log(`   🆔 ID: ${data.id}`);
             console.log(`   ⭐ IMDB: ${data.imdbRating || "غير متوفر"}`);
-            console.log(`   📖 القصة: ${data.story ? data.story.substring(0, 50) + "..." : "غير متوفر"}`);
+            console.log(`   📖 القصة: ${data.story ? data.story.substring(0, 60) + "..." : "غير متوفر"}`);
+            
+            // عرض سيرفرات المشاهدة
+            if (data.watchServer) {
+                console.log(`   🎥 سيرفر المشاهدة: ${data.watchServer.type} - ${data.watchServer.url?.substring(0, 50)}...`);
+            } else {
+                console.log(`   🎥 سيرفر المشاهدة: غير متوفر`);
+            }
+            
+            // عرض سيرفرات التحميل
+            if (data.downloadServers) {
+                const totalDownloadServers = 
+                    (data.downloadServers.multiQuality?.length || 0) + 
+                    Object.values(data.downloadServers.byQuality || {}).reduce((sum, arr) => sum + arr.length, 0);
+                console.log(`   📥 سيرفرات التحميل: ${totalDownloadServers} سيرفر`);
+            } else {
+                console.log(`   📥 سيرفرات التحميل: غير متوفر`);
+            }
+            
             console.log(`   🏷️ التفاصيل: ${Object.keys(data.details).length} حقل`);
-            console.log();
         });
     }
     
@@ -256,24 +434,28 @@ function displayResults(movies, moviesData) {
             id: m.id,
             title: m.title,
             imdbRating: m.imdbRating,
-            hasStory: !!m.story,
+            hasWatchServer: !!m.watchServer,
+            hasDownloadServers: !!m.downloadServers,
             detailsCount: Object.keys(m.details).length
         })),
         files: {
-            pages: [`pages/page_1.json`],
-            movies: moviesData.map(m => `movies/movie_${m.id}.json`)
+            all_movies: "all_movies.json",
+            individual_movies: `movies/ (${moviesData.length} ملف)`
         }
     };
     
     fs.writeFileSync("result.json", JSON.stringify(result, null, 2));
     
-    console.log(`💾 تم حفظ النتيجة في: result.json`);
-    console.log("=".repeat(60));
+    console.log("\n💾 تم حفظ النتائج في الملفات:");
+    console.log(`   📄 result.json - ملخص النتائج`);
+    console.log(`   📄 all_movies.json - جميع الأفلام في ملف واحد`);
+    console.log(`   📁 movies/ - كل فيلم في ملف منفصل`);
+    console.log("=".repeat(70));
 }
 
 // الدالة الرئيسية
 async function main() {
-    console.log("🚀 بدء استخراج الصفحة الأولى فقط");
+    console.log("🚀 بدء استخراج الصفحة الأولى مع سيرفرات المشاهدة والتحميل");
     console.log("⏱️ الوقت: " + new Date().toLocaleString());
     
     // جلب قائمة الأفلام من الصفحة الأولى
@@ -290,8 +472,6 @@ async function main() {
     const moviesData = [];
     
     for (const movie of movies) {
-        console.log(`\n--- الفيلم ${movie.index}/${movies.length} ---`);
-        
         const movieData = await fetchSingleMovie(movie);
         
         if (movieData) {
@@ -299,21 +479,31 @@ async function main() {
         }
         
         // تأخير بسيط بين الأفلام
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1500));
     }
     
-    // حفظ بيانات الصفحة
-    savePageData(movies);
+    // 1. حفظ كل الأفلام في ملف واحد
+    saveAllMoviesInOneFile(moviesData);
+    
+    // 2. حفظ كل فيلم في ملف منفصل
+    saveEachMovieSeparately(moviesData);
     
     // عرض النتائج
     displayResults(movies, moviesData);
     
     // ملخص نهائي
     console.log("\n🎉 اكتمل الاستخراج بنجاح!");
-    console.log(`📁 المجلدات التي تم إنشاؤها:`);
-    console.log(`   - pages/ → ${fs.readdirSync(PAGES_DIR).length} ملف`);
-    console.log(`   - movies/ → ${fs.readdirSync(MOVIES_DIR).length} ملف`);
-    console.log(`\n📝 يمكنك فحص الملفات المحفوظة في مجلدات pages/ و movies/`);
+    console.log(`📁 الملفات المحفوظة:`);
+    console.log(`   📄 all_movies.json → جميع الأفلام في ملف واحد`);
+    console.log(`   📁 movies/ → ${fs.readdirSync(MOVIES_DIR).length} ملف منفصل`);
+    console.log(`   📄 result.json → ملخص النتائج`);
+    
+    // عرض مثال من الملف الموحد
+    console.log(`\n📋 مثال من all_movies.json:`);
+    const allMovies = JSON.parse(fs.readFileSync("all_movies.json", "utf8"));
+    console.log(`   أول فيلم: ${allMovies.movies[0]?.title}`);
+    console.log(`   سيرفر مشاهدة: ${allMovies.movies[0]?.watchServer ? "نعم" : "لا"}`);
+    console.log(`   سيرفرات تحميل: ${allMovies.movies[0]?.downloadServers ? "نعم" : "لا"}`);
 }
 
 // تشغيل البرنامج
