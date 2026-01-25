@@ -8,10 +8,13 @@
     "start": "node fetch.js"
   },
   "dependencies": {
-    "node-fetch": "^3.3.1",
-    "jsdom": "^22.1.0"
+    "jsdom": "^22.1.0",
+    "node-fetch": "^3.3.1"
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
