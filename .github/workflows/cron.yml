@@ -1,25 +1,43 @@
-name: Cron Test
+name: KiroZozo Movie Fetcher
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # للتنفيذ اليدوي
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 */2 * * *"  # كل ساعتين
+    - cron: "0 12 * * *"    # يومياً عند الساعة 12 ظهراً
 
 jobs:
-  test:
+  fetch-movies:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
-          node-version: 20
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: node fetch.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-      - run: |
-          git config user.name "cron-bot"
-          git config user.email "cron@bot.com"
-          git add .
-          git commit -m "update result"
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run movie fetcher
+        run: node fetch.js
+        timeout-minutes: 10
+
+      - name: Show results
+        run: |
+          echo "=== Extracted Data ==="
+          cat result.json | jq '.stats'
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add result.json movies.json series.json
+          git commit -m "🔴 Updated movie data - $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
           git push
