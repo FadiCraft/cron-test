@@ -33,6 +33,66 @@
       "Bernardo Rodrguez"
     ]
   },
+  "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kayara-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+  "watchServer": {
+    "type": "embed",
+    "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kayara-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+    "source": "meta_tag"
+  },
+  "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kayara-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+  "downloadServers": {
+    "multiQuality": [
+      {
+        "name": "VidTube",
+        "url": "https://vidtube.one/d/f8ux47xuk7xh.html",
+        "type": "multi_quality"
+      }
+    ],
+    "byQuality": {
+      "1080p": [
+        {
+          "name": "UpDown",
+          "quality": "1080p",
+          "url": "https://updown.cam/6k4ri2v332i5"
+        },
+        {
+          "name": "Mdiaload",
+          "quality": "1080p",
+          "url": "https://down.mdiaload.com/ktvj7c9mp1do"
+        },
+        {
+          "name": "Ddownload",
+          "quality": "1080p",
+          "url": "https://ddownload.com/wj52jxcb03b2"
+        },
+        {
+          "name": "Nitroflare",
+          "quality": "1080p",
+          "url": "https://nitroflare.com/view/4F911BF848616FD"
+        },
+        {
+          "name": "1Fichier",
+          "quality": "1080p",
+          "url": "https://1fichier.com/?zcsfx83wm8hb9nae75uf"
+        },
+        {
+          "name": "Rapidgator",
+          "quality": "1080p",
+          "url": "https://rapidgator.net/file/5ec7589ab6f94be77ba489499afe3e4d"
+        },
+        {
+          "name": "Freedl",
+          "quality": "1080p",
+          "url": "https://frdl.io/t3e7kexvbj3w"
+        },
+        {
+          "name": "CloudFile",
+          "quality": "1080p",
+          "url": "https://1cloudfile.com/2azmp"
+        }
+      ]
+    }
+  },
   "page": 1,
-  "scrapedAt": "2026-01-25T13:46:46.370Z"
+  "scrapedAt": "2026-01-25T14:09:34.255Z"
 }
