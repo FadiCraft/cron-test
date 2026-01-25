@@ -1,63 +1,62 @@
-name: KiroZozo Movie Fetcher
+name: Simple Cron Test
 
 on:
-  workflow_dispatch:  # للتنفيذ اليدوي
+  workflow_dispatch:
   schedule:
-    - cron: "0 */2 * * *"  # كل ساعتين
-    - cron: "0 12 * * *"    # يومياً عند الساعة 12 ظهراً
+    - cron: "*/5 * * * *"  # كل 5 دقائق
 
 jobs:
-  fetch-movies:
+  test:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
+          # إزالة cache لتجنب الخطأ
+          
+      - name: Create simple fetch.js
         run: |
-          # إنشاء package.json إذا لم يكن موجوداً
-          if [ ! -f "package.json" ]; then
-            echo '{
-              "name": "kirozozo-cron",
-              "version": "1.0.0",
-              "type": "module",
-              "dependencies": {
-                "node-fetch": "^3.3.1",
-                "jsdom": "^22.1.0"
+          cat > fetch.js << 'EOF'
+          import fs from "fs";
+
+          const data = {
+            time: new Date().toISOString(),
+            message: "cron works - updated version",
+            movies: [
+              {
+                id: 1,
+                title: "فيلم تجريبي 1",
+                url: "https://example.com/movie1",
+                fetchedAt: new Date().toISOString()
+              },
+              {
+                id: 2,
+                title: "فيلم تجريبي 2",
+                url: "https://example.com/movie2",
+                fetchedAt: new Date().toISOString()
               }
-            }' > package.json
-          fi
-          
-          # تثبيت الحزم
-          npm install
-          
-          # إنشاء package-lock.json
-          npm init -y --silent
+            ]
+          };
 
-      - name: Run movie fetcher
+          fs.writeFileSync("result.json", JSON.stringify(data, null, 2));
+          console.log("File created successfully!");
+          EOF
+
+      - name: Run fetch script
         run: node fetch.js
-        timeout-minutes: 10
 
-      - name: Show results
+      - name: Display result
         run: |
-          echo "=== Extracted Data ==="
-          if [ -f "result.json" ]; then
-            cat result.json | jq '.stats'
-          else
-            echo "No result.json found"
-          fi
+          echo "=== Result ==="
+          cat result.json
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
-          git config --local user.name "GitHub Action"
-          git config --local user.email "action@github.com"
+          git config user.name "cron-bot"
+          git config user.email "cron@bot.com"
           git add .
-          git diff --quiet && git diff --staged --quiet || git commit -m "🔴 Updated movie data - $(date +'%Y-%m-%d %H:%M')"
+          git commit -m "update result $(date)" || echo "No changes"
           git push
