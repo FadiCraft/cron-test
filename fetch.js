@@ -37,7 +37,7 @@ async function fetchMoviesReal() {
         
         // استخراج أول 6 أفلام
         movieElements.forEach((element, index) => {
-            if (index >= 6) return; // فقط 6 أفلام
+            if (index >= 10) return; // فقط 6 أفلام
             
             try {
                 // استخراج العنوان
