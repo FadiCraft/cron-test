@@ -1,10 +1,36 @@
 {
   "success": true,
-  "timestamp": "2026-01-25T11:56:16.621Z",
-  "lastPageProcessed": 0,
-  "totalPagesProcessed": 0,
-  "newMoviesAdded": 2,
-  "totalMoviesNow": 2,
-  "stoppedBecauseExisting": true,
-  "note": "استخراج ذكي - توقف عند أول فيلم موجود"
+  "timestamp": "2026-01-25T12:01:55.937Z",
+  "totalPages": 0,
+  "totalMoviesAdded": 5,
+  "totalMoviesNow": 5,
+  "moviesProcessed": [
+    {
+      "id": "temp_1769342509302_ceedkbkev",
+      "title": "اثارة 1080p WEB-DL 6.5 فيلم Murderer Report 2025 مترجم اون لاين",
+      "status": "success"
+    },
+    {
+      "id": "temp_1769342509303_no064m0gc",
+      "title": "تاريخي 1080p WEB-DL فيلم The Big Fake 2026 مترجم اون لاين",
+      "status": "success"
+    },
+    {
+      "id": "temp_1769342509303_24spnn095",
+      "title": "اكشن 1080p WEB-DL 2.8 فيلم Shark Island 2024 مترجم اون لاين",
+      "status": "success"
+    },
+    {
+      "id": "temp_1769342509304_f76v03u5k",
+      "title": "دراما 1080p WEB-DL فيلم Chou Kaguya-hime 2026 مترجم اون لاين",
+      "status": "success"
+    },
+    {
+      "id": "temp_1769342509304_g9f3jc4on",
+      "title": "دراما 1080p WEB-DL 3 فيلم Pretty Miss Lolly 2025 مترجم اون لاين",
+      "status": "success"
+    }
+  ],
+  "stoppedAtPage": 0,
+  "stoppedReason": "وجد فيلم موجود"
 }
