@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -25,70 +23,77 @@ jobs:
           npm install jsdom
           echo "✅ تم تثبيت الحزم"
 
-      - name: Create directories
+      - name: Create movies directory
         run: |
-          mkdir -p pages movies
-          echo "📁 تم إنشاء المجلدات"
+          # إنشاء مجلد movies مسبقاً
+          mkdir -p movies
+          echo "📁 تم إنشاء مجلد movies"
 
-      - name: Configure Git
+      - name: Run the scraper
+        run: |
+          echo "🚀 بدء عملية الاستخراج..."
+          echo "📅 الوقت: $(date)"
+          echo "🔄 تشغيل fetch.js..."
+          
+          # تشغيل الملف الموجود في الريبو
+          node fetch.js
+          
+          echo "✅ تم الانتهاء من الاستخراج"
+
+      - name: Display results
+        run: |
+          echo "📊 ====== النتائج ======"
+          
+          # عرض result.json
+          if [ -f "result.json" ]; then
+            echo "🎯 ملف result.json:"
+            cat result.json
+            echo ""
+          else
+            echo "❌ result.json غير موجود"
+          fi
+          
+          # عرض محتويات مجلد movies
+          echo ""
+          echo "📂 محتويات مجلد movies:"
+          if [ -d "movies" ]; then
+            ls -la movies/
+            echo ""
+            echo "🎬 عدد ملفات الأفلام: $(ls -1 movies/*.json 2>/dev/null | wc -l || echo '0')"
+            
+            # عرض الفهرس إذا كان موجوداً
+            if [ -f "movies/index.json" ]; then
+              echo ""
+              echo "📋 الفهرس:"
+              cat movies/index.json | jq '{totalMovies: .totalMovies, scrapedMovies: .scrapedMovies, lastUpdated: .lastUpdated}'
+            fi
+            
+            # عرض مثال من ملف فيلم
+            if ls movies/movie_*.json 1> /dev/null 2>&1; then
+              echo ""
+              echo "🎥 مثال من ملف فيلم:"
+              first_movie=$(ls movies/movie_*.json | head -1)
+              echo "🔸 الملف: $(basename $first_movie)"
+              cat $first_movie | jq '{id: .id, title: .title, imdbRating: .imdbRating}'
+            fi
+          else
+            echo "❌ مجلد movies غير موجود"
+          fi
+
+      - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git pull origin main
-
-      - name: Run incremental scraper
-        run: |
-          echo "🚀 بدء الاستخراج أول بأول..."
-          echo "📅 الوقت: $(date)"
           
-          # تشغيل الملف الموجود
-          node fetch.js
+          # إضافة جميع التغييرات
+          git add result.json movies/ || echo "⚠️ لا توجد ملفات جديدة"
           
-          echo "✅ تم الانتهاء من التنفيذ"
-
-      - name: Display incremental results
-        run: |
-          echo "📊 ====== النتائج أول بأول ======"
-          
-          if [ -f "progress.json" ]; then
-            echo "🔄 حالة التقدم:"
-            cat progress.json
-            echo ""
-          fi
-          
-          if [ -f "result.json" ]; then
-            echo "🎯 النتيجة النهائية:"
-            cat result.json
-            echo ""
-          fi
-          
-          echo "📂 محتويات المجلدات:"
-          echo "pages/: $(ls -1 pages/ 2>/dev/null | wc -l || echo '0') ملف"
-          echo "movies/: $(ls -1 movies/ 2>/dev/null | wc -l || echo '0') ملف"
-
-      - name: Auto-commit and push incremental changes
-        run: |
-          echo "🔄 جاري الالتزام بالتغييرات..."
-          
-          # إضافة جميع الملفات الجديدة
-          git add pages/ movies/ result.json progress.json last_page.json || echo "⚠️ لا توجد ملفات جديدة"
-          
-          # التحقق من التغييرات
+          # التحقق إذا كانت هناك تغييرات
           if git diff --cached --quiet; then
             echo "📭 لا توجد تغييرات للرفع"
           else
-            echo "🔼 رفع التغييرات أول بأول..."
-            
-            # رسالة الالتزام
-            if [ -f "progress.json" ]; then
-              LAST_PAGE=$(cat progress.json | jq -r '.currentPage // 0')
-              TOTAL_MOVIES=$(cat progress.json | jq -r '.totalNewMovies // 0')
-              COMMIT_MSG="🎬 تحديث تلقائي - الصفحة $((LAST_PAGE - 1)) - $TOTAL_MOVIES أفلام جديدة"
-            else
-              COMMIT_MSG="🎬 تحديث تلقائي - $(date +'%Y-%m-%d %H:%M')"
-            fi
-            
-            git commit -m "$COMMIT_MSG" -m "استخراج أول بأول من topcinema.rip"
-            git push origin main
+            echo "🔼 رفع التغييرات..."
+            git commit -m "🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج الأفلام تلقائياً"
+            git push
             echo "✅ تم رفع التغييرات"
           fi
