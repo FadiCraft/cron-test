@@ -1,0 +1,19 @@
+{
+  "name": "kirozozo-cron",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cron job to fetch movies for KiroZozo",
+  "main": "fetch.js",
+  "scripts": {
+    "start": "node fetch.js",
+    "fetch": "node fetch.js",
+    "test": "echo \"No tests specified\""
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0",
+    "jsdom": "^21.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
