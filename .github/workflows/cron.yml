@@ -3,7 +3,9 @@ name: KiroZozo Movie Extractor
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"  # كل 30 دقيقة
+    # كل يوم الساعة 6 صباحاً بتوقيت إسطنبول (UTC+3)
+    # يعني 3:00 UTC
+    - cron: "0 3 * * *"  # ⬅️ غير من */30 * * * * إلى 0 3 * * *
 
 jobs:
   extract-movies:
@@ -31,8 +33,9 @@ jobs:
 
       - name: Run the scraper
         run: |
-          echo "🚀 بدء عملية الاستخراج..."
+          echo "🚀 بدء عملية الاستخراج اليومي..."
           echo "📅 الوقت: $(date)"
+          echo "🕕 توقيت إسطنبول: $(TZ='Europe/Istanbul' date)"
           echo "🔄 تشغيل fetch.js..."
           
           # تشغيل الملف الموجود في الريبو
@@ -42,12 +45,15 @@ jobs:
 
       - name: Display results
         run: |
-          echo "📊 ====== النتائج ======"
+          echo "📊 ====== النتائج اليومية ======"
+          echo "📅 التاريخ: $(date)"
+          echo "🕕 التوقيت: $(TZ='Europe/Istanbul' date)"
+          echo ""
           
           # عرض result.json
           if [ -f "result.json" ]; then
-            echo "🎯 ملف result.json:"
-            cat result.json
+            echo "🎯 ملخص النتائج:"
+            cat result.json | jq '{status, totalMoviesExtracted, lastPageProcessed, executionTime}'
             echo ""
           else
             echo "❌ result.json غير موجود"
@@ -55,26 +61,34 @@ jobs:
           
           # عرض محتويات مجلد movies
           echo ""
-          echo "📂 محتويات مجلد movies:"
+          echo "📂 محتويات مجلد movies/:"
           if [ -d "movies" ]; then
             ls -la movies/
             echo ""
-            echo "🎬 عدد ملفات الأفلام: $(ls -1 movies/*.json 2>/dev/null | wc -l || echo '0')"
+            echo "📊 إحصائيات:"
+            echo "   📄 عدد ملفات JSON: $(ls -1 movies/*.json 2>/dev/null | wc -l || echo '0')"
+            echo "   🎬 عدد صفحات: $(ls -1 movies/*.json 2>/dev/null | grep -E '^[0-9]+\.json$' | wc -l || echo '0')"
             
             # عرض الفهرس إذا كان موجوداً
             if [ -f "movies/index.json" ]; then
               echo ""
               echo "📋 الفهرس:"
-              cat movies/index.json | jq '{totalMovies: .totalMovies, scrapedMovies: .scrapedMovies, lastUpdated: .lastUpdated}'
+              cat movies/index.json | jq '{totalMovies: .stats.totalMovies, uniqueMovies: .stats.uniqueMovies, lastUpdated: .lastUpdated}'
             fi
             
-            # عرض مثال من ملف فيلم
-            if ls movies/movie_*.json 1> /dev/null 2>&1; then
+            # عرض آخر صفحة محفوظة
+            echo ""
+            echo "📄 آخر صفحات محفوظة:"
+            ls -1 movies/*.json 2>/dev/null | grep -E '^[0-9]+\.json$' | tail -5 | while read file; do
+              count=$(cat "$file" | jq '.totalMovies // 0')
+              echo "   $(basename "$file"): $count فيلم"
+            done
+            
+            # عرض Home.json إذا كان موجوداً
+            if [ -f "movies/Home.json" ]; then
               echo ""
-              echo "🎥 مثال من ملف فيلم:"
-              first_movie=$(ls movies/movie_*.json | head -1)
-              echo "🔸 الملف: $(basename $first_movie)"
-              cat $first_movie | jq '{id: .id, title: .title, imdbRating: .imdbRating}'
+              echo "🏠 Home.json:"
+              cat movies/Home.json | jq '{totalMovies, page, scrapedAt}'
             fi
           else
             echo "❌ مجلد movies غير موجود"
@@ -86,14 +100,14 @@ jobs:
           git config user.email "actions@github.com"
           
           # إضافة جميع التغييرات
-          git add result.json movies/ || echo "⚠️ لا توجد ملفات جديدة"
+          git add result.json movies/ *.json 2>/dev/null || echo "⚠️ لا توجد ملفات جديدة"
           
           # التحقق إذا كانت هناك تغييرات
           if git diff --cached --quiet; then
             echo "📭 لا توجد تغييرات للرفع"
           else
             echo "🔼 رفع التغييرات..."
-            git commit -m "🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج الأفلام تلقائياً"
+            git commit -m "🎬 تحديث يومي - $(TZ='Europe/Istanbul' date +'%Y-%m-%d %H:%M')" -m "استخراج تلقائي من topcinema.rip"
             git push
             echo "✅ تم رفع التغييرات"
           fi
