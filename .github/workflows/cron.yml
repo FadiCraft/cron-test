@@ -20,47 +20,80 @@ jobs:
           
       - name: Install dependencies
         run: |
-          npm init -y
           npm install jsdom
           echo "✅ تم تثبيت الحزم"
 
-      - name: Run movie scraper
+      - name: Create movies directory
         run: |
-          echo "🚀 بدء عملية الاستخراج المتقدمة..."
+          # إنشاء مجلد movies مسبقاً
+          mkdir -p movies
+          echo "📁 تم إنشاء مجلد movies"
+
+      - name: Run the scraper
+        run: |
+          echo "🚀 بدء عملية الاستخراج..."
           echo "📅 الوقت: $(date)"
+          echo "🔄 تشغيل fetch.js..."
           
-          # تشغيل ملف fetch.js الموجود في الريبو
+          # تشغيل الملف الموجود في الريبو
           node fetch.js
           
-          echo "📁 عرض هيكل المجلدات:"
-          ls -la
+          echo "✅ تم الانتهاء من الاستخراج"
+
+      - name: Display results
+        run: |
+          echo "📊 ====== النتائج ======"
+          
+          # عرض result.json
+          if [ -f "result.json" ]; then
+            echo "🎯 ملف result.json:"
+            cat result.json
+            echo ""
+          else
+            echo "❌ result.json غير موجود"
+          fi
+          
+          # عرض محتويات مجلد movies
           echo ""
           echo "📂 محتويات مجلد movies:"
           if [ -d "movies" ]; then
             ls -la movies/
             echo ""
-            echo "🎬 عدد ملفات الأفلام: $(ls movies/*.json 2>/dev/null | wc -l || echo '0')"
+            echo "🎬 عدد ملفات الأفلام: $(ls -1 movies/*.json 2>/dev/null | wc -l || echo '0')"
+            
+            # عرض الفهرس إذا كان موجوداً
+            if [ -f "movies/index.json" ]; then
+              echo ""
+              echo "📋 الفهرس:"
+              cat movies/index.json | jq '{totalMovies: .totalMovies, scrapedMovies: .scrapedMovies, lastUpdated: .lastUpdated}'
+            fi
+            
+            # عرض مثال من ملف فيلم
+            if ls movies/movie_*.json 1> /dev/null 2>&1; then
+              echo ""
+              echo "🎥 مثال من ملف فيلم:"
+              first_movie=$(ls movies/movie_*.json | head -1)
+              echo "🔸 الملف: $(basename $first_movie)"
+              cat $first_movie | jq '{id: .id, title: .title, imdbRating: .imdbRating}'
+            fi
           else
             echo "❌ مجلد movies غير موجود"
           fi
 
-      - name: Show results summary
+      - name: Commit and push changes
         run: |
-          echo "📊 ملخص النتائج:"
-          if [ -f "result.json" ]; then
-            cat result.json
-          fi
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
           
-          echo ""
-          echo "📋 الفهرس:"
-          if [ -f "movies/index.json" ]; then
-            cat movies/index.json | jq '. | {totalMovies: .totalMovies, scrapedMovies: .scrapedMovies, lastUpdated: .lastUpdated}'
+          # إضافة جميع التغييرات
+          git add result.json movies/ || echo "⚠️ لا توجد ملفات جديدة"
+          
+          # التحقق إذا كانت هناك تغييرات
+          if git diff --cached --quiet; then
+            echo "📭 لا توجد تغييرات للرفع"
+          else
+            echo "🔼 رفع التغييرات..."
+            git commit -m "🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج الأفلام تلقائياً"
+            git push
+            echo "✅ تم رفع التغييرات"
           fi
-
-      - name: Commit changes
-        run: |
-          git config user.name "KiroZozo Bot"
-          git config user.email "bot@kirozozo.com"
-          git add .
-          git commit -m "🎬 تحديث الأفلام $(date +'%Y-%m-%d %H:%M')" || echo "لا توجد تغييرات"
-          git push || echo "لا شيء للرفع"
