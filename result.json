@@ -1,8 +1,10 @@
 {
   "success": true,
-  "timestamp": "2026-01-25T11:31:58.644Z",
-  "totalMoviesFound": 60,
-  "moviesScraped": 10,
-  "moviesDir": "/home/runner/work/cron-test/cron-test/movies",
-  "note": "تم استخراج البيانات بنجاح"
+  "timestamp": "2026-01-25T11:56:16.621Z",
+  "lastPageProcessed": 0,
+  "totalPagesProcessed": 0,
+  "newMoviesAdded": 2,
+  "totalMoviesNow": 2,
+  "stoppedBecauseExisting": true,
+  "note": "استخراج ذكي - توقف عند أول فيلم موجود"
 }
