@@ -8,6 +8,11 @@
     "test": "echo \"No tests specified\""
   },
   "dependencies": {
-    "jsdom": "^24.0.0"
-  }
+    "jsdom": "^24.1.3"
+  },
+  "description": "هذا الكرون جوب يستخرج أحدث الأفلام والمسلسلات من موقع KiroZozo تلقائياً.",
+  "main": "fetch.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
