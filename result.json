@@ -1,38 +1,10 @@
 {
   "success": true,
-  "timestamp": "2026-01-25T13:20:10.402Z",
-  "movies": [
-    {
-      "title": "فيلم Murderer Report 2025 مترجم اون لاين",
-      "url": "https://topcinema.media/movie-0",
-      "quality": "HD",
-      "rating": "8.6"
-    },
-    {
-      "title": "فيلم The Big Fake 2026 مترجم اون لاين",
-      "url": "https://topcinema.media/movie-1",
-      "quality": "HD",
-      "rating": "7.8"
-    },
-    {
-      "title": "فيلم Shark Island 2024 مترجم اون لاين",
-      "url": "https://topcinema.media/movie-2",
-      "quality": "HD",
-      "rating": "7.6"
-    },
-    {
-      "title": "فيلم Chou Kaguya-hime 2026 مترجم اون لاين",
-      "url": "https://topcinema.media/movie-3",
-      "quality": "HD",
-      "rating": "8.1"
-    },
-    {
-      "title": "فيلم Pretty Miss Lolly 2025 مترجم اون لاين",
-      "url": "https://topcinema.media/movie-4",
-      "quality": "HD",
-      "rating": "7.4"
-    }
-  ],
-  "count": 5,
-  "note": "بيانات حقيقية"
+  "timestamp": "2026-01-25T13:23:25.929Z",
+  "lastPageProcessed": 0,
+  "totalPagesProcessed": 0,
+  "newMoviesAdded": 3,
+  "totalMoviesNow": 8,
+  "stoppedBecauseExisting": true,
+  "note": "استخراج ذكي - توقف عند أول فيلم موجود"
 }
