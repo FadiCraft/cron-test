@@ -1,20 +1,13 @@
 {
-  "name": "kirozozo-cron",
+  "name": "movie-scraper",
   "version": "1.0.0",
   "type": "module",
-  "description": "Cron job to fetch movies for KiroZozo",
-  "main": "fetch.js",
   "scripts": {
-    "start": "node fetch.js"
+    "start": "node fetch.js",
+    "scrape": "node fetch.js",
+    "test": "echo \"No tests specified\""
   },
   "dependencies": {
-    "jsdom": "^22.1.0",
-    "node-fetch": "^3.3.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "jsdom": "^24.0.0"
+  }
 }
