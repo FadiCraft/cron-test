@@ -31,6 +31,66 @@
       "Claudio Santamaria"
     ]
   },
+  "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-big-fake-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+  "watchServer": {
+    "type": "embed",
+    "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-big-fake-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+    "source": "meta_tag"
+  },
+  "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-big-fake-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+  "downloadServers": {
+    "multiQuality": [
+      {
+        "name": "VidTube",
+        "url": "https://vidtube.one/d/54lhj9heerws.html",
+        "type": "multi_quality"
+      }
+    ],
+    "byQuality": {
+      "1080p": [
+        {
+          "name": "UpDown",
+          "quality": "1080p",
+          "url": "https://updown.cam/upc2516kcp64"
+        },
+        {
+          "name": "Mdiaload",
+          "quality": "1080p",
+          "url": "https://down.mdiaload.com/6a04ro03z6d7"
+        },
+        {
+          "name": "Ddownload",
+          "quality": "1080p",
+          "url": "https://ddownload.com/5f06q8g83lgf"
+        },
+        {
+          "name": "Nitroflare",
+          "quality": "1080p",
+          "url": "https://nitroflare.com/view/D757481928D8A63"
+        },
+        {
+          "name": "1Fichier",
+          "quality": "1080p",
+          "url": "https://1fichier.com/?xx7ij4edaswk6zgth00q"
+        },
+        {
+          "name": "Rapidgator",
+          "quality": "1080p",
+          "url": "https://rapidgator.net/file/f1947a1376d09d0465f81b9a87a3f373"
+        },
+        {
+          "name": "Freedl",
+          "quality": "1080p",
+          "url": "https://frdl.io/51xwyb354rlk"
+        },
+        {
+          "name": "CloudFile",
+          "quality": "1080p",
+          "url": "https://1cloudfile.com/3wuU6"
+        }
+      ]
+    }
+  },
   "page": 1,
-  "scrapedAt": "2026-01-25T13:46:36.536Z"
+  "scrapedAt": "2026-01-25T13:52:27.888Z"
 }

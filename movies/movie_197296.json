@@ -32,6 +32,66 @@
       "Yuko Natsuyoshi"
     ]
   },
+  "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-chou-kaguya-hime-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+  "watchServer": {
+    "type": "embed",
+    "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-chou-kaguya-hime-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+    "source": "meta_tag"
+  },
+  "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-chou-kaguya-hime-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+  "downloadServers": {
+    "multiQuality": [
+      {
+        "name": "VidTube",
+        "url": "https://vidtube.one/d/d6sf7gokcq9j.html",
+        "type": "multi_quality"
+      }
+    ],
+    "byQuality": {
+      "1080p": [
+        {
+          "name": "UpDown",
+          "quality": "1080p",
+          "url": "https://updown.cam/ms8rei5se6ps"
+        },
+        {
+          "name": "Mdiaload",
+          "quality": "1080p",
+          "url": "https://down.mdiaload.com/pkc9iz3yjppl"
+        },
+        {
+          "name": "Ddownload",
+          "quality": "1080p",
+          "url": "https://ddownload.com/g430e8ljkb8h"
+        },
+        {
+          "name": "Nitroflare",
+          "quality": "1080p",
+          "url": "https://nitroflare.com/view/DF4EBBC6C9D5571"
+        },
+        {
+          "name": "1Fichier",
+          "quality": "1080p",
+          "url": "https://1fichier.com/?qgrgnhr4pwl8cvvccwy4"
+        },
+        {
+          "name": "Rapidgator",
+          "quality": "1080p",
+          "url": "https://rapidgator.net/file/262e6d320e35b4a98ae704b4cf0e831f"
+        },
+        {
+          "name": "Freedl",
+          "quality": "1080p",
+          "url": "https://frdl.io/3ha5q7uzvb8w"
+        },
+        {
+          "name": "CloudFile",
+          "quality": "1080p",
+          "url": "https://1cloudfile.com/2Qx8r"
+        }
+      ]
+    }
+  },
   "page": 1,
-  "scrapedAt": "2026-01-25T13:46:39.546Z"
+  "scrapedAt": "2026-01-25T13:52:32.565Z"
 }

@@ -31,6 +31,66 @@
       "Kim Tae-Han"
     ]
   },
+  "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-murderer-report-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+  "watchServer": {
+    "type": "embed",
+    "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-murderer-report-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+    "source": "meta_tag"
+  },
+  "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-murderer-report-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+  "downloadServers": {
+    "multiQuality": [
+      {
+        "name": "VidTube",
+        "url": "https://vidtube.one/d/l6lntiylq5b6.html",
+        "type": "multi_quality"
+      }
+    ],
+    "byQuality": {
+      "1080p": [
+        {
+          "name": "UpDown",
+          "quality": "1080p",
+          "url": "https://updown.cam/bg70yyjxxexz"
+        },
+        {
+          "name": "Mdiaload",
+          "quality": "1080p",
+          "url": "https://down.mdiaload.com/wm7yn9u1bngd"
+        },
+        {
+          "name": "Ddownload",
+          "quality": "1080p",
+          "url": "https://ddownload.com/4a1blgrjwf9x"
+        },
+        {
+          "name": "Nitroflare",
+          "quality": "1080p",
+          "url": "https://nitroflare.com/view/3D4537E8BF277CA"
+        },
+        {
+          "name": "1Fichier",
+          "quality": "1080p",
+          "url": "https://1fichier.com/?9kbanlwlr8w6svj1oo7j"
+        },
+        {
+          "name": "Rapidgator",
+          "quality": "1080p",
+          "url": "https://rapidgator.net/file/8d51f19b56c7edb1c00f92a6f3321c46"
+        },
+        {
+          "name": "Freedl",
+          "quality": "1080p",
+          "url": "https://frdl.io/u3m65sufjslm"
+        },
+        {
+          "name": "CloudFile",
+          "quality": "1080p",
+          "url": "https://1cloudfile.com/2Qxy5"
+        }
+      ]
+    }
+  },
   "page": 1,
-  "scrapedAt": "2026-01-25T13:46:35.204Z"
+  "scrapedAt": "2026-01-25T13:52:25.672Z"
 }

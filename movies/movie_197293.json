@@ -33,6 +33,66 @@
       "Joelle Faden"
     ]
   },
+  "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-pretty-miss-lolly-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+  "watchServer": {
+    "type": "embed",
+    "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-pretty-miss-lolly-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+    "source": "meta_tag"
+  },
+  "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-pretty-miss-lolly-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+  "downloadServers": {
+    "multiQuality": [
+      {
+        "name": "VidTube",
+        "url": "https://vidtube.one/d/a2ozbi53ctyn.html",
+        "type": "multi_quality"
+      }
+    ],
+    "byQuality": {
+      "1080p": [
+        {
+          "name": "UpDown",
+          "quality": "1080p",
+          "url": "https://updown.cam/xvj7stzf66sa"
+        },
+        {
+          "name": "Mdiaload",
+          "quality": "1080p",
+          "url": "https://down.mdiaload.com/hciieoq36497"
+        },
+        {
+          "name": "Ddownload",
+          "quality": "1080p",
+          "url": "https://ddownload.com/sgb7lmqjw49n"
+        },
+        {
+          "name": "Nitroflare",
+          "quality": "1080p",
+          "url": "https://nitroflare.com/view/13233747F95DF18"
+        },
+        {
+          "name": "1Fichier",
+          "quality": "1080p",
+          "url": "https://1fichier.com/?k6hfc12mpd7uhh1q55pi"
+        },
+        {
+          "name": "Rapidgator",
+          "quality": "1080p",
+          "url": "https://rapidgator.net/file/c5855b91368b1be45d5a12469b350c5a"
+        },
+        {
+          "name": "Freedl",
+          "quality": "1080p",
+          "url": "https://frdl.io/sn5p7uc7uwnq"
+        },
+        {
+          "name": "CloudFile",
+          "quality": "1080p",
+          "url": "https://1cloudfile.com/3wuz3"
+        }
+      ]
+    }
+  },
   "page": 1,
-  "scrapedAt": "2026-01-25T13:46:40.837Z"
+  "scrapedAt": "2026-01-25T13:52:34.736Z"
 }
