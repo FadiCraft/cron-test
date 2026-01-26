@@ -1,11 +1,13 @@
 {
   "status": "completed",
-  "timestamp": "2026-01-26T08:05:50.929Z",
-  "executionTime": 1238,
+  "timestamp": "2026-01-26T13:58:38.419Z",
+  "executionTime": 1040,
   "totalMoviesExtracted": 0,
   "totalUniqueMovies": 0,
   "lastPageProcessed": 55,
   "lastMovieId": "275",
   "duplicateFound": false,
-  "files": []
+  "files": [
+    "index.json"
+  ]
 }
