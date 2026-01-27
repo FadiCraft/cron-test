@@ -3,7 +3,7 @@ name: KiroZozo Movie Extractor
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"  # كل 30 دقيقة
+    - cron: "*/300 * * * *"  # كل 300 دقيقة
 
 jobs:
   extract-movies:
