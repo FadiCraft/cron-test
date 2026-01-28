@@ -8,296 +8,189 @@ const __dirname = path.dirname(__filename);
 
 // إعدادات المسارات
 const MOVIES_DIR = path.join(__dirname, "movies");
-const OUTPUT_FILE = path.join(MOVIES_DIR, "Hg.json"); // ⭐ تغيير اسم الملف إلى Hg.json
+const OUTPUT_FILE = path.join(MOVIES_DIR, "Hg.json");
 
-// إنشاء مجلد movies إذا لم يكن موجوداً
 if (!fs.existsSync(MOVIES_DIR)) {
     fs.mkdirSync(MOVIES_DIR, { recursive: true });
 }
 
-// ==================== fetch مع timeout ====================
-async function fetchWithTimeout(url, timeout = 20000) {
+// ==================== وظائف المساعدة ====================
+
+async function fetchWithTimeout(url, timeout = 15000) {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
-    
+    const id = setTimeout(() => controller.abort(), timeout);
     try {
         const response = await fetch(url, {
             signal: controller.signal,
             headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
             }
         });
-        
-        clearTimeout(timeoutId);
-        
-        if (!response.ok) {
-            return null;
-        }
-        
+        clearTimeout(id);
+        if (!response.ok) return null;
         return await response.text();
-        
-    } catch (error) {
-        clearTimeout(timeoutId);
-        if (error.name === 'AbortError') {
-            console.log(`⏱️ انتهى الوقت`);
+    } catch (e) {
+        clearTimeout(id);
+        return null;
+    }
+}
+
+// ==================== جلب سيرفرات المشاهدة ====================
+async function getWatchServers(watchUrl) {
+    console.log(`   🔍 جلب سيرفرات المشاهدة من: ${watchUrl}`);
+    const html = await fetchWithTimeout(watchUrl);
+    if (!html) return [];
+
+    const dom = new JSDOM(html);
+    const doc = dom.window.document;
+    const servers = [];
+
+    // 1. البحث في Meta Tag (og:video)
+    const metaVideo = doc.querySelector('meta[property="og:video:secure_url"]');
+    if (metaVideo?.content) servers.push(metaVideo.content);
+
+    // 2. البحث عن أي iframe يحتوي على embed
+    doc.querySelectorAll('iframe').forEach(iframe => {
+        if (iframe.src && iframe.src.includes('embed')) servers.push(iframe.src);
+    });
+
+    // 3. البحث في الروابط التي تحتوي كلمة embed
+    doc.querySelectorAll('a').forEach(a => {
+        if (a.href && a.href.includes('embed')) servers.push(a.href);
+    });
+
+    return [...new Set(servers)]; // حذف التكرار
+}
+
+// ==================== جلب سيرفرات التحميل ====================
+async function getDownloadServers(downloadUrl) {
+    console.log(`   🔍 جلب سيرفرات التحميل من: ${downloadUrl}`);
+    const html = await fetchWithTimeout(downloadUrl);
+    if (!html) return [];
+
+    const dom = new JSDOM(html);
+    const doc = dom.window.document;
+    const servers = [];
+
+    const links = doc.querySelectorAll('.downloadsLink');
+    links.forEach(link => {
+        const name = link.querySelector('.text span')?.textContent?.trim() || "Unknown";
+        const quality = link.querySelector('.text p')?.textContent?.trim() || "";
+        const href = link.href;
+
+        if (href && href !== "#") {
+            servers.push({ server: name, quality, url: href });
         }
-        return null;
-    }
+    });
+
+    return servers;
 }
 
-// ==================== استخراج ID من الرابط المختصر ====================
-function extractMovieId(shortLink) {
-    try {
-        if (!shortLink) return null;
-        const match = shortLink.match(/p=(\d+)/);
-        return match ? match[1] : null;
-    } catch {
-        return null;
-    }
-}
+// ==================== استخراج بيانات الفيلم التفصيلية ====================
+async function fetchMovieDetails(initialMovie) {
+    const html = await fetchWithTimeout(initialMovie.url);
+    if (!html) return null;
 
-// ==================== استخراج الأفلام من صفحة ====================
-async function fetchMoviesFromPage(pageNum = 1) {
-    const url = pageNum === 1 
-        ? "https://topcinema.rip/movies/"
-        : `https://topcinema.rip/movies/page/${pageNum}/`;
-    
-    console.log(`📖 جلب الصفحة ${pageNum === 1 ? "الرئيسية" : pageNum}`);
-    
-    const html = await fetchWithTimeout(url);
-    
-    if (!html) {
-        console.log(`❌ فشل جلب الصفحة`);
-        return null;
-    }
-    
     try {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
-        const movies = [];
-        
-        const movieElements = doc.querySelectorAll('.Small--Box a');
-        console.log(`✅ عثر على ${movieElements.length} فيلم`);
-        
-        movieElements.forEach((element, i) => {
-            const movieUrl = element.href;
-            
-            if (movieUrl && movieUrl.includes('topcinema.rip')) {
-                const title = element.querySelector('.title')?.textContent || 
-                              element.textContent || 
-                              `فيلم ${i + 1}`;
-                
-                movies.push({
-                    title: title.trim(),
-                    url: movieUrl,
-                    page: pageNum,
-                    position: i + 1
-                });
-            }
-        });
-        
-        return { url, movies };
-        
-    } catch (error) {
-        console.log(`❌ خطأ في تحليل الصفحة`);
-        return null;
-    }
-}
 
-// ==================== استخراج تفاصيل الفيلم الرئيسية ====================
-async function fetchMovieDetails(movie) {
-    console.log(`🎬 ${movie.title.substring(0, 40)}...`);
-    
-    const html = await fetchWithTimeout(movie.url);
-    
-    if (!html) {
-        console.log(`   ⚠️ فشل جلب صفحة الفيلم`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        
-        // 1. استخراج ID من الرابط المختصر
-        const shortLinkInput = doc.querySelector('#shortlink');
-        const shortLink = shortLinkInput ? shortLinkInput.value : null;
-        const movieId = shortLink ? extractMovieId(shortLink) : null;
-        
-        if (!movieId) {
-            console.log(`   ⚠️ لم يتم العثور على ID`);
-            return null;
-        }
-        
-        // 2. البيانات الأساسية (الاسم، الصورة، ID)
-        const title = doc.querySelector(".post-title a")?.textContent?.trim() || movie.title;
-        const image = doc.querySelector(".image img")?.src;
-        const imdbRating = doc.querySelector(".imdbR span")?.textContent?.trim();
-        
-        // 3. القصة
-        const story = doc.querySelector(".story p")?.textContent?.trim() || "غير متوفر";
-        
-        // 4. التفاصيل الأساسية فقط
+        // الرابط المختصر و ID
+        const shortLink = doc.querySelector('#shortlink')?.value || "";
+        const movieId = shortLink.match(/p=(\d+)/)?.[1] || null;
+
+        if (!movieId) return null;
+
+        // روابط الصفحات الفرعية
+        const watchPageUrl = doc.querySelector('a.watch')?.href;
+        const downloadPageUrl = doc.querySelector('a.download')?.href;
+
+        // استخراج التفاصيل من القائمة
         const details = {
-            category: [],
-            genres: [],
-            quality: [],
-            duration: "",
-            releaseYear: [],
-            language: [],
-            actors: []
+            category: [], genres: [], quality: [], duration: "", 
+            year: "", language: "", country: "", actors: []
         };
-        
-        const detailItems = doc.querySelectorAll(".RightTaxContent li");
-        
-        detailItems.forEach(item => {
-            const labelElement = item.querySelector("span");
-            if (labelElement) {
-                const label = labelElement.textContent.replace(":", "").trim();
-                const links = item.querySelectorAll("a");
-                
-                if (links.length > 0) {
-                    const values = Array.from(links).map(a => a.textContent.trim());
-                    
-                    if (label.includes("قسم الفيلم")) {
-                        details.category = values;
-                    } else if (label.includes("نوع الفيلم")) {
-                        details.genres = values;
-                    } else if (label.includes("جودة الفيلم")) {
-                        details.quality = values;
-                    } else if (label.includes("موعد الصدور")) {
-                        details.releaseYear = values;
-                    } else if (label.includes("لغة الفيلم")) {
-                        details.language = values;
-                    } else if (label.includes("بطولة")) {
-                        details.actors = values;
-                    }
-                } else {
-                    const text = item.textContent.trim();
-                    const value = text.split(":").slice(1).join(":").trim();
-                    
-                    if (label.includes("توقيت الفيلم")) {
-                        details.duration = value;
-                    }
-                }
-            }
+
+        doc.querySelectorAll(".RightTaxContent li").forEach(li => {
+            const label = li.querySelector("span")?.textContent || "";
+            const links = Array.from(li.querySelectorAll("a")).map(a => a.textContent.trim());
+            const text = li.querySelector("strong")?.textContent?.trim() || li.textContent.split(':').pop().trim();
+
+            if (label.includes("قسم")) details.category = links;
+            else if (label.includes("نوع")) details.genres = links;
+            else if (label.includes("جودة")) details.quality = links;
+            else if (label.includes("توقيت")) details.duration = text;
+            else if (label.includes("موعد")) details.year = links[0] || text;
+            else if (label.includes("لغة")) details.language = links[0] || text;
+            else if (label.includes("دولة")) details.country = links[0] || text;
+            else if (label.includes("بطولة")) details.actors = links;
         });
-        
-        return {
-            id: movieId,      // ✅ ID
-            title: title,     // ✅ الاسم
-            image: image,     // ✅ الصورة
-            url: movie.url,
-            shortLink: shortLink,
-            imdbRating: imdbRating,
-            story: story,
+
+        const movieObj = {
+            id: movieId,
+            title: doc.querySelector(".post-title a")?.textContent?.trim() || initialMovie.title,
+            image: doc.querySelector(".image img")?.src,
+            rating: doc.querySelector(".imdbR span")?.textContent?.trim(),
+            story: doc.querySelector(".story p")?.textContent?.trim(),
             details: details,
-            page: movie.page,
-            position: movie.position,
+            watchServers: [],
+            downloadServers: [],
             scrapedAt: new Date().toISOString()
         };
-        
-    } catch (error) {
-        console.log(`   ❌ خطأ: ${error.message}`);
+
+        // الانتقال لصفحات المشاهدة والتحميل
+        if (watchPageUrl) movieObj.watchServers = await getWatchServers(watchPageUrl);
+        if (downloadPageUrl) movieObj.downloadServers = await getDownloadServers(downloadPageUrl);
+
+        return movieObj;
+
+    } catch (e) {
+        console.error(`❌ خطأ في تحليل الفيلم: ${initialMovie.title}`);
         return null;
     }
 }
 
-// ==================== حفظ البيانات في Hg.json ====================
-function saveToHgFile(pageData, moviesData) {
-    const pageContent = {
-        page: 1,
-        url: pageData.url,
-        totalMovies: moviesData.length,
-        scrapedAt: new Date().toISOString(),
-        lastUpdated: new Date().toISOString(), // ⭐ إضافة وقت التحديث
-        movies: moviesData
-    };
-    
-    // ⭐⭐⭐ كتابة فوق الملف دائماً ⭐⭐⭐
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(pageContent, null, 2));
-    console.log(`💾 حفظ البيانات في Hg.json بـ ${moviesData.length} فيلم`);
-    
-    return OUTPUT_FILE;
-}
-
-// ==================== الدالة الرئيسية (الصفحة الأولى فقط) ====================
+// ==================== الدالة الرئيسية ====================
 async function main() {
-    console.log("🎬 بدء استخراج الصفحة الأولى فقط");
-    console.log("=".repeat(50));
+    console.log("🚀 بدء العمل على الصفحة الأولى...");
     
-    const pageNum = 1; // ⭐ نستخرج الصفحة الأولى فقط
+    // 1. جلب قائمة الأفلام من الرئيسية
+    const mainHtml = await fetchWithTimeout("https://topcinema.rip/movies/");
+    if (!mainHtml) return console.log("❌ فشل الاتصال بالموقع");
+
+    const mainDom = new JSDOM(mainHtml);
+    const movieLinks = mainDom.window.document.querySelectorAll('.Small--Box a');
     
-    // جلب الصفحة
-    const pageData = await fetchMoviesFromPage(pageNum);
-    
-    if (!pageData || pageData.movies.length === 0) {
-        console.log(`⏹️ لا توجد أفلام في الصفحة`);
-        return { success: false, total: 0 };
-    }
-    
-    const moviesData = [];
-    
-    console.log(`🔍 استخراج تفاصيل ${pageData.movies.length} فيلم...`);
-    
-    // استخراج كل الأفلام
-    for (let i = 0; i < pageData.movies.length; i++) {
-        const movie = pageData.movies[i];
-        
-        const details = await fetchMovieDetails(movie);
-        
-        if (details && details.id) {
-            moviesData.push(details);
-            console.log(`   ✅ ${i + 1}/${pageData.movies.length}: ${details.title.substring(0, 30)}...`);
-        } else {
-            console.log(`   ⏭️ تخطي الفيلم ${i + 1}`);
+    const initialMovies = Array.from(movieLinks).map(el => ({
+        title: el.textContent.trim(),
+        url: el.href
+    })).filter(m => m.url.includes('topcinema.rip'));
+
+    console.log(`✅ تم العثور على ${initialMovies.length} فيلم. جلب التفاصيل...`);
+
+    const finalData = [];
+
+    // 2. جلب تفاصيل كل فيلم بدقة
+    for (let i = 0; i < initialMovies.length; i++) {
+        const details = await fetchMovieDetails(initialMovies[i]);
+        if (details) {
+            finalData.push(details);
+            console.log(`   ✅ تم بنجاح [${i + 1}/${initialMovies.length}]: ${details.title}`);
         }
-        
-        // انتظار قصير بين الأفلام
-        if (i < pageData.movies.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 800));
-        }
+        // تأخير بسيط لتجنب الحظر
+        await new Promise(r => setTimeout(r, 1000));
     }
-    
-    // ⭐⭐⭐ حفظ البيانات في Hg.json ⭐⭐⭐
-    if (moviesData.length > 0) {
-        const savedFile = saveToHgFile(pageData, moviesData);
-        
-        console.log(`\n✅ تم حفظ الصفحة الأولى بنجاح في ${savedFile}`);
-        console.log(`📊 الأفلام المحفوظة: ${moviesData.length}`);
-        
-        // عرض عينة من البيانات
-        console.log(`📋 عينة من البيانات المحفوظة:`);
-        moviesData.slice(0, 3).forEach((movie, idx) => {
-            console.log(`   ${idx + 1}. ID: ${movie.id}, العنوان: ${movie.title.substring(0, 30)}`);
-        });
-        
-        // ⭐ عرض معلومات الملف ⭐
-        try {
-            const stats = fs.statSync(OUTPUT_FILE);
-            console.log(`\n📁 معلومات الملف:`);
-            console.log(`   - المسار: ${OUTPUT_FILE}`);
-            console.log(`   - الحجم: ${(stats.size / 1024).toFixed(2)} كيلوبايت`);
-            console.log(`   - وقت التحديث: ${new Date().toISOString()}`);
-        } catch (error) {
-            console.log(`   ❌ خطأ في قراءة معلومات الملف: ${error.message}`);
-        }
-        
-        return { success: true, total: moviesData.length };
-    }
-    
-    return { success: false, total: 0 };
+
+    // 3. الحفظ النهائي
+    const output = {
+        total: finalData.length,
+        lastUpdate: new Date().toLocaleString('ar-EG'),
+        movies: finalData
+    };
+
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
+    console.log(`\n🎉 اكتمل العمل! تم حفظ ${finalData.length} فيلم في ${OUTPUT_FILE}`);
 }
 
-// التشغيل
-main().catch(error => {
-    console.error("💥 خطأ غير متوقع:", error.message);
-    
-    const errorReport = {
-        error: error.message,
-        timestamp: new Date().toISOString()
-    };
-    
-    fs.writeFileSync("error.json", JSON.stringify(errorReport, null, 2));
-});
+main();
