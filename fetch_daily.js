@@ -1,343 +1,80 @@
 import fs from "fs";
 import path from "path";
-import { JSDOM } from "jsdom";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// إعدادات المسارات - التأكد من المسار الصحيح
-const MOVIES_DIR = path.join(__dirname, "movies");
-const OUTPUT_FILE = path.join(MOVIES_DIR, "Hg.json");
-
-// إنشاء مجلد movies إذا لم يكن موجوداً
-if (!fs.existsSync(MOVIES_DIR)) {
-    try {
-        fs.mkdirSync(MOVIES_DIR, { recursive: true });
-        console.log(`📁 تم إنشاء مجلد movies في: ${MOVIES_DIR}`);
-    } catch (error) {
-        console.error(`❌ فشل إنشاء مجلد movies: ${error.message}`);
-        process.exit(1);
-    }
+// إنشاء مجلد movies
+const moviesDir = path.join(process.cwd(), "movies");
+if (!fs.existsSync(moviesDir)) {
+    fs.mkdirSync(moviesDir, { recursive: true });
 }
 
-// ==================== fetch مع timeout ====================
-async function fetchWithTimeout(url, timeout = 20000) {
+// ملف الإخراج
+const outputFile = path.join(moviesDir, "Hg.json");
+
+async function simpleMovieExtractor() {
+    console.log("🎬 استخراج الأفلام من topcinema.rip...");
+    
     try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), timeout);
-        
-        const response = await fetch(url, {
-            signal: controller.signal,
+        // جلب الصفحة الرئيسية
+        const response = await fetch("https://topcinema.rip/movies/", {
             headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
             }
         });
         
-        clearTimeout(timeoutId);
+        const html = await response.text();
         
-        if (!response.ok) {
-            console.log(`⚠️ حالة غير ناجحة: ${response.status} لـ ${url}`);
-            return null;
-        }
+        // البحث عن روابط الأفلام باستخدام regex بسيط
+        const movieLinks = [];
+        const linkRegex = /<a[^>]*href="(https:\/\/topcinema\.rip\/movies\/[^"]*)"[^>]*>/g;
         
-        return await response.text();
-        
-    } catch (error) {
-        if (error.name === 'AbortError') {
-            console.log(`⏱️ انتهى الوقت لـ ${url}`);
-        } else {
-            console.log(`❌ خطأ في جلب ${url}: ${error.message}`);
-        }
-        return null;
-    }
-}
-
-// ==================== استخراج الأفلام من الصفحة الأولى ====================
-async function fetchMoviesFromHomePage() {
-    const url = "https://topcinema.rip/movies/";
-    
-    console.log(`📖 جلب الصفحة الرئيسية: ${url}`);
-    
-    const html = await fetchWithTimeout(url);
-    
-    if (!html) {
-        console.log(`❌ فشل جلب الصفحة الرئيسية`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        const movies = [];
-        
-        // محاولة انتقاءات مختلفة لعناصر الأفلام
-        let movieElements = doc.querySelectorAll('.Small--Box a');
-        
-        if (movieElements.length === 0) {
-            movieElements = doc.querySelectorAll('article a, .post-item a');
-        }
-        
-        console.log(`✅ عثر على ${movieElements.length} عنصر فيلم في الصفحة الرئيسية`);
-        
-        movieElements.forEach((element, i) => {
-            const movieUrl = element.href;
+        let match;
+        while ((match = linkRegex.exec(html)) !== null) {
+            const url = match[1];
             
-            if (movieUrl && movieUrl.includes('topcinema.rip') && movieUrl.includes('/movies/')) {
-                const title = element.querySelector('.title, h2, h3')?.textContent || 
-                              element.textContent || 
-                              `فيلم ${i + 1}`;
-                
-                movies.push({
-                    title: title.trim(),
-                    url: movieUrl,
-                    position: i + 1
+            // الحصول على العنوان من الرابط
+            const titleMatch = html.match(new RegExp(`<a[^>]*href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>([^<]*)<\/a>`));
+            const title = titleMatch ? titleMatch[1].trim() : url.split("/").pop().replace(/-/g, " ");
+            
+            if (!movieLinks.some(m => m.url === url)) {
+                movieLinks.push({
+                    title: title,
+                    url: url,
+                    id: url.split("/").filter(Boolean).pop()
                 });
             }
+        }
+        
+        console.log(`✅ عثرت على ${movieLinks.length} فيلم`);
+        
+        // حفظ النتائج
+        const result = {
+            total: movieLinks.length,
+            timestamp: new Date().toISOString(),
+            movies: movieLinks.slice(0, 20) // أول 20 فيلم فقط
+        };
+        
+        fs.writeFileSync(outputFile, JSON.stringify(result, null, 2));
+        console.log(`💾 تم الحفظ في: ${outputFile}`);
+        
+        // عرض النتائج
+        console.log("\n📋 الأفلام المستخرجة:");
+        result.movies.forEach((movie, i) => {
+            console.log(`${i + 1}. ${movie.title}`);
         });
         
-        console.log(`✅ تم تصفية ${movies.length} فيلم صالح`);
-        
-        return { url, movies };
-        
     } catch (error) {
-        console.log(`❌ خطأ في تحليل الصفحة: ${error.message}`);
-        return null;
-    }
-}
-
-// ==================== استخراج تفاصيل الفيلم الأساسية ====================
-async function fetchBasicMovieDetails(movie) {
-    console.log(`  🎬 ${movie.title.substring(0, 40)}...`);
-    
-    const html = await fetchWithTimeout(movie.url, 15000);
-    
-    if (!html) {
-        console.log(`     ⚠️ فشل جلب صفحة الفيلم`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
+        console.error(`❌ خطأ: ${error.message}`);
         
-        // استخراج ID من الرابط المختصر
-        const shortLinkInput = doc.querySelector('#shortlink');
-        const shortLink = shortLinkInput ? shortLinkInput.value : null;
-        
-        // استخراج ID
-        let movieId = null;
-        if (shortLink) {
-            const match = shortLink.match(/p=(\d+)/);
-            movieId = match ? match[1] : null;
-        }
-        
-        // إذا لم نجد ID من shortlink، نجرب من URL
-        if (!movieId) {
-            const urlMatch = movie.url.match(/\/(\d+)\/$/);
-            movieId = urlMatch ? urlMatch[1] : `temp_${Date.now()}_${movie.position}`;
-        }
-        
-        // البيانات الأساسية
-        const title = doc.querySelector(".post-title a, h1.entry-title, h1")?.textContent?.trim() || movie.title;
-        const image = doc.querySelector(".image img, .post-thumbnail img, img.wp-post-image")?.src;
-        const imdbRating = doc.querySelector(".imdbR span, .rating, .imdb")?.textContent?.trim();
-        
-        // استخراج القصة
-        let story = "غير متوفر";
-        const storyElement = doc.querySelector(".story p, .entry-content p, .content p");
-        if (storyElement) {
-            story = storyElement.textContent.trim();
-        }
-        
-        return {
-            id: movieId,
-            title: title,
-            image: image,
-            imdbRating: imdbRating,
-            story: story,
-            url: movie.url,
-            shortLink: shortLink,
-            position: movie.position,
-            scrapedAt: new Date().toISOString()
-        };
-        
-    } catch (error) {
-        console.log(`     ❌ خطأ: ${error.message}`);
-        return null;
-    }
-}
-
-// ==================== حفظ في ملف Hg.json ====================
-function saveToHgFile(pageData, moviesData) {
-    try {
-        const pageContent = {
-            page: "Home",
-            url: pageData.url,
-            totalMovies: moviesData.length,
-            scrapedAt: new Date().toISOString(),
-            timestamp: new Date().toLocaleString('ar-SA'),
-            movies: moviesData
-        };
-        
-        // التحقق من المسار
-        console.log(`📂 جاري الحفظ في: ${OUTPUT_FILE}`);
-        
-        // كتابة الملف
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(pageContent, null, 2), 'utf8');
-        
-        // التحقق من أن الملف تم إنشاؤه
-        if (fs.existsSync(OUTPUT_FILE)) {
-            const fileStats = fs.statSync(OUTPUT_FILE);
-            console.log(`💾 تم حفظ ${moviesData.length} فيلم في ${OUTPUT_FILE}`);
-            console.log(`📊 حجم الملف: ${(fileStats.size / 1024).toFixed(2)} KB`);
-            
-            // قراءة الملف للتحقق
-            const fileContent = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
-            console.log(`✅ الملف يحتوي على ${fileContent.movies?.length || 0} فيلم`);
-            
-            return true;
-        } else {
-            console.log(`❌ الملف لم يتم إنشاؤه: ${OUTPUT_FILE}`);
-            return false;
-        }
-        
-    } catch (error) {
-        console.log(`❌ خطأ في حفظ الملف: ${error.message}`);
-        return false;
-    }
-}
-
-// ==================== الدالة الرئيسية ====================
-async function main() {
-    console.log("🚀 بدء استخراج الصفحة الرئيسية - fetch_daily.js");
-    console.log("=".repeat(60));
-    console.log(`📅 التاريخ: ${new Date().toLocaleString('ar-SA')}`);
-    console.log(`📂 المسار الحالي: ${__dirname}`);
-    console.log(`📁 مجلد الأفلام: ${MOVIES_DIR}`);
-    console.log(`💾 ملف الإخراج: ${OUTPUT_FILE}`);
-    console.log("=".repeat(60));
-    
-    // التأكد من صلاحيات الكتابة
-    try {
-        const testFile = path.join(MOVIES_DIR, 'test_write.tmp');
-        fs.writeFileSync(testFile, 'test');
-        fs.unlinkSync(testFile);
-        console.log("✅ صلاحيات الكتابة متاحة");
-    } catch (error) {
-        console.log(`❌ لا توجد صلاحيات كتابة: ${error.message}`);
-        return;
-    }
-    
-    try {
-        // 1. جلب الصفحة الرئيسية
-        const pageData = await fetchMoviesFromHomePage();
-        
-        if (!pageData || pageData.movies.length === 0) {
-            console.log("⏹️ لا توجد أفلام في الصفحة الرئيسية");
-            
-            // حفظ تقرير فارغ
-            const emptyReport = {
-                status: "no_movies_found",
-                message: "لا توجد أفلام في الصفحة الرئيسية",
-                timestamp: new Date().toISOString()
-            };
-            fs.writeFileSync(path.join(MOVIES_DIR, "empty_report.json"), JSON.stringify(emptyReport, null, 2));
-            return;
-        }
-        
-        // 2. استخراج تفاصيل كل فيلم
-        console.log(`\n🔍 استخراج تفاصيل ${pageData.movies.length} فيلم...`);
-        
-        const moviesData = [];
-        
-        // اخذ أول 5 أفلام فقط للتجربة
-        const testLimit = Math.min(5, pageData.movies.length);
-        
-        for (let i = 0; i < testLimit; i++) {
-            const movie = pageData.movies[i];
-            
-            try {
-                const details = await fetchBasicMovieDetails(movie);
-                
-                if (details) {
-                    moviesData.push(details);
-                    console.log(`   ✅ ${i + 1}/${testLimit}: ${details.title.substring(0, 30)}...`);
-                } else {
-                    console.log(`   ⏭️ تخطي الفيلم ${i + 1}`);
-                }
-                
-                // انتظار قصير بين الأفلام
-                if (i < testLimit - 1) {
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                }
-                
-            } catch (movieError) {
-                console.log(`   ❌ خطأ في الفيلم ${i + 1}: ${movieError.message}`);
-                continue;
-            }
-        }
-        
-        // 3. حفظ النتائج
-        console.log(`\n💾 جاري حفظ النتائج...`);
-        
-        if (moviesData.length > 0) {
-            const saved = saveToHgFile(pageData, moviesData);
-            
-            if (saved) {
-                console.log("\n" + "=".repeat(60));
-                console.log("🎉 تم استخراج الصفحة الرئيسية بنجاح!");
-                console.log("=".repeat(60));
-                console.log(`📊 إجمالي الأفلام: ${moviesData.length}`);
-                console.log(`📁 الملف المحفوظ: ${OUTPUT_FILE}`);
-                console.log(`⏰ وقت التنفيذ: ${new Date().toLocaleString('ar-SA')}`);
-                console.log("=".repeat(60));
-                
-                // حفظ تقرير النجاح
-                const successReport = {
-                    status: "success",
-                    totalMovies: moviesData.length,
-                    savedFile: OUTPUT_FILE,
-                    timestamp: new Date().toISOString(),
-                    executionTime: new Date().toLocaleString('ar-SA')
-                };
-                fs.writeFileSync(path.join(MOVIES_DIR, "success_report.json"), JSON.stringify(successReport, null, 2));
-                
-            } else {
-                console.log("\n❌ فشل في حفظ النتائج");
-                fs.writeFileSync(path.join(MOVIES_DIR, "save_error.json"), JSON.stringify({
-                    error: "فشل في حفظ الملف",
-                    timestamp: new Date().toISOString()
-                }, null, 2));
-            }
-        } else {
-            console.log("\n⚠️ لم يتم استخراج أي فيلم بنجاح");
-            fs.writeFileSync(path.join(MOVIES_DIR, "no_data.json"), JSON.stringify({
-                status: "no_data_extracted",
-                timestamp: new Date().toISOString()
-            }, null, 2));
-        }
-        
-    } catch (error) {
-        console.error("\n💥 خطأ في الدالة الرئيسية:", error.message);
-        
-        const errorReport = {
+        // حفظ خطأ
+        const errorResult = {
             error: error.message,
-            stack: error.stack,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            movies: []
         };
         
-        fs.writeFileSync(path.join(MOVIES_DIR, "main_error.json"), JSON.stringify(errorReport, null, 2));
-        console.log("📝 تم حفظ تفاصيل الخطأ في main_error.json");
+        fs.writeFileSync(outputFile, JSON.stringify(errorResult, null, 2));
     }
 }
 
-// التشغيل
-main().then(() => {
-    console.log("\n✨ البرنامج انتهى بنجاح!");
-    process.exit(0);
-}).catch(error => {
-    console.error("\n💥 خطأ غير متوقع:", error.message);
-    process.exit(1);
-});
+// تشغيل
+simpleMovieExtractor();
