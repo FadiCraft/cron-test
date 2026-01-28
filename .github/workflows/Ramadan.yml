@@ -1,0 +1,242 @@
+name: KiroZozo Daily Movie Extractor
+
+on:
+  workflow_dispatch:
+  schedule:
+    # تشغيل كل يوم عند الساعة 2 صباحاً UTC
+    - cron: "0 2 * * *"  # كل يوم في الساعة 2 صباحاً
+
+jobs:
+  extract-daily:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm install jsdom
+          echo "✅ تم تثبيت الحزم"
+
+      - name: Create necessary directories
+        run: |
+          # إنشاء مجلد movies مسبقاً
+          mkdir -p movies
+          mkdir -p Ramadan
+          echo "📁 تم إنشاء المجلدات المطلوبة"
+
+      - name: Run movie extraction script
+        run: |
+          echo "🚀 بدء عملية الاستخراج اليومي للأفلام..."
+          echo "📅 الوقت: $(date)"
+          echo "📅 الجدولة: كل يوم في الساعة 2 صباحاً UTC"
+          echo "🔄 جاري التشغيل..."
+          
+          # تشغيل ملف fetch_daily.js (الكود الأول)
+          if [ -f "fetch_daily.js" ]; then
+            node fetch_daily.js
+            EXIT_CODE=$?
+            if [ $EXIT_CODE -eq 0 ]; then
+              echo "✅ تم تشغيل fetch_daily.js بنجاح"
+            else
+              echo "❌ حدث خطأ في تشغيل fetch_daily.js"
+              exit $EXIT_CODE
+            fi
+          else
+            echo "❌ ملف fetch_daily.js غير موجود!"
+            echo "📂 الملفات الموجودة:"
+            ls -la *.js || echo "لا توجد ملفات js"
+            exit 1
+          fi
+
+      - name: Check movie extraction results
+        run: |
+          echo "📊 ====== نتائج استخراج الأفلام ======"
+          echo "⏰ وقت التشغيل: $(date)"
+          
+          # التحقق من وجود ملف Hg.json
+          if [ -f "movies/Hg.json" ]; then
+            echo "✅ تم إنشاء ملف movies/Hg.json"
+            MOVIE_COUNT=$(jq '.movies | length' movies/Hg.json 2>/dev/null || echo "غير محدد")
+            echo "🎬 عدد الأفلام: $MOVIE_COUNT"
+            echo "📊 حجم الملف: $(wc -c < movies/Hg.json | numfmt --to=iec) بايت"
+            
+            # عرض معلومات عن الملف
+            echo ""
+            echo "📋 معلومات الملف:"
+            jq -n --arg file "movies/Hg.json" \
+                  --arg time "$(date)" \
+                  --arg count "$MOVIE_COUNT" \
+                  --arg size "$(wc -c < movies/Hg.json)" \
+                  '{ملف: $file, وقت_التشغيل: $time, عدد_الأفلام: $count, حجم_الملف: $size, الحالة: "✅ جاهز"}'
+            
+            # عرض أول 3 أفلام
+            echo ""
+            echo "🎥 أول 3 أفلام مستخرجة:"
+            if command -v jq &> /dev/null; then
+              jq '.movies[0:3] | map({id: .id, title: .title, imdbRating: .imdbRating, quality: .details.quality})' movies/Hg.json
+            else
+              echo "❌ jq غير مثبت، تثبيته..."
+              sudo apt-get install -y jq
+              jq '.movies[0:3] | map({id: .id, title: .title, imdbRating: .imdbRating, quality: .details.quality})' movies/Hg.json
+            fi
+            
+          else
+            echo "❌ لم يتم إنشاء movies/Hg.json"
+            echo "📂 محتويات مجلد movies:"
+            if [ -d "movies" ]; then
+              ls -la movies/
+            else
+              echo "❌ مجلد movies غير موجود"
+            fi
+          fi
+
+      - name: Run Ramadan series extraction script
+        run: |
+          echo ""
+          echo "🕌 بدء عملية استخراج مسلسلات رمضان..."
+          echo "📅 الوقت: $(date)"
+          echo "📅 السنة: 2025"
+          
+          # تشغيل ملف Ramadan.js (الكود الثاني)
+          if [ -f "Ramadan.js" ]; then
+            node Ramadan.js
+            EXIT_CODE=$?
+            if [ $EXIT_CODE -eq 0 ]; then
+              echo "✅ تم تشغيل Ramadan.js بنجاح"
+            else
+              echo "⚠️ حدث خطأ في تشغيل Ramadan.js"
+              # لا نخرج هنا لأن استخراج الأفلام كان ناجحاً
+            fi
+          else
+            echo "⚠️ ملف Ramadan.js غير موجود - تخطي استخراج مسلسلات رمضان"
+          fi
+
+      - name: Check Ramadan extraction results
+        run: |
+          echo ""
+          echo "📊 ====== نتائج استخراج مسلسلات رمضان ======"
+          
+          # التحقق من وجود ملف Ramadan2025.json
+          if [ -f "Ramadan/2025/Ramadan2025.json" ]; then
+            echo "✅ تم إنشاء ملف Ramadan/2025/Ramadan2025.json"
+            SERIES_COUNT=$(jq '.series | length' Ramadan/2025/Ramadan2025.json 2>/dev/null || echo "غير محدد")
+            EPISODE_COUNT=$(jq '[.series[].episodes | length] | add' Ramadan/2025/Ramadan2025.json 2>/dev/null || echo "غير محدد")
+            
+            echo "📺 عدد المسلسلات: $SERIES_COUNT"
+            echo "🎬 عدد الحلقات: $EPISODE_COUNT"
+            echo "📊 حجم الملف: $(wc -c < Ramadan/2025/Ramadan2025.json | numfmt --to=iec) بايت"
+            
+            # عرض عينة من المسلسلات
+            echo ""
+            echo "📋 عينة من المسلسلات:"
+            jq '.series[0:2] | map({title: .seriesTitle, episodes: .totalEpisodes})' Ramadan/2025/Ramadan2025.json
+            
+          else
+            echo "⚠️ لم يتم إنشاء ملف مسلسلات رمضان"
+            echo "📂 محتويات مجلد Ramadan:"
+            if [ -d "Ramadan" ]; then
+              find Ramadan -name "*.json" -type f
+            else
+              echo "📂 مجلد Ramadan غير موجود"
+            fi
+          fi
+
+      - name: Generate summary report
+        run: |
+          echo ""
+          echo "📋 ====== تقرير ملخص ======"
+          echo "⏰ وقت التشغيل: $(date)"
+          
+          # إنشاء تقرير ملخص
+          SUMMARY_FILE="summary_$(date +%Y%m%d_%H%M%S).json"
+          
+          MOVIE_COUNT=0
+          MOVIE_FILE_EXISTS=false
+          if [ -f "movies/Hg.json" ]; then
+            MOVIE_COUNT=$(jq '.movies | length' movies/Hg.json 2>/dev/null || echo "0")
+            MOVIE_FILE_EXISTS=true
+          fi
+          
+          RAMADAN_SERIES_COUNT=0
+          RAMADAN_EPISODE_COUNT=0
+          RAMADAN_FILE_EXISTS=false
+          if [ -f "Ramadan/2025/Ramadan2025.json" ]; then
+            RAMADAN_SERIES_COUNT=$(jq '.series | length' Ramadan/2025/Ramadan2025.json 2>/dev/null || echo "0")
+            RAMADAN_EPISODE_COUNT=$(jq '[.series[].episodes | length] | add' Ramadan/2025/Ramadan2025.json 2>/dev/null || echo "0")
+            RAMADAN_FILE_EXISTS=true
+          fi
+          
+          cat > "$SUMMARY_FILE" << EOF
+{
+  "date": "$(date)",
+  "movies": {
+    "file_exists": $MOVIE_FILE_EXISTS,
+    "count": $MOVIE_COUNT,
+    "file": "movies/Hg.json"
+  },
+  "ramadan_series": {
+    "file_exists": $RAMADAN_FILE_EXISTS,
+    "series_count": $RAMADAN_SERIES_COUNT,
+    "episode_count": $RAMADAN_EPISODE_COUNT,
+    "file": "Ramadan/2025/Ramadan2025.json"
+  },
+  "total_items": $(($MOVIE_COUNT + $RAMADAN_EPISODE_COUNT)),
+  "status": "completed"
+}
+EOF
+          
+          echo "📝 التقرير الملخص محفوظ في: $SUMMARY_FILE"
+          cat "$SUMMARY_FILE"
+
+      - name: Commit and push all changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          
+          # إضافة جميع التغييرات
+          echo "➕ إضافة التغييرات..."
+          git add movies/Hg.json movies/*.json || echo "⚠️ لا يوجد ملفات أفلام جديدة"
+          git add Ramadan/ || echo "⚠️ لا يوجد ملفات رمضان جديدة"
+          git add summary_*.json || echo "⚠️ لا يوجد تقارير ملخصة جديدة"
+          
+          # التحقق إذا كانت هناك تغييرات
+          if git diff --cached --quiet; then
+            echo "📭 لا توجد تغييرات جديدة للرفع"
+          else
+            echo "🔼 رفع التغييرات اليومية..."
+            
+            # إنشاء رسالة commit تفصيلية
+            MOVIE_COUNT=$(jq '.movies | length' movies/Hg.json 2>/dev/null || echo "0")
+            RAMADAN_INFO=""
+            if [ -f "Ramadan/2025/Ramadan2025.json" ]; then
+              SERIES_COUNT=$(jq '.series | length' Ramadan/2025/Ramadan2025.json 2>/dev/null || echo "0")
+              EPISODE_COUNT=$(jq '[.series[].episodes | length] | add' Ramadan/2025/Ramadan2025.json 2>/dev/null || echo "0")
+              RAMADAN_INFO=" | رمضان: $SERIES_COUNT مسلسل ($EPISODE_COUNT حلقة)"
+            fi
+            
+            COMMIT_MSG="🎬 تحديث البيانات اليومي - $(date +'%Y-%m-%d')
+            
+            📊 الإحصائيات:
+            • الأفلام: $MOVIE_COUNT فيلم
+            $([ -n "$RAMADAN_INFO" ] && echo "• $RAMADAN_INFO")
+            
+            ⏰ الوقت: $(date +'%H:%M:%S')
+            🤖 تم التشغيل تلقائياً عبر GitHub Actions"
+            
+            git commit -m "$COMMIT_MSG"
+            git push
+            echo "✅ تم رفع التغييرات اليومية"
+          fi
+
+      - name: Clean up temporary files
+        run: |
+          echo "🧹 تنظيف الملفات المؤقتة..."
+          rm -f summary_*.json 2>/dev/null || true
+          echo "✅ تم التنظيف"
