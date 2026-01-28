@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 // إعدادات المسارات
 const MOVIES_DIR = path.join(__dirname, "movies");
-const OUTPUT_FILE = path.join(MOVIES_DIR, "Hg.json"); // ⭐ تغيير اسم الملف إلى Hg.json
+const OUTPUT_FILE = path.join(MOVIES_DIR, "Hg.json");
 
 // إنشاء مجلد movies إذا لم يكن موجوداً
 if (!fs.existsSync(MOVIES_DIR)) {
@@ -54,6 +54,228 @@ function extractMovieId(shortLink) {
         return match ? match[1] : null;
     } catch {
         return null;
+    }
+}
+
+// ==================== استخراج جميع سيرفرات المشاهدة من صفحة المشاهدة ====================
+async function fetchWatchServers(watchUrl) {
+    console.log(`   🔍 جلب سيرفرات المشاهدة...`);
+    
+    const html = await fetchWithTimeout(watchUrl);
+    
+    if (!html) {
+        console.log(`   ⚠️ فشل جلب صفحة المشاهدة`);
+        return [];
+    }
+    
+    try {
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        const watchServers = [];
+        
+        // 1. البحث عن جميع الروابط التي تحتوي على كلمة "embed"
+        const allLinks = doc.querySelectorAll('a[href*="embed"], a[href*="watch"]');
+        allLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.includes('embed')) {
+                // استخراج اسم السيرفر من النص أو الرابط
+                let serverName = 'غير معروف';
+                const text = link.textContent?.trim();
+                if (text && text.length > 0) {
+                    serverName = text;
+                } else {
+                    // استخراج اسم السيرفر من الرابط
+                    const domainMatch = href.match(/https?:\/\/(?:www\.)?([^\/]+)/);
+                    if (domainMatch) {
+                        serverName = domainMatch[1].split('.')[0];
+                    }
+                }
+                
+                watchServers.push({
+                    type: 'embed',
+                    url: href,
+                    quality: 'متعدد الجودات',
+                    server: serverName
+                });
+            }
+        });
+        
+        // 2. البحث في محتوى meta tags
+        const metaElements = doc.querySelectorAll('meta');
+        metaElements.forEach(meta => {
+            const content = meta.getAttribute('content');
+            if (content && content.includes('embed')) {
+                watchServers.push({
+                    type: 'embed',
+                    url: content,
+                    quality: 'متعدد الجودات',
+                    server: 'Embed Server'
+                });
+            }
+        });
+        
+        // 3. البحث في iframes
+        const iframes = doc.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+            const src = iframe.getAttribute('src');
+            if (src && src.includes('embed')) {
+                watchServers.push({
+                    type: 'iframe',
+                    url: src,
+                    quality: 'متعدد الجودات',
+                    server: 'Iframe Embed'
+                });
+            }
+        });
+        
+        // 4. البحث عن روابط JavaScript أو data attributes
+        const scripts = doc.querySelectorAll('script');
+        scripts.forEach(script => {
+            const scriptContent = script.textContent;
+            if (scriptContent && scriptContent.includes('embed')) {
+                const embedMatch = scriptContent.match(/https?[^"\s]*embed[^"\s]*/g);
+                if (embedMatch) {
+                    embedMatch.forEach(url => {
+                        watchServers.push({
+                            type: 'js_embed',
+                            url: url,
+                            quality: 'متعدد الجودات',
+                            server: 'JavaScript Embed'
+                        });
+                    });
+                }
+            }
+        });
+        
+        // 5. إزالة التكرارات
+        const uniqueServers = [];
+        const seenUrls = new Set();
+        
+        watchServers.forEach(server => {
+            if (!seenUrls.has(server.url)) {
+                seenUrls.add(server.url);
+                uniqueServers.push(server);
+            }
+        });
+        
+        console.log(`   ✅ عثر على ${uniqueServers.length} سيرفر مشاهدة`);
+        return uniqueServers;
+        
+    } catch (error) {
+        console.log(`   ❌ خطأ في استخراج سيرفرات المشاهدة: ${error.message}`);
+        return [];
+    }
+}
+
+// ==================== استخراج جميع سيرفرات التحميل من صفحة التحميل ====================
+async function fetchDownloadServers(downloadUrl) {
+    console.log(`   🔍 جلب سيرفرات التحميل...`);
+    
+    const html = await fetchWithTimeout(downloadUrl);
+    
+    if (!html) {
+        console.log(`   ⚠️ فشل جلب صفحة التحميل`);
+        return [];
+    }
+    
+    try {
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        const downloadServers = [];
+        
+        // 1. استخراج سيرفرات Pro (المميزة)
+        const proServerElements = doc.querySelectorAll('.proServer a.downloadsLink');
+        proServerElements.forEach(server => {
+            const nameElement = server.querySelector('.text span');
+            const providerElement = server.querySelector('.text p');
+            
+            const serverName = nameElement?.textContent?.trim() || 'متعدد الجودات';
+            const provider = providerElement?.textContent?.trim() || 'غير معروف';
+            const url = server.getAttribute('href') || '';
+            
+            if (url) {
+                downloadServers.push({
+                    server: provider,
+                    url: url,
+                    quality: serverName,
+                    type: 'pro'
+                });
+            }
+        });
+        
+        // 2. استخراج جميع روابط التحميل من جميع الكتل
+        const allDownloadLinks = doc.querySelectorAll('.download-items li a.downloadsLink');
+        allDownloadLinks.forEach(link => {
+            const providerElement = link.querySelector('.text span');
+            const qualityElement = link.querySelector('.text p');
+            
+            const provider = providerElement?.textContent?.trim() || 'غير معروف';
+            const quality = qualityElement?.textContent?.trim() || 'غير معروف';
+            const url = link.getAttribute('href') || '';
+            
+            if (url && !link.closest('.proServer')) { // استبعاد روابط Pro لأننا أخذناها بالفعل
+                downloadServers.push({
+                    server: provider,
+                    url: url,
+                    quality: quality,
+                    type: 'normal'
+                });
+            }
+        });
+        
+        // 3. البحث عن روابط تحميل إضافية في الصفحة
+        const allLinks = doc.querySelectorAll('a[href*="download"], a[href*="down"], a[href*="dl"]');
+        allLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            const text = link.textContent?.trim();
+            
+            if (href && !href.includes('topcinema.rip')) {
+                // محاولة استخراج اسم السيرفر
+                let serverName = 'غير معروف';
+                let quality = 'غير معروف';
+                
+                if (text) {
+                    const parts = text.split(' ');
+                    if (parts.length > 0) {
+                        serverName = parts[0];
+                        if (parts.length > 1) {
+                            quality = parts.slice(1).join(' ');
+                        }
+                    }
+                }
+                
+                // إذا لم يكن الرابط موجوداً بالفعل في القائمة
+                const alreadyExists = downloadServers.some(s => s.url === href);
+                if (!alreadyExists && !href.startsWith('#')) {
+                    downloadServers.push({
+                        server: serverName,
+                        url: href,
+                        quality: quality,
+                        type: 'additional'
+                    });
+                }
+            }
+        });
+        
+        // 4. إزالة التكرارات
+        const uniqueServers = [];
+        const seenUrls = new Set();
+        
+        downloadServers.forEach(server => {
+            if (!seenUrls.has(server.url)) {
+                seenUrls.add(server.url);
+                uniqueServers.push(server);
+            }
+        });
+        
+        console.log(`   ✅ عثر على ${uniqueServers.length} سيرفر تحميل`);
+        return uniqueServers;
+        
+    } catch (error) {
+        console.log(`   ❌ خطأ في استخراج سيرفرات التحميل: ${error.message}`);
+        return [];
     }
 }
 
@@ -138,7 +360,11 @@ async function fetchMovieDetails(movie) {
         // 3. القصة
         const story = doc.querySelector(".story p")?.textContent?.trim() || "غير متوفر";
         
-        // 4. التفاصيل الأساسية فقط
+        // 4. استخراج روابط المشاهدة والتحميل
+        const watchLink = doc.querySelector('a.watch')?.getAttribute('href');
+        const downloadLink = doc.querySelector('a.download')?.getAttribute('href');
+        
+        // 5. التفاصيل الأساسية
         const details = {
             category: [],
             genres: [],
@@ -184,15 +410,31 @@ async function fetchMovieDetails(movie) {
             }
         });
         
+        // 6. جلب سيرفرات المشاهدة والتحميل إذا كانت الروابط متوفرة
+        let watchServers = [];
+        let downloadServers = [];
+        
+        if (watchLink) {
+            watchServers = await fetchWatchServers(watchLink);
+            await new Promise(resolve => setTimeout(resolve, 300)); // انتظار قصير
+        }
+        
+        if (downloadLink) {
+            downloadServers = await fetchDownloadServers(downloadLink);
+            await new Promise(resolve => setTimeout(resolve, 300)); // انتظار قصير
+        }
+        
         return {
-            id: movieId,      // ✅ ID
-            title: title,     // ✅ الاسم
-            image: image,     // ✅ الصورة
+            id: movieId,
+            title: title,
             url: movie.url,
             shortLink: shortLink,
+            image: image,
             imdbRating: imdbRating,
             story: story,
             details: details,
+            watchServers: watchServers,
+            downloadServers: downloadServers,
             page: movie.page,
             position: movie.position,
             scrapedAt: new Date().toISOString()
@@ -211,11 +453,10 @@ function saveToHgFile(pageData, moviesData) {
         url: pageData.url,
         totalMovies: moviesData.length,
         scrapedAt: new Date().toISOString(),
-        lastUpdated: new Date().toISOString(), // ⭐ إضافة وقت التحديث
+        lastUpdated: new Date().toISOString(),
         movies: moviesData
     };
     
-    // ⭐⭐⭐ كتابة فوق الملف دائماً ⭐⭐⭐
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(pageContent, null, 2));
     console.log(`💾 حفظ البيانات في Hg.json بـ ${moviesData.length} فيلم`);
     
@@ -227,7 +468,7 @@ async function main() {
     console.log("🎬 بدء استخراج الصفحة الأولى فقط");
     console.log("=".repeat(50));
     
-    const pageNum = 1; // ⭐ نستخرج الصفحة الأولى فقط
+    const pageNum = 1;
     
     // جلب الصفحة
     const pageData = await fetchMoviesFromPage(pageNum);
@@ -250,30 +491,52 @@ async function main() {
         if (details && details.id) {
             moviesData.push(details);
             console.log(`   ✅ ${i + 1}/${pageData.movies.length}: ${details.title.substring(0, 30)}...`);
+            console.log(`     👁️  مشاهدة: ${details.watchServers?.length || 0} سيرفر`);
+            console.log(`     📥 تحميل: ${details.downloadServers?.length || 0} سيرفر`);
         } else {
             console.log(`   ⏭️ تخطي الفيلم ${i + 1}`);
         }
         
-        // انتظار قصير بين الأفلام
+        // انتظار بين الأفلام
         if (i < pageData.movies.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 800));
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     
-    // ⭐⭐⭐ حفظ البيانات في Hg.json ⭐⭐⭐
+    // حفظ البيانات في Hg.json
     if (moviesData.length > 0) {
         const savedFile = saveToHgFile(pageData, moviesData);
         
         console.log(`\n✅ تم حفظ الصفحة الأولى بنجاح في ${savedFile}`);
         console.log(`📊 الأفلام المحفوظة: ${moviesData.length}`);
         
-        // عرض عينة من البيانات
-        console.log(`📋 عينة من البيانات المحفوظة:`);
-        moviesData.slice(0, 3).forEach((movie, idx) => {
-            console.log(`   ${idx + 1}. ID: ${movie.id}, العنوان: ${movie.title.substring(0, 30)}`);
-        });
+        // عرض إحصائيات
+        console.log(`📋 إحصائيات:`);
+        const totalWatchServers = moviesData.reduce((sum, movie) => sum + (movie.watchServers?.length || 0), 0);
+        const totalDownloadServers = moviesData.reduce((sum, movie) => sum + (movie.downloadServers?.length || 0), 0);
         
-        // ⭐ عرض معلومات الملف ⭐
+        console.log(`   - إجمالي سيرفرات المشاهدة: ${totalWatchServers}`);
+        console.log(`   - إجمالي سيرفرات التحميل: ${totalDownloadServers}`);
+        
+        // عرض عينة من البيانات المحفوظة
+        console.log(`\n📋 عينة من البيانات المحفوظة:`);
+        if (moviesData.length > 0) {
+            const sampleMovie = moviesData[0];
+            console.log(`   1. ID: ${sampleMovie.id}`);
+            console.log(`      العنوان: ${sampleMovie.title.substring(0, 40)}...`);
+            console.log(`      جودة: ${sampleMovie.details.quality.join(', ')}`);
+            console.log(`      تقييم IMDB: ${sampleMovie.imdbRating || 'غير متوفر'}`);
+            
+            if (sampleMovie.watchServers && sampleMovie.watchServers.length > 0) {
+                console.log(`      سيرفر مشاهدة مثال: ${sampleMovie.watchServers[0].server} - ${sampleMovie.watchServers[0].url.substring(0, 50)}...`);
+            }
+            
+            if (sampleMovie.downloadServers && sampleMovie.downloadServers.length > 0) {
+                console.log(`      سيرفر تحميل مثال: ${sampleMovie.downloadServers[0].server} - ${sampleMovie.downloadServers[0].quality}`);
+            }
+        }
+        
+        // عرض معلومات الملف
         try {
             const stats = fs.statSync(OUTPUT_FILE);
             console.log(`\n📁 معلومات الملف:`);
