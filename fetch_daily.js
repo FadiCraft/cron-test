@@ -1,48 +1,32 @@
-import fs from "fs";
-import path from "path";
+// أبسط كود لإنشاء الملف
+const fs = require("fs");
+const path = require("path");
 
-// إنشاء مجلد movies إذا لم يكن موجود
-const moviesDir = "movies";
-if (!fs.existsSync(moviesDir)) {
-    fs.mkdirSync(moviesDir, { recursive: true });
-    console.log(`✅ تم إنشاء مجلد ${moviesDir}`);
+// 1. إنشاء مجلد movies
+const folder = "movies";
+if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder);
+    console.log("📁 تم إنشاء مجلد movies");
 }
 
-// مسار الملف
-const outputFile = path.join(moviesDir, "Hg.json");
+// 2. إنشاء ملف Hg.json بداخله
+const filePath = path.join(folder, "Hg.json");
 
-// بيانات تجريبية بسيطة
-const sampleMovies = [
-    {
-        title: "فيلم تجريبي 1",
-        url: "https://topcinema.rip/movies/sample1",
-        id: "1"
-    },
-    {
-        title: "فيلم تجريبي 2",
-        url: "https://topcinema.rip/movies/sample2",
-        id: "2"
-    }
-];
+// 3. بيانات بسيطة
+const simpleData = {
+    status: "ready",
+    message: "الملف جاهز للتعديل",
+    date: new Date().toLocaleString("ar-SA"),
+    movies: []
+};
 
-// إنشاء الملف
-try {
-    const data = {
-        total: sampleMovies.length,
-        created: new Date().toISOString(),
-        message: "هذا ملف تجريبي، سنضبطه لاحقاً",
-        movies: sampleMovies
-    };
+// 4. كتابة الملف
+fs.writeFileSync(filePath, JSON.stringify(simpleData, null, 4));
 
-    fs.writeFileSync(outputFile, JSON.stringify(data, null, 2));
-    console.log(`✅ تم إنشاء الملف: ${outputFile}`);
-    console.log(`📊 حجم الملف: ${fs.statSync(outputFile).size} بايت`);
-    
-    // قراءة الملف للتحقق
-    const fileContent = fs.readFileSync(outputFile, "utf8");
-    console.log("\n📄 محتوى الملف:");
-    console.log(fileContent.substring(0, 300) + "...");
-    
-} catch (error) {
-    console.error(`❌ خطأ في إنشاء الملف: ${error.message}`);
+// 5. التحقق
+if (fs.existsSync(filePath)) {
+    console.log("✅ تم إنشاء الملف بنجاح!");
+    console.log(`📍 الموقع: ${path.resolve(filePath)}`);
+} else {
+    console.log("❌ فشل إنشاء الملف");
 }
