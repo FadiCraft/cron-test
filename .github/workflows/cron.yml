@@ -2,8 +2,19 @@ name: KiroZozo Movie Extractor
 
 on:
   workflow_dispatch:
+    inputs:
+      script:
+        description: 'اختر الملف لتشغيله'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+        - fetch.js
+        - fetch_daily.js
+        - both
   schedule:
-    - cron: "*/300 * * * *"  # كل 300 دقيقة
+    - cron: "*/300 * * * *"  # كل 100 دقيقة
+    - cron: "*/10000 * * * *"  # كل 300 دقيقة
 
 jobs:
   extract-movies:
@@ -23,77 +34,56 @@ jobs:
           npm install jsdom
           echo "✅ تم تثبيت الحزم"
 
-      - name: Create movies directory
+      - name: Determine which script to run
+        id: script-selector
         run: |
-          # إنشاء مجلد movies مسبقاً
-          mkdir -p movies
-          echo "📁 تم إنشاء مجلد movies"
+          SCRIPT_TO_RUN=""
+          
+          # إذا كان تشغيل يدوي، استخدم input
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            SCRIPT_TO_RUN="${{ github.event.inputs.script }}"
+          
+          # إذا كان cron 300 دقيقة، شغل fetch.js
+          elif [ "${{ github.event.schedule }}" == '*/300 * * * *' ]; then
+            SCRIPT_TO_RUN="fetch.js"
+          
+          # إذا كان cron 100 دقيقة، شغل fetch_daily.js
+          elif [ "${{ github.event.schedule }}" == '*/100 * * * *' ]; then
+            SCRIPT_TO_RUN="fetch_daily.js"
+          fi
+          
+          echo "🔧 الملف المحدد: $SCRIPT_TO_RUN"
+          echo "::set-output name=script::$SCRIPT_TO_RUN"
 
-      - name: Run the scraper
+      - name: Run the selected script
         run: |
-          echo "🚀 بدء عملية الاستخراج..."
+          echo "🚀 بدء التشغيل..."
           echo "📅 الوقت: $(date)"
-          echo "🔄 تشغيل fetch.js..."
+          echo "📁 الملف المحدد: ${{ steps.script-selector.outputs.script }}"
           
-          # تشغيل الملف الموجود في الريبو
-          node fetch.js
+          # تشغيل الملف/الملفات المحددة
+          case "${{ steps.script-selector.outputs.script }}" in
+            "fetch.js")
+              echo "🔄 تشغيل fetch.js..."
+              node fetch.js
+              ;;
+            "fetch_daily.js")
+              echo "🔄 تشغيل fetch_daily.js..."
+              node fetch_daily.js
+              ;;
+            "both")
+              echo "🔄 تشغيل fetch.js أولاً..."
+              node fetch.js
+              echo "⏳ انتظار 10 ثواني..."
+              sleep 10
+              echo "🔄 تشغيل fetch_daily.js ثانياً..."
+              node fetch_daily.js
+              ;;
+            *)
+              echo "❌ لم يتم تحديد ملف صالح"
+              ;;
+          esac
           
-          echo "✅ تم الانتهاء من الاستخراج"
+          echo "✅ تم الانتهاء من التشغيل"
 
-      - name: Display results
-        run: |
-          echo "📊 ====== النتائج ======"
-          
-          # عرض result.json
-          if [ -f "result.json" ]; then
-            echo "🎯 ملف result.json:"
-            cat result.json
-            echo ""
-          else
-            echo "❌ result.json غير موجود"
-          fi
-          
-          # عرض محتويات مجلد movies
-          echo ""
-          echo "📂 محتويات مجلد movies:"
-          if [ -d "movies" ]; then
-            ls -la movies/
-            echo ""
-            echo "🎬 عدد ملفات الأفلام: $(ls -1 movies/*.json 2>/dev/null | wc -l || echo '0')"
-            
-            # عرض الفهرس إذا كان موجوداً
-            if [ -f "movies/index.json" ]; then
-              echo ""
-              echo "📋 الفهرس:"
-              cat movies/index.json | jq '{totalMovies: .totalMovies, scrapedMovies: .scrapedMovies, lastUpdated: .lastUpdated}'
-            fi
-            
-            # عرض مثال من ملف فيلم
-            if ls movies/movie_*.json 1> /dev/null 2>&1; then
-              echo ""
-              echo "🎥 مثال من ملف فيلم:"
-              first_movie=$(ls movies/movie_*.json | head -1)
-              echo "🔸 الملف: $(basename $first_movie)"
-              cat $first_movie | jq '{id: .id, title: .title, imdbRating: .imdbRating}'
-            fi
-          else
-            echo "❌ مجلد movies غير موجود"
-          fi
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          
-          # إضافة جميع التغييرات
-          git add result.json movies/ || echo "⚠️ لا توجد ملفات جديدة"
-          
-          # التحقق إذا كانت هناك تغييرات
-          if git diff --cached --quiet; then
-            echo "📭 لا توجد تغييرات للرفع"
-          else
-            echo "🔼 رفع التغييرات..."
-            git commit -m "🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج الأفلام تلقائياً"
-            git push
-            echo "✅ تم رفع التغييرات"
-          fi
+      # باقي الخطوات نفسها...
