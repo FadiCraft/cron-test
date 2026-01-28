@@ -1,4 +1,3 @@
-
 import fs from "fs";
 import path from "path";
 import { JSDOM } from "jsdom";
@@ -7,13 +6,19 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// إعدادات المسارات
+// إعدادات المسارات - التأكد من المسار الصحيح
 const MOVIES_DIR = path.join(__dirname, "movies");
 const OUTPUT_FILE = path.join(MOVIES_DIR, "Hg.json");
 
 // إنشاء مجلد movies إذا لم يكن موجوداً
 if (!fs.existsSync(MOVIES_DIR)) {
-    fs.mkdirSync(MOVIES_DIR, { recursive: true });
+    try {
+        fs.mkdirSync(MOVIES_DIR, { recursive: true });
+        console.log(`📁 تم إنشاء مجلد movies في: ${MOVIES_DIR}`);
+    } catch (error) {
+        console.error(`❌ فشل إنشاء مجلد movies: ${error.message}`);
+        process.exit(1);
+    }
 }
 
 // ==================== fetch مع timeout ====================
@@ -74,12 +79,12 @@ async function fetchMoviesFromHomePage() {
             movieElements = doc.querySelectorAll('article a, .post-item a');
         }
         
-        console.log(`✅ عثر على ${movieElements.length} فيلم في الصفحة الرئيسية`);
+        console.log(`✅ عثر على ${movieElements.length} عنصر فيلم في الصفحة الرئيسية`);
         
         movieElements.forEach((element, i) => {
             const movieUrl = element.href;
             
-            if (movieUrl && movieUrl.includes('topcinema.rip')) {
+            if (movieUrl && movieUrl.includes('topcinema.rip') && movieUrl.includes('/movies/')) {
                 const title = element.querySelector('.title, h2, h3')?.textContent || 
                               element.textContent || 
                               `فيلم ${i + 1}`;
@@ -91,6 +96,8 @@ async function fetchMoviesFromHomePage() {
                 });
             }
         });
+        
+        console.log(`✅ تم تصفية ${movies.length} فيلم صالح`);
         
         return { url, movies };
         
@@ -174,15 +181,28 @@ function saveToHgFile(pageData, moviesData) {
             movies: moviesData
         };
         
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(pageContent, null, 2));
-        console.log(`💾 تم حفظ ${moviesData.length} فيلم في ${OUTPUT_FILE}`);
+        // التحقق من المسار
+        console.log(`📂 جاري الحفظ في: ${OUTPUT_FILE}`);
         
-        // حفظ نسخة احتياطية مع التاريخ
-        const backupFile = path.join(MOVIES_DIR, `Hg_${new Date().toISOString().split('T')[0]}.json`);
-        fs.writeFileSync(backupFile, JSON.stringify(pageContent, null, 2));
-        console.log(`📦 نسخة احتياطية: ${backupFile}`);
+        // كتابة الملف
+        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(pageContent, null, 2), 'utf8');
         
-        return true;
+        // التحقق من أن الملف تم إنشاؤه
+        if (fs.existsSync(OUTPUT_FILE)) {
+            const fileStats = fs.statSync(OUTPUT_FILE);
+            console.log(`💾 تم حفظ ${moviesData.length} فيلم في ${OUTPUT_FILE}`);
+            console.log(`📊 حجم الملف: ${(fileStats.size / 1024).toFixed(2)} KB`);
+            
+            // قراءة الملف للتحقق
+            const fileContent = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+            console.log(`✅ الملف يحتوي على ${fileContent.movies?.length || 0} فيلم`);
+            
+            return true;
+        } else {
+            console.log(`❌ الملف لم يتم إنشاؤه: ${OUTPUT_FILE}`);
+            return false;
+        }
+        
     } catch (error) {
         console.log(`❌ خطأ في حفظ الملف: ${error.message}`);
         return false;
@@ -194,7 +214,21 @@ async function main() {
     console.log("🚀 بدء استخراج الصفحة الرئيسية - fetch_daily.js");
     console.log("=".repeat(60));
     console.log(`📅 التاريخ: ${new Date().toLocaleString('ar-SA')}`);
+    console.log(`📂 المسار الحالي: ${__dirname}`);
+    console.log(`📁 مجلد الأفلام: ${MOVIES_DIR}`);
+    console.log(`💾 ملف الإخراج: ${OUTPUT_FILE}`);
     console.log("=".repeat(60));
+    
+    // التأكد من صلاحيات الكتابة
+    try {
+        const testFile = path.join(MOVIES_DIR, 'test_write.tmp');
+        fs.writeFileSync(testFile, 'test');
+        fs.unlinkSync(testFile);
+        console.log("✅ صلاحيات الكتابة متاحة");
+    } catch (error) {
+        console.log(`❌ لا توجد صلاحيات كتابة: ${error.message}`);
+        return;
+    }
     
     try {
         // 1. جلب الصفحة الرئيسية
@@ -209,7 +243,7 @@ async function main() {
                 message: "لا توجد أفلام في الصفحة الرئيسية",
                 timestamp: new Date().toISOString()
             };
-            fs.writeFileSync("empty_report.json", JSON.stringify(emptyReport, null, 2));
+            fs.writeFileSync(path.join(MOVIES_DIR, "empty_report.json"), JSON.stringify(emptyReport, null, 2));
             return;
         }
         
@@ -218,7 +252,10 @@ async function main() {
         
         const moviesData = [];
         
-        for (let i = 0; i < pageData.movies.length; i++) {
+        // اخذ أول 5 أفلام فقط للتجربة
+        const testLimit = Math.min(5, pageData.movies.length);
+        
+        for (let i = 0; i < testLimit; i++) {
             const movie = pageData.movies[i];
             
             try {
@@ -226,14 +263,14 @@ async function main() {
                 
                 if (details) {
                     moviesData.push(details);
-                    console.log(`   ✅ ${i + 1}/${pageData.movies.length}: ${details.title.substring(0, 30)}...`);
+                    console.log(`   ✅ ${i + 1}/${testLimit}: ${details.title.substring(0, 30)}...`);
                 } else {
                     console.log(`   ⏭️ تخطي الفيلم ${i + 1}`);
                 }
                 
                 // انتظار قصير بين الأفلام
-                if (i < pageData.movies.length - 1) {
-                    await new Promise(resolve => setTimeout(resolve, 800));
+                if (i < testLimit - 1) {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
                 }
                 
             } catch (movieError) {
@@ -253,7 +290,7 @@ async function main() {
                 console.log("🎉 تم استخراج الصفحة الرئيسية بنجاح!");
                 console.log("=".repeat(60));
                 console.log(`📊 إجمالي الأفلام: ${moviesData.length}`);
-                console.log(`📁 الملف المحفوظ: Hg.json`);
+                console.log(`📁 الملف المحفوظ: ${OUTPUT_FILE}`);
                 console.log(`⏰ وقت التنفيذ: ${new Date().toLocaleString('ar-SA')}`);
                 console.log("=".repeat(60));
                 
@@ -261,22 +298,22 @@ async function main() {
                 const successReport = {
                     status: "success",
                     totalMovies: moviesData.length,
-                    savedFile: "Hg.json",
+                    savedFile: OUTPUT_FILE,
                     timestamp: new Date().toISOString(),
                     executionTime: new Date().toLocaleString('ar-SA')
                 };
-                fs.writeFileSync("success_report.json", JSON.stringify(successReport, null, 2));
+                fs.writeFileSync(path.join(MOVIES_DIR, "success_report.json"), JSON.stringify(successReport, null, 2));
                 
             } else {
                 console.log("\n❌ فشل في حفظ النتائج");
-                fs.writeFileSync("save_error.json", JSON.stringify({
+                fs.writeFileSync(path.join(MOVIES_DIR, "save_error.json"), JSON.stringify({
                     error: "فشل في حفظ الملف",
                     timestamp: new Date().toISOString()
                 }, null, 2));
             }
         } else {
             console.log("\n⚠️ لم يتم استخراج أي فيلم بنجاح");
-            fs.writeFileSync("no_data.json", JSON.stringify({
+            fs.writeFileSync(path.join(MOVIES_DIR, "no_data.json"), JSON.stringify({
                 status: "no_data_extracted",
                 timestamp: new Date().toISOString()
             }, null, 2));
@@ -291,7 +328,7 @@ async function main() {
             timestamp: new Date().toISOString()
         };
         
-        fs.writeFileSync("main_error.json", JSON.stringify(errorReport, null, 2));
+        fs.writeFileSync(path.join(MOVIES_DIR, "main_error.json"), JSON.stringify(errorReport, null, 2));
         console.log("📝 تم حفظ تفاصيل الخطأ في main_error.json");
     }
 }
