@@ -12,9 +12,11 @@ on:
         - fetch.js
         - fetch_daily.js
         - both
+  
+  # جدولة صحيحة
   schedule:
-    - cron: "*/300 * * * *"  # كل 100 دقيقة
-    - cron: "*/10000 * * * *"  # كل 300 دقيقة
+    - cron: "*/30 * * * *"    # كل 30 دقيقة
+    - cron: "0 */6 * * *"     # كل 6 ساعات
 
 jobs:
   extract-movies:
@@ -22,13 +24,13 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # تحديث إلى v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # تحديث إلى v4
         with:
-          node-version: '18'
-          
+          node-version: '20'  # تحديث إلى Node.js 20
+
       - name: Install dependencies
         run: |
           npm install jsdom
@@ -42,21 +44,39 @@ jobs:
           # إذا كان تشغيل يدوي، استخدم input
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             SCRIPT_TO_RUN="${{ github.event.inputs.script }}"
+            echo "🔧 تشغيل يدوي: $SCRIPT_TO_RUN"
           
-          # إذا كان cron 300 دقيقة، شغل fetch.js
-          elif [ "${{ github.event.schedule }}" == '*/300 * * * *' ]; then
-            SCRIPT_TO_RUN="fetch.js"
-          
-          # إذا كان cron 100 دقيقة، شغل fetch_daily.js
-          elif [ "${{ github.event.schedule }}" == '*/100 * * * *' ]; then
-            SCRIPT_TO_RUN="fetch_daily.js"
+          # إذا كان جدولة (schedule)، نحدد حسب الوقت
+          elif [ "${{ github.event_name }}" == "schedule" ]; then
+            CURRENT_HOUR=$(date +%H)
+            CURRENT_MINUTE=$(date +%M)
+            
+            # إذا كانت الدقائق 00, 30 (كل 30 دقيقة) - تشغيل fetch.js
+            if [ $CURRENT_MINUTE -eq 0 ] || [ $CURRENT_MINUTE -eq 30 ]; then
+              SCRIPT_TO_RUN="fetch.js"
+              echo "🔧 جدولة (كل 30 دقيقة): $SCRIPT_TO_RUN"
+            
+            # إذا كانت الساعة 0, 6, 12, 18 (كل 6 ساعات) - تشغيل fetch_daily.js
+            elif [ $CURRENT_HOUR -eq 0 ] || [ $CURRENT_HOUR -eq 6 ] || [ $CURRENT_HOUR -eq 12 ] || [ $CURRENT_HOUR -eq 18 ]; then
+              SCRIPT_TO_RUN="fetch_daily.js"
+              echo "🔧 جدولة (كل 6 ساعات): $SCRIPT_TO_RUN"
+            else
+              echo "⚠️  لا يوجد جدولة في هذا الوقت"
+              exit 0  # خروج نظيف بدون خطأ
+            fi
           fi
           
-          echo "🔧 الملف المحدد: $SCRIPT_TO_RUN"
-          echo "::set-output name=script::$SCRIPT_TO_RUN"
+          if [ -n "$SCRIPT_TO_RUN" ]; then
+            echo "script=$SCRIPT_TO_RUN" >> $GITHUB_OUTPUT
+          fi
 
       - name: Run the selected script
         run: |
+          if [ -z "${{ steps.script-selector.outputs.script }}" ]; then
+            echo "❌ لم يتم تحديد ملف للتشغيل"
+            exit 0
+          fi
+          
           echo "🚀 بدء التشغيل..."
           echo "📅 الوقت: $(date)"
           echo "📁 الملف المحدد: ${{ steps.script-selector.outputs.script }}"
@@ -65,25 +85,46 @@ jobs:
           case "${{ steps.script-selector.outputs.script }}" in
             "fetch.js")
               echo "🔄 تشغيل fetch.js..."
-              node fetch.js
+              if [ -f "fetch.js" ]; then
+                node fetch.js
+              else
+                echo "❌ ملف fetch.js غير موجود!"
+                exit 1
+              fi
               ;;
             "fetch_daily.js")
               echo "🔄 تشغيل fetch_daily.js..."
-              node fetch_daily.js
+              if [ -f "fetch_daily.js" ]; then
+                node fetch_daily.js
+              else
+                echo "❌ ملف fetch_daily.js غير موجود!"
+                exit 1
+              fi
               ;;
             "both")
               echo "🔄 تشغيل fetch.js أولاً..."
-              node fetch.js
+              if [ -f "fetch.js" ]; then
+                node fetch.js
+              else
+                echo "❌ ملف fetch.js غير موجود!"
+                exit 1
+              fi
+              
               echo "⏳ انتظار 10 ثواني..."
               sleep 10
+              
               echo "🔄 تشغيل fetch_daily.js ثانياً..."
-              node fetch_daily.js
+              if [ -f "fetch_daily.js" ]; then
+                node fetch_daily.js
+              else
+                echo "❌ ملف fetch_daily.js غير موجود!"
+                exit 1
+              fi
               ;;
             *)
               echo "❌ لم يتم تحديد ملف صالح"
+              exit 1
               ;;
           esac
           
           echo "✅ تم الانتهاء من التشغيل"
-
-      # باقي الخطوات نفسها...
