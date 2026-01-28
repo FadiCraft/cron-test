@@ -6,11 +6,17 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ملف الإخراج
-const OUTPUT_FILE = path.join(__dirname, "Hg.json");
+// إعدادات المسارات
+const MOVIES_DIR = path.join(__dirname, "movies");
+const CATALOG_FILE = path.join(MOVIES_DIR, "catalog.json"); // ملف سجل بسيط
+
+// إنشاء مجلد movies إذا لم يكن موجوداً
+if (!fs.existsSync(MOVIES_DIR)) {
+    fs.mkdirSync(MOVIES_DIR, { recursive: true });
+}
 
 // ==================== fetch مع timeout ====================
-async function fetchWithTimeout(url, timeout = 15000) {
+async function fetchWithTimeout(url, timeout = 20000) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
     
@@ -26,7 +32,6 @@ async function fetchWithTimeout(url, timeout = 15000) {
         clearTimeout(timeoutId);
         
         if (!response.ok) {
-            console.log(`⚠️ حالة غير ناجحة: ${response.status} لـ ${url}`);
             return null;
         }
         
@@ -35,24 +40,35 @@ async function fetchWithTimeout(url, timeout = 15000) {
     } catch (error) {
         clearTimeout(timeoutId);
         if (error.name === 'AbortError') {
-            console.log(`⏱️ انتهى الوقت لـ ${url}`);
-        } else {
-            console.log(`❌ خطأ في جلب ${url}: ${error.message}`);
+            console.log(`⏱️ انتهى الوقت`);
         }
         return null;
     }
 }
 
-// ==================== استخراج الأفلام من الصفحة الأولى ====================
-async function fetchMoviesFromHomePage() {
-    const url = "https://topcinema.rip/movies/";
+// ==================== استخراج ID من الرابط المختصر ====================
+function extractMovieId(shortLink) {
+    try {
+        if (!shortLink) return null;
+        const match = shortLink.match(/p=(\d+)/);
+        return match ? match[1] : null;
+    } catch {
+        return null;
+    }
+}
+
+// ==================== استخراج الأفلام من صفحة ====================
+async function fetchMoviesFromPage(pageNum) {
+    const url = pageNum === 1 
+        ? "https://topcinema.rip/movies/"
+        : `https://topcinema.rip/movies/page/${pageNum}/`;
     
-    console.log(`📖 جلب الصفحة الرئيسية: ${url}`);
+    console.log(`📖 جلب الصفحة ${pageNum === 1 ? "الرئيسية" : pageNum}`);
     
     const html = await fetchWithTimeout(url);
     
     if (!html) {
-        console.log(`❌ فشل جلب الصفحة الرئيسية`);
+        console.log(`❌ فشل جلب الصفحة`);
         return null;
     }
     
@@ -61,49 +77,42 @@ async function fetchMoviesFromHomePage() {
         const doc = dom.window.document;
         const movies = [];
         
-        // محاولة انتقاءات مختلفة لعناصر الأفلام
-        let movieElements = doc.querySelectorAll('.Small--Box a');
-        
-        if (movieElements.length === 0) {
-            movieElements = doc.querySelectorAll('article a, .post-item a, .movie-item a');
-        }
-        
-        console.log(`✅ عثر على ${movieElements.length} عنصر في الصفحة الرئيسية`);
+        const movieElements = doc.querySelectorAll('.Small--Box a');
+        console.log(`✅ عثر على ${movieElements.length} فيلم`);
         
         movieElements.forEach((element, i) => {
             const movieUrl = element.href;
             
-            if (movieUrl && movieUrl.includes('topcinema.rip') && movieUrl.includes('/movies/')) {
-                const title = element.querySelector('.title, h2, h3, .post-title')?.textContent || 
+            if (movieUrl && movieUrl.includes('topcinema.rip')) {
+                const title = element.querySelector('.title')?.textContent || 
                               element.textContent || 
                               `فيلم ${i + 1}`;
                 
                 movies.push({
                     title: title.trim(),
                     url: movieUrl,
+                    page: pageNum,
                     position: i + 1
                 });
             }
         });
         
-        console.log(`✅ تم تصفية ${movies.length} فيلم صالح`);
-        
         return { url, movies };
         
     } catch (error) {
-        console.log(`❌ خطأ في تحليل الصفحة: ${error.message}`);
+        console.log(`❌ خطأ في تحليل الصفحة`);
         return null;
     }
 }
 
-// ==================== استخراج تفاصيل الفيلم كاملة ====================
-async function fetchFullMovieDetails(movie) {
-    console.log(`  🎬 ${movie.title.substring(0, 40)}...`);
+// ==================== استخراج تفاصيل الفيلم الرئيسية ====================
+async function fetchMovieDetails(movie) {
+    console.log(`🎬 ${movie.title.substring(0, 40)}...`);
     
-    const html = await fetchWithTimeout(movie.url, 15000);
+    const html = await fetchWithTimeout(movie.url);
     
     if (!html) {
-        console.log(`     ⚠️ فشل جلب صفحة الفيلم`);
+        console.log(`   ⚠️ فشل جلب صفحة الفيلم`);
         return null;
     }
     
@@ -114,32 +123,22 @@ async function fetchFullMovieDetails(movie) {
         // 1. استخراج ID من الرابط المختصر
         const shortLinkInput = doc.querySelector('#shortlink');
         const shortLink = shortLinkInput ? shortLinkInput.value : null;
+        const movieId = shortLink ? extractMovieId(shortLink) : null;
         
-        let movieId = null;
-        if (shortLink) {
-            const match = shortLink.match(/p=(\d+)/);
-            movieId = match ? match[1] : null;
-        }
-        
-        // إذا لم نجد ID من shortlink، نستخرج من URL
         if (!movieId) {
-            const urlMatch = movie.url.match(/\/(\d+)\/$/);
-            movieId = urlMatch ? urlMatch[1] : `temp_${Date.now()}_${movie.position}`;
+            console.log(`   ⚠️ لم يتم العثور على ID`);
+            return null;
         }
         
-        // 2. البيانات الأساسية
-        const title = doc.querySelector(".post-title a, h1.entry-title, h1")?.textContent?.trim() || movie.title;
-        const image = doc.querySelector(".image img, .post-thumbnail img, img.wp-post-image")?.src;
-        const imdbRating = doc.querySelector(".imdbR span, .rating, .imdb")?.textContent?.trim();
+        // 2. البيانات الأساسية (الاسم، الصورة، ID)
+        const title = doc.querySelector(".post-title a")?.textContent?.trim() || movie.title;
+        const image = doc.querySelector(".image img")?.src;
+        const imdbRating = doc.querySelector(".imdbR span")?.textContent?.trim();
         
         // 3. القصة
-        let story = "غير متوفر";
-        const storyElement = doc.querySelector(".story p, .entry-content p, .content p");
-        if (storyElement) {
-            story = storyElement.textContent.trim();
-        }
+        const story = doc.querySelector(".story p")?.textContent?.trim() || "غير متوفر";
         
-        // 4. التفاصيل الكاملة
+        // 4. التفاصيل الأساسية فقط
         const details = {
             category: [],
             genres: [],
@@ -147,12 +146,9 @@ async function fetchFullMovieDetails(movie) {
             duration: "",
             releaseYear: [],
             language: [],
-            actors: [],
-            director: [],
-            country: []
+            actors: []
         };
         
-        // استخراج من قائمة التفاصيل
         const detailItems = doc.querySelectorAll(".RightTaxContent li");
         
         detailItems.forEach(item => {
@@ -166,187 +162,292 @@ async function fetchFullMovieDetails(movie) {
                     
                     if (label.includes("قسم الفيلم")) {
                         details.category = values;
-                    } else if (label.includes("نوع الفيلم") || label.includes("تصنيف")) {
+                    } else if (label.includes("نوع الفيلم")) {
                         details.genres = values;
-                    } else if (label.includes("جودة الفيلم") || label.includes("الجودة")) {
+                    } else if (label.includes("جودة الفيلم")) {
                         details.quality = values;
-                    } else if (label.includes("موعد الصدور") || label.includes("السنة")) {
+                    } else if (label.includes("موعد الصدور")) {
                         details.releaseYear = values;
-                    } else if (label.includes("لغة الفيلم") || label.includes("اللغة")) {
+                    } else if (label.includes("لغة الفيلم")) {
                         details.language = values;
-                    } else if (label.includes("بطولة") || label.includes("الممثلين")) {
+                    } else if (label.includes("بطولة")) {
                         details.actors = values;
-                    } else if (label.includes("المخرج") || label.includes("إخراج")) {
-                        details.director = values;
-                    } else if (label.includes("البلد") || label.includes("الدولة")) {
-                        details.country = values;
                     }
                 } else {
                     const text = item.textContent.trim();
                     const value = text.split(":").slice(1).join(":").trim();
                     
-                    if (label.includes("توقيت الفيلم") || label.includes("المدة")) {
+                    if (label.includes("توقيت الفيلم")) {
                         details.duration = value;
                     }
                 }
             }
         });
         
-        // 5. روابط المشاهدة إن وجدت
-        const watchLinks = [];
-        const watchElements = doc.querySelectorAll(".dooplay_player_option a");
-        watchElements.forEach(link => {
-            if (link.href && !link.href.includes('#')) {
-                watchLinks.push({
-                    server: link.textContent.trim() || "مصدر غير معروف",
-                    url: link.href
-                });
-            }
-        });
-        
         return {
-            id: movieId,
-            title: title,
-            image: image,
+            id: movieId,      // ✅ ID
+            title: title,     // ✅ الاسم
+            image: image,     // ✅ الصورة
             url: movie.url,
+            shortLink: shortLink,
             imdbRating: imdbRating,
             story: story,
             details: details,
-            watchLinks: watchLinks.length > 0 ? watchLinks : [],
+            page: movie.page,
             position: movie.position,
-            scrapedAt: new Date().toISOString(),
-            scrapedDate: new Date().toLocaleString('ar-SA')
+            scrapedAt: new Date().toISOString()
         };
         
     } catch (error) {
-        console.log(`     ❌ خطأ: ${error.message}`);
+        console.log(`   ❌ خطأ: ${error.message}`);
         return null;
     }
 }
 
-// ==================== حفظ في ملف Hg.json ====================
-function saveToHgFile(pageData, moviesData) {
+// ==================== حفظ الصفحة (كتابة فوقية دائمة) ====================
+function savePage(pageNum, pageData, moviesData) {
+    const fileName = pageNum === 1 ? "Home.json" : `${pageNum}.json`;
+    const filePath = path.join(MOVIES_DIR, fileName);
+    
+    const pageContent = {
+        page: pageNum,
+        url: pageData.url,
+        totalMovies: moviesData.length,
+        scrapedAt: new Date().toISOString(),
+        movies: moviesData
+    };
+    
+    // ⭐⭐⭐ كتابة فوق الملف دائماً ⭐⭐⭐
+    fs.writeFileSync(filePath, JSON.stringify(pageContent, null, 2));
+    console.log(`💾 حفظ ${fileName} بـ ${moviesData.length} فيلم`);
+    
+    return fileName;
+}
+
+// ==================== تحديث السجل (الكاتالوج) ====================
+function updateCatalog(moviesData, pageNum) {
     try {
-        const result = {
-            page: "Home",
-            url: pageData.url,
-            totalMovies: moviesData.length,
-            scrapedAt: new Date().toISOString(),
-            timestamp: new Date().toLocaleString('ar-SA'),
-            movies: moviesData
-        };
+        let catalog = { movies: [] };
         
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2), 'utf8');
-        
-        // التحقق من أن الملف تم إنشاؤه
-        if (fs.existsSync(OUTPUT_FILE)) {
-            const fileStats = fs.statSync(OUTPUT_FILE);
-            console.log(`💾 تم حفظ ${moviesData.length} فيلم في ${OUTPUT_FILE}`);
-            console.log(`📊 حجم الملف: ${(fileStats.size / 1024).toFixed(2)} KB`);
-            return true;
-        } else {
-            console.log(`❌ الملف لم يتم إنشاؤه: ${OUTPUT_FILE}`);
-            return false;
+        // تحميل الكاتالوج الحالي إذا موجود
+        if (fs.existsSync(CATALOG_FILE)) {
+            catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, 'utf8'));
         }
         
+        // إضافة الأفلام الجديدة للسجل
+        moviesData.forEach(movie => {
+            if (movie && movie.id && movie.title) {
+                // البحث عن الفيلم في السجل
+                const existingIndex = catalog.movies.findIndex(m => m.id === movie.id);
+                
+                if (existingIndex === -1) {
+                    // إضافة فيلم جديد
+                    catalog.movies.push({
+                        id: movie.id,
+                        title: movie.title,
+                        image: movie.image,
+                        page: pageNum,
+                        addedAt: new Date().toISOString()
+                    });
+                } else {
+                    // تحديث الفيلم الموجود
+                    catalog.movies[existingIndex] = {
+                        ...catalog.movies[existingIndex],
+                        title: movie.title,
+                        image: movie.image,
+                        updatedAt: new Date().toISOString()
+                    };
+                }
+            }
+        });
+        
+        // حفظ الكاتالوج
+        catalog.lastUpdated = new Date().toISOString();
+        catalog.totalMovies = catalog.movies.length;
+        catalog.totalPages = pageNum;
+        
+        fs.writeFileSync(CATALOG_FILE, JSON.stringify(catalog, null, 2));
+        console.log(`📒 تحديث السجل: ${catalog.movies.length} فيلم`);
+        
+        return catalog;
+        
     } catch (error) {
-        console.log(`❌ خطأ في حفظ الملف: ${error.message}`);
-        return false;
+        console.log(`❌ خطأ في تحديث السجل: ${error.message}`);
+        return null;
     }
+}
+
+// ==================== استخراج صفحة واحدة وحفظها ====================
+async function processPage(pageNum) {
+    console.log(`\n========================================`);
+    console.log(`🚀 معالجة الصفحة ${pageNum === 1 ? "الرئيسية" : pageNum}`);
+    console.log(`========================================`);
+    
+    // جلب الصفحة
+    const pageData = await fetchMoviesFromPage(pageNum);
+    
+    if (!pageData || pageData.movies.length === 0) {
+        console.log(`⏹️ لا توجد أفلام في هذه الصفحة`);
+        return { success: false, total: 0 };
+    }
+    
+    const moviesData = [];
+    
+    console.log(`🔍 استخراج تفاصيل ${pageData.movies.length} فيلم...`);
+    
+    // استخراج كل الأفلام
+    for (let i = 0; i < pageData.movies.length; i++) {
+        const movie = pageData.movies[i];
+        
+        const details = await fetchMovieDetails(movie);
+        
+        if (details && details.id) {
+            moviesData.push(details);
+            console.log(`   ✅ ${i + 1}/${pageData.movies.length}: ${details.title.substring(0, 30)}...`);
+        } else {
+            console.log(`   ⏭️ تخطي الفيلم ${i + 1}`);
+        }
+        
+        // انتظار قصير بين الأفلام
+        if (i < pageData.movies.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 800));
+        }
+    }
+    
+    // ⭐⭐⭐ حفظ الصفحة مباشرة (كتابة فوقية) ⭐⭐⭐
+    if (moviesData.length > 0) {
+        savePage(pageNum, pageData, moviesData);
+        
+        // تحديث سجل الكاتالوج
+        updateCatalog(moviesData, pageNum);
+        
+        console.log(`\n✅ تم حفظ الصفحة ${pageNum} بنجاح`);
+        console.log(`📊 الأفلام المحفوظة: ${moviesData.length}`);
+        
+        // عرض عينة من السجل
+        console.log(`📋 عينة من السجل:`);
+        moviesData.slice(0, 3).forEach((movie, idx) => {
+            console.log(`   ${idx + 1}. ID: ${movie.id}, العنوان: ${movie.title.substring(0, 30)}`);
+        });
+        
+        return { success: true, total: moviesData.length };
+    }
+    
+    return { success: false, total: 0 };
 }
 
 // ==================== الدالة الرئيسية ====================
 async function main() {
-    console.log("🚀 بدء استخراج الصفحة الرئيسية فقط");
-    console.log("=".repeat(60));
-    console.log(`📅 التاريخ: ${new Date().toLocaleString('ar-SA')}`);
-    console.log(`💾 ملف الإخراج: ${OUTPUT_FILE}`);
-    console.log("=".repeat(60));
+    console.log("🎬 بدء استخراج جميع الصفحات");
+    console.log("=".repeat(50));
     
-    try {
-        // 1. جلب الصفحة الرئيسية فقط
-        const pageData = await fetchMoviesFromHomePage();
+    const START_PAGE = 1;
+    const MAX_PAGES = 50; // غير الرقم حسب ما تريد
+    
+    let totalMovies = 0;
+    let successfulPages = 0;
+    
+    console.log(`⚙️ الإعدادات: من الصفحة ${START_PAGE} إلى ${MAX_PAGES}`);
+    
+    // ⭐⭐⭐ استخراج كل الصفحات بدون توقف ⭐⭐⭐
+    for (let pageNum = START_PAGE; pageNum <= MAX_PAGES; pageNum++) {
+        console.log(`\n📊 الصفحات المكتملة: ${successfulPages}/${pageNum - START_PAGE}`);
         
-        if (!pageData || pageData.movies.length === 0) {
-            console.log("⏹️ لا توجد أفلام في الصفحة الرئيسية");
-            return;
-        }
-        
-        // 2. استخراج تفاصيل كل فيلم في الصفحة الأولى
-        console.log(`\n🔍 استخراج تفاصيل ${pageData.movies.length} فيلم...`);
-        
-        const moviesData = [];
-        
-        // نأخذ أول 20 فيلم فقط من الصفحة الأولى (يمكنك تعديل الرقم)
-        const limit = Math.min(20, pageData.movies.length);
-        
-        for (let i = 0; i < limit; i++) {
-            const movie = pageData.movies[i];
+        try {
+            const result = await processPage(pageNum);
             
-            try {
-                const details = await fetchFullMovieDetails(movie);
-                
-                if (details) {
-                    moviesData.push(details);
-                    console.log(`   ✅ ${i + 1}/${limit}: ${details.title.substring(0, 30)}...`);
-                } else {
-                    console.log(`   ⏭️ تخطي الفيلم ${i + 1}`);
-                }
-                
-                // انتظار قصير بين الأفلام لتجنب الحظر
-                if (i < limit - 1) {
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                }
-                
-            } catch (movieError) {
-                console.log(`   ❌ خطأ في الفيلم ${i + 1}: ${movieError.message}`);
-                continue;
-            }
-        }
-        
-        // 3. حفظ النتائج في Hg.json
-        console.log(`\n💾 جاري حفظ النتائج في Hg.json...`);
-        
-        if (moviesData.length > 0) {
-            const saved = saveToHgFile(pageData, moviesData);
-            
-            if (saved) {
-                console.log("\n" + "=".repeat(60));
-                console.log("🎉 تم استخراج الصفحة الرئيسية بنجاح!");
-                console.log("=".repeat(60));
-                console.log(`📊 إجمالي الأفلام: ${moviesData.length}`);
-                console.log(`📁 الملف المحفوظ: Hg.json`);
-                console.log(`⏰ وقت التنفيذ: ${new Date().toLocaleString('ar-SA')}`);
-                console.log("=".repeat(60));
-                
-                // عرض عينة من البيانات
-                console.log("\n📋 عينة من الأفلام المستخرجة:");
-                moviesData.slice(0, 3).forEach((movie, i) => {
-                    console.log(`${i + 1}. ${movie.title}`);
-                    console.log(`   🎭 الأنواع: ${movie.details.genres.join(', ') || 'غير معروف'}`);
-                    console.log(`   ⭐ IMDb: ${movie.imdbRating || 'غير متوفر'}`);
-                    console.log(`   🎬 الرابط: ${movie.url}`);
-                    console.log("");
-                });
+            if (result.success) {
+                totalMovies += result.total;
+                successfulPages++;
+                console.log(`📈 الإجمالي حتى الآن: ${totalMovies} فيلم`);
             } else {
-                console.log("\n❌ فشل في حفظ النتائج");
+                console.log(`⚠️ فشل في الصفحة ${pageNum}`);
             }
-        } else {
-            console.log("\n⚠️ لم يتم استخراج أي فيلم بنجاح");
+            
+        } catch (error) {
+            console.log(`💥 خطأ في الصفحة ${pageNum}: ${error.message}`);
         }
         
-    } catch (error) {
-        console.error("\n💥 خطأ في الدالة الرئيسية:", error.message);
+        // انتظار بين الصفحات (ماعدا الصفحة الأخيرة)
+        if (pageNum < MAX_PAGES) {
+            console.log(`⏳ انتظار 3 ثواني للصفحة التالية...`);
+            await new Promise(resolve => setTimeout(resolve, 3000));
+        }
     }
     
-    console.log("\n✨ البرنامج انتهى!");
+    // ==================== النتائج النهائية ====================
+    console.log("\n" + "=".repeat(50));
+    console.log("🎉 انتهى استخراج جميع الصفحات");
+    console.log("=".repeat(50));
+    console.log(`📊 النتائج النهائية:`);
+    console.log(`   - الصفحات المكتملة: ${successfulPages}`);
+    console.log(`   - إجمالي الأفلام: ${totalMovies}`);
+    console.log(`   - سجل الكاتالوج: ${CATALOG_FILE}`);
+    
+    // قراءة و عرض ملخص السجل
+    try {
+        if (fs.existsSync(CATALOG_FILE)) {
+            const catalog = JSON.parse(fs.readFileSync(CATALOG_FILE, 'utf8'));
+            console.log(`   - الأفلام في السجل: ${catalog.totalMovies}`);
+            
+            // عرض عينة من السجل
+            console.log(`\n📋 عينة من السجل (أول 5 أفلام):`);
+            catalog.movies.slice(0, 5).forEach((movie, idx) => {
+                console.log(`   ${idx + 1}. ${movie.title} (ID: ${movie.id})`);
+            });
+        }
+    } catch (error) {
+        console.log(`   ❌ خطأ في قراءة السجل: ${error.message}`);
+    }
+    
+    console.log("\n📁 الملفات المحفوظة:");
+    try {
+        const files = fs.readdirSync(MOVIES_DIR)
+            .filter(file => file.endsWith('.json'))
+            .sort((a, b) => {
+                if (a === 'Home.json') return -1;
+                if (b === 'Home.json') return 1;
+                if (a === 'catalog.json') return 1;
+                if (b === 'catalog.json') return -1;
+                return parseInt(a) - parseInt(b);
+            });
+        
+        files.forEach(file => {
+            const filePath = path.join(MOVIES_DIR, file);
+            try {
+                const stats = fs.statSync(filePath);
+                console.log(`   📄 ${file} (${(stats.size / 1024).toFixed(1)} KB)`);
+            } catch {
+                console.log(`   📄 ${file}`);
+            }
+        });
+    } catch (error) {
+        console.log(`   ❌ خطأ في قراءة الملفات: ${error.message}`);
+    }
+    
+    console.log("=".repeat(50));
+    
+    // حفظ التقرير النهائي
+    const finalReport = {
+        status: "completed",
+        totalPages: successfulPages,
+        totalMovies: totalMovies,
+        catalogFile: CATALOG_FILE,
+        timestamp: new Date().toISOString()
+    };
+    
+    fs.writeFileSync("final_report.json", JSON.stringify(finalReport, null, 2));
+    console.log(`📝 التقرير النهائي محفوظ في final_report.json`);
 }
 
 // التشغيل
-main().then(() => {
-    console.log("✅ تم الإنتهاء من استخراج الصفحة الأولى");
-    process.exit(0);
-}).catch(error => {
-    console.error("\n💥 خطأ غير متوقع:", error.message);
-    process.exit(1);
+main().catch(error => {
+    console.error("💥 خطأ غير متوقع:", error.message);
+    
+    const errorReport = {
+        error: error.message,
+        timestamp: new Date().toISOString()
+    };
+    
+    fs.writeFileSync("error.json", JSON.stringify(errorReport, null, 2));
 });
