@@ -2,21 +2,9 @@ name: KiroZozo Movie Extractor
 
 on:
   workflow_dispatch:
-    inputs:
-      script:
-        description: 'اختر الملف لتشغيله'
-        required: false
-        default: 'both'
-        type: choice
-        options:
-        - fetch.js
-        - fetch_daily.js
-        - both
-  
-  # جدولة صحيحة
   schedule:
-    - cron: "*/30 * * * *"    # كل 30 دقيقة
-    - cron: "0 */6 * * *"     # كل 6 ساعات
+    # تشغيل كل 5 أيام عند الساعة 2 صباحاً (يمكنك تغيير الساعة)
+    - cron: "0 2 */5 * *"  # كل 5 أيام في الساعة 2 صباحاً
 
 jobs:
   extract-movies:
@@ -24,107 +12,90 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4  # تحديث إلى v4
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4  # تحديث إلى v4
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'  # تحديث إلى Node.js 20
-
+          node-version: '18'
+          
       - name: Install dependencies
         run: |
           npm install jsdom
           echo "✅ تم تثبيت الحزم"
 
-      - name: Determine which script to run
-        id: script-selector
+      - name: Create movies directory
         run: |
-          SCRIPT_TO_RUN=""
+          # إنشاء مجلد movies مسبقاً
+          mkdir -p movies
+          echo "📁 تم إنشاء مجلد movies"
+
+      - name: Run the scraper
+        run: |
+          echo "🚀 بدء عملية الاستخراج..."
+          echo "📅 الوقت: $(date)"
+          echo "📅 الجدولة: كل 5 أيام"
+          echo "🔄 تشغيل fetch.js..."
           
-          # إذا كان تشغيل يدوي، استخدم input
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            SCRIPT_TO_RUN="${{ github.event.inputs.script }}"
-            echo "🔧 تشغيل يدوي: $SCRIPT_TO_RUN"
+          # تشغيل الملف الموجود في الريبو
+          node fetch.js
           
-          # إذا كان جدولة (schedule)، نحدد حسب الوقت
-          elif [ "${{ github.event_name }}" == "schedule" ]; then
-            CURRENT_HOUR=$(date +%H)
-            CURRENT_MINUTE=$(date +%M)
-            
-            # إذا كانت الدقائق 00, 30 (كل 30 دقيقة) - تشغيل fetch.js
-            if [ $CURRENT_MINUTE -eq 0 ] || [ $CURRENT_MINUTE -eq 30 ]; then
-              SCRIPT_TO_RUN="fetch.js"
-              echo "🔧 جدولة (كل 30 دقيقة): $SCRIPT_TO_RUN"
-            
-            # إذا كانت الساعة 0, 6, 12, 18 (كل 6 ساعات) - تشغيل fetch_daily.js
-            elif [ $CURRENT_HOUR -eq 0 ] || [ $CURRENT_HOUR -eq 6 ] || [ $CURRENT_HOUR -eq 12 ] || [ $CURRENT_HOUR -eq 18 ]; then
-              SCRIPT_TO_RUN="fetch_daily.js"
-              echo "🔧 جدولة (كل 6 ساعات): $SCRIPT_TO_RUN"
-            else
-              echo "⚠️  لا يوجد جدولة في هذا الوقت"
-              exit 0  # خروج نظيف بدون خطأ
-            fi
+          echo "✅ تم الانتهاء من الاستخراج"
+
+      - name: Display results
+        run: |
+          echo "📊 ====== النتائج ======"
+          
+          # عرض result.json
+          if [ -f "result.json" ]; then
+            echo "🎯 ملف result.json:"
+            cat result.json
+            echo ""
+          else
+            echo "❌ result.json غير موجود"
           fi
           
-          if [ -n "$SCRIPT_TO_RUN" ]; then
-            echo "script=$SCRIPT_TO_RUN" >> $GITHUB_OUTPUT
+          # عرض محتويات مجلد movies
+          echo ""
+          echo "📂 محتويات مجلد movies:"
+          if [ -d "movies" ]; then
+            ls -la movies/
+            echo ""
+            echo "🎬 عدد ملفات الأفلام: $(ls -1 movies/*.json 2>/dev/null | wc -l || echo '0')"
+            
+            # عرض الفهرس إذا كان موجوداً
+            if [ -f "movies/index.json" ]; then
+              echo ""
+              echo "📋 الفهرس:"
+              cat movies/index.json | jq '{totalMovies: .totalMovies, scrapedMovies: .scrapedMovies, lastUpdated: .lastUpdated}'
+            fi
+            
+            # عرض مثال من ملف فيلم
+            if ls movies/movie_*.json 1> /dev/null 2>&1; then
+              echo ""
+              echo "🎥 مثال من ملف فيلم:"
+              first_movie=$(ls movies/movie_*.json | head -1)
+              echo "🔸 الملف: $(basename $first_movie)"
+              cat $first_movie | jq '{id: .id, title: .title, imdbRating: .imdbRating}'
+            fi
+          else
+            echo "❌ مجلد movies غير موجود"
           fi
 
-      - name: Run the selected script
+      - name: Commit and push changes
         run: |
-          if [ -z "${{ steps.script-selector.outputs.script }}" ]; then
-            echo "❌ لم يتم تحديد ملف للتشغيل"
-            exit 0
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          
+          # إضافة جميع التغييرات
+          git add result.json movies/ || echo "⚠️ لا توجد ملفات جديدة"
+          
+          # التحقق إذا كانت هناك تغييرات
+          if git diff --cached --quiet; then
+            echo "📭 لا توجد تغييرات للرفع"
+          else
+            echo "🔼 رفع التغييرات..."
+            git commit -m "🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج الأفلام تلقائياً - جدولة كل 5 أيام"
+            git push
+            echo "✅ تم رفع التغييرات"
           fi
-          
-          echo "🚀 بدء التشغيل..."
-          echo "📅 الوقت: $(date)"
-          echo "📁 الملف المحدد: ${{ steps.script-selector.outputs.script }}"
-          
-          # تشغيل الملف/الملفات المحددة
-          case "${{ steps.script-selector.outputs.script }}" in
-            "fetch.js")
-              echo "🔄 تشغيل fetch.js..."
-              if [ -f "fetch.js" ]; then
-                node fetch.js
-              else
-                echo "❌ ملف fetch.js غير موجود!"
-                exit 1
-              fi
-              ;;
-            "fetch_daily.js")
-              echo "🔄 تشغيل fetch_daily.js..."
-              if [ -f "fetch_daily.js" ]; then
-                node fetch_daily.js
-              else
-                echo "❌ ملف fetch_daily.js غير موجود!"
-                exit 1
-              fi
-              ;;
-            "both")
-              echo "🔄 تشغيل fetch.js أولاً..."
-              if [ -f "fetch.js" ]; then
-                node fetch.js
-              else
-                echo "❌ ملف fetch.js غير موجود!"
-                exit 1
-              fi
-              
-              echo "⏳ انتظار 10 ثواني..."
-              sleep 10
-              
-              echo "🔄 تشغيل fetch_daily.js ثانياً..."
-              if [ -f "fetch_daily.js" ]; then
-                node fetch_daily.js
-              else
-                echo "❌ ملف fetch_daily.js غير موجود!"
-                exit 1
-              fi
-              ;;
-            *)
-              echo "❌ لم يتم تحديد ملف صالح"
-              exit 1
-              ;;
-          esac
-          
-          echo "✅ تم الانتهاء من التشغيل"
