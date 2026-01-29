@@ -925,3 +925,77 @@ async function main() {
             console.log(`   📚 عدد المواسم: ${seriesDetails.seasonsCount}`);
             
             // معالجة المسلسل كاملاً (المواسم والحلقات)
+            console.log(`   🔄 بدء استخراج المواسم والحلقات...`);
+            const result = await processSingleSeries(seriesDetails, allSeasons, allEpisodes);
+            allResults.push(result);
+            
+            console.log(`   ✅ تم معالجة ${result.seasons.length} موسم و ${result.episodes.length} حلقة`);
+        } else {
+            console.log(`   ⏭️ تخطي المسلسل (لا يوجد ID)`);
+        }
+        
+        // انتظار بين المسلسلات
+        if (i < seriesToProcess - 1) {
+            console.log(`   ⏳ انتظار 3 ثواني قبل المسلسل التالي...`);
+            await new Promise(resolve => setTimeout(resolve, 3000));
+        }
+    }
+    
+    console.log(`\n${"=".repeat(60)}`);
+    console.log(`📊 ملخص النتائج:`);
+    console.log(`   📺 المسلسلات: ${seriesData.length}`);
+    console.log(`   📚 المواسم: ${allSeasons.length}`);
+    console.log(`   🎬 الحلقات: ${allEpisodes.length}`);
+    
+    // 5. حفظ البيانات في ملفات JSON
+    console.log(`\n💾 حفظ البيانات...`);
+    
+    if (seriesData.length > 0) {
+        saveSeriesToFile(pageData, seriesData);
+    }
+    
+    if (allSeasons.length > 0) {
+        saveSeasonsToFile(allSeasons);
+    }
+    
+    if (allEpisodes.length > 0) {
+        saveEpisodesToFile(allEpisodes);
+    }
+    
+    const endTime = Date.now();
+    const duration = Math.round((endTime - startTime) / 1000);
+    
+    console.log(`\n✅ تم الانتهاء في ${duration} ثانية`);
+    console.log(`📁 الملفات المحفوظة:`);
+    console.log(`   📄 Series/Hg.json`);
+    console.log(`   📄 Seasons/Hg.json`);
+    console.log(`   📄 Episodes/Hg.json`);
+    
+    return {
+        success: true,
+        total: {
+            series: seriesData.length,
+            seasons: allSeasons.length,
+            episodes: allEpisodes.length
+        },
+        duration: duration
+    };
+}
+
+// ==================== تشغيل البرنامج ====================
+main()
+    .then(result => {
+        if (result.success) {
+            console.log(`\n🎉 تم استخراج ${result.total.series} مسلسل, ${result.total.seasons} موسم, ${result.total.episodes} حلقة`);
+            console.log(`⏱️  الوقت المستغرق: ${result.duration} ثانية`);
+            process.exit(0);
+        } else {
+            console.log(`\n❌ فشل استخراج البيانات`);
+            process.exit(1);
+        }
+    })
+    .catch(error => {
+        console.error(`\n💥 خطأ غير متوقع: ${error.message}`);
+        console.error(error.stack);
+        process.exit(1);
+    });
