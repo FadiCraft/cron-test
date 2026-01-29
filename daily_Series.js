@@ -9,11 +9,13 @@ const __dirname = path.dirname(__filename);
 // إعدادات المسارات
 const SERIES_DIR = path.join(__dirname, "Series");
 const SERIES_OUTPUT = path.join(SERIES_DIR, "Series", "Hg.json");
-const SEASONS_DIR = path.join(SERIES_DIR, "Seasons");
-const EPISODES_DIR = path.join(SERIES_DIR, "Episodes");
+const SEASONS_OUTPUT = path.join(SERIES_DIR, "Seasons", "Hg.json");
+const EPISODES_OUTPUT = path.join(SERIES_DIR, "Episodes", "Hg.json");
 
 // إنشاء المجلدات إذا لم تكن موجودة
-[path.join(SERIES_DIR, "Series"), SEASONS_DIR, EPISODES_DIR].forEach(dir => {
+[path.join(SERIES_DIR, "Series"), 
+ path.join(SERIES_DIR, "Seasons"), 
+ path.join(SERIES_DIR, "Episodes")].forEach(dir => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
@@ -224,8 +226,8 @@ async function fetchEpisodesFromSeason(seasonUrl, seriesId, seasonId) {
             
             if (episodeUrl && episodeUrl.includes('topcinema.rip')) {
                 episodes.push({
-                    seriesId: seriesId,
-                    seasonId: seasonId,
+                    series_id: seriesId,
+                    season_id: seasonId,
                     episodeNumber: episodeNumber,
                     title: `الحلقة ${episodeNumber}`,
                     url: episodeUrl
@@ -257,6 +259,11 @@ async function fetchEpisodeDetails(episode, seriesId, seasonId) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
+        // استخراج ID الحلقة من الرابط المختصر
+        const shortLinkInput = doc.querySelector('#shortlink');
+        const shortLink = shortLinkInput ? shortLinkInput.value : null;
+        const episodeId = shortLink ? extractSeriesId(shortLink) : null;
+        
         // استخراج روابط المشاهدة والتحميل
         const watchLinkElement = doc.querySelector('a.watch[href*="/watch/"]');
         const downloadLinkElement = doc.querySelector('a.download[href*="/download/"]');
@@ -279,8 +286,9 @@ async function fetchEpisodeDetails(episode, seriesId, seasonId) {
         }
         
         return {
-            seriesId: seriesId,
-            seasonId: seasonId,
+            series_id: seriesId,
+            season_id: seasonId,
+            episodes_id: episodeId || `ep_${seriesId}_${seasonId}_${episode.episodeNumber}`,
             episodeNumber: episode.episodeNumber,
             title: `الحلقة ${episode.episodeNumber}`,
             url: episode.url,
@@ -325,8 +333,12 @@ async function fetchSeasonsFromSeries(seriesUrl, seriesId) {
             const title = element.querySelector('.title')?.textContent?.trim() || `الموسم ${seasonNumber}`;
             
             if (seasonUrl && seasonUrl.includes('topcinema.rip')) {
+                // استخراج ID الموسم من الرابط
+                const seasonId = seasonUrl.match(/gt=(\d+)/)?.[1] || `s_${seriesId}_${seasonNumber}`;
+                
                 seasons.push({
-                    seriesId: seriesId,
+                    series_id: seriesId,
+                    season_id: seasonId,
                     seasonNumber: seasonNumber.replace('الموسم', '').trim(),
                     title: `الموسم ${seasonNumber}`,
                     url: seasonUrl
@@ -506,42 +518,38 @@ function saveSeriesToFile(pageData, seriesData) {
     return SERIES_OUTPUT;
 }
 
-// ==================== حفظ المواسم في ملف حسب ID المسلسل ====================
-function saveSeasonsToFile(seriesId, seasonsData) {
-    const seasonsFile = path.join(SEASONS_DIR, `series_${seriesId}.json`);
-    
+// ==================== حفظ المواسم في Hg.json ====================
+function saveSeasonsToFile(allSeasons) {
     const seasonsContent = {
-        seriesId: seriesId,
-        totalSeasons: seasonsData.length,
+        totalSeasons: allSeasons.length,
         scrapedAt: new Date().toISOString(),
-        seasons: seasonsData
+        lastUpdated: new Date().toISOString(),
+        seasons: allSeasons
     };
     
-    fs.writeFileSync(seasonsFile, JSON.stringify(seasonsContent, null, 2));
-    console.log(`   💾 حفظ ${seasonsData.length} موسم في ${seasonsFile}`);
+    fs.writeFileSync(SEASONS_OUTPUT, JSON.stringify(seasonsContent, null, 2));
+    console.log(`💾 حفظ المواسم في ${SEASONS_OUTPUT} بـ ${allSeasons.length} موسم`);
     
-    return seasonsFile;
+    return SEASONS_OUTPUT;
 }
 
-// ==================== حفظ الحلقات في ملف حسب ID الموسم ====================
-function saveEpisodesToFile(seasonId, episodesData) {
-    const episodesFile = path.join(EPISODES_DIR, `season_${seasonId}.json`);
-    
+// ==================== حفظ الحلقات في Hg.json ====================
+function saveEpisodesToFile(allEpisodes) {
     const episodesContent = {
-        seasonId: seasonId,
-        totalEpisodes: episodesData.length,
+        totalEpisodes: allEpisodes.length,
         scrapedAt: new Date().toISOString(),
-        episodes: episodesData
+        lastUpdated: new Date().toISOString(),
+        episodes: allEpisodes
     };
     
-    fs.writeFileSync(episodesFile, JSON.stringify(episodesContent, null, 2));
-    console.log(`     💾 حفظ ${episodesData.length} حلقة في ${episodesFile}`);
+    fs.writeFileSync(EPISODES_OUTPUT, JSON.stringify(episodesContent, null, 2));
+    console.log(`💾 حفظ الحلقات في ${EPISODES_OUTPUT} بـ ${allEpisodes.length} حلقة`);
     
-    return episodesFile;
+    return EPISODES_OUTPUT;
 }
 
 // ==================== معالجة مسلسل واحد كاملاً ====================
-async function processSingleSeries(seriesDetail) {
+async function processSingleSeries(seriesDetail, allSeasons, allEpisodes) {
     console.log(`\n🔍 بدء معالجة المسلسل: ${seriesDetail.title}`);
     console.log(`   🆔 ID: ${seriesDetail.id}`);
     
@@ -553,37 +561,36 @@ async function processSingleSeries(seriesDetail) {
         return { seriesDetail, seasons: [], episodes: [] };
     }
     
+    // إضافة المواسم إلى القائمة الرئيسية
+    allSeasons.push(...seasons);
+    
     // انتظار قصير بين طلبات المواسم
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // 2. حفظ المواسم
-    saveSeasonsToFile(seriesDetail.id, seasons);
+    const seriesEpisodes = [];
     
-    const allEpisodes = [];
-    
-    // 3. جلب الحلقات لكل موسم
+    // 2. جلب الحلقات لكل موسم
     for (let i = 0; i < seasons.length; i++) {
         const season = seasons[i];
         console.log(`   📖 معالجة ${season.title}...`);
         
         // جلب الحلقات من صفحة الموسم
-        const episodes = await fetchEpisodesFromSeason(season.url, seriesDetail.id, season.seasonNumber);
+        const episodes = await fetchEpisodesFromSeason(season.url, seriesDetail.id, season.season_id);
         
         if (episodes.length === 0) {
             console.log(`   ⏭️ لا توجد حلقات في ${season.title}`);
             continue;
         }
         
-        const seasonEpisodes = [];
-        
-        // 4. جلب تفاصيل كل حلقة
+        // 3. جلب تفاصيل كل حلقة
         for (let j = 0; j < episodes.length; j++) {
             const episode = episodes[j];
             
-            const episodeDetails = await fetchEpisodeDetails(episode, seriesDetail.id, season.seasonNumber);
+            const episodeDetails = await fetchEpisodeDetails(episode, seriesDetail.id, season.season_id);
             
             if (episodeDetails) {
-                seasonEpisodes.push(episodeDetails);
+                seriesEpisodes.push(episodeDetails);
+                allEpisodes.push(episodeDetails);
                 console.log(`     ✅ حلقة ${episode.episodeNumber}: ${episodeDetails.watchServers?.length || 0} سيرفر مشاهدة, ${episodeDetails.downloadServers?.length || 0} سيرفر تحميل`);
             }
             
@@ -593,19 +600,13 @@ async function processSingleSeries(seriesDetail) {
             }
         }
         
-        // 5. حفظ حلقات الموسم
-        if (seasonEpisodes.length > 0) {
-            saveEpisodesToFile(season.seasonNumber, seasonEpisodes);
-            allEpisodes.push(...seasonEpisodes);
-        }
-        
         // انتظار بين المواسم
         if (i < seasons.length - 1) {
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     
-    return { seriesDetail, seasons, episodes: allEpisodes };
+    return { seriesDetail, seasons, episodes: seriesEpisodes };
 }
 
 // ==================== الدالة الرئيسية ====================
@@ -625,6 +626,8 @@ async function main() {
     
     const seriesData = [];
     const allResults = [];
+    const allSeasons = [];
+    const allEpisodes = [];
     
     console.log(`🔍 استخراج تفاصيل ${pageData.series.length} مسلسل...`);
     
@@ -641,7 +644,7 @@ async function main() {
             console.log(`     📚 مواسم: ${seriesDetails.seasonsCount}`);
             
             // معالجة المسلسل كاملاً (المواسم والحلقات)
-            const result = await processSingleSeries(seriesDetails);
+            const result = await processSingleSeries(seriesDetails, allSeasons, allEpisodes);
             allResults.push(result);
             
             console.log(`     ✅ تم معالجة ${result.seasons.length} موسم و ${result.episodes.length} حلقة`);
@@ -656,40 +659,30 @@ async function main() {
         }
     }
     
-    // حفظ بيانات المسلسلات في Hg.json
+    // حفظ جميع البيانات في ملفات Hg.json
     if (seriesData.length > 0) {
-        const savedFile = saveSeriesToFile(pageData, seriesData);
+        const savedSeriesFile = saveSeriesToFile(pageData, seriesData);
+        const savedSeasonsFile = saveSeasonsToFile(allSeasons);
+        const savedEpisodesFile = saveEpisodesToFile(allEpisodes);
         
         console.log(`\n✅ تم الانتهاء بنجاح!`);
         console.log(`📊 الإحصائيات النهائية:`);
         console.log(`   - المسلسلات المحفوظة: ${seriesData.length}`);
-        
-        const totalSeasons = allResults.reduce((sum, result) => sum + result.seasons.length, 0);
-        const totalEpisodes = allResults.reduce((sum, result) => sum + result.episodes.length, 0);
-        
-        console.log(`   - إجمالي المواسم: ${totalSeasons}`);
-        console.log(`   - إجمالي الحلقات: ${totalEpisodes}`);
+        console.log(`   - إجمالي المواسم: ${allSeasons.length}`);
+        console.log(`   - إجمالي الحلقات: ${allEpisodes.length}`);
         
         // عرض إحصائيات السيرفرات
-        const totalWatchServers = allResults.reduce((sum, result) => 
-            sum + result.episodes.reduce((epSum, ep) => epSum + (ep.watchServers?.length || 0), 0), 0);
-        
-        const totalDownloadServers = allResults.reduce((sum, result) => 
-            sum + result.episodes.reduce((epSum, ep) => epSum + (ep.downloadServers?.length || 0), 0), 0);
+        const totalWatchServers = allEpisodes.reduce((sum, ep) => sum + (ep.watchServers?.length || 0), 0);
+        const totalDownloadServers = allEpisodes.reduce((sum, ep) => sum + (ep.downloadServers?.length || 0), 0);
         
         console.log(`   - إجمالي سيرفرات المشاهدة: ${totalWatchServers}`);
         console.log(`   - إجمالي سيرفرات التحميل: ${totalDownloadServers}`);
         
         // عرض هيكلية الملفات
         console.log(`\n📁 هيكلية الملفات المحفوظة:`);
-        console.log(`   - ${savedFile} (بيانات المسلسلات)`);
-        
-        const seriesFiles = fs.readdirSync(path.join(SERIES_DIR, "Series")).filter(f => f.endsWith('.json'));
-        const seasonFiles = fs.readdirSync(SEASONS_DIR).filter(f => f.endsWith('.json'));
-        const episodeFiles = fs.readdirSync(EPISODES_DIR).filter(f => f.endsWith('.json'));
-        
-        console.log(`   - مجلد المواسم: ${seasonFiles.length} ملف`);
-        console.log(`   - مجلد الحلقات: ${episodeFiles.length} ملف`);
+        console.log(`   - ${savedSeriesFile} (${seriesData.length} مسلسل)`);
+        console.log(`   - ${savedSeasonsFile} (${allSeasons.length} موسم)`);
+        console.log(`   - ${savedEpisodesFile} (${allEpisodes.length} حلقة)`);
         
         // عرض عينة من البيانات المحفوظة
         if (seriesData.length > 0) {
@@ -698,25 +691,28 @@ async function main() {
             console.log(`   المسلسل:`);
             console.log(`     1. ID: ${sampleSeries.id}`);
             console.log(`        العنوان: ${sampleSeries.title.substring(0, 40)}...`);
-            console.log(`        الأنواع: ${sampleSeries.details.genres.join(', ')}`);
-            console.log(`        تقييم IMDB: ${sampleSeries.imdbRating || 'غير متوفر'}`);
             
-            const relatedResult = allResults.find(r => r.seriesDetail.id === sampleSeries.id);
-            if (relatedResult && relatedResult.episodes.length > 0) {
-                const sampleEpisode = relatedResult.episodes[0];
-                console.log(`\n   الحلقة:`);
-                console.log(`       الموسم: ${sampleEpisode.seasonId}`);
-                console.log(`       الحلقة: ${sampleEpisode.episodeNumber}`);
-                console.log(`       سيرفرات المشاهدة: ${sampleEpisode.watchServers?.length || 0}`);
-                console.log(`       سيرفرات التحميل: ${sampleEpisode.downloadServers?.length || 0}`);
+            if (allSeasons.length > 0) {
+                const relatedSeasons = allSeasons.filter(s => s.series_id === sampleSeries.id);
+                console.log(`        المواسم: ${relatedSeasons.length} موسم`);
+            }
+            
+            if (allEpisodes.length > 0) {
+                const relatedEpisodes = allEpisodes.filter(e => e.series_id === sampleSeries.id);
+                console.log(`        الحلقات: ${relatedEpisodes.length} حلقة`);
                 
-                if (sampleEpisode.watchServers && sampleEpisode.watchServers.length > 0) {
-                    console.log(`       مثال سيرفر مشاهدة: ${sampleEpisode.watchServers[0].url.substring(0, 50)}...`);
+                if (relatedEpisodes.length > 0) {
+                    const sampleEpisode = relatedEpisodes[0];
+                    console.log(`\n   الحلقة:`);
+                    console.log(`       الموسم ID: ${sampleEpisode.season_id}`);
+                    console.log(`       الحلقة: ${sampleEpisode.episodeNumber}`);
+                    console.log(`       سيرفرات المشاهدة: ${sampleEpisode.watchServers?.length || 0}`);
+                    console.log(`       سيرفرات التحميل: ${sampleEpisode.downloadServers?.length || 0}`);
                 }
             }
         }
         
-        return { success: true, total: seriesData.length };
+        return { success: true, series: seriesData.length, seasons: allSeasons.length, episodes: allEpisodes.length };
     }
     
     return { success: false, total: 0 };
