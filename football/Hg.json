@@ -1,145 +1,10 @@
 {
-  "scrapedAt": "2026-01-29T21:46:53.181Z",
+  "scrapedAt": "2026-01-29T21:56:27.568Z",
   "source": "https://www.yalla1shoot.com/home_8/",
   "totalMatches": 11,
   "matches": [
     {
-      "id": "match_1769723198878_0",
-      "url": "https://www.yalla1shoot.com/matches/porto-vs-rangers/",
-      "title": "بورتو vs رينجرز",
-      "team1": {
-        "name": "بورتو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/887-150x150.png",
-        "score": "3"
-      },
-      "team2": {
-        "name": "رينجرز",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/753-150x150.png",
-        "score": "1"
-      },
-      "score": "3 - 1",
-      "time": "23:00",
-      "status": "جارية الان",
-      "channels": [
-        "beIN SPORTS HD 7",
-        "أوروبا, الدوري الأوروبي"
-      ],
-      "tournament": "أوروبا, الدوري الأوروبي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-01-29T21:46:38.878Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://euroo.yallashootcup.online/albaplayer/sports-7/",
-          "quality": "متعدد الجودات",
-          "server": "AlbaPlayer"
-        }
-      ]
-    },
-    {
-      "id": "match_1769723198879_1",
-      "url": "https://www.yalla1shoot.com/matches/celtic-vs-utrecht/",
-      "title": "سيلتيك vs أوتريخت",
-      "team1": {
-        "name": "سيلتيك",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/754-1.png",
-        "score": "4"
-      },
-      "team2": {
-        "name": "أوتريخت",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/698.png",
-        "score": "2"
-      },
-      "score": "4 - 2",
-      "time": "23:00",
-      "status": "جارية الان",
-      "channels": [
-        "أوروبا, الدوري الأوروبي"
-      ],
-      "tournament": "أوروبا, الدوري الأوروبي",
-      "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-01-29T21:46:38.879Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://euroo.yallashootcup.online/albaplayer/sports-b1/",
-          "quality": "متعدد الجودات",
-          "server": "AlbaPlayer"
-        }
-      ]
-    },
-    {
-      "id": "match_1769723198880_2",
-      "url": "https://www.yalla1shoot.com/matches/stuttgart-vs-young-boys/",
-      "title": "شتوتجارت vs يونغ بويز",
-      "team1": {
-        "name": "شتوتجارت",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/338.png",
-        "score": "2"
-      },
-      "team2": {
-        "name": "يونغ بويز",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/1139.png",
-        "score": "2"
-      },
-      "score": "2 - 2",
-      "time": "23:00",
-      "status": "جارية الان",
-      "channels": [
-        "beIN Sport 8 HD",
-        "أوروبا, الدوري الأوروبي"
-      ],
-      "tournament": "أوروبا, الدوري الأوروبي",
-      "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-01-29T21:46:38.880Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://euroo.yallashootcup.online/albaplayer/sports-8/",
-          "quality": "متعدد الجودات",
-          "server": "AlbaPlayer"
-        }
-      ]
-    },
-    {
-      "id": "match_1769723198881_3",
-      "url": "https://www.yalla1shoot.com/matches/red-star-vs-celta-vigo/",
-      "title": "النجم الأحمر vs سيلتا فيجو",
-      "team1": {
-        "name": "النجم الأحمر",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/8957-106x150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "سيلتا فيجو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/158-1.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "23:00",
-      "status": "جارية الان",
-      "channels": [
-        "beIN SPORTS HD 9",
-        "أوروبا, الدوري الأوروبي"
-      ],
-      "tournament": "أوروبا, الدوري الأوروبي",
-      "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-01-29T21:46:38.881Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://euroo.yallashootcup.online/albaplayer/sports-9/",
-          "quality": "متعدد الجودات",
-          "server": "AlbaPlayer"
-        }
-      ]
-    },
-    {
-      "id": "match_1769723198882_4",
+      "id": "match_1769723774247_0",
       "url": "https://www.yalla1shoot.com/matches/lille-vs-freiburg/",
       "title": "ليل vs فرايبورج",
       "team1": {
@@ -161,8 +26,8 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-01-29T21:46:38.882Z",
+      "position": 1,
+      "scrapedAt": "2026-01-29T21:56:14.247Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -173,20 +38,20 @@
       ]
     },
     {
-      "id": "match_1769723198883_5",
+      "id": "match_1769723774249_1",
       "url": "https://www.yalla1shoot.com/matches/aston-villa-vs-red-bull-salzburg/",
       "title": "أستون فيلا vs ريد بول سالزبورغ",
       "team1": {
         "name": "أستون فيلا",
         "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/109-1-121x150.png",
-        "score": "2"
+        "score": "3"
       },
       "team2": {
         "name": "ريد بول سالزبورغ",
         "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/1739-1.png",
         "score": "2"
       },
-      "score": "2 - 2",
+      "score": "3 - 2",
       "time": "23:00",
       "status": "جارية الان",
       "channels": [
@@ -195,8 +60,8 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-01-29T21:46:38.883Z",
+      "position": 2,
+      "scrapedAt": "2026-01-29T21:56:14.249Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -207,7 +72,7 @@
       ]
     },
     {
-      "id": "match_1769723198884_6",
+      "id": "match_1769723774250_2",
       "url": "https://www.yalla1shoot.com/matches/steaua-bucharest-vs-fenerbahce/",
       "title": "ستياوا بوخارست vs فنربخشة",
       "team1": {
@@ -228,8 +93,8 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-01-29T21:46:38.884Z",
+      "position": 3,
+      "scrapedAt": "2026-01-29T21:56:14.250Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -240,7 +105,7 @@
       ]
     },
     {
-      "id": "match_1769723198884_7",
+      "id": "match_1769723774252_3",
       "url": "https://www.yalla1shoot.com/matches/nottingham-forest-vs-ferencvarosi/",
       "title": "نوتنجهام فورست vs فيرينتسفاروشي",
       "team1": {
@@ -262,8 +127,8 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-01-29T21:46:38.884Z",
+      "position": 4,
+      "scrapedAt": "2026-01-29T21:56:14.252Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -274,20 +139,20 @@
       ]
     },
     {
-      "id": "match_1769723198885_8",
+      "id": "match_1769723774253_4",
       "url": "https://www.yalla1shoot.com/matches/olympique-lyonnais-vs-paok-salonika/",
       "title": "أولمبيك ليون vs باوك سالونيكا",
       "team1": {
         "name": "أولمبيك ليون",
         "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/465-150x150.png",
-        "score": "2"
+        "score": "3"
       },
       "team2": {
         "name": "باوك سالونيكا",
         "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/1029.png",
         "score": "2"
       },
-      "score": "2 - 2",
+      "score": "3 - 2",
       "time": "23:00",
       "status": "جارية الان",
       "channels": [
@@ -296,8 +161,8 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 9,
-      "scrapedAt": "2026-01-29T21:46:38.885Z",
+      "position": 5,
+      "scrapedAt": "2026-01-29T21:56:14.253Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -308,7 +173,7 @@
       ]
     },
     {
-      "id": "match_1769723198886_9",
+      "id": "match_1769723774254_5",
       "url": "https://www.yalla1shoot.com/matches/panathinaikos-vs-roma/",
       "title": "باناثينيكوس vs روما",
       "team1": {
@@ -330,8 +195,8 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 10,
-      "scrapedAt": "2026-01-29T21:46:38.886Z",
+      "position": 6,
+      "scrapedAt": "2026-01-29T21:56:14.254Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -342,7 +207,7 @@
       ]
     },
     {
-      "id": "match_1769723198887_10",
+      "id": "match_1769723774255_6",
       "url": "https://www.yalla1shoot.com/matches/real-betis-vs-feyenoord/",
       "title": "ريال بيتيس vs فاينورد",
       "team1": {
@@ -364,12 +229,147 @@
       ],
       "tournament": "أوروبا, الدوري الأوروبي",
       "page": 1,
-      "position": 11,
-      "scrapedAt": "2026-01-29T21:46:38.887Z",
+      "position": 7,
+      "scrapedAt": "2026-01-29T21:56:14.255Z",
       "watchServers": [
         {
           "type": "iframe",
           "url": "https://euroo.yallashootcup.online/albaplayer/sports-6/",
+          "quality": "متعدد الجودات",
+          "server": "AlbaPlayer"
+        }
+      ]
+    },
+    {
+      "id": "match_1769723774256_7",
+      "url": "https://www.yalla1shoot.com/matches/porto-vs-rangers/",
+      "title": "بورتو vs رينجرز",
+      "team1": {
+        "name": "بورتو",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/887-150x150.png",
+        "score": "3"
+      },
+      "team2": {
+        "name": "رينجرز",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/753-150x150.png",
+        "score": "1"
+      },
+      "score": "3 - 1",
+      "time": "23:00",
+      "status": "جارية الان",
+      "channels": [
+        "beIN SPORTS HD 7",
+        "أوروبا, الدوري الأوروبي"
+      ],
+      "tournament": "أوروبا, الدوري الأوروبي",
+      "page": 1,
+      "position": 8,
+      "scrapedAt": "2026-01-29T21:56:14.256Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://euroo.yallashootcup.online/albaplayer/sports-7/",
+          "quality": "متعدد الجودات",
+          "server": "AlbaPlayer"
+        }
+      ]
+    },
+    {
+      "id": "match_1769723774257_8",
+      "url": "https://www.yalla1shoot.com/matches/celtic-vs-utrecht/",
+      "title": "سيلتيك vs أوتريخت",
+      "team1": {
+        "name": "سيلتيك",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/754-1.png",
+        "score": "4"
+      },
+      "team2": {
+        "name": "أوتريخت",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/698.png",
+        "score": "2"
+      },
+      "score": "4 - 2",
+      "time": "23:00",
+      "status": "جارية الان",
+      "channels": [
+        "أوروبا, الدوري الأوروبي"
+      ],
+      "tournament": "أوروبا, الدوري الأوروبي",
+      "page": 1,
+      "position": 9,
+      "scrapedAt": "2026-01-29T21:56:14.257Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://euroo.yallashootcup.online/albaplayer/sports-b1/",
+          "quality": "متعدد الجودات",
+          "server": "AlbaPlayer"
+        }
+      ]
+    },
+    {
+      "id": "match_1769723774257_9",
+      "url": "https://www.yalla1shoot.com/matches/stuttgart-vs-young-boys/",
+      "title": "شتوتجارت vs يونغ بويز",
+      "team1": {
+        "name": "شتوتجارت",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/338.png",
+        "score": "3"
+      },
+      "team2": {
+        "name": "يونغ بويز",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/1139.png",
+        "score": "2"
+      },
+      "score": "3 - 2",
+      "time": "23:00",
+      "status": "جارية الان",
+      "channels": [
+        "beIN Sport 8 HD",
+        "أوروبا, الدوري الأوروبي"
+      ],
+      "tournament": "أوروبا, الدوري الأوروبي",
+      "page": 1,
+      "position": 10,
+      "scrapedAt": "2026-01-29T21:56:14.257Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://euroo.yallashootcup.online/albaplayer/sports-8/",
+          "quality": "متعدد الجودات",
+          "server": "AlbaPlayer"
+        }
+      ]
+    },
+    {
+      "id": "match_1769723774258_10",
+      "url": "https://www.yalla1shoot.com/matches/red-star-vs-celta-vigo/",
+      "title": "النجم الأحمر vs سيلتا فيجو",
+      "team1": {
+        "name": "النجم الأحمر",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/8957-106x150.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "سيلتا فيجو",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/158-1.png",
+        "score": "1"
+      },
+      "score": "0 - 1",
+      "time": "23:00",
+      "status": "جارية الان",
+      "channels": [
+        "beIN SPORTS HD 9",
+        "أوروبا, الدوري الأوروبي"
+      ],
+      "tournament": "أوروبا, الدوري الأوروبي",
+      "page": 1,
+      "position": 11,
+      "scrapedAt": "2026-01-29T21:56:14.258Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://euroo.yallashootcup.online/albaplayer/sports-9/",
           "quality": "متعدد الجودات",
           "server": "AlbaPlayer"
         }
