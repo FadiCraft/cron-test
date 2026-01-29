@@ -909,8 +909,8 @@ async function main() {
     const allSeasons = [];
     const allEpisodes = [];
     
-    // تحديد عدد المسلسلات للمعالجة (يمكن تغيير الرقم حسب الحاجة)
-    const seriesToProcess = Math.min(pageData.series.length, 3); // معالجة أول 3 مسلسلات فقط للاختبار
+    // ⭐⭐⭐ التعديل المهم: استخراج جميع المسلسلات ⭐⭐⭐
+    const seriesToProcess = pageData.series.length; // جميع المسلسلات
     
     for (let i = 0; i < seriesToProcess; i++) {
         const series = pageData.series[i];
