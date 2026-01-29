@@ -3,8 +3,7 @@ name: KiroZozo Series Extractor
 on:
   workflow_dispatch:
   schedule:
-    # تشغيل يومياً عند الساعة 2 صباحاً (يمكنك تغيير الساعة)
-    - cron: "0 2 * * *"  # يومياً في الساعة 2 صباحاً
+    - cron: "0 2 * * *"
 
 jobs:
   extract-series:
@@ -13,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -26,138 +28,44 @@ jobs:
 
       - name: Create series directories
         run: |
-          # إنشاء مجلدات Series والمجلدات الفرعية
           mkdir -p Series/Series
           mkdir -p Series/Seasons
           mkdir -p Series/Episodes
-          echo "📁 تم إنشاء مجلدات Series:"
-          echo "  - Series/Series"
-          echo "  - Series/Seasons"
-          echo "  - Series/Episodes"
+          echo "📁 تم إنشاء مجلدات Series"
 
       - name: Run the series scraper
         run: |
           echo "🚀 بدء عملية استخراج المسلسلات..."
           echo "📅 الوقت: $(date)"
-          echo "📅 الجدولة: يومياً"
-          echo "🔄 تشغيل daily_Series.js..."
-          
-          # تشغيل الملف الموجود في الريبو
           node daily_Series.js
-          
           echo "✅ تم الانتهاء من استخراج المسلسلات"
 
-      - name: Display results
-        run: |
-          echo "📊 ====== النتائج ======"
-          
-          # عرض error.json إذا كان موجوداً
-          if [ -f "Series/error.json" ]; then
-            echo "⚠️  ملف error.json موجود:"
-            cat Series/error.json | jq '.error'
-            echo ""
-          fi
-          
-          # عرض محتويات مجلد Series/Series
-          echo ""
-          echo "📂 محتويات مجلد Series/Series:"
-          if [ -d "Series/Series" ]; then
-            ls -la Series/Series/
-            
-            # عرض Hg.json إذا كان موجوداً
-            if [ -f "Series/Series/Hg.json" ]; then
-              echo ""
-              echo "📋 ملف Hg.json:"
-              cat Series/Series/Hg.json | jq '{totalSeries: .totalSeries, scrapedAt: .scrapedAt, lastUpdated: .lastUpdated}'
-              
-              # عرض مثال من مسلسل
-              echo ""
-              echo "📺 مثال من المسلسلات:"
-              cat Series/Series/Hg.json | jq '.series[0] | {id: .id, title: .title, seasonsCount: .seasonsCount, imdbRating: .imdbRating}'
-            fi
-          else
-            echo "❌ مجلد Series/Series غير موجود"
-          fi
-
-      - name: Display seasons statistics
-        run: |
-          echo ""
-          echo "📚 إحصائيات المواسم:"
-          if [ -d "Series/Seasons" ]; then
-            echo "📁 عدد ملفات المواسم: $(ls -1 Series/Seasons/*.json 2>/dev/null | wc -l || echo '0')"
-            
-            if ls Series/Seasons/*.json 1> /dev/null 2>&1; then
-              first_season=$(ls Series/Seasons/*.json | head -1)
-              echo ""
-              echo "🔸 مثال من ملف مواسم:"
-              echo "   الملف: $(basename $first_season)"
-              cat $first_season | jq '{seriesId: .seriesId, totalSeasons: .totalSeasons}'
-            fi
-          else
-            echo "❌ مجلد Seasons غير موجود"
-          fi
-
-      - name: Display episodes statistics
-        run: |
-          echo ""
-          echo "🎬 إحصائيات الحلقات:"
-          if [ -d "Series/Episodes" ]; then
-            echo "📁 عدد ملفات الحلقات: $(ls -1 Series/Episodes/*.json 2>/dev/null | wc -l || echo '0')"
-            
-            if ls Series/Episodes/*.json 1> /dev/null 2>&1; then
-              first_episode=$(ls Series/Episodes/*.json | head -1)
-              echo ""
-              echo "🔸 مثال من ملف حلقات:"
-              echo "   الملف: $(basename $first_episode)"
-              cat $first_episode | jq '{seasonId: .seasonId, totalEpisodes: .totalEpisodes}'
-            fi
-          else
-            echo "❌ مجلد Episodes غير موجود"
-          fi
-
-      - name: Generate summary report
-        run: |
-          echo ""
-          echo "📈 ====== التقرير النهائي ======"
-          
-          total_series=0
-          total_seasons=0
-          total_episodes=0
-          
-          if [ -f "Series/Series/Hg.json" ]; then
-            total_series=$(cat Series/Series/Hg.json | jq '.totalSeries // 0')
-            echo "🎯 عدد المسلسلات: $total_series"
-          fi
-          
-          if [ -d "Series/Seasons" ]; then
-            total_seasons=$(ls Series/Seasons/*.json 2>/dev/null | wc -l || echo 0)
-            echo "📚 عدد ملفات المواسم: $total_seasons"
-          fi
-          
-          if [ -d "Series/Episodes" ]; then
-            total_episodes=$(ls Series/Episodes/*.json 2>/dev/null | wc -l || echo 0)
-            echo "🎬 عدد ملفات الحلقات: $total_episodes"
-          fi
-          
-          echo ""
-          echo "📅 وقت الانتهاء: $(date)"
-          echo "✅ العملية اكتملت بنجاح!"
-
-      - name: Commit and push changes
+      - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
+
+      - name: Pull latest changes
+        run: |
+          git pull origin main --rebase || echo "⚠️ لا يوجد تغييرات للسحب"
+
+      - name: Add and commit changes
+        run: |
+          git add Series/ daily_Series.js || echo "⚠️ لا توجد ملفات جديدة"
           
-          # إضافة جميع التغييرات في مجلد Series
-          git add Series/ || echo "⚠️ لا توجد ملفات جديدة"
-          git add daily_Series.js || echo "⚠️ daily_Series.js لم يتغير"
-          
-          # التحقق إذا كانت هناك تغييرات
           if git diff --cached --quiet; then
             echo "📭 لا توجد تغييرات للرفع"
           else
+            git commit -m "📺 تحديث المسلسلات - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج المسلسلات تلقائياً"
+            echo "✅ تم commit التغييرات"
+          fi
+
+      - name: Push changes
+        run: |
+          if git log origin/main..HEAD --oneline | grep -q .; then
             echo "🔼 رفع التغييرات..."
-            git commit -m "📺 تحديث المسلسلات - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج المسلسلات تلقائياً - جدولة يومية"
-            git push
+            git push origin main
             echo "✅ تم رفع التغييرات"
+          else
+            echo "📭 لا توجد تغييرات للرفع"
           fi
