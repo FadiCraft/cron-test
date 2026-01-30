@@ -11,22 +11,12 @@ const RAMADAN_DIR = path.join(__dirname, "Ramadan");
 const YEAR = "2025"; // يمكن تغيير السنة حسب المطلوب
 const YEAR_DIR = path.join(RAMADAN_DIR, YEAR);
 
-// إنشاء المجلدات إذا لم تكن موجودة - مع تحسينات
-function createDirectories() {
-    try {
-        if (!fs.existsSync(RAMADAN_DIR)) {
-            fs.mkdirSync(RAMADAN_DIR, { recursive: true });
-            console.log(`📁 تم إنشاء المجلد: ${RAMADAN_DIR}`);
-        }
-        if (!fs.existsSync(YEAR_DIR)) {
-            fs.mkdirSync(YEAR_DIR, { recursive: true });
-            console.log(`📁 تم إنشاء المجلد: ${YEAR_DIR}`);
-        }
-        return true;
-    } catch (error) {
-        console.error(`❌ خطأ في إنشاء المجلدات: ${error.message}`);
-        return false;
-    }
+// إنشاء المجلدات إذا لم تكن موجودة
+if (!fs.existsSync(RAMADAN_DIR)) {
+    fs.mkdirSync(RAMADAN_DIR, { recursive: true });
+}
+if (!fs.existsSync(YEAR_DIR)) {
+    fs.mkdirSync(YEAR_DIR, { recursive: true });
 }
 
 // ==================== fetch مع timeout ====================
@@ -204,7 +194,8 @@ async function fetchSeriesEpisodes(seriesUrl, seriesId) {
         // استخراج سيرفرات كل حلقة فقط
         for (let i = 0; i < episodeElements.length; i++) {
             const episodeElement = episodeElements[i];
-            const episodeUrl = 'https://larooza.live/' + episodeElement.getAttribute('href');
+            // FIX: استخدام الرابط مباشرة كما هو (ليس إضافة البادئة)
+            const episodeUrl = episodeElement.getAttribute('href');
             
             console.log(`     ${i + 1}/${episodeElements.length}: جلب سيرفرات الحلقة...`);
             
@@ -239,34 +230,6 @@ async function fetchSeriesEpisodes(seriesUrl, seriesId) {
     }
 }
 
-// ==================== حفظ ملف المسلسل ====================
-function saveSeriesFile(seriesData, yearDir) {
-    try {
-        if (!seriesData) {
-            console.log(`   ⚠️ لا توجد بيانات للمسلسل`);
-            return null;
-        }
-        
-        // اسم الملف: id + عنوان نظيف
-        const fileName = `${seriesData.seriesId}_${seriesData.cleanTitle || 'series'}.json`;
-        const filePath = path.join(yearDir, fileName);
-        
-        // كتابة الملف
-        fs.writeFileSync(filePath, JSON.stringify(seriesData, null, 2), 'utf8');
-        console.log(`   💾 تم حفظ المسلسل في: ${fileName}`);
-        
-        return {
-            fileName: fileName,
-            filePath: filePath,
-            size: fs.statSync(filePath).size
-        };
-        
-    } catch (error) {
-        console.log(`   ❌ خطأ في حفظ ملف المسلسل: ${error.message}`);
-        return null;
-    }
-}
-
 // ==================== استخراج جميع المسلسلات ====================
 async function fetchRamadanSeries(pageUrl) {
     console.log(`📖 جلب صفحة المسلسلات: ${pageUrl}`);
@@ -292,7 +255,8 @@ async function fetchRamadanSeries(pageUrl) {
         // استخراج كل مسلسل
         for (let i = 0; i < seriesElements.length; i++) {
             const seriesElement = seriesElements[i];
-            const seriesUrl = 'https://larooza.live/' + seriesElement.getAttribute('href');
+            // FIX: استخدام الرابط مباشرة كما هو (ليس إضافة البادئة)
+            const seriesUrl = seriesElement.getAttribute('href');
             const seriesId = extractSeriesId(seriesUrl) || `series_${i + 1}`;
             
             console.log(`\n🎬 ${i + 1}/${seriesElements.length}: المسلسل ${seriesId}`);
@@ -302,17 +266,18 @@ async function fetchRamadanSeries(pageUrl) {
             
             if (seriesData && seriesData.episodes.length > 0) {
                 // حفظ المسلسل في ملف منفصل
-                const savedFile = saveSeriesFile(seriesData, YEAR_DIR);
+                const seriesFileName = `${seriesId}_${seriesData.cleanTitle}.json`;
+                const seriesFilePath = path.join(YEAR_DIR, seriesFileName);
                 
-                if (savedFile) {
-                    seriesList.push({
-                        id: seriesId,
-                        title: seriesData.seriesTitle,
-                        fileName: savedFile.fileName,
-                        episodes: seriesData.totalEpisodes,
-                        fileSize: savedFile.size
-                    });
-                }
+                fs.writeFileSync(seriesFilePath, JSON.stringify(seriesData, null, 2));
+                console.log(`   💾 تم حفظ المسلسل في: ${seriesFileName}`);
+                
+                seriesList.push({
+                    id: seriesId,
+                    title: seriesData.seriesTitle,
+                    fileName: seriesFileName,
+                    episodes: seriesData.totalEpisodes
+                });
             } else {
                 console.log(`   ⚠️ لم يتم العثور على حلقات للمسلسل`);
             }
@@ -333,26 +298,18 @@ async function fetchRamadanSeries(pageUrl) {
 
 // ==================== حفظ فهرس المسلسلات ====================
 function saveIndexFile(seriesList) {
-    try {
-        const indexData = {
-            year: YEAR,
-            totalSeries: seriesList.length,
-            totalEpisodes: seriesList.reduce((sum, series) => sum + series.episodes, 0),
-            scrapedAt: new Date().toISOString(),
-            lastUpdated: new Date().toISOString(),
-            dataDirectory: YEAR_DIR,
-            series: seriesList
-        };
-        
-        const indexPath = path.join(YEAR_DIR, `index_${YEAR}.json`);
-        fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2), 'utf8');
-        console.log(`📋 تم حفظ فهرس المسلسلات في: ${indexPath}`);
-        
-        return indexPath;
-    } catch (error) {
-        console.error(`❌ خطأ في حفظ الفهرس: ${error.message}`);
-        return null;
-    }
+    const indexData = {
+        year: YEAR,
+        totalSeries: seriesList.length,
+        totalEpisodes: seriesList.reduce((sum, series) => sum + series.episodes, 0),
+        scrapedAt: new Date().toISOString(),
+        series: seriesList
+    };
+    
+    const indexPath = path.join(YEAR_DIR, `index_${YEAR}.json`);
+    fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2));
+    
+    return indexPath;
 }
 
 // ==================== الدالة الرئيسية ====================
@@ -360,17 +317,10 @@ async function main() {
     console.log("🎬 بدء استخراج مسلسلات رمضان");
     console.log("=".repeat(50));
     console.log(`📅 السنة: ${YEAR}`);
-    console.log(`📁 المجلد الرئيسي: ${__dirname}`);
-    console.log(`📁 مجلد التخزين: ${YEAR_DIR}`);
+    console.log(`📁 المجلد: ${YEAR_DIR}`);
     console.log("=".repeat(50));
     
-    // إنشاء المجلدات
-    if (!createDirectories()) {
-        console.log(`⏹️ توقف بسبب خطأ في إنشاء المجلدات`);
-        return { success: false, total: 0 };
-    }
-    
-    const RAMADAN_URL = `https://larooza.live/category.php?cat=13-ramadan-2025`;
+    const RAMADAN_URL = `https://larooza.live/category.php?cat=13-ramadan-${YEAR}`;
     
     // استخراج المسلسلات
     const seriesList = await fetchRamadanSeries(RAMADAN_URL);
@@ -393,31 +343,6 @@ async function main() {
         console.log(`   🔸 ID: ${series.id}`);
         console.log(`   🔸 الملف: ${series.fileName}`);
         console.log(`   🔸 عدد الحلقات: ${series.episodes}`);
-        console.log(`   🔸 حجم الملف: ${(series.fileSize / 1024).toFixed(2)} KB`);
-        
-        // قراءة ملف المسلسل لعرض عينة
-        try {
-            const seriesFilePath = path.join(YEAR_DIR, series.fileName);
-            if (fs.existsSync(seriesFilePath)) {
-                const seriesData = JSON.parse(fs.readFileSync(seriesFilePath, 'utf8'));
-                
-                if (seriesData.episodes && seriesData.episodes.length > 0) {
-                    const firstEpisode = seriesData.episodes[0];
-                    console.log(`   🔸 سيرفرات الحلقة الأولى: ${firstEpisode.watchServers.length}`);
-                    
-                    if (firstEpisode.watchServers.length > 0) {
-                        console.log(`   🔸 أمثلة على السيرفرات:`);
-                        firstEpisode.watchServers.slice(0, 2).forEach(server => {
-                            console.log(`      - ${server.name}: ${server.url.substring(0, 50)}...`);
-                        });
-                    }
-                }
-            } else {
-                console.log(`   🔸 ⚠️ الملف غير موجود`);
-            }
-        } catch (error) {
-            console.log(`   🔸 تعذر قراءة ملف المسلسل: ${error.message}`);
-        }
     });
     
     // عرض إحصائيات
@@ -427,27 +352,6 @@ async function main() {
     console.log(`   ✅ الحلقات: ${totalEpisodes}`);
     console.log(`   📁 الملفات: ${seriesList.length} ملف مسلسل`);
     console.log(`   📋 الفهرس: ${indexPath}`);
-    console.log(`   📍 الموقع: ${YEAR_DIR}`);
-    
-    // التحقق من الملفات المخزنة
-    console.log(`\n🔍 التحقق من الملفات المخزنة:`);
-    try {
-        const files = fs.readdirSync(YEAR_DIR);
-        const jsonFiles = files.filter(file => file.endsWith('.json'));
-        console.log(`   📄 ملفات JSON: ${jsonFiles.length}`);
-        console.log(`   📁 إجمالي الملفات: ${files.length}`);
-        
-        if (jsonFiles.length > 0) {
-            console.log(`   📋 أمثلة على الملفات:`);
-            jsonFiles.slice(0, 5).forEach(file => {
-                const filePath = path.join(YEAR_DIR, file);
-                const stats = fs.statSync(filePath);
-                console.log(`      - ${file} (${(stats.size / 1024).toFixed(2)} KB)`);
-            });
-        }
-    } catch (error) {
-        console.log(`   ⚠️ تعذر قراءة محتويات المجلد: ${error.message}`);
-    }
     
     console.log("\n" + "=".repeat(50));
     console.log("🎉 تم الانتهاء بنجاح!");
@@ -456,15 +360,11 @@ async function main() {
     return { 
         success: true, 
         totalSeries: seriesList.length, 
-        totalEpisodes: totalEpisodes,
-        directory: YEAR_DIR
+        totalEpisodes: totalEpisodes
     };
 }
 
-// التشغيل مع معالجة الأخطاء
-main().then(result => {
-    console.log(`\n📍 يمكنك العثور على الملفات في: ${result.directory || YEAR_DIR}`);
-}).catch(error => {
+// التشغيل
+main().catch(error => {
     console.error("\n💥 خطأ غير متوقع:", error.message);
-    console.error("Stack trace:", error.stack);
 });
