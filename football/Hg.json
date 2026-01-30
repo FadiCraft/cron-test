@@ -1,44 +1,10 @@
 {
-  "scrapedAt": "2026-01-30T16:03:36.659Z",
+  "scrapedAt": "2026-01-30T16:56:25.103Z",
   "source": "https://www.yalla1shoot.com/home_8/",
-  "totalMatches": 9,
+  "totalMatches": 8,
   "matches": [
     {
-      "id": "match_1769789007541_0",
-      "url": "https://www.yalla1shoot.com/matches/eternity-vs-victory/",
-      "title": "الخلود vs النصر",
-      "team1": {
-        "name": "الخلود",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/55800-150x150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "النصر",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/7549-150x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "20:30",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "تطبيق ثمانية",
-        "السعودية, الدوري السعودي"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-01-30T16:03:27.541Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://euroo.yallashootcup.online/albaplayer/sports-9/",
-          "quality": "متعدد الجودات",
-          "server": "AlbaPlayer"
-        }
-      ]
-    },
-    {
-      "id": "match_1769789007543_1",
+      "id": "match_1769792176686_0",
       "url": "https://www.yalla1shoot.com/matches/clermont-vs-stade-reims/",
       "title": "كليرمون vs ستاد ريمس",
       "team1": {
@@ -59,12 +25,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-01-30T16:03:27.543Z",
+      "position": 1,
+      "scrapedAt": "2026-01-30T16:56:16.686Z",
       "watchServers": null
     },
     {
-      "id": "match_1769789007544_2",
+      "id": "match_1769792176688_1",
       "url": "https://www.yalla1shoot.com/matches/sudanese-crescent-vs-sun-downs/",
       "title": "الهلال السوداني vs صن داونز",
       "team1": {
@@ -86,12 +52,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-01-30T16:03:27.544Z",
+      "position": 2,
+      "scrapedAt": "2026-01-30T16:56:16.688Z",
       "watchServers": null
     },
     {
-      "id": "match_1769789007545_3",
+      "id": "match_1769792176689_2",
       "url": "https://www.yalla1shoot.com/matches/real-sociedad-b-vs-las-palmas/",
       "title": "ريال سوسيداد ب vs لاس بالماس",
       "team1": {
@@ -112,12 +78,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-01-30T16:03:27.545Z",
+      "position": 3,
+      "scrapedAt": "2026-01-30T16:56:16.689Z",
       "watchServers": null
     },
     {
-      "id": "match_1769789007546_4",
+      "id": "match_1769792176690_3",
       "url": "https://www.yalla1shoot.com/matches/cologne-vs-wolfsburg/",
       "title": "كولن vs فولفسبورج",
       "team1": {
@@ -139,12 +105,39 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-01-30T16:03:27.546Z",
+      "position": 4,
+      "scrapedAt": "2026-01-30T16:56:16.690Z",
       "watchServers": null
     },
     {
-      "id": "match_1769789007547_5",
+      "id": "match_1769792176692_4",
+      "url": "https://www.yalla1shoot.com/matches/lance-vs-le-avre/",
+      "title": "لانس vs لو آفر",
+      "team1": {
+        "name": "لانس",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/481.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "لو آفر",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/485.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "22:45",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN SPORTS HD 4",
+        "فرنسا, الدوري الفرنسي"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 5,
+      "scrapedAt": "2026-01-30T16:56:16.692Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769792176693_5",
       "url": "https://www.yalla1shoot.com/matches/lazio-vs-genoa/",
       "title": "لاتسيو vs جنوى",
       "team1": {
@@ -167,38 +160,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-01-30T16:03:27.547Z",
+      "scrapedAt": "2026-01-30T16:56:16.693Z",
       "watchServers": null
     },
     {
-      "id": "match_1769789007548_6",
-      "url": "https://www.yalla1shoot.com/matches/lance-vs-le-avre/",
-      "title": "لانس vs لو آفر",
-      "team1": {
-        "name": "لانس",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/481.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "لو آفر",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/485.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "22:45",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN SPORTS HD 4",
-        "فرنسا, الدوري الفرنسي"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-01-30T16:03:27.548Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769789007549_7",
+      "id": "match_1769792176694_6",
       "url": "https://www.yalla1shoot.com/matches/bristol-city-vs-derby-county/",
       "title": "بريستول سيتي vs دربي كاونتي",
       "team1": {
@@ -219,12 +185,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-01-30T16:03:27.549Z",
+      "position": 7,
+      "scrapedAt": "2026-01-30T16:56:16.694Z",
       "watchServers": null
     },
     {
-      "id": "match_1769789007550_8",
+      "id": "match_1769792176696_7",
       "url": "https://www.yalla1shoot.com/matches/espanyol-vs-alaves/",
       "title": "إسبانيول vs ألافيس",
       "team1": {
@@ -246,8 +212,8 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 9,
-      "scrapedAt": "2026-01-30T16:03:27.550Z",
+      "position": 8,
+      "scrapedAt": "2026-01-30T16:56:16.696Z",
       "watchServers": null
     }
   ]
