@@ -10,9 +10,17 @@ jobs:
   extract-ramadan-series:
     runs-on: ubuntu-latest
     
+    # حل الصلاحيات - السماح بكتابة إلى المستودع
+    permissions:
+      contents: write  # هذا مهم!
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          # إضافة هذه الإعدادات للسماح بالدفع من نفس المستودع
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -115,30 +123,12 @@ jobs:
               echo "❌ مجلد Ramadan/2025 غير موجود"
             fi
           fi
-          
-          # التحقق من ملف مسلسل كمثال
-          FIRST_FILE=$(ls Ramadan/2025/*.json 2>/dev/null | grep -v index | head -1)
-          if [ -n "$FIRST_FILE" ] && [ -f "$FIRST_FILE" ]; then
-            echo ""
-            echo "📄 مثال على ملف مسلسل ($(basename $FIRST_FILE)):"
-            SERIES_NAME=$(jq -r '.seriesTitle // "غير معروف"' "$FIRST_FILE" 2>/dev/null || echo "غير معروف")
-            SERIES_EPISODES=$(jq -r '.totalEpisodes // 0' "$FIRST_FILE" 2>/dev/null || echo 0)
-            FILE_SIZE=$(wc -c < "$FIRST_FILE")
-            
-            echo "  - اسم المسلسل: $SERIES_NAME"
-            echo "  - عدد الحلقات: $SERIES_EPISODES"
-            echo "  - حجم الملف: $FILE_SIZE بايت"
-            
-            # عرض عدد سيرفرات الحلقة الأولى
-            FIRST_EPISODE_SERVERS=$(jq -r '.episodes[0].watchServers | length // 0' "$FIRST_FILE" 2>/dev/null || echo 0)
-            echo "  - سيرفرات الحلقة الأولى: $FIRST_EPISODE_SERVERS"
-          fi
 
       - name: Commit and push changes
         run: |
           # تكوين Git
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
           
           # إضافة جميع ملفات المسلسلات
           echo "🔄 إضافة ملفات المسلسلات..."
@@ -160,13 +150,17 @@ jobs:
                 -m "تحديث تلقائي كل ساعة" \
                 -m "عدد المسلسلات: $TOTAL_SERIES" \
                 -m "عدد الحلقات: $TOTAL_EPISODES"
+                
+              echo "✅ تم عمل commit"
             else
               git commit -m "🎬 تحديث مسلسلات رمضان - $(date +'%Y-%m-%d %H:%M')" \
                 -m "تحديث تلقائي كل ساعة"
             fi
             
-            git push
-            echo "✅ تم رفع التغييرات"
+            # push التغييرات
+            git pull --rebase origin main
+            git push origin HEAD:main
+            echo "✅ تم رفع التغييرات بنجاح"
           fi
 
       - name: Create log file
@@ -174,6 +168,10 @@ jobs:
           # إنشاء ملف سجل
           TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')
           LOG_FILE="Ramadan/2025/scrape_log.json"
+          
+          # تكوين Git
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
           
           # قراءة معلومات الفهرس
           if [ -f "Ramadan/2025/index_2025.json" ]; then
@@ -212,37 +210,28 @@ jobs:
             # إضافة ملف السجل إلى Git
             git add "$LOG_FILE"
             git commit -m "📝 تحديث سجل رمضان - $TIMESTAMP" || echo "⚠️ لا توجد تغييرات في السجل"
-            git push || echo "⚠️ لا توجد تغييرات للرفع"
             
-            echo "📝 تم تحديث سجل التشغيل"
+            # push إذا كانت هناك تغييرات
+            if ! git diff --cached --quiet; then
+              git pull --rebase origin main
+              git push origin HEAD:main
+              echo "✅ تم تحديث سجل التشغيل"
+            else
+              echo "📝 لا توجد تغييرات في السجل للرفع"
+            fi
+            
           fi
 
-      - name: Clean up old logs (مرة يومياً)
-        if: github.event.schedule == '0 * * * *'
+      - name: Send notification
+        if: always()
         run: |
-          # تنظيف السجلات القديمة (تحتفظ بـ 100 سجل فقط)
-          LOG_FILE="Ramadan/2025/scrape_log.json"
-          if [ -f "$LOG_FILE" ]; then
-            jq '.[-100:]' "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
-            echo "🧹 تم تنظيف سجلات رمضان (بقي 100 سجل فقط)"
-            
-            # إضافة التغييرات
-            git add "$LOG_FILE"
-            git commit -m "🧹 تنظيف سجلات رمضان - $(date +'%Y-%m-%d')" || echo "⚠️ لا توجد تغييرات"
-            git push || echo "⚠️ لا توجد تغييرات للرفع"
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ تم استخراج مسلسلات رمضان 2025 بنجاح!"
+            echo "⏰ الوقت: $(date)"
+            echo "📁 الموقع: Ramadan/2025/"
+            echo "🎬 تم تحديث جميع المسلسلات"
+          else
+            echo "❌ فشل استخراج مسلسلات رمضان!"
+            echo "⏰ الوقت: $(date)"
+            echo "🔧 الرجاء التحقق من الأخطاء أعلاه"
           fi
-
-      - name: Send notification (اختياري)
-        if: success()
-        run: |
-          echo "✅ تم استخراج مسلسلات رمضان 2025 بنجاح!"
-          echo "⏰ الوقت: $(date)"
-          echo "📁 الموقع: Ramadan/2025/"
-          echo "🎬 تم تحديث جميع المسلسلات"
-
-      - name: Send error notification (اختياري)
-        if: failure()
-        run: |
-          echo "❌ فشل استخراج مسلسلات رمضان!"
-          echo "⏰ الوقت: $(date)"
-          echo "🔧 الرجاء التحقق من الأخطاء أعلاه"
