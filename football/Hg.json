@@ -1,10 +1,10 @@
 {
-  "scrapedAt": "2026-01-30T14:54:34.422Z",
+  "scrapedAt": "2026-01-30T15:31:17.579Z",
   "source": "https://www.yalla1shoot.com/home_8/",
   "totalMatches": 9,
   "matches": [
     {
-      "id": "match_1769784864616_0",
+      "id": "match_1769787067951_0",
       "url": "https://www.yalla1shoot.com/matches/eternity-vs-victory/",
       "title": "الخلود vs النصر",
       "team1": {
@@ -27,11 +27,18 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-01-30T14:54:24.616Z",
-      "watchServers": null
+      "scrapedAt": "2026-01-30T15:31:07.951Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://euroo.yallashootcup.online/albaplayer/sports-9/",
+          "quality": "متعدد الجودات",
+          "server": "AlbaPlayer"
+        }
+      ]
     },
     {
-      "id": "match_1769784864618_1",
+      "id": "match_1769787067952_1",
       "url": "https://www.yalla1shoot.com/matches/clermont-vs-stade-reims/",
       "title": "كليرمون vs ستاد ريمس",
       "team1": {
@@ -53,11 +60,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-01-30T14:54:24.618Z",
+      "scrapedAt": "2026-01-30T15:31:07.952Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864619_2",
+      "id": "match_1769787067954_2",
       "url": "https://www.yalla1shoot.com/matches/sudanese-crescent-vs-sun-downs/",
       "title": "الهلال السوداني vs صن داونز",
       "team1": {
@@ -80,11 +87,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-01-30T14:54:24.619Z",
+      "scrapedAt": "2026-01-30T15:31:07.954Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864620_3",
+      "id": "match_1769787067955_3",
       "url": "https://www.yalla1shoot.com/matches/real-sociedad-b-vs-las-palmas/",
       "title": "ريال سوسيداد ب vs لاس بالماس",
       "team1": {
@@ -106,11 +113,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-01-30T14:54:24.620Z",
+      "scrapedAt": "2026-01-30T15:31:07.955Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864621_4",
+      "id": "match_1769787067956_4",
       "url": "https://www.yalla1shoot.com/matches/cologne-vs-wolfsburg/",
       "title": "كولن vs فولفسبورج",
       "team1": {
@@ -133,11 +140,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-01-30T14:54:24.621Z",
+      "scrapedAt": "2026-01-30T15:31:07.956Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864622_5",
+      "id": "match_1769787067957_5",
       "url": "https://www.yalla1shoot.com/matches/lazio-vs-genoa/",
       "title": "لاتسيو vs جنوى",
       "team1": {
@@ -160,11 +167,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-01-30T14:54:24.622Z",
+      "scrapedAt": "2026-01-30T15:31:07.957Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864623_6",
+      "id": "match_1769787067958_6",
       "url": "https://www.yalla1shoot.com/matches/lance-vs-le-avre/",
       "title": "لانس vs لو آفر",
       "team1": {
@@ -187,11 +194,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-01-30T14:54:24.623Z",
+      "scrapedAt": "2026-01-30T15:31:07.958Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864624_7",
+      "id": "match_1769787067959_7",
       "url": "https://www.yalla1shoot.com/matches/bristol-city-vs-derby-county/",
       "title": "بريستول سيتي vs دربي كاونتي",
       "team1": {
@@ -213,11 +220,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 8,
-      "scrapedAt": "2026-01-30T14:54:24.625Z",
+      "scrapedAt": "2026-01-30T15:31:07.959Z",
       "watchServers": null
     },
     {
-      "id": "match_1769784864626_8",
+      "id": "match_1769787067960_8",
       "url": "https://www.yalla1shoot.com/matches/espanyol-vs-alaves/",
       "title": "إسبانيول vs ألافيس",
       "team1": {
@@ -240,7 +247,7 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 9,
-      "scrapedAt": "2026-01-30T14:54:24.626Z",
+      "scrapedAt": "2026-01-30T15:31:07.960Z",
       "watchServers": null
     }
   ]
