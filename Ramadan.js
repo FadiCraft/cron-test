@@ -158,13 +158,16 @@ async function fetchWatchServers(playUrl) {
         return uniqueServers;
         
     } catch (error) {
+        console.log(`   ❌ خطأ في استخراج سيرفرات المشاهدة: ${error.message}`);
         return [];
     }
 }
 
 // ==================== استخراج سيرفرات الحلقة فقط ====================
-async function fetchEpisodeServers(episodeUrl) {
+async function fetchEpisodeServers(episodeUrl, episodeNumber) {
     const episodeId = extractVideoId(episodeUrl);
+    
+    console.log(`     الحلقة ${episodeNumber}: جلب السيرفرات...`);
     
     // تحويل رابط الحلقة إلى رابط المشاهدة
     let playUrl = episodeUrl;
@@ -174,20 +177,27 @@ async function fetchEpisodeServers(episodeUrl) {
     
     const watchServers = await fetchWatchServers(playUrl);
     
+    if (watchServers.length > 0) {
+        console.log(`       ✓ ${watchServers.length} سيرفر`);
+    } else {
+        console.log(`       ⚠️ لم يتم العثور على سيرفرات`);
+    }
+    
     return {
         id: episodeId,
+        number: episodeNumber,
         watchServers: watchServers
     };
 }
 
-// ==================== استخراج حلقات المسلسل مع سيرفراتها فقط ====================
-async function fetchSeriesEpisodes(seriesUrl, seriesId) {
-    console.log(`   📺 جلب حلقات المسلسل...`);
+// ==================== استخراج مسلسل واحد فقط ====================
+async function fetchSingleSeries(seriesUrl, seriesId) {
+    console.log(`🎬 جلب المسلسل الأول...`);
     
     const html = await fetchWithTimeout(seriesUrl);
     
     if (!html) {
-        console.log(`   ⚠️ فشل جلب صفحة المسلسل`);
+        console.log(`❌ فشل جلب صفحة المسلسل`);
         return null;
     }
     
@@ -195,152 +205,82 @@ async function fetchSeriesEpisodes(seriesUrl, seriesId) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
-        // استخراج عنوان المسلسل فقط
+        // استخراج عنوان المسلسل
         const seriesTitle = doc.querySelector('h1.title')?.textContent?.trim() || 
                            doc.querySelector('h1')?.textContent?.trim() || 
                            'مسلسل غير معروف';
         
+        console.log(`📺 المسلسل: ${seriesTitle}`);
+        
         // تنظيف العنوان لاستخدامه كاسم ملف آمن
         const cleanTitle = seriesTitle.replace(/[^\w\u0600-\u06FF\s\-]/g, '').replace(/\s+/g, '_');
         
-        // استخراج صورة المسلسل فقط
-        const seriesImage = doc.querySelector('img[width="300"]')?.src || 
-                           doc.querySelector('.thumbnail img')?.src || 
-                           '';
+        // استخراج صورة المسلسل
+        let seriesImage = doc.querySelector('img[width="300"]')?.src || 
+                         doc.querySelector('.thumbnail img')?.src || 
+                         '';
         
         // إضافة النطاق الأساسي للصورة النسبية
         if (seriesImage && !seriesImage.startsWith('http')) {
             seriesImage = 'https://larooza.live/' + seriesImage;
         }
         
+        if (seriesImage) {
+            console.log(`🖼️ صورة المسلسل: ${seriesImage}`);
+        }
+        
         // البحث عن روابط الحلقات
         const episodes = [];
         const episodeElements = doc.querySelectorAll('a[href*="video.php?vid="]');
         
-        console.log(`   ✅ عثر على ${episodeElements.length} حلقة`);
+        console.log(`✅ عثر على ${episodeElements.length} حلقة`);
         
-        // استخراج سيرفرات كل حلقة فقط
-        for (let i = 0; i < episodeElements.length; i++) {
+        // استخراج أول 5 حلقات فقط للاختبار (يمكنك تغيير الرقم)
+        const maxEpisodesToTest = Math.min(5, episodeElements.length);
+        console.log(`🔧 اختيار أول ${maxEpisodesToTest} حلقات للاختبار`);
+        
+        // استخراج سيرفرات كل حلقة
+        for (let i = 0; i < maxEpisodesToTest; i++) {
             const episodeElement = episodeElements[i];
             const episodeUrl = episodeElement.getAttribute('href');
             
-            console.log(`     ${i + 1}/${episodeElements.length}: جلب سيرفرات الحلقة...`);
-            
-            const episodeData = await fetchEpisodeServers(episodeUrl);
+            const episodeData = await fetchEpisodeServers(episodeUrl, i + 1);
             
             if (episodeData) {
                 episodes.push(episodeData);
-                console.log(`       ✓ ${episodeData.watchServers.length} سيرفر`);
             }
             
             // انتظار قصير بين الحلقات
-            if (i < episodeElements.length - 1) {
-                await new Promise(resolve => setTimeout(resolve, 500));
+            if (i < maxEpisodesToTest - 1) {
+                await new Promise(resolve => setTimeout(resolve, 1000));
             }
         }
         
-        return {
+        const seriesData = {
             seriesId: seriesId,
             seriesTitle: seriesTitle,
             cleanTitle: cleanTitle,
             seriesImage: seriesImage,
             seriesCategory: "رمضان",
             seriesYear: YEAR,
-            totalEpisodes: episodes.length,
+            totalEpisodes: episodeElements.length,
+            testedEpisodes: maxEpisodesToTest,
             episodes: episodes,
-            scrapedAt: new Date().toISOString()
+            scrapedAt: new Date().toISOString(),
+            note: "هذا ملف اختباري - تم استخراج أول مسلسل فقط"
         };
         
-    } catch (error) {
-        console.log(`   ❌ خطأ في استخراج حلقات المسلسل: ${error.message}`);
-        return null;
-    }
-}
-
-// ==================== استخراج جميع المسلسلات ====================
-async function fetchRamadanSeries(pageUrl) {
-    console.log(`📖 جلب صفحة المسلسلات: ${pageUrl}`);
-    
-    const html = await fetchWithTimeout(pageUrl);
-    
-    if (!html) {
-        console.log(`❌ فشل جلب صفحة المسلسلات`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        
-        const seriesList = [];
-        
-        // البحث عن روابط المسلسلات
-        const seriesElements = doc.querySelectorAll('a[href*="view-serie"]');
-        
-        console.log(`✅ عثر على ${seriesElements.length} مسلسل`);
-        
-        // استخراج كل مسلسل
-        for (let i = 0; i < seriesElements.length; i++) {
-            const seriesElement = seriesElements[i];
-            const seriesUrl = seriesElement.getAttribute('href');
-            const seriesId = extractSeriesId(seriesUrl) || `series_${i + 1}`;
-            
-            console.log(`\n🎬 ${i + 1}/${seriesElements.length}: المسلسل ${seriesId}`);
-            
-            // استخراج حلقات المسلسل مع سيرفراتها
-            const seriesData = await fetchSeriesEpisodes(seriesUrl, seriesId);
-            
-            if (seriesData && seriesData.episodes.length > 0) {
-                // حفظ المسلسل في ملف منفصل
-                const seriesFileName = `${seriesId}_${seriesData.cleanTitle}.json`;
-                const seriesFilePath = path.join(YEAR_DIR, seriesFileName);
-                
-                fs.writeFileSync(seriesFilePath, JSON.stringify(seriesData, null, 2));
-                console.log(`   💾 تم حفظ المسلسل في: ${seriesFileName}`);
-                
-                seriesList.push({
-                    id: seriesId,
-                    title: seriesData.seriesTitle,
-                    fileName: seriesFileName,
-                    episodes: seriesData.totalEpisodes
-                });
-            } else {
-                console.log(`   ⚠️ لم يتم العثور على حلقات للمسلسل`);
-            }
-            
-            // انتظار بين المسلسلات
-            if (i < seriesElements.length - 1) {
-                await new Promise(resolve => setTimeout(resolve, 2000));
-            }
-        }
-        
-        return seriesList;
+        return seriesData;
         
     } catch (error) {
-        console.log(`❌ خطأ في استخراج المسلسلات: ${error.message}`);
+        console.log(`❌ خطأ في استخراج المسلسل: ${error.message}`);
         return null;
     }
 }
 
-// ==================== حفظ فهرس المسلسلات ====================
-function saveIndexFile(seriesList) {
-    const indexData = {
-        year: YEAR,
-        totalSeries: seriesList.length,
-        totalEpisodes: seriesList.reduce((sum, series) => sum + series.episodes, 0),
-        scrapedAt: new Date().toISOString(),
-        series: seriesList
-    };
-    
-    const indexPath = path.join(YEAR_DIR, `index_${YEAR}.json`);
-    fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2));
-    
-    return indexPath;
-}
-
-// ==================== الدالة الرئيسية ====================
+// ==================== الدالة الرئيسية (مسلسل واحد فقط) ====================
 async function main() {
-    console.log("🎬 بدء استخراج مسلسلات رمضان");
+    console.log("🎬 بدء اختبار استخراج مسلسل رمضان");
     console.log("=".repeat(50));
     console.log(`📅 السنة: ${YEAR}`);
     console.log(`📁 المجلد: ${YEAR_DIR}`);
@@ -348,49 +288,129 @@ async function main() {
     
     const RAMADAN_URL = `https://larooza.live/category.php?cat=13-ramadan-${YEAR}`;
     
-    // استخراج المسلسلات
-    const seriesList = await fetchRamadanSeries(RAMADAN_URL);
+    // 1. جلب صفحة المسلسلات
+    console.log(`📖 جلب صفحة المسلسلات...`);
+    const html = await fetchWithTimeout(RAMADAN_URL);
     
-    if (!seriesList || seriesList.length === 0) {
-        console.log(`\n⏹️ لم يتم العثور على مسلسلات`);
-        return { success: false, total: 0 };
+    if (!html) {
+        console.log(`❌ فشل جلب صفحة المسلسلات`);
+        return { success: false };
     }
     
-    // حفظ فهرس المسلسلات
-    const indexPath = saveIndexFile(seriesList);
-    
-    // عرض النتائج
-    console.log("\n" + "=".repeat(50));
-    console.log("📊 النتائج النهائية:");
-    console.log("=".repeat(50));
-    
-    seriesList.forEach((series, idx) => {
-        console.log(`\n${idx + 1}. ${series.title}`);
-        console.log(`   🔸 ID: ${series.id}`);
-        console.log(`   🔸 الملف: ${series.fileName}`);
-        console.log(`   🔸 عدد الحلقات: ${series.episodes}`);
-    });
-    
-    // عرض إحصائيات
-    const totalEpisodes = seriesList.reduce((sum, series) => sum + series.episodes, 0);
-    console.log(`\n📈 الإحصائيات:`);
-    console.log(`   ✅ المسلسلات: ${seriesList.length}`);
-    console.log(`   ✅ الحلقات: ${totalEpisodes}`);
-    console.log(`   📁 الملفات: ${seriesList.length} ملف مسلسل`);
-    console.log(`   📋 الفهرس: ${indexPath}`);
-    
-    console.log("\n" + "=".repeat(50));
-    console.log("🎉 تم الانتهاء بنجاح!");
-    console.log("=".repeat(50));
-    
-    return { 
-        success: true, 
-        totalSeries: seriesList.length, 
-        totalEpisodes: totalEpisodes
-    };
+    try {
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        // البحث عن روابط المسلسلات
+        const seriesElements = doc.querySelectorAll('a[href*="view-serie"]');
+        
+        if (seriesElements.length === 0) {
+            console.log(`❌ لم يتم العثور على مسلسلات`);
+            return { success: false };
+        }
+        
+        console.log(`✅ عثر على ${seriesElements.length} مسلسل`);
+        console.log(`🔧 اختيار المسلسل الأول للاختبار`);
+        
+        // 2. أخذ أول مسلسل فقط
+        const firstSeriesElement = seriesElements[0];
+        const seriesUrl = firstSeriesElement.getAttribute('href');
+        const seriesId = extractSeriesId(seriesUrl) || 'series_1';
+        
+        console.log(`🔗 رابط المسلسل: ${seriesUrl}`);
+        console.log(`🆔 ID المسلسل: ${seriesId}`);
+        
+        // 3. استخراج المسلسل الأول
+        const seriesData = await fetchSingleSeries(seriesUrl, seriesId);
+        
+        if (!seriesData || seriesData.episodes.length === 0) {
+            console.log(`\n⏹️ لم يتم استخراج بيانات المسلسل`);
+            return { success: false };
+        }
+        
+        // 4. حفظ المسلسل في ملف
+        const seriesFileName = `TEST_${seriesId}_${seriesData.cleanTitle}.json`;
+        const seriesFilePath = path.join(YEAR_DIR, seriesFileName);
+        
+        fs.writeFileSync(seriesFilePath, JSON.stringify(seriesData, null, 2));
+        console.log(`\n💾 تم حفظ المسلسل في: ${seriesFileName}`);
+        
+        // 5. إنشاء فهرس مختصر
+        const indexData = {
+            year: YEAR,
+            testRun: true,
+            totalSeriesAvailable: seriesElements.length,
+            testedSeries: 1,
+            totalEpisodesAvailable: seriesData.totalEpisodes,
+            testedEpisodes: seriesData.testedEpisodes,
+            scrapedAt: new Date().toISOString(),
+            series: [{
+                id: seriesId,
+                title: seriesData.seriesTitle,
+                fileName: seriesFileName,
+                episodes: seriesData.totalEpisodes,
+                testedEpisodes: seriesData.testedEpisodes
+            }]
+        };
+        
+        const indexPath = path.join(YEAR_DIR, `test_index_${YEAR}.json`);
+        fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2));
+        
+        // 6. عرض النتائج
+        console.log("\n" + "=".repeat(50));
+        console.log("📊 نتائج الاختبار:");
+        console.log("=".repeat(50));
+        
+        console.log(`\n📺 المسلسل: ${seriesData.seriesTitle}`);
+        console.log(`   🔸 ID: ${seriesId}`);
+        console.log(`   🔸 الملف: ${seriesFileName}`);
+        console.log(`   🔸 إجمالي الحلقات: ${seriesData.totalEpisodes}`);
+        console.log(`   🔸 الحلقات المختبرة: ${seriesData.testedEpisodes}`);
+        
+        // عرض إحصائيات السيرفرات
+        let totalServers = 0;
+        seriesData.episodes.forEach(episode => {
+            totalServers += episode.watchServers.length;
+        });
+        
+        console.log(`\n📈 إحصائيات السيرفرات:`);
+        seriesData.episodes.forEach((episode, idx) => {
+            console.log(`   الحلقة ${idx + 1}: ${episode.watchServers.length} سيرفر`);
+        });
+        
+        console.log(`\n📊 الإجماليات:`);
+        console.log(`   ✅ المسلسلات المتاحة: ${seriesElements.length}`);
+        console.log(`   ✅ المسلسلات المختبرة: 1`);
+        console.log(`   ✅ السيرفرات المستخرجة: ${totalServers}`);
+        console.log(`   📁 ملفات JSON: 2`);
+        console.log(`   📋 الفهرس: ${indexPath}`);
+        console.log(`   📊 ملف المسلسل: ${seriesFilePath}`);
+        
+        console.log("\n" + "=".repeat(50));
+        console.log("🎉 تم الانتهاء من الاختبار بنجاح!");
+        console.log("=".repeat(50));
+        
+        console.log("\n💡 ملاحظة: هذا اختبار أولي فقط.");
+        console.log("لتشغيل الكود كاملاً، قم بتعديل:");
+        console.log("1. maxEpisodesToTest في السطر 180");
+        console.log("2. seriesElements.length في السطر 216");
+        
+        return { 
+            success: true, 
+            totalSeries: 1, 
+            testedEpisodes: seriesData.testedEpisodes,
+            totalServers: totalServers,
+            files: [seriesFileName, `test_index_${YEAR}.json`]
+        };
+        
+    } catch (error) {
+        console.log(`❌ خطأ في استخراج المسلسلات: ${error.message}`);
+        return { success: false };
+    }
 }
 
 // التشغيل
 main().catch(error => {
     console.error("\n💥 خطأ غير متوقع:", error.message);
+    process.exit(1);
 });
