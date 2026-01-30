@@ -1,37 +1,10 @@
 {
-  "scrapedAt": "2026-01-30T21:36:14.817Z",
+  "scrapedAt": "2026-01-30T21:53:19.620Z",
   "source": "https://www.yalla1shoot.com/home_8/",
-  "totalMatches": 33,
+  "totalMatches": 32,
   "matches": [
     {
-      "id": "match_1769808933044_0",
-      "url": "https://www.yalla1shoot.com/matches/lance-vs-le-avre/",
-      "title": "لانس vs لو آفر",
-      "team1": {
-        "name": "لانس",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/481.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "لو آفر",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/485.png",
-        "score": "0"
-      },
-      "score": "1 - 0",
-      "time": "22:45",
-      "status": "جارية الان",
-      "channels": [
-        "beIN SPORTS HD 4",
-        "فرنسا, الدوري الفرنسي"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-01-30T21:35:33.044Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933045_1",
+      "id": "match_1769809957391_0",
       "url": "https://www.yalla1shoot.com/matches/lazio-vs-genoa/",
       "title": "لاتسيو vs جنوى",
       "team1": {
@@ -53,12 +26,66 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-01-30T21:35:33.045Z",
+      "position": 1,
+      "scrapedAt": "2026-01-30T21:52:37.391Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933047_2",
+      "id": "match_1769809957393_1",
+      "url": "https://www.yalla1shoot.com/matches/lance-vs-le-avre/",
+      "title": "لانس vs لو آفر",
+      "team1": {
+        "name": "لانس",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/481.png",
+        "score": "1"
+      },
+      "team2": {
+        "name": "لو آفر",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/485.png",
+        "score": "0"
+      },
+      "score": "1 - 0",
+      "time": "22:45",
+      "status": "جارية الان",
+      "channels": [
+        "beIN SPORTS HD 4",
+        "فرنسا, الدوري الفرنسي"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 2,
+      "scrapedAt": "2026-01-30T21:52:37.393Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957394_2",
+      "url": "https://www.yalla1shoot.com/matches/espanyol-vs-alaves/",
+      "title": "إسبانيول vs ألافيس",
+      "team1": {
+        "name": "إسبانيول",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/136-1-150x150.png",
+        "score": "1"
+      },
+      "team2": {
+        "name": "ألافيس",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/168-150x150.png",
+        "score": "2"
+      },
+      "score": "1 - 2",
+      "time": "23:00",
+      "status": "جارية الان",
+      "channels": [
+        "Bein Sports HD2",
+        "إسبانيا, الدوري الإسباني"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 3,
+      "scrapedAt": "2026-01-30T21:52:37.394Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957394_3",
       "url": "https://www.yalla1shoot.com/matches/bristol-city-vs-derby-county/",
       "title": "بريستول سيتي vs دربي كاونتي",
       "team1": {
@@ -79,39 +106,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-01-30T21:35:33.047Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933048_3",
-      "url": "https://www.yalla1shoot.com/matches/espanyol-vs-alaves/",
-      "title": "إسبانيول vs ألافيس",
-      "team1": {
-        "name": "إسبانيول",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/136-1-150x150.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "ألافيس",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/168-150x150.png",
-        "score": "1"
-      },
-      "score": "1 - 1",
-      "time": "23:00",
-      "status": "جارية الان",
-      "channels": [
-        "Bein Sports HD2",
-        "إسبانيا, الدوري الإسباني"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
       "position": 4,
-      "scrapedAt": "2026-01-30T21:35:33.048Z",
+      "scrapedAt": "2026-01-30T21:52:37.394Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933049_4",
+      "id": "match_1769809957395_4",
       "url": "https://www.yalla1shoot.com/matches/stoke-city-vs-southampton/",
       "title": "ستوك سيتي vs ساوثهامبتون",
       "team1": {
@@ -133,64 +133,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-01-30T21:35:33.049Z",
+      "scrapedAt": "2026-01-30T21:52:37.395Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933050_5",
-      "url": "https://www.yalla1shoot.com/matches/real-oviedo-vs-girona/",
-      "title": "ريال أوفييدو vs جيرونا",
-      "team1": {
-        "name": "ريال أوفييدو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/193.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "جيرونا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/175-1-150x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "16:00",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN Sports 3 HD",
-        "إسبانيا, الدوري الإسباني"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-01-30T21:35:33.050Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933051_6",
-      "url": "https://www.yalla1shoot.com/matches/troyes-vs-le-mans/",
-      "title": "تروا vs لومان",
-      "team1": {
-        "name": "تروا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/488.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "لومان",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/468-150x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "16:00",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "فرنسا, الدوري الفرنسي - الدرجة الثانية"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-01-30T21:35:33.051Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933052_7",
+      "id": "match_1769809957396_5",
       "url": "https://www.yalla1shoot.com/matches/young-africans-vs-al-ahly/",
       "title": "يانج افريكانز vs الأهلي",
       "team1": {
@@ -212,12 +159,65 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-01-30T21:35:33.052Z",
+      "position": 6,
+      "scrapedAt": "2026-01-30T21:52:37.396Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933053_8",
+      "id": "match_1769809957397_6",
+      "url": "https://www.yalla1shoot.com/matches/real-oviedo-vs-girona/",
+      "title": "ريال أوفييدو vs جيرونا",
+      "team1": {
+        "name": "ريال أوفييدو",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/193.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "جيرونا",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/175-1-150x150.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "16:00",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN Sports 3 HD",
+        "إسبانيا, الدوري الإسباني"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 7,
+      "scrapedAt": "2026-01-30T21:52:37.397Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957398_7",
+      "url": "https://www.yalla1shoot.com/matches/troyes-vs-le-mans/",
+      "title": "تروا vs لومان",
+      "team1": {
+        "name": "تروا",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/488.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "لومان",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/468-150x150.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "16:00",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "فرنسا, الدوري الفرنسي - الدرجة الثانية"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 8,
+      "scrapedAt": "2026-01-30T21:52:37.398Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957399_8",
       "url": "https://www.yalla1shoot.com/matches/besa-vs-sassuolo/",
       "title": "بيسا vs ساسولو",
       "team1": {
@@ -240,11 +240,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 9,
-      "scrapedAt": "2026-01-30T21:35:33.053Z",
+      "scrapedAt": "2026-01-30T21:52:37.399Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933055_9",
+      "id": "match_1769809957400_9",
       "url": "https://www.yalla1shoot.com/matches/eintracht-frankfurt-vs-bayer-leverkusen/",
       "title": "آينتراخت فرانكفورت vs باير ليفركوزن",
       "team1": {
@@ -267,11 +267,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 10,
-      "scrapedAt": "2026-01-30T21:35:33.055Z",
+      "scrapedAt": "2026-01-30T21:52:37.400Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933055_10",
+      "id": "match_1769809957401_10",
       "url": "https://www.yalla1shoot.com/matches/augsburg-vs-st-pauli/",
       "title": "أوغسبورغ vs سانت باولي",
       "team1": {
@@ -294,11 +294,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 11,
-      "scrapedAt": "2026-01-30T21:35:33.055Z",
+      "scrapedAt": "2026-01-30T21:52:37.401Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933056_11",
+      "id": "match_1769809957402_11",
       "url": "https://www.yalla1shoot.com/matches/hoffenheim-vs-union-berlin/",
       "title": "هوفنهايم vs يونيون برلين",
       "team1": {
@@ -321,64 +321,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 12,
-      "scrapedAt": "2026-01-30T21:35:33.056Z",
+      "scrapedAt": "2026-01-30T21:52:37.402Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933057_12",
-      "url": "https://www.yalla1shoot.com/matches/brighton-vs-everton/",
-      "title": "برايتون vs إيفرتون",
-      "team1": {
-        "name": "برايتون",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/38-150x150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "إيفرتون",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/107-1-150x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "18:00",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN SPORTS HD 4",
-        "إنجلترا, الدوري الإنجليزي"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 13,
-      "scrapedAt": "2026-01-30T21:35:33.057Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933058_13",
-      "url": "https://www.yalla1shoot.com/matches/portsmouth-vs-west-bromwich/",
-      "title": "بورتسموث vs وست بروميتش",
-      "team1": {
-        "name": "بورتسموث",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/111-150x150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "وست بروميتش",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/5-137x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "18:00",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "إنجلترا, تشامبيونشيب"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 14,
-      "scrapedAt": "2026-01-30T21:35:33.058Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933059_14",
+      "id": "match_1769809957403_12",
       "url": "https://www.yalla1shoot.com/matches/leeds-united-vs-arsenal/",
       "title": "ليدز يونايتد vs أرسنال",
       "team1": {
@@ -400,12 +347,65 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 15,
-      "scrapedAt": "2026-01-30T21:35:33.059Z",
+      "position": 13,
+      "scrapedAt": "2026-01-30T21:52:37.403Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933060_15",
+      "id": "match_1769809957404_13",
+      "url": "https://www.yalla1shoot.com/matches/brighton-vs-everton/",
+      "title": "برايتون vs إيفرتون",
+      "team1": {
+        "name": "برايتون",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/38-150x150.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "إيفرتون",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/107-1-150x150.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "18:00",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN SPORTS HD 4",
+        "إنجلترا, الدوري الإنجليزي"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 14,
+      "scrapedAt": "2026-01-30T21:52:37.404Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957405_14",
+      "url": "https://www.yalla1shoot.com/matches/portsmouth-vs-west-bromwich/",
+      "title": "بورتسموث vs وست بروميتش",
+      "team1": {
+        "name": "بورتسموث",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/111-150x150.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "وست بروميتش",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/5-137x150.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "18:00",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "إنجلترا, تشامبيونشيب"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 15,
+      "scrapedAt": "2026-01-30T21:52:37.405Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957406_15",
       "url": "https://www.yalla1shoot.com/matches/osasuna-vs-villarreal/",
       "title": "أوساسونا vs فياريال",
       "team1": {
@@ -428,11 +428,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 16,
-      "scrapedAt": "2026-01-30T21:35:33.060Z",
+      "scrapedAt": "2026-01-30T21:52:37.406Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933061_16",
+      "id": "match_1769809957407_16",
       "url": "https://www.yalla1shoot.com/matches/petro-atletico-vs-stade-mali/",
       "title": "بترو اتليتكو vs ستاد مالي",
       "team1": {
@@ -455,11 +455,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 17,
-      "scrapedAt": "2026-01-30T21:35:33.061Z",
+      "scrapedAt": "2026-01-30T21:52:37.407Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933062_17",
+      "id": "match_1769809957407_17",
       "url": "https://www.yalla1shoot.com/matches/paris-fc-vs-olympique-marseille/",
       "title": "باريس أف.سي. vs أولمبيك مارسيليا",
       "team1": {
@@ -482,11 +482,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 18,
-      "scrapedAt": "2026-01-30T21:35:33.062Z",
+      "scrapedAt": "2026-01-30T21:52:37.407Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933062_18",
+      "id": "match_1769809957408_18",
       "url": "https://www.yalla1shoot.com/matches/napoli-vs-fiorentina/",
       "title": "نابولي vs فيورنتينا",
       "team1": {
@@ -509,38 +509,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 19,
-      "scrapedAt": "2026-01-30T21:35:33.062Z",
+      "scrapedAt": "2026-01-30T21:52:37.408Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933063_19",
-      "url": "https://www.yalla1shoot.com/matches/levante-vs-atletico-madrid/",
-      "title": "ليفانتي vs أتلتيكو مدريد",
-      "team1": {
-        "name": "ليفانتي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "أتلتيكو مدريد",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/134-128x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "20:30",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN Sports 3 HD",
-        "إسبانيا, الدوري الإسباني"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 20,
-      "scrapedAt": "2026-01-30T21:35:33.063Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933064_20",
+      "id": "match_1769809957409_19",
       "url": "https://www.yalla1shoot.com/matches/chelsea-vs-west-ham-united/",
       "title": "تشيلسي vs وست هام يونايتد",
       "team1": {
@@ -562,12 +535,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 21,
-      "scrapedAt": "2026-01-30T21:35:33.064Z",
+      "position": 20,
+      "scrapedAt": "2026-01-30T21:52:37.409Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933064_21",
+      "id": "match_1769809957409_20",
       "url": "https://www.yalla1shoot.com/matches/hamburg-vs-bayern-munich/",
       "title": "هامبورج vs بايرن ميونخ",
       "team1": {
@@ -589,12 +562,39 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 22,
-      "scrapedAt": "2026-01-30T21:35:33.064Z",
+      "position": 21,
+      "scrapedAt": "2026-01-30T21:52:37.409Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933065_22",
+      "id": "match_1769809957410_21",
+      "url": "https://www.yalla1shoot.com/matches/levante-vs-atletico-madrid/",
+      "title": "ليفانتي vs أتلتيكو مدريد",
+      "team1": {
+        "name": "ليفانتي",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/150.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "أتلتيكو مدريد",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/134-128x150.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "20:30",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN Sports 3 HD",
+        "إسبانيا, الدوري الإسباني"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 22,
+      "scrapedAt": "2026-01-30T21:52:37.410Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957410_22",
       "url": "https://www.yalla1shoot.com/matches/lorient-vs-nantes/",
       "title": "لوريان vs نانت",
       "team1": {
@@ -617,11 +617,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 23,
-      "scrapedAt": "2026-01-30T21:35:33.065Z",
+      "scrapedAt": "2026-01-30T21:52:37.410Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933066_23",
+      "id": "match_1769809957411_23",
       "url": "https://www.yalla1shoot.com/matches/royal-army-vs-js-kabylie/",
       "title": "الجيش الملكي vs شبيبة القبائل",
       "team1": {
@@ -644,11 +644,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 24,
-      "scrapedAt": "2026-01-30T21:35:33.066Z",
+      "scrapedAt": "2026-01-30T21:52:37.411Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933066_24",
+      "id": "match_1769809957412_24",
       "url": "https://www.yalla1shoot.com/matches/cagliari-vs-hellas-verona/",
       "title": "كالياري vs هيلاس فيرونا",
       "team1": {
@@ -671,38 +671,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 25,
-      "scrapedAt": "2026-01-30T21:35:33.066Z",
+      "scrapedAt": "2026-01-30T21:52:37.412Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933067_25",
-      "url": "https://www.yalla1shoot.com/matches/liverpool-vs-newcastle-united/",
-      "title": "ليفربول vs نيوكاسل يونايتد",
-      "team1": {
-        "name": "ليفربول",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/108-90x150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "نيوكاسل يونايتد",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/116-1-150x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "23:00",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN SPORTS HD 1",
-        "إنجلترا, الدوري الإنجليزي"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 26,
-      "scrapedAt": "2026-01-30T21:35:33.067Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933067_26",
+      "id": "match_1769809957412_25",
       "url": "https://www.yalla1shoot.com/matches/elche-vs-barcelona/",
       "title": "إلتشي vs برشلونة",
       "team1": {
@@ -724,12 +697,39 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 27,
-      "scrapedAt": "2026-01-30T21:35:33.067Z",
+      "position": 26,
+      "scrapedAt": "2026-01-30T21:52:37.412Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933068_27",
+      "id": "match_1769809957413_26",
+      "url": "https://www.yalla1shoot.com/matches/liverpool-vs-newcastle-united/",
+      "title": "ليفربول vs نيوكاسل يونايتد",
+      "team1": {
+        "name": "ليفربول",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/108-90x150.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "نيوكاسل يونايتد",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/116-1-150x150.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "23:00",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN SPORTS HD 1",
+        "إنجلترا, الدوري الإنجليزي"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 27,
+      "scrapedAt": "2026-01-30T21:52:37.413Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1769809957414_27",
       "url": "https://www.yalla1shoot.com/matches/monaco-vs-stade-rennes/",
       "title": "موناكو vs ستاد رين",
       "team1": {
@@ -752,38 +752,37 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 28,
-      "scrapedAt": "2026-01-30T21:35:33.068Z",
+      "scrapedAt": "2026-01-30T21:52:37.414Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933069_28",
-      "url": "https://www.yalla1shoot.com/matches/eternity-vs-victory/",
-      "title": "الخلود vs النصر",
+      "id": "match_1769809957414_28",
+      "url": "https://www.yalla1shoot.com/matches/clermont-vs-stade-reims/",
+      "title": "كليرمون vs ستاد ريمس",
       "team1": {
-        "name": "الخلود",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/55800-150x150.png",
+        "name": "كليرمون",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2026/01/490-150x150.png",
         "score": "0"
       },
       "team2": {
-        "name": "النصر",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/7549-150x150.png",
-        "score": "3"
+        "name": "ستاد ريمس",
+        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/499-150x150.png",
+        "score": "1"
       },
-      "score": "0 - 3",
-      "time": "20:30",
+      "score": "0 - 1",
+      "time": "22:00",
       "status": "انتهت",
       "channels": [
-        "تطبيق ثمانية",
-        "السعودية, الدوري السعودي"
+        "فرنسا, الدوري الفرنسي - الدرجة الثانية"
       ],
       "tournament": "غير محدد",
       "page": 1,
       "position": 29,
-      "scrapedAt": "2026-01-30T21:35:33.069Z",
+      "scrapedAt": "2026-01-30T21:52:37.414Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933069_29",
+      "id": "match_1769809957415_29",
       "url": "https://www.yalla1shoot.com/matches/sudanese-crescent-vs-sun-downs/",
       "title": "الهلال السوداني vs صن داونز",
       "team1": {
@@ -806,37 +805,11 @@
       "tournament": "غير محدد",
       "page": 1,
       "position": 30,
-      "scrapedAt": "2026-01-30T21:35:33.069Z",
+      "scrapedAt": "2026-01-30T21:52:37.415Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933070_30",
-      "url": "https://www.yalla1shoot.com/matches/clermont-vs-stade-reims/",
-      "title": "كليرمون vs ستاد ريمس",
-      "team1": {
-        "name": "كليرمون",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2026/01/490-150x150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "ستاد ريمس",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/499-150x150.png",
-        "score": "1"
-      },
-      "score": "0 - 1",
-      "time": "22:00",
-      "status": "انتهت",
-      "channels": [
-        "فرنسا, الدوري الفرنسي - الدرجة الثانية"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 31,
-      "scrapedAt": "2026-01-30T21:35:33.070Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769808933071_31",
+      "id": "match_1769809957415_30",
       "url": "https://www.yalla1shoot.com/matches/real-sociedad-b-vs-las-palmas/",
       "title": "ريال سوسيداد ب vs لاس بالماس",
       "team1": {
@@ -857,12 +830,12 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 32,
-      "scrapedAt": "2026-01-30T21:35:33.071Z",
+      "position": 31,
+      "scrapedAt": "2026-01-30T21:52:37.415Z",
       "watchServers": null
     },
     {
-      "id": "match_1769808933072_32",
+      "id": "match_1769809957416_31",
       "url": "https://www.yalla1shoot.com/matches/cologne-vs-wolfsburg/",
       "title": "كولن vs فولفسبورج",
       "team1": {
@@ -884,8 +857,8 @@
       ],
       "tournament": "غير محدد",
       "page": 1,
-      "position": 33,
-      "scrapedAt": "2026-01-30T21:35:33.072Z",
+      "position": 32,
+      "scrapedAt": "2026-01-30T21:52:37.416Z",
       "watchServers": null
     }
   ]
