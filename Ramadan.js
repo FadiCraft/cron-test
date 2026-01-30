@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 // إعدادات المسارات
 const RAMADAN_DIR = path.join(__dirname, "Ramadan");
-const YEAR = "2025"; // يمكن تغيير السنة حسب المطلوب
+const YEAR = "2025";
 const YEAR_DIR = path.join(RAMADAN_DIR, YEAR);
 
 // إنشاء المجلدات إذا لم تكن موجودة
@@ -21,11 +21,17 @@ if (!fs.existsSync(YEAR_DIR)) {
 
 // ==================== fetch مع timeout ====================
 async function fetchWithTimeout(url, timeout = 20000) {
+    // إضافة النطاق الأساسي إذا كان الرابط نسبيًا
+    let fullUrl = url;
+    if (url && !url.startsWith('http')) {
+        fullUrl = 'https://larooza.live/' + url;
+    }
+    
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
     
     try {
-        const response = await fetch(url, {
+        const response = await fetch(fullUrl, {
             signal: controller.signal,
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -98,10 +104,16 @@ async function fetchWatchServers(playUrl) {
             const serverName = server.querySelector('strong')?.textContent?.trim() || `سيرفر ${watchServers.length + 1}`;
             
             if (embedUrl) {
+                // إضافة النطاق الأساسي لروابط data-embed-url النسبية
+                let fullEmbedUrl = embedUrl;
+                if (embedUrl && !embedUrl.startsWith('http')) {
+                    fullEmbedUrl = 'https://larooza.live/' + embedUrl;
+                }
+                
                 watchServers.push({
                     id: `server_${watchServers.length + 1}`,
                     name: serverName,
-                    url: embedUrl,
+                    url: fullEmbedUrl,
                     type: 'embed'
                 });
             }
@@ -111,16 +123,22 @@ async function fetchWatchServers(playUrl) {
         const iframes = doc.querySelectorAll('iframe');
         iframes.forEach((iframe, index) => {
             const src = iframe.getAttribute('src');
-            if (src && src.includes('http')) {
+            if (src) {
+                let fullSrc = src;
+                // إضافة النطاق الأساسي لروابط iframe النسبية
+                if (src && !src.startsWith('http')) {
+                    fullSrc = 'https://larooza.live/' + src;
+                }
+                
                 let serverName = 'غير معروف';
-                if (src.includes('voe')) serverName = 'Voe';
-                else if (src.includes('okprime')) serverName = 'OkPrime';
-                else if (src.includes('stream')) serverName = 'Stream';
+                if (fullSrc.includes('voe')) serverName = 'Voe';
+                else if (fullSrc.includes('okprime')) serverName = 'OkPrime';
+                else if (fullSrc.includes('stream')) serverName = 'Stream';
                 
                 watchServers.push({
                     id: `iframe_${index + 1}`,
                     name: serverName,
-                    url: src,
+                    url: fullSrc,
                     type: 'iframe'
                 });
             }
@@ -147,7 +165,12 @@ async function fetchWatchServers(playUrl) {
 // ==================== استخراج سيرفرات الحلقة فقط ====================
 async function fetchEpisodeServers(episodeUrl) {
     const episodeId = extractVideoId(episodeUrl);
-    const playUrl = episodeUrl.replace('video.php?vid=', 'play.php?vid=');
+    
+    // تحويل رابط الحلقة إلى رابط المشاهدة
+    let playUrl = episodeUrl;
+    if (episodeUrl.includes('video.php?vid=')) {
+        playUrl = episodeUrl.replace('video.php?vid=', 'play.php?vid=');
+    }
     
     const watchServers = await fetchWatchServers(playUrl);
     
@@ -185,6 +208,11 @@ async function fetchSeriesEpisodes(seriesUrl, seriesId) {
                            doc.querySelector('.thumbnail img')?.src || 
                            '';
         
+        // إضافة النطاق الأساسي للصورة النسبية
+        if (seriesImage && !seriesImage.startsWith('http')) {
+            seriesImage = 'https://larooza.live/' + seriesImage;
+        }
+        
         // البحث عن روابط الحلقات
         const episodes = [];
         const episodeElements = doc.querySelectorAll('a[href*="video.php?vid="]');
@@ -194,7 +222,6 @@ async function fetchSeriesEpisodes(seriesUrl, seriesId) {
         // استخراج سيرفرات كل حلقة فقط
         for (let i = 0; i < episodeElements.length; i++) {
             const episodeElement = episodeElements[i];
-            // FIX: استخدام الرابط مباشرة كما هو (ليس إضافة البادئة)
             const episodeUrl = episodeElement.getAttribute('href');
             
             console.log(`     ${i + 1}/${episodeElements.length}: جلب سيرفرات الحلقة...`);
@@ -255,7 +282,6 @@ async function fetchRamadanSeries(pageUrl) {
         // استخراج كل مسلسل
         for (let i = 0; i < seriesElements.length; i++) {
             const seriesElement = seriesElements[i];
-            // FIX: استخدام الرابط مباشرة كما هو (ليس إضافة البادئة)
             const seriesUrl = seriesElement.getAttribute('href');
             const seriesId = extractSeriesId(seriesUrl) || `series_${i + 1}`;
             
