@@ -40,7 +40,7 @@ async function fetchWithTimeout(url, timeout = 20000) {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Referer': 'https://larooza.boats/',
+                'Referer': 'https://larooza.live/',
             }
         });
         
@@ -204,7 +204,7 @@ async function fetchSeriesEpisodes(seriesUrl, seriesId) {
         // استخراج سيرفرات كل حلقة فقط
         for (let i = 0; i < episodeElements.length; i++) {
             const episodeElement = episodeElements[i];
-            const episodeUrl = 'https://larooza.boats/' + episodeElement.getAttribute('href');
+            const episodeUrl = 'https://larooza.live/' + episodeElement.getAttribute('href');
             
             console.log(`     ${i + 1}/${episodeElements.length}: جلب سيرفرات الحلقة...`);
             
@@ -292,7 +292,7 @@ async function fetchRamadanSeries(pageUrl) {
         // استخراج كل مسلسل
         for (let i = 0; i < seriesElements.length; i++) {
             const seriesElement = seriesElements[i];
-            const seriesUrl = 'https://larooza.boats/' + seriesElement.getAttribute('href');
+            const seriesUrl = 'https://larooza.live/' + seriesElement.getAttribute('href');
             const seriesId = extractSeriesId(seriesUrl) || `series_${i + 1}`;
             
             console.log(`\n🎬 ${i + 1}/${seriesElements.length}: المسلسل ${seriesId}`);
@@ -370,7 +370,7 @@ async function main() {
         return { success: false, total: 0 };
     }
     
-    const RAMADAN_URL = `https://larooza.boats/category.php?cat=13-ramadan-${YEAR}`;
+    const RAMADAN_URL = `https://larooza.live/category.php?cat=13-ramadan-2025`;
     
     // استخراج المسلسلات
     const seriesList = await fetchRamadanSeries(RAMADAN_URL);
