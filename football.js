@@ -163,14 +163,20 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     return;
                 }
                 
-                // استخراج الفريق الأول من العنصر الصحيح
+                // البحث عن عناصر الفريقين بشكل منفصل
+                const teamContainers = element.querySelectorAll('.ay_952e3a03');
+                
                 let team1Name = "غير معروف";
                 let team1Logo = null;
+                let team2Name = "غير معروف";
+                let team2Logo = null;
                 
-                // البحث في العناصر الصحيحة للفريق الأول
-                const team1Div = element.querySelector('.TM1');
-                if (team1Div) {
-                    // استخراج اسم الفريق الأول من .ay_2001c2c9
+                // معالجة الفريق الأول
+                if (teamContainers.length >= 1) {
+                    const team1Container = teamContainers[0];
+                    const team1Div = team1Container.closest('.TM1') || team1Container;
+                    
+                    // استخراج اسم الفريق الأول
                     const team1NameElement = team1Div.querySelector('.ay_2001c2c9');
                     if (team1NameElement) {
                         team1Name = team1NameElement.textContent.trim();
@@ -182,18 +188,17 @@ async function fetchMatchesFromPage(pageNum = 1) {
                         team1Logo = extractImageUrl(team1Img);
                         // إذا كان هناك alt، يمكن استخدامه كاسم احتياطي
                         if (!team1Name || team1Name === "غير معروف") {
-                            team1Name = team1Img.alt || team1Name;
+                            team1Name = team1Img.getAttribute('alt') || team1Name;
                         }
                     }
                 }
                 
-                // استخراج الفريق الثاني من العنصر الصحيح
-                let team2Name = "غير معروف";
-                let team2Logo = null;
-                
-                const team2Div = element.querySelector('.TM2');
-                if (team2Div) {
-                    // استخراج اسم الفريق الثاني من .ay_2001c2c9
+                // معالجة الفريق الثاني
+                if (teamContainers.length >= 2) {
+                    const team2Container = teamContainers[1];
+                    const team2Div = team2Container.closest('.TM2') || team2Container;
+                    
+                    // استخراج اسم الفريق الثاني
                     const team2NameElement = team2Div.querySelector('.ay_2001c2c9');
                     if (team2NameElement) {
                         team2Name = team2NameElement.textContent.trim();
@@ -205,7 +210,33 @@ async function fetchMatchesFromPage(pageNum = 1) {
                         team2Logo = extractImageUrl(team2Img);
                         // إذا كان هناك alt، يمكن استخدامه كاسم احتياطي
                         if (!team2Name || team2Name === "غير معروف") {
-                            team2Name = team2Img.alt || team2Name;
+                            team2Name = team2Img.getAttribute('alt') || team2Name;
+                        }
+                    }
+                }
+                
+                // محاولة بديلة للبحث عن الفريقين بالكلاسات TM1 و TM2
+                if (team1Name === "غير معروف" || team2Name === "غير معروف") {
+                    const team1Div = element.querySelector('.TM1');
+                    const team2Div = element.querySelector('.TM2');
+                    
+                    if (team1Div) {
+                        const nameElement = team1Div.querySelector('.ay_2001c2c9');
+                        if (nameElement) team1Name = nameElement.textContent.trim();
+                        
+                        const img = team1Div.querySelector('img');
+                        if (img && !team1Logo) {
+                            team1Logo = extractImageUrl(img);
+                        }
+                    }
+                    
+                    if (team2Div) {
+                        const nameElement = team2Div.querySelector('.ay_2001c2c9');
+                        if (nameElement) team2Name = nameElement.textContent.trim();
+                        
+                        const img = team2Div.querySelector('img');
+                        if (img && !team2Logo) {
+                            team2Logo = extractImageUrl(img);
                         }
                     }
                 }
