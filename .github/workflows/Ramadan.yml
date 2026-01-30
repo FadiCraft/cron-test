@@ -3,8 +3,8 @@ name: Ramadan Series Scraper
 on:
   workflow_dispatch:  # تشغيل يدوي
   schedule:
-    # تشغيل كل ساعة
-    - cron: "0 * * * *"  # كل ساعة في الدقيقة 0
+    # تشغيل كل ساعة في الدقيقة 0
+    - cron: '0 * * * *'
 
 jobs:
   extract-ramadan-series:
@@ -12,202 +12,175 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
+          cache: 'npm'
           
       - name: Show directory structure
         run: |
-          echo "📁 هيكل الملفات الحالي:"
+          echo "📁 هيكل الملفات:"
           pwd
           ls -la
           echo ""
-          echo "📁 محتويات المجلد الحالي:"
-          find . -name "*.js" -o -name "*.json" | head -20
+          echo "📁 ملفات JavaScript:"
+          find . -name "*.js" | head -10
 
       - name: Install dependencies
         run: |
           echo "📦 تثبيت الاعتماديات..."
-          npm init -y
+          npm init -y --silent
           npm install jsdom
-          npm list jsdom
-          echo "✅ تم تثبيت الحزم المطلوبة"
+          echo "✅ تم تثبيت jsdom"
 
-      - name: Create Ramadan directory
+      - name: Create directories
         run: |
-          echo "🔧 إنشاء المجلدات..."
+          echo "📁 إنشاء المجلدات..."
           mkdir -p Ramadan/2025
-          echo "📁 تم إنشاء مجلد Ramadan/2025"
-          echo ""
-          echo "📁 التحقق من المجلدات:"
-          ls -la Ramadan/ || echo "مجلد Ramadan غير موجود"
-          ls -la Ramadan/2025/ 2>/dev/null || echo "مجلد 2025 غير موجود"
+          echo "✅ تم إنشاء Ramadan/2025"
+          ls -la Ramadan/
 
-      - name: Test file creation
+      - name: Test write permissions
         run: |
-          echo "✏️ اختبار إنشاء ملف..."
-          echo "هذا ملف اختباري من GitHub Actions - $(date)" > Ramadan/2025/test_actions.txt
-          echo "✅ تم إنشاء ملف اختباري"
-          echo ""
-          echo "📁 محتويات Ramadan/2025 بعد الاختبار:"
+          echo "✏️ اختبار صلاحيات الكتابة..."
+          echo "Test from GitHub Actions - $(date)" > Ramadan/2025/test.txt
+          echo "✅ تم كتابة ملف اختباري"
           ls -la Ramadan/2025/
 
       - name: Run Ramadan.js
         run: |
-          echo "🎬 بدء استخراج مسلسلات رمضان..."
-          echo "📅 السنة: 2025"
+          echo "🚀 تشغيل Ramadan.js..."
           echo "⏰ الوقت: $(date)"
-          echo "🔄 الجدولة: كل ساعة"
-          echo "📁 الملف: Ramadan.js"
-          echo "📁 المسار الحالي: $(pwd)"
-          echo ""
           
-          # التحقق من وجود الملف
-          if [ -f "Ramadan.js" ]; then
-            echo "✅ ملف Ramadan.js موجود"
-            echo "📊 حجم الملف: $(wc -l < Ramadan.js) سطر"
-            echo ""
-            echo "🔄 جاري التشغيل..."
-            
-            # تشغيل مع تسجيل مفصل
-            node Ramadan.js 2>&1 | tee output.log
-            
-            EXIT_CODE=${PIPESTATUS[0]}
-            echo ""
-            echo "📝 كود الخروج: $EXIT_CODE"
-            
-            if [ $EXIT_CODE -eq 0 ]; then
-              echo "✅ تم تشغيل Ramadan.js بنجاح"
-            else
-              echo "❌ Ramadan.js خرج برمز خطأ: $EXIT_CODE"
-              echo ""
-              echo "📄 آخر 50 سطر من الإخراج:"
-              tail -50 output.log
-              exit $EXIT_CODE
-            fi
-          else
-            echo "❌ ملف Ramadan.js غير موجود!"
-            echo ""
-            echo "📂 الملفات الموجودة:"
-            ls -la *.js || echo "لا توجد ملفات js"
+          if [ ! -f "Ramadan.js" ]; then
+            echo "❌ ERROR: ملف Ramadan.js غير موجود!"
+            echo "📂 الملفات المتاحة:"
+            find . -name "*.js"
             exit 1
           fi
           
-          echo "✅ تم الانتهاء من استخراج مسلسلات رمضان"
+          echo "✅ Ramadan.js موجود، جاري التشغيل..."
+          
+          # تشغيل مع التقاط الإخراج
+          node Ramadan.js 2>&1 | tee run_output.log
+          EXIT_CODE=${PIPESTATUS[0]}
+          
+          echo ""
+          echo "📋 كود الخروج: $EXIT_CODE"
+          
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "❌ Ramadan.js فشل مع كود خطأ: $EXIT_CODE"
+            echo "📄 آخر 30 سطر من الإخراج:"
+            tail -30 run_output.log
+            exit $EXIT_CODE
+          fi
+          
+          echo "✅ Ramadan.js اكتمل بنجاح"
 
       - name: Check results
         run: |
-          echo "📊 ====== نتائج استخراج مسلسلات رمضان ======"
-          echo "⏰ وقت التشغيل: $(date)"
-          echo "🔄 التكرار: كل ساعة"
+          echo "📊 ====== النتائج ======"
           echo "📅 السنة: 2025"
           echo ""
           
-          # عرض الإخراج الكامل
-          echo "📄 إخراج البرنامج:"
-          cat output.log 2>/dev/null || echo "⚠️ لا يوجد ملف output.log"
-          
-          echo ""
-          echo "🔍 التحقق من الملفات المنشأة..."
-          
-          # التحقق من وجود مجلد Ramadan/2025
           if [ -d "Ramadan/2025" ]; then
-            echo "✅ مجلد Ramadan/2025 موجود"
-            echo ""
             echo "📁 محتويات Ramadan/2025:"
-            ls -la Ramadan/2025/
+            ls -lah Ramadan/2025/
             echo ""
-            echo "📄 قائمة ملفات JSON:"
-            find Ramadan/2025 -name "*.json" -type f
             
-            # التحقق من وجود ملف index_2025.json
-            if [ -f "Ramadan/2025/index_2025.json" ]; then
+            JSON_COUNT=$(find Ramadan/2025 -name "*.json" | wc -l)
+            echo "📄 عدد ملفات JSON: $JSON_COUNT"
+            
+            if [ $JSON_COUNT -gt 0 ]; then
               echo ""
-              echo "✅ تم إنشاء ملف index_2025.json"
+              echo "📋 ملفات JSON الموجودة:"
+              find Ramadan/2025 -name "*.json" -exec basename {} \;
               
-              # تثبيت jq
-              sudo apt-get update && sudo apt-get install -y jq
-              
-              # عرض معلومات الفهرس
-              echo ""
-              echo "📋 معلومات الفهرس:"
-              jq '.' Ramadan/2025/index_2025.json
-              
-            else
-              echo "❌ لم يتم إنشاء index_2025.json"
+              # التحقق من ملف الفهرس
+              if [ -f "Ramadan/2025/index_2025.json" ]; then
+                echo ""
+                echo "✅ ملف الفهرس موجود"
+                
+                # تثبيت jq
+                sudo apt-get update -q
+                sudo apt-get install -y jq
+                
+                echo ""
+                echo "📊 معلومات الفهرس:"
+                jq -r '
+                  "إجمالي المسلسلات: \(.totalSeries // 0)",
+                  "إجمالي الحلقات: \(.totalEpisodes // 0)",
+                  "وقت الاستخراج: \(.scrapedAt // "غير معروف")"
+                ' Ramadan/2025/index_2025.json
+              fi
             fi
           else
-            echo "❌ مجلد Ramadan/2025 غير موجود!"
+            echo "❌ مجلد Ramadan/2025 غير موجود"
           fi
+          
+          echo ""
+          echo "📝 حجم الإخراج:"
+          wc -l run_output.log || echo "لا يوجد ملف إخراج"
 
       - name: Save output log
         if: always()
         run: |
-          echo "📝 حفظ سجل الإخراج..."
           mkdir -p logs
-          cp output.log logs/ramadan_$(date +%Y%m%d_%H%M%S).log 2>/dev/null || echo "⚠️ لا يوجد output.log"
-          echo "✅ تم حفظ السجل"
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          if [ -f "run_output.log" ]; then
+            cp run_output.log "logs/ramadan_${TIMESTAMP}.log"
+            echo "📝 السجل محفوظ في: logs/ramadan_${TIMESTAMP}.log"
+          fi
 
-      - name: Commit and push changes
+      - name: Commit changes
         if: success()
         run: |
-          echo "🔄 تحضير التحديثات..."
+          echo "💾 حفظ التغييرات..."
           
-          # تكوين Git
-          git config user.name "GitHub Actions Bot"
+          git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
           # إضافة جميع الملفات الجديدة
-          echo "➕ إضافة الملفات..."
-          git add Ramadan/ || echo "⚠️ لا توجد ملفات في Ramadan"
-          git add logs/ 2>/dev/null || echo "⚠️ لا توجد سجلات"
-          git add output.log 2>/dev/null || echo "⚠️ لا يوجد output.log"
-          
-          # التحقق من التغييرات
-          echo "📋 التحقق من التغييرات..."
-          git status
+          git add Ramadan/ logs/ run_output.log 2>/dev/null || true
           
           if git diff --cached --quiet; then
-            echo "📭 لا توجد تغييرات جديدة للرفع"
+            echo "📭 لا توجد تغييرات جديدة"
           else
-            echo "🔼 رفع التغييرات..."
+            echo "🔼 هناك تغييرات جديدة"
+            git status
             
-            # إنشاء رسالة الـ commit
-            COMMIT_MSG="🎬 تحديث مسلسلات رمضان 2025 - $(date +'%Y-%m-%d %H:%M')"
+            # إنشاء رسالة commit
+            COMMIT_MESSAGE="🎬 تحديث رمضان 2025 - $(date +'%Y-%m-%d %H:%M')"
             
-            # إضافة معلومات إضافية إذا كان هناك ملف فهرس
-            if [ -f "Ramadan/2025/index_2025.json" ]; then
-              TOTAL_SERIES=$(jq -r '.totalSeries // 0' Ramadan/2025/index_2025.json 2>/dev/null || echo 0)
-              TOTAL_EPISODES=$(jq -r '.totalEpisodes // 0' Ramadan/2025/index_2025.json 2>/dev/null || echo 0)
+            # إضافة معلومات إضافية
+            if [ -f "Ramadan/2025/index_2025.json" ] && command -v jq >/dev/null 2>&1; then
+              SERIES_COUNT=$(jq -r '.totalSeries // 0' Ramadan/2025/index_2025.json 2>/dev/null || echo "?")
+              EPISODES_COUNT=$(jq -r '.totalEpisodes // 0' Ramadan/2025/index_2025.json 2>/dev/null || echo "?")
+              COMMIT_MESSAGE="${COMMIT_MESSAGE}
               
-              COMMIT_MSG="$COMMIT_MSG
-تحديث تلقائي كل ساعة
-عدد المسلسلات: $TOTAL_SERIES
-عدد الحلقات: $TOTAL_EPISODES"
+عدد المسلسلات: ${SERIES_COUNT}
+عدد الحلقات: ${EPISODES_COUNT}"
             fi
             
-            git commit -m "$COMMIT_MSG"
+            git commit -m "${COMMIT_MESSAGE}"
             git push
             echo "✅ تم رفع التغييرات"
           fi
 
-      - name: Final status
+      - name: Summary
         run: |
           echo ""
-          echo "📊 ====== الحالة النهائية ======"
-          echo "✅ انتهى العمل بنجاح"
+          echo "🎉 ====== ملخص التشغيل ======"
+          echo "✅ اكتمل العمل بنجاح"
           echo "⏰ الوقت: $(date)"
-          echo "📁 موقع الملفات: Ramadan/2025/"
           
-          # عد الملفات
           if [ -d "Ramadan/2025" ]; then
-            FILE_COUNT=$(find Ramadan/2025 -type f | wc -l)
-            JSON_COUNT=$(find Ramadan/2025 -name "*.json" | wc -l)
-            echo "📄 إجمالي الملفات: $FILE_COUNT"
-            echo "📋 ملفات JSON: $JSON_COUNT"
+            echo "📁 الموقع: Ramadan/2025/"
+            TOTAL_FILES=$(find Ramadan/2025 -type f | wc -l)
+            echo "📄 إجمالي الملفات: $TOTAL_FILES"
           fi
+          
+          echo "🔄 التشغيل التالي: خلال ساعة"
