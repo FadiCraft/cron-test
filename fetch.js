@@ -13,20 +13,20 @@ const CONFIG = {
     
     // ملفات النظام
     files: {
-        home: "Home.json",           // الصفحة الأولى
-        index: "index.json",         // الفهرس الرئيسي
-        stats: "stats.json"          // إحصائيات النظام
+        home: "Home.json",
+        index: "index.json",
+        stats: "stats.json"
     },
     
     // إعدادات الأداء
-    batchSize: 250,                  // عدد الأفلام في كل ملف TopCinema
-    requestDelay: 1000,              // تأخير بين الطلبات (ملي ثانية)
-    timeout: 30000,                  // وقت الانتظار للطلب
+    batchSize: 250,
+    requestDelay: 1000,
+    timeout: 30000,
     
     // وضع التشغيل
-    isFirstRun: false,               // سيتم اكتشافه تلقائياً
-    scanOnlyPage2: true,             // فحص الصفحة الثانية فقط للتحديث
-    maxPagesFirstRun: 100            // الحد الأقصى للصفحات في التشغيل الأول
+    isFirstRun: false,
+    scanOnlyPage2: true,
+    maxPagesFirstRun: 100
 };
 
 // ==================== تهيئة النظام ====================
@@ -36,13 +36,49 @@ function initSystem() {
         console.log(`📁 تم إنشاء المجلد: ${CONFIG.outputDir}`);
     }
     
-    // التحقق من الملفات الأساسية
+    // التحقق من الملفات الأساسية وإنشاؤها إذا لزم
+    const requiredFiles = [CONFIG.files.index, CONFIG.files.stats];
+    requiredFiles.forEach(file => {
+        const filePath = path.join(CONFIG.outputDir, file);
+        if (!fs.existsSync(filePath)) {
+            if (file === CONFIG.files.index) {
+                fs.writeFileSync(filePath, JSON.stringify({
+                    movies: {},
+                    lastUpdated: new Date().toISOString(),
+                    version: "1.0"
+                }, null, 2));
+            } else if (file === CONFIG.files.stats) {
+                fs.writeFileSync(filePath, JSON.stringify({
+                    totalMovies: 0,
+                    totalFiles: 0,
+                    firstRunDate: new Date().toISOString(),
+                    lastRunDate: null,
+                    runs: []
+                }, null, 2));
+            }
+            console.log(`📄 تم إنشاء: ${file}`);
+        }
+    });
+    
+    // التحقق من التشغيل الأول
     const indexFile = path.join(CONFIG.outputDir, CONFIG.files.index);
-    if (!fs.existsSync(indexFile)) {
+    if (fs.existsSync(indexFile)) {
+        try {
+            const data = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
+            const hasMovies = Object.keys(data.movies || {}).length > 0;
+            CONFIG.isFirstRun = !hasMovies;
+            console.log(`📊 الفهرس: ${Object.keys(data.movies || {}).length} فيلم`);
+        } catch (error) {
+            CONFIG.isFirstRun = true;
+            console.log(`⚠️ خطأ في الفهرس: ${error.message}`);
+        }
+    } else {
         CONFIG.isFirstRun = true;
+    }
+    
+    if (CONFIG.isFirstRun) {
         console.log("🆕 هذا هو التشغيل الأول للنظام");
     } else {
-        CONFIG.isFirstRun = false;
         console.log("🔄 وضع التحديث اليومي");
     }
     
@@ -59,15 +95,17 @@ function loadIndex() {
     
     if (fs.existsSync(indexFile)) {
         try {
-            const data = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
-            console.log(`📊 الفهرس المحمول: ${Object.keys(data.movies || {}).length} فيلم`);
-            return data;
+            return JSON.parse(fs.readFileSync(indexFile, 'utf8'));
         } catch (error) {
             console.log(`❌ خطأ في تحميل الفهرس: ${error.message}`);
+            return {
+                movies: {},
+                lastUpdated: new Date().toISOString(),
+                version: "1.0"
+            };
         }
     }
     
-    // الفهرس الجديد
     return {
         movies: {},
         lastUpdated: new Date().toISOString(),
@@ -87,7 +125,6 @@ function loadStats() {
         }
     }
     
-    // إحصائيات جديدة
     return {
         totalMovies: 0,
         totalFiles: 0,
@@ -97,114 +134,144 @@ function loadStats() {
     };
 }
 
-// ==================== الحصول على آخر ملف TopCinema ====================
+// ==================== الحصول على/إنشاء آخر ملف TopCinema ====================
 function getLastTopCinemaFile() {
     const files = fs.readdirSync(CONFIG.outputDir);
     const topCinemaFiles = files.filter(f => f.startsWith('TopCinema') && f.endsWith('.json'));
     
     if (topCinemaFiles.length === 0) {
-        return {
-            filename: "TopCinema1.json",
-            number: 1,
-            movieCount: 0
-        };
+        // لا توجد ملفات، ننشئ الملف الأول
+        return createNewTopCinemaFile(1);
     }
     
     // ترتيب الملفات رقمياً
     topCinemaFiles.sort((a, b) => {
-        const numA = parseInt(a.match(/TopCinema(\d+)\.json/)[1]);
-        const numB = parseInt(b.match(/TopCinema(\d+)\.json/)[1]);
-        return numA - numB;
+        const numA = parseInt(a.match(/TopCinema(\d+)\.json/)?.[1] || 0);
+        const numB = parseInt(b.match(/TopCinema(\d+)\.json/)?.[1] || 0);
+        return numB - numA; // من الأحدث للأقدم
     });
     
-    const lastFile = topCinemaFiles[topCinemaFiles.length - 1];
+    const lastFile = topCinemaFiles[0]; // أحدث ملف
     const filePath = path.join(CONFIG.outputDir, lastFile);
     
     try {
         const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         return {
             filename: lastFile,
-            number: parseInt(lastFile.match(/TopCinema(\d+)\.json/)[1]),
+            number: parseInt(lastFile.match(/TopCinema(\d+)\.json/)?.[1] || 1),
             movieCount: content.movies?.length || 0,
-            isFull: (content.movies?.length || 0) >= CONFIG.batchSize
+            isFull: (content.movies?.length || 0) >= CONFIG.batchSize,
+            path: filePath
         };
     } catch (error) {
         console.log(`⚠️ خطأ في قراءة ملف ${lastFile}: ${error.message}`);
-        return {
-            filename: lastFile,
-            number: parseInt(lastFile.match(/TopCinema(\d+)\.json/)[1]),
-            movieCount: 0,
-            isFull: false
-        };
+        return createNewTopCinemaFile(parseInt(lastFile.match(/TopCinema(\d+)\.json/)?.[1] || 1) + 1);
     }
 }
 
 // ==================== إنشاء ملف TopCinema جديد ====================
-function createNewTopCinemaFile(lastNumber) {
-    const newNumber = lastNumber + 1;
-    const newFilename = `TopCinema${newNumber}.json`;
+function createNewTopCinemaFile(fileNumber) {
+    const newFilename = `TopCinema${fileNumber}.json`;
     const newFilePath = path.join(CONFIG.outputDir, newFilename);
     
     const structure = {
-        fileNumber: newNumber,
+        fileNumber: fileNumber,
         createdAt: new Date().toISOString(),
+        lastUpdated: new Date().toISOString(),
         movies: [],
+        totalMovies: 0,
         metadata: {
             batchSize: CONFIG.batchSize,
             source: "topcinema.rip"
         }
     };
     
+    // تأكد من وجود المجلد
+    if (!fs.existsSync(CONFIG.outputDir)) {
+        fs.mkdirSync(CONFIG.outputDir, { recursive: true });
+    }
+    
+    // إنشاء الملف
     fs.writeFileSync(newFilePath, JSON.stringify(structure, null, 2));
     console.log(`📄 تم إنشاء ملف جديد: ${newFilename}`);
     
     return {
         filename: newFilename,
-        number: newNumber,
+        number: fileNumber,
         movieCount: 0,
-        isFull: false
+        isFull: false,
+        path: newFilePath
     };
 }
 
 // ==================== إضافة فيلم لملف TopCinema ====================
 function addMovieToTopCinemaFile(movieData, topCinemaInfo) {
-    const filePath = path.join(CONFIG.outputDir, topCinemaInfo.filename);
+    const filePath = topCinemaInfo.path || path.join(CONFIG.outputDir, topCinemaInfo.filename);
     
     try {
-        const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        // قراءة الملف الحالي أو إنشاء هيكل جديد
+        let content;
+        if (fs.existsSync(filePath)) {
+            content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        } else {
+            content = {
+                fileNumber: topCinemaInfo.number,
+                createdAt: new Date().toISOString(),
+                lastUpdated: new Date().toISOString(),
+                movies: [],
+                totalMovies: 0,
+                metadata: {
+                    batchSize: CONFIG.batchSize,
+                    source: "topcinema.rip"
+                }
+            };
+        }
         
-        // التحقق من عدم التكرار في الملف نفسه
+        // التحقق من عدم التكرار
         const exists = content.movies.some(m => m.id === movieData.id);
         if (exists) {
             console.log(`   ⚠️ الفيلم ${movieData.id} موجود مسبقاً في الملف`);
             return false;
         }
         
+        // إضافة الفيلم
         content.movies.push(movieData);
         content.lastUpdated = new Date().toISOString();
         content.totalMovies = content.movies.length;
         
+        // حفظ الملف
         fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
         
-        console.log(`   ✅ أضيف للفيلم ${movieData.id} إلى ${topCinemaInfo.filename}`);
+        console.log(`   ✅ أضيف الفيلم ${movieData.id} إلى ${topCinemaInfo.filename}`);
         return true;
         
     } catch (error) {
-        console.log(`❌ خطأ في إضافة الفيلم للملف: ${error.message}`);
-        return false;
+        console.log(`❌ خطأ في إضافة الفيلم للملف ${filePath}: ${error.message}`);
+        console.log(`   محاولة إنشاء الملف من جديد...`);
+        
+        // محاولة استعادة بإنشاء ملف جديد
+        try {
+            const newFile = createNewTopCinemaFile(topCinemaInfo.number);
+            return addMovieToTopCinemaFile(movieData, newFile);
+        } catch (retryError) {
+            console.log(`❌ فشل إعادة المحاولة: ${retryError.message}`);
+            return false;
+        }
     }
 }
 
 // ==================== حفظ البيانات في ملف ====================
-function saveToFile(filename, data, subDir = null) {
-    const dir = subDir ? path.join(CONFIG.outputDir, subDir) : CONFIG.outputDir;
+function saveToFile(filename, data) {
+    const filePath = path.join(CONFIG.outputDir, filename);
     
+    // تأكد من وجود المجلد
+    const dir = path.dirname(filePath);
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
     
-    const filePath = path.join(dir, filename);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    console.log(`💾 تم حفظ ${filename}`);
     return filePath;
 }
 
@@ -247,28 +314,39 @@ async function fetchWithTimeout(url, timeout = CONFIG.timeout) {
 // ==================== استخراج ID من الرابط ====================
 function extractMovieId(url) {
     try {
-        if (!url) return null;
-        // نمط لـ topcinema.rip
-        const pattern1 = /topcinema\.rip\/(?:movie|series)\/([^\/]+)/;
-        const pattern2 = /p=(\d+)/;
+        if (!url) return `unknown_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         
-        const match1 = url.match(pattern1);
-        const match2 = url.match(pattern2);
+        // محاولة استخراج ID من الرابط
+        const urlObj = new URL(url);
+        const pathParts = urlObj.pathname.split('/').filter(p => p);
         
-        if (match1) return match1[1];
-        if (match2) return match2[1];
+        // نماذج متوقعة:
+        // /movie/عنوان-الفيلم-12345/
+        // /series/مسلسل-456/
         
-        // إذا لم يعثر على نمط، إنشاء hash من الرابط
+        if (pathParts.length >= 2) {
+            const lastPart = pathParts[pathParts.length - 1];
+            // البحث عن أرقام في الجزء الأخير
+            const numbersMatch = lastPart.match(/(\d+)/);
+            if (numbersMatch) {
+                return numbersMatch[1];
+            }
+            // استخدام الجزء الأخير كامل
+            return lastPart;
+        }
+        
+        // إذا لم يتم العثور، إنشاء hash من الرابط
         let hash = 0;
         for (let i = 0; i < url.length; i++) {
-            hash = ((hash << 5) - hash) + url.charCodeAt(i);
+            const char = url.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
             hash = hash & hash;
         }
-        return Math.abs(hash).toString();
+        return `hash_${Math.abs(hash).toString(16)}`;
         
     } catch (error) {
         console.log(`⚠️ خطأ في استخراج ID: ${error.message}`);
-        return `unknown_${Date.now()}`;
+        return `error_${Date.now()}`;
     }
 }
 
@@ -292,34 +370,64 @@ async function fetchMoviesFromPage(pageNum) {
         const doc = dom.window.document;
         const movies = [];
         
-        // البحث عن عناصر الأفلام
-        const movieElements = doc.querySelectorAll('.Small--Box a, .movie-item a, a[href*="/movie/"]');
+        // أنماط البحث المختلفة
+        const selectors = [
+            '.Small--Box a',
+            '.movie-item a',
+            '.post a',
+            '.item a',
+            'a[href*="/movie/"]',
+            'a[href*="/series/"]'
+        ];
+        
+        let movieElements = [];
+        for (const selector of selectors) {
+            const elements = doc.querySelectorAll(selector);
+            if (elements.length > 0) {
+                movieElements = Array.from(elements);
+                break;
+            }
+        }
+        
+        // إذا لم نجد بأي selector، نبحث عن أي روابط تحتوي على movie أو series
+        if (movieElements.length === 0) {
+            const allLinks = doc.querySelectorAll('a[href]');
+            movieElements = Array.from(allLinks).filter(link => 
+                link.href.includes('/movie/') || link.href.includes('/series/')
+            );
+        }
+        
         console.log(`   📊 عثر على ${movieElements.length} فيلم في الصفحة ${pageNum}`);
         
         movieElements.forEach((element, index) => {
-            const movieUrl = element.href;
-            
-            if (movieUrl && movieUrl.includes('topcinema.rip')) {
-                const title = element.querySelector('.title')?.textContent?.trim() || 
-                             element.querySelector('.name')?.textContent?.trim() ||
-                             element.textContent?.trim() || 
-                             `فيلم ${index + 1}`;
+            try {
+                const movieUrl = element.href;
                 
-                const image = element.querySelector('img')?.src || 
-                             element.querySelector('.poster')?.src ||
-                             null;
-                
-                const movieId = extractMovieId(movieUrl);
-                
-                movies.push({
-                    id: movieId,
-                    title: title.substring(0, 200),
-                    url: movieUrl,
-                    image: image,
-                    page: pageNum,
-                    position: index + 1,
-                    discoveredAt: new Date().toISOString()
-                });
+                if (movieUrl && movieUrl.includes('topcinema.rip')) {
+                    const title = element.querySelector('.title')?.textContent?.trim() || 
+                                 element.querySelector('.name')?.textContent?.trim() ||
+                                 element.textContent?.trim() || 
+                                 `فيلم ${pageNum}_${index + 1}`;
+                    
+                    const image = element.querySelector('img')?.src || 
+                                 element.querySelector('.poster')?.src ||
+                                 element.querySelector('img[src*="poster"]')?.src ||
+                                 null;
+                    
+                    const movieId = extractMovieId(movieUrl);
+                    
+                    movies.push({
+                        id: movieId,
+                        title: title.substring(0, 200),
+                        url: movieUrl,
+                        image: image,
+                        page: pageNum,
+                        position: index + 1,
+                        discoveredAt: new Date().toISOString()
+                    });
+                }
+            } catch (error) {
+                console.log(`   ⚠️ خطأ في معالجة فيلم ${index + 1}: ${error.message}`);
             }
         });
         
@@ -345,7 +453,8 @@ function updateIndex(movie, topCinemaFile, system) {
             lastSeen: now,
             storedIn: topCinemaFile.filename,
             lastPageSeen: movie.page,
-            discoveryPage: movie.page
+            discoveryPage: movie.page,
+            addedAt: now
         };
         
         system.stats.totalMovies++;
@@ -359,40 +468,45 @@ function updateIndex(movie, topCinemaFile, system) {
         // إذا تغير الموقع، تحديث storedIn
         if (system.index.movies[movie.id].storedIn !== topCinemaFile.filename) {
             system.index.movies[movie.id].storedIn = topCinemaFile.filename;
+            console.log(`   ↪️ نقل الفيلم ${movie.id} إلى ${topCinemaFile.filename}`);
         }
         
         return 'updated';
     }
 }
 
-// ==================== حفظ الفهرس والإحصائيات ====================
+// ==================== حفظ النظام ====================
 function saveSystemData(system) {
-    // حفظ الفهرس
-    system.index.lastUpdated = new Date().toISOString();
-    const indexPath = path.join(CONFIG.outputDir, CONFIG.files.index);
-    fs.writeFileSync(indexPath, JSON.stringify(system.index, null, 2));
-    
-    // حفظ الإحصائيات
-    system.stats.lastRunDate = new Date().toISOString();
-    system.stats.runs.push({
-        date: new Date().toISOString(),
-        newMovies: system.newMoviesCount || 0,
-        updatedMovies: system.updatedMoviesCount || 0,
-        totalMovies: system.stats.totalMovies
-    });
-    
-    // حفظ فقط آخر 30 تشغيل
-    if (system.stats.runs.length > 30) {
-        system.stats.runs = system.stats.runs.slice(-30);
+    try {
+        // حفظ الفهرس
+        system.index.lastUpdated = new Date().toISOString();
+        saveToFile(CONFIG.files.index, system.index);
+        
+        // حفظ الإحصائيات
+        system.stats.lastRunDate = new Date().toISOString();
+        system.stats.runs = system.stats.runs || [];
+        system.stats.runs.push({
+            date: new Date().toISOString(),
+            newMovies: system.newMoviesCount || 0,
+            updatedMovies: system.updatedMoviesCount || 0,
+            totalMovies: system.stats.totalMovies
+        });
+        
+        // حفظ فقط آخر 30 تشغيل
+        if (system.stats.runs.length > 30) {
+            system.stats.runs = system.stats.runs.slice(-30);
+        }
+        
+        saveToFile(CONFIG.files.stats, system.stats);
+        
+        console.log(`💾 تم حفظ بيانات النظام`);
+        
+    } catch (error) {
+        console.log(`❌ خطأ في حفظ بيانات النظام: ${error.message}`);
     }
-    
-    const statsPath = path.join(CONFIG.outputDir, CONFIG.files.stats);
-    fs.writeFileSync(statsPath, JSON.stringify(system.stats, null, 2));
-    
-    console.log(`💾 تم حفظ البيانات: ${system.stats.totalMovies} فيلم`);
 }
 
-// ==================== التشغيل الأول (جمع كل الأفلام) ====================
+// ==================== التشغيل الأول ====================
 async function firstRun(system) {
     console.log("🚀 بدء التشغيل الأول - جمع كل الأفلام");
     console.log("=".repeat(50));
@@ -401,13 +515,19 @@ async function firstRun(system) {
     let totalMoviesCollected = 0;
     let topCinemaFile = system.lastTopCinemaFile;
     
+    // تأكد من وجود ملف TopCinema الأول
+    if (!topCinemaFile || !fs.existsSync(topCinemaFile.path)) {
+        topCinemaFile = createNewTopCinemaFile(1);
+        system.stats.totalFiles = 1;
+    }
+    
     while (currentPage <= CONFIG.maxPagesFirstRun) {
         console.log(`\n📄 الصفحة ${currentPage}/${CONFIG.maxPagesFirstRun}`);
         
         const movies = await fetchMoviesFromPage(currentPage);
         
         if (movies.length === 0) {
-            console.log(`⏹️ لا توجد أفلام في الصفحة ${currentPage} - التوقف`);
+            console.log(`⏹️ لا توجد أفلام في الصفحة ${currentPage} - ربما انتهت الصفحات`);
             break;
         }
         
@@ -417,6 +537,7 @@ async function firstRun(system) {
                 page: 1,
                 url: "https://topcinema.rip/movies/",
                 scrapedAt: new Date().toISOString(),
+                totalMovies: movies.length,
                 movies: movies
             };
             
@@ -425,44 +546,47 @@ async function firstRun(system) {
         }
         
         // معالجة كل أفلام الصفحة
-        for (const movie of movies) {
-            // التحقق إذا كان الفيلم موجوداً بالفعل (لتجنب التكرار)
-            if (system.index.movies[movie.id]) {
-                console.log(`   ⏭️ تخطي ${movie.id} - موجود مسبقاً`);
-                continue;
-            }
+        for (let i = 0; i < movies.length; i++) {
+            const movie = movies[i];
             
             // إذا امتلأ الملف الحالي، إنشاء ملف جديد
-            if (topCinemaFile.isFull || topCinemaFile.movieCount >= CONFIG.batchSize) {
-                topCinemaFile = createNewTopCinemaFile(topCinemaFile.number);
+            if (topCinemaFile.movieCount >= CONFIG.batchSize) {
+                const newNumber = topCinemaFile.number + 1;
+                topCinemaFile = createNewTopCinemaFile(newNumber);
                 system.stats.totalFiles++;
+                console.log(`📦 إنشاء ملف جديد: ${topCinemaFile.filename}`);
             }
             
             // إضافة الفيلم للملف
             const added = addMovieToTopCinemaFile(movie, topCinemaFile);
             if (added) {
-                updateIndex(movie, topCinemaFile, system);
+                const status = updateIndex(movie, topCinemaFile, system);
                 topCinemaFile.movieCount++;
                 totalMoviesCollected++;
                 
+                if (status === 'new') {
+                    console.log(`   ${i + 1}/${movies.length}: ✅ ${movie.title.substring(0, 30)}...`);
+                }
+                
+                // تحديث كل 50 فيلم
                 if (totalMoviesCollected % 50 === 0) {
-                    console.log(`   📦 تم جمع ${totalMoviesCollected} فيلم حتى الآن...`);
+                    console.log(`   📊 تم جمع ${totalMoviesCollected} فيلم حتى الآن...`);
+                    saveSystemData(system);
                 }
             }
             
             // تأخير بسيط بين الأفلام
-            await new Promise(resolve => setTimeout(resolve, 100));
+            if (i < movies.length - 1) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
         }
         
         // تأخير بين الصفحات
-        await new Promise(resolve => setTimeout(resolve, CONFIG.requestDelay));
+        if (currentPage < CONFIG.maxPagesFirstRun && movies.length > 0) {
+            await new Promise(resolve => setTimeout(resolve, CONFIG.requestDelay));
+        }
         
         currentPage++;
-        
-        // تحديث النظام كل 5 صفحات
-        if (currentPage % 5 === 0) {
-            saveSystemData(system);
-        }
     }
     
     console.log("\n" + "=".repeat(50));
@@ -484,6 +608,19 @@ async function dailyUpdate(system) {
     
     let topCinemaFile = system.lastTopCinemaFile;
     
+    // تأكد من وجود ملف TopCinema
+    if (!topCinemaFile || !fs.existsSync(topCinemaFile.path)) {
+        const files = fs.readdirSync(CONFIG.outputDir);
+        const topCinemaFiles = files.filter(f => f.startsWith('TopCinema') && f.endsWith('.json'));
+        
+        if (topCinemaFiles.length === 0) {
+            topCinemaFile = createNewTopCinemaFile(1);
+            system.stats.totalFiles = 1;
+        } else {
+            topCinemaFile = getLastTopCinemaFile();
+        }
+    }
+    
     // الخطوة 1: تحديث الصفحة الأولى (Home.json)
     console.log("\n1️⃣ تحديث الصفحة الأولى...");
     const page1Movies = await fetchMoviesFromPage(1);
@@ -493,41 +630,37 @@ async function dailyUpdate(system) {
             page: 1,
             url: "https://topcinema.rip/movies/",
             scrapedAt: new Date().toISOString(),
-            movies: page1Movies,
-            totalMovies: page1Movies.length
+            totalMovies: page1Movies.length,
+            movies: page1Movies
         };
         
         saveToFile(CONFIG.files.home, homeData);
         console.log(`   🏠 تم تحديث Home.json بـ ${page1Movies.length} فيلم`);
-        
-        // تحديث الفهرس بأفلام الصفحة الأولى
-        for (const movie of page1Movies) {
-            if (system.index.movies[movie.id]) {
-                updateIndex(movie, topCinemaFile, system);
-                system.updatedMoviesCount++;
-            }
-        }
     }
     
-    // الخطوة 2: فحص الصفحة الثانية فقط لاكتشاف الجديد
+    // الخطوة 2: فحص الصفحة الثانية
     console.log("\n2️⃣ فحص الصفحة الثانية لاكتشاف الأفلام الجديدة...");
     const page2Movies = await fetchMoviesFromPage(2);
     
     console.log(`   📊 الصفحة الثانية تحتوي على ${page2Movies.length} فيلم`);
     
-    // اكتشاف الأفلام الجديدة في الصفحة الثانية
+    // اكتشاف الأفلام الجديدة
     let newMoviesFound = 0;
     
-    for (const movie of page2Movies) {
+    for (let i = 0; i < page2Movies.length; i++) {
+        const movie = page2Movies[i];
+        
+        // إذا امتلأ الملف الحالي، إنشاء ملف جديد
+        if (topCinemaFile.movieCount >= CONFIG.batchSize) {
+            const newNumber = topCinemaFile.number + 1;
+            topCinemaFile = createNewTopCinemaFile(newNumber);
+            system.stats.totalFiles++;
+            console.log(`   📦 إنشاء ملف جديد: ${topCinemaFile.filename}`);
+        }
+        
         // إذا الفيلم غير موجود في الفهرس، فهو جديد
         if (!system.index.movies[movie.id]) {
-            console.log(`   🎯 فيلم جديد مكتشف: ${movie.title.substring(0, 40)}...`);
-            
-            // إذا امتلأ الملف الحالي، إنشاء ملف جديد
-            if (topCinemaFile.isFull || topCinemaFile.movieCount >= CONFIG.batchSize) {
-                topCinemaFile = createNewTopCinemaFile(topCinemaFile.number);
-                system.stats.totalFiles++;
-            }
+            console.log(`   🎯 ${i + 1}/${page2Movies.length}: فيلم جديد - ${movie.title.substring(0, 40)}...`);
             
             // إضافة الفيلم للملف
             const added = addMovieToTopCinemaFile(movie, topCinemaFile);
@@ -536,14 +669,16 @@ async function dailyUpdate(system) {
                 topCinemaFile.movieCount++;
                 newMoviesFound++;
                 system.newMoviesCount++;
-                
-                // تأخير بسيط بين الأفلام الجديدة
-                await new Promise(resolve => setTimeout(resolve, 500));
             }
         } else {
             // الفيلم موجود - تحديث فقط
             updateIndex(movie, topCinemaFile, system);
             system.updatedMoviesCount++;
+        }
+        
+        // تأخير بسيط بين الأفلام
+        if (i < page2Movies.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 300));
         }
     }
     
@@ -552,6 +687,7 @@ async function dailyUpdate(system) {
     console.log(`   🆕 أفلام جديدة: ${newMoviesFound}`);
     console.log(`   🔄 أفلام محدثة: ${system.updatedMoviesCount}`);
     console.log(`   📁 الملف النشط: ${topCinemaFile.filename} (${topCinemaFile.movieCount}/${CONFIG.batchSize})`);
+    console.log(`   📈 إجمالي الأفلام: ${system.stats.totalMovies}`);
     
     saveSystemData(system);
     
@@ -567,72 +703,65 @@ async function main() {
     console.log("🎬 بدء نظام جمع الأفلام المحسن");
     console.log("=".repeat(50));
     
-    // تهيئة النظام
-    const system = initSystem();
-    
-    // التحقق من اتصال الإنترنت
     try {
+        // تهيئة النظام
+        const system = initSystem();
+        
+        // اختبار الاتصال
+        console.log("\n🔗 اختبار الاتصال بالموقع...");
         const testResponse = await fetchWithTimeout("https://topcinema.rip/", 10000);
         if (!testResponse) {
             console.log("❌ لا يمكن الوصول إلى الموقع. تحقق من اتصال الإنترنت.");
             return;
         }
-    } catch (error) {
-        console.log("❌ خطأ في الاتصال بالموقع.");
-        return;
-    }
-    
-    // تحديد وضع التشغيل
-    if (CONFIG.isFirstRun) {
-        console.log("⚙️ وضع التشغيل: التشغيل الأول الكامل");
-        const result = await firstRun(system);
-        console.log(`\n🎉 اكتمل التشغيل الأول بنجاح!`);
-        console.log(`📈 تم جمع ${result} فيلم`);
+        console.log("✅ الاتصال ناجح");
         
-    } else {
-        console.log("⚙️ وضع التشغيل: التحديث اليومي");
-        console.log(`📊 الفهرس الحالي: ${Object.keys(system.index.movies).length} فيلم`);
-        console.log(`📁 الملف النشط: ${system.lastTopCinemaFile.filename}`);
-        
-        const result = await dailyUpdate(system);
-        
-        console.log(`\n✅ اكتمل التحديث اليومي!`);
-        
-        // عرض ملخص
-        const statsFile = path.join(CONFIG.outputDir, CONFIG.files.stats);
-        if (fs.existsSync(statsFile)) {
-            const stats = JSON.parse(fs.readFileSync(statsFile, 'utf8'));
-            console.log(`\n📈 الإحصائيات الكلية:`);
-            console.log(`   - إجمالي الأفلام: ${stats.totalMovies}`);
-            console.log(`   - عدد الملفات: ${stats.totalFiles}`);
-            console.log(`   - أول تشغيل: ${stats.firstRunDate ? new Date(stats.firstRunDate).toLocaleDateString('ar-EG') : 'غير معروف'}`);
-            console.log(`   - آخر تشغيل: ${new Date().toLocaleDateString('ar-EG')}`);
+        // تحديد وضع التشغيل
+        if (CONFIG.isFirstRun) {
+            await firstRun(system);
+        } else {
+            await dailyUpdate(system);
         }
+        
+        console.log("\n" + "=".repeat(50));
+        console.log("🎉 اكتمل التشغيل بنجاح!");
+        console.log("💡 يمكنك تشغيل النظام يومياً للتحديث التلقائي");
+        
+    } catch (error) {
+        console.error("💥 خطأ رئيسي:", error.message);
+        console.error("Stack:", error.stack);
+        
+        // حفظ سجل الخطأ
+        const errorLog = {
+            error: error.message,
+            stack: error.stack,
+            timestamp: new Date().toISOString()
+        };
+        
+        const errorFile = path.join(CONFIG.outputDir, 'error_log.json');
+        fs.writeFileSync(errorFile, JSON.stringify(errorLog, null, 2));
     }
-    
-    console.log("\n" + "=".repeat(50));
-    console.log("🎬 النظام جاهز للتشغيل التلقائي!");
-    console.log("💡 نصيحة: اضبط هذا الكود ليعمل تلقائياً مرة يومياً");
 }
 
-// ==================== معالجة الأخطاء ====================
-process.on('unhandledRejection', (error) => {
-    console.error('💥 خطأ غير متوقع:', error.message);
+// ==================== معالجة الأخطاء غير المتوقعة ====================
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('💥 خطأ غير متوقع:', reason);
     
     const errorLog = {
-        error: error.message,
-        stack: error.stack,
-        timestamp: new Date().toISOString()
+        error: reason.toString(),
+        timestamp: new Date().toISOString(),
+        type: 'unhandledRejection'
     };
     
     const errorFile = path.join(CONFIG.outputDir, 'error_log.json');
-    fs.writeFileSync(errorFile, JSON.stringify(errorLog, null, 2));
+    try {
+        fs.writeFileSync(errorFile, JSON.stringify(errorLog, null, 2));
+    } catch (e) {
+        console.error('💥 لا يمكن حفظ سجل الخطأ:', e.message);
+    }
     
     process.exit(1);
 });
 
 // ==================== التشغيل ====================
-main().catch(error => {
-    console.error('💥 خطأ في الدالة الرئيسية:', error.message);
-    process.exit(1);
-});
+main();
