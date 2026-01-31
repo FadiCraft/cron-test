@@ -1,15 +1,9 @@
 {
-  "totalMovies": 3272,
+  "totalMovies": 3332,
   "totalFiles": 13,
   "firstRunDate": "2026-01-31T15:25:35.256Z",
-  "lastRunDate": "2026-01-31T15:40:42.327Z",
+  "lastRunDate": "2026-01-31T16:00:18.699Z",
   "runs": [
-    {
-      "date": "2026-01-31T15:30:16.997Z",
-      "newMovies": 0,
-      "updatedMovies": 0,
-      "totalMovies": 1900
-    },
     {
       "date": "2026-01-31T15:30:22.085Z",
       "newMovies": 0,
@@ -183,6 +177,12 @@
       "newMovies": 0,
       "updatedMovies": 60,
       "totalMovies": 3272
+    },
+    {
+      "date": "2026-01-31T16:00:18.699Z",
+      "newMovies": 60,
+      "updatedMovies": 0,
+      "totalMovies": 3332
     }
   ]
 }
