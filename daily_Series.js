@@ -11,7 +11,6 @@ const CONFIG = {
     baseUrl: "https://topcinema.rip",
     outputDir: path.join(__dirname, "Series"),
     
-    // أقسام المسلسلات (فقط المسلسلات العادية)
     sections: {
         agseries: {
             name: "مسلسلات عادية",
@@ -20,17 +19,15 @@ const CONFIG = {
         }
     },
     
-    // إعدادات التخزين
     batchSize: {
-        series: 500,     // 500 مسلسل في كل ملف
-        seasons: 500,    // 500 موسم في كل ملف
-        episodes: 5000   // 5000 حلقة في كل ملف
+        series: 500,
+        seasons: 500,
+        episodes: 5000
     },
     
-    // إعدادات الأداء
     requestDelay: 2000,
     timeout: 30000,
-    maxPagesFirstRun: 3 // للاختبار فقط
+    maxPagesFirstRun: 3
 };
 
 // ==================== إعداد النظام ====================
@@ -47,23 +44,19 @@ class SeriesScraper {
     }
     
     initSystem() {
-        // إنشاء المجلد الرئيسي
         if (!fs.existsSync(CONFIG.outputDir)) {
             fs.mkdirSync(CONFIG.outputDir, { recursive: true });
             console.log("📁 تم إنشاء مجلد Series");
         }
         
-        // إنشاء مجلدات لكل قسم (فقط agseries)
         for (const [sectionKey, sectionInfo] of Object.entries(CONFIG.sections)) {
             const sectionDir = path.join(CONFIG.outputDir, sectionKey);
             
-            // إنشاء مجلد القسم الرئيسي
             if (!fs.existsSync(sectionDir)) {
                 fs.mkdirSync(sectionDir, { recursive: true });
                 console.log(`📁 تم إنشاء مجلد ${sectionKey}`);
             }
             
-            // إنشاء المجلدات الفرعية
             const subDirs = ["TV_Series", "Seasons", "Episodes"];
             for (const subDir of subDirs) {
                 const dirPath = path.join(sectionDir, subDir);
@@ -73,7 +66,6 @@ class SeriesScraper {
                     console.log(`📁 تم إنشاء مجلد ${subDir}`);
                 }
                 
-                // إنشاء ملف الصفحة الأولى
                 const firstPagePath = path.join(dirPath, "Page1.json");
                 if (!fs.existsSync(firstPagePath)) {
                     const firstPage = {
@@ -85,7 +77,6 @@ class SeriesScraper {
                     fs.writeFileSync(firstPagePath, JSON.stringify(firstPage, null, 2));
                 }
                 
-                // إنشاء ملف الصفحة النشطة
                 const currentPagePath = path.join(dirPath, "current_page.json");
                 if (!fs.existsSync(currentPagePath)) {
                     const maxItems = subDir === "Episodes" ? CONFIG.batchSize.episodes : 
@@ -102,7 +93,6 @@ class SeriesScraper {
                 }
             }
             
-            // إنشاء الفهارس
             this.createInitialIndexes(sectionKey);
         }
     }
@@ -128,7 +118,6 @@ class SeriesScraper {
         }
     }
     
-    // ==================== دوال المساعدة ====================
     async fetchWithTimeout(url, timeout = CONFIG.timeout) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeout);
@@ -167,6 +156,284 @@ class SeriesScraper {
     
     delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    // ==================== استخراج الحلقات من صفحة الموسم ====================
+    async extractEpisodesFromSeasonPage(doc, seriesId, seasonId) {
+        const episodes = [];
+        
+        // البحث في قسم tabContents
+        const tabContents = doc.querySelector('.tabContents');
+        if (!tabContents) {
+            console.log("❌ لم يتم العثور على قسم الحلقات");
+            return episodes;
+        }
+        
+        // البحث عن جميع الروابط في قسم الحلقات
+        const episodeElements = tabContents.querySelectorAll('.row a');
+        
+        console.log(`🎥 عثر على ${episodeElements.length} عنصر في قسم الحلقات`);
+        
+        for (const element of episodeElements) {
+            const episodeUrl = element.href;
+            if (!episodeUrl) continue;
+            
+            // التحقق إذا كان الرابط يحتوي على "الحلقة" في النص أو الرابط
+            const title = element.querySelector('.ep-info h2')?.textContent?.trim() || 
+                         element.querySelector('h2')?.textContent?.trim() ||
+                         element.getAttribute('title') || 'حلقة بدون عنوان';
+            
+            // إذا لم يكن العنوان يحتوي على "حلقة"، تخطى
+            if (!title.includes('حلقة') && !episodeUrl.includes('الحلقة')) {
+                continue;
+            }
+            
+            const image = element.querySelector('img')?.src;
+            
+            // استخراج رقم الحلقة
+            const episodeNumberElement = element.querySelector('.epnum');
+            let episodeNumber = 1;
+            
+            if (episodeNumberElement) {
+                const episodeNumberText = episodeNumberElement.textContent?.trim();
+                if (episodeNumberText) {
+                    const match = episodeNumberText.match(/\d+/);
+                    if (match) {
+                        episodeNumber = parseInt(match[0]);
+                    }
+                }
+            } else {
+                // محاولة استخراج رقم الحلقة من العنوان
+                const titleMatch = title.match(/الحلقة\s*(\d+)/);
+                if (titleMatch) {
+                    episodeNumber = parseInt(titleMatch[1]);
+                }
+            }
+            
+            episodes.push({
+                id: null,
+                seriesId: seriesId,
+                seasonId: seasonId,
+                url: episodeUrl,
+                title: title,
+                image: image,
+                episodeNumber: episodeNumber,
+                scrapedAt: new Date().toISOString()
+            });
+        }
+        
+        console.log(`✅ تم استخراج ${episodes.length} حلقة`);
+        return episodes;
+    }
+    
+    // ==================== استخراج بيانات الحلقة الكاملة ====================
+    async extractEpisodeDetails(episodeData) {
+        console.log(`🎥 استخراج بيانات الحلقة: ${episodeData.title}`);
+        
+        const html = await this.fetchWithTimeout(episodeData.url);
+        if (!html) return null;
+        
+        try {
+            const dom = new JSDOM(html);
+            const doc = dom.window.document;
+            
+            // استخراج ID
+            const shortLinkElement = doc.querySelector('#shortlink');
+            const shortLink = shortLinkElement ? shortLinkElement.value : null;
+            const episodeId = this.extractIdFromShortLink(shortLink);
+            
+            // روابط المشاهدة والتحميل
+            const watchLink = doc.querySelector('a.watch')?.getAttribute('href');
+            const downloadLink = doc.querySelector('a.download')?.getAttribute('href');
+            
+            // استخراج سيرفرات المشاهدة
+            let watchServers = [];
+            if (watchLink) {
+                console.log(`   🔍 جلب سيرفرات المشاهدة من: ${watchLink}`);
+                watchServers = await this.extractWatchServers(watchLink);
+                await this.delay(500);
+            }
+            
+            // استخراج سيرفرات التحميل
+            let downloadServers = [];
+            if (downloadLink) {
+                console.log(`   🔍 جلب سيرفرات التحميل من: ${downloadLink}`);
+                downloadServers = await this.extractDownloadServers(downloadLink);
+                await this.delay(500);
+            }
+            
+            return {
+                ...episodeData,
+                id: episodeId,
+                shortLink: shortLink,
+                watchLink: watchLink,
+                downloadLink: downloadLink,
+                watchServers: watchServers,
+                downloadServers: downloadServers,
+                scrapedAt: new Date().toISOString()
+            };
+            
+        } catch (error) {
+            console.log(`❌ خطأ في استخراج بيانات الحلقة: ${error.message}`);
+            return null;
+        }
+    }
+    
+    // ==================== استخراج سيرفرات المشاهدة ====================
+    async extractWatchServers(watchUrl) {
+        console.log(`   📺 استخراج سيرفرات المشاهدة`);
+        const html = await this.fetchWithTimeout(watchUrl);
+        if (!html) return [];
+        
+        try {
+            const dom = new JSDOM(html);
+            const doc = dom.window.document;
+            const servers = [];
+            
+            // البحث عن جميع السيرفرات
+            // 1. من خلال iframes
+            const iframes = doc.querySelectorAll('iframe');
+            iframes.forEach((iframe, index) => {
+                const src = iframe.getAttribute('src');
+                if (src && (src.includes('//') || src.includes('http'))) {
+                    servers.push({
+                        id: `watch_${Date.now()}_${index}`,
+                        type: 'iframe',
+                        url: src.startsWith('http') ? src : `https:${src}`,
+                        quality: 'متعدد الجودات',
+                        server: `سيرفر مشاهدة ${index + 1}`,
+                        name: `سيرفر ${index + 1}`
+                    });
+                }
+            });
+            
+            // 2. من خلال روابط embed في scripts
+            const scripts = doc.querySelectorAll('script');
+            scripts.forEach(script => {
+                const scriptContent = script.textContent || '';
+                const embedMatches = scriptContent.match(/"embed"\s*:\s*"([^"]+)"/g);
+                if (embedMatches) {
+                    embedMatches.forEach((match, index) => {
+                        const urlMatch = match.match(/"([^"]+)"/);
+                        if (urlMatch && urlMatch[1]) {
+                            servers.push({
+                                id: `embed_${Date.now()}_${index}`,
+                                type: 'embed',
+                                url: urlMatch[1],
+                                quality: 'متعدد الجودات',
+                                server: 'Embed Player',
+                                name: 'مشاهدة مباشرة'
+                            });
+                        }
+                    });
+                }
+            });
+            
+            // 3. من خلال روابط الفيديو المباشرة
+            const videoElements = doc.querySelectorAll('video source');
+            videoElements.forEach((video, index) => {
+                const src = video.getAttribute('src');
+                if (src) {
+                    servers.push({
+                        id: `video_${Date.now()}_${index}`,
+                        type: 'video',
+                        url: src,
+                        quality: video.getAttribute('data-quality') || 'غير معروف',
+                        server: 'فيديو مباشر',
+                        name: `جودة ${video.getAttribute('data-quality') || 'مجهولة'}`
+                    });
+                }
+            });
+            
+            console.log(`   ✅ تم العثور على ${servers.length} سيرفر مشاهدة`);
+            return servers;
+            
+        } catch (error) {
+            console.log(`❌ خطأ في استخراج سيرفرات المشاهدة: ${error.message}`);
+            return [];
+        }
+    }
+    
+    // ==================== استخراج سيرفرات التحميل ====================
+    async extractDownloadServers(downloadUrl) {
+        console.log(`   💾 استخراج سيرفرات التحميل`);
+        const html = await this.fetchWithTimeout(downloadUrl);
+        if (!html) return [];
+        
+        try {
+            const dom = new JSDOM(html);
+            const doc = dom.window.document;
+            const servers = [];
+            
+            // 1. سيرفرات Pro
+            const proServerElements = doc.querySelectorAll('.proServer a.downloadsLink');
+            proServerElements.forEach((server, index) => {
+                const nameElement = server.querySelector('.text span');
+                const providerElement = server.querySelector('.text p');
+                
+                const serverName = nameElement?.textContent?.trim() || 'متعدد الجودات';
+                const provider = providerElement?.textContent?.trim() || 'غير معروف';
+                const url = server.getAttribute('href') || '';
+                
+                if (url) {
+                    servers.push({
+                        id: `pro_${Date.now()}_${index}`,
+                        server: provider,
+                        url: url,
+                        quality: serverName,
+                        type: 'pro',
+                        name: `Pro ${provider}`
+                    });
+                }
+            });
+            
+            // 2. سيرفرات عادية
+            const normalServerElements = doc.querySelectorAll('.download-items li a.downloadsLink');
+            normalServerElements.forEach((server, index) => {
+                const providerElement = server.querySelector('.text span');
+                const qualityElement = server.querySelector('.text p');
+                
+                const provider = providerElement?.textContent?.trim() || 'غير معروف';
+                const quality = qualityElement?.textContent?.trim() || 'غير معروف';
+                const url = server.getAttribute('href') || '';
+                
+                if (url) {
+                    servers.push({
+                        id: `normal_${Date.now()}_${index}`,
+                        server: provider,
+                        url: url,
+                        quality: quality,
+                        type: 'normal',
+                        name: `${provider} - ${quality}`
+                    });
+                }
+            });
+            
+            // 3. روابط مباشرة أخرى
+            const directLinks = doc.querySelectorAll('a[href*="drive.google.com"], a[href*="mega.nz"], a[href*="mediafire.com"], a[href*="zippyshare.com"]');
+            directLinks.forEach((link, index) => {
+                const url = link.getAttribute('href') || '';
+                const text = link.textContent?.trim() || 'رابط مباشر';
+                
+                if (url) {
+                    servers.push({
+                        id: `direct_${Date.now()}_${index}`,
+                        server: 'مباشر',
+                        url: url,
+                        quality: text,
+                        type: 'direct',
+                        name: text
+                    });
+                }
+            });
+            
+            console.log(`   ✅ تم العثور على ${servers.length} سيرفر تحميل`);
+            return servers;
+            
+        } catch (error) {
+            console.log(`❌ خطأ في استخراج سيرفرات التحميل: ${error.message}`);
+            return [];
+        }
     }
     
     // ==================== استخراج المسلسلات من الصفحة ====================
@@ -242,18 +509,15 @@ class SeriesScraper {
             const dom = new JSDOM(html);
             const doc = dom.window.document;
             
-            // استخراج ID
             const shortLinkElement = doc.querySelector('#shortlink');
             const shortLink = shortLinkElement ? shortLinkElement.value : null;
             const seriesId = this.extractIdFromShortLink(shortLink);
             
-            // البيانات الأساسية
             const title = doc.querySelector('.post-title a')?.textContent?.trim() || 'بدون عنوان';
             const image = doc.querySelector('.image img')?.src;
             const imdbRating = doc.querySelector('.imdbR span')?.textContent?.trim();
             const story = doc.querySelector('.story p')?.textContent?.trim() || "غير متوفر";
             
-            // التفاصيل
             const details = {
                 category: [],
                 genres: [],
@@ -292,7 +556,6 @@ class SeriesScraper {
                 }
             });
             
-            // استخراج المواسم
             const seasons = await this.extractSeasonsFromSeriesPage(doc, seriesId);
             
             return {
@@ -315,7 +578,6 @@ class SeriesScraper {
         }
     }
     
-    // ==================== استخراج المواسم من صفحة المسلسل ====================
     async extractSeasonsFromSeriesPage(doc, seriesId) {
         const seasons = [];
         const seasonElements = doc.querySelectorAll('.Small--Box.Season a');
@@ -347,7 +609,6 @@ class SeriesScraper {
         return seasons;
     }
     
-    // ==================== استخراج بيانات الموسم الكاملة ====================
     async extractSeasonDetails(seasonData) {
         console.log(`📦 استخراج بيانات الموسم: ${seasonData.title}`);
         
@@ -358,12 +619,10 @@ class SeriesScraper {
             const dom = new JSDOM(html);
             const doc = dom.window.document;
             
-            // استخراج ID
             const shortLinkElement = doc.querySelector('#shortlink');
             const shortLink = shortLinkElement ? shortLinkElement.value : null;
             const seasonId = this.extractIdFromShortLink(shortLink);
             
-            // استخراج الحلقات
             const episodes = await this.extractEpisodesFromSeasonPage(doc, seasonData.seriesId, seasonId);
             
             return {
@@ -381,80 +640,8 @@ class SeriesScraper {
         }
     }
     
-    // ==================== استخراج الحلقات من صفحة الموسم ====================
-    async extractEpisodesFromSeasonPage(doc, seriesId, seasonId) {
-        const episodes = [];
-        const episodeElements = doc.querySelectorAll('a[href*="الحلقة"]');
-        
-        console.log(`🎥 عثر على ${episodeElements.length} حلقة`);
-        
-        for (const element of episodeElements) {
-            const episodeUrl = element.href;
-            if (!episodeUrl) continue;
-            
-            const title = element.querySelector('h2')?.textContent?.trim() || 
-                         element.querySelector('.ep-info h2')?.textContent?.trim() ||
-                         'حلقة بدون عنوان';
-            
-            const image = element.querySelector('img')?.src;
-            
-            const episodeNumberElement = element.querySelector('.epnum span');
-            const episodeNumberText = episodeNumberElement?.nextSibling?.textContent?.trim();
-            const episodeNumber = episodeNumberText ? parseInt(episodeNumberText) : 1;
-            
-            episodes.push({
-                id: null,
-                seriesId: seriesId,
-                seasonId: seasonId,
-                url: episodeUrl,
-                title: title,
-                image: image,
-                episodeNumber: episodeNumber,
-                scrapedAt: new Date().toISOString()
-            });
-        }
-        
-        return episodes;
-    }
-    
-    // ==================== استخراج بيانات الحلقة الكاملة ====================
-    async extractEpisodeDetails(episodeData) {
-        console.log(`🎥 استخراج بيانات الحلقة: ${episodeData.title}`);
-        
-        const html = await this.fetchWithTimeout(episodeData.url);
-        if (!html) return null;
-        
-        try {
-            const dom = new JSDOM(html);
-            const doc = dom.window.document;
-            
-            // استخراج ID
-            const shortLinkElement = doc.querySelector('#shortlink');
-            const shortLink = shortLinkElement ? shortLinkElement.value : null;
-            const episodeId = this.extractIdFromShortLink(shortLink);
-            
-            // روابط المشاهدة والتحميل
-            const watchLink = doc.querySelector('a.watch')?.getAttribute('href');
-            const downloadLink = doc.querySelector('a.download')?.getAttribute('href');
-            
-            return {
-                ...episodeData,
-                id: episodeId,
-                shortLink: shortLink,
-                watchLink: watchLink,
-                downloadLink: downloadLink,
-                scrapedAt: new Date().toISOString()
-            };
-            
-        } catch (error) {
-            console.log(`❌ خطأ في استخراج بيانات الحلقة: ${error.message}`);
-            return null;
-        }
-    }
-    
     // ==================== تخزين البيانات ====================
     async addToStorage(section, type, data) {
-        // تحديد مسار التخزين حسب النوع
         let folderName, indexFile;
         
         switch (type) {
@@ -477,13 +664,11 @@ class SeriesScraper {
         
         const storageDir = path.join(CONFIG.outputDir, section, folderName);
         
-        // التحقق من وجود المجلد وإنشاؤه إذا لزم الأمر
         if (!fs.existsSync(storageDir)) {
             fs.mkdirSync(storageDir, { recursive: true });
             console.log(`📁 تم إنشاء مجلد: ${storageDir}`);
         }
         
-        // التحقق من ملف current_page.json وإنشاؤه إذا لزم الأمر
         const currentPagePath = path.join(storageDir, 'current_page.json');
         let currentPage;
         
@@ -503,7 +688,6 @@ class SeriesScraper {
             currentPage = JSON.parse(fs.readFileSync(currentPagePath, 'utf8'));
         }
         
-        // إذا الصفحة ممتلئة، إنشاء صفحة جديدة
         if (currentPage.itemsCount >= currentPage.maxItems) {
             currentPage.currentPage += 1;
             currentPage.itemsCount = 0;
@@ -513,7 +697,6 @@ class SeriesScraper {
             console.log(`📄 إنشاء صفحة جديدة: ${folderName} Page${currentPage.currentPage}`);
         }
         
-        // إضافة البيانات للصفحة الحالية
         const currentPageFile = path.join(storageDir, `Page${currentPage.currentPage}.json`);
         let pageData;
         
@@ -529,7 +712,6 @@ class SeriesScraper {
             pageData = JSON.parse(fs.readFileSync(currentPageFile, 'utf8'));
         }
         
-        // التحقق من عدم التكرار
         const exists = pageData.items.some(item => item.id === data.id);
         if (exists) {
             console.log(`   ⚠️ ${type} ${data.id} موجود مسبقاً`);
@@ -541,12 +723,10 @@ class SeriesScraper {
         pageData.lastUpdated = new Date().toISOString();
         fs.writeFileSync(currentPageFile, JSON.stringify(pageData, null, 2));
         
-        // تحديث current_page.json
         currentPage.itemsCount = pageData.items.length;
         currentPage.lastUpdated = new Date().toISOString();
         fs.writeFileSync(currentPagePath, JSON.stringify(currentPage, null, 2));
         
-        // تحديث الفهرس
         await this.updateIndex(section, indexFile, data, currentPage.currentPage);
         
         console.log(`   ✅ تم تخزين ${type}: ${data.title.substring(0, 30)}...`);
@@ -632,8 +812,7 @@ class SeriesScraper {
                             };
                             this.stats.sections[sectionKey].series++;
                             
-                            // معالجة المواسم (5 مواسم كحد أقصى للاختبار)
-                            const maxSeasons = Math.min(seriesDetails.seasons.length, 5);
+                            const maxSeasons = Math.min(seriesDetails.seasons.length, 3);
                             console.log(`📦 معالجة ${maxSeasons} موسم (من أصل ${seriesDetails.seasons.length})`);
                             
                             for (let j = 0; j < maxSeasons; j++) {
@@ -647,8 +826,7 @@ class SeriesScraper {
                                     this.stats.totalSeasons++;
                                     this.stats.sections[sectionKey].seasons = (this.stats.sections[sectionKey].seasons || 0) + 1;
                                     
-                                    // معالجة الحلقات (5 حلقات كحد أقصى للاختبار)
-                                    const maxEpisodes = Math.min(seasonDetails.episodes.length, 5);
+                                    const maxEpisodes = Math.min(seasonDetails.episodes.length, 3);
                                     console.log(`   🎥 معالجة ${maxEpisodes} حلقة (من أصل ${seasonDetails.episodes.length})`);
                                     
                                     for (let k = 0; k < maxEpisodes; k++) {
@@ -695,16 +873,12 @@ class SeriesScraper {
         this.printStats();
     }
     
-    // ==================== التشغيل اليومي ====================
     async dailyUpdate() {
         console.log("🔄 بدء الفحص اليومي");
         console.log("=".repeat(60));
-        
-        // للتبسيط، سنفعل فقط التشغيل الأولي المحدود
         await this.firstRun();
     }
     
-    // ==================== إحصائيات ====================
     printStats() {
         const endTime = new Date();
         const duration = (endTime - this.stats.startTime) / 1000 / 60;
@@ -724,12 +898,10 @@ class SeriesScraper {
         }
     }
     
-    // ==================== الدالة الرئيسية ====================
     async run() {
         console.log("🎬 نظام تخزين المسلسلات العادية فقط من topcinema.rip");
         console.log("=".repeat(60));
         
-        // التحقق من التشغيل الأولي
         const isFirstRun = this.checkIfFirstRun();
         
         if (isFirstRun) {
