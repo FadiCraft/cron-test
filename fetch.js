@@ -1,107 +1,65 @@
+// test-simple.js
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+console.log("🚀 بدء الاختبار البسيط");
 
-// مجلد الحفظ
-const outputDir = path.join(__dirname, "movies-test");
+// 1. أولاً: جرب حفظ ملف نصي بسيط
+const testContent = "هذا ملف اختبار\n" + new Date().toISOString();
 
-// أنشئ المجلد إذا لم يكن موجوداً
-if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-    console.log(`📁 تم إنشاء مجلد: ${outputDir}`);
+try {
+    fs.writeFileSync("test-file.txt", testContent);
+    console.log("✅ تم حفظ test-file.txt");
+} catch (error) {
+    console.log("❌ خطأ في الحفظ:", error.message);
 }
 
-// دالة بسيطة لجلب الصفحة
-async function getFirstPage() {
-    try {
-        console.log("🚀 جلب الصفحة الأولى...");
+// 2. جلب صفحة الويب
+console.log("\n🌐 جلب صفحة الويب...");
+fetch("https://topcinema.rip/movies/")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`خطأ HTTP: ${response.status}`);
+        }
+        return response.text();
+    })
+    .then(html => {
+        console.log("✅ تم جلب HTML بنجاح!");
         
-        const response = await fetch("https://topcinema.rip/movies/", {
-            headers: {
-                'User-Agent': 'Mozilla/5.0'
+        // 3. البحث عن العناوين بطريقة بسيطة
+        const movies = [];
+        
+        // قسم HTML إلى أسطر
+        const lines = html.split('\n');
+        let count = 0;
+        
+        for (const line of lines) {
+            if (line.includes('topcinema.rip') && line.includes('<a') && line.includes('title')) {
+                // استخراج النص بين > و <
+                const match = line.match(/>(.*?)</);
+                if (match && match[1].trim().length > 5) {
+                    movies.push(match[1].trim());
+                    count++;
+                    if (count >= 10) break; // فقط أول 10
+                }
             }
+        }
+        
+        console.log(`🎬 وجدنا ${movies.length} فيلم:`);
+        movies.forEach((title, i) => {
+            console.log(`   ${i + 1}. ${title}`);
         });
         
-        if (!response.ok) {
-            throw new Error(`خطأ: ${response.status}`);
-        }
+        // 4. حفظ النتائج في ملف JSON
+        const result = {
+            date: new Date().toISOString(),
+            total: movies.length,
+            movies: movies
+        };
         
-        const html = await response.text();
-        console.log("✅ تم جلب الصفحة بنجاح!");
+        fs.writeFileSync("movies-test.json", JSON.stringify(result, null, 2));
+        console.log("\n💾 تم حفظ movies-test.json");
         
-        // حفظ HTML خام أولاً للتأكد
-        fs.writeFileSync(
-            path.join(outputDir, "page-raw.html"),
-            html
-        );
-        console.log("💾 تم حفظ HTML الخام");
-        
-        return html;
-        
-    } catch (error) {
-        console.log("❌ خطأ في الجلب:", error.message);
-        return null;
-    }
-}
-
-// استخراج العناوين البسيطة
-function extractSimpleTitles(html) {
-    console.log("🔍 استخراج العناوين...");
-    
-    const titles = [];
-    
-    // طريقة بسيطة باستخدام regex
-    const titleRegex = /<a[^>]*href="[^"]*topcinema[^"]*"[^>]*>([^<]*)<\/a>/gi;
-    let match;
-    
-    while ((match = titleRegex.exec(html)) !== null) {
-        if (match[1].trim().length > 10) { // تجاهل النصوص القصيرة
-            titles.push(match[1].trim());
-        }
-    }
-    
-    console.log(`✅ وجدنا ${titles.length} عنوان`);
-    return titles.slice(0, 20); // فقط أول 20 عنوان
-}
-
-// الدالة الرئيسية
-async function main() {
-    console.log("=".repeat(50));
-    console.log("🎬 تجربة استخراج الصفحة الأولى");
-    console.log("=".repeat(50));
-    
-    // 1. جلب الصفحة
-    const html = await getFirstPage();
-    if (!html) return;
-    
-    // 2. استخراج العناوين
-    const titles = extractSimpleTitles(html);
-    
-    // 3. حفظ النتائج في ملف JSON
-    const result = {
-        scrapedAt: new Date().toISOString(),
-        url: "https://topcinema.rip/movies/",
-        totalTitles: titles.length,
-        titles: titles
-    };
-    
-    const jsonFile = path.join(outputDir, "movies.json");
-    fs.writeFileSync(jsonFile, JSON.stringify(result, null, 2));
-    
-    console.log("\n📊 النتائج:");
-    console.log("=".repeat(30));
-    titles.forEach((title, i) => {
-        console.log(`${i + 1}. ${title.substring(0, 50)}...`);
+    })
+    .catch(error => {
+        console.log("❌ خطأ:", error.message);
     });
-    
-    console.log("\n" + "=".repeat(50));
-    console.log(`✅ تم! الملفات محفوظة في: ${outputDir}/`);
-    console.log(`📄 movies.json - يحتوي على ${titles.length} فيلم`);
-    console.log(`📄 page-raw.html - نسخة من الصفحة`);
-}
-
-// التشغيل
-main().catch(console.error);
