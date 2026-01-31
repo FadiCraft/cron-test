@@ -1,16 +1,44 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import cheerio from "cheerio";
-import pLimit from "p-limit";
-import retry from "async-retry";
-import chalk from "chalk";
-import boxen from "boxen";
-import ora from "ora";
-import cliProgress from "cli-progress";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// ==================== استيراد الحزم بشكل صحيح ====================
+// استخدم dynamic imports مع catch
+let cheerio, pLimit, retry, chalk, boxen, ora, cliProgress;
+
+try {
+    // تحميل الحزم بشكل غير متزامن
+    const cheerioModule = await import('cheerio');
+    cheerio = cheerioModule.default;
+    
+    const pLimitModule = await import('p-limit');
+    pLimit = pLimitModule.default;
+    
+    const retryModule = await import('async-retry');
+    retry = retryModule.default;
+    
+    const chalkModule = await import('chalk');
+    chalk = chalkModule.default;
+    
+    const boxenModule = await import('boxen');
+    boxen = boxenModule.default;
+    
+    const oraModule = await import('ora');
+    ora = oraModule.default;
+    
+    const cliProgressModule = await import('cli-progress');
+    cliProgress = cliProgressModule;
+    
+    console.log("✅ جميع الحزم محملة بنجاح");
+} catch (error) {
+    console.error("❌ خطأ في تحميل الحزم:", error.message);
+    console.log("\n📦 يرجى تثبيت الحزم المطلوبة:");
+    console.log("npm install cheerio p-limit async-retry chalk boxen ora cli-progress");
+    process.exit(1);
+}
 
 // ==================== الإعدادات ====================
 const CONFIG = {
@@ -35,7 +63,7 @@ const CONFIG = {
         TIMEOUT: 30000,
         RETRY_ATTEMPTS: 3,
         CONCURRENT_REQUESTS: 3,
-        MAX_PAGES_FIRST_RUN: 100,
+        MAX_PAGES_FIRST_RUN: 10, // اخفضناها للتجربة
         MAX_PAGES_DAILY: 2
     },
     
@@ -155,7 +183,7 @@ class Cache {
         };
     }
     
-    set(key, value, ttl = 60000) { // 60 ثانية
+    set(key, value, ttl = 60000) {
         this.cache.set(key, {
             data: value,
             expires: Date.now() + ttl
@@ -238,7 +266,7 @@ async function fetchWithRetry(url, options = {}) {
             }
             
             const html = await response.text();
-            cache.set(cacheKey, html, 300000); // تخزين لمدة 5 دقائق
+            cache.set(cacheKey, html, 300000);
             return html;
             
         } catch (error) {
@@ -260,7 +288,6 @@ async function fetchWithRetry(url, options = {}) {
 class FileManager {
     constructor() {
         this.ensureDirectory();
-        this.setupFiles();
     }
     
     ensureDirectory() {
@@ -277,17 +304,6 @@ class FileManager {
                 logger.success(`تم إنشاء المجلد: ${path.basename(dir)}`, "FILE");
             }
         });
-    }
-    
-    setupFiles() {
-        const files = {
-            index: this.loadIndex(),
-            stats: this.loadStats(),
-            config: this.loadConfig(),
-            checkpoint: this.loadCheckpoint()
-        };
-        
-        return files;
     }
     
     loadIndex() {
@@ -334,35 +350,6 @@ class FileManager {
         };
     }
     
-    loadConfig() {
-        const filePath = path.join(CONFIG.OUTPUT_DIR, CONFIG.FILES.CONFIG);
-        if (fs.existsSync(filePath)) {
-            try {
-                return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            } catch (error) {
-                logger.error(`خطأ في تحميل الإعدادات: ${error.message}`, "FILE");
-            }
-        }
-        
-        return {
-            ...CONFIG,
-            created: new Date().toISOString(),
-            lastModified: new Date().toISOString()
-        };
-    }
-    
-    loadCheckpoint() {
-        const checkpointFile = path.join(CONFIG.OUTPUT_DIR, "checkpoint.json");
-        if (fs.existsSync(checkpointFile)) {
-            try {
-                return JSON.parse(fs.readFileSync(checkpointFile, 'utf8'));
-            } catch (error) {
-                logger.error(`خطأ في تحميل نقطة الاستئناف: ${error.message}`, "FILE");
-            }
-        }
-        return null;
-    }
-    
     saveIndex(data) {
         const filePath = path.join(CONFIG.OUTPUT_DIR, CONFIG.FILES.INDEX);
         const tempPath = `${filePath}.tmp`;
@@ -386,25 +373,6 @@ class FileManager {
             logger.debug(`تم حفظ الإحصائيات`, "FILE");
         } catch (error) {
             logger.error(`خطأ في حفظ الإحصائيات: ${error.message}`, "FILE");
-        }
-    }
-    
-    saveCheckpoint(data) {
-        const filePath = path.join(CONFIG.OUTPUT_DIR, "checkpoint.json");
-        
-        try {
-            fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-            logger.debug(`تم حفظ نقطة الاستئناف: ${data.page}`, "FILE");
-        } catch (error) {
-            logger.error(`خطأ في حفظ نقطة الاستئناف: ${error.message}`, "FILE");
-        }
-    }
-    
-    deleteCheckpoint() {
-        const filePath = path.join(CONFIG.OUTPUT_DIR, "checkpoint.json");
-        if (fs.existsSync(filePath)) {
-            fs.unlinkSync(filePath);
-            logger.debug("تم حذف نقطة الاستئناف", "FILE");
         }
     }
     
@@ -520,23 +488,11 @@ class FileManager {
             url: CONFIG.MOVIES_URL,
             scrapedAt: new Date().toISOString(),
             totalMovies: movies.length,
-            movies: movies.slice(0, 50) // حفظ أول 50 فيلم فقط للصفحة الرئيسية
+            movies: movies.slice(0, 50)
         };
         
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
         logger.success(`تم حفظ الصفحة الرئيسية (${movies.length} فيلم)`, "FILE");
-    }
-    
-    backupFile(filename) {
-        const sourcePath = path.join(CONFIG.OUTPUT_DIR, filename);
-        const backupDir = path.join(CONFIG.OUTPUT_DIR, "backups");
-        const backupName = `${filename}.${Date.now()}.bak`;
-        const backupPath = path.join(backupDir, backupName);
-        
-        if (fs.existsSync(sourcePath)) {
-            fs.copyFileSync(sourcePath, backupPath);
-            logger.debug(`تم عمل نسخة احتياطية: ${backupName}`, "FILE");
-        }
     }
 }
 
@@ -544,7 +500,10 @@ class FileManager {
 class ScraperEngine {
     constructor() {
         this.fileManager = new FileManager();
-        this.system = this.fileManager.setupFiles();
+        this.system = {
+            index: this.fileManager.loadIndex(),
+            stats: this.fileManager.loadStats()
+        };
         this.stats = {
             moviesScraped: 0,
             moviesAdded: 0,
@@ -572,9 +531,6 @@ class ScraperEngine {
         
         const topCinemaFiles = this.fileManager.getTopCinemaFiles();
         logger.info(`📦 عدد ملفات TopCinema: ${topCinemaFiles.length}`, "INIT");
-        
-        const cacheStats = cache.getStats();
-        logger.info(`💾 Cache Hit Rate: ${cacheStats.hitRate}`, "INIT");
     }
     
     async scrapePage(pageNum) {
@@ -648,18 +604,8 @@ class ScraperEngine {
             const imdbRating = $(".imdbR span").text().trim();
             const story = $(".story p").text().trim() || "غير متوفر";
             
-            // روابط المشاهدة والتحميل
-            const watchLink = $('a.watch').attr('href');
-            const downloadLink = $('a.download').attr('href');
-            
             // استخراج التفاصيل
             const details = this.extractMovieDetails($);
-            
-            // جلب سيرفرات المشاهدة والتحميل
-            const [watchServers, downloadServers] = await Promise.all([
-                watchLink ? this.scrapeWatchServers(watchLink) : Promise.resolve([]),
-                downloadLink ? this.scrapeDownloadServers(downloadLink) : Promise.resolve([])
-            ]);
             
             // تجميع البيانات
             const movieData = {
@@ -671,8 +617,6 @@ class ScraperEngine {
                 imdbRating: imdbRating,
                 story: story,
                 details: details,
-                watchServers: watchServers,
-                downloadServers: downloadServers,
                 metadata: {
                     page: movie.page,
                     position: movie.position,
@@ -754,142 +698,6 @@ class ScraperEngine {
         return details;
     }
     
-    async scrapeWatchServers(watchUrl) {
-        logger.debug(`جلب سيرفرات المشاهدة...`, "SERVERS");
-        
-        try {
-            const html = await fetchWithRetry(watchUrl);
-            this.stats.requestsMade++;
-            
-            const $ = cheerio.load(html);
-            const servers = [];
-            
-            // البحث في meta tags
-            $('meta[content*="embed"]').each((index, element) => {
-                const content = $(element).attr('content');
-                if (content) {
-                    servers.push({
-                        type: 'embed',
-                        url: content,
-                        quality: 'متعدد الجودات',
-                        server: 'Embed Server'
-                    });
-                }
-            });
-            
-            // البحث في iframes
-            $('iframe[src*="embed"]').each((index, element) => {
-                const src = $(element).attr('src');
-                if (src) {
-                    servers.push({
-                        type: 'iframe',
-                        url: src,
-                        quality: 'متعدد الجودات',
-                        server: 'Iframe Embed'
-                    });
-                }
-            });
-            
-            // البحث في scripts
-            $('script').each((index, element) => {
-                const scriptContent = $(element).html();
-                if (scriptContent && scriptContent.includes('embed')) {
-                    const embedMatches = scriptContent.match(/https?[^"\s]*embed[^"\s]*/g);
-                    if (embedMatches) {
-                        embedMatches.forEach(url => {
-                            servers.push({
-                                type: 'js_embed',
-                                url: url,
-                                quality: 'متعدد الجودات',
-                                server: 'JavaScript Embed'
-                            });
-                        });
-                    }
-                }
-            });
-            
-            // إزالة التكرارات
-            const uniqueServers = [];
-            const seenUrls = new Set();
-            
-            servers.forEach(server => {
-                if (server.url && !seenUrls.has(server.url)) {
-                    seenUrls.add(server.url);
-                    uniqueServers.push(server);
-                }
-            });
-            
-            logger.debug(`عثر على ${uniqueServers.length} سيرفر مشاهدة`, "SERVERS");
-            return uniqueServers;
-            
-        } catch (error) {
-            logger.error(`فشل جلب سيرفرات المشاهدة: ${error.message}`, "SERVERS");
-            return [];
-        }
-    }
-    
-    async scrapeDownloadServers(downloadUrl) {
-        logger.debug(`جلب سيرفرات التحميل...`, "SERVERS");
-        
-        try {
-            const html = await fetchWithRetry(downloadUrl);
-            this.stats.requestsMade++;
-            
-            const $ = cheerio.load(html);
-            const servers = [];
-            
-            // سيرفرات Pro
-            $('.proServer a.downloadsLink').each((index, element) => {
-                const name = $(element).find('.text span').text().trim() || 'متعدد الجودات';
-                const provider = $(element).find('.text p').text().trim() || 'غير معروف';
-                const url = $(element).attr('href') || '';
-                
-                if (url) {
-                    servers.push({
-                        server: provider,
-                        url: url,
-                        quality: name,
-                        type: 'pro'
-                    });
-                }
-            });
-            
-            // سيرفرات عادية
-            $('.download-items li a.downloadsLink').each((index, element) => {
-                const provider = $(element).find('.text span').text().trim() || 'غير معروف';
-                const quality = $(element).find('.text p').text().trim() || 'غير معروف';
-                const url = $(element).attr('href') || '';
-                
-                if (url && !$(element).closest('.proServer').length) {
-                    servers.push({
-                        server: provider,
-                        url: url,
-                        quality: quality,
-                        type: 'normal'
-                    });
-                }
-            });
-            
-            // إزالة التكرارات
-            const uniqueServers = [];
-            const seenUrls = new Set();
-            
-            servers.forEach(server => {
-                if (server.url && !seenUrls.has(server.url)) {
-                    seenUrls.add(server.url);
-                    uniqueServers.push(server);
-                }
-            });
-            
-            logger.debug(`عثر على ${uniqueServers.length} سيرفر تحميل`, "SERVERS");
-            return uniqueServers;
-            
-        } catch (error) {
-            logger.error(`فشل جلب سيرفرات التحميل: ${error.message}`, "SERVERS");
-            return [];
-        }
-    }
-    
     async processMovie(movie, topCinemaFile) {
         // التحقق إذا كان الفيلم موجوداً مسبقاً
         if (this.system.index.movies[movie.id]) {
@@ -931,6 +739,38 @@ class ScraperEngine {
         return { status: 'added', movie: movieDetails };
     }
     
+    async testScrape() {
+        logger.info("🧪 بدء اختبار النظام", "TEST");
+        
+        // اختبار جلب الصفحة الأولى فقط
+        const movies = await this.scrapePage(1);
+        
+        if (movies.length === 0) {
+            logger.error("❌ لم يتم العثور على أفلام", "TEST");
+            return false;
+        }
+        
+        logger.success(`✅ تم العثور على ${movies.length} فيلم`, "TEST");
+        
+        // اختبار استخراج فيلم واحد
+        if (movies.length > 0) {
+            const testMovie = movies[0];
+            logger.info(`اختبار استخراج: ${testMovie.title}`, "TEST");
+            
+            const movieDetails = await this.scrapeMovieDetails(testMovie);
+            if (movieDetails) {
+                logger.success(`✅ نجح استخراج الفيلم: ${movieDetails.title}`, "TEST");
+                logger.info(`   🏷️  ID: ${movieDetails.id}`);
+                logger.info(`   📷 صورة: ${movieDetails.image ? 'نعم' : 'لا'}`);
+                logger.info(`   ⭐ IMDB: ${movieDetails.imdbRating || 'غير متوفر'}`);
+                logger.info(`   🎭 أنواع: ${movieDetails.details.genres.join(', ') || 'غير معروف'}`);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
     async firstRun() {
         logger.info("🚀 بدء التشغيل الأول للنظام", "MAIN");
         
@@ -941,15 +781,6 @@ class ScraperEngine {
         const progressBar = logger.createProgressBar(CONFIG.SCRAPING.MAX_PAGES_FIRST_RUN, "جلب الصفحات");
         
         while (currentPage <= CONFIG.SCRAPING.MAX_PAGES_FIRST_RUN) {
-            // حفظ نقطة استئناف كل 5 صفحات
-            if (currentPage % CONFIG.SYSTEM.CHECKPOINT_INTERVAL === 0) {
-                this.fileManager.saveCheckpoint({
-                    page: currentPage,
-                    totalMovies: totalMoviesProcessed,
-                    timestamp: new Date().toISOString()
-                });
-            }
-            
             // جلب الأفلام من الصفحة
             const movies = await this.scrapePage(currentPage);
             
@@ -959,24 +790,16 @@ class ScraperEngine {
             }
             
             // معالجة الأفلام
-            const pagePromises = movies.map(movie => 
-                this.limit(async () => {
-                    await new Promise(resolve => setTimeout(resolve, CONFIG.SCRAPING.REQUEST_DELAY));
-                    return this.processMovie(movie, topCinemaFile);
-                })
-            );
-            
-            const results = await Promise.all(pagePromises);
-            
-            // تحديث ملف TopCinema إذا امتلأ
-            if (topCinemaFile.movieCount >= CONFIG.SCRAPING.BATCH_SIZE) {
-                topCinemaFile = this.fileManager.createNewTopCinemaFile(topCinemaFile.number + 1);
-            }
-            
-            // حفظ البيانات كل 10 أفلام
-            if (totalMoviesProcessed % CONFIG.SYSTEM.SAVE_INTERVAL === 0) {
-                this.system.index.updated = new Date().toISOString();
-                this.fileManager.saveIndex(this.system.index);
+            for (const movie of movies) {
+                await this.processMovie(movie, topCinemaFile);
+                
+                // تحديث ملف TopCinema إذا امتلأ
+                if (topCinemaFile.movieCount >= CONFIG.SCRAPING.BATCH_SIZE) {
+                    topCinemaFile = this.fileManager.createNewTopCinemaFile(topCinemaFile.number + 1);
+                }
+                
+                // تأخير بين الأفلام
+                await new Promise(resolve => setTimeout(resolve, CONFIG.SCRAPING.REQUEST_DELAY));
             }
             
             totalMoviesProcessed += movies.length;
@@ -994,13 +817,7 @@ class ScraperEngine {
         this.finalizeRun();
         
         logger.success(`✅ اكتمل التشغيل الأول!`, "MAIN");
-        logger.info(`📊 النتائج:`, "MAIN");
-        logger.info(`   🎬 أفلام مضافة: ${this.stats.moviesAdded}`, "MAIN");
-        logger.info(`   🔄 أفلام محدثة: ${this.stats.moviesUpdated}`, "MAIN");
-        logger.info(`   📁 ملفات TopCinema: ${this.fileManager.getTopCinemaFiles().length}`, "MAIN");
-        
-        // حذف نقطة الاستئناف
-        this.fileManager.deleteCheckpoint();
+        this.showSummary();
     }
     
     async dailyUpdate() {
@@ -1023,7 +840,7 @@ class ScraperEngine {
             for (let i = 0; i < movies.length; i++) {
                 const movie = movies[i];
                 
-                const result = await this.processMovie(movie, topCinemaFile);
+                await this.processMovie(movie, topCinemaFile);
                 
                 // تحديث ملف TopCinema إذا امتلأ
                 if (topCinemaFile.movieCount >= CONFIG.SCRAPING.BATCH_SIZE) {
@@ -1049,23 +866,7 @@ class ScraperEngine {
         this.finalizeRun();
         
         logger.success(`✅ اكتمل التحديث اليومي!`, "MAIN");
-        logger.info(`📊 النتائج:`, "MAIN");
-        logger.info(`   🆕 أفلام جديدة: ${this.stats.moviesAdded}`, "MAIN");
-        logger.info(`   🔄 أفلام محدثة: ${this.stats.moviesUpdated}`, "MAIN");
-        logger.info(`   📁 الملف الحالي: ${topCinemaFile.filename} (${topCinemaFile.movieCount}/${CONFIG.SCRAPING.BATCH_SIZE})`, "MAIN");
-    }
-    
-    async resumeFromLastCheckpoint() {
-        const checkpoint = this.fileManager.loadCheckpoint();
-        if (!checkpoint) {
-            logger.error("لا توجد نقطة استئناف", "MAIN");
-            return;
-        }
-        
-        logger.info(`استئناف التشغيل من الصفحة ${checkpoint.page}`, "MAIN");
-        
-        // استكمال التشغيل من النقطة المحفوظة
-        // (يمكن إضافة المنطق هنا لاستئناف التشغيل)
+        this.showSummary();
     }
     
     finalizeRun() {
@@ -1075,7 +876,7 @@ class ScraperEngine {
         
         // تحديث الإحصائيات
         const endTime = Date.now();
-        const duration = (endTime - this.stats.startTime) / 1000; // بالثواني
+        const duration = (endTime - this.stats.startTime) / 1000;
         
         this.system.stats.totalRuns++;
         this.system.stats.lastRun = new Date().toISOString();
@@ -1106,12 +907,10 @@ class ScraperEngine {
         // حفظ كل شيء
         this.fileManager.saveIndex(this.system.index);
         this.fileManager.saveStats(this.system.stats);
-        
-        // عرض ملخص
-        this.showSummary(duration);
     }
     
-    showSummary(duration) {
+    showSummary() {
+        const duration = (Date.now() - this.stats.startTime) / 1000;
         const minutes = Math.floor(duration / 60);
         const seconds = Math.floor(duration % 60);
         
@@ -1135,81 +934,46 @@ class ScraperEngine {
         console.log(chalk.green("   نسبة نجاح Cache:") + ` ${cache.getStats().hitRate}`);
         console.log("=".repeat(60));
     }
-    
-    async showStats() {
-        console.log(boxen(chalk.bold.cyan("📈 إحصائيات النظام\n") + 
-                         chalk.gray("=".repeat(40)), 
-                         { padding: 1, borderColor: 'cyan' }));
-        
-        const index = this.system.index;
-        const stats = this.system.stats;
-        const files = this.fileManager.getTopCinemaFiles();
-        
-        console.log(chalk.bold.magenta("🎬 الأفلام:"));
-        console.log(`   🔢 العدد الإجمالي: ${Object.keys(index.movies).length}`);
-        console.log(`   📅 أول فيلم: ${index.created?.split('T')[0] || 'غير معروف'}`);
-        console.log(`   🔄 آخر تحديث: ${index.updated?.split('T')[0] || 'غير معروف'}`);
-        
-        console.log(chalk.bold.magenta("\n📊 التشغيل:"));
-        console.log(`   🏃 التشغيلات: ${stats.totalRuns}`);
-        console.log(`   🎬 أفلام مستخرجة: ${stats.totalMoviesScraped}`);
-        console.log(`   📡 طلبات: ${stats.totalRequests}`);
-        console.log(`   ❌ أخطاء: ${stats.totalErrors}`);
-        console.log(`   ⏱️  متوسط وقت/فيلم: ${stats.avgTimePerMovie?.toFixed(2) || 0} ثانية`);
-        
-        console.log(chalk.bold.magenta("\n📁 الملفات:"));
-        console.log(`   📦 ملفات TopCinema: ${files.length}`);
-        files.slice(0, 5).forEach(file => {
-            console.log(`      ${file.filename}: ${file.movieCount} فيلم`);
-        });
-        if (files.length > 5) {
-            console.log(`      ... و ${files.length - 5} ملفات أخرى`);
-        }
-        
-        console.log(chalk.bold.magenta("\n💾 Cache:"));
-        const cacheStats = cache.getStats();
-        console.log(`   💯 Hit Rate: ${cacheStats.hitRate}`);
-        console.log(`   🔥 Hits: ${cacheStats.hits}`);
-        console.log(`   ❄️  Misses: ${cacheStats.misses}`);
-        console.log(`   💾 Size: ${cacheStats.cacheSize}`);
-        
-        console.log("\n" + chalk.gray("=".repeat(40)));
-    }
 }
 
 // ==================== الدالة الرئيسية ====================
 async function main() {
-    const engine = new ScraperEngine();
-    
     try {
+        const engine = new ScraperEngine();
         await engine.initialize();
         
         const args = process.argv.slice(2);
         
-        if (args.includes('--first-run')) {
+        if (args.includes('--test')) {
+            // وضع الاختبار
+            const testResult = await engine.testScrape();
+            if (testResult) {
+                console.log("\n" + chalk.bold.green("✅ كل شيء يعمل بشكل صحيح!"));
+            } else {
+                console.log("\n" + chalk.bold.red("❌ هناك مشكلة في النظام"));
+            }
+            
+        } else if (args.includes('--first-run')) {
             await engine.firstRun();
+            
         } else if (args.includes('--daily-update')) {
             await engine.dailyUpdate();
-        } else if (args.includes('--resume')) {
-            await engine.resumeFromLastCheckpoint();
-        } else if (args.includes('--stats')) {
-            await engine.showStats();
-        } else {
-            // الوضع التلقائي: تحقق إذا كان هناك بيانات مسبقة
-            const index = engine.system.index;
-            const hasData = Object.keys(index.movies).length > 0;
             
-            if (hasData) {
-                logger.info("بدء التحديث اليومي (بيانات موجودة)", "MAIN");
-                await engine.dailyUpdate();
-            } else {
-                logger.info("بدء التشغيل الأول (لا توجد بيانات)", "MAIN");
-                await engine.firstRun();
-            }
+        } else if (args.includes('--stats')) {
+            // عرض الإحصائيات فقط
+            engine.showSummary();
+            
+        } else {
+            // الوضع التلقائي
+            console.log(chalk.yellow("🤖 الوضع التلقائي"));
+            console.log(chalk.gray("استخدم --test لاختبار النظام"));
+            console.log(chalk.gray("استخدم --first-run للتشغيل الأول"));
+            console.log(chalk.gray("استخدم --daily-update للتحديث اليومي"));
+            console.log(chalk.gray("استخدم --stats لعرض الإحصائيات"));
         }
         
     } catch (error) {
-        logger.error("خطأ غير متوقع:", error.message);
+        console.error(chalk.bold.red("💥 خطأ غير متوقع:"), error.message);
         console.error(error.stack);
         process.exit(1);
     }
@@ -1219,10 +983,3 @@ async function main() {
 if (import.meta.url === `file://${process.argv[1]}`) {
     main();
 }
-
-export {
-    ScraperEngine,
-    FileManager,
-    Logger,
-    fetchWithRetry
-};
