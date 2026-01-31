@@ -11,36 +11,26 @@ const CONFIG = {
     baseUrl: "https://topcinema.rip",
     outputDir: path.join(__dirname, "Series"),
     
-    // أقسام المسلسلات
+    // أقسام المسلسلات (فقط المسلسلات العادية)
     sections: {
         agseries: {
             name: "مسلسلات عادية",
-            url: "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/",
+            url: "https://topcinema.rip/category/%d9%84%d8%b3%d0%b4%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a9/",
             type: "agseries"
-        },
-        krseries: {
-            name: "مسلسلات كورية/آسيوية",
-            url: "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%b3%d9%8a%d9%88%d9%8a%d8%a9/",
-            type: "krseries"
-        },
-        anmseries: {
-            name: "مسلسلات أنمي",
-            url: "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d9%86%d9%85%d9%8a/",
-            type: "anmseries"
         }
     },
     
     // إعدادات التخزين
     batchSize: {
-        series: 500,     // 500 مسلسل في كل ملف
-        seasons: 500,    // 500 موسم في كل ملف
-        episodes: 5000   // 5000 حلقة في كل ملف
+        series: 500,
+        seasons: 500,
+        episodes: 5000
     },
     
     // إعدادات الأداء
     requestDelay: 2000,
     timeout: 30000,
-    maxPagesFirstRun: 50
+    maxPagesFirstRun: 3 // قللت للاختبار، يمكنك زيادتها لاحقاً
 };
 
 // ==================== إعداد النظام ====================
@@ -63,24 +53,30 @@ class SeriesScraper {
             console.log("📁 تم إنشاء مجلد Series");
         }
         
-        // إنشاء مجلدات لكل قسم
+        // إنشاء مجلدات لكل قسم (فقط agseries)
         for (const [sectionKey, sectionInfo] of Object.entries(CONFIG.sections)) {
             const sectionDir = path.join(CONFIG.outputDir, sectionKey);
-            const subDirs = ["TV_Series", "Seasons", "Episodes"];
             
+            // إنشاء مجلد القسم إذا لم يكن موجوداً
             if (!fs.existsSync(sectionDir)) {
                 fs.mkdirSync(sectionDir, { recursive: true });
                 console.log(`📁 تم إنشاء مجلد ${sectionKey}`);
+            }
+            
+            // إنشاء مجلدات التخزين الفرعية
+            const subDirs = ["TV_Series", "Seasons", "Episodes"];
+            for (const subDir of subDirs) {
+                const dirPath = path.join(sectionDir, subDir);
                 
-                // إنشاء الفهارس الأولية
-                this.createInitialIndexes(sectionKey);
-                
-                // إنشاء مجلدات فرعية
-                for (const subDir of subDirs) {
-                    const dirPath = path.join(sectionDir, subDir);
+                // إنشاء المجلد الفرعي إذا لم يكن موجوداً
+                if (!fs.existsSync(dirPath)) {
                     fs.mkdirSync(dirPath, { recursive: true });
-                    
-                    // إنشاء ملف الصفحة الأولى
+                    console.log(`📁 تم إنشاء مجلد ${subDir}`);
+                }
+                
+                // إنشاء أو التحقق من وجود ملف الصفحة الأولى
+                const firstPagePath = path.join(dirPath, "Page1.json");
+                if (!fs.existsSync(firstPagePath)) {
                     const firstPage = {
                         page: 1,
                         items: [],
@@ -88,25 +84,31 @@ class SeriesScraper {
                         createdAt: new Date().toISOString()
                     };
                     
-                    fs.writeFileSync(
-                        path.join(dirPath, "Page1.json"),
-                        JSON.stringify(firstPage, null, 2)
-                    );
+                    fs.writeFileSync(firstPagePath, JSON.stringify(firstPage, null, 2));
+                    console.log(`📄 تم إنشاء Page1.json في ${subDir}`);
+                }
+                
+                // إنشاء أو التحقق من وجود ملف الصفحة النشطة
+                const currentPagePath = path.join(dirPath, "current_page.json");
+                if (!fs.existsSync(currentPagePath)) {
+                    const maxItems = subDir === "Episodes" ? CONFIG.batchSize.episodes : 
+                                   subDir === "Seasons" ? CONFIG.batchSize.seasons : 
+                                   CONFIG.batchSize.series;
                     
-                    // إنشاء ملف الصفحة النشطة
                     const currentPage = {
                         currentPage: 1,
                         itemsCount: 0,
-                        maxItems: CONFIG.batchSize[subDir === "Episodes" ? "episodes" : "series"],
+                        maxItems: maxItems,
                         lastUpdated: new Date().toISOString()
                     };
                     
-                    fs.writeFileSync(
-                        path.join(dirPath, "current_page.json"),
-                        JSON.stringify(currentPage, null, 2)
-                    );
+                    fs.writeFileSync(currentPagePath, JSON.stringify(currentPage, null, 2));
+                    console.log(`📄 تم إنشاء current_page.json في ${subDir}`);
                 }
             }
+            
+            // إنشاء الفهارس الأولية
+            this.createInitialIndexes(sectionKey);
         }
     }
     
@@ -116,17 +118,20 @@ class SeriesScraper {
         for (const index of indexes) {
             const indexPath = path.join(CONFIG.outputDir, sectionKey, `${index}.json`);
             
-            const initialData = {
-                meta: {
-                    section: sectionKey,
-                    created: new Date().toISOString(),
-                    lastUpdated: new Date().toISOString(),
-                    total: 0
-                },
-                items: {}
-            };
-            
-            fs.writeFileSync(indexPath, JSON.stringify(initialData, null, 2));
+            if (!fs.existsSync(indexPath)) {
+                const initialData = {
+                    meta: {
+                        section: sectionKey,
+                        created: new Date().toISOString(),
+                        lastUpdated: new Date().toISOString(),
+                        total: 0
+                    },
+                    items: {}
+                };
+                
+                fs.writeFileSync(indexPath, JSON.stringify(initialData, null, 2));
+                console.log(`📄 تم إنشاء ${index}.json`);
+            }
         }
     }
     
@@ -162,9 +167,9 @@ class SeriesScraper {
     }
     
     extractIdFromShortLink(shortLink) {
-        if (!shortLink) return null;
+        if (!shortLink) return `hash_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         const match = shortLink.match(/(?:gt|p)=(\d+)/);
-        return match ? `id_${match[1]}` : `hash_${Date.now()}`;
+        return match ? `id_${match[1]}` : `hash_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     }
     
     // ==================== استخراج المسلسلات من الصفحة ====================
@@ -214,7 +219,7 @@ class SeriesScraper {
                 });
                 
                 seriesList.push({
-                    id: null, // سيتم ملؤه لاحقاً
+                    id: null,
                     url: seriesUrl,
                     title: title,
                     image: image,
@@ -352,7 +357,7 @@ class SeriesScraper {
             const seasonNumber = seasonNumberText ? parseInt(seasonNumberText) : 1;
             
             seasons.push({
-                id: null, // سيتم ملؤه لاحقاً
+                id: null,
                 seriesId: seriesId,
                 url: seasonUrl,
                 title: title,
@@ -422,7 +427,7 @@ class SeriesScraper {
             const episodeNumber = episodeNumberText ? parseInt(episodeNumberText) : 1;
             
             episodes.push({
-                id: null, // سيتم ملؤه لاحقاً
+                id: null,
                 seriesId: seriesId,
                 seasonId: seasonId,
                 url: episodeUrl,
@@ -497,25 +502,11 @@ class SeriesScraper {
             const doc = dom.window.document;
             const servers = [];
             
-            // البحث في meta tags
-            const metaElements = doc.querySelectorAll('meta');
-            metaElements.forEach(meta => {
-                const content = meta.getAttribute('content');
-                if (content && content.includes('embed')) {
-                    servers.push({
-                        type: 'embed',
-                        url: content,
-                        quality: 'متعدد الجودات',
-                        server: 'Embed Server'
-                    });
-                }
-            });
-            
             // البحث في iframes
             const iframes = doc.querySelectorAll('iframe');
             iframes.forEach(iframe => {
                 const src = iframe.getAttribute('src');
-                if (src && src.includes('embed')) {
+                if (src && (src.includes('embed') || src.includes('player'))) {
                     servers.push({
                         type: 'iframe',
                         url: src,
@@ -543,29 +534,9 @@ class SeriesScraper {
             const doc = dom.window.document;
             const servers = [];
             
-            // سيرفرات Pro
-            const proServerElements = doc.querySelectorAll('.proServer a.downloadsLink');
-            proServerElements.forEach(server => {
-                const nameElement = server.querySelector('.text span');
-                const providerElement = server.querySelector('.text p');
-                
-                const serverName = nameElement?.textContent?.trim() || 'متعدد الجودات';
-                const provider = providerElement?.textContent?.trim() || 'غير معروف';
-                const url = server.getAttribute('href') || '';
-                
-                if (url) {
-                    servers.push({
-                        server: provider,
-                        url: url,
-                        quality: serverName,
-                        type: 'pro'
-                    });
-                }
-            });
-            
             // سيرفرات عادية
-            const normalServerElements = doc.querySelectorAll('.download-items li a.downloadsLink');
-            normalServerElements.forEach(server => {
+            const serverElements = doc.querySelectorAll('.download-items li a.downloadsLink');
+            serverElements.forEach(server => {
                 const providerElement = server.querySelector('.text span');
                 const qualityElement = server.querySelector('.text p');
                 
@@ -594,56 +565,68 @@ class SeriesScraper {
     // ==================== تخزين البيانات ====================
     async addToStorage(section, type, data) {
         const sectionDir = path.join(CONFIG.outputDir, section);
-        let storageDir, batchSize, indexFile;
+        let storageDir, indexFile;
         
         switch (type) {
             case 'series':
                 storageDir = path.join(sectionDir, 'TV_Series');
-                batchSize = CONFIG.batchSize.series;
                 indexFile = 'series_index.json';
                 break;
             case 'season':
                 storageDir = path.join(sectionDir, 'Seasons');
-                batchSize = CONFIG.batchSize.seasons;
                 indexFile = 'seasons_index.json';
                 break;
             case 'episode':
                 storageDir = path.join(sectionDir, 'Episodes');
-                batchSize = CONFIG.batchSize.episodes;
                 indexFile = 'episodes_index.json';
                 break;
             default:
+                console.log(`❌ نوع غير معروف: ${type}`);
                 return false;
         }
         
-        // قراءة الصفحة النشطة
-        const currentPagePath = path.join(storageDir, 'current_page.json');
-        let currentPage = JSON.parse(fs.readFileSync(currentPagePath, 'utf8'));
+        // التحقق من وجود المجلد
+        if (!fs.existsSync(storageDir)) {
+            fs.mkdirSync(storageDir, { recursive: true });
+            console.log(`📁 تم إنشاء مجلد: ${storageDir}`);
+        }
         
-        // إذا الصفحة ممتلئة، إنشاء صفحة جديدة
-        if (currentPage.itemsCount >= batchSize) {
-            currentPage.currentPage += 1;
-            currentPage.itemsCount = 0;
+        // قراءة أو إنشاء ملف الصفحة النشطة
+        const currentPagePath = path.join(storageDir, 'current_page.json');
+        let currentPage;
+        
+        if (fs.existsSync(currentPagePath)) {
+            currentPage = JSON.parse(fs.readFileSync(currentPagePath, 'utf8'));
+        } else {
+            const maxItems = type === 'episode' ? CONFIG.batchSize.episodes : 
+                           type === 'season' ? CONFIG.batchSize.seasons : 
+                           CONFIG.batchSize.series;
             
-            // إنشاء ملف الصفحة الجديدة
-            const newPage = {
+            currentPage = {
+                currentPage: 1,
+                itemsCount: 0,
+                maxItems: maxItems,
+                lastUpdated: new Date().toISOString()
+            };
+            
+            fs.writeFileSync(currentPagePath, JSON.stringify(currentPage, null, 2));
+        }
+        
+        // التحقق من وجود ملف الصفحة الحالية
+        const currentPageFile = path.join(storageDir, `Page${currentPage.currentPage}.json`);
+        let pageData;
+        
+        if (fs.existsSync(currentPageFile)) {
+            pageData = JSON.parse(fs.readFileSync(currentPageFile, 'utf8'));
+        } else {
+            pageData = {
                 page: currentPage.currentPage,
                 items: [],
                 total: 0,
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString(),
+                lastUpdated: new Date().toISOString()
             };
-            
-            fs.writeFileSync(
-                path.join(storageDir, `Page${currentPage.currentPage}.json`),
-                JSON.stringify(newPage, null, 2)
-            );
-            
-            console.log(`📄 إنشاء صفحة جديدة: ${type} Page${currentPage.currentPage}`);
         }
-        
-        // إضافة البيانات للصفحة الحالية
-        const currentPageFile = path.join(storageDir, `Page${currentPage.currentPage}.json`);
-        let pageData = JSON.parse(fs.readFileSync(currentPageFile, 'utf8'));
         
         // التحقق من عدم التكرار
         const exists = pageData.items.some(item => item.id === data.id);
@@ -652,6 +635,7 @@ class SeriesScraper {
             return false;
         }
         
+        // إضافة البيانات
         pageData.items.push(data);
         pageData.total = pageData.items.length;
         pageData.lastUpdated = new Date().toISOString();
@@ -664,22 +648,37 @@ class SeriesScraper {
         fs.writeFileSync(currentPagePath, JSON.stringify(currentPage, null, 2));
         
         // تحديث الفهرس
-        await this.updateIndex(section, indexFile, data);
+        await this.updateIndex(section, indexFile, data, currentPage.currentPage);
         
-        console.log(`   ✅ تم تخزين ${type}: ${data.id}`);
+        console.log(`   ✅ تم تخزين ${type}: ${data.title.substring(0, 30)}...`);
         return true;
     }
     
-    async updateIndex(section, indexName, data) {
+    async updateIndex(section, indexName, data, pageNumber) {
         const indexPath = path.join(CONFIG.outputDir, section, indexName);
-        let index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+        let index;
+        
+        if (fs.existsSync(indexPath)) {
+            index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+        } else {
+            index = {
+                meta: {
+                    section: section,
+                    created: new Date().toISOString(),
+                    lastUpdated: new Date().toISOString(),
+                    total: 0
+                },
+                items: {}
+            };
+        }
         
         index.items[data.id] = {
             id: data.id,
             title: data.title,
             url: data.url,
             scrapedAt: data.scrapedAt,
-            storedIn: `Page${this.getCurrentPageNumber(section, indexName.replace('_index.json', ''))}`
+            storedIn: `Page${pageNumber}`,
+            lastUpdated: new Date().toISOString()
         };
         
         index.meta.total = Object.keys(index.items).length;
@@ -688,15 +687,9 @@ class SeriesScraper {
         fs.writeFileSync(indexPath, JSON.stringify(index, null, 2));
     }
     
-    getCurrentPageNumber(section, type) {
-        const currentPagePath = path.join(CONFIG.outputDir, section, type, 'current_page.json');
-        const currentPage = JSON.parse(fs.readFileSync(currentPagePath, 'utf8'));
-        return currentPage.currentPage;
-    }
-    
     // ==================== التشغيل الأولي ====================
     async firstRun() {
-        console.log("🚀 بدء التشغيل الأولي - تخزين كل المسلسلات");
+        console.log("🚀 بدء التشغيل الأولي - تخزين المسلسلات العادية");
         console.log("=".repeat(60));
         
         for (const [sectionKey, sectionInfo] of Object.entries(CONFIG.sections)) {
@@ -711,6 +704,8 @@ class SeriesScraper {
                     sectionInfo.url : 
                     `${sectionInfo.url}page/${pageNum}/`;
                 
+                console.log(`\n📄 الصفحة ${pageNum}: ${pageUrl}`);
+                
                 // استخراج المسلسلات من الصفحة
                 const seriesList = await this.extractSeriesFromPage(pageUrl, sectionKey);
                 
@@ -720,59 +715,92 @@ class SeriesScraper {
                     break;
                 }
                 
-                console.log(`📄 الصفحة ${pageNum}: ${seriesList.length} مسلسل`);
+                console.log(`🔍 عثر على ${seriesList.length} مسلسل في الصفحة ${pageNum}`);
                 
                 // معالجة كل مسلسل
                 for (let i = 0; i < seriesList.length; i++) {
                     const series = seriesList[i];
+                    
+                    console.log(`\n🎬 [${i + 1}/${seriesList.length}] معالجة: ${series.title.substring(0, 50)}...`);
                     
                     // استخراج بيانات المسلسل الكاملة
                     const seriesDetails = await this.extractSeriesDetails(series.url);
                     
                     if (seriesDetails) {
                         // تخزين المسلسل
-                        await this.addToStorage(sectionKey, 'series', seriesDetails);
+                        const stored = await this.addToStorage(sectionKey, 'series', seriesDetails);
                         
-                        // معالجة مواسم المسلسل
-                        for (const season of seriesDetails.seasons) {
-                            const seasonDetails = await this.extractSeasonDetails(season);
+                        if (stored) {
+                            // تحديث الإحصائيات
+                            this.stats.totalSeries++;
+                            this.stats.sections[sectionKey] = this.stats.sections[sectionKey] || { 
+                                series: 0, 
+                                seasons: 0, 
+                                episodes: 0 
+                            };
+                            this.stats.sections[sectionKey].series++;
                             
-                            if (seasonDetails) {
-                                // تخزين الموسم
-                                await this.addToStorage(sectionKey, 'season', seasonDetails);
+                            // معالجة مواسم المسلسل
+                            console.log(`📦 معالجة ${seriesDetails.seasons.length} موسم`);
+                            
+                            for (let j = 0; j < seriesDetails.seasons.length; j++) {
+                                const season = seriesDetails.seasons[j];
+                                console.log(`   📋 الموسم ${j + 1}/${seriesDetails.seasons.length}: ${season.title}`);
                                 
-                                // معالجة حلقات الموسم
-                                for (const episode of seasonDetails.episodes) {
-                                    const episodeDetails = await this.extractEpisodeDetails(episode);
+                                const seasonDetails = await this.extractSeasonDetails(season);
+                                
+                                if (seasonDetails) {
+                                    // تخزين الموسم
+                                    await this.addToStorage(sectionKey, 'season', seasonDetails);
+                                    this.stats.totalSeasons++;
+                                    this.stats.sections[sectionKey].seasons++;
                                     
-                                    if (episodeDetails) {
-                                        // تخزين الحلقة
-                                        await this.addToStorage(sectionKey, 'episode', episodeDetails);
+                                    // معالجة حلقات الموسم
+                                    console.log(`   🎥 معالجة ${seasonDetails.episodes.length} حلقة`);
+                                    
+                                    for (let k = 0; k < seasonDetails.episodes.length; k++) {
+                                        const episode = seasonDetails.episodes[k];
+                                        console.log(`      📺 الحلقة ${k + 1}/${seasonDetails.episodes.length}: ${episode.title}`);
+                                        
+                                        const episodeDetails = await this.extractEpisodeDetails(episode);
+                                        
+                                        if (episodeDetails) {
+                                            // تخزين الحلقة
+                                            await this.addToStorage(sectionKey, 'episode', episodeDetails);
+                                            this.stats.totalEpisodes++;
+                                            this.stats.sections[sectionKey].episodes++;
+                                        }
+                                        
+                                        // تأخير بين الحلقات
+                                        if (k < seasonDetails.episodes.length - 1) {
+                                            await this.delay(1000);
+                                        }
                                     }
-                                    
-                                    await this.delay(1000); // تأخير بين الحلقات
+                                }
+                                
+                                // تأخير بين المواسم
+                                if (j < seriesDetails.seasons.length - 1) {
+                                    await this.delay(1500);
                                 }
                             }
-                            
-                            await this.delay(1500); // تأخير بين المواسم
                         }
                     }
                     
-                    // تحديث الإحصائيات
-                    this.stats.totalSeries++;
-                    this.stats.sections[sectionKey] = this.stats.sections[sectionKey] || { series: 0, seasons: 0, episodes: 0 };
-                    this.stats.sections[sectionKey].series++;
-                    
-                    console.log(`   ✅ ${i + 1}/${seriesList.length}: ${series.title.substring(0, 40)}...`);
-                    
-                    await this.delay(CONFIG.requestDelay); // تأخير بين المسلسلات
+                    // تأخير بين المسلسلات
+                    if (i < seriesList.length - 1) {
+                        await this.delay(CONFIG.requestDelay);
+                    }
                 }
                 
                 pageNum++;
-                await this.delay(CONFIG.requestDelay); // تأخير بين الصفحات
+                
+                // تأخير بين الصفحات
+                if (hasMorePages && pageNum <= CONFIG.maxPagesFirstRun) {
+                    await this.delay(CONFIG.requestDelay);
+                }
             }
             
-            console.log(`✅ اكتمل قسم ${sectionInfo.name}`);
+            console.log(`\n✅ اكتمل قسم ${sectionInfo.name}`);
         }
         
         console.log("\n" + "=".repeat(60));
@@ -780,175 +808,65 @@ class SeriesScraper {
         this.printStats();
     }
     
-    // ==================== التشغيل اليومي (فحص الصفحة الرئيسية) ====================
+    // ==================== التشغيل اليومي ====================
     async dailyUpdate() {
         console.log("🔄 بدء الفحص اليومي للصفحة الرئيسية");
         console.log("=".repeat(60));
         
-        // جلب الصفحة الرئيسية
-        const homepageHtml = await this.fetchWithTimeout(CONFIG.baseUrl);
-        if (!homepageHtml) {
-            console.log("❌ فشل جلب الصفحة الرئيسية");
-            return;
-        }
+        // استخدم نفس كود التشغيل الأولي ولكن بفحص الصفحات القليلة الأولى فقط
+        await this.firstRunLimited();
+    }
+    
+    async firstRunLimited() {
+        // نسخة محدودة للتحديث اليومي
+        const maxPages = 1; // صفحة واحدة فقط للتحديث اليومي
         
-        const dom = new JSDOM(homepageHtml);
-        const doc = dom.window.document;
-        
-        // البحث عن قسم "آخر الحلقات المضافة"
-        const latestEpisodesSection = doc.querySelector('.Wide--Contents .Posts--List');
-        if (!latestEpisodesSection) {
-            console.log("❌ لم يتم العثور على قسم آخر الحلقات");
-            return;
-        }
-        
-        // استخراج جميع العناصر
-        const items = latestEpisodesSection.querySelectorAll('.Small--Box a');
-        console.log(`🔍 عثر على ${items.length} عنصر في الصفحة الرئيسية`);
-        
-        let newItemsCount = 0;
-        
-        for (let i = 0; i < items.length; i++) {
-            const item = items[i];
-            const itemUrl = item.href;
-            const itemTitle = item.querySelector('.title')?.textContent?.trim() || item.textContent;
+        for (const [sectionKey, sectionInfo] of Object.entries(CONFIG.sections)) {
+            console.log(`\n📺 فحص قسم: ${sectionInfo.name}`);
             
-            console.log(`   ${i + 1}/${items.length}: ${itemTitle.substring(0, 50)}...`);
-            
-            // تحليل نوع العنصر
-            const itemType = this.analyzeHomepageItem(itemTitle, itemUrl);
-            
-            switch (itemType.type) {
-                case 'episode':
-                    await this.processNewEpisode(itemUrl, itemTitle, itemType.section);
-                    newItemsCount++;
-                    break;
+            for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+                const pageUrl = pageNum === 1 ? 
+                    sectionInfo.url : 
+                    `${sectionInfo.url}page/${pageNum}/`;
+                
+                const seriesList = await this.extractSeriesFromPage(pageUrl, sectionKey);
+                
+                for (const series of seriesList) {
+                    // التحقق إذا كان المسلسل موجوداً بالفعل
+                    const exists = await this.checkIfSeriesExists(sectionKey, series.url);
                     
-                case 'season':
-                    await this.processNewSeason(itemUrl, itemTitle, itemType.section);
-                    newItemsCount++;
-                    break;
-                    
-                case 'series':
-                    await this.processNewSeries(itemUrl, itemTitle, itemType.section);
-                    newItemsCount++;
-                    break;
-            }
-            
-            await this.delay(1000); // تأخير بين العناصر
-        }
-        
-        console.log(`\n✅ اكتمل الفحص اليومي!`);
-        console.log(`📊 تم اكتشاف ${newItemsCount} عنصر جديد`);
-    }
-    
-    analyzeHomepageItem(title, url) {
-        if (title.includes('الحلقة') || title.includes('حلقة') || url.includes('الحلقة')) {
-            // تحديد القسم
-            if (title.includes('أنمي') || url.includes('anime')) {
-                return { type: 'episode', section: 'anmseries' };
-            } else if (title.includes('كوري') || url.includes('korean')) {
-                return { type: 'episode', section: 'krseries' };
-            } else {
-                return { type: 'episode', section: 'agseries' };
-            }
-        } else if (title.includes('الموسم') || title.includes('Season')) {
-            // تحديد القسم للموسم
-            if (url.includes('anime-series')) {
-                return { type: 'season', section: 'anmseries' };
-            } else if (url.includes('korean-drama')) {
-                return { type: 'season', section: 'krseries' };
-            } else {
-                return { type: 'season', section: 'agseries' };
-            }
-        } else {
-            // مسلسل جديد
-            if (url.includes('anime-series')) {
-                return { type: 'series', section: 'anmseries' };
-            } else if (url.includes('korean-drama')) {
-                return { type: 'series', section: 'krseries' };
-            } else {
-                return { type: 'series', section: 'agseries' };
-            }
-        }
-    }
-    
-    async processNewEpisode(episodeUrl, title, section) {
-        console.log(`   🎥 حلقة جديدة: ${title}`);
-        
-        // استخراج بيانات الحلقة
-        const episodeData = {
-            url: episodeUrl,
-            title: title,
-            scrapedAt: new Date().toISOString()
-        };
-        
-        const episodeDetails = await this.extractEpisodeDetails(episodeData);
-        if (episodeDetails) {
-            // التأكد من وجود المسلسل والموسم
-            await this.ensureSeriesAndSeasonExist(episodeDetails, section);
-            
-            // تخزين الحلقة
-            await this.addToStorage(section, 'episode', episodeDetails);
-        }
-    }
-    
-    async processNewSeason(seasonUrl, title, section) {
-        console.log(`   📦 موسم جديد: ${title}`);
-        
-        // استخراج بيانات الموسم
-        const seasonData = {
-            url: seasonUrl,
-            title: title,
-            scrapedAt: new Date().toISOString()
-        };
-        
-        const seasonDetails = await this.extractSeasonDetails(seasonData);
-        if (seasonDetails) {
-            // تخزين الموسم وحلقاته
-            await this.addToStorage(section, 'season', seasonDetails);
-            
-            for (const episode of seasonDetails.episodes) {
-                const episodeDetails = await this.extractEpisodeDetails(episode);
-                if (episodeDetails) {
-                    await this.addToStorage(section, 'episode', episodeDetails);
-                }
-                await this.delay(500);
-            }
-        }
-    }
-    
-    async processNewSeries(seriesUrl, title, section) {
-        console.log(`   🎬 مسلسل جديد: ${title}`);
-        
-        // استخراج بيانات المسلسل الكاملة
-        const seriesDetails = await this.extractSeriesDetails(seriesUrl);
-        if (seriesDetails) {
-            await this.addToStorage(section, 'series', seriesDetails);
-            
-            // معالجة مواسمه وحلقاته
-            for (const season of seriesDetails.seasons) {
-                const seasonDetails = await this.extractSeasonDetails(season);
-                if (seasonDetails) {
-                    await this.addToStorage(section, 'season', seasonDetails);
-                    
-                    for (const episode of seasonDetails.episodes) {
-                        const episodeDetails = await this.extractEpisodeDetails(episode);
-                        if (episodeDetails) {
-                            await this.addToStorage(section, 'episode', episodeDetails);
+                    if (!exists) {
+                        console.log(`🔍 مسلسل جديد: ${series.title}`);
+                        
+                        const seriesDetails = await this.extractSeriesDetails(series.url);
+                        if (seriesDetails) {
+                            await this.addToStorage(sectionKey, 'series', seriesDetails);
                         }
-                        await this.delay(500);
                     }
                 }
-                await this.delay(1000);
+                
+                await this.delay(CONFIG.requestDelay);
             }
         }
     }
     
-    async ensureSeriesAndSeasonExist(episodeDetails, section) {
-        // هذه دالة مبسطة - تحتاج لتطوير حسب هيكل بياناتك
-        console.log(`   🔍 التحقق من وجود المسلسل والموسم...`);
-        // سيتم تطويرها في النسخة النهائية
+    async checkIfSeriesExists(section, seriesUrl) {
+        const indexPath = path.join(CONFIG.outputDir, section, 'series_index.json');
+        
+        if (!fs.existsSync(indexPath)) {
+            return false;
+        }
+        
+        const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+        
+        // البحث في الفهرس عن المسلسل
+        for (const item of Object.values(index.items)) {
+            if (item.url === seriesUrl) {
+                return true;
+            }
+        }
+        
+        return false;
     }
     
     // ==================== دوال المساعدة ====================
@@ -964,10 +882,12 @@ class SeriesScraper {
         console.log("-".repeat(40));
         console.log(`⏱️  المدة: ${duration.toFixed(2)} دقيقة`);
         console.log(`🎬 إجمالي المسلسلات: ${this.stats.totalSeries}`);
+        console.log(`📦 إجمالي المواسم: ${this.stats.totalSeasons}`);
+        console.log(`🎥 إجمالي الحلقات: ${this.stats.totalEpisodes}`);
         
         for (const [section, stats] of Object.entries(this.stats.sections)) {
-            console.log(`   ${CONFIG.sections[section].name}:`);
-            console.log(`     - مسلسلات: ${stats.series}`);
+            console.log(`\n   ${CONFIG.sections[section].name}:`);
+            console.log(`     - مسلسلات: ${stats.series || 0}`);
             console.log(`     - مواسم: ${stats.seasons || 0}`);
             console.log(`     - حلقات: ${stats.episodes || 0}`);
         }
@@ -975,7 +895,7 @@ class SeriesScraper {
     
     // ==================== الدالة الرئيسية ====================
     async run() {
-        console.log("🎬 نظام تخزين المسلسلات من topcinema.rip");
+        console.log("🎬 نظام تخزين المسلسلات العادية من topcinema.rip");
         console.log("=".repeat(60));
         
         // التحقق من التشغيل الأولي
@@ -993,7 +913,6 @@ class SeriesScraper {
     }
     
     checkIfFirstRun() {
-        // التحقق إذا كان هناك أي بيانات مخزنة
         for (const sectionKey of Object.keys(CONFIG.sections)) {
             const indexPath = path.join(CONFIG.outputDir, sectionKey, 'series_index.json');
             if (fs.existsSync(indexPath)) {
@@ -1010,6 +929,7 @@ class SeriesScraper {
 // ==================== التشغيل ====================
 const scraper = new SeriesScraper();
 scraper.run().catch(error => {
-    console.error('💥 خطأ غير متوقع:', error.message);
+    console.error('💥 خطأ غير متوقع:', error);
+    console.error('Stack:', error.stack);
     process.exit(1);
 });
