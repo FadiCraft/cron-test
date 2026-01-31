@@ -1,4 +1,4 @@
-name: KiroZozo Series Extractor
+name: KiroZozo Series Extractor (Normal Series Only)
 
 on:
   workflow_dispatch:
@@ -23,20 +23,22 @@ jobs:
           
       - name: Install dependencies
         run: |
+          npm init -y
           npm install jsdom
           echo "✅ تم تثبيت الحزم"
 
-      - name: Create series directories
+      - name: Create necessary directories
         run: |
-          mkdir -p Series/Series
-          mkdir -p Series/Seasons
-          mkdir -p Series/Episodes
-          echo "📁 تم إنشاء مجلدات Series"
+          mkdir -p Series/agseries/TV_Series
+          mkdir -p Series/agseries/Seasons
+          mkdir -p Series/agseries/Episodes
+          echo "📁 تم إنشاء مجلدات التخزين"
 
       - name: Run the series scraper
         run: |
-          echo "🚀 بدء عملية استخراج المسلسلات..."
+          echo "🚀 بدء عملية استخراج المسلسلات العادية..."
           echo "📅 الوقت: $(date)"
+          echo "🔗 الرابط: https://topcinema.rip/category/%d9%84%d8%b3%d0%b4%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a9/"
           node daily_Series.js
           echo "✅ تم الانتهاء من استخراج المسلسلات"
 
@@ -56,7 +58,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "📭 لا توجد تغييرات للرفع"
           else
-            git commit -m "📺 تحديث المسلسلات - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج المسلسلات تلقائياً"
+            git commit -m "📺 تحديث المسلسلات العادية - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج المسلسلات العادية تلقائياً"
             echo "✅ تم commit التغييرات"
           fi
 
