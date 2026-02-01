@@ -2,7 +2,7 @@ name: استخراج افلام
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # كل 1 ساعات
+    - cron: '*/15 * * * *'  # ⭐ تغيير هنا: كل 15 دقيقة
   workflow_dispatch:
 
 jobs:
