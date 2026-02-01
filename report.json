@@ -1,19 +1,23 @@
 {
   "runType": "limited_run",
   "status": "completed_pages",
-  "timestamp": "2026-02-01T13:37:17.606Z",
-  "executionTime": 170598,
-  "totalMoviesThisRun": 120,
-  "totalUniqueMovies": 120,
+  "timestamp": "2026-02-01T14:14:26.071Z",
+  "executionTime": 280282,
+  "moviesThisRun": 120,
+  "watchServersThisRun": 240,
+  "downloadServersThisRun": 1346,
   "pagesProcessedThisRun": 2,
-  "lastPageProcessed": 2,
-  "lastMovieId": "191139",
+  "totalUniqueMovies": 120,
+  "totalPages": 2,
+  "lastPageProcessed": 3,
+  "lastMovieId": "176895",
   "currentFile": "Top1.json",
-  "moviesInCurrentFile": 120,
+  "moviesInCurrentFile": 240,
   "duplicateFound": false,
   "nextRun": {
-    "startPage": 2,
+    "startPage": 3,
     "currentFile": "Top1.json",
-    "moviesInFile": 120
+    "moviesInFile": 240,
+    "remainingPagesForNextRun": 2
   }
 }
