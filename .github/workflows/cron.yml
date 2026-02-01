@@ -3,31 +3,110 @@ name: استخراج افلام
 on:
   schedule:
     - cron: '0 */6 * * *'  # كل 6 ساعات
-  workflow_dispatch:  # تشغيل يدوي
+  workflow_dispatch:
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 45  # ⭐ زيادة مهلة التشغيل الكلية
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
+    - name: Checkout with token
+      uses: actions/checkout@v4
       with:
-        node-version: '18'
-        
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Cache node modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
     - name: Install dependencies
-      run: npm ci
-      
-    - name: Run scraper
-      run: node fetch.js --daily-update
-      
-    - name: Commit changes
       run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
+        if [ -f "package-lock.json" ]; then
+          npm ci
+        else
+          npm install jsdom
+        fi
+    
+    - name: Ensure movies directory exists
+      run: mkdir -p movies
+    
+    - name: Synchronize with remote
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # محاولة sync
+        git fetch origin
+        git reset --hard origin/main
+        git clean -fd
+        
+    - name: Run movie scraper
+      run: |
+        echo "🎬 بدء استخراج الأفلام..."
+        node fetch.js --daily-update
+      continue-on-error: true  # ⭐ الاستمرار حتى لو فشل السكريبت
+    
+    - name: Check for changes
+      id: changes
+      run: |
+        if [[ -n $(git status --porcelain) ]]; then
+          echo "✅ هناك تغييرات جديدة"
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "⏭️ لا توجد تغييرات"
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Push changes (if any)
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        # إضافة التغييرات
         git add -A
-        git commit -m "Update movies data" || echo "No changes to commit"
-        git push
+        
+        # عمل commit
+        COMMIT_MSG="🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')"
+        git commit -m "$COMMIT_MSG"
+        
+        # محاولة push متعددة
+        ATTEMPT=1
+        MAX_ATTEMPTS=3
+        
+        while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
+          echo "🚀 محاولة Push #$ATTEMPT"
+          
+          # أولاً، سحب أحدث التغييرات
+          if git pull --rebase origin main; then
+            echo "✅ تم سحب التغييرات بنجاح"
+            
+            # الآن حاول push
+            if git push origin main; then
+              echo "🎉 تم رفع التغييرات بنجاح!"
+              break
+            else
+              echo "❌ فشل Push #$ATTEMPT"
+            fi
+          else
+            echo "❌ فشل pull في المحاولة #$ATTEMPT"
+          fi
+          
+          if [ $ATTEMPT -eq $MAX_ATTEMPTS ]; then
+            echo "💥 فشلت جميع المحاولات"
+            exit 1
+          fi
+          
+          ATTEMPT=$((ATTEMPT + 1))
+          echo "⏳ انتظار 10 ثواني قبل المحاولة التالية..."
+          sleep 10
+        done
