@@ -1,23 +1,28 @@
 {
-  "runType": "limited_run",
-  "status": "completed_pages",
-  "timestamp": "2026-02-01T14:14:26.071Z",
-  "executionTime": 280282,
-  "moviesThisRun": 120,
-  "watchServersThisRun": 240,
-  "downloadServersThisRun": 1346,
-  "pagesProcessedThisRun": 2,
-  "totalUniqueMovies": 120,
-  "totalPages": 2,
-  "lastPageProcessed": 3,
-  "lastMovieId": "176895",
-  "currentFile": "Top1.json",
-  "moviesInCurrentFile": 240,
-  "duplicateFound": false,
+  "timestamp": "2026-02-01T15:58:08.004Z",
+  "phase": "phase1_initial_scraping",
+  "systemStats": {
+    "totalMovies": 300,
+    "totalPages": 5,
+    "uniqueMovies": 300,
+    "allPagesScraped": false
+  },
+  "progress": {
+    "currentPage": 5,
+    "currentFile": "Top2.json",
+    "moviesInCurrentFile": 50,
+    "allPagesScraped": false
+  },
+  "results": {
+    "phase1": {
+      "totalMoviesExtracted": 300,
+      "executionTime": 527402
+    },
+    "phase2": null
+  },
   "nextRun": {
-    "startPage": 3,
-    "currentFile": "Top1.json",
-    "moviesInFile": 240,
-    "remainingPagesForNextRun": 2
+    "phase": "phase1_initial_scraping",
+    "startPage": 5,
+    "currentFile": "Top2.json"
   }
 }
