@@ -1,0 +1,19 @@
+{
+  "runType": "limited_run",
+  "status": "completed_pages",
+  "timestamp": "2026-02-01T13:37:17.606Z",
+  "executionTime": 170598,
+  "totalMoviesThisRun": 120,
+  "totalUniqueMovies": 120,
+  "pagesProcessedThisRun": 2,
+  "lastPageProcessed": 2,
+  "lastMovieId": "191139",
+  "currentFile": "Top1.json",
+  "moviesInCurrentFile": 120,
+  "duplicateFound": false,
+  "nextRun": {
+    "startPage": 2,
+    "currentFile": "Top1.json",
+    "moviesInFile": 120
+  }
+}
