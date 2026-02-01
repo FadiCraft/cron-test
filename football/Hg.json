@@ -1,87 +1,10 @@
 {
-  "scrapedAt": "2026-02-01T15:37:21.655Z",
+  "scrapedAt": "2026-02-01T15:54:12.349Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 9,
   "matches": [
     {
-      "id": "match_1769960231138_10",
-      "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/",
-      "title": "كريمونيسي vs إنتر ميلان",
-      "team1": {
-        "name": "كريمونيسي",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be9397b1.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "إنتر ميلان",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be93f72f.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "08:00 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "StarzPlay",
-        "عيسى الحربين"
-      ],
-      "tournament": "الدوري الإيطالي",
-      "page": 1,
-      "position": 11,
-      "scrapedAt": "2026-02-01T15:37:11.138Z",
-      "watchServers": [
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_1"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/#website",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_2"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/#breadcrumb",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_3"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_4"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_5"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_6"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
-          "quality": "غير معروف",
-          "server": "Dynamic Server",
-          "id": "script_7"
-        }
-      ]
-    },
-    {
-      "id": "match_1769960231139_11",
+      "id": "match_1769961241702_10",
       "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d8%ac%d8%a7%d8%a1-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-vs-%d9%86%d9%87%d8%b6%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%85%d8%b1%d8%a9/",
       "title": "الرجاء الرياضي vs نهضة الزمامرة",
       "team1": {
@@ -103,8 +26,8 @@
       ],
       "tournament": "البطولة الوطنية المغربية",
       "page": 1,
-      "position": 12,
-      "scrapedAt": "2026-02-01T15:37:11.139Z",
+      "position": 11,
+      "scrapedAt": "2026-02-01T15:54:01.702Z",
       "watchServers": [
         {
           "type": "script",
@@ -158,7 +81,84 @@
       ]
     },
     {
-      "id": "match_1769960231140_12",
+      "id": "match_1769961241703_11",
+      "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/",
+      "title": "كريمونيسي vs إنتر ميلان",
+      "team1": {
+        "name": "كريمونيسي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be9397b1.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "إنتر ميلان",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be93f72f.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "08:00 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "StarzPlay",
+        "عيسى الحربين"
+      ],
+      "tournament": "الدوري الإيطالي",
+      "page": 1,
+      "position": 12,
+      "scrapedAt": "2026-02-01T15:54:01.703Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
+    },
+    {
+      "id": "match_1769961241704_12",
       "url": "https://www.yalla-shootu.live/matches/al-ittihad-vs-al-najma/",
       "title": "الاتحاد vs النجمة",
       "team1": {
@@ -181,7 +181,7 @@
       "tournament": "دوري روشن السعودي",
       "page": 1,
       "position": 13,
-      "scrapedAt": "2026-02-01T15:37:11.140Z",
+      "scrapedAt": "2026-02-01T15:54:01.704Z",
       "watchServers": [
         {
           "type": "script",
@@ -235,7 +235,7 @@
       ]
     },
     {
-      "id": "match_1769960231140_13",
+      "id": "match_1769961241704_13",
       "url": "https://www.yalla-shootu.live/matches/getafe-vs-celta-vigo/",
       "title": "خيتافي vs سيلتا فيغو",
       "team1": {
@@ -258,7 +258,7 @@
       "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 14,
-      "scrapedAt": "2026-02-01T15:37:11.140Z",
+      "scrapedAt": "2026-02-01T15:54:01.704Z",
       "watchServers": [
         {
           "type": "script",
@@ -312,7 +312,7 @@
       ]
     },
     {
-      "id": "match_1769960231141_14",
+      "id": "match_1769961241705_14",
       "url": "https://www.yalla-shootu.live/matches/al-masry-vs-zamalek-sc/",
       "title": "المصري vs الزمالك",
       "team1": {
@@ -335,7 +335,7 @@
       "tournament": "كأس الكونفيدرالية",
       "page": 1,
       "position": 15,
-      "scrapedAt": "2026-02-01T15:37:11.141Z",
+      "scrapedAt": "2026-02-01T15:54:01.705Z",
       "watchServers": [
         {
           "type": "script",
@@ -389,7 +389,7 @@
       ]
     },
     {
-      "id": "match_1769960231142_15",
+      "id": "match_1769961241706_15",
       "url": "https://www.yalla-shootu.live/matches/mc-algiers-vs-saint-eloi-lupopo/",
       "title": "مولودية الجزائر vs سانت إلوى لوپوبو",
       "team1": {
@@ -412,7 +412,7 @@
       "tournament": "دوري أبطال أفريقيا",
       "page": 1,
       "position": 16,
-      "scrapedAt": "2026-02-01T15:37:11.142Z",
+      "scrapedAt": "2026-02-01T15:54:01.706Z",
       "watchServers": [
         {
           "type": "script",
@@ -466,7 +466,7 @@
       ]
     },
     {
-      "id": "match_1769960231143_16",
+      "id": "match_1769961241706_16",
       "url": "https://www.yalla-shootu.live/matches/strasbourg-vs-paris-sg/",
       "title": "ستراسبورغ vs باريس",
       "team1": {
@@ -489,7 +489,7 @@
       "tournament": "الدوري الفرنسي",
       "page": 1,
       "position": 17,
-      "scrapedAt": "2026-02-01T15:37:11.143Z",
+      "scrapedAt": "2026-02-01T15:54:01.706Z",
       "watchServers": [
         {
           "type": "script",
@@ -543,7 +543,7 @@
       ]
     },
     {
-      "id": "match_1769960231143_17",
+      "id": "match_1769961241707_17",
       "url": "https://www.yalla-shootu.live/matches/parma-vs-juventus/",
       "title": "بارما vs يوفنتوس",
       "team1": {
@@ -566,7 +566,7 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 18,
-      "scrapedAt": "2026-02-01T15:37:11.143Z",
+      "scrapedAt": "2026-02-01T15:54:01.707Z",
       "watchServers": [
         {
           "type": "script",
@@ -620,7 +620,7 @@
       ]
     },
     {
-      "id": "match_1769960231144_18",
+      "id": "match_1769961241708_18",
       "url": "https://www.yalla-shootu.live/matches/a-bilbao-vs-sociedad/",
       "title": "أتلتيك بلباو vs ريال سوسيداد",
       "team1": {
@@ -643,7 +643,7 @@
       "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 19,
-      "scrapedAt": "2026-02-01T15:37:11.144Z",
+      "scrapedAt": "2026-02-01T15:54:01.708Z",
       "watchServers": [
         {
           "type": "script",
