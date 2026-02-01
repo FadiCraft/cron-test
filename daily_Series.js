@@ -807,7 +807,7 @@ async function main() {
     console.log("=".repeat(60));
     
     // تهيئة نظام التقدم
-    const progress = new ProgressTracker();
+const progress = new SeriesProgressTracker();  // ← صح
     progress.resetForNewRun();
     
     console.log(`📊 حالة النظام:`);
