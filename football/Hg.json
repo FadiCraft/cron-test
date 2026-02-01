@@ -1,705 +1,2159 @@
 {
-  "scrapedAt": "2026-01-31T00:00:44.513Z",
-  "source": "https://www.yalla1shoot.com/home_8/",
-  "totalMatches": 26,
+  "scrapedAt": "2026-02-01T11:05:38.987Z",
+  "source": "https://www.yalla-shootu.live/",
+  "totalMatches": 28,
   "matches": [
     {
-      "id": "match_1769817611557_0",
-      "url": "https://www.yalla1shoot.com/matches/stoke-city-vs-southampton/",
-      "title": "ستوك سيتي vs ساوثهامبتون",
+      "id": "match_1769943901153_0",
+      "url": "https://www.yalla-shootu.live/matches/real-madrid-vs-vallecano/",
+      "title": "ريال مدريد vs رايو فاليكانو",
       "team1": {
-        "name": "ستوك سيتي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2026/01/7-140x150.png",
+        "name": "ريال مدريد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be234c9e.png",
         "score": "0"
       },
       "team2": {
-        "name": "ساوثهامبتون",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/21-144x150.png",
+        "name": "رايو فاليكانو",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be23d209.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "15:30",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "إنجلترا, تشامبيونشيب"
+        "بي إن سبورت 3",
+        "حسن العيدروس"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-01-31T00:00:11.557Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.153Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/real-madrid-vs-vallecano/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/real-madrid-vs-vallecano/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611558_1",
-      "url": "https://www.yalla1shoot.com/matches/young-africans-vs-al-ahly/",
-      "title": "يانج افريكانز vs الأهلي",
+      "id": "match_1769943901154_1",
+      "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d9%85%d9%86%d8%b3%d8%aa%d9%8a%d8%b1%d9%8a-vs-%d8%a7%d9%84%d9%85%d8%b1%d8%b3%d9%89/",
+      "title": "المنستيري vs المرسى",
       "team1": {
-        "name": "يانج افريكانز",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/11/18957-150x150.png",
+        "name": "المنستيري",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be9352e3.png",
         "score": "0"
       },
       "team2": {
-        "name": "الأهلي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/8200-1-126x150.png",
+        "name": "المرسى",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be941d4d.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "16:00",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "Bein Sports HD2",
-        "أفريقيا, دوري أبطال أفريقيا - المجموعات"
+        "الرابطة التونسية لكرة القدم"
       ],
       "tournament": "غير محدد",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-01-31T00:00:11.558Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.154Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d9%85%d9%86%d8%b3%d8%aa%d9%8a%d8%b1%d9%8a-vs-%d8%a7%d9%84%d9%85%d8%b1%d8%b3%d9%89/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d9%85%d9%86%d8%b3%d8%aa%d9%8a%d8%b1%d9%8a-vs-%d8%a7%d9%84%d9%85%d8%b1%d8%b3%d9%89/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611559_2",
-      "url": "https://www.yalla1shoot.com/matches/real-oviedo-vs-girona/",
-      "title": "ريال أوفييدو vs جيرونا",
+      "id": "match_1769943901155_2",
+      "url": "https://www.yalla-shootu.live/matches/%d8%b4%d8%a8%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%b9%d9%85%d8%b1%d8%a7%d9%86-vs-%d8%a7%d9%84%d8%b5%d9%81%d8%a7%d9%82%d8%b3%d9%8a/",
+      "title": "شبيبة العمران vs الصفاقسي",
       "team1": {
-        "name": "ريال أوفييدو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/193.png",
+        "name": "شبيبة العمران",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be4e0aaf.png",
         "score": "0"
       },
       "team2": {
-        "name": "جيرونا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/175-1-150x150.png",
+        "name": "الصفاقسي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be4eef89.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "16:00",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN Sports 3 HD",
-        "إسبانيا, الدوري الإسباني"
+        "الرابطة التونسية لكرة القدم"
       ],
       "tournament": "غير محدد",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-01-31T00:00:11.559Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.155Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%b4%d8%a8%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%b9%d9%85%d8%b1%d8%a7%d9%86-vs-%d8%a7%d9%84%d8%b5%d9%81%d8%a7%d9%82%d8%b3%d9%8a/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%b4%d8%a8%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%b9%d9%85%d8%b1%d8%a7%d9%86-vs-%d8%a7%d9%84%d8%b5%d9%81%d8%a7%d9%82%d8%b3%d9%8a/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611560_3",
-      "url": "https://www.yalla1shoot.com/matches/troyes-vs-le-mans/",
-      "title": "تروا vs لومان",
+      "id": "match_1769943901156_3",
+      "url": "https://www.yalla-shootu.live/matches/maniema-vs-wydad-ac/",
+      "title": "مانيما vs الوداد الرياضي",
       "team1": {
-        "name": "تروا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/488.png",
+        "name": "مانيما",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee855fa.png",
         "score": "0"
       },
       "team2": {
-        "name": "لومان",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/468-150x150.png",
+        "name": "الوداد الرياضي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee8d112.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "16:00",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "فرنسا, الدوري الفرنسي - الدرجة الثانية"
+        "beIN Xtra 3",
+        "جواد بدة"
       ],
-      "tournament": "غير محدد",
+      "tournament": "كأس الكونفيدرالية",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-01-31T00:00:11.560Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.156Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/maniema-vs-wydad-ac/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/maniema-vs-wydad-ac/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611561_4",
-      "url": "https://www.yalla1shoot.com/matches/besa-vs-sassuolo/",
-      "title": "بيسا vs ساسولو",
+      "id": "match_1769943901157_4",
+      "url": "https://www.yalla-shootu.live/matches/stellenbosch-vs-cr-belouizdad/",
+      "title": "ستيلينبوش vs شباب بلوزداد",
       "team1": {
-        "name": "بيسا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/248-150x150.png",
+        "name": "ستيلينبوش",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee86a8e.png",
         "score": "0"
       },
       "team2": {
-        "name": "ساسولو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/266.png",
+        "name": "شباب بلوزداد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee9567e.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "17:00",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "Starzplay",
-        "إيطاليا, الدوري الإيطالي"
+        "بي إن سبورت 9",
+        "محمد المبروكي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "كأس الكونفيدرالية",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-01-31T00:00:11.561Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.157Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/stellenbosch-vs-cr-belouizdad/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/stellenbosch-vs-cr-belouizdad/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611562_5",
-      "url": "https://www.yalla1shoot.com/matches/hoffenheim-vs-union-berlin/",
-      "title": "هوفنهايم vs يونيون برلين",
+      "id": "match_1769943901158_5",
+      "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d9%82%d8%a7%d8%a8%d8%b3-vs-%d8%a7%d9%84%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%ad%d9%84%d9%8a/",
+      "title": "الرياضي بقابس vs النجم الساحلي",
       "team1": {
-        "name": "هوفنهايم",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/351.png",
+        "name": "الرياضي بقابس",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be5969db.png",
         "score": "0"
       },
       "team2": {
-        "name": "يونيون برلين",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/392-1.png",
+        "name": "النجم الساحلي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be5a4e90.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "17:30",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "شاهد - Shahid VIP",
-        "ألمانيا, الدوري الألماني"
+        "الرابطة التونسية لكرة القدم"
       ],
       "tournament": "غير محدد",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-01-31T00:00:11.562Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.158Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d9%82%d8%a7%d8%a8%d8%b3-vs-%d8%a7%d9%84%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%ad%d9%84%d9%8a/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d9%82%d8%a7%d8%a8%d8%b3-vs-%d8%a7%d9%84%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%ad%d9%84%d9%8a/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611562_6",
-      "url": "https://www.yalla1shoot.com/matches/eintracht-frankfurt-vs-bayer-leverkusen/",
-      "title": "آينتراخت فرانكفورت vs باير ليفركوزن",
+      "id": "match_1769943901158_6",
+      "url": "https://www.yalla-shootu.live/matches/%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d9%84%d9%88%d9%8a-vs-%d8%a7%d9%84%d9%85%d9%84%d8%b9%d8%a8-%d8%a7%d9%84%d8%aa%d9%88%d9%86%d8%b3%d9%8a/",
+      "title": "نجم المتلوي vs الملعب التونسي",
       "team1": {
-        "name": "آينتراخت فرانكفورت",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/337.png",
+        "name": "نجم المتلوي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be8f2382.png",
         "score": "0"
       },
       "team2": {
-        "name": "باير ليفركوزن",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/333-150x127.png",
+        "name": "الملعب التونسي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be90a2be.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "17:30",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "MBC Action",
-        "ألمانيا, الدوري الألماني"
+        "الرابطة التونسية لكرة القدم"
       ],
       "tournament": "غير محدد",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-01-31T00:00:11.562Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.158Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d9%84%d9%88%d9%8a-vs-%d8%a7%d9%84%d9%85%d9%84%d8%b9%d8%a8-%d8%a7%d9%84%d8%aa%d9%88%d9%86%d8%b3%d9%8a/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d9%85%d8%aa%d9%84%d9%88%d9%8a-vs-%d8%a7%d9%84%d9%85%d9%84%d8%b9%d8%a8-%d8%a7%d9%84%d8%aa%d9%88%d9%86%d8%b3%d9%8a/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611563_7",
-      "url": "https://www.yalla1shoot.com/matches/augsburg-vs-st-pauli/",
-      "title": "أوغسبورغ vs سانت باولي",
+      "id": "match_1769943901159_7",
+      "url": "https://www.yalla-shootu.live/matches/simba-sc-vs-esperance/",
+      "title": "سيمبا vs الترجي",
       "team1": {
-        "name": "أوغسبورغ",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/358.png",
+        "name": "سيمبا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bf29887b.png",
         "score": "0"
       },
       "team2": {
-        "name": "سانت باولي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/359-150x150.png",
+        "name": "الترجي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bf2a0fa5.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "17:30",
+      "time": "04:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "شاهد - Shahid VIP",
-        "ألمانيا, الدوري الألماني"
+        "بي إن سبورت 2",
+        "عصام الشوالي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "دوري أبطال أفريقيا",
       "page": 1,
       "position": 8,
-      "scrapedAt": "2026-01-31T00:00:11.563Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.159Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/simba-sc-vs-esperance/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/simba-sc-vs-esperance/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611564_8",
-      "url": "https://www.yalla1shoot.com/matches/portsmouth-vs-west-bromwich/",
-      "title": "بورتسموث vs وست بروميتش",
+      "id": "match_1769943901160_8",
+      "url": "https://www.yalla-shootu.live/matches/como-vs-atalanta/",
+      "title": "كومو vs أتلانتا",
       "team1": {
-        "name": "بورتسموث",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/111-150x150.png",
+        "name": "كومو",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be900334.png",
         "score": "0"
       },
       "team2": {
-        "name": "وست بروميتش",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/5-137x150.png",
+        "name": "أتلانتا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be9064a2.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "18:00",
+      "time": "05:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "إنجلترا, تشامبيونشيب"
+        "StarzPlay",
+        "أحمد الحامد"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 9,
-      "scrapedAt": "2026-01-31T00:00:11.564Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.160Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/como-vs-atalanta/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/como-vs-atalanta/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611565_9",
-      "url": "https://www.yalla1shoot.com/matches/leeds-united-vs-arsenal/",
-      "title": "ليدز يونايتد vs أرسنال",
+      "id": "match_1769943901161_9",
+      "url": "https://www.yalla-shootu.live/matches/aston-villa-vs-brentford/",
+      "title": "أستون فيلا vs برينتفورد",
       "team1": {
-        "name": "ليدز يونايتد",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/36-1-134x150.png",
+        "name": "أستون فيلا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee7ea3e.png",
         "score": "0"
       },
       "team2": {
-        "name": "أرسنال",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/104-1-140x150.png",
+        "name": "برينتفورد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee861f5.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "18:00",
+      "time": "05:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN SPORTS HD 1",
-        "إنجلترا, الدوري الإنجليزي"
+        "بي إن سبورت 4",
+        "عامر الخوذيري"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإنجليزي",
       "page": 1,
       "position": 10,
-      "scrapedAt": "2026-01-31T00:00:11.565Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.161Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/aston-villa-vs-brentford/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/aston-villa-vs-brentford/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611565_10",
-      "url": "https://www.yalla1shoot.com/matches/brighton-vs-everton/",
-      "title": "برايتون vs إيفرتون",
+      "id": "match_1769943901161_10",
+      "url": "https://www.yalla-shootu.live/matches/man-united-vs-fulham/",
+      "title": "مان يونايتد vs فولهام",
       "team1": {
-        "name": "برايتون",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/38-150x150.png",
+        "name": "مان يونايتد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee8138d.png",
         "score": "0"
       },
       "team2": {
-        "name": "إيفرتون",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/107-1-150x150.png",
+        "name": "فولهام",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bee88d27.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "18:00",
+      "time": "05:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN SPORTS HD 4",
-        "إنجلترا, الدوري الإنجليزي"
+        "بي إن سبورت 1",
+        "علي محمد علي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإنجليزي",
       "page": 1,
       "position": 11,
-      "scrapedAt": "2026-01-31T00:00:11.565Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.161Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/man-united-vs-fulham/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/man-united-vs-fulham/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611566_11",
-      "url": "https://www.yalla1shoot.com/matches/osasuna-vs-villarreal/",
-      "title": "أوساسونا vs فياريال",
+      "id": "match_1769943901162_11",
+      "url": "https://www.yalla-shootu.live/matches/lyon-vs-lille/",
+      "title": "ليون vs نادي ليل",
       "team1": {
-        "name": "أوساسونا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/143-150x150.png",
+        "name": "ليون",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be16573d.png",
         "score": "0"
       },
       "team2": {
-        "name": "فياريال",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/133-1.png",
+        "name": "نادي ليل",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be16c064.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "18:15",
+      "time": "05:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN Sports 3 HD",
-        "إسبانيا, الدوري الإسباني"
+        "بي إن سبورت 6",
+        "محمد السعدي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الفرنسي",
       "page": 1,
       "position": 12,
-      "scrapedAt": "2026-01-31T00:00:11.566Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.162Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/lyon-vs-lille/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/lyon-vs-lille/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611567_12",
-      "url": "https://www.yalla1shoot.com/matches/petro-atletico-vs-stade-mali/",
-      "title": "بترو اتليتكو vs ستاد مالي",
+      "id": "match_1769943901163_12",
+      "url": "https://www.yalla-shootu.live/matches/nottingham-vs-crystal-palace/",
+      "title": "نوتينغهام vs كريستال بالاس",
       "team1": {
-        "name": "بترو اتليتكو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/11/11284-150x150.png",
+        "name": "نوتينغهام",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be1696d4.png",
         "score": "0"
       },
       "team2": {
-        "name": "ستاد مالي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/11/12172-150x150.png",
+        "name": "كريستال بالاس",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be1721c3.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "19:00",
+      "time": "05:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "Bein Sports HD2",
-        "أفريقيا, دوري أبطال أفريقيا - المجموعات"
+        "بي إن سبورت 8",
+        "باسم الزير"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإنجليزي",
       "page": 1,
       "position": 13,
-      "scrapedAt": "2026-01-31T00:00:11.567Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.163Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/nottingham-vs-crystal-palace/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/nottingham-vs-crystal-palace/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611567_13",
-      "url": "https://www.yalla1shoot.com/matches/paris-fc-vs-olympique-marseille/",
-      "title": "باريس أف.سي. vs أولمبيك مارسيليا",
+      "id": "match_1769943901163_13",
+      "url": "https://www.yalla-shootu.live/matches/vfb-stuttgart-vs-freiburg/",
+      "title": "شتوتجارت vs فرايبورج",
       "team1": {
-        "name": "باريس أف.سي.",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/6075.png",
+        "name": "شتوتجارت",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be516bda.png",
         "score": "0"
       },
       "team2": {
-        "name": "أولمبيك مارسيليا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/469-1.png",
+        "name": "فرايبورج",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be51e311.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "19:00",
+      "time": "05:30 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN Sports 6 HD",
-        "فرنسا, الدوري الفرنسي"
+        "شاهد - VIP | رياضة",
+        "رياض الحمروني"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الألماني",
       "page": 1,
       "position": 14,
-      "scrapedAt": "2026-01-31T00:00:11.567Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.163Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/vfb-stuttgart-vs-freiburg/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/vfb-stuttgart-vs-freiburg/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611568_14",
-      "url": "https://www.yalla1shoot.com/matches/napoli-vs-fiorentina/",
-      "title": "نابولي vs فيورنتينا",
+      "id": "match_1769943901164_14",
+      "url": "https://www.yalla-shootu.live/matches/real-betis-vs-valencia/",
+      "title": "ريال بيتيس vs فالنسيا",
       "team1": {
-        "name": "نابولي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/234-1-150x150.png",
+        "name": "ريال بيتيس",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be15d1b5.png",
         "score": "0"
       },
       "team2": {
-        "name": "فيورنتينا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/228-150x150.png",
+        "name": "فالنسيا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be164ad7.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "20:00",
+      "time": "06:15 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "Starzplay",
-        "إيطاليا, الدوري الإيطالي"
+        "بي إن سبورت 5",
+        "عبدالله الغامدي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 15,
-      "scrapedAt": "2026-01-31T00:00:11.568Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.164Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/real-betis-vs-valencia/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/real-betis-vs-valencia/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611569_15",
-      "url": "https://www.yalla1shoot.com/matches/chelsea-vs-west-ham-united/",
-      "title": "تشيلسي vs وست هام يونايتد",
+      "id": "match_1769943901165_15",
+      "url": "https://www.yalla-shootu.live/matches/rivers-united-vs-power-dynamos/",
+      "title": "ريفرز يونايتد vs باور ديناموز",
       "team1": {
-        "name": "تشيلسي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/106-150x150.png",
+        "name": "ريفرز يونايتد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bfc0ce5b.png",
         "score": "0"
       },
       "team2": {
-        "name": "وست هام يونايتد",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/113-1.png",
+        "name": "باور ديناموز",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bfc19b82.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "20:30",
+      "time": "07:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN SPORTS HD 1",
-        "إنجلترا, الدوري الإنجليزي"
+        "بي إن سبورت 3",
+        "منتصر الأزهري"
       ],
-      "tournament": "غير محدد",
+      "tournament": "دوري أبطال أفريقيا",
       "page": 1,
       "position": 16,
-      "scrapedAt": "2026-01-31T00:00:11.569Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.165Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/rivers-united-vs-power-dynamos/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/rivers-united-vs-power-dynamos/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611569_16",
-      "url": "https://www.yalla1shoot.com/matches/hamburg-vs-bayern-munich/",
-      "title": "هامبورج vs بايرن ميونخ",
+      "id": "match_1769943901166_16",
+      "url": "https://www.yalla-shootu.live/matches/nice-vs-brestois/",
+      "title": "نيس vs بريست",
       "team1": {
-        "name": "هامبورج",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/334.png",
+        "name": "نيس",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be4e5d21.png",
         "score": "0"
       },
       "team2": {
-        "name": "بايرن ميونخ",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/331-150x150.png",
+        "name": "بريست",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be4ec891.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "20:30",
+      "time": "07:15 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "بي إن سبورت 4",
+        "حسن العيدروس"
+      ],
+      "tournament": "الدوري الفرنسي",
+      "page": 1,
+      "position": 17,
+      "scrapedAt": "2026-02-01T11:05:01.166Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/nice-vs-brestois/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/nice-vs-brestois/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
+    },
+    {
+      "id": "match_1769943901166_17",
+      "url": "https://www.yalla-shootu.live/matches/dortmund-vs-fc-heidenheim/",
+      "title": "دورتموند vs هايدنهايم",
+      "team1": {
+        "name": "دورتموند",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be50e97f.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "هايدنهايم",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be51d096.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "07:30 PM",
       "status": "لم تبدأ بعد",
       "channels": [
         "MBC Action",
-        "ألمانيا, الدوري الألماني"
+        "عصام عبده"
       ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 17,
-      "scrapedAt": "2026-01-31T00:00:11.569Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769817611570_17",
-      "url": "https://www.yalla1shoot.com/matches/levante-vs-atletico-madrid/",
-      "title": "ليفانتي vs أتلتيكو مدريد",
-      "team1": {
-        "name": "ليفانتي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/150.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "أتلتيكو مدريد",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/134-128x150.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "20:30",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN Sports 3 HD",
-        "إسبانيا, الدوري الإسباني"
-      ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الألماني",
       "page": 1,
       "position": 18,
-      "scrapedAt": "2026-01-31T00:00:11.570Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.166Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/dortmund-vs-fc-heidenheim/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/dortmund-vs-fc-heidenheim/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611571_18",
-      "url": "https://www.yalla1shoot.com/matches/lorient-vs-nantes/",
-      "title": "لوريان vs نانت",
+      "id": "match_1769943901167_18",
+      "url": "https://www.yalla-shootu.live/matches/tottenham-vs-man-city/",
+      "title": "توتنهام vs مان سيتي",
       "team1": {
-        "name": "لوريان",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/472.png",
+        "name": "توتنهام",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be21ba07.png",
         "score": "0"
       },
       "team2": {
-        "name": "نانت",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/486-127x150.png",
+        "name": "مان سيتي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be222a3d.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "21:00",
+      "time": "07:30 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN Sports 5 HD",
-        "فرنسا, الدوري الفرنسي"
+        "بي إن سبورت 1",
+        "أحمد البلوشي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإنجليزي",
       "page": 1,
       "position": 19,
-      "scrapedAt": "2026-01-31T00:00:11.571Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.167Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/tottenham-vs-man-city/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/tottenham-vs-man-city/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611572_19",
-      "url": "https://www.yalla1shoot.com/matches/royal-army-vs-js-kabylie/",
-      "title": "الجيش الملكي vs شبيبة القبائل",
+      "id": "match_1769943901168_19",
+      "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d8%ac%d8%a7%d8%a1-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-vs-%d9%86%d9%87%d8%b6%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%85%d8%b1%d8%a9/",
+      "title": "الرجاء الرياضي vs نهضة الزمامرة",
       "team1": {
-        "name": "الجيش الملكي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/09/5455-139x150.png",
+        "name": "الرجاء الرياضي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2c612b75f.png",
         "score": "0"
       },
       "team2": {
-        "name": "شبيبة القبائل",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/8223-150x150.png",
+        "name": "نهضة الزمامرة",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2c613891e.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "22:00",
+      "time": "08:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "Bein Sports HD2",
-        "أفريقيا, دوري أبطال أفريقيا - المجموعات"
+        "المغربية الرياضية",
+        "غير مدرج"
       ],
-      "tournament": "غير محدد",
+      "tournament": "البطولة الوطنية المغربية",
       "page": 1,
       "position": 20,
-      "scrapedAt": "2026-01-31T00:00:11.572Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.168Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d8%ac%d8%a7%d8%a1-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-vs-%d9%86%d9%87%d8%b6%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%85%d8%b1%d8%a9/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/%d8%a7%d9%84%d8%b1%d8%ac%d8%a7%d8%a1-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-vs-%d9%86%d9%87%d8%b6%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%85%d8%b1%d8%a9/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611573_20",
-      "url": "https://www.yalla1shoot.com/matches/cagliari-vs-hellas-verona/",
-      "title": "كالياري vs هيلاس فيرونا",
+      "id": "match_1769943901169_20",
+      "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/",
+      "title": "كريمونيسي vs إنتر ميلان",
       "team1": {
-        "name": "كالياري",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/243-136x150.png",
+        "name": "كريمونيسي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be9397b1.png",
         "score": "0"
       },
       "team2": {
-        "name": "هيلاس فيرونا",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/316-150x150.png",
+        "name": "إنتر ميلان",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be93f72f.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "22:45",
+      "time": "08:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "Starzplay",
-        "إيطاليا, الدوري الإيطالي"
+        "StarzPlay",
+        "عيسى الحربين"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 21,
-      "scrapedAt": "2026-01-31T00:00:11.573Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.169Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/cremonese-vs-inter/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611574_21",
-      "url": "https://www.yalla1shoot.com/matches/liverpool-vs-newcastle-united/",
-      "title": "ليفربول vs نيوكاسل يونايتد",
+      "id": "match_1769943901170_21",
+      "url": "https://www.yalla-shootu.live/matches/al-ittihad-vs-al-najma/",
+      "title": "الاتحاد vs النجمة",
       "team1": {
-        "name": "ليفربول",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/108-90x150.png",
+        "name": "الاتحاد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be46017e.png",
         "score": "0"
       },
       "team2": {
-        "name": "نيوكاسل يونايتد",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/116-1-150x150.png",
+        "name": "النجمة",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be467ca1.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "23:00",
+      "time": "08:30 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN SPORTS HD 1",
-        "إنجلترا, الدوري الإنجليزي"
+        "قنوات ثمانية",
+        "سليمان الشريف"
       ],
-      "tournament": "غير محدد",
+      "tournament": "دوري روشن السعودي",
       "page": 1,
       "position": 22,
-      "scrapedAt": "2026-01-31T00:00:11.574Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.170Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/al-ittihad-vs-al-najma/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/al-ittihad-vs-al-najma/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611574_22",
-      "url": "https://www.yalla1shoot.com/matches/elche-vs-barcelona/",
-      "title": "إلتشي vs برشلونة",
+      "id": "match_1769943901171_22",
+      "url": "https://www.yalla-shootu.live/matches/getafe-vs-celta-vigo/",
+      "title": "خيتافي vs سيلتا فيغو",
       "team1": {
-        "name": "إلتشي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/156-1-150x150.png",
+        "name": "خيتافي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be15d28a.png",
         "score": "0"
       },
       "team2": {
-        "name": "برشلونة",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/10/132-1-150x150.png",
+        "name": "سيلتا فيغو",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be163d1b.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "23:00",
+      "time": "08:30 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN Sports 3 HD",
-        "إسبانيا, الدوري الإسباني"
+        "بي إن سبورت 5",
+        "بكر علوان"
       ],
-      "tournament": "غير محدد",
+      "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 23,
-      "scrapedAt": "2026-01-31T00:00:11.574Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.171Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/getafe-vs-celta-vigo/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/getafe-vs-celta-vigo/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611575_23",
-      "url": "https://www.yalla1shoot.com/matches/monaco-vs-stade-rennes/",
-      "title": "موناكو vs ستاد رين",
+      "id": "match_1769943901171_23",
+      "url": "https://www.yalla-shootu.live/matches/al-masry-vs-zamalek-sc/",
+      "title": "المصري vs الزمالك",
       "team1": {
-        "name": "موناكو",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/471-1-94x150.png",
+        "name": "المصري",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2beeb74f9.png",
         "score": "0"
       },
       "team2": {
-        "name": "ستاد رين",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/477-1.png",
+        "name": "الزمالك",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2beebdd8a.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "23:05",
+      "time": "10:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "beIN SPORTS HD 4",
-        "فرنسا, الدوري الفرنسي"
+        "بي إن سبورت 2",
+        "محمد فوزي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "كأس الكونفيدرالية",
       "page": 1,
       "position": 24,
-      "scrapedAt": "2026-01-31T00:00:11.575Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.171Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/al-masry-vs-zamalek-sc/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/al-masry-vs-zamalek-sc/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     },
     {
-      "id": "match_1769817611576_24",
-      "url": "https://www.yalla1shoot.com/matches/espanyol-vs-alaves/",
-      "title": "إسبانيول vs ألافيس",
+      "id": "match_1769943901172_24",
+      "url": "https://www.yalla-shootu.live/matches/mc-algiers-vs-saint-eloi-lupopo/",
+      "title": "مولودية الجزائر vs سانت إلوى لوپوبو",
       "team1": {
-        "name": "إسبانيول",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/136-1-150x150.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "ألافيس",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/08/168-150x150.png",
-        "score": "2"
-      },
-      "score": "1 - 2",
-      "time": "23:00",
-      "status": "انتهت",
-      "channels": [
-        "Bein Sports HD2",
-        "إسبانيا, الدوري الإسباني"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 25,
-      "scrapedAt": "2026-01-31T00:00:11.576Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1769817611576_25",
-      "url": "https://www.yalla1shoot.com/matches/bristol-city-vs-derby-county/",
-      "title": "بريستول سيتي vs دربي كاونتي",
-      "team1": {
-        "name": "بريستول سيتي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/11/6-150x150.png",
+        "name": "مولودية الجزائر",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bf2429a6.png",
         "score": "0"
       },
       "team2": {
-        "name": "دربي كاونتي",
-        "logo": "https://i0.wp.com/www.yalla1shoot.com/wp-content/uploads/2025/11/3-150x113.png",
-        "score": "5"
+        "name": "سانت إلوى لوپوبو",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2bf249925.png",
+        "score": "0"
       },
-      "score": "0 - 5",
-      "time": "23:00",
-      "status": "انتهت",
+      "score": "0 - 0",
+      "time": "10:00 PM",
+      "status": "لم تبدأ بعد",
       "channels": [
-        "إنجلترا, تشامبيونشيب"
+        "بي إن سبورت 3",
+        "حفيظ دراجي"
       ],
-      "tournament": "غير محدد",
+      "tournament": "دوري أبطال أفريقيا",
+      "page": 1,
+      "position": 25,
+      "scrapedAt": "2026-02-01T11:05:01.172Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/mc-algiers-vs-saint-eloi-lupopo/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/mc-algiers-vs-saint-eloi-lupopo/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
+    },
+    {
+      "id": "match_1769943901173_25",
+      "url": "https://www.yalla-shootu.live/matches/parma-vs-juventus/",
+      "title": "بارما vs يوفنتوس",
+      "team1": {
+        "name": "بارما",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be904ca0.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "يوفنتوس",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be90afeb.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "10:45 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "StarzPlay",
+        "محمد الشامسي"
+      ],
+      "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 26,
-      "scrapedAt": "2026-01-31T00:00:11.576Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-01T11:05:01.173Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/parma-vs-juventus/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/parma-vs-juventus/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
+    },
+    {
+      "id": "match_1769943901173_26",
+      "url": "https://www.yalla-shootu.live/matches/strasbourg-vs-paris-sg/",
+      "title": "ستراسبورغ vs باريس",
+      "team1": {
+        "name": "ستراسبورغ",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be50f990.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "باريس",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be5164d2.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "10:45 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "بي إن سبورت 1",
+        "عامر الخوذيري"
+      ],
+      "tournament": "الدوري الفرنسي",
+      "page": 1,
+      "position": 27,
+      "scrapedAt": "2026-02-01T11:05:01.173Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/strasbourg-vs-paris-sg/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/strasbourg-vs-paris-sg/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
+    },
+    {
+      "id": "match_1769943901174_27",
+      "url": "https://www.yalla-shootu.live/matches/a-bilbao-vs-sociedad/",
+      "title": "أتلتيك بلباو vs ريال سوسيداد",
+      "team1": {
+        "name": "أتلتيك بلباو",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be233c86.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "ريال سوسيداد",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697d2be23b541.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "11:00 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "بي إن سبورت 5",
+        "نوفل باشي"
+      ],
+      "tournament": "الدوري الإسباني",
+      "page": 1,
+      "position": 28,
+      "scrapedAt": "2026-02-01T11:05:01.174Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/a-bilbao-vs-sociedad/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/a-bilbao-vs-sociedad/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Server",
+          "id": "script_7"
+        }
+      ]
     }
   ]
 }
