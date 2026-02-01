@@ -51,14 +51,38 @@ async function fetchWithTimeout(url, timeout = 15000) {
     }
 }
 
-// ==================== استخراج سيرفرات المشاهدة - الإصلاح هنا ====================
+// ==================== استخراج سيرفرات المشاهدة - تحسين للإطارات ====================
 async function fetchWatchServers(matchUrl) {
     console.log(`   🔍 جلب سيرفرات المشاهدة من: ${matchUrl}`);
+    
+    // تحقق مما إذا كان الرابط مباشر لسيرفر مشاهدات
+    if (matchUrl.includes('albaplayer') || matchUrl.includes('f.sia-me.com')) {
+        console.log(`   ✅ رابط مباشر لسيرفر المشاهدة: ${matchUrl}`);
+        return [{
+            type: 'iframe',
+            url: matchUrl,
+            quality: "HD",
+            server: "AlbaPlayer",
+            id: 'iframe_direct'
+        }];
+    }
     
     const html = await fetchWithTimeout(matchUrl);
     
     if (!html) {
         console.log(`   ⚠️ فشل جلب صفحة المباراة`);
+        
+        // محاولة التحقق إذا كان الرابط نفسه سيرفر مشاهدة
+        if (matchUrl.includes('stream') || matchUrl.includes('watch') || matchUrl.includes('live')) {
+            return [{
+                type: 'direct',
+                url: matchUrl,
+                quality: "غير معروف",
+                server: "رابط مباشر",
+                id: 'direct_link'
+            }];
+        }
+        
         return null;
     }
     
@@ -70,7 +94,7 @@ async function fetchWatchServers(matchUrl) {
         
         console.log(`   🔍 البحث عن سيرفرات المشاهدة...`);
         
-        // الطريقة 1: البحث عن جميع iframes
+        // ========== الطريقة 1: البحث عن جميع iframes ==========
         const allIframes = doc.querySelectorAll('iframe');
         console.log(`   📊 وجد ${allIframes.length} iframe`);
         
@@ -80,39 +104,123 @@ async function fetchWatchServers(matchUrl) {
                 let serverName = "سيرفر غير معروف";
                 let quality = "متوسط";
                 
-                // تحليل أنواع السيرفرات المختلفة للموقع الجديد
+                // تحليل أنواع السيرفرات المختلفة
                 if (src.includes("albaplayer")) serverName = "AlbaPlayer";
                 else if (src.includes("streamtape")) serverName = "StreamTape";
                 else if (src.includes("dood")) serverName = "DoodStream";
                 else if (src.includes("voe")) serverName = "Voe";
                 else if (src.includes("vidcloud")) serverName = "VidCloud";
+                else if (src.includes("yalla-shoot")) serverName = "YallaShoot";
                 else if (src.includes("stream")) serverName = "Stream";
                 else if (src.includes("video")) serverName = "Video Server";
-                else if (src.includes("yalla-shoot")) serverName = "YallaShoot";
+                else if (src.includes("player")) serverName = "Player";
+                else if (src.includes("watch")) serverName = "Watch";
+                else if (src.includes("live")) serverName = "Live Stream";
                 
-                // تحديد الجودة من السمة data-quality أو class
+                // تحديد الجودة
                 const dataQuality = iframe.getAttribute('data-quality');
                 if (dataQuality) quality = dataQuality;
-                else if (iframe.className.includes('hd')) quality = "HD";
+                else if (iframe.className.includes('hd') || iframe.className.includes('high')) quality = "HD";
                 else if (iframe.className.includes('full')) quality = "FULL HD";
+                else if (iframe.className.includes('low')) quality = "Low";
+                else if (iframe.className.includes('medium')) quality = "Medium";
                 
-                watchServers.push({
-                    type: 'iframe',
-                    url: src,
-                    quality: quality,
-                    server: serverName,
-                    id: `iframe_${index + 1}`
-                });
+                // التحقق من روابط المشاهدة الصحيحة
+                const validExtensions = ['.m3u8', '.mp4', '.mpeg', '.mov', '.avi', '.flv'];
+                const isStreamingLink = src.includes('albaplayer') || 
+                                       src.includes('streamtape') || 
+                                       src.includes('dood') ||
+                                       src.includes('voe') ||
+                                       src.includes('vidcloud') ||
+                                       validExtensions.some(ext => src.includes(ext));
                 
-                console.log(`     • ${serverName}: ${src.substring(0, 60)}...`);
+                if (isStreamingLink) {
+                    watchServers.push({
+                        type: 'iframe',
+                        url: src,
+                        quality: quality,
+                        server: serverName,
+                        id: `iframe_${index + 1}`
+                    });
+                    
+                    console.log(`     • ${serverName} (${quality}): ${src.substring(0, 70)}...`);
+                }
             }
         });
         
-        // الطريقة 2: البحث عن عناصر embed
-        const embedElements = doc.querySelectorAll('embed[src], object[data]');
+        // ========== الطريقة 2: البحث عن عناصر video ==========
+        const videoElements = doc.querySelectorAll('video source[src], video[src]');
+        videoElements.forEach((source, index) => {
+            const src = source.getAttribute('src');
+            if (src && src.startsWith('http')) {
+                watchServers.push({
+                    type: 'video',
+                    url: src,
+                    quality: "HD",
+                    server: "Video Stream",
+                    id: `video_${index + 1}`
+                });
+                
+                console.log(`     • Video Stream: ${src.substring(0, 70)}...`);
+            }
+        });
+        
+        // ========== الطريقة 3: البحث في scripts ==========
+        const scripts = doc.querySelectorAll('script:not([src])');
+        const streamingPatterns = [
+            /https?:\/\/[^"\s]*(?:albaplayer|streamtape|dood|voe|vidcloud|yalla-shoot)[^"\s]*/gi,
+            /(?:src|url|embed|stream|watch)\s*[:=]\s*['"](https?:\/\/[^'"]+\.(?:m3u8|mp4|mpeg|mov|avi|flv)[^'"]*)['"]/gi,
+            /https?:\/\/[^"\s]*\.m3u8[^"\s]*/gi,
+            /https?:\/\/[^"\s]*\.mp4[^"\s]*/gi,
+            /player\.load\s*\(\s*['"](https?:\/\/[^'"]+)['"]/gi,
+            /source\s*:\s*['"](https?:\/\/[^'"]+)['"]/gi
+        ];
+        
+        scripts.forEach(script => {
+            const scriptContent = script.textContent;
+            if (scriptContent) {
+                streamingPatterns.forEach(pattern => {
+                    const matches = scriptContent.match(pattern);
+                    if (matches) {
+                        matches.forEach(match => {
+                            let cleanUrl = match
+                                .replace(/src\s*[:=]\s*['"]|['"]$/g, '')
+                                .replace(/url\s*[:=]\s*['"]|['"]$/g, '')
+                                .replace(/embed\s*['"]?|['"]?$/g, '')
+                                .trim();
+                                
+                            if (cleanUrl.startsWith('http') && 
+                                !watchServers.some(s => s.url === cleanUrl) &&
+                                !cleanUrl.includes('google') &&
+                                !cleanUrl.includes('facebook') &&
+                                !cleanUrl.includes('twitter')) {
+                                
+                                let serverName = "Dynamic Stream";
+                                if (cleanUrl.includes('albaplayer')) serverName = "AlbaPlayer";
+                                else if (cleanUrl.includes('m3u8')) serverName = "M3U8 Stream";
+                                else if (cleanUrl.includes('mp4')) serverName = "MP4 Stream";
+                                
+                                watchServers.push({
+                                    type: 'script',
+                                    url: cleanUrl,
+                                    quality: "غير معروف",
+                                    server: serverName,
+                                    id: `script_${watchServers.length + 1}`
+                                });
+                                
+                                console.log(`     • Script (${serverName}): ${cleanUrl.substring(0, 70)}...`);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        
+        // ========== الطريقة 4: البحث عن عناصر embed و object ==========
+        const embedElements = doc.querySelectorAll('embed[src], object[data], object[type="application/x-shockwave-flash"]');
         embedElements.forEach((embed, index) => {
             const src = embed.getAttribute('src') || embed.getAttribute('data');
-            if (src) {
+            if (src && src.startsWith('http')) {
                 watchServers.push({
                     type: 'embed',
                     url: src,
@@ -121,74 +229,46 @@ async function fetchWatchServers(matchUrl) {
                     id: `embed_${index + 1}`
                 });
                 
-                console.log(`     • Embed: ${src.substring(0, 60)}...`);
+                console.log(`     • Embed Player: ${src.substring(0, 70)}...`);
             }
         });
         
-        // الطريقة 3: البحث عن عناصر video
-        const videoElements = doc.querySelectorAll('video source[src]');
-        videoElements.forEach((source, index) => {
-            const src = source.getAttribute('src');
-            if (src) {
+        // ========== الطريقة 5: البحث عن روابط مباشرة في الصفحة ==========
+        const directLinks = doc.querySelectorAll('a[href*="albaplayer"], a[href*="stream"], a[href*="watch"], a[href*="m3u8"], a[href*="mp4"]');
+        directLinks.forEach((link, index) => {
+            const href = link.getAttribute('href');
+            const text = link.textContent.trim();
+            
+            if (href && href.startsWith('http') && 
+                !watchServers.some(s => s.url === href) &&
+                (href.includes('albaplayer') || href.includes('stream') || href.includes('watch') || href.includes('.m3u8') || href.includes('.mp4'))) {
+                
                 watchServers.push({
-                    type: 'video',
-                    url: src,
-                    quality: "متوسط",
-                    server: "Video Stream",
-                    id: `video_${index + 1}`
+                    type: 'direct_link',
+                    url: href,
+                    quality: "غير معروف",
+                    server: text || "Direct Link",
+                    id: `direct_${index + 1}`
                 });
                 
-                console.log(`     • Video: ${src.substring(0, 60)}...`);
+                console.log(`     • Direct Link (${text}): ${href.substring(0, 70)}...`);
             }
         });
         
-        // الطريقة 4: البحث عن روابط في scripts (للسيرفرات الديناميكية)
-        const scripts = doc.querySelectorAll('script');
-        scripts.forEach(script => {
-            const scriptContent = script.textContent;
-            if (scriptContent) {
-                // البحث عن روابط سيرفرات شائعة في scripts
-                const serverPatterns = [
-                    /https?:\/\/[^"\s]*(?:albaplayer|streamtape|dood|voe|vidcloud|yalla-shoot)[^"\s]*/gi,
-                    /src\s*[:=]\s*['"](https?:\/\/[^'"]+)['"]/gi,
-                    /embed\s*['"]?([^'"\s]+)['"]?/gi
-                ];
-                
-                serverPatterns.forEach(pattern => {
-                    const matches = scriptContent.match(pattern);
-                    if (matches) {
-                        matches.forEach(match => {
-                            let cleanUrl = match.replace(/src\s*[:=]\s*['"]|['"]$/g, '').trim();
-                            if (cleanUrl.startsWith('http') && !watchServers.some(s => s.url === cleanUrl)) {
-                                watchServers.push({
-                                    type: 'script',
-                                    url: cleanUrl,
-                                    quality: "غير معروف",
-                                    server: "Dynamic Server",
-                                    id: `script_${watchServers.length + 1}`
-                                });
-                                
-                                console.log(`     • Script: ${cleanUrl.substring(0, 60)}...`);
-                            }
-                        });
-                    }
-                });
-            }
-        });
-        
-        // إزالة التكرارات
-        const uniqueServers = [];
-        const seenUrls = new Set();
-        
-        watchServers.forEach(server => {
-            if (server.url && !seenUrls.has(server.url)) {
-                seenUrls.add(server.url);
-                uniqueServers.push(server);
-            }
-        });
-        
-        if (uniqueServers.length > 0) {
-            console.log(`   ✅ عثر على ${uniqueServers.length} سيرفر مشاهدة`);
+        // ========== معالجة النتائج ==========
+        if (watchServers.length > 0) {
+            console.log(`   ✅ عثر على ${watchServers.length} سيرفر مشاهدة`);
+            
+            // إزالة التكرارات
+            const uniqueServers = [];
+            const seenUrls = new Set();
+            
+            watchServers.forEach(server => {
+                if (server.url && !seenUrls.has(server.url)) {
+                    seenUrls.add(server.url);
+                    uniqueServers.push(server);
+                }
+            });
             
             // ترتيب السيرفرات حسب الأولوية
             const orderedServers = uniqueServers.sort((a, b) => {
@@ -198,15 +278,23 @@ async function fetchWatchServers(matchUrl) {
                     'dood': 3,
                     'voe': 4,
                     'vidcloud': 5,
-                    'yalla-shoot': 6,
-                    'stream': 7,
+                    'm3u8': 6,
+                    'mp4': 7,
                     'video': 8,
                     'embed': 9,
-                    'script': 10
+                    'script': 10,
+                    'direct': 11
                 };
                 
-                const aPriority = priority[Object.keys(priority).find(key => a.server.toLowerCase().includes(key) || a.url.includes(key))] || 99;
-                const bPriority = priority[Object.keys(priority).find(key => b.server.toLowerCase().includes(key) || b.url.includes(key))] || 99;
+                const aPriority = priority[Object.keys(priority).find(key => 
+                    a.server.toLowerCase().includes(key) || 
+                    a.url.toLowerCase().includes(key)
+                )] || 99;
+                
+                const bPriority = priority[Object.keys(priority).find(key => 
+                    b.server.toLowerCase().includes(key) || 
+                    b.url.toLowerCase().includes(key)
+                )] || 99;
                 
                 return aPriority - bPriority;
             });
@@ -215,29 +303,29 @@ async function fetchWatchServers(matchUrl) {
         } else {
             console.log(`   ⚠️ لم يتم العثور على سيرفرات مشاهدة مباشرة`);
             
-            // محاولة العثور على روابط بديلة في الصفحة
-            const allLinks = doc.querySelectorAll('a[href*="stream"], a[href*="watch"], a[href*="live"]');
+            // محاولة العثور على روابط بديلة
+            const allLinks = doc.querySelectorAll('a[href*="stream"], a[href*="watch"], a[href*="live"], a[href*="match"]');
             const alternativeServers = [];
             
             allLinks.forEach((link, index) => {
                 const href = link.getAttribute('href');
                 const text = link.textContent.trim();
                 
-                if (href && href.includes('http')) {
+                if (href && href.startsWith('http') && !href.includes('yalla-shootu.live/page/')) {
                     alternativeServers.push({
-                        type: 'link',
+                        type: 'alternative',
                         url: href,
                         quality: "غير معروف",
                         server: text || "رابط بديل",
-                        id: `link_${index + 1}`
+                        id: `alt_${index + 1}`
                     });
                     
-                    console.log(`     • رابط بديل: ${text || "بدون اسم"} - ${href.substring(0, 50)}...`);
+                    console.log(`     • رابط بديل: ${text || "بدون اسم"} - ${href.substring(0, 60)}...`);
                 }
             });
             
             if (alternativeServers.length > 0) {
-                console.log(`   ⚠️ وجد ${alternativeServers.length} رابط بديل (ليس سيرفرات مباشرة)`);
+                console.log(`   ⚠️ وجد ${alternativeServers.length} رابط بديل`);
                 return alternativeServers;
             }
             
@@ -273,7 +361,7 @@ function extractImageUrl(imgElement) {
     return null;
 }
 
-// ==================== استخراج المباريات من الصفحة - تم التعديل للموقع الجديد ====================
+// ==================== استخراج المباريات من الصفحة ====================
 async function fetchMatchesFromPage(pageNum = 1) {
     const baseUrl = "https://www.yalla-shootu.live/";
     const url = pageNum === 1 ? baseUrl : `${baseUrl}page/${pageNum}/`;
@@ -292,7 +380,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن جميع عناصر المباريات - تم التعديل هنا
+        // البحث عن جميع عناصر المباريات
         const matchElements = doc.querySelectorAll('.AY_Match');
         
         console.log(`✅ وجد ${matchElements.length} عنصر مباراة`);
@@ -302,15 +390,20 @@ async function fetchMatchesFromPage(pageNum = 1) {
             
             try {
                 // استخراج رابط المباراة من العنصر
-                const matchLink = element.querySelector('a[href*="matches"], a[href*="sia-me"]');
-                const matchUrl = matchLink ? matchLink.getAttribute('href') : null;
+                const matchLink = element.querySelector('a[href*="matches"], a[href*="sia-me"], a[href*="yalla-shoot"], a[href*="on-time"]');
+                let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
                 
                 if (!matchUrl) {
                     console.log(`   ⚠️ تخطي عنصر ${index + 1} - لا يوجد رابط`);
                     continue;
                 }
                 
-                // استخراج أسماء الفريقين - حسب هيكل الموقع الجديد
+                // إذا كان الرابط قصير، نضيف النطاق الأساسي
+                if (matchUrl.startsWith('/')) {
+                    matchUrl = `https://www.yalla-shootu.live${matchUrl}`;
+                }
+                
+                // استخراج أسماء الفريقين
                 const team1NameElem = element.querySelector('.TM1 .TM_Name');
                 const team2NameElem = element.querySelector('.TM2 .TM_Name');
                 
@@ -324,7 +417,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 let team1Logo = extractImageUrl(team1Img);
                 let team2Logo = extractImageUrl(team2Img);
                 
-                // استخراج النتيجة - حسب هيكل الموقع الجديد
+                // استخراج النتيجة
                 let team1Score = "0";
                 let team2Score = "0";
                 let score = "0 - 0";
@@ -343,7 +436,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     matchTime = timeElement.textContent.trim();
                 }
                 
-                // استخراج حالة المباراة - تم التعديل هنا
+                // استخراج حالة المباراة
                 let matchStatus = "غير معروف";
                 const statusElement = element.querySelector('.MT_Stat');
                 if (statusElement) {
@@ -355,7 +448,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     else if (element.classList.contains('finished')) matchStatus = "انتهت";
                 }
                 
-                // استخراج القنوات - حسب هيكل الموقع الجديد
+                // استخراج القنوات
                 const channels = [];
                 const channelItems = element.querySelectorAll('.MT_Info li span');
                 channelItems.forEach(item => {
@@ -365,7 +458,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     }
                 });
                 
-                // استخراج البطولة (العنصر الثالث في القائمة)
+                // استخراج البطولة
                 let tournament = "غير محدد";
                 if (channels.length >= 3) {
                     tournament = channels[2];
@@ -390,12 +483,12 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     score: score,
                     time: matchTime,
                     status: matchStatus,
-                    channels: channels.slice(0, 2), // أول عنصرين فقط هم القنوات
+                    channels: channels.slice(0, 2),
                     tournament: tournament,
                     page: pageNum,
                     position: index + 1,
                     scrapedAt: new Date().toISOString(),
-                    watchServers: null // سيتم تعبئتها لاحقاً
+                    watchServers: null
                 };
                 
                 matches.push(match);
@@ -403,6 +496,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 // عرض تفاصيل الاستخراج
                 console.log(`   ✓ ${index + 1}: ${match.title} (${match.status})`);
                 console.log(`     النتيجة: ${score} | الوقت: ${matchTime}`);
+                console.log(`     الرابط: ${matchUrl.substring(0, 80)}...`);
                 
             } catch (error) {
                 console.log(`   ✗ خطأ في استخراج مباراة ${index + 1}: ${error.message}`);
@@ -425,7 +519,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
     }
 }
 
-// ==================== استخراج تفاصيل المباريات - الإصلاح هنا ====================
+// ==================== استخراج تفاصيل المباريات ====================
 async function fetchMatchesDetails(matches) {
     console.log(`\n🔍 جلب تفاصيل ${matches.length} مباراة...`);
     
@@ -435,11 +529,12 @@ async function fetchMatchesDetails(matches) {
         const match = matches[i];
         
         console.log(`\n${i + 1}/${matches.length}: ${match.title} (${match.status})`);
+        console.log(`   🔗 الرابط: ${match.url.substring(0, 80)}...`);
         
         // محاولة استخراج سيرفرات المشاهدة للمباريات الجارية أو القادمة
         if (match.status === "جارية الآن" || match.status === "لم تبدأ بعد") {
             try {
-                console.log(`   🔍 محاولة استخراج سيرفرات المشاهدة...`);
+                console.log(`   🔍 جارٍ استخراج سيرفرات المشاهدة...`);
                 const watchServers = await fetchWatchServers(match.url);
                 
                 const matchWithDetails = {
@@ -450,9 +545,13 @@ async function fetchMatchesDetails(matches) {
                 matchesWithDetails.push(matchWithDetails);
                 
                 if (watchServers && watchServers.length > 0) {
-                    console.log(`   ✅ ${watchServers.length} سيرفر مشاهدة`);
+                    console.log(`   ✅ تم العثور على ${watchServers.length} سيرفر مشاهدة`);
+                    // عرض السيرفرات
+                    watchServers.slice(0, 3).forEach((server, idx) => {
+                        console.log(`     ${idx + 1}. ${server.server}: ${server.url.substring(0, 70)}...`);
+                    });
                 } else {
-                    console.log(`   ⚠️ لا توجد سيرفرات مشاهدة`);
+                    console.log(`   ⚠️ لا توجد سيرفرات مشاهدة متاحة`);
                 }
                 
             } catch (error) {
@@ -467,7 +566,7 @@ async function fetchMatchesDetails(matches) {
                 matchesWithDetails.push(matchWithDetails);
             }
         } else {
-            // المباريات المنتهية أو غير المعروفة
+            // المباريات المنتهية
             const matchWithDetails = {
                 ...match,
                 watchServers: null
@@ -498,7 +597,6 @@ function saveToHgFile(data) {
                     channel && channel.trim() !== "" && channel !== "غير معروف"
                 );
                 
-                // إذا كانت القنوات فارغة، نضع array فارغ
                 if (cleanMatch.channels.length === 0) {
                     cleanMatch.channels = [];
                 }
@@ -511,12 +609,10 @@ function saveToHgFile(data) {
             
             // تنظيف watchServers
             if (cleanMatch.watchServers && Array.isArray(cleanMatch.watchServers)) {
-                // إزالة السيرفرات الفارغة
                 cleanMatch.watchServers = cleanMatch.watchServers.filter(server => 
                     server && server.url && server.url.trim() !== ""
                 );
                 
-                // إذا كانت فارغة بعد التنظيف، نضع null
                 if (cleanMatch.watchServers.length === 0) {
                     cleanMatch.watchServers = null;
                 }
@@ -560,8 +656,8 @@ function saveToHgFile(data) {
             console.log(`     الحالة: ${match.status} | النتيجة: ${match.score}`);
             console.log(`     السيرفرات: ${match.watchServers ? match.watchServers.length : 0}`);
             if (match.watchServers && match.watchServers.length > 0) {
-                match.watchServers.slice(0, 2).forEach(server => {
-                    console.log(`       - ${server.server}: ${server.url.substring(0, 50)}...`);
+                match.watchServers.slice(0, 2).forEach((server, sIdx) => {
+                    console.log(`       ${sIdx + 1}. ${server.server} (${server.quality}): ${server.url.substring(0, 50)}...`);
                 });
             }
         });
