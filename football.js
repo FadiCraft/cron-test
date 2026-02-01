@@ -292,8 +292,8 @@ async function fetchMatchesFromPage(pageNum = 1) {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن جميع عناصر المباريات بالكلاسات المناسبة للموقع الجديد
-        const matchElements = doc.querySelectorAll('.AY_Match.live, .AY_Match.not-started, .AY_Match.finished');
+        // البحث عن جميع عناصر المباريات - تم التعديل هنا
+        const matchElements = doc.querySelectorAll('.AY_Match');
         
         console.log(`✅ وجد ${matchElements.length} عنصر مباراة`);
         
@@ -302,7 +302,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
             
             try {
                 // استخراج رابط المباراة من العنصر
-                const matchLink = element.querySelector('a[href*="matches"]');
+                const matchLink = element.querySelector('a[href*="matches"], a[href*="sia-me"]');
                 const matchUrl = matchLink ? matchLink.getAttribute('href') : null;
                 
                 if (!matchUrl) {
@@ -343,7 +343,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     matchTime = timeElement.textContent.trim();
                 }
                 
-                // استخراج حالة المباراة
+                // استخراج حالة المباراة - تم التعديل هنا
                 let matchStatus = "غير معروف";
                 const statusElement = element.querySelector('.MT_Stat');
                 if (statusElement) {
