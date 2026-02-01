@@ -27,7 +27,7 @@ async function fetchWithTimeout(url, timeout = 15000) {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                 'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-                'Referer': 'https://www.yalla1shoot.com/',
+                'Referer': 'https://www.yalla-shootu.live/',
             }
         });
         
@@ -80,15 +80,15 @@ async function fetchWatchServers(matchUrl) {
                 let serverName = "سيرفر غير معروف";
                 let quality = "متوسط";
                 
-                // تحليل أنواع السيرفرات المختلفة
-                if (src.includes("yallashootcup")) serverName = "YallaShoot Cup";
-                else if (src.includes("albaplayer")) serverName = "AlbaPlayer";
+                // تحليل أنواع السيرفرات المختلفة للموقع الجديد
+                if (src.includes("albaplayer")) serverName = "AlbaPlayer";
                 else if (src.includes("streamtape")) serverName = "StreamTape";
                 else if (src.includes("dood")) serverName = "DoodStream";
                 else if (src.includes("voe")) serverName = "Voe";
                 else if (src.includes("vidcloud")) serverName = "VidCloud";
                 else if (src.includes("stream")) serverName = "Stream";
                 else if (src.includes("video")) serverName = "Video Server";
+                else if (src.includes("yalla-shoot")) serverName = "YallaShoot";
                 
                 // تحديد الجودة من السمة data-quality أو class
                 const dataQuality = iframe.getAttribute('data-quality');
@@ -149,7 +149,7 @@ async function fetchWatchServers(matchUrl) {
             if (scriptContent) {
                 // البحث عن روابط سيرفرات شائعة في scripts
                 const serverPatterns = [
-                    /https?:\/\/[^"\s]*(?:yallashootcup|albaplayer|streamtape|dood|voe|vidcloud)[^"\s]*/gi,
+                    /https?:\/\/[^"\s]*(?:albaplayer|streamtape|dood|voe|vidcloud|yalla-shoot)[^"\s]*/gi,
                     /src\s*[:=]\s*['"](https?:\/\/[^'"]+)['"]/gi,
                     /embed\s*['"]?([^'"\s]+)['"]?/gi
                 ];
@@ -193,12 +193,12 @@ async function fetchWatchServers(matchUrl) {
             // ترتيب السيرفرات حسب الأولوية
             const orderedServers = uniqueServers.sort((a, b) => {
                 const priority = {
-                    'yallashootcup': 1,
-                    'albaplayer': 2,
-                    'streamtape': 3,
-                    'dood': 4,
-                    'voe': 5,
-                    'vidcloud': 6,
+                    'albaplayer': 1,
+                    'streamtape': 2,
+                    'dood': 3,
+                    'voe': 4,
+                    'vidcloud': 5,
+                    'yalla-shoot': 6,
                     'stream': 7,
                     'video': 8,
                     'embed': 9,
@@ -259,12 +259,12 @@ function extractImageUrl(imgElement) {
     
     if (src && src.startsWith('http')) return src;
     if (src && !src.startsWith('http') && src.includes('wp-content')) {
-        return `https://www.yalla1shoot.com${src.startsWith('/') ? '' : '/'}${src}`;
+        return `https://www.yalla-shootu.live${src.startsWith('/') ? '' : '/'}${src}`;
     }
     
     if (dataSrc && dataSrc.startsWith('http')) return dataSrc;
     if (dataSrc && !dataSrc.startsWith('http') && dataSrc.includes('wp-content')) {
-        return `https://www.yalla1shoot.com${dataSrc.startsWith('/') ? '' : '/'}${dataSrc}`;
+        return `https://www.yalla-shootu.live${dataSrc.startsWith('/') ? '' : '/'}${dataSrc}`;
     }
     
     // إذا كان base64، نتخطاه
@@ -273,9 +273,9 @@ function extractImageUrl(imgElement) {
     return null;
 }
 
-// ==================== استخراج المباريات من الصفحة ====================
+// ==================== استخراج المباريات من الصفحة - تم التعديل للموقع الجديد ====================
 async function fetchMatchesFromPage(pageNum = 1) {
-    const baseUrl = "https://www.yalla1shoot.com/home_8/";
+    const baseUrl = "https://www.yalla-shootu.live/";
     const url = pageNum === 1 ? baseUrl : `${baseUrl}page/${pageNum}/`;
     
     console.log(`\n📄 الصفحة ${pageNum}: ${url}`);
@@ -292,8 +292,8 @@ async function fetchMatchesFromPage(pageNum = 1) {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن جميع عناصر المباريات بالكلاسات المناسبة
-        const matchElements = doc.querySelectorAll('.ay_e493c374.live, .ay_e493c374.not-started, .ay_e493c374.finished');
+        // البحث عن جميع عناصر المباريات بالكلاسات المناسبة للموقع الجديد
+        const matchElements = doc.querySelectorAll('.AY_Match.live, .AY_Match.not-started, .AY_Match.finished');
         
         console.log(`✅ وجد ${matchElements.length} عنصر مباراة`);
         
@@ -310,9 +310,9 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     continue;
                 }
                 
-                // استخراج أسماء الفريقين
-                const team1NameElem = element.querySelector('.TM1 .ay_2001c2c9');
-                const team2NameElem = element.querySelector('.TM2 .ay_2001c2c9');
+                // استخراج أسماء الفريقين - حسب هيكل الموقع الجديد
+                const team1NameElem = element.querySelector('.TM1 .TM_Name');
+                const team2NameElem = element.querySelector('.TM2 .TM_Name');
                 
                 let team1Name = team1NameElem ? team1NameElem.textContent.trim() : "غير معروف";
                 let team2Name = team2NameElem ? team2NameElem.textContent.trim() : "غير معروف";
@@ -324,7 +324,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 let team1Logo = extractImageUrl(team1Img);
                 let team2Logo = extractImageUrl(team2Img);
                 
-                // استخراج النتيجة
+                // استخراج النتيجة - حسب هيكل الموقع الجديد
                 let team1Score = "0";
                 let team2Score = "0";
                 let score = "0 - 0";
@@ -338,14 +338,14 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 
                 // استخراج الوقت
                 let matchTime = "غير معروف";
-                const timeElement = element.querySelector('.ay_f2456e5f');
+                const timeElement = element.querySelector('.MT_Time');
                 if (timeElement) {
                     matchTime = timeElement.textContent.trim();
                 }
                 
                 // استخراج حالة المباراة
                 let matchStatus = "غير معروف";
-                const statusElement = element.querySelector('.ay_e91cfaec');
+                const statusElement = element.querySelector('.MT_Stat');
                 if (statusElement) {
                     matchStatus = statusElement.textContent.trim();
                 } else {
@@ -355,9 +355,9 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     else if (element.classList.contains('finished')) matchStatus = "انتهت";
                 }
                 
-                // استخراج القنوات
+                // استخراج القنوات - حسب هيكل الموقع الجديد
                 const channels = [];
-                const channelItems = element.querySelectorAll('.ay_d2e59ec8 li span');
+                const channelItems = element.querySelectorAll('.MT_Info li span');
                 channelItems.forEach(item => {
                     const channelName = item.textContent.trim();
                     if (channelName && channelName !== "غير معروف") {
@@ -527,7 +527,7 @@ function saveToHgFile(data) {
         
         const outputData = {
             scrapedAt: new Date().toISOString(),
-            source: "https://www.yalla1shoot.com/home_8/",
+            source: "https://www.yalla-shootu.live/",
             totalMatches: cleanData.length,
             matches: cleanData
         };
@@ -576,7 +576,7 @@ function saveToHgFile(data) {
 
 // ==================== الدالة الرئيسية ====================
 async function main() {
-    console.log("⚽ بدء استخراج المباريات من yalla1shoot.com");
+    console.log("⚽ بدء استخراج المباريات من yalla-shootu.live");
     console.log("=".repeat(60));
     
     try {
