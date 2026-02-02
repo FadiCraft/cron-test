@@ -1,38 +1,11 @@
 {
-  "scrapedAt": "2026-02-02T16:17:00.550Z",
+  "scrapedAt": "2026-02-02T17:55:01.869Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 5,
   "matches": [
     {
-      "id": "match_1770049015342_0",
-      "url": "https://f.sia-me.com/ssc-1/",
-      "title": "الرياض vs النصر",
-      "team1": {
-        "name": "الرياض",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd4a868.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "النصر",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd50ff3.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "06:15 PM",
-      "status": "جارية الان",
-      "channels": [
-        "ثمانية 3",
-        "مشاري القرني"
-      ],
-      "tournament": "دوري روشن السعودي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-02T16:16:55.342Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770049015343_1",
-      "url": "https://www.yalla-shootu.live/matches/al-hilal-vs-al-ahli/",
+      "id": "match_1770054896652_0",
+      "url": "https://1live.sia-me.com/ssc-2/",
       "title": "الهلال vs الأهلي",
       "team1": {
         "name": "الهلال",
@@ -46,69 +19,19 @@
       },
       "score": "0 - 0",
       "time": "08:30 PM",
-      "status": "لم تبدأ بعد",
+      "status": "جارية الان",
       "channels": [
         "ثمانية 1",
         "فارس عوض"
       ],
       "tournament": "دوري روشن السعودي",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-02T16:16:55.343Z",
-      "watchServers": [
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/al-hilal-vs-al-ahli/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_1"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/#website",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_2"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/al-hilal-vs-al-ahli/#breadcrumb",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_3"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_4"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_5"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_6"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_7"
-        }
-      ]
+      "position": 1,
+      "scrapedAt": "2026-02-02T17:54:56.653Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770049015344_2",
+      "id": "match_1770054896654_1",
       "url": "https://www.yalla-shootu.live/matches/udinese-vs-roma/",
       "title": "أودينيزي vs روما",
       "team1": {
@@ -130,8 +53,8 @@
       ],
       "tournament": "الدوري الإيطالي",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-02T16:16:55.344Z",
+      "position": 2,
+      "scrapedAt": "2026-02-02T17:54:56.654Z",
       "watchServers": [
         {
           "type": "script",
@@ -185,7 +108,7 @@
       ]
     },
     {
-      "id": "match_1770049015346_3",
+      "id": "match_1770054896655_2",
       "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/",
       "title": "سندرلاند vs بيرنلي",
       "team1": {
@@ -207,8 +130,8 @@
       ],
       "tournament": "الدوري الإنجليزي",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-02T16:16:55.346Z",
+      "position": 3,
+      "scrapedAt": "2026-02-02T17:54:56.655Z",
       "watchServers": [
         {
           "type": "script",
@@ -262,7 +185,7 @@
       ]
     },
     {
-      "id": "match_1770049015347_4",
+      "id": "match_1770054896656_3",
       "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/",
       "title": "ريال مايوركا vs إشبيلية",
       "team1": {
@@ -284,8 +207,8 @@
       ],
       "tournament": "الدوري الإسباني",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-02T16:16:55.347Z",
+      "position": 4,
+      "scrapedAt": "2026-02-02T17:54:56.656Z",
       "watchServers": [
         {
           "type": "script",
@@ -337,6 +260,33 @@
           "id": "script_7"
         }
       ]
+    },
+    {
+      "id": "match_1770054896657_4",
+      "url": "https://f.sia-me.com/ssc-1/",
+      "title": "الرياض vs النصر",
+      "team1": {
+        "name": "الرياض",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd4a868.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "النصر",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd50ff3.png",
+        "score": "1"
+      },
+      "score": "0 - 1",
+      "time": "06:15 PM",
+      "status": "انتهت",
+      "channels": [
+        "ثمانية 3",
+        "مشاري القرني"
+      ],
+      "tournament": "دوري روشن السعودي",
+      "page": 1,
+      "position": 5,
+      "scrapedAt": "2026-02-02T17:54:56.657Z",
+      "watchServers": null
     }
   ]
 }
