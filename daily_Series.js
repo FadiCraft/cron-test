@@ -35,7 +35,7 @@ const ITEMS_PER_FILE = {
     episodes: 5000  // 5000 حلقة في كل ملف
 };
 
-const PAGES_PER_RUN = 5; // 5 صفحات في كل تشغيل
+const PAGES_PER_RUN = 1; // 1 صفحة في كل تشغيل ← **تعديل هنا**
 
 // ==================== نظام التقدم ====================
 class ProgressTracker {
@@ -167,7 +167,7 @@ class ProgressTracker {
         this.pagesProcessedThisRun++;
         
         if (this.pagesProcessedThisRun >= PAGES_PER_RUN) {
-            console.log(`\n✅ اكتمل استخراج ${PAGES_PER_RUN} صفحات لهذا التشغيل`);
+            console.log(`\n✅ اكتمل استخراج ${PAGES_PER_RUN} صفحات لهذا التشغيل`); // ← **سيكون 1 صفحة فقط**
             this.shouldStop = true;
         } else if (!this.allPagesScraped) {
             this.seriesPage++;
@@ -795,7 +795,7 @@ async function main() {
     let totalSeasonsExtracted = 0;
     let totalEpisodesExtracted = 0;
     
-    // حلقة الصفحات (5 صفحات/تشغيل)
+    // حلقة الصفحات (1 صفحة/تشغيل) ← **تعديل هنا**
     while (!progress.shouldStop) {
         const pageNum = progress.seriesPage;
         console.log(`\n📺 ====== معالجة صفحة المسلسلات ${pageNum} ======`);
@@ -906,7 +906,7 @@ async function main() {
         console.log(`   📊 إجمالي المواسم: ${totalSeasonsExtracted}`);
         console.log(`   📊 إجمالي الحلقات: ${totalEpisodesExtracted}`);
         
-        // تحديث تقدم الصفحات
+        // تحديث تقدم الصفحات ← **سيتم معالجة صفحة واحدة فقط ثم التوقف**
         progress.addPageProcessed();
         
         // تأخير بين الصفحات
@@ -926,7 +926,7 @@ async function main() {
     console.log(`   🎬 مسلسلات جديدة: ${totalSeriesExtracted}`);
     console.log(`   📅 مواسم جديدة: ${totalSeasonsExtracted}`);
     console.log(`   📺 حلقات جديدة: ${totalEpisodesExtracted}`);
-    console.log(`   📄 صفحات معالجة: ${progress.pagesProcessedThisRun}`);
+    console.log(`   📄 صفحات معالجة: ${progress.pagesProcessedThisRun}`); // ← **سيكون 1**
     console.log(`   ⏱️ وقت التنفيذ: ${(executionTime / 1000).toFixed(1)} ثانية`);
     
     // حالة النظام
@@ -979,7 +979,7 @@ async function main() {
             seriesExtracted: totalSeriesExtracted,
             seasonsExtracted: totalSeasonsExtracted,
             episodesExtracted: totalEpisodesExtracted,
-            pagesProcessed: progress.pagesProcessedThisRun
+            pagesProcessed: progress.pagesProcessedThisRun // ← **سيكون 1**
         },
         progress: {
             seriesPage: progress.seriesPage,
