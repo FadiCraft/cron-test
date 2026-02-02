@@ -29,16 +29,21 @@ jobs:
 
       - name: Create necessary directories
         run: |
-          mkdir -p Series/agseries/TV_Series
-          mkdir -p Series/agseries/Seasons
-          mkdir -p Series/agseries/Episodes
+          mkdir -p Series/AgSeries/TV_Series
+          mkdir -p Series/AgSeries/Seasons
+          mkdir -p Series/AgSeries/Episodes
           echo "📁 تم إنشاء مجلدات التخزين"
+
+      - name: Pull latest changes BEFORE running script
+        run: |
+          echo "📥 سحب أحدث التغييرات..."
+          git pull origin main --rebase || echo "⚠️ لا يمكن السحب - سيتم المتابعة"
 
       - name: Run the series scraper
         run: |
           echo "🚀 بدء عملية استخراج المسلسلات العادية..."
           echo "📅 الوقت: $(date)"
-          echo "🔗 الرابط: https://topcinema.rip/category/%d9%84%d8%b3%d0%b4%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a9/"
+          echo "🔗 الرابط: https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/"
           node daily_Series.js
           echo "✅ تم الانتهاء من استخراج المسلسلات"
 
@@ -47,27 +52,35 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
 
-      - name: Pull latest changes
-        run: |
-          git pull origin main --rebase || echo "⚠️ لا يوجد تغييرات للسحب"
-
       - name: Add and commit changes
         run: |
-          git add Series/ daily_Series.js || echo "⚠️ لا توجد ملفات جديدة"
+          # إضافة جميع الملفات الجديدة والمعدلة
+          git add -A
           
           if git diff --cached --quiet; then
             echo "📭 لا توجد تغييرات للرفع"
           else
-            git commit -m "📺 تحديث المسلسلات العادية - $(date +'%Y-%m-%d %H:%M')" -m "تم استخراج المسلسلات العادية تلقائياً"
+            # استخدام commit مع وصف مفصل
+            git commit -m "📺 تحديث المسلسلات - $(date +'%H:%M %d-%m-%Y')" -m "تحديث تلقائي للمسلسلات والمواسم والحلقات"
             echo "✅ تم commit التغييرات"
           fi
 
-      - name: Push changes
+      - name: Push changes (with retry)
         run: |
           if git log origin/main..HEAD --oneline | grep -q .; then
             echo "🔼 رفع التغييرات..."
-            git push origin main
-            echo "✅ تم رفع التغييرات"
+            
+            # محاولة الدفع مع السحب أولاً إذا لزم الأمر
+            git pull origin main --rebase || echo "⚠️ لا يمكن السحب - سيتم المتابعة"
+            
+            # محاولة الدفع
+            if git push origin main; then
+              echo "✅ تم رفع التغييرات بنجاح"
+            else
+              echo "🔄 فشل الدفع الأولي - محاولة مع force"
+              git pull origin main
+              git push origin main
+            fi
           else
             echo "📭 لا توجد تغييرات للرفع"
           fi
