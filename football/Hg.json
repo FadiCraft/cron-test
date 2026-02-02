@@ -1,11 +1,11 @@
 {
-  "scrapedAt": "2026-02-02T12:58:57.255Z",
+  "scrapedAt": "2026-02-02T14:05:00.633Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 5,
   "matches": [
     {
-      "id": "match_1770037131722_0",
-      "url": "https://www.yalla-shootu.live/matches/al-riyadh-vs-al-nassr-fc/",
+      "id": "match_1770041095523_0",
+      "url": "https://f.sia-me.com/ssc-1/",
       "title": "الرياض vs النصر",
       "team1": {
         "name": "الرياض",
@@ -27,61 +27,19 @@
       "tournament": "دوري روشن السعودي",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-02-02T12:58:51.722Z",
+      "scrapedAt": "2026-02-02T14:04:55.523Z",
       "watchServers": [
         {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/al-riyadh-vs-al-nassr-fc/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_1"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/#website",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_2"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/al-riyadh-vs-al-nassr-fc/#breadcrumb",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_3"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_4"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_5"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_6"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_7"
+          "type": "iframe",
+          "url": "https://f.sia-me.com/ssc-1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "iframe_direct"
         }
       ]
     },
     {
-      "id": "match_1770037131723_1",
+      "id": "match_1770041095525_1",
       "url": "https://www.yalla-shootu.live/matches/al-hilal-vs-al-ahli/",
       "title": "الهلال vs الأهلي",
       "team1": {
@@ -104,7 +62,7 @@
       "tournament": "دوري روشن السعودي",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-02-02T12:58:51.723Z",
+      "scrapedAt": "2026-02-02T14:04:55.525Z",
       "watchServers": [
         {
           "type": "script",
@@ -158,7 +116,7 @@
       ]
     },
     {
-      "id": "match_1770037131725_2",
+      "id": "match_1770041095526_2",
       "url": "https://www.yalla-shootu.live/matches/udinese-vs-roma/",
       "title": "أودينيزي vs روما",
       "team1": {
@@ -181,7 +139,7 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-02-02T12:58:51.725Z",
+      "scrapedAt": "2026-02-02T14:04:55.526Z",
       "watchServers": [
         {
           "type": "script",
@@ -235,34 +193,34 @@
       ]
     },
     {
-      "id": "match_1770037131726_3",
-      "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/",
-      "title": "سندرلاند vs بيرنلي",
+      "id": "match_1770041095527_3",
+      "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/",
+      "title": "ريال مايوركا vs إشبيلية",
       "team1": {
-        "name": "سندرلاند",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd496de.png",
+        "name": "ريال مايوركا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd90a5e.png",
         "score": "0"
       },
       "team2": {
-        "name": "بيرنلي",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd51999.png",
+        "name": "إشبيلية",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd9883a.png",
         "score": "0"
       },
       "score": "0 - 0",
       "time": "11:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "بي إن سبورت 1",
-        "عبدالله الغامدي"
+        "بي إن سبورت 2",
+        "محمد بركات"
       ],
-      "tournament": "الدوري الإنجليزي",
+      "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-02-02T12:58:51.726Z",
+      "scrapedAt": "2026-02-02T14:04:55.527Z",
       "watchServers": [
         {
           "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/",
+          "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/",
           "quality": "غير معروف",
           "server": "Dynamic Stream",
           "id": "script_1"
@@ -276,7 +234,7 @@
         },
         {
           "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/#breadcrumb",
+          "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/#breadcrumb",
           "quality": "غير معروف",
           "server": "Dynamic Stream",
           "id": "script_3"
@@ -312,34 +270,34 @@
       ]
     },
     {
-      "id": "match_1770037131727_4",
-      "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/",
-      "title": "ريال مايوركا vs إشبيلية",
+      "id": "match_1770041095529_4",
+      "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/",
+      "title": "سندرلاند vs بيرنلي",
       "team1": {
-        "name": "ريال مايوركا",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd90a5e.png",
+        "name": "سندرلاند",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd496de.png",
         "score": "0"
       },
       "team2": {
-        "name": "إشبيلية",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd9883a.png",
+        "name": "بيرنلي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/01/alba_img_697e7dfd51999.png",
         "score": "0"
       },
       "score": "0 - 0",
       "time": "11:00 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "بي إن سبورت 2",
-        "محمد بركات"
+        "بي إن سبورت 1",
+        "عبدالله الغامدي"
       ],
-      "tournament": "الدوري الإسباني",
+      "tournament": "الدوري الإنجليزي",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-02-02T12:58:51.727Z",
+      "scrapedAt": "2026-02-02T14:04:55.529Z",
       "watchServers": [
         {
           "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/",
+          "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/",
           "quality": "غير معروف",
           "server": "Dynamic Stream",
           "id": "script_1"
@@ -353,7 +311,7 @@
         },
         {
           "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/mallorca-vs-sevilla/#breadcrumb",
+          "url": "https://www.yalla-shootu.live/matches/sunderland-vs-burnley/#breadcrumb",
           "quality": "غير معروف",
           "server": "Dynamic Stream",
           "id": "script_3"
