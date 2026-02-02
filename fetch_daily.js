@@ -1,3 +1,5 @@
+عدل لي الكود التالي ليستخرج صفحه واحده في كل مره فقط بدي 5 صفحات
+
 import fs from "fs";
 import path from "path";
 import { JSDOM } from "jsdom";
@@ -35,8 +37,7 @@ const ITEMS_PER_FILE = {
     episodes: 5000  // 5000 حلقة في كل ملف
 };
 
-const PAGES_PER_RUN = 1; // 1 صفحة في كل تشغيل ← **تعديل هنا**
-
+const PAGES_PER_RUN = 1; // 1
 // ==================== نظام التقدم ====================
 class ProgressTracker {
     constructor() {
@@ -167,7 +168,7 @@ class ProgressTracker {
         this.pagesProcessedThisRun++;
         
         if (this.pagesProcessedThisRun >= PAGES_PER_RUN) {
-            console.log(`\n✅ اكتمل استخراج ${PAGES_PER_RUN} صفحات لهذا التشغيل`); // ← **سيكون 1 صفحة فقط**
+            console.log(`\n✅ اكتمل استخراج ${PAGES_PER_RUN} صفحات لهذا التشغيل`);
             this.shouldStop = true;
         } else if (!this.allPagesScraped) {
             this.seriesPage++;
@@ -780,7 +781,7 @@ async function main() {
     console.log("=".repeat(60));
     
     // تهيئة نظام التقدم
-    const progress = new ProgressTracker();
+const progress = new SeriesProgressTracker(); // ✅ هذا صحيح
     progress.resetForNewRun();
     
     console.log(`📊 حالة النظام:`);
@@ -795,7 +796,7 @@ async function main() {
     let totalSeasonsExtracted = 0;
     let totalEpisodesExtracted = 0;
     
-    // حلقة الصفحات (1 صفحة/تشغيل) ← **تعديل هنا**
+    // حلقة الصفحات (5 صفحات/تشغيل)
     while (!progress.shouldStop) {
         const pageNum = progress.seriesPage;
         console.log(`\n📺 ====== معالجة صفحة المسلسلات ${pageNum} ======`);
@@ -906,7 +907,7 @@ async function main() {
         console.log(`   📊 إجمالي المواسم: ${totalSeasonsExtracted}`);
         console.log(`   📊 إجمالي الحلقات: ${totalEpisodesExtracted}`);
         
-        // تحديث تقدم الصفحات ← **سيتم معالجة صفحة واحدة فقط ثم التوقف**
+        // تحديث تقدم الصفحات
         progress.addPageProcessed();
         
         // تأخير بين الصفحات
@@ -926,7 +927,7 @@ async function main() {
     console.log(`   🎬 مسلسلات جديدة: ${totalSeriesExtracted}`);
     console.log(`   📅 مواسم جديدة: ${totalSeasonsExtracted}`);
     console.log(`   📺 حلقات جديدة: ${totalEpisodesExtracted}`);
-    console.log(`   📄 صفحات معالجة: ${progress.pagesProcessedThisRun}`); // ← **سيكون 1**
+    console.log(`   📄 صفحات معالجة: ${progress.pagesProcessedThisRun}`);
     console.log(`   ⏱️ وقت التنفيذ: ${(executionTime / 1000).toFixed(1)} ثانية`);
     
     // حالة النظام
@@ -979,7 +980,7 @@ async function main() {
             seriesExtracted: totalSeriesExtracted,
             seasonsExtracted: totalSeasonsExtracted,
             episodesExtracted: totalEpisodesExtracted,
-            pagesProcessed: progress.pagesProcessedThisRun // ← **سيكون 1**
+            pagesProcessed: progress.pagesProcessedThisRun
         },
         progress: {
             seriesPage: progress.seriesPage,
