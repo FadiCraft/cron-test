@@ -14,6 +14,8 @@ jobs:
     steps:
     - name: 📥 Checkout repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # ⬅️ مهم: يجلب كل التاريخ
       
     - name: ⎔ Setup Node.js
       uses: actions/setup-node@v3
@@ -25,26 +27,61 @@ jobs:
       run: npm ci
       
     - name: 🚀 Extract channels
-      run: node tv.js  # ⬅️ غير من npm start إلى node tv.js مباشرة
-      
-    - name: 🔍 Debug - Check if files created
       run: |
-        echo "=== Checking files ==="
-        ls -la
-        echo "=== Checking TV directory ==="
-        ls -la TV/ || echo "TV directory not found!"
-        
+        echo "=== Running tv.js ==="
+        node tv.js
+        echo "=== Files created ==="
+        ls -la TV/ || echo "No TV directory!"
+      
     - name: 📊 Commit and push changes
       run: |
-        # تأكد أولاً أن الملفات موجودة
-        if [ -f "TV/tv.json" ]; then
-          echo "✅ tv.json exists, proceeding with commit..."
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add TV/
-          git diff --quiet && git diff --staged --quiet || git commit -m "📺 Auto-update MBC channels [skip ci]"
-          git push
-        else
-          echo "❌ tv.json not found! Skipping commit."
+        echo "=== Checking files before commit ==="
+        
+        # تأكد من وجود الملفات
+        if [ ! -d "TV" ]; then
+          echo "❌ TV directory not found!"
           exit 1
+        fi
+        
+        if [ ! -f "TV/tv.json" ]; then
+          echo "❌ TV/tv.json not found!"
+          exit 1
+        fi
+        
+        echo "✅ Files found, proceeding with commit..."
+        
+        # إعداد Git
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # إضافة الملفات
+        git add TV/
+        
+        # التحقق من التغييرات
+        if git diff --cached --quiet; then
+          echo "📭 No changes to commit"
+        else
+          echo "📝 Changes detected, committing..."
+          git commit -m "📺 Auto-update MBC channels - $(date '+%Y-%m-%d %H:%M') [skip ci]"
+          
+          # Push مع retry
+          attempts=0
+          max_attempts=3
+          
+          while [ $attempts -lt $max_attempts ]; do
+            git pull --rebase
+            if git push; then
+              echo "✅ Push successful"
+              break
+            else
+              attempts=$((attempts+1))
+              echo "⚠️ Push failed, attempt $attempts/$max_attempts"
+              sleep 5
+            fi
+          done
+          
+          if [ $attempts -eq $max_attempts ]; then
+            echo "❌ All push attempts failed"
+            exit 1
+          fi
         fi
