@@ -1,10 +1,10 @@
 {
-  "scrapedAt": "2026-02-03T04:23:44.244Z",
+  "scrapedAt": "2026-02-03T05:33:33.840Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1770092616267_0",
+      "id": "match_1770096805840_0",
       "url": "https://www.yalla-shootu.live/matches/al-ettifaq-vs-al-taawoun/",
       "title": "الاتفاق vs التعاون",
       "team1": {
@@ -27,7 +27,7 @@
       "tournament": "دوري روشن السعودي",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-02-03T04:23:36.267Z",
+      "scrapedAt": "2026-02-03T05:33:25.840Z",
       "watchServers": [
         {
           "type": "script",
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "id": "match_1770092616268_1",
+      "id": "match_1770096805842_1",
       "url": "https://www.yalla-shootu.live/matches/bank-el-ahly-vs-al-ahly-sc/",
       "title": "البنك الأهلي vs الأهلي",
       "team1": {
@@ -104,7 +104,7 @@
       "tournament": "دوري Nile",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-02-03T04:23:36.268Z",
+      "scrapedAt": "2026-02-03T05:33:25.842Z",
       "watchServers": [
         {
           "type": "script",
@@ -158,7 +158,7 @@
       ]
     },
     {
-      "id": "match_1770092616270_2",
+      "id": "match_1770096805843_2",
       "url": "https://www.yalla-shootu.live/matches/bologna-vs-ac-milan/",
       "title": "بولونيا vs ميلان",
       "team1": {
@@ -181,7 +181,7 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-02-03T04:23:36.270Z",
+      "scrapedAt": "2026-02-03T05:33:25.843Z",
       "watchServers": [
         {
           "type": "script",
@@ -235,7 +235,7 @@
       ]
     },
     {
-      "id": "match_1770092616271_3",
+      "id": "match_1770096805844_3",
       "url": "https://www.yalla-shootu.live/matches/leverkusen-vs-st-pauli/",
       "title": "باير ليفركوزن vs سانت باولي",
       "team1": {
@@ -258,7 +258,7 @@
       "tournament": "كأس ألمانيا",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-02-03T04:23:36.271Z",
+      "scrapedAt": "2026-02-03T05:33:25.844Z",
       "watchServers": [
         {
           "type": "script",
@@ -312,84 +312,7 @@
       ]
     },
     {
-      "id": "match_1770092616272_4",
-      "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/",
-      "title": "ألباسيتي vs برشلونة",
-      "team1": {
-        "name": "ألباسيتي",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff310be0de.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "برشلونة",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff310c449b.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "11:00 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "MBC مصر 2",
-        "عصام عبده"
-      ],
-      "tournament": "كأس ملك إسبانيا",
-      "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-03T04:23:36.272Z",
-      "watchServers": [
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_1"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/#website",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_2"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/#breadcrumb",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_3"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_4"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/matches/",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_5"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_6"
-        },
-        {
-          "type": "script",
-          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
-          "quality": "غير معروف",
-          "server": "Dynamic Stream",
-          "id": "script_7"
-        }
-      ]
-    },
-    {
-      "id": "match_1770092616273_5",
+      "id": "match_1770096805844_4",
       "url": "https://www.yalla-shootu.live/matches/arsenal-vs-chelsea/",
       "title": "أرسنال vs تشيلسي",
       "team1": {
@@ -411,8 +334,8 @@
       ],
       "tournament": "كأس الرابطة الإنجليزية",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-03T04:23:36.273Z",
+      "position": 5,
+      "scrapedAt": "2026-02-03T05:33:25.844Z",
       "watchServers": [
         {
           "type": "script",
@@ -466,7 +389,84 @@
       ]
     },
     {
-      "id": "match_1770092616274_6",
+      "id": "match_1770096805845_5",
+      "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/",
+      "title": "ألباسيتي vs برشلونة",
+      "team1": {
+        "name": "ألباسيتي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff310be0de.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "برشلونة",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff310c449b.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "11:00 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "MBC مصر 2",
+        "عصام عبده"
+      ],
+      "tournament": "كأس ملك إسبانيا",
+      "page": 1,
+      "position": 6,
+      "scrapedAt": "2026-02-03T05:33:25.845Z",
+      "watchServers": [
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_1"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/#website",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_2"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/#breadcrumb",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_3"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_4"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/matches/",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_5"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/?s={search_term_string}",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_6"
+        },
+        {
+          "type": "script",
+          "url": "https://www.yalla-shootu.live/wp-admin/admin-ajax.php",
+          "quality": "غير معروف",
+          "server": "Dynamic Stream",
+          "id": "script_7"
+        }
+      ]
+    },
+    {
+      "id": "match_1770096805846_6",
       "url": "https://www.yalla-shootu.live/matches/marseille-vs-rennais/",
       "title": "مارسيليا vs رين",
       "team1": {
@@ -489,7 +489,7 @@
       "tournament": "كأس فرنسا",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-03T04:23:36.274Z",
+      "scrapedAt": "2026-02-03T05:33:25.846Z",
       "watchServers": [
         {
           "type": "script",
