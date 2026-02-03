@@ -1,91 +1,10 @@
 {
-  "scrapedAt": "2026-02-03T21:56:59.700Z",
+  "scrapedAt": "2026-02-03T22:32:03.446Z",
   "source": "https://www.yalla-shootu.live/",
-  "totalMatches": 6,
+  "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1770155814688_0",
-      "url": "https://1live.sia-me.com/premium-1/",
-      "title": "بولونيا vs ميلان",
-      "team1": {
-        "name": "بولونيا",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30c8ac88.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "ميلان",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30c9286e.png",
-        "score": "3"
-      },
-      "score": "0 - 3",
-      "time": "10:45 PM",
-      "status": "جارية الان",
-      "channels": [
-        "StarzPlay",
-        "عبدالله السعدي"
-      ],
-      "tournament": "الدوري الإيطالي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-03T21:56:54.688Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770155814690_2",
-      "url": "https://1live.sia-me.com/bein-1/",
-      "title": "أرسنال vs تشيلسي",
-      "team1": {
-        "name": "أرسنال",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31289bc4.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "تشيلسي",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff3128fcf5.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "11:00 PM",
-      "status": "جارية الان",
-      "channels": [
-        "بي إن سبورت 1",
-        "عامر الخوذيري"
-      ],
-      "tournament": "كأس الرابطة الإنجليزية",
-      "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-03T21:56:54.690Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770155814691_3",
-      "url": "https://1live.sia-me.com/bein-2/",
-      "title": "مارسيليا vs رين",
-      "team1": {
-        "name": "مارسيليا",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31621720.png",
-        "score": "2"
-      },
-      "team2": {
-        "name": "رين",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff316275f6.png",
-        "score": "0"
-      },
-      "score": "2 - 0",
-      "time": "11:10 PM",
-      "status": "جارية الان",
-      "channels": [
-        "بي إن سبورت 2",
-        "نوفل باشي"
-      ],
-      "tournament": "كأس فرنسا",
-      "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-03T21:56:54.691Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770155814692_4",
+      "id": "match_1770157917431_0",
       "url": "https://www.yalla-shootu.live/matches/al-ettifaq-vs-al-taawoun/",
       "title": "الاتفاق vs التعاون",
       "team1": {
@@ -107,13 +26,13 @@
       ],
       "tournament": "دوري روشن السعودي",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-03T21:56:54.692Z",
+      "position": 1,
+      "scrapedAt": "2026-02-03T22:31:57.431Z",
       "watchServers": null
     },
     {
-      "id": "match_1770155814693_5",
-      "url": "https://1live.sia-me.com/on-time/",
+      "id": "match_1770157917433_1",
+      "url": "https://www.yalla-shootu.live/matches/bank-el-ahly-vs-al-ahly-sc/",
       "title": "البنك الأهلي vs الأهلي",
       "team1": {
         "name": "البنك الأهلي",
@@ -134,13 +53,40 @@
       ],
       "tournament": "دوري Nile",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-03T21:56:54.693Z",
+      "position": 2,
+      "scrapedAt": "2026-02-03T22:31:57.433Z",
       "watchServers": null
     },
     {
-      "id": "match_1770155814694_6",
-      "url": "https://1live.sia-me.com/premium-2/",
+      "id": "match_1770157917434_2",
+      "url": "https://www.yalla-shootu.live/matches/bologna-vs-ac-milan/",
+      "title": "بولونيا vs ميلان",
+      "team1": {
+        "name": "بولونيا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30c8ac88.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "ميلان",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30c9286e.png",
+        "score": "3"
+      },
+      "score": "0 - 3",
+      "time": "10:45 PM",
+      "status": "انتهت",
+      "channels": [
+        "StarzPlay",
+        "عبدالله السعدي"
+      ],
+      "tournament": "الدوري الإيطالي",
+      "page": 1,
+      "position": 3,
+      "scrapedAt": "2026-02-03T22:31:57.434Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770157917436_3",
+      "url": "https://www.yalla-shootu.live/matches/leverkusen-vs-st-pauli/",
       "title": "باير ليفركوزن vs سانت باولي",
       "team1": {
         "name": "باير ليفركوزن",
@@ -161,8 +107,89 @@
       ],
       "tournament": "كأس ألمانيا",
       "page": 1,
+      "position": 4,
+      "scrapedAt": "2026-02-03T22:31:57.436Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770157917437_4",
+      "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/",
+      "title": "ألباسيتي vs برشلونة",
+      "team1": {
+        "name": "ألباسيتي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff310be0de.png",
+        "score": "1"
+      },
+      "team2": {
+        "name": "برشلونة",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff310c449b.png",
+        "score": "2"
+      },
+      "score": "1 - 2",
+      "time": "11:00 PM",
+      "status": "انتهت",
+      "channels": [
+        "MBC مصر 2",
+        "مدحت شلبي"
+      ],
+      "tournament": "كأس ملك إسبانيا",
+      "page": 1,
+      "position": 5,
+      "scrapedAt": "2026-02-03T22:31:57.437Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770157917438_5",
+      "url": "https://www.yalla-shootu.live/matches/arsenal-vs-chelsea/",
+      "title": "أرسنال vs تشيلسي",
+      "team1": {
+        "name": "أرسنال",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31289bc4.png",
+        "score": "1"
+      },
+      "team2": {
+        "name": "تشيلسي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff3128fcf5.png",
+        "score": "0"
+      },
+      "score": "1 - 0",
+      "time": "11:00 PM",
+      "status": "انتهت",
+      "channels": [
+        "بي إن سبورت 1",
+        "عامر الخوذيري"
+      ],
+      "tournament": "كأس الرابطة الإنجليزية",
+      "page": 1,
+      "position": 6,
+      "scrapedAt": "2026-02-03T22:31:57.438Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770157917439_6",
+      "url": "https://www.yalla-shootu.live/matches/marseille-vs-rennais/",
+      "title": "مارسيليا vs رين",
+      "team1": {
+        "name": "مارسيليا",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31621720.png",
+        "score": "3"
+      },
+      "team2": {
+        "name": "رين",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff316275f6.png",
+        "score": "0"
+      },
+      "score": "3 - 0",
+      "time": "11:10 PM",
+      "status": "انتهت",
+      "channels": [
+        "بي إن سبورت 2",
+        "نوفل باشي"
+      ],
+      "tournament": "كأس فرنسا",
+      "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-03T21:56:54.694Z",
+      "scrapedAt": "2026-02-03T22:31:57.439Z",
       "watchServers": null
     }
   ]
