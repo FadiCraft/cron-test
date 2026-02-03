@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # تشغيل يدوي
   schedule:
     # تشغيل كل ساعة
-    - cron: "0 * * * *"  # كل ساعة عند الدقيقة 0
+    - cron: "100 * * * *"  # كل ساعة عند الدقيقة 100
 
 jobs:
   extract-ramadan:
