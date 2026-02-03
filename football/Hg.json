@@ -1,37 +1,10 @@
 {
-  "scrapedAt": "2026-02-03T19:27:59.589Z",
+  "scrapedAt": "2026-02-03T20:00:02.601Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1770146871788_0",
-      "url": "https://www.yalla-shootu.live/matches/al-ettifaq-vs-al-taawoun/",
-      "title": "الاتفاق vs التعاون",
-      "team1": {
-        "name": "الاتفاق",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30d96f88.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "التعاون",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30da28ad.png",
-        "score": "0"
-      },
-      "score": "1 - 0",
-      "time": "08:30 PM",
-      "status": "جارية الان",
-      "channels": [
-        "ثمانية 3",
-        "راشد الدوسري"
-      ],
-      "tournament": "دوري روشن السعودي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-03T19:27:51.788Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770146871789_1",
+      "id": "match_1770148796588_0",
       "url": "https://1live.sia-me.com/on-time/",
       "title": "البنك الأهلي vs الأهلي",
       "team1": {
@@ -53,12 +26,12 @@
       ],
       "tournament": "دوري Nile",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-03T19:27:51.789Z",
+      "position": 1,
+      "scrapedAt": "2026-02-03T19:59:56.588Z",
       "watchServers": null
     },
     {
-      "id": "match_1770146871791_2",
+      "id": "match_1770148796589_1",
       "url": "https://1live.sia-me.com/premium-1/",
       "title": "بولونيا vs ميلان",
       "team1": {
@@ -73,27 +46,19 @@
       },
       "score": "0 - 0",
       "time": "10:45 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "StarzPlay",
         "عبدالله السعدي"
       ],
       "tournament": "الدوري الإيطالي",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-03T19:27:51.791Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://1live.sia-me.com/albaplayer/pemium-1/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "alternative_iframe"
-        }
-      ]
+      "position": 2,
+      "scrapedAt": "2026-02-03T19:59:56.589Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770146871792_3",
+      "id": "match_1770148796590_2",
       "url": "https://1live.sia-me.com/premium-2/",
       "title": "باير ليفركوزن vs سانت باولي",
       "team1": {
@@ -108,27 +73,19 @@
       },
       "score": "0 - 0",
       "time": "10:45 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "أبو ظبي الرياضية 2",
         "حازم عبدالسلام"
       ],
       "tournament": "كأس ألمانيا",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-03T19:27:51.792Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://1live.sia-me.com/albaplayer/pemium-2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "alternative_iframe"
-        }
-      ]
+      "position": 3,
+      "scrapedAt": "2026-02-03T19:59:56.590Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770146871792_4",
+      "id": "match_1770148796592_3",
       "url": "https://1live.sia-me.com/ssc-2/",
       "title": "ألباسيتي vs برشلونة",
       "team1": {
@@ -143,27 +100,19 @@
       },
       "score": "0 - 0",
       "time": "11:00 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "MBC مصر 2",
         "مدحت شلبي"
       ],
       "tournament": "كأس ملك إسبانيا",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-03T19:27:51.792Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://1live.sia-me.com/albaplayer/ssc-2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "alternative_iframe"
-        }
-      ]
+      "position": 4,
+      "scrapedAt": "2026-02-03T19:59:56.592Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770146871793_5",
+      "id": "match_1770148796593_4",
       "url": "https://1live.sia-me.com/bein-1/",
       "title": "أرسنال vs تشيلسي",
       "team1": {
@@ -178,27 +127,19 @@
       },
       "score": "0 - 0",
       "time": "11:00 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "بي إن سبورت 1",
         "عامر الخوذيري"
       ],
       "tournament": "كأس الرابطة الإنجليزية",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-03T19:27:51.793Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://1live.sia-me.com/albaplayer/bein-1/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "alternative_iframe"
-        }
-      ]
+      "position": 5,
+      "scrapedAt": "2026-02-03T19:59:56.593Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770146871794_6",
+      "id": "match_1770148796594_5",
       "url": "https://1live.sia-me.com/bein-2/",
       "title": "مارسيليا vs رين",
       "team1": {
@@ -213,24 +154,43 @@
       },
       "score": "0 - 0",
       "time": "11:10 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "بي إن سبورت 2",
         "نوفل باشي"
       ],
       "tournament": "كأس فرنسا",
       "page": 1,
+      "position": 6,
+      "scrapedAt": "2026-02-03T19:59:56.594Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770148796595_6",
+      "url": "https://www.yalla-shootu.live/matches/al-ettifaq-vs-al-taawoun/",
+      "title": "الاتفاق vs التعاون",
+      "team1": {
+        "name": "الاتفاق",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30d96f88.png",
+        "score": "1"
+      },
+      "team2": {
+        "name": "التعاون",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30da28ad.png",
+        "score": "0"
+      },
+      "score": "1 - 0",
+      "time": "08:30 PM",
+      "status": "انتهت",
+      "channels": [
+        "ثمانية 3",
+        "راشد الدوسري"
+      ],
+      "tournament": "دوري روشن السعودي",
+      "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-03T19:27:51.794Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://1live.sia-me.com/albaplayer/bein-2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "alternative_iframe"
-        }
-      ]
+      "scrapedAt": "2026-02-03T19:59:56.595Z",
+      "watchServers": null
     }
   ]
 }
