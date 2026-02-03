@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-03T04:34:40.411Z",
-  "executionTime": 921111,
+  "timestamp": "2026-02-03T12:48:23.561Z",
+  "executionTime": 939197,
   "stats": {
     "seriesExtracted": 30,
     "seasonsExtracted": 85,
@@ -10,16 +10,16 @@
   "progress": {
     "seriesPage": 1,
     "seriesFile": "Page1.json",
-    "seriesInFile": 150,
+    "seriesInFile": 180,
     "seasonFile": "Page1.json",
-    "seasonsInFile": 275,
+    "seasonsInFile": 360,
     "episodeFile": "Page1.json",
-    "episodesInFile": 2893,
+    "episodesInFile": 3561,
     "allPagesScraped": false
   },
   "nextRun": {
     "startPage": 1,
     "seriesFile": "Page1.json",
-    "seriesInFile": 150
+    "seriesInFile": 180
   }
 }
