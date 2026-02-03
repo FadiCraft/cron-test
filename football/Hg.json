@@ -1,10 +1,10 @@
 {
-  "scrapedAt": "2026-02-03T21:21:09.997Z",
+  "scrapedAt": "2026-02-03T21:56:59.700Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 6,
   "matches": [
     {
-      "id": "match_1770153664985_0",
+      "id": "match_1770155814688_0",
       "url": "https://1live.sia-me.com/premium-1/",
       "title": "بولونيا vs ميلان",
       "team1": {
@@ -27,38 +27,11 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-02-03T21:21:04.985Z",
+      "scrapedAt": "2026-02-03T21:56:54.688Z",
       "watchServers": null
     },
     {
-      "id": "match_1770153664986_1",
-      "url": "https://1live.sia-me.com/premium-2/",
-      "title": "باير ليفركوزن vs سانت باولي",
-      "team1": {
-        "name": "باير ليفركوزن",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31112757.png",
-        "score": "2"
-      },
-      "team2": {
-        "name": "سانت باولي",
-        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31119433.png",
-        "score": "0"
-      },
-      "score": "2 - 0",
-      "time": "10:45 PM",
-      "status": "جارية الان",
-      "channels": [
-        "أبو ظبي الرياضية 2",
-        "حازم عبدالسلام"
-      ],
-      "tournament": "كأس ألمانيا",
-      "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-03T21:21:04.986Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770153664988_3",
+      "id": "match_1770155814690_2",
       "url": "https://1live.sia-me.com/bein-1/",
       "title": "أرسنال vs تشيلسي",
       "team1": {
@@ -80,25 +53,25 @@
       ],
       "tournament": "كأس الرابطة الإنجليزية",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-03T21:21:04.988Z",
+      "position": 3,
+      "scrapedAt": "2026-02-03T21:56:54.690Z",
       "watchServers": null
     },
     {
-      "id": "match_1770153664989_4",
+      "id": "match_1770155814691_3",
       "url": "https://1live.sia-me.com/bein-2/",
       "title": "مارسيليا vs رين",
       "team1": {
         "name": "مارسيليا",
         "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31621720.png",
-        "score": "1"
+        "score": "2"
       },
       "team2": {
         "name": "رين",
         "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff316275f6.png",
         "score": "0"
       },
-      "score": "1 - 0",
+      "score": "2 - 0",
       "time": "11:10 PM",
       "status": "جارية الان",
       "channels": [
@@ -107,12 +80,12 @@
       ],
       "tournament": "كأس فرنسا",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-03T21:21:04.989Z",
+      "position": 4,
+      "scrapedAt": "2026-02-03T21:56:54.691Z",
       "watchServers": null
     },
     {
-      "id": "match_1770153664990_5",
+      "id": "match_1770155814692_4",
       "url": "https://www.yalla-shootu.live/matches/al-ettifaq-vs-al-taawoun/",
       "title": "الاتفاق vs التعاون",
       "team1": {
@@ -134,12 +107,12 @@
       ],
       "tournament": "دوري روشن السعودي",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-03T21:21:04.990Z",
+      "position": 5,
+      "scrapedAt": "2026-02-03T21:56:54.692Z",
       "watchServers": null
     },
     {
-      "id": "match_1770153664991_6",
+      "id": "match_1770155814693_5",
       "url": "https://1live.sia-me.com/on-time/",
       "title": "البنك الأهلي vs الأهلي",
       "team1": {
@@ -161,8 +134,35 @@
       ],
       "tournament": "دوري Nile",
       "page": 1,
+      "position": 6,
+      "scrapedAt": "2026-02-03T21:56:54.693Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770155814694_6",
+      "url": "https://1live.sia-me.com/premium-2/",
+      "title": "باير ليفركوزن vs سانت باولي",
+      "team1": {
+        "name": "باير ليفركوزن",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31112757.png",
+        "score": "3"
+      },
+      "team2": {
+        "name": "سانت باولي",
+        "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31119433.png",
+        "score": "0"
+      },
+      "score": "3 - 0",
+      "time": "10:45 PM",
+      "status": "انتهت",
+      "channels": [
+        "أبو ظبي الرياضية 2",
+        "حازم عبدالسلام"
+      ],
+      "tournament": "كأس ألمانيا",
+      "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-03T21:21:04.991Z",
+      "scrapedAt": "2026-02-03T21:56:54.694Z",
       "watchServers": null
     }
   ]
