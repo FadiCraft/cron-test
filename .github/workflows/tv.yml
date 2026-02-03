@@ -2,9 +2,8 @@ name: Extract MBC Channels
 
 on:
   schedule:
-    # يشغل يومياً في 2 صباحاً (توقيت UTC)
     - cron: '0 2 * * *'
-  workflow_dispatch:  # يسمح بالتشغيل اليدوي
+  workflow_dispatch:
   push:
     branches: [ main ]
 
@@ -26,12 +25,26 @@ jobs:
       run: npm ci
       
     - name: 🚀 Extract channels
-      run: npm start
+      run: node tv.js  # ⬅️ غير من npm start إلى node tv.js مباشرة
       
+    - name: 🔍 Debug - Check if files created
+      run: |
+        echo "=== Checking files ==="
+        ls -la
+        echo "=== Checking TV directory ==="
+        ls -la TV/ || echo "TV directory not found!"
+        
     - name: 📊 Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add TV/tv.json TV/index.html
-        git diff --quiet && git diff --staged --quiet || git commit -m "📺 Auto-update MBC channels [skip ci]"
-        git push
+        # تأكد أولاً أن الملفات موجودة
+        if [ -f "TV/tv.json" ]; then
+          echo "✅ tv.json exists, proceeding with commit..."
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add TV/
+          git diff --quiet && git diff --staged --quiet || git commit -m "📺 Auto-update MBC channels [skip ci]"
+          git push
+        else
+          echo "❌ tv.json not found! Skipping commit."
+          exit 1
+        fi
