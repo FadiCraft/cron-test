@@ -1,23 +1,23 @@
 {
-  "scrapedAt": "2026-02-03T18:29:47.878Z",
+  "scrapedAt": "2026-02-03T19:27:59.589Z",
   "source": "https://www.yalla-shootu.live/",
   "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1770143379995_0",
+      "id": "match_1770146871788_0",
       "url": "https://www.yalla-shootu.live/matches/al-ettifaq-vs-al-taawoun/",
       "title": "الاتفاق vs التعاون",
       "team1": {
         "name": "الاتفاق",
         "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30d96f88.png",
-        "score": "0"
+        "score": "1"
       },
       "team2": {
         "name": "التعاون",
         "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff30da28ad.png",
         "score": "0"
       },
-      "score": "0 - 0",
+      "score": "1 - 0",
       "time": "08:30 PM",
       "status": "جارية الان",
       "channels": [
@@ -27,26 +27,26 @@
       "tournament": "دوري روشن السعودي",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-02-03T18:29:39.995Z",
+      "scrapedAt": "2026-02-03T19:27:51.788Z",
       "watchServers": null
     },
     {
-      "id": "match_1770143379997_1",
+      "id": "match_1770146871789_1",
       "url": "https://1live.sia-me.com/on-time/",
       "title": "البنك الأهلي vs الأهلي",
       "team1": {
         "name": "البنك الأهلي",
         "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31b00031.png",
-        "score": "0"
+        "score": "1"
       },
       "team2": {
         "name": "الأهلي",
         "logo": "https://www.yalla-shootu.live/wp-content/uploads/2026/02/alba_img_697ff31b0639b.png",
         "score": "0"
       },
-      "score": "0 - 0",
+      "score": "1 - 0",
       "time": "09:00 PM",
-      "status": "بعد قليل",
+      "status": "جارية الان",
       "channels": [
         "ON Sport 1",
         "بلال علام"
@@ -54,12 +54,12 @@
       "tournament": "دوري Nile",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-02-03T18:29:39.997Z",
+      "scrapedAt": "2026-02-03T19:27:51.789Z",
       "watchServers": null
     },
     {
-      "id": "match_1770143379998_2",
-      "url": "https://www.yalla-shootu.live/matches/bologna-vs-ac-milan/",
+      "id": "match_1770146871791_2",
+      "url": "https://1live.sia-me.com/premium-1/",
       "title": "بولونيا vs ميلان",
       "team1": {
         "name": "بولونيا",
@@ -81,12 +81,20 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-02-03T18:29:39.998Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-03T19:27:51.791Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://1live.sia-me.com/albaplayer/pemium-1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "alternative_iframe"
+        }
+      ]
     },
     {
-      "id": "match_1770143379999_3",
-      "url": "https://www.yalla-shootu.live/matches/leverkusen-vs-st-pauli/",
+      "id": "match_1770146871792_3",
+      "url": "https://1live.sia-me.com/premium-2/",
       "title": "باير ليفركوزن vs سانت باولي",
       "team1": {
         "name": "باير ليفركوزن",
@@ -108,12 +116,20 @@
       "tournament": "كأس ألمانيا",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-02-03T18:29:39.999Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-03T19:27:51.792Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://1live.sia-me.com/albaplayer/pemium-2/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "alternative_iframe"
+        }
+      ]
     },
     {
-      "id": "match_1770143380000_4",
-      "url": "https://www.yalla-shootu.live/matches/albacete-vs-barcelona/",
+      "id": "match_1770146871792_4",
+      "url": "https://1live.sia-me.com/ssc-2/",
       "title": "ألباسيتي vs برشلونة",
       "team1": {
         "name": "ألباسيتي",
@@ -135,12 +151,20 @@
       "tournament": "كأس ملك إسبانيا",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-02-03T18:29:40.000Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-03T19:27:51.792Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://1live.sia-me.com/albaplayer/ssc-2/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "alternative_iframe"
+        }
+      ]
     },
     {
-      "id": "match_1770143380001_5",
-      "url": "https://www.yalla-shootu.live/matches/arsenal-vs-chelsea/",
+      "id": "match_1770146871793_5",
+      "url": "https://1live.sia-me.com/bein-1/",
       "title": "أرسنال vs تشيلسي",
       "team1": {
         "name": "أرسنال",
@@ -162,12 +186,20 @@
       "tournament": "كأس الرابطة الإنجليزية",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-02-03T18:29:40.001Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-03T19:27:51.793Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://1live.sia-me.com/albaplayer/bein-1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "alternative_iframe"
+        }
+      ]
     },
     {
-      "id": "match_1770143380002_6",
-      "url": "https://www.yalla-shootu.live/matches/marseille-vs-rennais/",
+      "id": "match_1770146871794_6",
+      "url": "https://1live.sia-me.com/bein-2/",
       "title": "مارسيليا vs رين",
       "team1": {
         "name": "مارسيليا",
@@ -189,8 +221,16 @@
       "tournament": "كأس فرنسا",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-03T18:29:40.002Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-03T19:27:51.794Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://1live.sia-me.com/albaplayer/bein-2/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "alternative_iframe"
+        }
+      ]
     }
   ]
 }
