@@ -12,12 +12,13 @@ const AG_SERIES_DIR = path.join(SERIES_DIR, "AgSeries");
 const TV_SERIES_DIR = path.join(AG_SERIES_DIR, "TV_Series");
 const SEASONS_DIR = path.join(AG_SERIES_DIR, "Seasons");
 const EPISODES_DIR = path.join(AG_SERIES_DIR, "Episodes");
+const LATEST_EPISODES_DIR = path.join(AG_SERIES_DIR, "Latest_Episodes");
 const PROGRESS_FILE = path.join(__dirname, "series_progress.json");
 
 // إنشاء المجلدات إذا لم تكن موجودة
 const createDirectories = () => {
     console.log("📁 جاري إنشاء المجلدات...");
-    [SERIES_DIR, AG_SERIES_DIR, TV_SERIES_DIR, SEASONS_DIR, EPISODES_DIR].forEach(dir => {
+    [SERIES_DIR, AG_SERIES_DIR, TV_SERIES_DIR, SEASONS_DIR, EPISODES_DIR, LATEST_EPISODES_DIR].forEach(dir => {
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
             console.log(`   ✅ تم إنشاء: ${dir}`);
@@ -30,12 +31,13 @@ createDirectories();
 
 // ==================== إعدادات النظام ====================
 const ITEMS_PER_FILE = {
-    series: 500,    // 500 مسلسل في كل ملف
-    seasons: 500,   // 500 موسم في كل ملف
-    episodes: 5000  // 5000 حلقة في كل ملف
+    series: 500,
+    seasons: 500,
+    episodes: 5000,
+    latestEpisodes: 100
 };
 
-const PAGES_PER_RUN = 1; // 1 صفحة في كل تشغيل
+const PAGES_PER_RUN = 3; // 3 صفحات في كل تشغيل بدلاً من 1
 
 // ==================== نظام التقدم ====================
 class ProgressTracker {
@@ -57,9 +59,13 @@ class ProgressTracker {
                 this.episodeFileNumber = data.episodeFileNumber || 1;
                 this.episodesInCurrentFile = data.episodesInCurrentFile || 0;
                 
+                this.latestEpisodesFileNumber = data.latestEpisodesFileNumber || 1;
+                this.latestEpisodesInCurrentFile = data.latestEpisodesInCurrentFile || 0;
+                
                 this.pagesProcessedThisRun = data.pagesProcessedThisRun || 0;
                 this.shouldStop = data.shouldStop || false;
                 this.allPagesScraped = data.allPagesScraped || false;
+                this.mode = data.mode || "scrape_series"; // 'scrape_series' أو 'monitor_episodes'
                 
                 this.currentSeriesId = data.currentSeriesId || null;
                 this.currentSeasonId = data.currentSeasonId || null;
@@ -67,6 +73,9 @@ class ProgressTracker {
                 this.currentSeriesFile = data.currentSeriesFile || "Page1.json";
                 this.currentSeasonFile = data.currentSeasonFile || "Page1.json";
                 this.currentEpisodeFile = data.currentEpisodeFile || "Page1.json";
+                this.currentLatestEpisodesFile = data.currentLatestEpisodesFile || "Page1.json";
+                
+                this.lastMonitoringDate = data.lastMonitoringDate || null;
             } else {
                 this.resetProgress();
             }
@@ -87,9 +96,13 @@ class ProgressTracker {
         this.episodeFileNumber = 1;
         this.episodesInCurrentFile = 0;
         
+        this.latestEpisodesFileNumber = 1;
+        this.latestEpisodesInCurrentFile = 0;
+        
         this.pagesProcessedThisRun = 0;
         this.shouldStop = false;
         this.allPagesScraped = false;
+        this.mode = "scrape_series";
         
         this.currentSeriesId = null;
         this.currentSeasonId = null;
@@ -97,6 +110,9 @@ class ProgressTracker {
         this.currentSeriesFile = "Page1.json";
         this.currentSeasonFile = "Page1.json";
         this.currentEpisodeFile = "Page1.json";
+        this.currentLatestEpisodesFile = "Page1.json";
+        
+        this.lastMonitoringDate = null;
         
         this.saveProgress();
     }
@@ -113,9 +129,13 @@ class ProgressTracker {
             episodeFileNumber: this.episodeFileNumber,
             episodesInCurrentFile: this.episodesInCurrentFile,
             
+            latestEpisodesFileNumber: this.latestEpisodesFileNumber,
+            latestEpisodesInCurrentFile: this.latestEpisodesInCurrentFile,
+            
             pagesProcessedThisRun: this.pagesProcessedThisRun,
             shouldStop: this.shouldStop,
             allPagesScraped: this.allPagesScraped,
+            mode: this.mode,
             
             currentSeriesId: this.currentSeriesId,
             currentSeasonId: this.currentSeasonId,
@@ -123,7 +143,9 @@ class ProgressTracker {
             currentSeriesFile: this.currentSeriesFile,
             currentSeasonFile: this.currentSeasonFile,
             currentEpisodeFile: this.currentEpisodeFile,
+            currentLatestEpisodesFile: this.currentLatestEpisodesFile,
             
+            lastMonitoringDate: this.lastMonitoringDate,
             lastUpdate: new Date().toISOString()
         };
         
@@ -163,6 +185,17 @@ class ProgressTracker {
         this.saveProgress();
     }
     
+    addLatestEpisodeToFile() {
+        this.latestEpisodesInCurrentFile++;
+        if (this.latestEpisodesInCurrentFile >= ITEMS_PER_FILE.latestEpisodes) {
+            this.latestEpisodesFileNumber++;
+            this.latestEpisodesInCurrentFile = 0;
+            this.currentLatestEpisodesFile = `Page${this.latestEpisodesFileNumber}.json`;
+            console.log(`\n📁 إنشاء ملف حلقات جديدة جديد: ${this.currentLatestEpisodesFile}`);
+        }
+        this.saveProgress();
+    }
+    
     addPageProcessed() {
         this.pagesProcessedThisRun++;
         
@@ -179,6 +212,13 @@ class ProgressTracker {
     
     markAllPagesScraped() {
         this.allPagesScraped = true;
+        this.mode = "monitor_episodes";
+        this.shouldStop = true;
+        this.saveProgress();
+    }
+    
+    switchToMonitoringMode() {
+        this.mode = "monitor_episodes";
         this.shouldStop = true;
         this.saveProgress();
     }
@@ -234,6 +274,306 @@ function extractIdFromShortLink(shortLink) {
         }
     } catch {
         return `temp_${Date.now()}`;
+    }
+}
+
+function extractIdFromUrl(url) {
+    try {
+        // استخراج ID من الرابط
+        const urlParts = url.split('/');
+        // أخذ الجزء قبل أي علامة استفهام
+        let id = urlParts[urlParts.length - 1] || urlParts[urlParts.length - 2];
+        if (id.includes('?')) id = id.split('?')[0];
+        if (id.includes('#')) id = id.split('#')[0];
+        return id || `id_${Date.now()}`;
+    } catch {
+        return `id_${Date.now()}`;
+    }
+}
+
+// ==================== استخراج آخر الحلقات من الصفحة الرئيسية ====================
+async function fetchLatestEpisodes() {
+    console.log("\n📺 ===== جلب آخر الحلقات من الصفحة الرئيسية =====");
+    
+    const url = "https://topcinema.rip/";
+    console.log(`🔗 الرابط: ${url}`);
+    
+    const html = await fetchPage(url);
+    if (!html) {
+        console.log("❌ فشل جلب الصفحة الرئيسية");
+        return [];
+    }
+    
+    try {
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        const episodes = [];
+        
+        console.log("🔍 البحث عن قسم 'آخر الحلقات المضافة'...");
+        
+        // البحث عن القسم
+        const latestSection = doc.querySelector('.Wide--Contents');
+        if (!latestSection) {
+            console.log("❌ لم يتم العثور على قسم آخر الحلقات المضافة");
+            return [];
+        }
+        
+        // استخراج الحلقات
+        const episodeBoxes = latestSection.querySelectorAll('.Small--Box');
+        console.log(`✅ وجدت ${episodeBoxes.length} حلقة في القسم`);
+        
+        for (let i = 0; i < Math.min(episodeBoxes.length, 10); i++) {
+            const box = episodeBoxes[i];
+            const link = box.querySelector('a');
+            
+            if (link && link.href) {
+                const title = link.getAttribute('title') || 
+                             box.querySelector('.title')?.textContent ||
+                             box.querySelector('h3')?.textContent ||
+                             "بدون عنوان";
+                
+                episodes.push({
+                    url: link.href,
+                    title: cleanText(title),
+                    seriesName: cleanText(box.querySelector('.title')?.textContent || ''),
+                    position: i + 1
+                });
+                
+                console.log(`   [${i + 1}] ${title.substring(0, 40)}...`);
+            }
+        }
+        
+        console.log(`✅ تم استخراج ${episodes.length} حلقة جديدة`);
+        return episodes;
+        
+    } catch (error) {
+        console.error(`❌ خطأ في استخراج الحلقات:`, error.message);
+        return [];
+    }
+}
+
+// ==================== استخراج معلومات المسلسل من صفحة الحلقة ====================
+async function extractSeriesInfoFromEpisode(episodeUrl) {
+    console.log(`   🔍 استخراج معلومات المسلسل من الحلقة...`);
+    
+    try {
+        const html = await fetchPage(episodeUrl);
+        if (!html) {
+            console.log(`     ⚠️ فشل جلب صفحة الحلقة`);
+            return null;
+        }
+        
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        // البحث في breadcrumbs عن رابط المسلسل
+        const breadcrumbs = doc.querySelector('#mpbreadcrumbs');
+        if (!breadcrumbs) {
+            console.log(`     ⚠️ لم يتم العثور على breadcrumbs`);
+            return null;
+        }
+        
+        let seriesLink = null;
+        let seriesTitle = null;
+        
+        // البحث عن الرابط الذي يحتوي على معلومات المسلسل الأساسية
+        const breadcrumbLinks = breadcrumbs.querySelectorAll('a');
+        for (const link of breadcrumbLinks) {
+            const href = link.getAttribute('href');
+            const text = link.textContent;
+            
+            if (href && href.includes('/series/') && 
+                !href.includes('الموسم') && 
+                !text.includes('الموسم') &&
+                !text.includes('الحلقة')) {
+                seriesLink = href;
+                seriesTitle = text;
+                break;
+            }
+        }
+        
+        if (!seriesLink) {
+            // محاولة أخرى: البحث في جميع الروابط
+            for (const link of breadcrumbLinks) {
+                const href = link.getAttribute('href');
+                if (href && href.includes('/series/') && href.includes('مترجم')) {
+                    seriesLink = href;
+                    seriesTitle = link.textContent;
+                    break;
+                }
+            }
+        }
+        
+        if (seriesLink) {
+            const seriesId = extractIdFromUrl(seriesLink);
+            
+            return {
+                id: seriesId,
+                url: seriesLink,
+                title: cleanText(seriesTitle),
+                episodeUrl: episodeUrl,
+                scrapedAt: new Date().toISOString()
+            };
+        }
+        
+        console.log(`     ⚠️ لم يتم العثور على رابط المسلسل في breadcrumbs`);
+        return null;
+        
+    } catch (error) {
+        console.log(`     ❌ خطأ في استخراج معلومات المسلسل: ${error.message}`);
+        return null;
+    }
+}
+
+// ==================== فحص إذا كان المسلسل موجود في قاعدة البيانات ====================
+function isSeriesInDatabase(seriesId) {
+    try {
+        // البحث في جميع ملفات المسلسلات
+        const seriesFiles = fs.readdirSync(TV_SERIES_DIR)
+            .filter(file => file.startsWith('Page') && file.endsWith('.json'));
+        
+        for (const file of seriesFiles) {
+            const filePath = path.join(TV_SERIES_DIR, file);
+            const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            
+            if (content.data && Array.isArray(content.data)) {
+                const found = content.data.find(series => series.id === seriesId);
+                if (found) return true;
+            }
+        }
+        
+        return false;
+    } catch (error) {
+        console.log(`⚠️ خطأ في فحص قاعدة البيانات: ${error.message}`);
+        return false;
+    }
+}
+
+// ==================== دالة لاستخراج المسلسل كاملاً ====================
+async function extractFullSeries(seriesInfo) {
+    console.log(`\n🎬 استخراج المسلسل كاملاً: ${seriesInfo.title || seriesInfo.id}`);
+    
+    try {
+        // 1. استخراج صفحة المسلسل الرئيسية
+        const html = await fetchPage(seriesInfo.url);
+        if (!html) {
+            console.log(`   ❌ فشل جلب صفحة المسلسل`);
+            return null;
+        }
+        
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        // 2. استخراج الرابط المختصر (ID)
+        const shortLinkInput = doc.querySelector('#shortlink');
+        const shortLink = shortLinkInput ? shortLinkInput.value : seriesInfo.url;
+        const seriesId = seriesInfo.id || extractIdFromUrl(shortLink);
+        
+        // 3. البيانات الأساسية للمسلسل
+        const title = cleanText(doc.querySelector(".post-title a")?.textContent || seriesInfo.title);
+        const image = doc.querySelector(".image img")?.src;
+        const imdbRating = cleanText(doc.querySelector(".imdbR span")?.textContent);
+        const story = cleanText(doc.querySelector(".story p")?.textContent);
+        
+        // 4. تفاصيل المسلسل
+        const details = {};
+        const detailItems = doc.querySelectorAll(".RightTaxContent li");
+        
+        detailItems.forEach(item => {
+            const labelElement = item.querySelector("span");
+            if (labelElement) {
+                const label = cleanText(labelElement.textContent).replace(":", "").trim();
+                if (label) {
+                    const links = item.querySelectorAll("a");
+                    if (links.length > 0) {
+                        const values = Array.from(links).map(a => cleanText(a.textContent));
+                        details[label] = values;
+                    } else {
+                        const text = cleanText(item.textContent);
+                        const value = text.split(":").slice(1).join(":").trim();
+                        details[label] = value;
+                    }
+                }
+            }
+        });
+        
+        const seriesDetails = {
+            id: seriesId,
+            title: title,
+            url: seriesInfo.url,
+            shortLink: shortLink,
+            image: image,
+            imdbRating: imdbRating,
+            story: story || "غير متوفر",
+            details: details,
+            scrapedAt: new Date().toISOString(),
+            fromLatestEpisode: true
+        };
+        
+        console.log(`   ✅ تم استخراج بيانات المسلسل`);
+        
+        // 5. استخراج المواسم (ستستدعي الدوال الموجودة في كودك الأصلي)
+        console.log(`   📅 جاري استخراج المواسم...`);
+        const seasons = await extractSeasonsFromSeriesPage(seriesInfo.url);
+        
+        if (seasons.length > 0) {
+            console.log(`   ✅ وجدت ${seasons.length} موسم للمسلسل`);
+            
+            // معالجة كل موسم
+            for (let i = 0; i < seasons.length; i++) {
+                const seasonData = seasons[i];
+                
+                console.log(`   🎞️  معالجة الموسم ${i + 1}/${seasons.length}`);
+                
+                // استخراج بيانات الموسم (ستستدعي الدالة الموجودة في كودك الأصلي)
+                const seasonDetails = await fetchSeasonDetails(seasonData, seriesId);
+                
+                if (seasonDetails) {
+                    console.log(`     ✅ تم استخراج الموسم ${seasonDetails.seasonNumber}`);
+                    
+                    // 6. استخراج حلقات الموسم (ستستدعي الدالة الموجودة في كودك الأصلي)
+                    console.log(`     📺 جاري استخراج حلقات الموسم...`);
+                    const episodes = await extractEpisodesFromSeasonPage(seasonDetails.url);
+                    
+                    if (episodes.length > 0) {
+                        console.log(`     ✅ وجدت ${episodes.length} حلقة للموسم`);
+                        
+                        // استخراج كل حلقة (ستستدعي الدالة الموجودة في كودك الأصلي)
+                        for (let j = 0; j < episodes.length; j++) {
+                            const episodeData = episodes[j];
+                            
+                            console.log(`       🎥 استخراج الحلقة ${j + 1}/${episodes.length}`);
+                            
+                            const episodeDetails = await fetchEpisodeDetails(
+                                episodeData, 
+                                seriesId, 
+                                seasonDetails.id
+                            );
+                            
+                            if (episodeDetails) {
+                                console.log(`         ✅ تم استخراج الحلقة ${episodeDetails.episodeNumber}`);
+                            }
+                            
+                            // تأخير بين الحلقات
+                            if (j < episodes.length - 1) {
+                                await new Promise(resolve => setTimeout(resolve, 500));
+                            }
+                        }
+                    }
+                }
+                
+                // تأخير بين المواسم
+                if (i < seasons.length - 1) {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+            }
+        }
+        
+        return seriesDetails;
+        
+    } catch (error) {
+        console.log(`   ❌ خطأ في استخراج المسلسل كاملاً: ${error.message}`);
+        return null;
     }
 }
 
@@ -810,7 +1150,7 @@ function saveToFile(directory, fileName, data) {
     
     // معلومات الملف
     fileInfo = {
-        type: fileName.includes('Page') ? 'data' : 'info',
+        type: 'data',
         fileName: fileName,
         totalItems: allData.length,
         created: fileInfo.created || new Date().toISOString(),
@@ -866,6 +1206,18 @@ function saveEpisode(episodeDetails, progress) {
     return saved;
 }
 
+// ==================== حفظ الحلقة الجديدة ====================
+function saveLatestEpisode(episodeInfo, progress) {
+    const saved = saveToFile(LATEST_EPISODES_DIR, progress.currentLatestEpisodesFile, episodeInfo);
+    console.log(`   💾 تم حفظ الحلقة الجديدة في ${progress.currentLatestEpisodesFile}`);
+    console.log(`     📊 الإجمالي في الملف: ${saved.info.totalItems} حلقة جديدة`);
+    
+    progress.addLatestEpisodeToFile();
+    progress.saveProgress();
+    
+    return saved;
+}
+
 // ==================== حفظ ملف current_page.json ====================
 function saveCurrentPageFile(directory, pageNumber) {
     const currentPageFile = path.join(directory, "current_page.json");
@@ -877,7 +1229,87 @@ function saveCurrentPageFile(directory, pageNumber) {
     fs.writeFileSync(currentPageFile, JSON.stringify(currentPageData, null, 2));
 }
 
-// ==================== الدالة الرئيسية ====================
+// ==================== وضع مراقبة الحلقات الجديدة ====================
+async function monitorLatestEpisodes(progress) {
+    console.log("\n🔍 ===== بدء مراقبة الحلقات الجديدة =====");
+    
+    // استخراج آخر الحلقات من الصفحة الرئيسية
+    const latestEpisodes = await fetchLatestEpisodes();
+    
+    if (latestEpisodes.length === 0) {
+        console.log("📭 لا توجد حلقات جديدة اليوم");
+        return;
+    }
+    
+    let newEpisodesProcessed = 0;
+    let newSeriesExtracted = 0;
+    
+    // معالجة كل حلقة جديدة
+    for (let i = 0; i < latestEpisodes.length; i++) {
+        const episode = latestEpisodes[i];
+        
+        console.log(`\n📊 معالجة الحلقة ${i + 1}/${latestEpisodes.length}`);
+        console.log(`📺 ${episode.title.substring(0, 40)}...`);
+        
+        // 1. استخراج معلومات المسلسل من الحلقة
+        const seriesInfo = await extractSeriesInfoFromEpisode(episode.url);
+        
+        if (!seriesInfo) {
+            console.log(`   ⚠️ تخطي الحلقة: لم يتم العثور على معلومات المسلسل`);
+            continue;
+        }
+        
+        // 2. حفظ معلومات الحلقة الجديدة
+        const episodeInfo = {
+            url: episode.url,
+            title: episode.title,
+            seriesId: seriesInfo.id,
+            seriesTitle: seriesInfo.title,
+            scrapedAt: new Date().toISOString()
+        };
+        
+        saveLatestEpisode(episodeInfo, progress);
+        newEpisodesProcessed++;
+        
+        // 3. فحص إذا كان المسلسل موجود في قاعدة البيانات
+        const isSeriesExists = isSeriesInDatabase(seriesInfo.id);
+        
+        if (!isSeriesExists) {
+            console.log(`   🆕 مسلسل جديد! جاري استخراجه كاملاً...`);
+            
+            // استخراج المسلسل كاملاً
+            const seriesDetails = await extractFullSeries(seriesInfo);
+            
+            if (seriesDetails) {
+                // حفظ المسلسل الجديد
+                const saved = saveToFile(TV_SERIES_DIR, progress.currentSeriesFile, seriesDetails);
+                console.log(`   ✅ تم حفظ المسلسل الجديد في ${progress.currentSeriesFile}`);
+                progress.addSeriesToFile();
+                newSeriesExtracted++;
+            }
+        } else {
+            console.log(`   ✅ المسلسل موجود بالفعل في قاعدة البيانات`);
+            
+            // يمكن هنا إضافة فحص للمواسم والحلقات الجديدة وإضافتها فقط
+            console.log(`   ℹ️  سيتم فحص المواسم والحلقات الجديدة في تشغيل لاحق`);
+        }
+        
+        // تأخير بين الحلقات
+        if (i < latestEpisodes.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+    }
+    
+    console.log(`\n📊 نتائج المراقبة:`);
+    console.log(`   📺 حلقات جديدة تمت معالجتها: ${newEpisodesProcessed}`);
+    console.log(`   🎬 مسلسلات جديدة تم استخراجها: ${newSeriesExtracted}`);
+    
+    // تحديث تاريخ آخر مراقبة
+    progress.lastMonitoringDate = new Date().toISOString();
+    progress.saveProgress();
+}
+
+// ==================== الدالة الرئيسية المعدلة ====================
 async function main() {
     console.log("🎬 نظام استخراج المسلسلات - توب سينما");
     console.log("⏱️ الوقت: " + new Date().toLocaleString());
@@ -885,21 +1317,73 @@ async function main() {
     
     // تهيئة نظام التقدم
     const progress = new ProgressTracker();
-    progress.resetForNewRun();
     
+    // عرض حالة النظام
     console.log(`📊 حالة النظام:`);
-    console.log(`   📄 الصفحة الحالية: ${progress.seriesPage}`);
-    console.log(`   📁 ملف المسلسلات: ${progress.currentSeriesFile}`);
-    console.log(`   📁 ملف المواسم: ${progress.currentSeasonFile}`);
-    console.log(`   📁 ملف الحلقات: ${progress.currentEpisodeFile}`);
-    console.log(`   📊 الصفحات لهذا التشغيل: ${progress.pagesProcessedThisRun}/${PAGES_PER_RUN}`);
+    console.log(`   🎯 الوضع الحالي: ${progress.mode === 'scrape_series' ? 'استخراج المسلسلات' : 'مراقبة الحلقات الجديدة'}`);
     
+    if (progress.mode === 'scrape_series') {
+        console.log(`   📄 الصفحة الحالية: ${progress.seriesPage}`);
+        console.log(`   📁 ملف المسلسلات: ${progress.currentSeriesFile}`);
+        console.log(`   📊 المسلسلات في الملف: ${progress.seriesInCurrentFile}/${ITEMS_PER_FILE.series}`);
+        
+        // فحص إذا تم استخراج كل الصفحات
+        if (progress.allPagesScraped) {
+            console.log(`\n🏁 تم استخراج جميع صفحات المسلسلات!`);
+            console.log(`🔄 التبديل لوضع مراقبة الحلقات الجديدة...`);
+            progress.switchToMonitoringMode();
+        } else {
+            // وضع استخراج المسلسلات
+            progress.resetForNewRun();
+            await scrapeSeriesMode(progress);
+        }
+    }
+    
+    // وضع مراقبة الحلقات الجديدة
+    if (progress.mode === 'monitor_episodes') {
+        console.log(`   📅 آخر مراقبة: ${progress.lastMonitoringDate ? new Date(progress.lastMonitoringDate).toLocaleString() : 'لم تتم من قبل'}`);
+        console.log(`\n🔍 بدء مراقبة الحلقات الجديدة...`);
+        await monitorLatestEpisodes(progress);
+    }
+    
+    console.log("\n" + "=".repeat(60));
+    console.log("🎉 اكتمل التشغيل!");
+    console.log("=".repeat(60));
+    
+    // حفظ التقرير النهائي
+    const finalReport = {
+        timestamp: new Date().toISOString(),
+        mode: progress.mode,
+        stats: {
+            seriesPage: progress.seriesPage,
+            allPagesScraped: progress.allPagesScraped,
+            seriesInFile: progress.seriesInCurrentFile,
+            seasonsInFile: progress.seasonsInCurrentFile,
+            episodesInFile: progress.episodesInCurrentFile,
+            latestEpisodesInFile: progress.latestEpisodesInCurrentFile
+        },
+        nextRun: {
+            mode: progress.mode,
+            startPage: progress.mode === 'scrape_series' ? progress.seriesPage : 'monitoring',
+            seriesFile: progress.currentSeriesFile,
+            seriesInFile: progress.seriesInCurrentFile
+        }
+    };
+    
+    fs.writeFileSync("scraper_report.json", JSON.stringify(finalReport, null, 2));
+    
+    console.log(`📄 تم حفظ التقرير في: scraper_report.json`);
+    console.log("=".repeat(60));
+}
+
+// ==================== وضع استخراج المسلسلات ====================
+async function scrapeSeriesMode(progress) {
     const startTime = Date.now();
     let totalSeriesExtracted = 0;
     let totalSeasonsExtracted = 0;
     let totalEpisodesExtracted = 0;
     
-    // حلقة الصفحات (1 صفحة/تشغيل)
+    // حلقة الصفحات (3 صفحات/تشغيل)
     while (!progress.shouldStop) {
         const pageNum = progress.seriesPage;
         console.log(`\n📺 ====== معالجة صفحة المسلسلات ${pageNum} ======`);
@@ -1005,7 +1489,7 @@ async function main() {
         saveCurrentPageFile(TV_SERIES_DIR, pageNum);
         
         console.log(`\n✅ اكتملت صفحة المسلسلات ${pageNum}:`);
-        console.log(`   🎬 مسلسلات جديدة: ${pageData.series.length}`);
+        console.log(`   🎬 مسلسلات جديدة: ${totalSeriesExtracted}`);
         console.log(`   📊 إجمالي المسلسلات: ${totalSeriesExtracted}`);
         console.log(`   📊 إجمالي المواسم: ${totalSeasonsExtracted}`);
         console.log(`   📊 إجمالي الحلقات: ${totalEpisodesExtracted}`);
@@ -1022,90 +1506,12 @@ async function main() {
     // ==================== النتائج النهائية ====================
     const executionTime = Date.now() - startTime;
     
-    console.log("\n" + "=".repeat(60));
-    console.log("🎉 اكتمل الاستخراج لهذا التشغيل!");
-    console.log("=".repeat(60));
-    
-    console.log(`📊 إحصائيات هذا التشغيل:`);
+    console.log("\n📊 إحصائيات هذا التشغيل:");
     console.log(`   🎬 مسلسلات جديدة: ${totalSeriesExtracted}`);
     console.log(`   📅 مواسم جديدة: ${totalSeasonsExtracted}`);
     console.log(`   📺 حلقات جديدة: ${totalEpisodesExtracted}`);
     console.log(`   📄 صفحات معالجة: ${progress.pagesProcessedThisRun}`);
     console.log(`   ⏱️ وقت التنفيذ: ${(executionTime / 1000).toFixed(1)} ثانية`);
-    
-    // حالة النظام
-    console.log(`\n📁 حالة الملفات:`);
-    console.log(`   📄 ملف المسلسلات: ${progress.currentSeriesFile} (${progress.seriesInCurrentFile}/${ITEMS_PER_FILE.series})`);
-    console.log(`   📄 ملف المواسم: ${progress.currentSeasonFile} (${progress.seasonsInCurrentFile}/${ITEMS_PER_FILE.seasons})`);
-    console.log(`   📄 ملف الحلقات: ${progress.currentEpisodeFile} (${progress.episodesInCurrentFile}/${ITEMS_PER_FILE.episodes})`);
-    
-    if (progress.allPagesScraped) {
-        console.log(`\n🏁 تم استخراج جميع صفحات المسلسلات!`);
-    } else {
-        console.log(`\n🔄 في التشغيل القادم سيبدأ من:`);
-        console.log(`   الصفحة: ${progress.seriesPage}`);
-        console.log(`   المسلسلات في الملف: ${progress.seriesInCurrentFile}/${ITEMS_PER_FILE.series}`);
-    }
-    
-    // عرض الملفات المحفوظة
-    console.log(`\n💾 الملفات المحفوظة:`);
-    
-    const directories = [
-        { name: "مسلسلات", path: TV_SERIES_DIR },
-        { name: "مواسم", path: SEASONS_DIR },
-        { name: "حلقات", path: EPISODES_DIR }
-    ];
-    
-    directories.forEach(dir => {
-        console.log(`\n📁 ${dir.name}:`);
-        try {
-            const files = fs.readdirSync(dir.path).filter(f => f.endsWith('.json'));
-            files.forEach(file => {
-                const filePath = path.join(dir.path, file);
-                const stats = fs.statSync(filePath);
-                try {
-                    const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                    console.log(`   📄 ${file}: ${content.info?.totalItems || content.data?.length || 0} عنصر (${(stats.size / 1024).toFixed(1)} كيلوبايت)`);
-                } catch {
-                    console.log(`   📄 ${file}: (${(stats.size / 1024).toFixed(1)} كيلوبايت)`);
-                }
-            });
-        } catch (error) {
-            console.log(`   ⚠️ لا يمكن قراءة الملفات: ${error.message}`);
-        }
-    });
-    
-    // حفظ التقرير النهائي
-    const finalReport = {
-        timestamp: new Date().toISOString(),
-        executionTime: executionTime,
-        stats: {
-            seriesExtracted: totalSeriesExtracted,
-            seasonsExtracted: totalSeasonsExtracted,
-            episodesExtracted: totalEpisodesExtracted,
-            pagesProcessed: progress.pagesProcessedThisRun
-        },
-        progress: {
-            seriesPage: progress.seriesPage,
-            seriesFile: progress.currentSeriesFile,
-            seriesInFile: progress.seriesInCurrentFile,
-            seasonFile: progress.currentSeasonFile,
-            seasonsInFile: progress.seasonsInCurrentFile,
-            episodeFile: progress.currentEpisodeFile,
-            episodesInFile: progress.episodesInCurrentFile,
-            allPagesScraped: progress.allPagesScraped
-        },
-        nextRun: {
-            startPage: progress.seriesPage,
-            seriesFile: progress.currentSeriesFile,
-            seriesInFile: progress.seriesInCurrentFile
-        }
-    };
-    
-    fs.writeFileSync("series_report.json", JSON.stringify(finalReport, null, 2));
-    
-    console.log(`\n📄 تم حفظ التقرير النهائي في: series_report.json`);
-    console.log("=".repeat(60));
 }
 
 // ==================== تشغيل البرنامج ====================
@@ -1113,14 +1519,13 @@ main().catch(error => {
     console.error("\n💥 خطأ غير متوقع:", error.message);
     console.error("Stack:", error.stack);
     
-    // حفظ الخطأ
     const errorReport = {
         error: error.message,
         stack: error.stack,
         timestamp: new Date().toISOString()
     };
     
-    fs.writeFileSync("series_error.json", JSON.stringify(errorReport, null, 2));
-    console.log("❌ تم حفظ الخطأ في series_error.json");
+    fs.writeFileSync("scraper_error.json", JSON.stringify(errorReport, null, 2));
+    console.log("❌ تم حفظ الخطأ في scraper_error.json");
     process.exit(1);
 });
