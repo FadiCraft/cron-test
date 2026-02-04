@@ -24,17 +24,20 @@ async function fetchWithTimeout(url, timeout = 15000) {
         const response = await fetch(url, {
             signal: controller.signal,
             headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                 'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-                'Referer': 'https://www.yalla-shootu.live/',
+                'Referer': 'https://koraplus.blog/',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
             }
         });
         
         clearTimeout(timeoutId);
         
         if (!response.ok) {
-            console.log(`   ⚠️ استجابة غير ناجحة: ${response.status}`);
+            console.log(`   ⚠️ استجابة غير ناجحة: ${response.status} ${response.statusText}`);
             return null;
         }
         
@@ -62,9 +65,8 @@ function detectServerType(url) {
     if (urlLower.includes("doodstream") || urlLower.includes("/dood/")) return "DoodStream";
     if (urlLower.includes("voe")) return "Voe";
     if (urlLower.includes("vidcloud")) return "VidCloud";
-    if (urlLower.includes("yalla-shoot")) return "YallaShoot";
-    if (urlLower.includes("on-time-sport") || urlLower.includes("on-time")) return "OnTime";
-    if (urlLower.includes("kooraxx")) return "KooraXX";
+    if (urlLower.includes("koora")) return "Koora";
+    if (urlLower.includes("on-time") || urlLower.includes("ontime")) return "OnTime";
     if (urlLower.includes("streamable")) return "Streamable";
     if (urlLower.includes("mixdrop")) return "MixDrop";
     if (urlLower.includes("vidoza")) return "Vidoza";
@@ -72,36 +74,14 @@ function detectServerType(url) {
     if (urlLower.includes("player") && (urlLower.includes("stream") || urlLower.includes("play"))) return "Player";
     if (urlLower.includes(".m3u8")) return "M3U8";
     if (urlLower.includes(".mp4")) return "MP4";
-    if (urlLower.includes("1live")) return "1Live";
+    if (urlLower.includes("kk.pyxq.online")) return "KoraPlus";
     
     return "غير معروف";
 }
 
-// ==================== التحقق من صحة السيرفر ====================
-async function verifyServer(url, timeout = 5000) {
-    try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), timeout);
-        
-        const response = await fetch(url, {
-            signal: controller.signal,
-            method: 'HEAD',
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Referer': 'https://www.yalla-shootu.live/',
-            }
-        });
-        
-        clearTimeout(timeoutId);
-        return response.ok;
-    } catch {
-        return false;
-    }
-}
-
-// ==================== استخراج سيرفرات المشاهدة - نسخة محسنة ====================
+// ==================== استخراج سيرفرات المشاهدة من صفحة المباراة ====================
 async function fetchWatchServers(matchUrl) {
-    console.log(`\n   🔍 جلب سيرفرات المشاهدة من: ${matchUrl}`);
+    console.log(`   🔍 جلب سيرفرات المشاهدة من: ${matchUrl}`);
     
     const html = await fetchWithTimeout(matchUrl);
     
@@ -118,35 +98,18 @@ async function fetchWatchServers(matchUrl) {
         
         const servers = [];
         
-        // استراتيجية 1: البحث عن iframe مع class="cf" (السيرفر الرئيسي)
-        const mainIframe = doc.querySelector('iframe.cf');
-        if (mainIframe) {
-            const src = mainIframe.getAttribute('src');
-            if (src && src.trim() !== '') {
-                console.log(`   ✅ وجد iframe.cf: ${src.substring(0, 100)}...`);
-                const serverType = detectServerType(src);
-                servers.push({
-                    type: 'iframe',
-                    url: src.trim(),
-                    quality: "HD",
-                    server: serverType,
-                    id: 'main_cf_iframe',
-                    source: 'iframe.cf',
-                    verified: false
-                });
-            }
-        }
+        // استراتيجية 1: البحث عن iframes مباشرة
+        const iframes = doc.querySelectorAll('iframe');
+        console.log(`   🔍 فحص ${iframes.length} iframe`);
         
-        // استراتيجية 2: البحث عن جميع iframes
-        const allIframes = doc.querySelectorAll('iframe');
-        console.log(`   🔍 فحص ${allIframes.length} iframe`);
-        
-        for (const iframe of allIframes) {
+        for (const iframe of iframes) {
             const src = iframe.getAttribute('src');
             if (!src || src.trim() === '') continue;
             
-            // التحقق إذا كان هذا الرابط سيرفر مشاهدة
             const serverType = detectServerType(src);
+            console.log(`   🔍 وجد iframe: ${src.substring(0, 100)}...`);
+            console.log(`   🔍 نوع السيرفر: ${serverType}`);
+            
             if (serverType !== "غير معروف") {
                 // تجنب التكرار
                 const isDuplicate = servers.some(s => s.url === src.trim());
@@ -158,90 +121,13 @@ async function fetchWatchServers(matchUrl) {
                         quality: "HD",
                         server: serverType,
                         id: `iframe_${servers.length + 1}`,
-                        source: 'any_iframe',
-                        verified: false
+                        source: 'iframe'
                     });
                 }
             }
         }
         
-        // استراتيجية 3: البحث عن scripts التي تحتوي على روابط مشاهدة
-        console.log(`   🔍 البحث في scripts...`);
-        const scripts = doc.querySelectorAll('script');
-        for (const script of scripts) {
-            const content = script.textContent || script.innerHTML;
-            if (content.includes('albaplayer') || content.includes('kooraxx') || 
-                content.includes('on-time') || content.includes('.m3u8') || 
-                content.includes('stream') || content.includes('player')) {
-                
-                // البحث عن روابط في script
-                const urlRegex = /(https?:\/\/[^\s"'<>]+?(?:albaplayer|kooraxx|on-time|stream|player|\.m3u8|\.mp4)[^\s"'<>]*)/gi;
-                const matches = content.match(urlRegex);
-                
-                if (matches) {
-                    for (const url of matches) {
-                        const serverType = detectServerType(url);
-                        if (serverType !== "غير معروف") {
-                            const isDuplicate = servers.some(s => s.url === url.trim());
-                            if (!isDuplicate) {
-                                console.log(`   ✅ وجد في script: ${serverType} - ${url.substring(0, 80)}...`);
-                                servers.push({
-                                    type: 'direct',
-                                    url: url.trim(),
-                                    quality: "HD",
-                                    server: serverType,
-                                    id: `script_${servers.length + 1}`,
-                                    source: 'script_content',
-                                    verified: false
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        // استراتيجية 4: البحث عن روابط في body text (لـ on-time-sport)
-        console.log(`   🔍 البحث في النص...`);
-        const bodyText = doc.body.textContent || '';
-        
-        // البحث عن روابط محددة
-        const urlPatterns = [
-            /(https?:\/\/[^\s]+?\/albaplayer\/[^\s]+)/gi,
-            /(https?:\/\/[^\s]+?\/on-time-sport\/[^\s]+)/gi,
-            /(https?:\/\/[^\s]+?kooraxx[^\s]+)/gi,
-            /(https?:\/\/[^\s]+?\.m3u8[^\s]*)/gi
-        ];
-        
-        for (const pattern of urlPatterns) {
-            const matches = bodyText.match(pattern);
-            if (matches) {
-                for (const url of matches) {
-                    // تنظيف الرابط من الأقواس والعلامات
-                    const cleanUrl = url.replace(/['"\[\]{}()]/g, '').trim();
-                    const serverType = detectServerType(cleanUrl);
-                    
-                    if (serverType !== "غير معروف") {
-                        const isDuplicate = servers.some(s => s.url === cleanUrl);
-                        if (!isDuplicate) {
-                            console.log(`   ✅ وجد في النص: ${serverType} - ${cleanUrl.substring(0, 80)}...`);
-                            servers.push({
-                                type: 'direct',
-                                url: cleanUrl,
-                                quality: "HD",
-                                server: serverType,
-                                id: `text_${servers.length + 1}`,
-                                source: 'body_text',
-                                verified: false
-                            });
-                        }
-                    }
-                }
-            }
-        }
-        
-        // استراتيجية 5: البحث عن divs معينة قد تحتوي على روابط
-        console.log(`   🔍 البحث في divs خاصة...`);
+        // استراتيجية 2: البحث عن divs معينة قد تحتوي على روابط
         const playerDivs = doc.querySelectorAll('div[class*="player"], div[class*="Player"], div[class*="stream"], div[class*="Stream"], div[class*="embed"], div[class*="Embed"]');
         
         for (const div of playerDivs) {
@@ -264,78 +150,54 @@ async function fetchWatchServers(matchUrl) {
                             quality: "HD",
                             server: serverType,
                             id: `div_iframe_${servers.length + 1}`,
-                            source: 'player_div',
-                            verified: false
+                            source: 'player_div'
                         });
                     }
                 }
             }
-            
-            // البحث عن روابط مباشرة في div
-            const directUrlRegex = /(https?:\/\/[^\s"']+?(?:albaplayer|kooraxx|on-time|\.m3u8)[^\s"']*)/gi;
-            const directMatches = html.match(directUrlRegex);
-            
-            if (directMatches) {
-                for (const url of directMatches) {
-                    const serverType = detectServerType(url);
-                    if (serverType !== "غير معروف") {
-                        const isDuplicate = servers.some(s => s.url === url.trim());
-                        if (!isDuplicate) {
-                            console.log(`   ✅ وجد في div مباشر: ${serverType} - ${url.substring(0, 80)}...`);
-                            servers.push({
-                                type: 'direct',
-                                url: url.trim(),
-                                quality: "HD",
-                                server: serverType,
-                                id: `div_direct_${servers.length + 1}`,
-                                source: 'player_div',
-                                verified: false
-                            });
+        }
+        
+        // استراتيجية 3: البحث عن scripts التي تحتوي على روابط
+        const scripts = doc.querySelectorAll('script');
+        for (const script of scripts) {
+            const content = script.textContent || script.innerHTML;
+            if (content.includes('iframe') || content.includes('src') || 
+                content.includes('albaplayer') || content.includes('ontime')) {
+                
+                // البحث عن روابط iframe في script
+                const iframeRegex = /src=["'](https?:\/\/[^"']+)["']/g;
+                const matches = content.match(iframeRegex);
+                
+                if (matches) {
+                    for (const match of matches) {
+                        const url = match.replace(/src=["']|["']/g, '');
+                        const serverType = detectServerType(url);
+                        
+                        if (serverType !== "غير معروف") {
+                            const isDuplicate = servers.some(s => s.url === url.trim());
+                            if (!isDuplicate) {
+                                console.log(`   ✅ وجد في script: ${serverType} - ${url.substring(0, 80)}...`);
+                                servers.push({
+                                    type: 'iframe',
+                                    url: url.trim(),
+                                    quality: "HD",
+                                    server: serverType,
+                                    id: `script_${servers.length + 1}`,
+                                    source: 'script'
+                                });
+                            }
                         }
                     }
                 }
             }
         }
         
-        // استراتيجية 6: البحث عن روابط في meta tags
-        console.log(`   🔍 البحث في meta tags...`);
-        const metaTags = doc.querySelectorAll('meta[content*="albaplayer"], meta[content*="kooraxx"], meta[content*="on-time"], meta[content*="stream"], meta[content*="player"]');
-        
-        for (const meta of metaTags) {
-            const content = meta.getAttribute('content');
-            if (content && (content.includes('http') && 
-                (content.includes('albaplayer') || content.includes('kooraxx') || 
-                 content.includes('on-time') || content.includes('.m3u8')))) {
-                
-                const serverType = detectServerType(content);
-                if (serverType !== "غير معروف") {
-                    const isDuplicate = servers.some(s => s.url === content.trim());
-                    if (!isDuplicate) {
-                        console.log(`   ✅ وجد في meta: ${serverType} - ${content.substring(0, 80)}...`);
-                        servers.push({
-                            type: 'direct',
-                            url: content.trim(),
-                            quality: "HD",
-                            server: serverType,
-                            id: `meta_${servers.length + 1}`,
-                            source: 'meta_tag',
-                            verified: false
-                        });
-                    }
-                }
-            }
-        }
-        
-        // استراتيجية 7: البحث عن روابط في عناصر a
-        console.log(`   🔍 البحث في روابط a...`);
-        const allLinks = doc.querySelectorAll('a[href*="albaplayer"], a[href*="kooraxx"], a[href*="on-time"], a[href*="stream"], a[href*="player"]');
+        // استراتيجية 4: البحث عن روابط مباشرة في الصفحة
+        const allLinks = doc.querySelectorAll('a[href*="albaplayer"], a[href*="ontime"], a[href*="stream"], a[href*="player"]');
         
         for (const link of allLinks) {
             const href = link.getAttribute('href');
-            if (href && href.includes('http') && 
-                (href.includes('albaplayer') || href.includes('kooraxx') || 
-                 href.includes('on-time') || href.includes('.m3u8'))) {
-                
+            if (href && href.includes('http')) {
                 const serverType = detectServerType(href);
                 if (serverType !== "غير معروف") {
                     const isDuplicate = servers.some(s => s.url === href.trim());
@@ -347,8 +209,7 @@ async function fetchWatchServers(matchUrl) {
                             quality: "HD",
                             server: serverType,
                             id: `link_${servers.length + 1}`,
-                            source: 'a_tag',
-                            verified: false
+                            source: 'a_tag'
                         });
                     }
                 }
@@ -357,90 +218,37 @@ async function fetchWatchServers(matchUrl) {
         
         // ترشيح وإرجاع النتائج
         if (servers.length > 0) {
-            console.log(`\n   📊 تم العثور على ${servers.length} سيرفر مشاهدة`);
+            console.log(`   📊 تم العثور على ${servers.length} سيرفر مشاهدة`);
             
             // عرض جميع السيرفرات الموجودة
             servers.forEach((server, index) => {
                 console.log(`   ${index + 1}. ${server.server}: ${server.url.substring(0, 100)}...`);
-                console.log(`     المصدر: ${server.source}`);
             });
             
-            // ترتيب السيرفرات حسب الأولوية
-            const priorityOrder = {
-                'iframe.cf': 1,
-                'any_iframe': 2,
-                'player_div': 3,
-                'a_tag': 4,
-                'script_content': 5,
-                'body_text': 6,
-                'meta_tag': 7
-            };
-            
-            const prioritizedServers = servers.sort((a, b) => {
-                return (priorityOrder[a.source] || 99) - (priorityOrder[b.source] || 99);
-            });
-            
-            // التحقق من صحة السيرفرات (اختياري - يبطئ العملية)
-            console.log(`\n   🔍 التحقق من صحة السيرفرات...`);
-            const verifiedServers = [];
-            
-            for (const server of prioritizedServers.slice(0, 5)) { // تحقق من أول 5 فقط
-                console.log(`   🔄 جاري التحقق من: ${server.server}...`);
-                try {
-                    const isValid = await verifyServer(server.url);
-                    server.verified = isValid;
-                    
-                    if (isValid) {
-                        console.log(`   ✅ ${server.server} يعمل`);
-                        verifiedServers.push(server);
-                    } else {
-                        console.log(`   ⚠️ ${server.server} لا يستجيب`);
-                        // نضيفه حتى لو لم يتحقق، لأن بعض السيرفرات قد ترفض HEAD requests
-                        if (verifiedServers.length < 3) {
-                            verifiedServers.push(server);
-                        }
-                    }
-                } catch (error) {
-                    console.log(`   ⚠️ خطأ في التحقق من ${server.server}: ${error.message}`);
-                    server.verified = false;
-                    if (verifiedServers.length < 3) {
-                        verifiedServers.push(server);
-                    }
-                }
-                
-                // انتظار قصير بين التحققات
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-            
-            // إرجاع السيرفرات المفحوصة أو الأولى
-            const finalServers = verifiedServers.length > 0 ? verifiedServers : prioritizedServers.slice(0, 3);
-            
-            console.log(`\n   ✅ إرجاع ${finalServers.length} سيرفر مشاهدة`);
-            return finalServers;
+            return servers.slice(0, 3); // إرجاع أول 3 سيرفرات فقط
             
         } else {
             console.log(`   ⚠️ لم يتم العثور على أي سيرفرات مشاهدة`);
             
-            // محاولة أخيرة: البحث عن أي كلمة دالة في الصفحة
+            // محاولة أخيرة: البحث عن أي إشارة لـ albaplayer أو ontime
             const pageContent = doc.body.innerHTML;
-            const potentialDomains = ['1live.kooraxx.com', 'albaplayer', 'on-time-sport'];
+            const potentialDomains = ['kk.pyxq.online', 'albaplayer', 'ontime'];
             
             for (const domain of potentialDomains) {
                 if (pageContent.includes(domain)) {
                     console.log(`   🔍 وجد إشارة إلى ${domain} في الصفحة`);
                     
                     // محاولة بناء رابط افتراضي
-                    const potentialUrl = `https://1live.kooraxx.com/albaplayer/on-time-sport/`;
+                    const potentialUrl = `https://kk.pyxq.online/albaplayer/ontime/`;
                     console.log(`   💡 رابط محتمل: ${potentialUrl}`);
                     
                     return [{
-                        type: 'direct',
+                        type: 'iframe',
                         url: potentialUrl,
                         quality: "HD",
-                        server: "KooraXX/AlbaPlayer",
+                        server: "KoraPlus/AlbaPlayer",
                         id: 'potential_server',
-                        source: 'auto_generated',
-                        verified: false
+                        source: 'auto_generated'
                     }];
                 }
             }
@@ -454,32 +262,9 @@ async function fetchWatchServers(matchUrl) {
     }
 }
 
-// ==================== دالة مساعدة لاستخراج الصور ====================
-function extractImageUrl(imgElement) {
-    if (!imgElement) return null;
-    
-    const src = imgElement.getAttribute('src');
-    const dataSrc = imgElement.getAttribute('data-src');
-    
-    if (src && src.startsWith('http')) return src;
-    if (src && !src.startsWith('http') && src.includes('wp-content')) {
-        return `https://www.yalla-shootu.live${src.startsWith('/') ? '' : '/'}${src}`;
-    }
-    
-    if (dataSrc && dataSrc.startsWith('http')) return dataSrc;
-    if (dataSrc && !dataSrc.startsWith('http') && dataSrc.includes('wp-content')) {
-        return `https://www.yalla-shootu.live${dataSrc.startsWith('/') ? '' : '/'}${dataSrc}`;
-    }
-    
-    // إذا كان base64، نتخطاه
-    if (src && src.startsWith('data:image')) return null;
-    
-    return null;
-}
-
-// ==================== استخراج المباريات من الصفحة ====================
+// ==================== استخراج المباريات من الصفحة الرئيسية ====================
 async function fetchMatchesFromPage(pageNum = 1) {
-    const baseUrl = "https://www.yalla-shootu.live/";
+    const baseUrl = "https://koraplus.blog/";
     const url = pageNum === 1 ? baseUrl : `${baseUrl}page/${pageNum}/`;
     
     console.log(`\n📄 الصفحة ${pageNum}: ${url}`);
@@ -496,8 +281,8 @@ async function fetchMatchesFromPage(pageNum = 1) {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن جميع عناصر المباريات
-        const matchElements = doc.querySelectorAll('.AY_Match');
+        // البحث عن جميع عناصر المباريات في الموقع الجديد
+        const matchElements = doc.querySelectorAll('.match-container');
         
         console.log(`✅ وجد ${matchElements.length} عنصر مباراة`);
         
@@ -506,7 +291,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
             
             try {
                 // استخراج رابط المباراة من العنصر
-                const matchLink = element.querySelector('a[href*="matches"], a[href*="sia-me"], a[href*="yalla-shoot"], a[href*="on-time"]');
+                const matchLink = element.querySelector('a');
                 let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
                 
                 if (!matchUrl) {
@@ -514,70 +299,79 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     continue;
                 }
                 
-                // إذا كان الرابط قصير، نضيف النطاق الأساسي
-                if (matchUrl.startsWith('/')) {
-                    matchUrl = `https://www.yalla-shootu.live${matchUrl}`;
-                }
-                
                 // استخراج أسماء الفريقين
-                const team1NameElem = element.querySelector('.TM1 .TM_Name');
-                const team2NameElem = element.querySelector('.TM2 .TM_Name');
+                const team1NameElem = element.querySelector('.right-team .team-name');
+                const team2NameElem = element.querySelector('.left-team .team-name');
                 
                 let team1Name = team1NameElem ? team1NameElem.textContent.trim() : "غير معروف";
                 let team2Name = team2NameElem ? team2NameElem.textContent.trim() : "غير معروف";
                 
                 // استخراج شعارات الفريقين
-                const team1Img = element.querySelector('.TM1 img');
-                const team2Img = element.querySelector('.TM2 img');
+                const team1Img = element.querySelector('.right-team img');
+                const team2Img = element.querySelector('.left-team img');
                 
-                let team1Logo = extractImageUrl(team1Img);
-                let team2Logo = extractImageUrl(team2Img);
+                let team1Logo = team1Img ? team1Img.getAttribute('src') || team1Img.getAttribute('data-src') : null;
+                let team2Logo = team2Img ? team2Img.getAttribute('src') || team2Img.getAttribute('data-src') : null;
                 
-                // استخراج النتيجة
+                // استخراج النتيجة والوقت
                 let team1Score = "0";
                 let team2Score = "0";
                 let score = "0 - 0";
+                let matchTime = "غير معروف";
                 
-                const goals = element.querySelectorAll('.RS-goals');
-                if (goals.length >= 2) {
-                    team1Score = goals[0].textContent.trim();
-                    team2Score = goals[1].textContent.trim();
-                    score = `${team1Score} - ${team2Score}`;
+                const resultElement = element.querySelector('.match-timing .result');
+                const timeElement = element.querySelector('.match-timing div:not(.result):not(.date)');
+                
+                if (resultElement) {
+                    const resultText = resultElement.textContent.trim();
+                    const scores = resultText.split('-');
+                    if (scores.length === 2) {
+                        team1Score = scores[0].trim();
+                        team2Score = scores[1].trim();
+                        score = resultText;
+                    }
                 }
                 
-                // استخراج الوقت
-                let matchTime = "غير معروف";
-                const timeElement = element.querySelector('.MT_Time');
                 if (timeElement) {
                     matchTime = timeElement.textContent.trim();
                 }
                 
                 // استخراج حالة المباراة
                 let matchStatus = "غير معروف";
-                const statusElement = element.querySelector('.MT_Stat');
+                const statusElement = element.querySelector('.match-timing .date');
                 if (statusElement) {
-                    matchStatus = statusElement.textContent.trim();
-                } else {
-                    // تحديد الحالة من الكلاس
-                    if (element.classList.contains('live')) matchStatus = "جارية الآن";
-                    else if (element.classList.contains('not-started')) matchStatus = "لم تبدأ بعد";
-                    else if (element.classList.contains('finished')) matchStatus = "انتهت";
+                    const statusText = statusElement.textContent.trim();
+                    if (statusText === "جارية الان") {
+                        matchStatus = "جارية الآن";
+                    } else if (statusText === "لم تبدأ بعد") {
+                        matchStatus = "لم تبدأ بعد";
+                    } else if (statusText === "انتهت المباراة") {
+                        matchStatus = "انتهت";
+                    } else {
+                        matchStatus = statusText;
+                    }
                 }
                 
-                // استخراج القنوات
+                // استخراج القنوات والبطولة
                 const channels = [];
-                const channelItems = element.querySelectorAll('.MT_Info li span');
-                channelItems.forEach(item => {
-                    const channelName = item.textContent.trim();
-                    if (channelName && channelName !== "غير معروف") {
-                        channels.push(channelName);
+                let tournament = "غير محدد";
+                
+                const channelItems = element.querySelectorAll('.match-info li span');
+                channelItems.forEach((item, idx) => {
+                    const text = item.textContent.trim();
+                    if (text && text !== "غير معروف") {
+                        if (idx < 2) {
+                            channels.push(text);
+                        } else if (idx === 2) {
+                            // العنصر الثالث هو البطولة والمنطقة
+                            tournament = text;
+                        }
                     }
                 });
                 
-                // استخراج البطولة
-                let tournament = "غير محدد";
-                if (channels.length >= 3) {
-                    tournament = channels[2];
+                // تنظيف البطولة (إزالة اسم الدولة إذا كانت موجودة)
+                if (tournament.includes(',')) {
+                    tournament = tournament.split(',').slice(1).join(',').trim();
                 }
                 
                 // إنشاء كائن المباراة
@@ -599,7 +393,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     score: score,
                     time: matchTime,
                     status: matchStatus,
-                    channels: channels.slice(0, 2),
+                    channels: channels,
                     tournament: tournament,
                     page: pageNum,
                     position: index + 1,
@@ -612,6 +406,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 // عرض تفاصيل الاستخراج
                 console.log(`   ✓ ${index + 1}: ${match.title} (${match.status})`);
                 console.log(`     النتيجة: ${score} | الوقت: ${matchTime}`);
+                console.log(`     البطولة: ${tournament}`);
                 console.log(`     الرابط: ${matchUrl.substring(0, 80)}...`);
                 
             } catch (error) {
@@ -692,7 +487,7 @@ async function fetchMatchesDetails(matches) {
         
         // انتظار قصير بين المباريات
         if (i < matches.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     
@@ -724,9 +519,9 @@ function saveToHgFile(data) {
             // تنظيف watchServers
             if (cleanMatch.watchServers && Array.isArray(cleanMatch.watchServers)) {
                 cleanMatch.watchServers = cleanMatch.watchServers.map(server => {
-                    // إزالة خاصية verified إذا كانت موجودة
-                    const { verified, ...serverWithoutVerified } = server;
-                    return serverWithoutVerified;
+                    // إزالة خاصية source إذا كانت موجودة
+                    const { source, ...serverWithoutSource } = server;
+                    return serverWithoutSource;
                 });
             }
             
@@ -735,7 +530,7 @@ function saveToHgFile(data) {
         
         const outputData = {
             scrapedAt: new Date().toISOString(),
-            source: "https://www.yalla-shootu.live/",
+            source: "https://koraplus.blog/",
             totalMatches: cleanData.length,
             matches: cleanData
         };
@@ -766,6 +561,7 @@ function saveToHgFile(data) {
         cleanData.slice(0, 3).forEach((match, idx) => {
             console.log(`\n   ${idx + 1}. ${match.title}`);
             console.log(`     الحالة: ${match.status} | النتيجة: ${match.score}`);
+            console.log(`     البطولة: ${match.tournament}`);
             console.log(`     الرابط: ${match.url.substring(0, 80)}...`);
             if (match.watchServers && match.watchServers.length > 0) {
                 console.log(`     السيرفرات: ${match.watchServers.length} سيرفر`);
@@ -787,7 +583,7 @@ function saveToHgFile(data) {
 
 // ==================== الدالة الرئيسية ====================
 async function main() {
-    console.log("⚽ بدء استخراج المباريات من yalla-shootu.live");
+    console.log("⚽ بدء استخراج المباريات من koraplus.blog");
     console.log("=".repeat(60));
     
     try {
