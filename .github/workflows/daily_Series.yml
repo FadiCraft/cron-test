@@ -3,7 +3,8 @@ name: مستخرج مسلسلات
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 2 * * *"
+    # تشغيل كل ساعة على الدقيقة 0 (على سبيل المثال: 1:00, 2:00, 3:00...)
+    - cron: "0 * * * *"
 
 jobs:
   extract-series:
