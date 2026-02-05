@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-02-05T19:16:31.524Z",
+  "timestamp": "2026-02-05T20:42:10.497Z",
   "mode": "scrape_series",
   "stats": {
-    "seriesPage": 31,
+    "seriesPage": 33,
     "allPagesScraped": false,
-    "seriesInFile": 350,
-    "seasonsInFile": 496,
-    "episodesInFile": 4016,
+    "seriesInFile": 440,
+    "seasonsInFile": 213,
+    "episodesInFile": 1630,
     "latestEpisodesInFile": 0
   },
   "nextRun": {
     "mode": "scrape_series",
-    "startPage": 31,
+    "startPage": 33,
     "seriesFile": "Page3.json",
-    "seriesInFile": 350
+    "seriesInFile": 440
   }
 }
