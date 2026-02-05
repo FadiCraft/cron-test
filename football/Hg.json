@@ -1,44 +1,10 @@
 {
-  "scrapedAt": "2026-02-05T16:43:33.956Z",
+  "scrapedAt": "2026-02-05T17:35:24.353Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1770309802841_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%ad%d8%b1%d8%b3-%d8%a7%d9%84%d8%ad%d8%af%d9%88%d8%af-%d9%88-%d9%81%d8%a7%d8%b1%d9%83%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
-      "title": "حرس الحدود vs فاركو",
-      "team1": {
-        "name": "حرس الحدود",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/149-2.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "فاركو",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/1880-3.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "أون سبورت 1"
-      ],
-      "tournament": "الدوري المصري",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-05T16:43:22.841Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770309802842_1",
+      "id": "match_1770312915736_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%88%d8%a7%d8%af%d9%8a-%d8%af%d8%ac%d9%84%d8%a9-%d9%88-%d8%a7%d9%84%d9%85%d9%82%d8%a7%d9%88%d9%84%d9%88%d9%86-%d8%a7%d9%84/",
       "title": "وادي دجلة vs المقاولون العرب",
       "team1": {
@@ -53,26 +19,18 @@
       },
       "score": "0 - 0",
       "time": "8 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "أون سبورت 2"
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-05T16:43:22.842Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
+      "position": 1,
+      "scrapedAt": "2026-02-05T17:35:15.736Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770309802843_2",
+      "id": "match_1770312915737_1",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d9%83%d8%a7-%d9%83%d9%84%d9%8a%d9%88%d8%a8%d8%a7%d8%aa%d8%b1%d8%a7-%d9%88-%d8%ba%d8%b2/",
       "title": "سيراميكا كليوباترا vs غزل المحلة",
       "team1": {
@@ -87,26 +45,18 @@
       },
       "score": "0 - 0",
       "time": "8 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "أون سبورت 1"
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-05T16:43:22.843Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
+      "position": 2,
+      "scrapedAt": "2026-02-05T17:35:15.737Z",
+      "watchServers": null
     },
     {
-      "id": "match_1770309802844_3",
+      "id": "match_1770312915739_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d9%88-%d9%8a%d9%88%d9%81%d9%86%d8%aa%d9%88%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "أتالانتا vs يوفنتوس",
       "team1": {
@@ -127,8 +77,8 @@
       ],
       "tournament": "كأس إيطاليا - ربع النهائي",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-05T16:43:22.844Z",
+      "position": 3,
+      "scrapedAt": "2026-02-05T17:35:15.739Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -140,7 +90,7 @@
       ]
     },
     {
-      "id": "match_1770309802846_4",
+      "id": "match_1770312915740_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%aa%d8%b1%d8%a7%d8%b3%d8%a8%d9%88%d8%b1%d8%ac-%d9%88-%d9%85%d9%88%d9%86%d8%a7%d9%83%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "ستراسبورج vs موناكو",
       "team1": {
@@ -159,8 +109,8 @@
       "channels": [],
       "tournament": "كأس فرنسا - دور الـ 16",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-05T16:43:22.846Z",
+      "position": 4,
+      "scrapedAt": "2026-02-05T17:35:15.740Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -172,7 +122,7 @@
       ]
     },
     {
-      "id": "match_1770309802847_5",
+      "id": "match_1770312915741_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d8%a8%d9%8a%d8%aa%d9%8a%d8%b3-%d9%88-%d8%a3%d8%aa%d9%84%d8%aa%d9%8a%d9%83%d9%88-%d9%85%d8%af%d8%b1/",
       "title": "ريال بيتيس vs أتلتيكو مدريد",
       "team1": {
@@ -193,8 +143,8 @@
       ],
       "tournament": "كأس ملك إسبانيا - ربع النهائي",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-05T16:43:22.847Z",
+      "position": 5,
+      "scrapedAt": "2026-02-05T17:35:15.741Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -206,7 +156,7 @@
       ]
     },
     {
-      "id": "match_1770309802848_6",
+      "id": "match_1770312915742_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d8%b1%d9%88%d8%a7-%d9%88-%d9%84%d8%a7%d9%86%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1%d8%a9/",
       "title": "تروا vs لانس",
       "team1": {
@@ -225,8 +175,8 @@
       "channels": [],
       "tournament": "كأس فرنسا - دور الـ 16",
       "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-02-05T16:43:22.848Z",
+      "position": 6,
+      "scrapedAt": "2026-02-05T17:35:15.742Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -236,6 +186,32 @@
           "id": "potential_server"
         }
       ]
+    },
+    {
+      "id": "match_1770312915744_6",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%ad%d8%b1%d8%b3-%d8%a7%d9%84%d8%ad%d8%af%d9%88%d8%af-%d9%88-%d9%81%d8%a7%d8%b1%d9%83%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
+      "title": "حرس الحدود vs فاركو",
+      "team1": {
+        "name": "حرس الحدود",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/149-2.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "فاركو",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/1880-3.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
+      "channels": [
+        "أون سبورت 1"
+      ],
+      "tournament": "الدوري المصري",
+      "page": 1,
+      "position": 7,
+      "scrapedAt": "2026-02-05T17:35:15.744Z",
+      "watchServers": null
     }
   ]
 }
