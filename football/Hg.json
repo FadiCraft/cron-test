@@ -1,194 +1,10 @@
 {
-  "scrapedAt": "2026-02-05T21:43:02.188Z",
+  "scrapedAt": "2026-02-05T22:01:48.645Z",
   "source": "https://koraplus.blog/",
-  "totalMatches": 7,
+  "totalMatches": 6,
   "matches": [
     {
-      "id": "match_1770327773370_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d9%88-%d9%8a%d9%88%d9%81%d9%86%d8%aa%d9%88%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8/",
-      "title": "أتالانتا vs يوفنتوس",
-      "team1": {
-        "name": "أتالانتا",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/128.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "يوفنتوس",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/135-2.png",
-        "score": "0"
-      },
-      "score": "1-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "شاهد - Shahid VIP"
-      ],
-      "tournament": "كأس إيطاليا - ربع النهائي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-05T21:42:53.370Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770327773371_1",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%aa%d8%b1%d8%a7%d8%b3%d8%a8%d9%88%d8%b1%d8%ac-%d9%88-%d9%85%d9%88%d9%86%d8%a7%d9%83%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8/",
-      "title": "ستراسبورج vs موناكو",
-      "team1": {
-        "name": "ستراسبورج",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/300.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "موناكو",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/210.png",
-        "score": "0"
-      },
-      "score": "1-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [],
-      "tournament": "كأس فرنسا - دور الـ 16",
-      "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-05T21:42:53.371Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770327773373_2",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d8%a8%d9%8a%d8%aa%d9%8a%d8%b3-%d9%88-%d8%a3%d8%aa%d9%84%d8%aa%d9%8a%d9%83%d9%88-%d9%85%d8%af%d8%b1/",
-      "title": "ريال بيتيس vs أتلتيكو مدريد",
-      "team1": {
-        "name": "ريال بيتيس",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/123.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "أتلتيكو مدريد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/134.png",
-        "score": "1"
-      },
-      "score": "0-1",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "شاهد - Shahid VIP"
-      ],
-      "tournament": "كأس ملك إسبانيا - ربع النهائي",
-      "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-05T21:42:53.373Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770327773374_3",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d8%b1%d9%88%d8%a7-%d9%88-%d9%84%d8%a7%d9%86%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1%d8%a9/",
-      "title": "تروا vs لانس",
-      "team1": {
-        "name": "تروا",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/511.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "لانس",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/309-4.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [],
-      "tournament": "كأس فرنسا - دور الـ 16",
-      "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-05T21:42:53.374Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770327773375_4",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%88%d8%a7%d8%af%d9%8a-%d8%af%d8%ac%d9%84%d8%a9-%d9%88-%d8%a7%d9%84%d9%85%d9%82%d8%a7%d9%88%d9%84%d9%88%d9%86-%d8%a7%d9%84/",
-      "title": "وادي دجلة vs المقاولون العرب",
-      "team1": {
-        "name": "وادي دجلة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/1016.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "المقاولون العرب",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/11-2.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "أون سبورت 2"
-      ],
-      "tournament": "الدوري المصري",
-      "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-05T21:42:53.375Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770327773376_5",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d9%83%d8%a7-%d9%83%d9%84%d9%8a%d9%88%d8%a8%d8%a7%d8%aa%d8%b1%d8%a7-%d9%88-%d8%ba%d8%b2/",
-      "title": "سيراميكا كليوباترا vs غزل المحلة",
-      "team1": {
-        "name": "سيراميكا كليوباترا",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/12723.png",
-        "score": "3"
-      },
-      "team2": {
-        "name": "غزل المحلة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/7.png",
-        "score": "2"
-      },
-      "score": "3-2",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "أون سبورت 1"
-      ],
-      "tournament": "الدوري المصري",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-05T21:42:53.376Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1770327773377_6",
+      "id": "match_1770328899510_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%ad%d8%b1%d8%b3-%d8%a7%d9%84%d8%ad%d8%af%d9%88%d8%af-%d9%88-%d9%81%d8%a7%d8%b1%d9%83%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
       "title": "حرس الحدود vs فاركو",
       "team1": {
@@ -201,17 +17,193 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/01/1880-3.png",
         "score": "0"
       },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "انتهت",
+      "score": "0 - 0",
+      "time": "5 PM",
+      "status": "لم تبدأ بعد",
       "channels": [
         "أون سبورت 1"
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-02-05T21:42:53.377Z",
-      "watchServers": null
+      "position": 1,
+      "scrapedAt": "2026-02-05T22:01:39.510Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
+    },
+    {
+      "id": "match_1770328899512_1",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%88%d8%a7%d8%af%d9%8a-%d8%af%d8%ac%d9%84%d8%a9-%d9%88-%d8%a7%d9%84%d9%85%d9%82%d8%a7%d9%88%d9%84%d9%88%d9%86-%d8%a7%d9%84/",
+      "title": "وادي دجلة vs المقاولون العرب",
+      "team1": {
+        "name": "وادي دجلة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/1016.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "المقاولون العرب",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/01/11-2.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "8 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "أون سبورت 2"
+      ],
+      "tournament": "الدوري المصري",
+      "page": 1,
+      "position": 2,
+      "scrapedAt": "2026-02-05T22:01:39.512Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
+    },
+    {
+      "id": "match_1770328899513_2",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d9%83%d8%a7-%d9%83%d9%84%d9%8a%d9%88%d8%a8%d8%a7%d8%aa%d8%b1%d8%a7-%d9%88-%d8%ba%d8%b2/",
+      "title": "سيراميكا كليوباترا vs غزل المحلة",
+      "team1": {
+        "name": "سيراميكا كليوباترا",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/12723.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "غزل المحلة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/7.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "8 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "أون سبورت 1"
+      ],
+      "tournament": "الدوري المصري",
+      "page": 1,
+      "position": 3,
+      "scrapedAt": "2026-02-05T22:01:39.513Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
+    },
+    {
+      "id": "match_1770328899514_3",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d9%88-%d9%8a%d9%88%d9%81%d9%86%d8%aa%d9%88%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8/",
+      "title": "أتالانتا vs يوفنتوس",
+      "team1": {
+        "name": "أتالانتا",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/128.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "يوفنتوس",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/135-2.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "10 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "شاهد - Shahid VIP"
+      ],
+      "tournament": "كأس إيطاليا - ربع النهائي",
+      "page": 1,
+      "position": 4,
+      "scrapedAt": "2026-02-05T22:01:39.514Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
+    },
+    {
+      "id": "match_1770328899515_4",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%aa%d8%b1%d8%a7%d8%b3%d8%a8%d9%88%d8%b1%d8%ac-%d9%88-%d9%85%d9%88%d9%86%d8%a7%d9%83%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8/",
+      "title": "ستراسبورج vs موناكو",
+      "team1": {
+        "name": "ستراسبورج",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/300.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "موناكو",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/210.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "10 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [],
+      "tournament": "كأس فرنسا - دور الـ 16",
+      "page": 1,
+      "position": 5,
+      "scrapedAt": "2026-02-05T22:01:39.515Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
+    },
+    {
+      "id": "match_1770328899516_5",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d8%a8%d9%8a%d8%aa%d9%8a%d8%b3-%d9%88-%d8%a3%d8%aa%d9%84%d8%aa%d9%8a%d9%83%d9%88-%d9%85%d8%af%d8%b1/",
+      "title": "ريال بيتيس vs أتلتيكو مدريد",
+      "team1": {
+        "name": "ريال بيتيس",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/123.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "أتلتيكو مدريد",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/134.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "10 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "شاهد - Shahid VIP"
+      ],
+      "tournament": "كأس ملك إسبانيا - ربع النهائي",
+      "page": 1,
+      "position": 6,
+      "scrapedAt": "2026-02-05T22:01:39.516Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
     }
   ]
 }
