@@ -2,8 +2,286 @@
   "fileName": "Home.json",
   "description": "جميع أفلام الصفحة الأولى",
   "totalMovies": 60,
-  "lastUpdated": "2026-02-05T19:39:47.177Z",
+  "lastUpdated": "2026-02-06T07:50:26.521Z",
   "movies": [
+    {
+      "id": "200802",
+      "title": "فيلم Your Letter 2025 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-your-letter-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=200802",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BZGI3NGQ4NWMtY2FhNi00NDFkLTlhOWMtMmE3ZTNmZmVhYjc3XkEyXkFqcGc@.jpg",
+      "imdbRating": "7.4",
+      "story": "تنتقل (سوري) إلى مدرسة جديدة، حيث تعثر في درج مقعدها على رسالة مجهولة تتضمن تعريفًا بالمدرسة وتلميحًا يقودها مغامرة غير متوقعة داخل أروقة المدرسة.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام انمي"
+        ],
+        "نوع الفيلم": [
+          "دراما",
+          "كرتون",
+          "مغامرة"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "96 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "لغة الفيلم": [
+          "الكورية"
+        ],
+        "بطولة": [
+          "Kim Min-ju",
+          "Lee Soo-hyun",
+          "Min Seung-woo",
+          "Nam Doh-hyeong"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "06-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-your-letter-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-ojb1do0ec4jq.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-your-letter-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/ojb1do0ec4jq.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/xze3eosqp5vl",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/o9fq1lhrwasc",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Ddownload",
+          "url": "https://ddownload.com/he6bz80wlb7p",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/11D02EF499A6189",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1Fichier",
+          "url": "https://1fichier.com/?oy12mssgfncon7djx8au",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/f2b0572d9ace3ac5086d432167441281",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/ktmccrxyh8zi",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/3wymj",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-your-letter-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
+      "position": 1,
+      "currentFile": "Top14.json",
+      "scrapedAt": "2026-02-06T07:48:16.951Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 9,
+        "genresCount": 0
+      }
+    },
+    {
+      "id": "200790",
+      "title": "فيلم Streaming 2025 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-streaming-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=200790",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BMWU3OTdmMTctNTM4My00ZDc1LTg5YTctNGM1OGE2ODM2M2Q5XkEyXkFqcGc@-455x650.jpg",
+      "imdbRating": "5.1",
+      "story": "في العالم الافتراضي حيث تسود لغة الأرقام، وتُترجم المشاهدات والإعجابات إلى أرباح مادية يتسابق صناع المحتوى لتقديم مادة مثيرة تجتذب ملايين المشاهدين، تبرز منصة WAG للبثوث المباشرة التي تقدم عروض مغرية للمتصدرين، ويخوض صانع المحتوى “وو سانغ” المختص بالغموض وتحليل الجرائم معركة شرسة للحفاظ على صدارته بتتبع آثار قاتل متسلسل في بث مباشر.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اسيوي"
+        ],
+        "نوع الفيلم": [
+          "اثارة",
+          "غموض"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "91 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "لغة الفيلم": [
+          "الكورية"
+        ],
+        "دولة الفيلم": [
+          "كوريا الجنوبية"
+        ],
+        "بطولة": [
+          "Bin Chan Uk",
+          "Choo Suk-young",
+          "Ha Seo Yoon",
+          "Han Seong-Yeon"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "06-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-streaming-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-4rjsfeuafb95.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-streaming-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/4rjsfeuafb95.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/qemogl3zb1nz",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/ivccuhe7brom",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/34A6164D0A5313E",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1Fichier",
+          "url": "https://1fichier.com/?joq1tkiyx7eua1p5f5im",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/64885d58b8c7a2ad5e33c7d73e493b20",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/euj4c0o1ybtc",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/3wymr",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-streaming-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
+      "position": 2,
+      "currentFile": "Top14.json",
+      "scrapedAt": "2026-02-06T07:48:19.048Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 8,
+        "genresCount": 0
+      }
+    },
     {
       "id": "188687",
       "title": "فيلم The Thing with Feathers 2025 مترجم اون لاين",
@@ -127,9 +405,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-thing-with-feathers-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 1,
+      "position": 3,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:37:58.101Z",
+      "scrapedAt": "2026-02-06T07:48:21.129Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -254,9 +532,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-morrigan-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 2,
+      "position": 4,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:37:59.961Z",
+      "scrapedAt": "2026-02-06T07:48:23.290Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -370,9 +648,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-investigation-of-lucy-letby-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 3,
+      "position": 5,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:01.821Z",
+      "scrapedAt": "2026-02-06T07:48:25.592Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -504,9 +782,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-muppet-show-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 4,
+      "position": 6,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:03.549Z",
+      "scrapedAt": "2026-02-06T07:48:27.746Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -636,9 +914,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-relationship-goals-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 5,
+      "position": 7,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:05.352Z",
+      "scrapedAt": "2026-02-06T07:48:29.904Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -768,9 +1046,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-even-if-this-love-disappears-from-the-world-tonight-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 6,
+      "position": 8,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:07.158Z",
+      "scrapedAt": "2026-02-06T07:48:32.061Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -903,9 +1181,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-lure-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 7,
+      "position": 9,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:08.986Z",
+      "scrapedAt": "2026-02-06T07:48:34.224Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -1044,9 +1322,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-plague-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 8,
+      "position": 10,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:10.905Z",
+      "scrapedAt": "2026-02-06T07:48:36.378Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -1188,9 +1466,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-dutchman-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 9,
+      "position": 11,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:12.735Z",
+      "scrapedAt": "2026-02-06T07:48:38.534Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -1332,9 +1610,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-new-fears-eve-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 10,
+      "position": 12,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:14.548Z",
+      "scrapedAt": "2026-02-06T07:48:40.901Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -1468,9 +1746,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%81%d9%8a%d9%84%d9%85-shelter-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 11,
+      "position": 13,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:16.341Z",
+      "scrapedAt": "2026-02-06T07:48:43.049Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -1608,9 +1886,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-calling-witch-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 12,
+      "position": 14,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:18.130Z",
+      "scrapedAt": "2026-02-06T07:48:45.207Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -1749,9 +2027,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-bambi-the-reckoning-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 13,
+      "position": 15,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:19.923Z",
+      "scrapedAt": "2026-02-06T07:48:47.508Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -1890,9 +2168,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-we-bury-the-dead-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 14,
+      "position": 16,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:21.728Z",
+      "scrapedAt": "2026-02-06T07:48:49.664Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -2032,9 +2310,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-hamnet-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 15,
+      "position": 17,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:23.521Z",
+      "scrapedAt": "2026-02-06T07:48:51.831Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -2238,9 +2516,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-housemaid-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 16,
+      "position": 18,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:25.318Z",
+      "scrapedAt": "2026-02-06T07:48:53.992Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 17,
@@ -2373,9 +2651,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-pig-hill-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 17,
+      "position": 19,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:27.135Z",
+      "scrapedAt": "2026-02-06T07:48:56.148Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -2503,9 +2781,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-missing-the-boat-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 18,
+      "position": 20,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:28.920Z",
+      "scrapedAt": "2026-02-06T07:48:58.404Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -2636,9 +2914,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-do-you-fear-what-i-fear-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 19,
+      "position": 21,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:30.906Z",
+      "scrapedAt": "2026-02-06T07:49:00.663Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -2770,9 +3048,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-darwin-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 20,
+      "position": 22,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:32.711Z",
+      "scrapedAt": "2026-02-06T07:49:03.018Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -2899,9 +3177,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-red-plague-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 21,
+      "position": 23,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:34.512Z",
+      "scrapedAt": "2026-02-06T07:49:05.168Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -3024,9 +3302,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-tormento-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 22,
+      "position": 24,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:36.303Z",
+      "scrapedAt": "2026-02-06T07:49:07.448Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -3151,9 +3429,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-my-sisters-bones-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 23,
+      "position": 25,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:38.078Z",
+      "scrapedAt": "2026-02-06T07:49:09.602Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -3279,9 +3557,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-bury-em-deep-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 24,
+      "position": 26,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:39.884Z",
+      "scrapedAt": "2026-02-06T07:49:11.752Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -3412,9 +3690,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-blackout-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 25,
+      "position": 27,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:41.687Z",
+      "scrapedAt": "2026-02-06T07:49:13.911Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -3549,9 +3827,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-testament-of-ann-lee-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 26,
+      "position": 28,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:43.587Z",
+      "scrapedAt": "2026-02-06T07:49:16.063Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -3683,9 +3961,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-taste-and-tears-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 27,
+      "position": 29,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:45.368Z",
+      "scrapedAt": "2026-02-06T07:49:18.213Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -3819,9 +4097,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-send-help-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 28,
+      "position": 30,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:47.154Z",
+      "scrapedAt": "2026-02-06T07:49:20.360Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -3956,9 +4234,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-return-to-silent-hill-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 29,
+      "position": 31,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:48.944Z",
+      "scrapedAt": "2026-02-06T07:49:22.395Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -4093,9 +4371,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-in-cold-light-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 30,
+      "position": 32,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:50.757Z",
+      "scrapedAt": "2026-02-06T07:49:24.671Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -4302,9 +4580,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-wrecking-crew-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 31,
+      "position": 33,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:52.594Z",
+      "scrapedAt": "2026-02-06T07:49:26.828Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 17,
@@ -4434,9 +4712,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-portal-in-the-pines-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 32,
+      "position": 34,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:54.418Z",
+      "scrapedAt": "2026-02-06T07:49:28.969Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -4566,9 +4844,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-evil-nun-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 33,
+      "position": 35,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:56.687Z",
+      "scrapedAt": "2026-02-06T07:49:31.245Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -4712,9 +4990,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-david-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 34,
+      "position": 36,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:38:58.550Z",
+      "scrapedAt": "2026-02-06T07:49:33.394Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -4844,9 +5122,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-black-goat-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 35,
+      "position": 37,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:00.394Z",
+      "scrapedAt": "2026-02-06T07:49:35.652Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -4975,9 +5253,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-afterlight-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 36,
+      "position": 38,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:02.241Z",
+      "scrapedAt": "2026-02-06T07:49:37.693Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -5108,9 +5386,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-96-minutes-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 37,
+      "position": 39,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:04.062Z",
+      "scrapedAt": "2026-02-06T07:49:39.839Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -5252,9 +5530,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-boss-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 38,
+      "position": 40,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:05.882Z",
+      "scrapedAt": "2026-02-06T07:49:41.989Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -5392,9 +5670,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-a-letter-to-my-youth-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 39,
+      "position": 41,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:07.991Z",
+      "scrapedAt": "2026-02-06T07:49:44.255Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -5534,9 +5812,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-choral-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 40,
+      "position": 42,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:09.874Z",
+      "scrapedAt": "2026-02-06T07:49:46.526Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -5677,9 +5955,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-merrily-we-roll-along-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 41,
+      "position": 43,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:11.693Z",
+      "scrapedAt": "2026-02-06T07:49:48.863Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -5822,9 +6100,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-untitled-home-invasion-romance-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 42,
+      "position": 44,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:13.508Z",
+      "scrapedAt": "2026-02-06T07:49:51.143Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -5967,9 +6245,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-night-patrol-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 43,
+      "position": 45,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:15.332Z",
+      "scrapedAt": "2026-02-06T07:49:53.296Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6108,9 +6386,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-how-to-lose-a-popularity-contest-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 44,
+      "position": 46,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:17.134Z",
+      "scrapedAt": "2026-02-06T07:49:55.560Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6247,9 +6525,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-my-sisters-double-life-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 45,
+      "position": 47,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:19.057Z",
+      "scrapedAt": "2026-02-06T07:49:57.849Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6392,9 +6670,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-mercy-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 46,
+      "position": 48,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:20.886Z",
+      "scrapedAt": "2026-02-06T07:49:59.999Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6531,9 +6809,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-deadly-delivery-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 47,
+      "position": 49,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:22.692Z",
+      "scrapedAt": "2026-02-06T07:50:02.342Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6671,9 +6949,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-caught-by-love-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 48,
+      "position": 50,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:24.495Z",
+      "scrapedAt": "2026-02-06T07:50:04.373Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6813,9 +7091,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-shadows-edge-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86-2/download/",
       "page": 1,
-      "position": 49,
+      "position": 51,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:26.463Z",
+      "scrapedAt": "2026-02-06T07:50:06.640Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -6955,9 +7233,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-roofman-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 50,
+      "position": 52,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:28.346Z",
+      "scrapedAt": "2026-02-06T07:50:08.793Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -7099,9 +7377,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-ella-mccay-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 51,
+      "position": 53,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:30.201Z",
+      "scrapedAt": "2026-02-06T07:50:10.955Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -7306,9 +7584,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-greenland-2-migration-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 52,
+      "position": 54,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:32.045Z",
+      "scrapedAt": "2026-02-06T07:50:13.112Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 17,
@@ -7513,9 +7791,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-anaconda-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 53,
+      "position": 55,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:33.879Z",
+      "scrapedAt": "2026-02-06T07:50:15.289Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 17,
@@ -7656,9 +7934,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-silent-night-deadly-night-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 54,
+      "position": 56,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:35.873Z",
+      "scrapedAt": "2026-02-06T07:50:17.538Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -7796,9 +8074,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-mother-of-flies-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 55,
+      "position": 57,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:37.807Z",
+      "scrapedAt": "2026-02-06T07:50:19.697Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -7939,9 +8217,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-zootopia-2-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 56,
+      "position": 58,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:39.611Z",
+      "scrapedAt": "2026-02-06T07:50:21.848Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -8076,9 +8354,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-silent-crisis-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 57,
+      "position": 59,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:41.438Z",
+      "scrapedAt": "2026-02-06T07:50:24.130Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -8219,296 +8497,9 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-bears-on-a-ship-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 58,
-      "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:43.243Z",
-      "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 9,
-        "genresCount": 0
-      }
-    },
-    {
-      "id": "198575",
-      "title": "فيلم Reverence 2025 مترجم اون لاين",
-      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reverence-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://topcinema.rip/?p=198575",
-      "image": "https://topcinema.rip/wp-content/uploads/2026/01/MV5BZjY0ODI2ODQtNGI3OS00NmY2LWJjODItYjRhOThjMzRjMjMzXkEyXkFqcGc@-433x650.jpg",
-      "imdbRating": "3.5",
-      "story": "تتفاقم الظروف المحيطة باختفاء فتاة مراهقة وتخرج عن السيطرة بعد أن بدأ والدها المصاب بصدمة نفسية ومحقق مصمم في البحث عن إجابات.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "اثارة"
-        ],
-        "جودة الفيلم": [
-          "1080p BluRay"
-        ],
-        "توقيت الفيلم": "126 دقيقة",
-        "موعد الصدور": [
-          "2025"
-        ],
-        "لغة الفيلم": [
-          "الأنجليزية"
-        ],
-        "دولة الفيلم": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Adam Hampton",
-          "Ben Hall",
-          "Christopher Blanchett",
-          "Connie Franklin"
-        ]
-      },
-      "year": null,
-      "quality": null,
-      "runtime": "26-01-2026",
-      "genres": [],
-      "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reverence-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-q46c4ayc3c6h.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
-      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reverence-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/q46c4ayc3c6h.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "UpDown",
-          "url": "https://updown.cam/ytg5o860pbq4",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Mdiaload",
-          "url": "https://down.mdiaload.com/vd0s8s12h0e0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Ddownload",
-          "url": "https://ddownload.com/16mien8squki",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Nitroflare",
-          "url": "https://nitroflare.com/view/66FAE9DEC70ECB3",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1Fichier",
-          "url": "https://1fichier.com/?ys4ydljewvygp991u9ue",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Rapidgator",
-          "url": "https://rapidgator.net/file/cf78ea8b4f231150277047eef34d5038",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Freedl",
-          "url": "https://frdl.io/21s7qy68nyb2",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "CloudFile",
-          "url": "https://1cloudfile.com/4ct3A",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
-      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reverence-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
-      "page": 1,
-      "position": 59,
-      "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:45.049Z",
-      "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 9,
-        "genresCount": 0
-      }
-    },
-    {
-      "id": "198556",
-      "title": "فيلم Tafiti: Across the Desert 2025 مترجم اون لاين",
-      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-tafiti-across-the-desert-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://topcinema.rip/?p=198556",
-      "image": "https://topcinema.rip/wp-content/uploads/2026/01/MV5BNzc3NjUzOGYtY2U5MC00NWI0LWE4MGMtMDhlYTlkNGExNWJiXkEyXkFqcGc@-scaled-456x650.jpg",
-      "imdbRating": "6.7",
-      "story": "يتبع العمل قصة حيوان السرقاط الصغير (تافتي)، والذي ينطلق في رحلة عبر الصحراء بحثًا عن زهرة شافية بعد تعرض جده للدغة أفعى، ويشاركه الخنزير (بريسلز) مغامرته.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي",
-          "افلام انمي"
-        ],
-        "نوع الفيلم": [
-          "كرتون"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "81 دقيقة",
-        "موعد الصدور": [
-          "2025"
-        ],
-        "لغة الفيلم": [
-          "الأنجليزية"
-        ],
-        "دولة الفيلم": [
-          "ألمانيا"
-        ],
-        "بطولة": [
-          "Bürger Lars Dietrich",
-          "Cosima Henman",
-          "Dela Dabulamanzi",
-          "Dustin Semmelrogge"
-        ]
-      },
-      "year": null,
-      "quality": null,
-      "runtime": "26-01-2026",
-      "genres": [],
-      "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-tafiti-across-the-desert-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-cqdo947wzlvd.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
-      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-tafiti-across-the-desert-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/cqdo947wzlvd.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "UpDown",
-          "url": "https://updown.cam/4xzq73qvgg36",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Mdiaload",
-          "url": "https://down.mdiaload.com/qoyjhl52s8d5",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Ddownload",
-          "url": "https://ddownload.com/1hgyqu5u1gt5",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Nitroflare",
-          "url": "https://nitroflare.com/view/4F9826C83548AA9",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1Fichier",
-          "url": "https://1fichier.com/?vsjtl8jr5xfptthcmi5y",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Rapidgator",
-          "url": "https://rapidgator.net/file/3325fcc4023c93f24848cc7cc694da71",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "Freedl",
-          "url": "https://frdl.io/w4o5s5zelpo7",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "CloudFile",
-          "url": "https://1cloudfile.com/4ct3u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
-      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-tafiti-across-the-desert-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
-      "page": 1,
       "position": 60,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-02-05T19:39:47.058Z",
+      "scrapedAt": "2026-02-06T07:50:26.402Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
