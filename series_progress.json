@@ -7,9 +7,9 @@
   "episodeFileNumber": 12,
   "episodesInCurrentFile": 651,
   "latestEpisodesFileNumber": 1,
-  "latestEpisodesInCurrentFile": 80,
+  "latestEpisodesInCurrentFile": 90,
   "topMonthlySeriesFileNumber": 1,
-  "topMonthlySeriesInCurrentFile": 24,
+  "topMonthlySeriesInCurrentFile": 30,
   "pagesProcessedThisRun": 1,
   "shouldStop": true,
   "allPagesScraped": true,
@@ -21,9 +21,9 @@
   "currentEpisodeFile": "Page12.json",
   "currentLatestEpisodesFile": "Page1.json",
   "currentTopMonthlySeriesFile": "TopMonthly_Page1.json",
-  "lastMonitoringDate": "2026-02-06T17:36:15.248Z",
-  "lastTopMonthlyScrapeDate": "2026-02-06T17:35:45.536Z",
-  "lastFirstPageCheckDate": "2026-02-06T17:35:35.481Z",
+  "lastMonitoringDate": "2026-02-06T18:37:23.434Z",
+  "lastTopMonthlyScrapeDate": "2026-02-06T18:36:49.970Z",
+  "lastFirstPageCheckDate": "2026-02-06T18:36:39.141Z",
   "lastFirstPageSeries": [
     {
       "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-salvador-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
@@ -176,5 +176,5 @@
       "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-ponies-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
     }
   ],
-  "lastUpdate": "2026-02-06T17:36:15.248Z"
+  "lastUpdate": "2026-02-06T18:37:23.434Z"
 }
