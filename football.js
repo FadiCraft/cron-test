@@ -19,7 +19,7 @@ if (!fs.existsSync(FOOTBALL_DIR)) {
 const SITES = {
     PRIMARY: {
         name: "KoraPlus",
-        baseUrl: "https://koraplus.blog/",
+        baseUrl: "https://koraplus.blog2/",
         matchSelector: ".match-container",
         extractMatchData: extractKoraPlusMatch,
         extractWatchServers: extractKoraPlusWatchServers
@@ -731,7 +731,7 @@ async function main() {
         let backupSiteData = null;
         
         // ============ المحاولة الأولى: الموقع الأساسي ============
-        console.log("\n🔵 المحاولة الأولى: الموقع الأساسي (koraplus.blog)");
+        console.log("\n🔵 المحاولة الأولى: الموقع الأساسي (koraplus.blog2)");
         console.log("-".repeat(50));
         
         primarySiteData = await fetchMatchesFromSite(SITES.PRIMARY, 1);
@@ -782,7 +782,7 @@ async function main() {
             const kora360Matches = savedData.matches.filter(m => m.source === "kora360").length;
             
             console.log(`\n📊 إحصائيات المصادر:`);
-            console.log(`   - من koraplus.blog: ${koraplusMatches}`);
+            console.log(`   - من koraplus.blog2: ${koraplusMatches}`);
             console.log(`   - من kora360-live.com: ${kora360Matches}`);
             
             return { 
@@ -910,7 +910,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         console.log(`النتيجة: ${result.success ? '✅ ناجح' : '❌ فاشل'}`);
         if (result.success) {
             console.log(`إجمالي المباريات: ${result.total}`);
-            console.log(`من koraplus.blog: ${result.fromPrimary}`);
+            console.log(`من koraplus.blog2: ${result.fromPrimary}`);
             console.log(`من kora360-live.com: ${result.fromBackup}`);
             console.log(`المباريات الجارية: ${result.live}`);
             console.log(`المباريات القادمة: ${result.upcoming}`);
