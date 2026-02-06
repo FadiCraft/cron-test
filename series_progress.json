@@ -1,15 +1,13 @@
 {
   "seriesPage": 56,
   "seriesFileNumber": 5,
-  "seriesInCurrentFile": 433,
+  "seriesInCurrentFile": 434,
   "seasonFileNumber": 11,
   "seasonsInCurrentFile": 37,
   "episodeFileNumber": 12,
   "episodesInCurrentFile": 651,
   "latestEpisodesFileNumber": 2,
-  "latestEpisodesInCurrentFile": 20,
-  "topMonthlySeriesFileNumber": 1,
-  "topMonthlySeriesInCurrentFile": 48,
+  "latestEpisodesInCurrentFile": 30,
   "pagesProcessedThisRun": 1,
   "shouldStop": true,
   "allPagesScraped": true,
@@ -20,161 +18,6 @@
   "currentSeasonFile": "Page11.json",
   "currentEpisodeFile": "Page12.json",
   "currentLatestEpisodesFile": "Page2.json",
-  "currentTopMonthlySeriesFile": "TopMonthly_Page1.json",
-  "lastMonitoringDate": "2026-02-06T20:47:05.883Z",
-  "lastTopMonthlyScrapeDate": "2026-02-06T20:46:32.693Z",
-  "lastFirstPageCheckDate": "2026-02-06T20:46:21.904Z",
-  "lastFirstPageSeries": [
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-salvador-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Salvador مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-salvador-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-good-witch-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Good Witch مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-good-witch-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-cash-queens-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Cash Queens مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-cash-queens-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-unfamiliar-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Unfamiliar مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-unfamiliar-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل The Lincoln Lawyer مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-beast-games-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Beast Games مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-beast-games-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Castle مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-shrinking-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Shrinking مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-shrinking-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Dark مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-vanished-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Vanished مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-vanished-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-its-not-like-that-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل It's Not Like That مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-its-not-like-that-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bridgerton-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Bridgerton مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-bridgerton-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-school-spirits-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل School Spirits مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-school-spirits-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-wonder-man-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Wonder Man مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-wonder-man-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-going-dutch-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Going Dutch مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-going-dutch-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-free-bert-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Free Bert مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-free-bert-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-finding-her-edge-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Finding Her Edge مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-finding-her-edge-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-beauty-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل The Beauty مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-beauty-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-landman-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Landman مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-landman-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-power-book-iv-force-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Power Book IV: Force مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-power-book-iv-force-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-steal-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Steal مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-steal-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-drops-of-god-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Drops of God مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-drops-of-god-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hijack-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Hijack مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-hijack-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-red-eye-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Red Eye مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-red-eye-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-doctor-who-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Doctor Who مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-doctor-who-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-snake-killer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Snake Killer مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-snake-killer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-peaky-blinders-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Peaky Blinders مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-peaky-blinders-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-hunting-party-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل The Hunting Party مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-hunting-party-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-animal-control-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Animal Control مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-animal-control-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    },
-    {
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-ponies-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "title": "مسلسل Ponies مترجم",
-      "id": "%d9%85%d8%b3%d9%84%d8%b3%d9%84-ponies-%d9%85%d8%aa%d8%b1%d8%ac%d9%85"
-    }
-  ],
-  "lastUpdate": "2026-02-06T20:47:05.884Z"
+  "lastMonitoringDate": "2026-02-06T21:42:46.276Z",
+  "lastUpdate": "2026-02-06T21:42:46.276Z"
 }
