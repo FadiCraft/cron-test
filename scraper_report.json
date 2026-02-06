@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-02-06T23:17:52.866Z",
+  "timestamp": "2026-02-06T23:18:48.255Z",
   "mode": "monitor_episodes",
+  "modeName": "مراقبة الحلقات الجديدة",
   "stats": {
     "seriesPage": 56,
     "allPagesScraped": true,
     "seriesInFile": 434,
     "seasonsInFile": 37,
     "episodesInFile": 651,
-    "latestEpisodesInFile": 50
+    "latestEpisodesInFile": 50,
+    "topMonthSeriesInFile": 0
   },
   "nextRun": {
     "mode": "monitor_episodes",
     "startPage": "monitoring",
     "seriesFile": "Page5.json",
-    "seriesInFile": 434
+    "topSeriesFile": "Page1.json"
   }
 }

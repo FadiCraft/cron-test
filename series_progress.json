@@ -8,6 +8,8 @@
   "episodesInCurrentFile": 651,
   "latestEpisodesFileNumber": 2,
   "latestEpisodesInCurrentFile": 50,
+  "topMonthSeriesFileNumber": 1,
+  "topMonthSeriesInCurrentFile": 0,
   "pagesProcessedThisRun": 1,
   "shouldStop": true,
   "allPagesScraped": true,
@@ -18,6 +20,8 @@
   "currentSeasonFile": "Page11.json",
   "currentEpisodeFile": "Page12.json",
   "currentLatestEpisodesFile": "Page2.json",
-  "lastMonitoringDate": "2026-02-06T23:17:52.866Z",
-  "lastUpdate": "2026-02-06T23:17:52.866Z"
+  "currentTopMonthSeriesFile": "Page1.json",
+  "lastTopSeriesScrape": null,
+  "lastMonitoringDate": "2026-02-06T23:18:48.254Z",
+  "lastUpdate": "2026-02-06T23:18:48.255Z"
 }
