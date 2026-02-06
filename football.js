@@ -15,24 +15,6 @@ if (!fs.existsSync(FOOTBALL_DIR)) {
     fs.mkdirSync(FOOTBALL_DIR, { recursive: true });
 }
 
-// ==================== إعدادات المواقع ====================
-const SITES = {
-    PRIMARY: {
-        name: "KoraPlus",
-        baseUrl: "https://koraplus.blog2/",
-        matchSelector: ".match-container",
-        extractMatchData: extractKoraPlusMatch,
-        extractWatchServers: extractKoraPlusWatchServers
-    },
-    BACKUP: {
-        name: "Kora360",
-        baseUrl: "https://www.kora360-live.com/",
-        matchSelector: ".aplive-card.match-container",
-        extractMatchData: extractKora360Match,
-        extractWatchServers: extractKora360WatchServers
-    }
-};
-
 // ==================== fetch مع timeout ====================
 async function fetchWithTimeout(url, timeout = 15000) {
     const controller = new AbortController();
@@ -45,7 +27,7 @@ async function fetchWithTimeout(url, timeout = 15000) {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                 'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-                'Referer': 'https://korapluoos.blog/',
+                'Referer': 'https://koraplus.blog/',
                 'Accept-Encoding': 'gzip, deflate, br',
                 'Connection': 'keep-alive',
                 'Upgrade-Insecure-Requests': '1',
@@ -93,218 +75,13 @@ function detectServerType(url) {
     if (urlLower.includes(".m3u8")) return "M3U8";
     if (urlLower.includes(".mp4")) return "MP4";
     if (urlLower.includes("kk.pyxq.online")) return "KoraPlus";
-    if (urlLower.includes("feed2v.koora999.site") || urlLower.includes("feed2v.shikeaben.site")) return "Feed2V";
     
     return "غير معروف";
 }
 
-// ==================== استخراج بيانات المباراة من KoraPlus ====================
-function extractKoraPlusMatch(element, index, pageNum) {
-    // استخراج رابط المباراة من العنصر
-    const matchLink = element.querySelector('a');
-    let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
-    
-    if (!matchUrl) return null;
-    
-    // استخراج أسماء الفريقين
-    const team1NameElem = element.querySelector('.right-team .team-name');
-    const team2NameElem = element.querySelector('.left-team .team-name');
-    
-    let team1Name = team1NameElem ? team1NameElem.textContent.trim() : "غير معروف";
-    let team2Name = team2NameElem ? team2NameElem.textContent.trim() : "غير معروف";
-    
-    // استخراج شعارات الفريقين
-    const team1Img = element.querySelector('.right-team img');
-    const team2Img = element.querySelector('.left-team img');
-    
-    let team1Logo = team1Img ? team1Img.getAttribute('src') || team1Img.getAttribute('data-src') : null;
-    let team2Logo = team2Img ? team2Img.getAttribute('src') || team2Img.getAttribute('data-src') : null;
-    
-    // استخراج النتيجة والوقت
-    let team1Score = "0";
-    let team2Score = "0";
-    let score = "0 - 0";
-    let matchTime = "غير معروف";
-    
-    const resultElement = element.querySelector('.match-timing .result');
-    const timeElement = element.querySelector('.match-timing div:not(.result):not(.date)');
-    
-    if (resultElement) {
-        const resultText = resultElement.textContent.trim();
-        const scores = resultText.split('-');
-        if (scores.length === 2) {
-            team1Score = scores[0].trim();
-            team2Score = scores[1].trim();
-            score = resultText;
-        }
-    }
-    
-    if (timeElement) {
-        matchTime = timeElement.textContent.trim();
-    }
-    
-    // استخراج حالة المباراة
-    let matchStatus = "غير معروف";
-    const statusElement = element.querySelector('.match-timing .date');
-    if (statusElement) {
-        const statusText = statusElement.textContent.trim();
-        if (statusText === "جارية الان") {
-            matchStatus = "جارية الآن";
-        } else if (statusText === "لم تبدأ بعد") {
-            matchStatus = "لم تبدأ بعد";
-        } else if (statusText === "انتهت المباراة") {
-            matchStatus = "انتهت";
-        } else {
-            matchStatus = statusText;
-        }
-    }
-    
-    // استخراج القنوات والبطولة
-    const channels = [];
-    let tournament = "غير محدد";
-    
-    const channelItems = element.querySelectorAll('.match-info li span');
-    channelItems.forEach((item, idx) => {
-        const text = item.textContent.trim();
-        if (text && text !== "غير معروف") {
-            if (idx < 2) {
-                channels.push(text);
-            } else if (idx === 2) {
-                // العنصر الثالث هو البطولة والمنطقة
-                tournament = text;
-            }
-        }
-    });
-    
-    // تنظيف البطولة (إزالة اسم الدولة إذا كانت موجودة)
-    if (tournament.includes(',')) {
-        tournament = tournament.split(',').slice(1).join(',').trim();
-    }
-    
-    // إنشاء كائن المباراة
-    const matchId = `match_koraplus_${Date.now()}_${index}`;
-    
-    return {
-        id: matchId,
-        url: matchUrl,
-        title: `${team1Name} vs ${team2Name}`,
-        team1: {
-            name: team1Name,
-            logo: team1Logo,
-            score: team1Score
-        },
-        team2: {
-            name: team2Name,
-            logo: team2Logo,
-            score: team2Score
-        },
-        score: score,
-        time: matchTime,
-        status: matchStatus,
-        channels: channels,
-        tournament: tournament,
-        page: pageNum,
-        position: index + 1,
-        scrapedAt: new Date().toISOString(),
-        watchServers: null,
-        source: "koraplus"
-    };
-}
-
-// ==================== استخراج بيانات المباراة من Kora360 ====================
-function extractKora360Match(element, index, pageNum) {
-    // استخراج رابط المباراة من العنصر
-    const matchLink = element.querySelector('a.overlay-match');
-    let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
-    
-    if (!matchUrl) return null;
-    
-    // استخراج أسماء الفريقين
-    const team1NameElem = element.querySelector('.home-team .team-name');
-    const team2NameElem = element.querySelector('.away-team .team-name');
-    
-    let team1Name = team1NameElem ? team1NameElem.textContent.trim() : "غير معروف";
-    let team2Name = team2NameElem ? team2NameElem.textContent.trim() : "غير معروف";
-    
-    // استخراج شعارات الفريقين
-    const team1Img = element.querySelector('.home-team img');
-    const team2Img = element.querySelector('.away-team img');
-    
-    let team1Logo = team1Img ? team1Img.getAttribute('src') || team1Img.getAttribute('data-src') : null;
-    let team2Logo = team2Img ? team2Img.getAttribute('src') || team2Img.getAttribute('data-src') : null;
-    
-    // استخراج الوقت
-    let matchTime = "غير معروف";
-    const timeElement = element.querySelector('.match-time.time');
-    if (timeElement) {
-        matchTime = timeElement.textContent.trim();
-    }
-    
-    // استخراج حالة المباراة
-    let matchStatus = "غير معروف";
-    const statusElement = element.querySelector('.status');
-    if (statusElement) {
-        const statusText = statusElement.textContent.trim();
-        if (statusText.includes("جارية") || statusText === "مباشر") {
-            matchStatus = "جارية الآن";
-        } else if (statusText.includes("لم تبدأ")) {
-            matchStatus = "لم تبدأ بعد";
-        } else if (statusText.includes("انتهت")) {
-            matchStatus = "انتهت";
-        } else {
-            matchStatus = statusText;
-        }
-    }
-    
-    // استخراج البطولة
-    let tournament = "غير محدد";
-    const tournamentElement = element.querySelector('.match-info li span');
-    if (tournamentElement) {
-        tournament = tournamentElement.textContent.trim();
-    }
-    
-    // النتيجة افتراضياً 0-0 للمباريات التي لم تبدأ
-    let team1Score = "0";
-    let team2Score = "0";
-    let score = "0 - 0";
-    
-    // للمباريات الجارية أو المنتهية، قد تكون النتيجة في data attributes
-    const matchStart = element.getAttribute('data-start');
-    const matchEnd = element.getAttribute('data-end');
-    
-    // إنشاء كائن المباراة
-    const matchId = `match_kora360_${Date.now()}_${index}`;
-    
-    return {
-        id: matchId,
-        url: matchUrl,
-        title: `${team1Name} vs ${team2Name}`,
-        team1: {
-            name: team1Name,
-            logo: team1Logo,
-            score: team1Score
-        },
-        team2: {
-            name: team2Name,
-            logo: team2Logo,
-            score: team2Score
-        },
-        score: score,
-        time: matchTime,
-        status: matchStatus,
-        channels: [],
-        tournament: tournament,
-        page: pageNum,
-        position: index + 1,
-        scrapedAt: new Date().toISOString(),
-        watchServers: null,
-        source: "kora360"
-    };
-}
-
-// ==================== استخراج سيرفرات المشاهدة من KoraPlus ====================
-async function extractKoraPlusWatchServers(matchUrl) {
-    console.log(`   🔍 [KoraPlus] جلب سيرفرات المشاهدة من: ${matchUrl}`);
+// ==================== استخراج سيرفرات المشاهدة من صفحة المباراة ====================
+async function fetchWatchServers(matchUrl) {
+    console.log(`   🔍 جلب سيرفرات المشاهدة من: ${matchUrl}`);
     
     const html = await fetchWithTimeout(matchUrl);
     
@@ -344,7 +121,7 @@ async function extractKoraPlusWatchServers(matchUrl) {
                         quality: "HD",
                         server: serverType,
                         id: `iframe_${servers.length + 1}`,
-                        source: 'koraplus_iframe'
+                        source: 'iframe'
                     });
                 }
             }
@@ -373,7 +150,7 @@ async function extractKoraPlusWatchServers(matchUrl) {
                             quality: "HD",
                             server: serverType,
                             id: `div_iframe_${servers.length + 1}`,
-                            source: 'koraplus_player_div'
+                            source: 'player_div'
                         });
                     }
                 }
@@ -406,7 +183,7 @@ async function extractKoraPlusWatchServers(matchUrl) {
                                     quality: "HD",
                                     server: serverType,
                                     id: `script_${servers.length + 1}`,
-                                    source: 'koraplus_script'
+                                    source: 'script'
                                 });
                             }
                         }
@@ -432,7 +209,7 @@ async function extractKoraPlusWatchServers(matchUrl) {
                             quality: "HD",
                             server: serverType,
                             id: `link_${servers.length + 1}`,
-                            source: 'koraplus_a_tag'
+                            source: 'a_tag'
                         });
                     }
                 }
@@ -442,73 +219,36 @@ async function extractKoraPlusWatchServers(matchUrl) {
         // ترشيح وإرجاع النتائج
         if (servers.length > 0) {
             console.log(`   📊 تم العثور على ${servers.length} سيرفر مشاهدة`);
+            
+            // عرض جميع السيرفرات الموجودة
+            servers.forEach((server, index) => {
+                console.log(`   ${index + 1}. ${server.server}: ${server.url.substring(0, 100)}...`);
+            });
+            
             return servers.slice(0, 3); // إرجاع أول 3 سيرفرات فقط
             
         } else {
             console.log(`   ⚠️ لم يتم العثور على أي سيرفرات مشاهدة`);
-            return null;
-        }
-        
-    } catch (error) {
-        console.log(`   ❌ خطأ في استخراج سيرفرات المشاهدة: ${error.message}`);
-        return null;
-    }
-}
-
-// ==================== استخراج سيرفرات المشاهدة من Kora360 ====================
-async function extractKora360WatchServers(matchUrl) {
-    console.log(`   🔍 [Kora360] جلب سيرفرات المشاهدة من: ${matchUrl}`);
-    
-    const html = await fetchWithTimeout(matchUrl);
-    
-    if (!html) {
-        console.log(`   ⚠️ فشل جلب صفحة المباراة`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        
-        console.log(`   🔍 البحث عن صفحة السيرفرات...`);
-        
-        // الخطوة 1: البحث عن رابط صفحة المشاهدة (play-button)
-        const playButton = doc.querySelector('a.play-button#match-link');
-        let serverPageUrl = null;
-        
-        if (playButton) {
-            serverPageUrl = playButton.getAttribute('href');
-            console.log(`   ✅ وجد رابط صفحة السيرفرات: ${serverPageUrl.substring(0, 80)}...`);
-        } else {
-            // البحث عن أي رابط قد يحتوي على server
-            const potentialLinks = doc.querySelectorAll('a[href*="view"], a[href*="server"], a[href*="watch"]');
-            for (const link of potentialLinks) {
-                const href = link.getAttribute('href');
-                if (href && href.includes('http')) {
-                    serverPageUrl = href;
-                    console.log(`   ✅ وجد رابط محتمل لصفحة السيرفرات: ${href.substring(0, 80)}...`);
-                    break;
-                }
-            }
-        }
-        
-        if (!serverPageUrl) {
-            console.log(`   ⚠️ لم يتم العثور على رابط صفحة السيرفرات`);
             
-            // محاولة البحث عن iframe مباشرة في صفحة المباراة
-            const directIframe = doc.querySelector('iframe');
-            if (directIframe) {
-                const src = directIframe.getAttribute('src');
-                if (src) {
-                    const serverType = detectServerType(src);
-                    console.log(`   ✅ وجد iframe مباشر: ${serverType} - ${src.substring(0, 80)}...`);
+            // محاولة أخيرة: البحث عن أي إشارة لـ albaplayer أو ontime
+            const pageContent = doc.body.innerHTML;
+            const potentialDomains = ['kk.pyxq.online', 'albaplayer', 'ontime'];
+            
+            for (const domain of potentialDomains) {
+                if (pageContent.includes(domain)) {
+                    console.log(`   🔍 وجد إشارة إلى ${domain} في الصفحة`);
+                    
+                    // محاولة بناء رابط افتراضي
+                    const potentialUrl = `https://kk.pyxq.online/albaplayer/ontime/`;
+                    console.log(`   💡 رابط محتمل: ${potentialUrl}`);
+                    
                     return [{
                         type: 'iframe',
-                        url: src.trim(),
+                        url: potentialUrl,
                         quality: "HD",
-                        server: serverType,
-                        id: 'direct_iframe',
-                        source: 'kora360_direct'
+                        server: "KoraPlus/AlbaPlayer",
+                        id: 'potential_server',
+                        source: 'auto_generated'
                     }];
                 }
             }
@@ -516,88 +256,23 @@ async function extractKora360WatchServers(matchUrl) {
             return null;
         }
         
-        // الخطوة 2: جلب صفحة السيرفرات
-        console.log(`   🔍 جلب صفحة السيرفرات...`);
-        const serverPageHtml = await fetchWithTimeout(serverPageUrl);
-        
-        if (!serverPageHtml) {
-            console.log(`   ⚠️ فشل جلب صفحة السيرفرات`);
-            return null;
-        }
-        
-        const serverDom = new JSDOM(serverPageHtml);
-        const serverDoc = serverDom.window.document;
-        
-        // الخطوة 3: استخراج iframe من صفحة السيرفرات
-        const iframe = serverDoc.querySelector('iframe');
-        if (iframe) {
-            const src = iframe.getAttribute('src');
-            if (src) {
-                const serverType = detectServerType(src);
-                console.log(`   ✅ وجد iframe السيرفر: ${serverType} - ${src.substring(0, 80)}...`);
-                
-                return [{
-                    type: 'iframe',
-                    url: src.trim(),
-                    quality: "HD",
-                    server: serverType,
-                    id: 'server_page_iframe',
-                    source: 'kora360_server_page'
-                }];
-            }
-        }
-        
-        // الخطوة 4: البحث عن أي روابط iframe في الصفحة
-        const allIframes = serverDoc.querySelectorAll('iframe');
-        const servers = [];
-        
-        for (const iframe of allIframes) {
-            const src = iframe.getAttribute('src');
-            if (src && src.trim() !== '') {
-                const serverType = detectServerType(src);
-                console.log(`   🔍 وجد iframe: ${serverType} - ${src.substring(0, 80)}...`);
-                
-                if (serverType !== "غير معروف") {
-                    const isDuplicate = servers.some(s => s.url === src.trim());
-                    if (!isDuplicate) {
-                        console.log(`   ✅ وجد iframe: ${serverType} - ${src.substring(0, 80)}...`);
-                        servers.push({
-                            type: 'iframe',
-                            url: src.trim(),
-                            quality: "HD",
-                            server: serverType,
-                            id: `iframe_${servers.length + 1}`,
-                            source: 'kora360_server_page'
-                        });
-                    }
-                }
-            }
-        }
-        
-        if (servers.length > 0) {
-            console.log(`   📊 تم العثور على ${servers.length} سيرفر مشاهدة`);
-            return servers.slice(0, 3);
-        } else {
-            console.log(`   ⚠️ لم يتم العثور على أي سيرفرات في صفحة السيرفرات`);
-            return null;
-        }
-        
     } catch (error) {
         console.log(`   ❌ خطأ في استخراج سيرفرات المشاهدة: ${error.message}`);
         return null;
     }
 }
 
-// ==================== استخراج المباريات من موقع محدد ====================
-async function fetchMatchesFromSite(siteConfig, pageNum = 1) {
-    const url = pageNum === 1 ? siteConfig.baseUrl : `${siteConfig.baseUrl}page/${pageNum}/`;
+// ==================== استخراج المباريات من الصفحة الرئيسية ====================
+async function fetchMatchesFromPage(pageNum = 1) {
+    const baseUrl = "https://koraplus.blog/";
+    const url = pageNum === 1 ? baseUrl : `${baseUrl}page/${pageNum}/`;
     
-    console.log(`\n📄 [${siteConfig.name}] الصفحة ${pageNum}: ${url}`);
+    console.log(`\n📄 الصفحة ${pageNum}: ${url}`);
     
     const html = await fetchWithTimeout(url);
     
     if (!html) {
-        console.log(`❌ فشل جلب صفحة المباريات من ${siteConfig.name}`);
+        console.log(`❌ فشل جلب صفحة المباريات`);
         return null;
     }
     
@@ -606,36 +281,142 @@ async function fetchMatchesFromSite(siteConfig, pageNum = 1) {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن جميع عناصر المباريات باستخدام selector المخصص
-        const matchElements = doc.querySelectorAll(siteConfig.matchSelector);
+        // البحث عن جميع عناصر المباريات في الموقع الجديد
+        const matchElements = doc.querySelectorAll('.match-container');
         
-        console.log(`✅ وجد ${matchElements.length} عنصر مباراة في ${siteConfig.name}`);
+        console.log(`✅ وجد ${matchElements.length} عنصر مباراة`);
         
         for (let index = 0; index < matchElements.length; index++) {
             const element = matchElements[index];
             
             try {
-                // استخراج بيانات المباراة باستخدام الدالة المخصصة للموقع
-                const match = siteConfig.extractMatchData(element, index, pageNum);
+                // استخراج رابط المباراة من العنصر
+                const matchLink = element.querySelector('a');
+                let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
                 
-                if (match) {
-                    matches.push(match);
-                    
-                    // عرض تفاصيل الاستخراج
-                    console.log(`   ✓ ${index + 1}: ${match.title} (${match.status})`);
-                    console.log(`     النتيجة: ${match.score} | الوقت: ${match.time}`);
-                    console.log(`     البطولة: ${match.tournament}`);
-                    console.log(`     الرابط: ${match.url.substring(0, 80)}...`);
+                if (!matchUrl) {
+                    console.log(`   ⚠️ تخطي عنصر ${index + 1} - لا يوجد رابط`);
+                    continue;
                 }
+                
+                // استخراج أسماء الفريقين
+                const team1NameElem = element.querySelector('.right-team .team-name');
+                const team2NameElem = element.querySelector('.left-team .team-name');
+                
+                let team1Name = team1NameElem ? team1NameElem.textContent.trim() : "غير معروف";
+                let team2Name = team2NameElem ? team2NameElem.textContent.trim() : "غير معروف";
+                
+                // استخراج شعارات الفريقين
+                const team1Img = element.querySelector('.right-team img');
+                const team2Img = element.querySelector('.left-team img');
+                
+                let team1Logo = team1Img ? team1Img.getAttribute('src') || team1Img.getAttribute('data-src') : null;
+                let team2Logo = team2Img ? team2Img.getAttribute('src') || team2Img.getAttribute('data-src') : null;
+                
+                // استخراج النتيجة والوقت
+                let team1Score = "0";
+                let team2Score = "0";
+                let score = "0 - 0";
+                let matchTime = "غير معروف";
+                
+                const resultElement = element.querySelector('.match-timing .result');
+                const timeElement = element.querySelector('.match-timing div:not(.result):not(.date)');
+                
+                if (resultElement) {
+                    const resultText = resultElement.textContent.trim();
+                    const scores = resultText.split('-');
+                    if (scores.length === 2) {
+                        team1Score = scores[0].trim();
+                        team2Score = scores[1].trim();
+                        score = resultText;
+                    }
+                }
+                
+                if (timeElement) {
+                    matchTime = timeElement.textContent.trim();
+                }
+                
+                // استخراج حالة المباراة
+                let matchStatus = "غير معروف";
+                const statusElement = element.querySelector('.match-timing .date');
+                if (statusElement) {
+                    const statusText = statusElement.textContent.trim();
+                    if (statusText === "جارية الان") {
+                        matchStatus = "جارية الآن";
+                    } else if (statusText === "لم تبدأ بعد") {
+                        matchStatus = "لم تبدأ بعد";
+                    } else if (statusText === "انتهت المباراة") {
+                        matchStatus = "انتهت";
+                    } else {
+                        matchStatus = statusText;
+                    }
+                }
+                
+                // استخراج القنوات والبطولة
+                const channels = [];
+                let tournament = "غير محدد";
+                
+                const channelItems = element.querySelectorAll('.match-info li span');
+                channelItems.forEach((item, idx) => {
+                    const text = item.textContent.trim();
+                    if (text && text !== "غير معروف") {
+                        if (idx < 2) {
+                            channels.push(text);
+                        } else if (idx === 2) {
+                            // العنصر الثالث هو البطولة والمنطقة
+                            tournament = text;
+                        }
+                    }
+                });
+                
+                // تنظيف البطولة (إزالة اسم الدولة إذا كانت موجودة)
+                if (tournament.includes(',')) {
+                    tournament = tournament.split(',').slice(1).join(',').trim();
+                }
+                
+                // إنشاء كائن المباراة
+                const matchId = `match_${Date.now()}_${index}`;
+                const match = {
+                    id: matchId,
+                    url: matchUrl,
+                    title: `${team1Name} vs ${team2Name}`,
+                    team1: {
+                        name: team1Name,
+                        logo: team1Logo,
+                        score: team1Score
+                    },
+                    team2: {
+                        name: team2Name,
+                        logo: team2Logo,
+                        score: team2Score
+                    },
+                    score: score,
+                    time: matchTime,
+                    status: matchStatus,
+                    channels: channels,
+                    tournament: tournament,
+                    page: pageNum,
+                    position: index + 1,
+                    scrapedAt: new Date().toISOString(),
+                    watchServers: null
+                };
+                
+                matches.push(match);
+                
+                // عرض تفاصيل الاستخراج
+                console.log(`   ✓ ${index + 1}: ${match.title} (${match.status})`);
+                console.log(`     النتيجة: ${score} | الوقت: ${matchTime}`);
+                console.log(`     البطولة: ${tournament}`);
+                console.log(`     الرابط: ${matchUrl.substring(0, 80)}...`);
+                
             } catch (error) {
                 console.log(`   ✗ خطأ في استخراج مباراة ${index + 1}: ${error.message}`);
             }
         }
         
-        console.log(`🎯 تم استخراج ${matches.length} مباراة من ${siteConfig.name}`);
+        console.log(`🎯 تم استخراج ${matches.length} مباراة`);
         
         return {
-            site: siteConfig.name,
             url: url,
             matches: matches,
             totalMatches: matches.length,
@@ -649,7 +430,7 @@ async function fetchMatchesFromSite(siteConfig, pageNum = 1) {
     }
 }
 
-// ==================== استخراج تفاصيل المباريات مع المحاولات المتعددة ====================
+// ==================== استخراج تفاصيل المباريات ====================
 async function fetchMatchesDetails(matches) {
     console.log(`\n🔍 جلب تفاصيل ${matches.length} مباراة...`);
     
@@ -658,20 +439,13 @@ async function fetchMatchesDetails(matches) {
     for (let i = 0; i < matches.length; i++) {
         const match = matches[i];
         
-        console.log(`\n${i + 1}/${matches.length}: ${match.title} (${match.status}) [${match.source}]`);
+        console.log(`\n${i + 1}/${matches.length}: ${match.title} (${match.status})`);
         console.log(`   🔗 الرابط: ${match.url.substring(0, 80)}...`);
         
         // محاولة استخراج سيرفرات المشاهدة للمباريات الجارية أو القادمة
         if (match.status === "جارية الآن" || match.status === "لم تبدأ بعد") {
             try {
-                let watchServers = null;
-                
-                // تحديد دالة استخراج السيرفرات بناءً على المصدر
-                if (match.source === "koraplus") {
-                    watchServers = await extractKoraPlusWatchServers(match.url);
-                } else if (match.source === "kora360") {
-                    watchServers = await extractKora360WatchServers(match.url);
-                }
+                const watchServers = await fetchWatchServers(match.url);
                 
                 const matchWithDetails = {
                     ...match,
@@ -720,104 +494,7 @@ async function fetchMatchesDetails(matches) {
     return matchesWithDetails;
 }
 
-// ==================== الدالة الرئيسية مع موقع احتياطي ====================
-async function main() {
-    console.log("⚽ بدء استخراج المباريات مع نظام موقع احتياطي");
-    console.log("=".repeat(60));
-    
-    try {
-        let allMatches = [];
-        let primarySiteData = null;
-        let backupSiteData = null;
-        
-        // ============ المحاولة الأولى: الموقع الأساسي ============
-        console.log("\n🔵 المحاولة الأولى: الموقع الأساسي (koraplus.blog2)");
-        console.log("-".repeat(50));
-        
-        primarySiteData = await fetchMatchesFromSite(SITES.PRIMARY, 1);
-        
-        if (primarySiteData && primarySiteData.matches.length > 0) {
-            console.log(`\n✅ تم استخراج ${primarySiteData.matches.length} مباراة من الموقع الأساسي`);
-            allMatches = primarySiteData.matches;
-        } else {
-            console.log("\n⚠️ الموقع الأساسي فشل أو لا يحتوي على مباريات");
-            console.log("🔄 الانتقال إلى الموقع الاحتياطي...");
-            
-            // ============ المحاولة الثانية: الموقع الاحتياطي ============
-            console.log("\n🟡 المحاولة الثانية: الموقع الاحتياطي (kora360-live.com)");
-            console.log("-".repeat(50));
-            
-            backupSiteData = await fetchMatchesFromSite(SITES.BACKUP, 1);
-            
-            if (backupSiteData && backupSiteData.matches.length > 0) {
-                console.log(`\n✅ تم استخراج ${backupSiteData.matches.length} مباراة من الموقع الاحتياطي`);
-                allMatches = backupSiteData.matches;
-            } else {
-                console.log("\n❌ كلا الموقعين فشلا في تقديم مباريات");
-                
-                const errorData = {
-                    error: "فشل استخراج المباريات من كلا الموقعين",
-                    scrapedAt: new Date().toISOString(),
-                    totalMatches: 0,
-                    matches: []
-                };
-                
-                fs.writeFileSync(OUTPUT_FILE, JSON.stringify(errorData, null, 2));
-                return { success: false, total: 0 };
-            }
-        }
-        
-        // ============ جلب تفاصيل المباريات ============
-        console.log("\n🔍 بدء جلب تفاصيل السيرفرات للمباريات...");
-        const matchesWithDetails = await fetchMatchesDetails(allMatches);
-        
-        // ============ حفظ البيانات ============
-        const savedData = saveToHgFile(matchesWithDetails);
-        
-        if (savedData) {
-            console.log(`\n🎉 تم الانتهاء بنجاح!`);
-            
-            // إحصائيات إضافية عن المصادر
-            const koraplusMatches = savedData.matches.filter(m => m.source === "koraplus").length;
-            const kora360Matches = savedData.matches.filter(m => m.source === "kora360").length;
-            
-            console.log(`\n📊 إحصائيات المصادر:`);
-            console.log(`   - من koraplus.blog2: ${koraplusMatches}`);
-            console.log(`   - من kora360-live.com: ${kora360Matches}`);
-            
-            return { 
-                success: true, 
-                total: savedData.matches.length,
-                fromPrimary: koraplusMatches,
-                fromBackup: kora360Matches,
-                live: savedData.matches.filter(m => m.status === "جارية الآن").length,
-                upcoming: savedData.matches.filter(m => m.status === "لم تبدأ بعد").length,
-                finished: savedData.matches.filter(m => m.status === "انتهت").length,
-                withServers: savedData.matches.filter(m => m.watchServers && m.watchServers.length > 0).length,
-                filePath: OUTPUT_FILE 
-            };
-        }
-        
-        return { success: false, total: 0 };
-        
-    } catch (error) {
-        console.error(`\n💥 خطأ غير متوقع: ${error.message}`);
-        console.error(error.stack);
-        
-        const errorReport = {
-            error: error.message,
-            timestamp: new Date().toISOString(),
-            stack: error.stack
-        };
-        
-        const errorFile = path.join(FOOTBALL_DIR, "error.json");
-        fs.writeFileSync(errorFile, JSON.stringify(errorReport, null, 2));
-        
-        return { success: false, error: error.message };
-    }
-}
-
-// ==================== حفظ البيانات في Hg.json (بدون تغيير) ====================
+// ==================== حفظ البيانات في Hg.json ====================
 function saveToHgFile(data) {
     try {
         const cleanData = data.map(match => {
@@ -853,6 +530,7 @@ function saveToHgFile(data) {
         
         const outputData = {
             scrapedAt: new Date().toISOString(),
+            source: "https://koraplus.blog/",
             totalMatches: cleanData.length,
             matches: cleanData
         };
@@ -881,7 +559,7 @@ function saveToHgFile(data) {
         // عرض أمثلة
         console.log(`\n📋 أمثلة على المباريات المستخرجة:`);
         cleanData.slice(0, 3).forEach((match, idx) => {
-            console.log(`\n   ${idx + 1}. ${match.title} [${match.source}]`);
+            console.log(`\n   ${idx + 1}. ${match.title}`);
             console.log(`     الحالة: ${match.status} | النتيجة: ${match.score}`);
             console.log(`     البطولة: ${match.tournament}`);
             console.log(`     الرابط: ${match.url.substring(0, 80)}...`);
@@ -903,6 +581,64 @@ function saveToHgFile(data) {
     }
 }
 
+// ==================== الدالة الرئيسية ====================
+async function main() {
+    console.log("⚽ بدء استخراج المباريات من koraplus.blog");
+    console.log("=".repeat(60));
+    
+    try {
+        const pageData = await fetchMatchesFromPage(1);
+        
+        if (!pageData || pageData.matches.length === 0) {
+            console.log("\n❌ لم يتم العثور على أي مباريات");
+            
+            const errorData = {
+                error: "لم يتم العثور على مباريات",
+                scrapedAt: new Date().toISOString(),
+                totalMatches: 0,
+                matches: []
+            };
+            
+            fs.writeFileSync(OUTPUT_FILE, JSON.stringify(errorData, null, 2));
+            return { success: false, total: 0 };
+        }
+        
+        const matchesWithDetails = await fetchMatchesDetails(pageData.matches);
+        const savedData = saveToHgFile(matchesWithDetails);
+        
+        if (savedData) {
+            console.log(`\n🎉 تم الانتهاء بنجاح!`);
+            
+            return { 
+                success: true, 
+                total: savedData.matches.length,
+                live: savedData.matches.filter(m => m.status === "جارية الآن").length,
+                upcoming: savedData.matches.filter(m => m.status === "لم تبدأ بعد").length,
+                finished: savedData.matches.filter(m => m.status === "انتهت").length,
+                withServers: savedData.matches.filter(m => m.watchServers && m.watchServers.length > 0).length,
+                filePath: OUTPUT_FILE 
+            };
+        }
+        
+        return { success: false, total: 0 };
+        
+    } catch (error) {
+        console.error(`\n💥 خطأ غير متوقع: ${error.message}`);
+        console.error(error.stack);
+        
+        const errorReport = {
+            error: error.message,
+            timestamp: new Date().toISOString(),
+            stack: error.stack
+        };
+        
+        const errorFile = path.join(FOOTBALL_DIR, "error.json");
+        fs.writeFileSync(errorFile, JSON.stringify(errorReport, null, 2));
+        
+        return { success: false, error: error.message };
+    }
+}
+
 // التشغيل
 if (import.meta.url === `file://${process.argv[1]}`) {
     main().then(result => {
@@ -910,8 +646,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         console.log(`النتيجة: ${result.success ? '✅ ناجح' : '❌ فاشل'}`);
         if (result.success) {
             console.log(`إجمالي المباريات: ${result.total}`);
-            console.log(`من koraplus.blog2: ${result.fromPrimary}`);
-            console.log(`من kora360-live.com: ${result.fromBackup}`);
             console.log(`المباريات الجارية: ${result.live}`);
             console.log(`المباريات القادمة: ${result.upcoming}`);
             console.log(`المباريات المنتهية: ${result.finished}`);
