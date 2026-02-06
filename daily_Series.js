@@ -1411,7 +1411,7 @@ async function monitorUpdates(progress) {
     const topMonthlySeries = await fetchTopMonthlySeries();
     
     if (topMonthlySeries.length > 0) {
-        console.log(`\n🏆 ===== حفظ أفضل المسلسلات الشهرية =====");
+console.log(`\n🏆 ===== حفظ أفضل المسلسلات الشهرية =====`);
         for (const series of topMonthlySeries) {
             saveTopMonthlySeries(series, progress);
         }
