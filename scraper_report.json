@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-02-07T13:38:00.783Z",
+  "timestamp": "2026-02-07T14:18:45.956Z",
   "mode": "monitor_episodes",
   "stats": {
     "seriesPage": 56,
     "allPagesScraped": true,
-    "seriesInFile": 434,
+    "seriesInFile": 436,
     "seasonsInFile": 37,
     "episodesInFile": 651,
-    "latestEpisodesInFile": 70
+    "latestEpisodesInFile": 80
   },
   "nextRun": {
     "mode": "monitor_episodes",
     "startPage": "monitoring",
     "seriesFile": "Page5.json",
-    "seriesInFile": 434
+    "seriesInFile": 436
   }
 }
