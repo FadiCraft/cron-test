@@ -1,0 +1,37 @@
+name: دراما قصيره
+
+on:
+  schedule:
+    # تشغيل كل يوم في 3 صباحاً (توقيت UTC)
+    - cron: '0 3 * * *'
+  
+  # للتنفيذ اليدوي أيضاً
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 تحميل الكود
+      uses: actions/checkout@v3
+    
+    - name: ⎔ إعداد Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: 📦 تثبيت الاعتماديات
+      run: |
+        npm install axios cheerio
+    
+    - name: 🎬 تشغيل سكربت الاستخراج
+      run: |
+        node drama_short.js
+    
+    - name: 💾 حفظ النتائج
+      uses: actions/upload-artifact@v3
+      with:
+        name: drama-files
+        path: |
+          DramaShorts/
