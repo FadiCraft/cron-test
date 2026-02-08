@@ -1,13 +1,7 @@
 {
-  "currentPage": 1,
-  "currentFileNumber": 14,
-  "moviesInCurrentFile": 234,
-  "currentFileName": "Top14.json",
-  "lastMovieId": "275",
-  "pagesProcessedThisRun": 0,
-  "foundDuplicate": false,
-  "shouldStop": false,
-  "allPagesScraped": true,
-  "homeScraped": false,
-  "lastUpdate": "2026-02-08T19:26:33.401Z"
+  "currentPage": 3,
+  "mode": "scrape_all",
+  "allPagesDone": false,
+  "lastRun": "2026-02-08T20:24:49.753Z",
+  "updated": "2026-02-08T20:27:20.550Z"
 }
