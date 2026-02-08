@@ -1,10 +1,10 @@
 {
   "info": {
-    "type": "data",
     "fileName": "Page5.json",
-    "totalItems": 436,
+    "type": "series",
+    "totalItems": 437,
     "created": "2026-02-06T07:47:50.249Z",
-    "lastUpdated": "2026-02-07T14:18:27.411Z"
+    "lastUpdated": "2026-02-08T14:13:33.516Z"
   },
   "data": [
     {
@@ -18962,6 +18962,55 @@
       },
       "scrapedAt": "2026-02-07T14:18:11.542Z",
       "fromLatestEpisode": true
+    },
+    {
+      "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-stranger-things-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
+      "title": "مسلسل Stranger Things مترجم",
+      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-stranger-things-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
+      "shortLink": "https://topcinema.rip?gt=21163",
+      "image": "https://topcinema.rip/wp-content/uploads/2025/11/_640x_07b080dd4018cd896cb57372760754c7547c1671ce90d1bb03d0fb9272ce8197.jpg",
+      "imdbRating": "8.7",
+      "story": "في الموسم الخامس، تعود (إيليفن) و(مايك) و(ويل) في مغامرة جديدة وأخيرة من شأنها تحديد مصيرهم.",
+      "details": {
+        "قسم المسلسل": [
+          "مسلسلات اجنبي"
+        ],
+        "نوع المسلسل": [
+          "دراما",
+          "رعب",
+          "فانتازيا"
+        ],
+        "جودة المسلسل": [
+          "1080p WEB-DL",
+          "480p WEB-DL",
+          "720p WEB-DL"
+        ],
+        "توقيت المسلسل": "51 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "لغة المسلسل": [
+          "الأنجليزية"
+        ],
+        "دولة المسلسل": [
+          "الولايات المتحدة الامريكية"
+        ],
+        "المخرجين": [
+          "Andrew Stanton",
+          "Dan Trachtenberg",
+          "Matt Duffer"
+        ],
+        "بطولة": [
+          "Brett Gelman",
+          "Caleb McLaughlin",
+          "Cara Buono",
+          "Charlie Heaton"
+        ]
+      },
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-02-08T14:13:33.510Z",
+      "currentFile": "Page5.json"
     }
   ]
 }
