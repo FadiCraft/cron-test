@@ -1,0 +1,3896 @@
+{
+  "seasons": {
+    "59": {
+      "id": "59",
+      "seriesId": "58",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:51.917Z",
+      "firstSeen": "2026-02-08T14:59:51.917Z"
+    },
+    "417": {
+      "id": "417",
+      "seriesId": "58",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:48.593Z",
+      "firstSeen": "2026-02-08T14:59:48.593Z"
+    },
+    "553": {
+      "id": "553",
+      "seriesId": "58",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:45.256Z",
+      "firstSeen": "2026-02-08T14:59:45.256Z"
+    },
+    "989": {
+      "id": "989",
+      "seriesId": "988",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:06.009Z",
+      "firstSeen": "2026-02-08T14:47:06.009Z"
+    },
+    "5278": {
+      "id": "5278",
+      "seriesId": "5277",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:24.132Z",
+      "firstSeen": "2026-02-08T14:50:24.132Z"
+    },
+    "5279": {
+      "id": "5279",
+      "seriesId": "5277",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:22.449Z",
+      "firstSeen": "2026-02-08T14:50:22.449Z"
+    },
+    "5280": {
+      "id": "5280",
+      "seriesId": "5277",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:20.766Z",
+      "firstSeen": "2026-02-08T14:50:20.766Z"
+    },
+    "5281": {
+      "id": "5281",
+      "seriesId": "5277",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:19.090Z",
+      "firstSeen": "2026-02-08T14:50:19.090Z"
+    },
+    "5282": {
+      "id": "5282",
+      "seriesId": "5277",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:17.410Z",
+      "firstSeen": "2026-02-08T14:50:17.410Z"
+    },
+    "5283": {
+      "id": "5283",
+      "seriesId": "5277",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:15.732Z",
+      "firstSeen": "2026-02-08T14:50:15.732Z"
+    },
+    "5284": {
+      "id": "5284",
+      "seriesId": "5277",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:14.049Z",
+      "firstSeen": "2026-02-08T14:50:14.049Z"
+    },
+    "5285": {
+      "id": "5285",
+      "seriesId": "5277",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:12.378Z",
+      "firstSeen": "2026-02-08T14:50:12.378Z"
+    },
+    "5795": {
+      "id": "5795",
+      "seriesId": "5794",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:52.771Z",
+      "firstSeen": "2026-02-08T14:58:52.771Z"
+    },
+    "6181": {
+      "id": "6181",
+      "seriesId": "6180",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:03.983Z",
+      "firstSeen": "2026-02-08T14:57:03.983Z"
+    },
+    "8735": {
+      "id": "8735",
+      "seriesId": "8734",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:39.530Z",
+      "firstSeen": "2026-02-08T14:55:39.530Z"
+    },
+    "8812": {
+      "id": "8812",
+      "seriesId": "8734",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:37.845Z",
+      "firstSeen": "2026-02-08T14:55:37.845Z"
+    },
+    "8813": {
+      "id": "8813",
+      "seriesId": "8734",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:36.157Z",
+      "firstSeen": "2026-02-08T14:55:36.157Z"
+    },
+    "8814": {
+      "id": "8814",
+      "seriesId": "8734",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:34.133Z",
+      "firstSeen": "2026-02-08T14:55:34.133Z"
+    },
+    "8815": {
+      "id": "8815",
+      "seriesId": "8734",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:32.107Z",
+      "firstSeen": "2026-02-08T14:55:32.107Z"
+    },
+    "8816": {
+      "id": "8816",
+      "seriesId": "8734",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:29.500Z",
+      "firstSeen": "2026-02-08T14:55:29.500Z"
+    },
+    "9234": {
+      "id": "9234",
+      "seriesId": "9233",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:10.392Z",
+      "firstSeen": "2026-02-08T14:47:10.392Z"
+    },
+    "11980": {
+      "id": "11980",
+      "seriesId": "11979",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:43.637Z",
+      "firstSeen": "2026-02-08T14:45:43.637Z"
+    },
+    "12487": {
+      "id": "12487",
+      "seriesId": "12486",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:27.234Z",
+      "firstSeen": "2026-02-08T14:58:27.234Z"
+    },
+    "12488": {
+      "id": "12488",
+      "seriesId": "12486",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:25.534Z",
+      "firstSeen": "2026-02-08T14:58:25.534Z"
+    },
+    "12489": {
+      "id": "12489",
+      "seriesId": "12486",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:23.835Z",
+      "firstSeen": "2026-02-08T14:58:23.835Z"
+    },
+    "12490": {
+      "id": "12490",
+      "seriesId": "12486",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:20.726Z",
+      "firstSeen": "2026-02-08T14:58:20.726Z"
+    },
+    "12491": {
+      "id": "12491",
+      "seriesId": "12486",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:19.017Z",
+      "firstSeen": "2026-02-08T14:58:19.017Z"
+    },
+    "12492": {
+      "id": "12492",
+      "seriesId": "12486",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:17.315Z",
+      "firstSeen": "2026-02-08T14:58:17.315Z"
+    },
+    "12493": {
+      "id": "12493",
+      "seriesId": "12486",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:15.593Z",
+      "firstSeen": "2026-02-08T14:58:15.593Z"
+    },
+    "12494": {
+      "id": "12494",
+      "seriesId": "12486",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:13.887Z",
+      "firstSeen": "2026-02-08T14:58:13.887Z"
+    },
+    "12495": {
+      "id": "12495",
+      "seriesId": "12486",
+      "seasonNumber": 9,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:12.181Z",
+      "firstSeen": "2026-02-08T14:58:12.181Z"
+    },
+    "12496": {
+      "id": "12496",
+      "seriesId": "12486",
+      "seasonNumber": 10,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:10.135Z",
+      "firstSeen": "2026-02-08T14:58:10.135Z"
+    },
+    "12497": {
+      "id": "12497",
+      "seriesId": "12486",
+      "seasonNumber": 11,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:08.404Z",
+      "firstSeen": "2026-02-08T14:58:08.404Z"
+    },
+    "12498": {
+      "id": "12498",
+      "seriesId": "12486",
+      "seasonNumber": 12,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:05.351Z",
+      "firstSeen": "2026-02-08T14:58:05.351Z"
+    },
+    "14823": {
+      "id": "14823",
+      "seriesId": "14822",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:29.356Z",
+      "firstSeen": "2026-02-08T14:51:29.356Z"
+    },
+    "16124": {
+      "id": "16124",
+      "seriesId": "16123",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:38.071Z",
+      "firstSeen": "2026-02-08T14:50:38.071Z"
+    },
+    "16125": {
+      "id": "16125",
+      "seriesId": "16123",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:36.382Z",
+      "firstSeen": "2026-02-08T14:50:36.382Z"
+    },
+    "16126": {
+      "id": "16126",
+      "seriesId": "16123",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:34.693Z",
+      "firstSeen": "2026-02-08T14:50:34.693Z"
+    },
+    "16127": {
+      "id": "16127",
+      "seriesId": "16123",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:32.989Z",
+      "firstSeen": "2026-02-08T14:50:32.989Z"
+    },
+    "16128": {
+      "id": "16128",
+      "seriesId": "16123",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:31.307Z",
+      "firstSeen": "2026-02-08T14:50:31.307Z"
+    },
+    "16859": {
+      "id": "16859",
+      "seriesId": "14822",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:31.027Z",
+      "firstSeen": "2026-02-08T14:51:31.027Z"
+    },
+    "19935": {
+      "id": "19935",
+      "seriesId": "19934",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:23.661Z",
+      "firstSeen": "2026-02-08T14:57:23.661Z"
+    },
+    "19936": {
+      "id": "19936",
+      "seriesId": "19934",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:21.985Z",
+      "firstSeen": "2026-02-08T14:57:21.985Z"
+    },
+    "20232": {
+      "id": "20232",
+      "seriesId": "20231",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:28.271Z",
+      "firstSeen": "2026-02-08T15:00:28.271Z"
+    },
+    "20233": {
+      "id": "20233",
+      "seriesId": "20231",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:26.264Z",
+      "firstSeen": "2026-02-08T15:00:26.264Z"
+    },
+    "20234": {
+      "id": "20234",
+      "seriesId": "20231",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:24.229Z",
+      "firstSeen": "2026-02-08T15:00:24.229Z"
+    },
+    "20235": {
+      "id": "20235",
+      "seriesId": "20231",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:22.551Z",
+      "firstSeen": "2026-02-08T15:00:22.551Z"
+    },
+    "20236": {
+      "id": "20236",
+      "seriesId": "20231",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:20.887Z",
+      "firstSeen": "2026-02-08T15:00:20.887Z"
+    },
+    "20677": {
+      "id": "20677",
+      "seriesId": "20676",
+      "seasonNumber": 10,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:28.375Z",
+      "firstSeen": "2026-02-08T14:49:28.375Z"
+    },
+    "21164": {
+      "id": "21164",
+      "seriesId": "21163",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:01.756Z",
+      "firstSeen": "2026-02-08T14:45:01.756Z"
+    },
+    "21165": {
+      "id": "21165",
+      "seriesId": "21163",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:00.068Z",
+      "firstSeen": "2026-02-08T14:45:00.068Z"
+    },
+    "21166": {
+      "id": "21166",
+      "seriesId": "21163",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:44:58.381Z",
+      "firstSeen": "2026-02-08T14:44:58.381Z"
+    },
+    "21167": {
+      "id": "21167",
+      "seriesId": "21163",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:44:56.695Z",
+      "firstSeen": "2026-02-08T14:44:56.695Z"
+    },
+    "21312": {
+      "id": "21312",
+      "seriesId": "11979",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:45.308Z",
+      "firstSeen": "2026-02-08T14:45:45.308Z"
+    },
+    "22905": {
+      "id": "22905",
+      "seriesId": "22904",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:03.713Z",
+      "firstSeen": "2026-02-08T14:53:03.713Z"
+    },
+    "22906": {
+      "id": "22906",
+      "seriesId": "22904",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:02.040Z",
+      "firstSeen": "2026-02-08T14:53:02.040Z"
+    },
+    "23358": {
+      "id": "23358",
+      "seriesId": "23357",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:16.305Z",
+      "firstSeen": "2026-02-08T14:46:16.305Z"
+    },
+    "23359": {
+      "id": "23359",
+      "seriesId": "23357",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:14.626Z",
+      "firstSeen": "2026-02-08T14:46:14.626Z"
+    },
+    "23360": {
+      "id": "23360",
+      "seriesId": "23357",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:12.957Z",
+      "firstSeen": "2026-02-08T14:46:12.957Z"
+    },
+    "24353": {
+      "id": "24353",
+      "seriesId": "58",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:50.250Z",
+      "firstSeen": "2026-02-08T14:59:50.250Z"
+    },
+    "24354": {
+      "id": "24354",
+      "seriesId": "58",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:46.921Z",
+      "firstSeen": "2026-02-08T14:59:46.921Z"
+    },
+    "24922": {
+      "id": "24922",
+      "seriesId": "24921",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:36.531Z",
+      "firstSeen": "2026-02-08T14:48:36.531Z"
+    },
+    "24923": {
+      "id": "24923",
+      "seriesId": "24921",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:34.511Z",
+      "firstSeen": "2026-02-08T14:48:34.511Z"
+    },
+    "24924": {
+      "id": "24924",
+      "seriesId": "24921",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:32.468Z",
+      "firstSeen": "2026-02-08T14:48:32.468Z"
+    },
+    "24925": {
+      "id": "24925",
+      "seriesId": "24921",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:30.507Z",
+      "firstSeen": "2026-02-08T14:48:30.507Z"
+    },
+    "25909": {
+      "id": "25909",
+      "seriesId": "6180",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:15.067Z",
+      "firstSeen": "2026-02-08T14:57:15.067Z"
+    },
+    "25910": {
+      "id": "25910",
+      "seriesId": "6180",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:13.382Z",
+      "firstSeen": "2026-02-08T14:57:13.382Z"
+    },
+    "25911": {
+      "id": "25911",
+      "seriesId": "6180",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:11.691Z",
+      "firstSeen": "2026-02-08T14:57:11.691Z"
+    },
+    "25912": {
+      "id": "25912",
+      "seriesId": "6180",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:10.005Z",
+      "firstSeen": "2026-02-08T14:57:10.005Z"
+    },
+    "25913": {
+      "id": "25913",
+      "seriesId": "6180",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:07.362Z",
+      "firstSeen": "2026-02-08T14:57:07.362Z"
+    },
+    "25914": {
+      "id": "25914",
+      "seriesId": "6180",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:05.677Z",
+      "firstSeen": "2026-02-08T14:57:05.677Z"
+    },
+    "25929": {
+      "id": "25929",
+      "seriesId": "25928",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:42.562Z",
+      "firstSeen": "2026-02-08T14:59:42.562Z"
+    },
+    "25930": {
+      "id": "25930",
+      "seriesId": "25928",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:40.884Z",
+      "firstSeen": "2026-02-08T14:59:40.884Z"
+    },
+    "25931": {
+      "id": "25931",
+      "seriesId": "25928",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:39.226Z",
+      "firstSeen": "2026-02-08T14:59:39.226Z"
+    },
+    "25932": {
+      "id": "25932",
+      "seriesId": "25928",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:37.258Z",
+      "firstSeen": "2026-02-08T14:59:37.258Z"
+    },
+    "26454": {
+      "id": "26454",
+      "seriesId": "26453",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:27.265Z",
+      "firstSeen": "2026-02-08T14:59:27.265Z"
+    },
+    "26455": {
+      "id": "26455",
+      "seriesId": "26453",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:25.034Z",
+      "firstSeen": "2026-02-08T14:59:25.034Z"
+    },
+    "28455": {
+      "id": "28455",
+      "seriesId": "28454",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:57.290Z",
+      "firstSeen": "2026-02-08T14:46:57.290Z"
+    },
+    "30331": {
+      "id": "30331",
+      "seriesId": "30330",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:24.488Z",
+      "firstSeen": "2026-02-08T14:53:24.488Z"
+    },
+    "30332": {
+      "id": "30332",
+      "seriesId": "30330",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:22.802Z",
+      "firstSeen": "2026-02-08T14:53:22.802Z"
+    },
+    "30333": {
+      "id": "30333",
+      "seriesId": "30330",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:21.118Z",
+      "firstSeen": "2026-02-08T14:53:21.118Z"
+    },
+    "30334": {
+      "id": "30334",
+      "seriesId": "30330",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:18.576Z",
+      "firstSeen": "2026-02-08T14:53:18.576Z"
+    },
+    "30335": {
+      "id": "30335",
+      "seriesId": "30330",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:16.895Z",
+      "firstSeen": "2026-02-08T14:53:16.895Z"
+    },
+    "32363": {
+      "id": "32363",
+      "seriesId": "28454",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:58.961Z",
+      "firstSeen": "2026-02-08T14:46:58.961Z"
+    },
+    "33442": {
+      "id": "33442",
+      "seriesId": "33441",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:26.728Z",
+      "firstSeen": "2026-02-08T14:46:26.728Z"
+    },
+    "33443": {
+      "id": "33443",
+      "seriesId": "33441",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:25.059Z",
+      "firstSeen": "2026-02-08T14:46:25.059Z"
+    },
+    "35392": {
+      "id": "35392",
+      "seriesId": "35391",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:09.899Z",
+      "firstSeen": "2026-02-08T14:51:09.899Z"
+    },
+    "35393": {
+      "id": "35393",
+      "seriesId": "35391",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:08.218Z",
+      "firstSeen": "2026-02-08T14:51:08.218Z"
+    },
+    "35394": {
+      "id": "35394",
+      "seriesId": "35391",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:06.548Z",
+      "firstSeen": "2026-02-08T14:51:06.548Z"
+    },
+    "35882": {
+      "id": "35882",
+      "seriesId": "35881",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:06.279Z",
+      "firstSeen": "2026-02-08T15:01:06.279Z"
+    },
+    "35883": {
+      "id": "35883",
+      "seriesId": "35881",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:04.609Z",
+      "firstSeen": "2026-02-08T15:01:04.609Z"
+    },
+    "35884": {
+      "id": "35884",
+      "seriesId": "35881",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:02.937Z",
+      "firstSeen": "2026-02-08T15:01:02.937Z"
+    },
+    "35885": {
+      "id": "35885",
+      "seriesId": "35881",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:01.274Z",
+      "firstSeen": "2026-02-08T15:01:01.274Z"
+    },
+    "35886": {
+      "id": "35886",
+      "seriesId": "35881",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:59.305Z",
+      "firstSeen": "2026-02-08T15:00:59.305Z"
+    },
+    "36067": {
+      "id": "36067",
+      "seriesId": "36066",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:43.135Z",
+      "firstSeen": "2026-02-08T14:51:43.135Z"
+    },
+    "36068": {
+      "id": "36068",
+      "seriesId": "36066",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:41.466Z",
+      "firstSeen": "2026-02-08T14:51:41.466Z"
+    },
+    "36069": {
+      "id": "36069",
+      "seriesId": "36066",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:39.781Z",
+      "firstSeen": "2026-02-08T14:51:39.781Z"
+    },
+    "36070": {
+      "id": "36070",
+      "seriesId": "36066",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:38.107Z",
+      "firstSeen": "2026-02-08T14:51:38.107Z"
+    },
+    "36696": {
+      "id": "36696",
+      "seriesId": "36695",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:45.540Z",
+      "firstSeen": "2026-02-08T14:56:45.540Z"
+    },
+    "36697": {
+      "id": "36697",
+      "seriesId": "36695",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:43.850Z",
+      "firstSeen": "2026-02-08T14:56:43.850Z"
+    },
+    "36698": {
+      "id": "36698",
+      "seriesId": "36695",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:42.168Z",
+      "firstSeen": "2026-02-08T14:56:42.168Z"
+    },
+    "36699": {
+      "id": "36699",
+      "seriesId": "36695",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:40.478Z",
+      "firstSeen": "2026-02-08T14:56:40.478Z"
+    },
+    "37476": {
+      "id": "37476",
+      "seriesId": "37475",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:19.451Z",
+      "firstSeen": "2026-02-08T14:51:19.451Z"
+    },
+    "41218": {
+      "id": "41218",
+      "seriesId": "41217",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:53.552Z",
+      "firstSeen": "2026-02-08T15:00:53.552Z"
+    },
+    "41219": {
+      "id": "41219",
+      "seriesId": "41217",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:51.872Z",
+      "firstSeen": "2026-02-08T15:00:51.872Z"
+    },
+    "41220": {
+      "id": "41220",
+      "seriesId": "41217",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:50.193Z",
+      "firstSeen": "2026-02-08T15:00:50.193Z"
+    },
+    "41221": {
+      "id": "41221",
+      "seriesId": "41217",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:48.524Z",
+      "firstSeen": "2026-02-08T15:00:48.524Z"
+    },
+    "41222": {
+      "id": "41222",
+      "seriesId": "41217",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:46.852Z",
+      "firstSeen": "2026-02-08T15:00:46.852Z"
+    },
+    "41223": {
+      "id": "41223",
+      "seriesId": "41217",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:45.177Z",
+      "firstSeen": "2026-02-08T15:00:45.177Z"
+    },
+    "41224": {
+      "id": "41224",
+      "seriesId": "41217",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:43.503Z",
+      "firstSeen": "2026-02-08T15:00:43.503Z"
+    },
+    "42523": {
+      "id": "42523",
+      "seriesId": "42522",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:57.055Z",
+      "firstSeen": "2026-02-08T14:51:57.055Z"
+    },
+    "42524": {
+      "id": "42524",
+      "seriesId": "42522",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:55.375Z",
+      "firstSeen": "2026-02-08T14:51:55.375Z"
+    },
+    "42525": {
+      "id": "42525",
+      "seriesId": "42522",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:53.691Z",
+      "firstSeen": "2026-02-08T14:51:53.691Z"
+    },
+    "42610": {
+      "id": "42610",
+      "seriesId": "42609",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:06.343Z",
+      "firstSeen": "2026-02-08T14:59:06.343Z"
+    },
+    "42611": {
+      "id": "42611",
+      "seriesId": "42609",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:04.369Z",
+      "firstSeen": "2026-02-08T14:59:04.369Z"
+    },
+    "42612": {
+      "id": "42612",
+      "seriesId": "42609",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:02.709Z",
+      "firstSeen": "2026-02-08T14:59:02.709Z"
+    },
+    "44023": {
+      "id": "44023",
+      "seriesId": "44022",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:29.941Z",
+      "firstSeen": "2026-02-08T14:59:29.941Z"
+    },
+    "44102": {
+      "id": "44102",
+      "seriesId": "44101",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:10.253Z",
+      "firstSeen": "2026-02-08T14:46:10.253Z"
+    },
+    "45250": {
+      "id": "45250",
+      "seriesId": "45249",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:09.606Z",
+      "firstSeen": "2026-02-08T14:59:09.606Z"
+    },
+    "45818": {
+      "id": "45818",
+      "seriesId": "45817",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:19.731Z",
+      "firstSeen": "2026-02-08T14:59:19.731Z"
+    },
+    "49175": {
+      "id": "49175",
+      "seriesId": "35881",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:57.265Z",
+      "firstSeen": "2026-02-08T15:00:57.265Z"
+    },
+    "51156": {
+      "id": "51156",
+      "seriesId": "51065",
+      "seasonNumber": 14,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:17.472Z",
+      "firstSeen": "2026-02-08T14:47:17.472Z"
+    },
+    "52874": {
+      "id": "52874",
+      "seriesId": "52873",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:29.907Z",
+      "firstSeen": "2026-02-08T14:54:29.907Z"
+    },
+    "55477": {
+      "id": "55477",
+      "seriesId": "55476",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:09.433Z",
+      "firstSeen": "2026-02-08T14:54:09.433Z"
+    },
+    "56088": {
+      "id": "56088",
+      "seriesId": "56087",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:22.279Z",
+      "firstSeen": "2026-02-08T14:52:22.279Z"
+    },
+    "56482": {
+      "id": "56482",
+      "seriesId": "56481",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:45.262Z",
+      "firstSeen": "2026-02-08T14:48:45.262Z"
+    },
+    "56947": {
+      "id": "56947",
+      "seriesId": "56946",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:24.047Z",
+      "firstSeen": "2026-02-08T14:55:24.047Z"
+    },
+    "57028": {
+      "id": "57028",
+      "seriesId": "56946",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:21.991Z",
+      "firstSeen": "2026-02-08T14:55:21.991Z"
+    },
+    "57029": {
+      "id": "57029",
+      "seriesId": "56946",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:19.939Z",
+      "firstSeen": "2026-02-08T14:55:19.939Z"
+    },
+    "57030": {
+      "id": "57030",
+      "seriesId": "56946",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:17.837Z",
+      "firstSeen": "2026-02-08T14:55:17.837Z"
+    },
+    "57031": {
+      "id": "57031",
+      "seriesId": "56946",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:15.712Z",
+      "firstSeen": "2026-02-08T14:55:15.712Z"
+    },
+    "57032": {
+      "id": "57032",
+      "seriesId": "56946",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:13.646Z",
+      "firstSeen": "2026-02-08T14:55:13.646Z"
+    },
+    "57033": {
+      "id": "57033",
+      "seriesId": "56946",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:11.580Z",
+      "firstSeen": "2026-02-08T14:55:11.580Z"
+    },
+    "57660": {
+      "id": "57660",
+      "seriesId": "57659",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:57.081Z",
+      "firstSeen": "2026-02-08T14:49:57.081Z"
+    },
+    "58458": {
+      "id": "58458",
+      "seriesId": "58457",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:17.799Z",
+      "firstSeen": "2026-02-08T14:48:17.799Z"
+    },
+    "59081": {
+      "id": "59081",
+      "seriesId": "59080",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:01.234Z",
+      "firstSeen": "2026-02-08T14:57:01.234Z"
+    },
+    "59082": {
+      "id": "59082",
+      "seriesId": "59080",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:59.539Z",
+      "firstSeen": "2026-02-08T14:56:59.539Z"
+    },
+    "59083": {
+      "id": "59083",
+      "seriesId": "59080",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:57.815Z",
+      "firstSeen": "2026-02-08T14:56:57.815Z"
+    },
+    "59084": {
+      "id": "59084",
+      "seriesId": "59080",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:56.112Z",
+      "firstSeen": "2026-02-08T14:56:56.112Z"
+    },
+    "59085": {
+      "id": "59085",
+      "seriesId": "59080",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:54.415Z",
+      "firstSeen": "2026-02-08T14:56:54.415Z"
+    },
+    "59086": {
+      "id": "59086",
+      "seriesId": "59080",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:51.681Z",
+      "firstSeen": "2026-02-08T14:56:51.681Z"
+    },
+    "59087": {
+      "id": "59087",
+      "seriesId": "59080",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:49.976Z",
+      "firstSeen": "2026-02-08T14:56:49.976Z"
+    },
+    "59132": {
+      "id": "59132",
+      "seriesId": "59080",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:48.273Z",
+      "firstSeen": "2026-02-08T14:56:48.273Z"
+    },
+    "60745": {
+      "id": "60745",
+      "seriesId": "60744",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:10.959Z",
+      "firstSeen": "2026-02-08T14:48:10.959Z"
+    },
+    "60761": {
+      "id": "60761",
+      "seriesId": "60760",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:14.800Z",
+      "firstSeen": "2026-02-08T14:49:14.800Z"
+    },
+    "61647": {
+      "id": "61647",
+      "seriesId": "61646",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:05.618Z",
+      "firstSeen": "2026-02-08T15:00:05.618Z"
+    },
+    "62385": {
+      "id": "62385",
+      "seriesId": "62384",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:52.552Z",
+      "firstSeen": "2026-02-08T14:48:52.552Z"
+    },
+    "62489": {
+      "id": "62489",
+      "seriesId": "62488",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:00.317Z",
+      "firstSeen": "2026-02-08T14:49:00.317Z"
+    },
+    "64041": {
+      "id": "64041",
+      "seriesId": "64040",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:56.968Z",
+      "firstSeen": "2026-02-08T14:47:56.968Z"
+    },
+    "64042": {
+      "id": "64042",
+      "seriesId": "64040",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:55.296Z",
+      "firstSeen": "2026-02-08T14:47:55.296Z"
+    },
+    "65030": {
+      "id": "65030",
+      "seriesId": "65029",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:58.837Z",
+      "firstSeen": "2026-02-08T14:57:58.837Z"
+    },
+    "66290": {
+      "id": "66290",
+      "seriesId": "45817",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:18.061Z",
+      "firstSeen": "2026-02-08T14:59:18.061Z"
+    },
+    "67055": {
+      "id": "67055",
+      "seriesId": "20676",
+      "seasonNumber": 11,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:26.344Z",
+      "firstSeen": "2026-02-08T14:49:26.344Z"
+    },
+    "67420": {
+      "id": "67420",
+      "seriesId": "67419",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:35.403Z",
+      "firstSeen": "2026-02-08T14:51:35.403Z"
+    },
+    "68058": {
+      "id": "68058",
+      "seriesId": "68057",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:59.561Z",
+      "firstSeen": "2026-02-08T14:53:59.561Z"
+    },
+    "68228": {
+      "id": "68228",
+      "seriesId": "24921",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:28.472Z",
+      "firstSeen": "2026-02-08T14:48:28.472Z"
+    },
+    "68528": {
+      "id": "68528",
+      "seriesId": "68527",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:14.746Z",
+      "firstSeen": "2026-02-08T14:47:14.746Z"
+    },
+    "70339": {
+      "id": "70339",
+      "seriesId": "70338",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:00.145Z",
+      "firstSeen": "2026-02-08T15:00:00.145Z"
+    },
+    "70761": {
+      "id": "70761",
+      "seriesId": "33441",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:23.378Z",
+      "firstSeen": "2026-02-08T14:46:23.378Z"
+    },
+    "72418": {
+      "id": "72418",
+      "seriesId": "37475",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:17.465Z",
+      "firstSeen": "2026-02-08T14:51:17.465Z"
+    },
+    "73448": {
+      "id": "73448",
+      "seriesId": "19934",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:20.296Z",
+      "firstSeen": "2026-02-08T14:57:20.296Z"
+    },
+    "80062": {
+      "id": "80062",
+      "seriesId": "42609",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:00.679Z",
+      "firstSeen": "2026-02-08T14:59:00.679Z"
+    },
+    "80758": {
+      "id": "80758",
+      "seriesId": "35391",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:04.863Z",
+      "firstSeen": "2026-02-08T14:51:04.863Z"
+    },
+    "81283": {
+      "id": "81283",
+      "seriesId": "81282",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:05.012Z",
+      "firstSeen": "2026-02-08T14:54:05.012Z"
+    },
+    "82120": {
+      "id": "82120",
+      "seriesId": "82119",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:22.075Z",
+      "firstSeen": "2026-02-08T15:01:22.075Z"
+    },
+    "82832": {
+      "id": "82832",
+      "seriesId": "56481",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:43.592Z",
+      "firstSeen": "2026-02-08T14:48:43.592Z"
+    },
+    "83273": {
+      "id": "83273",
+      "seriesId": "83272",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:32.743Z",
+      "firstSeen": "2026-02-08T14:49:32.743Z"
+    },
+    "86266": {
+      "id": "86266",
+      "seriesId": "86265",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:50.497Z",
+      "firstSeen": "2026-02-08T14:57:50.497Z"
+    },
+    "87261": {
+      "id": "87261",
+      "seriesId": "87260",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:43.492Z",
+      "firstSeen": "2026-02-08T14:55:43.492Z"
+    },
+    "90043": {
+      "id": "90043",
+      "seriesId": "44101",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:08.582Z",
+      "firstSeen": "2026-02-08T14:46:08.582Z"
+    },
+    "90249": {
+      "id": "90249",
+      "seriesId": "11979",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:41.955Z",
+      "firstSeen": "2026-02-08T14:45:41.955Z"
+    },
+    "90615": {
+      "id": "90615",
+      "seriesId": "90614",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:33.279Z",
+      "firstSeen": "2026-02-08T14:58:33.279Z"
+    },
+    "93048": {
+      "id": "93048",
+      "seriesId": "93047",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:12.288Z",
+      "firstSeen": "2026-02-08T14:59:12.288Z"
+    },
+    "93882": {
+      "id": "93882",
+      "seriesId": "93881",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:52.923Z",
+      "firstSeen": "2026-02-08T14:46:52.923Z"
+    },
+    "94196": {
+      "id": "94196",
+      "seriesId": "94195",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:40.171Z",
+      "firstSeen": "2026-02-08T14:57:40.171Z"
+    },
+    "96753": {
+      "id": "96753",
+      "seriesId": "56087",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:20.280Z",
+      "firstSeen": "2026-02-08T14:52:20.280Z"
+    },
+    "97999": {
+      "id": "97999",
+      "seriesId": "97998",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:40.462Z",
+      "firstSeen": "2026-02-08T14:46:40.462Z"
+    },
+    "98007": {
+      "id": "98007",
+      "seriesId": "64040",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:53.616Z",
+      "firstSeen": "2026-02-08T14:47:53.616Z"
+    },
+    "98192": {
+      "id": "98192",
+      "seriesId": "20676",
+      "seasonNumber": 12,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:24.324Z",
+      "firstSeen": "2026-02-08T14:49:24.324Z"
+    },
+    "98344": {
+      "id": "98344",
+      "seriesId": "62488",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:58.631Z",
+      "firstSeen": "2026-02-08T14:48:58.631Z"
+    },
+    "98361": {
+      "id": "98361",
+      "seriesId": "62384",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:50.877Z",
+      "firstSeen": "2026-02-08T14:48:50.877Z"
+    },
+    "98413": {
+      "id": "98413",
+      "seriesId": "24921",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:26.450Z",
+      "firstSeen": "2026-02-08T14:48:26.450Z"
+    },
+    "98495": {
+      "id": "98495",
+      "seriesId": "58457",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:16.134Z",
+      "firstSeen": "2026-02-08T14:48:16.134Z"
+    },
+    "98520": {
+      "id": "98520",
+      "seriesId": "60760",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:13.120Z",
+      "firstSeen": "2026-02-08T14:49:13.120Z"
+    },
+    "99167": {
+      "id": "99167",
+      "seriesId": "60744",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:08.756Z",
+      "firstSeen": "2026-02-08T14:48:08.756Z"
+    },
+    "99487": {
+      "id": "99487",
+      "seriesId": "99486",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:47.877Z",
+      "firstSeen": "2026-02-08T14:47:47.877Z"
+    },
+    "99806": {
+      "id": "99806",
+      "seriesId": "37475",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:15.478Z",
+      "firstSeen": "2026-02-08T14:51:15.478Z"
+    },
+    "100452": {
+      "id": "100452",
+      "seriesId": "100451",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:33.407Z",
+      "firstSeen": "2026-02-08T14:46:33.407Z"
+    },
+    "100453": {
+      "id": "100453",
+      "seriesId": "100451",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:31.735Z",
+      "firstSeen": "2026-02-08T14:46:31.735Z"
+    },
+    "100492": {
+      "id": "100492",
+      "seriesId": "62384",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:54.236Z",
+      "firstSeen": "2026-02-08T14:48:54.236Z"
+    },
+    "100830": {
+      "id": "100830",
+      "seriesId": "86265",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:48.531Z",
+      "firstSeen": "2026-02-08T14:57:48.531Z"
+    },
+    "101878": {
+      "id": "101878",
+      "seriesId": "101877",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:37.120Z",
+      "firstSeen": "2026-02-08T14:49:37.120Z"
+    },
+    "104849": {
+      "id": "104849",
+      "seriesId": "62488",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:08.735Z",
+      "firstSeen": "2026-02-08T14:49:08.735Z"
+    },
+    "104850": {
+      "id": "104850",
+      "seriesId": "62488",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:07.046Z",
+      "firstSeen": "2026-02-08T14:49:07.046Z"
+    },
+    "104851": {
+      "id": "104851",
+      "seriesId": "62488",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:05.358Z",
+      "firstSeen": "2026-02-08T14:49:05.358Z"
+    },
+    "104852": {
+      "id": "104852",
+      "seriesId": "62488",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:03.673Z",
+      "firstSeen": "2026-02-08T14:49:03.673Z"
+    },
+    "104853": {
+      "id": "104853",
+      "seriesId": "62488",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:01.986Z",
+      "firstSeen": "2026-02-08T14:49:01.986Z"
+    },
+    "104994": {
+      "id": "104994",
+      "seriesId": "36695",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:38.793Z",
+      "firstSeen": "2026-02-08T14:56:38.793Z"
+    },
+    "105416": {
+      "id": "105416",
+      "seriesId": "5794",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:51.087Z",
+      "firstSeen": "2026-02-08T14:58:51.087Z"
+    },
+    "105461": {
+      "id": "105461",
+      "seriesId": "105460",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:46.504Z",
+      "firstSeen": "2026-02-08T14:49:46.504Z"
+    },
+    "107992": {
+      "id": "107992",
+      "seriesId": "14822",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:27.676Z",
+      "firstSeen": "2026-02-08T14:51:27.676Z"
+    },
+    "108337": {
+      "id": "108337",
+      "seriesId": "108336",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:36.075Z",
+      "firstSeen": "2026-02-08T14:56:36.075Z"
+    },
+    "109226": {
+      "id": "109226",
+      "seriesId": "26453",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:23.371Z",
+      "firstSeen": "2026-02-08T14:59:23.371Z"
+    },
+    "111249": {
+      "id": "111249",
+      "seriesId": "45817",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:16.031Z",
+      "firstSeen": "2026-02-08T14:59:16.031Z"
+    },
+    "111362": {
+      "id": "111362",
+      "seriesId": "11979",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:40.286Z",
+      "firstSeen": "2026-02-08T14:45:40.286Z"
+    },
+    "111933": {
+      "id": "111933",
+      "seriesId": "19934",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:18.607Z",
+      "firstSeen": "2026-02-08T14:57:18.607Z"
+    },
+    "112122": {
+      "id": "112122",
+      "seriesId": "82119",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:19.787Z",
+      "firstSeen": "2026-02-08T15:01:19.787Z"
+    },
+    "112124": {
+      "id": "112124",
+      "seriesId": "112123",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:17.011Z",
+      "firstSeen": "2026-02-08T15:01:17.011Z"
+    },
+    "112133": {
+      "id": "112133",
+      "seriesId": "112132",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:09.621Z",
+      "firstSeen": "2026-02-08T15:01:09.621Z"
+    },
+    "112145": {
+      "id": "112145",
+      "seriesId": "112144",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:01:13.317Z",
+      "firstSeen": "2026-02-08T15:01:13.317Z"
+    },
+    "112300": {
+      "id": "112300",
+      "seriesId": "112299",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:38.086Z",
+      "firstSeen": "2026-02-08T15:00:38.086Z"
+    },
+    "112370": {
+      "id": "112370",
+      "seriesId": "112369",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:40.795Z",
+      "firstSeen": "2026-02-08T15:00:40.795Z"
+    },
+    "112386": {
+      "id": "112386",
+      "seriesId": "112385",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:35.397Z",
+      "firstSeen": "2026-02-08T15:00:35.397Z"
+    },
+    "112403": {
+      "id": "112403",
+      "seriesId": "112402",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:15.183Z",
+      "firstSeen": "2026-02-08T15:00:15.183Z"
+    },
+    "112405": {
+      "id": "112405",
+      "seriesId": "112404",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:31.990Z",
+      "firstSeen": "2026-02-08T15:00:31.990Z"
+    },
+    "112502": {
+      "id": "112502",
+      "seriesId": "20231",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:18.874Z",
+      "firstSeen": "2026-02-08T15:00:18.874Z"
+    },
+    "112527": {
+      "id": "112527",
+      "seriesId": "112526",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:11.709Z",
+      "firstSeen": "2026-02-08T15:00:11.709Z"
+    },
+    "112530": {
+      "id": "112530",
+      "seriesId": "61646",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:03.723Z",
+      "firstSeen": "2026-02-08T15:00:03.723Z"
+    },
+    "112532": {
+      "id": "112532",
+      "seriesId": "112531",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T15:00:09.032Z",
+      "firstSeen": "2026-02-08T15:00:09.032Z"
+    },
+    "112551": {
+      "id": "112551",
+      "seriesId": "112550",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:55.237Z",
+      "firstSeen": "2026-02-08T14:59:55.237Z"
+    },
+    "112562": {
+      "id": "112562",
+      "seriesId": "70338",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:58.483Z",
+      "firstSeen": "2026-02-08T14:59:58.483Z"
+    },
+    "112570": {
+      "id": "112570",
+      "seriesId": "28454",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:55.625Z",
+      "firstSeen": "2026-02-08T14:46:55.625Z"
+    },
+    "112574": {
+      "id": "112574",
+      "seriesId": "90614",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:30.808Z",
+      "firstSeen": "2026-02-08T14:58:30.808Z"
+    },
+    "112632": {
+      "id": "112632",
+      "seriesId": "112631",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:59:33.667Z",
+      "firstSeen": "2026-02-08T14:59:33.667Z"
+    },
+    "112664": {
+      "id": "112664",
+      "seriesId": "112663",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:56.017Z",
+      "firstSeen": "2026-02-08T14:58:56.017Z"
+    },
+    "112689": {
+      "id": "112689",
+      "seriesId": "65029",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:56.873Z",
+      "firstSeen": "2026-02-08T14:57:56.873Z"
+    },
+    "112709": {
+      "id": "112709",
+      "seriesId": "112708",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:48.365Z",
+      "firstSeen": "2026-02-08T14:58:48.365Z"
+    },
+    "112739": {
+      "id": "112739",
+      "seriesId": "112738",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:36.791Z",
+      "firstSeen": "2026-02-08T14:58:36.791Z"
+    },
+    "112745": {
+      "id": "112745",
+      "seriesId": "112744",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:40.238Z",
+      "firstSeen": "2026-02-08T14:58:40.238Z"
+    },
+    "112751": {
+      "id": "112751",
+      "seriesId": "112750",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:45.652Z",
+      "firstSeen": "2026-02-08T14:58:45.652Z"
+    },
+    "112824": {
+      "id": "112824",
+      "seriesId": "93881",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:51.247Z",
+      "firstSeen": "2026-02-08T14:46:51.247Z"
+    },
+    "112904": {
+      "id": "112904",
+      "seriesId": "112903",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:58:02.609Z",
+      "firstSeen": "2026-02-08T14:58:02.609Z"
+    },
+    "112930": {
+      "id": "112930",
+      "seriesId": "86265",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:46.598Z",
+      "firstSeen": "2026-02-08T14:57:46.598Z"
+    },
+    "112947": {
+      "id": "112947",
+      "seriesId": "112946",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:53.208Z",
+      "firstSeen": "2026-02-08T14:57:53.208Z"
+    },
+    "112960": {
+      "id": "112960",
+      "seriesId": "112959",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:42.878Z",
+      "firstSeen": "2026-02-08T14:57:42.878Z"
+    },
+    "112979": {
+      "id": "112979",
+      "seriesId": "94195",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:38.495Z",
+      "firstSeen": "2026-02-08T14:57:38.495Z"
+    },
+    "113046": {
+      "id": "113046",
+      "seriesId": "113045",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:34.823Z",
+      "firstSeen": "2026-02-08T14:57:34.823Z"
+    },
+    "113047": {
+      "id": "113047",
+      "seriesId": "113045",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:33.136Z",
+      "firstSeen": "2026-02-08T14:57:33.136Z"
+    },
+    "113048": {
+      "id": "113048",
+      "seriesId": "113045",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:31.463Z",
+      "firstSeen": "2026-02-08T14:57:31.463Z"
+    },
+    "113049": {
+      "id": "113049",
+      "seriesId": "113045",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:29.766Z",
+      "firstSeen": "2026-02-08T14:57:29.766Z"
+    },
+    "113050": {
+      "id": "113050",
+      "seriesId": "113045",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:28.077Z",
+      "firstSeen": "2026-02-08T14:57:28.077Z"
+    },
+    "113051": {
+      "id": "113051",
+      "seriesId": "113045",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:57:26.388Z",
+      "firstSeen": "2026-02-08T14:57:26.388Z"
+    },
+    "113096": {
+      "id": "113096",
+      "seriesId": "108336",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:33.995Z",
+      "firstSeen": "2026-02-08T14:56:33.995Z"
+    },
+    "113098": {
+      "id": "113098",
+      "seriesId": "113097",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:16.065Z",
+      "firstSeen": "2026-02-08T14:56:16.065Z"
+    },
+    "113099": {
+      "id": "113099",
+      "seriesId": "113097",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:14.072Z",
+      "firstSeen": "2026-02-08T14:56:14.072Z"
+    },
+    "113100": {
+      "id": "113100",
+      "seriesId": "113097",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:12.056Z",
+      "firstSeen": "2026-02-08T14:56:12.056Z"
+    },
+    "113101": {
+      "id": "113101",
+      "seriesId": "113097",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:10.042Z",
+      "firstSeen": "2026-02-08T14:56:10.042Z"
+    },
+    "113102": {
+      "id": "113102",
+      "seriesId": "113097",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:08.036Z",
+      "firstSeen": "2026-02-08T14:56:08.036Z"
+    },
+    "113103": {
+      "id": "113103",
+      "seriesId": "113097",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:06.035Z",
+      "firstSeen": "2026-02-08T14:56:06.035Z"
+    },
+    "113104": {
+      "id": "113104",
+      "seriesId": "113097",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:04.056Z",
+      "firstSeen": "2026-02-08T14:56:04.056Z"
+    },
+    "113105": {
+      "id": "113105",
+      "seriesId": "113097",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:02.045Z",
+      "firstSeen": "2026-02-08T14:56:02.045Z"
+    },
+    "113106": {
+      "id": "113106",
+      "seriesId": "113097",
+      "seasonNumber": 9,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:59.956Z",
+      "firstSeen": "2026-02-08T14:55:59.956Z"
+    },
+    "113107": {
+      "id": "113107",
+      "seriesId": "113097",
+      "seasonNumber": 10,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:57.887Z",
+      "firstSeen": "2026-02-08T14:55:57.887Z"
+    },
+    "113108": {
+      "id": "113108",
+      "seriesId": "113097",
+      "seasonNumber": 11,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:55.819Z",
+      "firstSeen": "2026-02-08T14:55:55.819Z"
+    },
+    "113128": {
+      "id": "113128",
+      "seriesId": "21163",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:44:54.992Z",
+      "firstSeen": "2026-02-08T14:44:54.992Z"
+    },
+    "113131": {
+      "id": "113131",
+      "seriesId": "113130",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:30.340Z",
+      "firstSeen": "2026-02-08T14:56:30.340Z"
+    },
+    "113163": {
+      "id": "113163",
+      "seriesId": "113162",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:26.884Z",
+      "firstSeen": "2026-02-08T14:56:26.884Z"
+    },
+    "113164": {
+      "id": "113164",
+      "seriesId": "113162",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:25.213Z",
+      "firstSeen": "2026-02-08T14:56:25.213Z"
+    },
+    "113165": {
+      "id": "113165",
+      "seriesId": "113162",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:22.851Z",
+      "firstSeen": "2026-02-08T14:56:22.851Z"
+    },
+    "113168": {
+      "id": "113168",
+      "seriesId": "113167",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:56:20.147Z",
+      "firstSeen": "2026-02-08T14:56:20.147Z"
+    },
+    "113191": {
+      "id": "113191",
+      "seriesId": "87260",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:51.289Z",
+      "firstSeen": "2026-02-08T14:55:51.289Z"
+    },
+    "113192": {
+      "id": "113192",
+      "seriesId": "87260",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:49.271Z",
+      "firstSeen": "2026-02-08T14:55:49.271Z"
+    },
+    "113193": {
+      "id": "113193",
+      "seriesId": "87260",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:47.246Z",
+      "firstSeen": "2026-02-08T14:55:47.246Z"
+    },
+    "113194": {
+      "id": "113194",
+      "seriesId": "87260",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:45.557Z",
+      "firstSeen": "2026-02-08T14:55:45.557Z"
+    },
+    "113196": {
+      "id": "113196",
+      "seriesId": "113195",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:51.142Z",
+      "firstSeen": "2026-02-08T14:54:51.142Z"
+    },
+    "113197": {
+      "id": "113197",
+      "seriesId": "113195",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:49.150Z",
+      "firstSeen": "2026-02-08T14:54:49.150Z"
+    },
+    "113198": {
+      "id": "113198",
+      "seriesId": "113195",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:47.452Z",
+      "firstSeen": "2026-02-08T14:54:47.452Z"
+    },
+    "113199": {
+      "id": "113199",
+      "seriesId": "113195",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:45.430Z",
+      "firstSeen": "2026-02-08T14:54:45.430Z"
+    },
+    "113200": {
+      "id": "113200",
+      "seriesId": "113195",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:43.725Z",
+      "firstSeen": "2026-02-08T14:54:43.725Z"
+    },
+    "113201": {
+      "id": "113201",
+      "seriesId": "113195",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:41.737Z",
+      "firstSeen": "2026-02-08T14:54:41.737Z"
+    },
+    "113202": {
+      "id": "113202",
+      "seriesId": "113195",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:37.770Z",
+      "firstSeen": "2026-02-08T14:54:37.770Z"
+    },
+    "113203": {
+      "id": "113203",
+      "seriesId": "113195",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:35.785Z",
+      "firstSeen": "2026-02-08T14:54:35.785Z"
+    },
+    "113689": {
+      "id": "113689",
+      "seriesId": "113688",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:26.769Z",
+      "firstSeen": "2026-02-08T14:55:26.769Z"
+    },
+    "113717": {
+      "id": "113717",
+      "seriesId": "113716",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:07.516Z",
+      "firstSeen": "2026-02-08T14:55:07.516Z"
+    },
+    "113753": {
+      "id": "113753",
+      "seriesId": "113752",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:46.568Z",
+      "firstSeen": "2026-02-08T14:51:46.568Z"
+    },
+    "113780": {
+      "id": "113780",
+      "seriesId": "113779",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:04.813Z",
+      "firstSeen": "2026-02-08T14:55:04.813Z"
+    },
+    "113984": {
+      "id": "113984",
+      "seriesId": "52873",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:28.235Z",
+      "firstSeen": "2026-02-08T14:54:28.235Z"
+    },
+    "114010": {
+      "id": "114010",
+      "seriesId": "114009",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:55:02.103Z",
+      "firstSeen": "2026-02-08T14:55:02.103Z"
+    },
+    "114026": {
+      "id": "114026",
+      "seriesId": "114025",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:58.533Z",
+      "firstSeen": "2026-02-08T14:54:58.533Z"
+    },
+    "114033": {
+      "id": "114033",
+      "seriesId": "114032",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:54.814Z",
+      "firstSeen": "2026-02-08T14:54:54.814Z"
+    },
+    "114060": {
+      "id": "114060",
+      "seriesId": "114059",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:25.512Z",
+      "firstSeen": "2026-02-08T14:54:25.512Z"
+    },
+    "114061": {
+      "id": "114061",
+      "seriesId": "114059",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:23.807Z",
+      "firstSeen": "2026-02-08T14:54:23.807Z"
+    },
+    "114062": {
+      "id": "114062",
+      "seriesId": "114059",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:22.107Z",
+      "firstSeen": "2026-02-08T14:54:22.107Z"
+    },
+    "114063": {
+      "id": "114063",
+      "seriesId": "114059",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:20.387Z",
+      "firstSeen": "2026-02-08T14:54:20.387Z"
+    },
+    "114064": {
+      "id": "114064",
+      "seriesId": "114059",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:18.389Z",
+      "firstSeen": "2026-02-08T14:54:18.389Z"
+    },
+    "114065": {
+      "id": "114065",
+      "seriesId": "114059",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:16.686Z",
+      "firstSeen": "2026-02-08T14:54:16.686Z"
+    },
+    "114066": {
+      "id": "114066",
+      "seriesId": "114059",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:14.986Z",
+      "firstSeen": "2026-02-08T14:54:14.986Z"
+    },
+    "114067": {
+      "id": "114067",
+      "seriesId": "114059",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:13.283Z",
+      "firstSeen": "2026-02-08T14:54:13.283Z"
+    },
+    "114136": {
+      "id": "114136",
+      "seriesId": "81282",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:02.458Z",
+      "firstSeen": "2026-02-08T14:54:02.458Z"
+    },
+    "114137": {
+      "id": "114137",
+      "seriesId": "55476",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:54:07.742Z",
+      "firstSeen": "2026-02-08T14:54:07.742Z"
+    },
+    "114141": {
+      "id": "114141",
+      "seriesId": "114140",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:54.395Z",
+      "firstSeen": "2026-02-08T14:53:54.395Z"
+    },
+    "114142": {
+      "id": "114142",
+      "seriesId": "114140",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:52.710Z",
+      "firstSeen": "2026-02-08T14:53:52.710Z"
+    },
+    "114143": {
+      "id": "114143",
+      "seriesId": "114140",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:51.027Z",
+      "firstSeen": "2026-02-08T14:53:51.027Z"
+    },
+    "114144": {
+      "id": "114144",
+      "seriesId": "114140",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:49.004Z",
+      "firstSeen": "2026-02-08T14:53:49.004Z"
+    },
+    "114145": {
+      "id": "114145",
+      "seriesId": "114140",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:47.003Z",
+      "firstSeen": "2026-02-08T14:53:47.003Z"
+    },
+    "114146": {
+      "id": "114146",
+      "seriesId": "114140",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:45.004Z",
+      "firstSeen": "2026-02-08T14:53:45.004Z"
+    },
+    "114174": {
+      "id": "114174",
+      "seriesId": "68057",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:57.895Z",
+      "firstSeen": "2026-02-08T14:53:57.895Z"
+    },
+    "114182": {
+      "id": "114182",
+      "seriesId": "114181",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:41.169Z",
+      "firstSeen": "2026-02-08T14:53:41.169Z"
+    },
+    "114185": {
+      "id": "114185",
+      "seriesId": "114184",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:38.474Z",
+      "firstSeen": "2026-02-08T14:53:38.474Z"
+    },
+    "114186": {
+      "id": "114186",
+      "seriesId": "114184",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:36.483Z",
+      "firstSeen": "2026-02-08T14:53:36.483Z"
+    },
+    "114187": {
+      "id": "114187",
+      "seriesId": "114184",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:34.484Z",
+      "firstSeen": "2026-02-08T14:53:34.484Z"
+    },
+    "114188": {
+      "id": "114188",
+      "seriesId": "114184",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:32.467Z",
+      "firstSeen": "2026-02-08T14:53:32.467Z"
+    },
+    "114189": {
+      "id": "114189",
+      "seriesId": "114184",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:30.443Z",
+      "firstSeen": "2026-02-08T14:53:30.443Z"
+    },
+    "114190": {
+      "id": "114190",
+      "seriesId": "114184",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:28.385Z",
+      "firstSeen": "2026-02-08T14:53:28.385Z"
+    },
+    "114198": {
+      "id": "114198",
+      "seriesId": "114197",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:56.625Z",
+      "firstSeen": "2026-02-08T14:52:56.625Z"
+    },
+    "114199": {
+      "id": "114199",
+      "seriesId": "114197",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:54.944Z",
+      "firstSeen": "2026-02-08T14:52:54.944Z"
+    },
+    "114200": {
+      "id": "114200",
+      "seriesId": "114197",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:52.928Z",
+      "firstSeen": "2026-02-08T14:52:52.928Z"
+    },
+    "114201": {
+      "id": "114201",
+      "seriesId": "114197",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:50.934Z",
+      "firstSeen": "2026-02-08T14:52:50.934Z"
+    },
+    "114202": {
+      "id": "114202",
+      "seriesId": "114197",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:48.914Z",
+      "firstSeen": "2026-02-08T14:52:48.914Z"
+    },
+    "114203": {
+      "id": "114203",
+      "seriesId": "114197",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:46.916Z",
+      "firstSeen": "2026-02-08T14:52:46.916Z"
+    },
+    "114204": {
+      "id": "114204",
+      "seriesId": "114197",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:44.921Z",
+      "firstSeen": "2026-02-08T14:52:44.921Z"
+    },
+    "114205": {
+      "id": "114205",
+      "seriesId": "114197",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:42.871Z",
+      "firstSeen": "2026-02-08T14:52:42.871Z"
+    },
+    "114206": {
+      "id": "114206",
+      "seriesId": "114197",
+      "seasonNumber": 9,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:40.857Z",
+      "firstSeen": "2026-02-08T14:52:40.857Z"
+    },
+    "114207": {
+      "id": "114207",
+      "seriesId": "114197",
+      "seasonNumber": 10,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:38.866Z",
+      "firstSeen": "2026-02-08T14:52:38.866Z"
+    },
+    "114208": {
+      "id": "114208",
+      "seriesId": "114197",
+      "seasonNumber": 11,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:36.827Z",
+      "firstSeen": "2026-02-08T14:52:36.827Z"
+    },
+    "114209": {
+      "id": "114209",
+      "seriesId": "114197",
+      "seasonNumber": 12,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:34.823Z",
+      "firstSeen": "2026-02-08T14:52:34.823Z"
+    },
+    "114210": {
+      "id": "114210",
+      "seriesId": "114197",
+      "seasonNumber": 13,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:32.793Z",
+      "firstSeen": "2026-02-08T14:52:32.793Z"
+    },
+    "114211": {
+      "id": "114211",
+      "seriesId": "114197",
+      "seasonNumber": 14,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:30.790Z",
+      "firstSeen": "2026-02-08T14:52:30.790Z"
+    },
+    "114212": {
+      "id": "114212",
+      "seriesId": "114197",
+      "seasonNumber": 15,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:28.754Z",
+      "firstSeen": "2026-02-08T14:52:28.754Z"
+    },
+    "114213": {
+      "id": "114213",
+      "seriesId": "114197",
+      "seasonNumber": 16,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:26.710Z",
+      "firstSeen": "2026-02-08T14:52:26.710Z"
+    },
+    "114247": {
+      "id": "114247",
+      "seriesId": "114246",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:07.342Z",
+      "firstSeen": "2026-02-08T14:53:07.342Z"
+    },
+    "114263": {
+      "id": "114263",
+      "seriesId": "114262",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:14.195Z",
+      "firstSeen": "2026-02-08T14:53:14.195Z"
+    },
+    "114269": {
+      "id": "114269",
+      "seriesId": "114246",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:11.503Z",
+      "firstSeen": "2026-02-08T14:53:11.503Z"
+    },
+    "114270": {
+      "id": "114270",
+      "seriesId": "114246",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:53:09.342Z",
+      "firstSeen": "2026-02-08T14:53:09.342Z"
+    },
+    "114771": {
+      "id": "114771",
+      "seriesId": "114770",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:59.336Z",
+      "firstSeen": "2026-02-08T14:52:59.336Z"
+    },
+    "114966": {
+      "id": "114966",
+      "seriesId": "56087",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:18.285Z",
+      "firstSeen": "2026-02-08T14:52:18.285Z"
+    },
+    "115003": {
+      "id": "115003",
+      "seriesId": "67419",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:33.726Z",
+      "firstSeen": "2026-02-08T14:51:33.726Z"
+    },
+    "115156": {
+      "id": "115156",
+      "seriesId": "115155",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:14.665Z",
+      "firstSeen": "2026-02-08T14:52:14.665Z"
+    },
+    "115238": {
+      "id": "115238",
+      "seriesId": "35391",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:02.882Z",
+      "firstSeen": "2026-02-08T14:51:02.882Z"
+    },
+    "115319": {
+      "id": "115319",
+      "seriesId": "115318",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:11.090Z",
+      "firstSeen": "2026-02-08T14:52:11.090Z"
+    },
+    "115320": {
+      "id": "115320",
+      "seriesId": "115318",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:09.394Z",
+      "firstSeen": "2026-02-08T14:52:09.394Z"
+    },
+    "115321": {
+      "id": "115321",
+      "seriesId": "115318",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:07.379Z",
+      "firstSeen": "2026-02-08T14:52:07.379Z"
+    },
+    "115322": {
+      "id": "115322",
+      "seriesId": "115318",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:05.369Z",
+      "firstSeen": "2026-02-08T14:52:05.369Z"
+    },
+    "115323": {
+      "id": "115323",
+      "seriesId": "115318",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:52:03.339Z",
+      "firstSeen": "2026-02-08T14:52:03.339Z"
+    },
+    "115734": {
+      "id": "115734",
+      "seriesId": "115733",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:59.745Z",
+      "firstSeen": "2026-02-08T14:51:59.745Z"
+    },
+    "116413": {
+      "id": "116413",
+      "seriesId": "116412",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:50.042Z",
+      "firstSeen": "2026-02-08T14:51:50.042Z"
+    },
+    "117248": {
+      "id": "117248",
+      "seriesId": "117247",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:24.971Z",
+      "firstSeen": "2026-02-08T14:51:24.971Z"
+    },
+    "117249": {
+      "id": "117249",
+      "seriesId": "117247",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:23.068Z",
+      "firstSeen": "2026-02-08T14:51:23.068Z"
+    },
+    "117308": {
+      "id": "117308",
+      "seriesId": "57659",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:55.413Z",
+      "firstSeen": "2026-02-08T14:49:55.413Z"
+    },
+    "117322": {
+      "id": "117322",
+      "seriesId": "37475",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:51:13.478Z",
+      "firstSeen": "2026-02-08T14:51:13.478Z"
+    },
+    "117405": {
+      "id": "117405",
+      "seriesId": "117404",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:59.190Z",
+      "firstSeen": "2026-02-08T14:50:59.190Z"
+    },
+    "117406": {
+      "id": "117406",
+      "seriesId": "117404",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:57.496Z",
+      "firstSeen": "2026-02-08T14:50:57.496Z"
+    },
+    "117407": {
+      "id": "117407",
+      "seriesId": "117404",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:55.494Z",
+      "firstSeen": "2026-02-08T14:50:55.494Z"
+    },
+    "117408": {
+      "id": "117408",
+      "seriesId": "117404",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:53.787Z",
+      "firstSeen": "2026-02-08T14:50:53.787Z"
+    },
+    "117409": {
+      "id": "117409",
+      "seriesId": "117404",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:51.349Z",
+      "firstSeen": "2026-02-08T14:50:51.349Z"
+    },
+    "117432": {
+      "id": "117432",
+      "seriesId": "117431",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:48.637Z",
+      "firstSeen": "2026-02-08T14:50:48.637Z"
+    },
+    "117433": {
+      "id": "117433",
+      "seriesId": "117431",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:46.962Z",
+      "firstSeen": "2026-02-08T14:50:46.962Z"
+    },
+    "117434": {
+      "id": "117434",
+      "seriesId": "117431",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:45.277Z",
+      "firstSeen": "2026-02-08T14:50:45.277Z"
+    },
+    "117435": {
+      "id": "117435",
+      "seriesId": "117431",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:43.602Z",
+      "firstSeen": "2026-02-08T14:50:43.602Z"
+    },
+    "117436": {
+      "id": "117436",
+      "seriesId": "117431",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:41.921Z",
+      "firstSeen": "2026-02-08T14:50:41.921Z"
+    },
+    "117689": {
+      "id": "117689",
+      "seriesId": "64040",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:51.496Z",
+      "firstSeen": "2026-02-08T14:47:51.496Z"
+    },
+    "118072": {
+      "id": "118072",
+      "seriesId": "118071",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:26.836Z",
+      "firstSeen": "2026-02-08T14:50:26.836Z"
+    },
+    "118147": {
+      "id": "118147",
+      "seriesId": "118146",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:06.067Z",
+      "firstSeen": "2026-02-08T14:50:06.067Z"
+    },
+    "118149": {
+      "id": "118149",
+      "seriesId": "118148",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:09.678Z",
+      "firstSeen": "2026-02-08T14:50:09.678Z"
+    },
+    "118162": {
+      "id": "118162",
+      "seriesId": "118161",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:00.688Z",
+      "firstSeen": "2026-02-08T14:50:00.688Z"
+    },
+    "118166": {
+      "id": "118166",
+      "seriesId": "51065",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:41.737Z",
+      "firstSeen": "2026-02-08T14:47:41.737Z"
+    },
+    "118167": {
+      "id": "118167",
+      "seriesId": "51065",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:40.052Z",
+      "firstSeen": "2026-02-08T14:47:40.052Z"
+    },
+    "118168": {
+      "id": "118168",
+      "seriesId": "51065",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:38.368Z",
+      "firstSeen": "2026-02-08T14:47:38.368Z"
+    },
+    "118169": {
+      "id": "118169",
+      "seriesId": "51065",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:36.686Z",
+      "firstSeen": "2026-02-08T14:47:36.686Z"
+    },
+    "118170": {
+      "id": "118170",
+      "seriesId": "51065",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:34.994Z",
+      "firstSeen": "2026-02-08T14:47:34.994Z"
+    },
+    "118171": {
+      "id": "118171",
+      "seriesId": "51065",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:32.935Z",
+      "firstSeen": "2026-02-08T14:47:32.935Z"
+    },
+    "118172": {
+      "id": "118172",
+      "seriesId": "51065",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:30.911Z",
+      "firstSeen": "2026-02-08T14:47:30.911Z"
+    },
+    "118173": {
+      "id": "118173",
+      "seriesId": "51065",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:27.594Z",
+      "firstSeen": "2026-02-08T14:47:27.594Z"
+    },
+    "118174": {
+      "id": "118174",
+      "seriesId": "51065",
+      "seasonNumber": 9,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:25.902Z",
+      "firstSeen": "2026-02-08T14:47:25.902Z"
+    },
+    "118175": {
+      "id": "118175",
+      "seriesId": "51065",
+      "seasonNumber": 10,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:24.217Z",
+      "firstSeen": "2026-02-08T14:47:24.217Z"
+    },
+    "118176": {
+      "id": "118176",
+      "seriesId": "51065",
+      "seasonNumber": 11,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:22.523Z",
+      "firstSeen": "2026-02-08T14:47:22.523Z"
+    },
+    "118177": {
+      "id": "118177",
+      "seriesId": "51065",
+      "seasonNumber": 12,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:20.845Z",
+      "firstSeen": "2026-02-08T14:47:20.845Z"
+    },
+    "118178": {
+      "id": "118178",
+      "seriesId": "51065",
+      "seasonNumber": 13,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:19.159Z",
+      "firstSeen": "2026-02-08T14:47:19.159Z"
+    },
+    "118204": {
+      "id": "118204",
+      "seriesId": "118203",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:50:03.378Z",
+      "firstSeen": "2026-02-08T14:50:03.378Z"
+    },
+    "118275": {
+      "id": "118275",
+      "seriesId": "118274",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:52.700Z",
+      "firstSeen": "2026-02-08T14:49:52.700Z"
+    },
+    "118279": {
+      "id": "118279",
+      "seriesId": "83272",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:31.072Z",
+      "firstSeen": "2026-02-08T14:49:31.072Z"
+    },
+    "118910": {
+      "id": "118910",
+      "seriesId": "20676",
+      "seasonNumber": 13,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:21.888Z",
+      "firstSeen": "2026-02-08T14:49:21.888Z"
+    },
+    "118912": {
+      "id": "118912",
+      "seriesId": "118911",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:50.018Z",
+      "firstSeen": "2026-02-08T14:49:50.018Z"
+    },
+    "118992": {
+      "id": "118992",
+      "seriesId": "118991",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:20.062Z",
+      "firstSeen": "2026-02-08T14:45:20.062Z"
+    },
+    "119076": {
+      "id": "119076",
+      "seriesId": "62488",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:56.942Z",
+      "firstSeen": "2026-02-08T14:48:56.942Z"
+    },
+    "119077": {
+      "id": "119077",
+      "seriesId": "62384",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:48.852Z",
+      "firstSeen": "2026-02-08T14:48:48.852Z"
+    },
+    "119333": {
+      "id": "119333",
+      "seriesId": "119332",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:40.087Z",
+      "firstSeen": "2026-02-08T14:49:40.087Z"
+    },
+    "119340": {
+      "id": "119340",
+      "seriesId": "58457",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:13.662Z",
+      "firstSeen": "2026-02-08T14:48:13.662Z"
+    },
+    "119341": {
+      "id": "119341",
+      "seriesId": "60744",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:06.741Z",
+      "firstSeen": "2026-02-08T14:48:06.741Z"
+    },
+    "119343": {
+      "id": "119343",
+      "seriesId": "119342",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:43.816Z",
+      "firstSeen": "2026-02-08T14:49:43.816Z"
+    },
+    "119519": {
+      "id": "119519",
+      "seriesId": "60760",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:11.445Z",
+      "firstSeen": "2026-02-08T14:49:11.445Z"
+    },
+    "119523": {
+      "id": "119523",
+      "seriesId": "99486",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:46.199Z",
+      "firstSeen": "2026-02-08T14:47:46.199Z"
+    },
+    "119524": {
+      "id": "119524",
+      "seriesId": "101877",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:35.447Z",
+      "firstSeen": "2026-02-08T14:49:35.447Z"
+    },
+    "120014": {
+      "id": "120014",
+      "seriesId": "120013",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:19.184Z",
+      "firstSeen": "2026-02-08T14:49:19.184Z"
+    },
+    "120136": {
+      "id": "120136",
+      "seriesId": "60760",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:49:16.471Z",
+      "firstSeen": "2026-02-08T14:49:16.471Z"
+    },
+    "120163": {
+      "id": "120163",
+      "seriesId": "56481",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:41.916Z",
+      "firstSeen": "2026-02-08T14:48:41.916Z"
+    },
+    "120198": {
+      "id": "120198",
+      "seriesId": "9233",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:08.711Z",
+      "firstSeen": "2026-02-08T14:47:08.711Z"
+    },
+    "120476": {
+      "id": "120476",
+      "seriesId": "120475",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:39.221Z",
+      "firstSeen": "2026-02-08T14:48:39.221Z"
+    },
+    "120491": {
+      "id": "120491",
+      "seriesId": "120490",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:20.487Z",
+      "firstSeen": "2026-02-08T14:48:20.487Z"
+    },
+    "120499": {
+      "id": "120499",
+      "seriesId": "24921",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:24.411Z",
+      "firstSeen": "2026-02-08T14:48:24.411Z"
+    },
+    "120617": {
+      "id": "120617",
+      "seriesId": "120616",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:48:03.185Z",
+      "firstSeen": "2026-02-08T14:48:03.185Z"
+    },
+    "120667": {
+      "id": "120667",
+      "seriesId": "120666",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:59.668Z",
+      "firstSeen": "2026-02-08T14:47:59.668Z"
+    },
+    "121116": {
+      "id": "121116",
+      "seriesId": "97998",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:38.798Z",
+      "firstSeen": "2026-02-08T14:46:38.798Z"
+    },
+    "121171": {
+      "id": "121171",
+      "seriesId": "68527",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:13.082Z",
+      "firstSeen": "2026-02-08T14:47:13.082Z"
+    },
+    "121257": {
+      "id": "121257",
+      "seriesId": "988",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:04.344Z",
+      "firstSeen": "2026-02-08T14:47:04.344Z"
+    },
+    "121259": {
+      "id": "121259",
+      "seriesId": "121258",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:47:01.650Z",
+      "firstSeen": "2026-02-08T14:47:01.650Z"
+    },
+    "121310": {
+      "id": "121310",
+      "seriesId": "121309",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:48.536Z",
+      "firstSeen": "2026-02-08T14:46:48.536Z"
+    },
+    "121341": {
+      "id": "121341",
+      "seriesId": "121340",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:45.847Z",
+      "firstSeen": "2026-02-08T14:46:45.847Z"
+    },
+    "121354": {
+      "id": "121354",
+      "seriesId": "121353",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:43.156Z",
+      "firstSeen": "2026-02-08T14:46:43.156Z"
+    },
+    "121545": {
+      "id": "121545",
+      "seriesId": "121544",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:36.101Z",
+      "firstSeen": "2026-02-08T14:46:36.101Z"
+    },
+    "121555": {
+      "id": "121555",
+      "seriesId": "121554",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:19.000Z",
+      "firstSeen": "2026-02-08T14:46:19.000Z"
+    },
+    "121588": {
+      "id": "121588",
+      "seriesId": "44101",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:06.906Z",
+      "firstSeen": "2026-02-08T14:46:06.906Z"
+    },
+    "121634": {
+      "id": "121634",
+      "seriesId": "121633",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:04.202Z",
+      "firstSeen": "2026-02-08T14:46:04.202Z"
+    },
+    "121635": {
+      "id": "121635",
+      "seriesId": "121633",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:02.522Z",
+      "firstSeen": "2026-02-08T14:46:02.522Z"
+    },
+    "121636": {
+      "id": "121636",
+      "seriesId": "121633",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:00.834Z",
+      "firstSeen": "2026-02-08T14:46:00.834Z"
+    },
+    "121637": {
+      "id": "121637",
+      "seriesId": "121633",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:59.149Z",
+      "firstSeen": "2026-02-08T14:45:59.149Z"
+    },
+    "121638": {
+      "id": "121638",
+      "seriesId": "121633",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:57.458Z",
+      "firstSeen": "2026-02-08T14:45:57.458Z"
+    },
+    "121639": {
+      "id": "121639",
+      "seriesId": "121633",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:55.766Z",
+      "firstSeen": "2026-02-08T14:45:55.766Z"
+    },
+    "121640": {
+      "id": "121640",
+      "seriesId": "121633",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:54.074Z",
+      "firstSeen": "2026-02-08T14:45:54.074Z"
+    },
+    "121641": {
+      "id": "121641",
+      "seriesId": "121633",
+      "seasonNumber": 8,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:52.391Z",
+      "firstSeen": "2026-02-08T14:45:52.391Z"
+    },
+    "121671": {
+      "id": "121671",
+      "seriesId": "33441",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:21.706Z",
+      "firstSeen": "2026-02-08T14:46:21.706Z"
+    },
+    "121672": {
+      "id": "121672",
+      "seriesId": "100451",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:46:29.422Z",
+      "firstSeen": "2026-02-08T14:46:29.422Z"
+    },
+    "121786": {
+      "id": "121786",
+      "seriesId": "121785",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:44:52.237Z",
+      "firstSeen": "2026-02-08T14:44:52.237Z"
+    },
+    "121919": {
+      "id": "121919",
+      "seriesId": "121918",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:29.484Z",
+      "firstSeen": "2026-02-08T14:45:29.484Z"
+    },
+    "121920": {
+      "id": "121920",
+      "seriesId": "121918",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:27.812Z",
+      "firstSeen": "2026-02-08T14:45:27.812Z"
+    },
+    "121921": {
+      "id": "121921",
+      "seriesId": "121918",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:26.130Z",
+      "firstSeen": "2026-02-08T14:45:26.130Z"
+    },
+    "121922": {
+      "id": "121922",
+      "seriesId": "121918",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:24.449Z",
+      "firstSeen": "2026-02-08T14:45:24.449Z"
+    },
+    "121923": {
+      "id": "121923",
+      "seriesId": "121918",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:22.774Z",
+      "firstSeen": "2026-02-08T14:45:22.774Z"
+    },
+    "121958": {
+      "id": "121958",
+      "seriesId": "121957",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:34.885Z",
+      "firstSeen": "2026-02-08T14:45:34.885Z"
+    },
+    "121983": {
+      "id": "121983",
+      "seriesId": "121982",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:49.679Z",
+      "firstSeen": "2026-02-08T14:45:49.679Z"
+    },
+    "121984": {
+      "id": "121984",
+      "seriesId": "121982",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:48.005Z",
+      "firstSeen": "2026-02-08T14:45:48.005Z"
+    },
+    "122004": {
+      "id": "122004",
+      "seriesId": "122003",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:37.583Z",
+      "firstSeen": "2026-02-08T14:45:37.583Z"
+    },
+    "122020": {
+      "id": "122020",
+      "seriesId": "122019",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:14.651Z",
+      "firstSeen": "2026-02-08T14:45:14.651Z"
+    },
+    "122021": {
+      "id": "122021",
+      "seriesId": "122019",
+      "seasonNumber": 2,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:12.957Z",
+      "firstSeen": "2026-02-08T14:45:12.957Z"
+    },
+    "122022": {
+      "id": "122022",
+      "seriesId": "122019",
+      "seasonNumber": 3,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:11.270Z",
+      "firstSeen": "2026-02-08T14:45:11.270Z"
+    },
+    "122023": {
+      "id": "122023",
+      "seriesId": "122019",
+      "seasonNumber": 4,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:09.577Z",
+      "firstSeen": "2026-02-08T14:45:09.577Z"
+    },
+    "122024": {
+      "id": "122024",
+      "seriesId": "122019",
+      "seasonNumber": 5,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:07.873Z",
+      "firstSeen": "2026-02-08T14:45:07.873Z"
+    },
+    "122025": {
+      "id": "122025",
+      "seriesId": "122019",
+      "seasonNumber": 6,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:06.181Z",
+      "firstSeen": "2026-02-08T14:45:06.181Z"
+    },
+    "122026": {
+      "id": "122026",
+      "seriesId": "122019",
+      "seasonNumber": 7,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:04.488Z",
+      "firstSeen": "2026-02-08T14:45:04.488Z"
+    },
+    "122031": {
+      "id": "122031",
+      "seriesId": "122030",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:32.184Z",
+      "firstSeen": "2026-02-08T14:45:32.184Z"
+    },
+    "122115": {
+      "id": "122115",
+      "seriesId": "122114",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:45:17.366Z",
+      "firstSeen": "2026-02-08T14:45:17.366Z"
+    },
+    "122137": {
+      "id": "122137",
+      "seriesId": "122136",
+      "seasonNumber": 1,
+      "currentFile": "Top1.json",
+      "episodesCount": 0,
+      "lastUpdated": "2026-02-08T14:44:49.486Z",
+      "firstSeen": "2026-02-08T14:44:49.486Z"
+    }
+  },
+  "stats": {
+    "totalSeasons": 432
+  },
+  "lastUpdated": "2026-02-08T15:01:22.075Z"
+}
