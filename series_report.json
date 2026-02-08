@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-02-08T16:31:57.047Z",
+  "timestamp": "2026-02-08T17:33:51.229Z",
   "phase": "phase1_scrape_all",
   "systemStats": {
     "series": {
-      "total": 387,
+      "total": 507,
       "stats": {
-        "totalSeries": 387,
+        "totalSeries": 507,
         "totalPages": 0
       }
     },
     "seasons": {
-      "total": 991,
+      "total": 1239,
       "stats": {
-        "totalSeasons": 991
+        "totalSeasons": 1239
       }
     },
     "episodes": {
@@ -24,16 +24,16 @@
     }
   },
   "progress": {
-    "currentPage": 13,
+    "currentPage": 17,
     "allPagesScraped": false,
     "mode": "scrape_all"
   },
   "results": {
     "phase1": {
-      "totalSeriesExtracted": 118,
-      "totalSeasonsExtracted": 244,
+      "totalSeriesExtracted": 120,
+      "totalSeasonsExtracted": 248,
       "totalEpisodesExtracted": 0,
-      "executionTime": 715169
+      "executionTime": 860023
     },
     "phase2": null
   }
