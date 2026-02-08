@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-02-08T20:14:01.689Z",
+  "phase": "phase1_scrape_all",
+  "systemStats": {
+    "series": {
+      "total": 150,
+      "stats": {
+        "totalSeries": 150,
+        "totalPages": 0
+      }
+    },
+    "seasons": {
+      "total": 0,
+      "stats": {
+        "totalSeasons": 0
+      }
+    },
+    "episodes": {
+      "total": 0,
+      "stats": {
+        "totalEpisodes": 0,
+        "latestEpisodes": []
+      }
+    }
+  },
+  "progress": {
+    "currentPage": 5,
+    "allPagesScraped": false,
+    "mode": "scrape_all"
+  },
+  "results": {
+    "phase1": {
+      "totalSeriesExtracted": 150,
+      "totalSeasonsExtracted": 0,
+      "totalEpisodesExtracted": 0,
+      "executionTime": 347055
+    },
+    "phase2": null
+  }
+}
