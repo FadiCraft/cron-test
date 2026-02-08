@@ -2,8 +2,43 @@
   "fileName": "Home.json",
   "description": "جميع مسلسلات الصفحة الأولى",
   "totalSeries": 30,
-  "lastUpdated": "2026-02-08T14:16:28.398Z",
+  "lastUpdated": "2026-02-08T14:20:59.014Z",
   "series": [
+    {
+      "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-vanished-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
+      "title": "مسلسل Vanished مترجم",
+      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-vanished-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
+      "shortLink": "https://topcinema.rip?gt=121785",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BNzQ1ZjQ5NjAtOTE3NS00OGU0LTgyODgtY2Q2N2NjMzI3M2UxXkEyXkFqcGc@._V1_.jpg",
+      "imdbRating": "",
+      "story": "تجد (أليس) نفسها غارقة في شبكة معقدة من التشويق والخطر، عندما تنقلب عطلة رومانسية في مرسيليا إلى كابوس غامض مع الاختفاء المفاجئ لحبيبها (توم)، بينما تكشف تباعًا أسرارًا صادمة عن الرجل الذي ظنّت أنها تعرفه.",
+      "details": {
+        "قسم المسلسل": [
+          "مسلسلات اجنبي"
+        ],
+        "نوع المسلسل": [
+          "اثارة"
+        ],
+        "جودة المسلسل": [
+          "1080p WEB-DL"
+        ],
+        "موعد الصدور": [
+          "2026"
+        ],
+        "لغة المسلسل": [
+          "الأنجليزية"
+        ],
+        "بطولة": [
+          "Dar Zuzovsky",
+          "Kaley Cuoco",
+          "Karin Viard",
+          "Matthias Schweighöfer"
+        ]
+      },
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-02-08T14:20:01.202Z"
+    },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-stranger-things-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
       "title": "مسلسل Stranger Things مترجم",
@@ -49,9 +84,8 @@
         ]
       },
       "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-08T14:13:33.510Z",
-      "currentFile": "Page5.json"
+      "position": 2,
+      "scrapedAt": "2026-02-08T14:20:03.266Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-pretty-little-liars-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -90,9 +124,8 @@
         ]
       },
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-08T14:13:43.136Z",
-      "currentFile": "Top6.json"
+      "position": 3,
+      "scrapedAt": "2026-02-08T14:20:05.299Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-can-you-keep-a-secret-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -126,9 +159,8 @@
         ]
       },
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-08T14:13:54.709Z",
-      "currentFile": "Top6.json"
+      "position": 4,
+      "scrapedAt": "2026-02-08T14:20:07.306Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-pendragon-cycle-rise-of-the-merlin-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -162,9 +194,8 @@
         ]
       },
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-08T14:13:57.691Z",
-      "currentFile": "Top6.json"
+      "position": 5,
+      "scrapedAt": "2026-02-08T14:20:09.303Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-good-witch-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -203,9 +234,8 @@
         ]
       },
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-08T14:14:00.085Z",
-      "currentFile": "Top6.json"
+      "position": 6,
+      "scrapedAt": "2026-02-08T14:20:11.285Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-salvador-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -242,9 +272,8 @@
         ]
       },
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-08T14:14:10.725Z",
-      "currentFile": "Top6.json"
+      "position": 7,
+      "scrapedAt": "2026-02-08T14:20:13.269Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-cash-queens-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -280,9 +309,8 @@
         ]
       },
       "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-02-08T14:14:13.305Z",
-      "currentFile": "Top6.json"
+      "position": 8,
+      "scrapedAt": "2026-02-08T14:20:15.268Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-unfamiliar-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -318,9 +346,8 @@
         ]
       },
       "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-02-08T14:14:16.499Z",
-      "currentFile": "Top6.json"
+      "position": 9,
+      "scrapedAt": "2026-02-08T14:20:17.236Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -365,9 +392,8 @@
         ]
       },
       "page": 1,
-      "position": 9,
-      "scrapedAt": "2026-02-08T14:14:19.101Z",
-      "currentFile": "Top6.json"
+      "position": 10,
+      "scrapedAt": "2026-02-08T14:20:19.213Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-beast-games-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -404,9 +430,8 @@
         ]
       },
       "page": 1,
-      "position": 10,
-      "scrapedAt": "2026-02-08T14:14:27.935Z",
-      "currentFile": "Top6.json"
+      "position": 11,
+      "scrapedAt": "2026-02-08T14:20:21.194Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -445,9 +470,8 @@
         ]
       },
       "page": 1,
-      "position": 11,
-      "scrapedAt": "2026-02-08T14:14:32.074Z",
-      "currentFile": "Top6.json"
+      "position": 12,
+      "scrapedAt": "2026-02-08T14:20:23.169Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-shrinking-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -491,9 +515,8 @@
         ]
       },
       "page": 1,
-      "position": 12,
-      "scrapedAt": "2026-02-08T14:14:46.255Z",
-      "currentFile": "Top6.json"
+      "position": 13,
+      "scrapedAt": "2026-02-08T14:20:25.150Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -537,45 +560,8 @@
         ]
       },
       "page": 1,
-      "position": 13,
-      "scrapedAt": "2026-02-08T14:14:51.853Z",
-      "currentFile": "Top6.json"
-    },
-    {
-      "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-vanished-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
-      "title": "مسلسل Vanished مترجم",
-      "url": "https://topcinema.rip/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-vanished-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.rip?gt=121785",
-      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BNzQ1ZjQ5NjAtOTE3NS00OGU0LTgyODgtY2Q2N2NjMzI3M2UxXkEyXkFqcGc@._V1_.jpg",
-      "imdbRating": "",
-      "story": "تجد (أليس) نفسها غارقة في شبكة معقدة من التشويق والخطر، عندما تنقلب عطلة رومانسية في مرسيليا إلى كابوس غامض مع الاختفاء المفاجئ لحبيبها (توم)، بينما تكشف تباعًا أسرارًا صادمة عن الرجل الذي ظنّت أنها تعرفه.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "اثارة"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "موعد الصدور": [
-          "2026"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "بطولة": [
-          "Dar Zuzovsky",
-          "Kaley Cuoco",
-          "Karin Viard",
-          "Matthias Schweighöfer"
-        ]
-      },
-      "page": 1,
       "position": 14,
-      "scrapedAt": "2026-02-08T14:14:58.182Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:27.131Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-its-not-like-that-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -615,8 +601,7 @@
       },
       "page": 1,
       "position": 15,
-      "scrapedAt": "2026-02-08T14:15:00.589Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:29.108Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-bridgerton-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -661,8 +646,7 @@
       },
       "page": 1,
       "position": 16,
-      "scrapedAt": "2026-02-08T14:15:02.987Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:31.091Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-school-spirits-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -704,8 +688,7 @@
       },
       "page": 1,
       "position": 17,
-      "scrapedAt": "2026-02-08T14:15:10.834Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:33.073Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-wonder-man-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -745,8 +728,7 @@
       },
       "page": 1,
       "position": 18,
-      "scrapedAt": "2026-02-08T14:15:16.242Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:35.045Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-going-dutch-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -785,8 +767,7 @@
       },
       "page": 1,
       "position": 19,
-      "scrapedAt": "2026-02-08T14:15:19.131Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:37.024Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-free-bert-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -821,8 +802,7 @@
       },
       "page": 1,
       "position": 20,
-      "scrapedAt": "2026-02-08T14:15:23.117Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:39.004Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-finding-her-edge-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -859,8 +839,7 @@
       },
       "page": 1,
       "position": 21,
-      "scrapedAt": "2026-02-08T14:15:25.950Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:40.972Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-beauty-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -899,8 +878,7 @@
       },
       "page": 1,
       "position": 22,
-      "scrapedAt": "2026-02-08T14:15:28.820Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:42.946Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-landman-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -940,8 +918,7 @@
       },
       "page": 1,
       "position": 23,
-      "scrapedAt": "2026-02-08T14:15:31.228Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:44.932Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-power-book-iv-force-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -986,8 +963,7 @@
       },
       "page": 1,
       "position": 24,
-      "scrapedAt": "2026-02-08T14:15:35.546Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:46.902Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-steal-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -1023,8 +999,7 @@
       },
       "page": 1,
       "position": 25,
-      "scrapedAt": "2026-02-08T14:15:41.564Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:48.882Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-drops-of-god-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -1069,8 +1044,7 @@
       },
       "page": 1,
       "position": 26,
-      "scrapedAt": "2026-02-08T14:15:44.344Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:50.859Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-hijack-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -1114,8 +1088,7 @@
       },
       "page": 1,
       "position": 27,
-      "scrapedAt": "2026-02-08T14:15:48.754Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:52.831Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-red-eye-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -1154,8 +1127,7 @@
       },
       "page": 1,
       "position": 28,
-      "scrapedAt": "2026-02-08T14:15:53.427Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:54.814Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-doctor-who-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -1201,8 +1173,7 @@
       },
       "page": 1,
       "position": 29,
-      "scrapedAt": "2026-02-08T14:15:57.736Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:56.830Z"
     },
     {
       "id": "series_%d9%85%d8%b3%d9%84%d8%b3%d9%84-snake-killer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85",
@@ -1238,8 +1209,7 @@
       },
       "page": 1,
       "position": 30,
-      "scrapedAt": "2026-02-08T14:16:26.931Z",
-      "currentFile": "Top6.json"
+      "scrapedAt": "2026-02-08T14:20:58.826Z"
     }
   ]
 }

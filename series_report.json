@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-08T14:16:29.097Z",
+  "timestamp": "2026-02-08T14:20:59.710Z",
   "phase": "phase2_update_home",
   "systemStats": {
     "series": {
@@ -41,12 +41,12 @@
   "results": {
     "phase1": null,
     "phase2": {
-      "newSeriesCount": 30,
-      "updatedSeasonsCount": 84,
+      "newSeriesCount": 0,
+      "updatedSeasonsCount": 0,
       "updatedEpisodesCount": 0,
       "totalHomeSeries": 30,
       "latestEpisodesCount": 0,
-      "executionTime": 176493
+      "executionTime": 58755
     }
   },
   "nextRun": {
