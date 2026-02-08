@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-02-08T14:20:59.710Z",
+  "timestamp": "2026-02-08T14:37:37.683Z",
   "phase": "phase2_update_home",
   "systemStats": {
     "series": {
-      "total": 30,
+      "total": 60,
       "stats": {
-        "totalSeries": 30,
+        "totalSeries": 60,
         "totalPages": 0
       }
     },
     "seasons": {
-      "total": 84,
+      "total": 168,
       "stats": {
-        "totalSeasons": 84
+        "totalSeasons": 168
       }
     },
     "episodes": {
@@ -26,36 +26,16 @@
   "progress": {
     "currentPage": 1,
     "allPagesScraped": true,
-    "mode": "monitor_episodes",
-    "currentFiles": {
-      "series": "Top6.json",
-      "seasons": "Page11.json",
-      "episodes": "Page12.json"
-    },
-    "itemsInFiles": {
-      "series": 29,
-      "seasons": 121,
-      "episodes": 651
-    }
+    "mode": "monitor_episodes"
   },
   "results": {
     "phase1": null,
     "phase2": {
-      "newSeriesCount": 0,
-      "updatedSeasonsCount": 0,
+      "newSeriesCount": 30,
+      "updatedSeasonsCount": 84,
       "updatedEpisodesCount": 0,
       "totalHomeSeries": 30,
-      "latestEpisodesCount": 0,
-      "executionTime": 58755
-    }
-  },
-  "nextRun": {
-    "phase": "phase2_update_home",
-    "startPage": 1,
-    "currentFiles": {
-      "series": "Top6.json",
-      "seasons": "Page11.json",
-      "episodes": "Page12.json"
+      "executionTime": 161230
     }
   }
 }
