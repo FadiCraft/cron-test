@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-02-08T22:19:44.841Z",
+  "mode": "scrape_series",
+  "stats": {
+    "seriesPage": 3,
+    "allPagesScraped": false,
+    "seriesInFile": 90,
+    "seasonsInFile": 260,
+    "episodesInFile": 2996
+  },
+  "nextRun": {
+    "mode": "scrape_series",
+    "startPage": 3
+  }
+}
