@@ -1,78 +1,10 @@
 {
-  "scrapedAt": "2026-02-09T17:34:29.340Z",
+  "scrapedAt": "2026-02-09T18:32:27.355Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 6,
   "matches": [
     {
-      "id": "match_1770658461907_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%af%d8%ad%d9%8a%d9%84-%d9%88-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
-      "title": "الدحيل vs الشارقة",
-      "team1": {
-        "name": "الدحيل",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8329.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "الشارقة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8351.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "beIN SPORTS HD 1"
-      ],
-      "tournament": "دوري أبطال آسيا للنخبة",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-09T17:34:21.908Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770658461909_1",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b4%d8%a8%d8%a7%d8%a8-%d8%a7%d9%84%d8%a7%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a8%d8%ab-%d9%85/",
-      "title": "شباب الاهلي vs الهلال",
-      "team1": {
-        "name": "شباب الاهلي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8347.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "الهلال",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/5457-2.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "Bein Sports HD2"
-      ],
-      "tournament": "دوري أبطال آسيا للنخبة",
-      "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-09T17:34:21.909Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770658461910_2",
+      "id": "match_1770661941084_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%88%d9%85%d8%a7-%d9%88-%d9%83%d8%a7%d9%84%d9%8a%d8%a7%d8%b1%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83/",
       "title": "روما vs كالياري",
       "team1": {
@@ -93,8 +25,8 @@
       ],
       "tournament": "الدوري الإيطالي",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-09T17:34:21.910Z",
+      "position": 1,
+      "scrapedAt": "2026-02-09T18:32:21.084Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -106,7 +38,7 @@
       ]
     },
     {
-      "id": "match_1770658461911_3",
+      "id": "match_1770661941085_1",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%81%d9%8a%d8%a7%d8%b1%d9%8a%d8%a7%d9%84-%d9%88-%d8%a5%d8%b3%d8%a8%d8%a7%d9%86%d9%8a%d9%88%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "فياريال vs إسبانيول",
       "team1": {
@@ -127,12 +59,64 @@
       ],
       "tournament": "الدوري الإسباني",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-09T17:34:21.911Z",
+      "position": 2,
+      "scrapedAt": "2026-02-09T18:32:21.085Z",
       "watchServers": null
     },
     {
-      "id": "match_1770658461913_4",
+      "id": "match_1770661941087_2",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%af%d8%ad%d9%8a%d9%84-%d9%88-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
+      "title": "الدحيل vs الشارقة",
+      "team1": {
+        "name": "الدحيل",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8329.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "الشارقة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8351.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
+      "channels": [
+        "beIN SPORTS HD 1"
+      ],
+      "tournament": "دوري أبطال آسيا للنخبة",
+      "page": 1,
+      "position": 3,
+      "scrapedAt": "2026-02-09T18:32:21.087Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770661941088_3",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b4%d8%a8%d8%a7%d8%a8-%d8%a7%d9%84%d8%a7%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a8%d8%ab-%d9%85/",
+      "title": "شباب الاهلي vs الهلال",
+      "team1": {
+        "name": "شباب الاهلي",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8347.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "الهلال",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/5457-2.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
+      "channels": [
+        "Bein Sports HD2"
+      ],
+      "tournament": "دوري أبطال آسيا للنخبة",
+      "page": 1,
+      "position": 4,
+      "scrapedAt": "2026-02-09T18:32:21.088Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1770661941089_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%88%d8%ad%d8%af%d8%a9-%d9%88-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الوحدة vs الأهلي",
       "team1": {
@@ -154,11 +138,11 @@
       "tournament": "دوري أبطال آسيا للنخبة",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-02-09T17:34:21.913Z",
+      "scrapedAt": "2026-02-09T18:32:21.089Z",
       "watchServers": null
     },
     {
-      "id": "match_1770658461914_5",
+      "id": "match_1770661941090_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d8%a7%d8%b3%d8%a7%d9%81-%d9%83%d8%a7%d8%b1%d8%b4%d9%8a-%d9%88-%d8%a7%d9%84%d8%b4%d8%b1%d8%b7%d8%a9-%d8%a8%d8%ab-%d9%85/",
       "title": "ناساف كارشي vs الشرطة",
       "team1": {
@@ -180,7 +164,7 @@
       "tournament": "دوري أبطال آسيا للنخبة",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-02-09T17:34:21.914Z",
+      "scrapedAt": "2026-02-09T18:32:21.090Z",
       "watchServers": null
     }
   ]
