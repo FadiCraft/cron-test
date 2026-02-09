@@ -3,7 +3,7 @@
   "fileNumber": 7,
   "totalMovies": 250,
   "created": "2026-02-09T15:00:37.345Z",
-  "lastUpdated": "2026-02-09T15:49:01.178Z",
+  "lastUpdated": "2026-02-09T22:02:41.344Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -7290,7 +7290,7 @@
           "كوميدي"
         ],
         "جودة الفيلم": [
-          "1080p WEB-DL"
+          "1080p BluRay"
         ],
         "توقيت الفيلم": "1 ساعة و 29 دقيقة",
         "موعد الصدور": [
@@ -7314,7 +7314,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "11-12-2024",
+      "runtime": "09-02-2026",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -7327,7 +7327,7 @@
         },
         {
           "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-0jm8ylll7b5y.html",
+          "url": "https://vidtube.one/embed-suw486ja2w7o.html",
           "quality": "متعدد الجودات",
           "type": "iframe",
           "width": "100%",
@@ -7338,7 +7338,7 @@
       "downloadServers": [
         {
           "name": "VidTube",
-          "url": "https://vidtube.one/d/0jm8ylll7b5y.html",
+          "url": "https://vidtube.one/d/suw486ja2w7o.html",
           "quality": "متعدد الجودات",
           "type": "pro_server",
           "icon": "fas fa-rocket",
@@ -7346,15 +7346,7 @@
         },
         {
           "name": "UpDown",
-          "url": "https://updown.cam/r912qsv9gthf",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "BowFile",
-          "url": "https://bowfile.com/cbia",
+          "url": "https://updown.cam/h6thb0yi4brv",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -7362,7 +7354,7 @@
         },
         {
           "name": "Mdiaload",
-          "url": "https://down.mdiaload.com/z5msrexht7xb",
+          "url": "https://down.mdiaload.com/mfa15i1bsogo",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -7370,7 +7362,7 @@
         },
         {
           "name": "Ddownload",
-          "url": "https://ddownload.com/r36uvs3a42uh",
+          "url": "https://ddownload.com/34jmv93thse2",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -7378,7 +7370,7 @@
         },
         {
           "name": "Nitroflare",
-          "url": "https://nitroflare.com/view/9A1FDB5338AB34E",
+          "url": "https://nitroflare.com/view/74F28607446574E",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -7386,7 +7378,23 @@
         },
         {
           "name": "1Fichier",
-          "url": "https://1fichier.com/?su6bidqn9h61gvjwnj3j",
+          "url": "https://1fichier.com/?69kcp6plvgukacdzg5as",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/dfcee55a1667d7f9c22d5362ea8eb2f8",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/jgr337josjrp",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -7394,7 +7402,7 @@
         },
         {
           "name": "CloudFile",
-          "url": "https://1cloudfile.com/2Nwxe",
+          "url": "https://1cloudfile.com/2aEwq",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -7402,13 +7410,13 @@
         }
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-timestalker-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
-      "page": 21,
-      "position": 4,
-      "currentFile": "Top6.json",
-      "scrapedAt": "2026-02-09T15:39:38.010Z",
+      "page": 1,
+      "position": 1,
+      "currentFile": "Top14.json",
+      "scrapedAt": "2026-02-09T22:02:41.247Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 8,
+        "downloadServersCount": 9,
         "genresCount": 0
       }
     },

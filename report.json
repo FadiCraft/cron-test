@@ -1,28 +1,33 @@
 {
-  "timestamp": "2026-02-09T21:17:19.546Z",
-  "phase": "phase1_initial_scraping",
+  "timestamp": "2026-02-09T22:04:44.539Z",
+  "phase": "phase2_home_scraping",
   "systemStats": {
-    "totalMovies": 3179,
-    "totalPages": 53,
-    "uniqueMovies": 3179,
-    "allPagesScraped": false
+    "totalMovies": 3356,
+    "totalPages": 56,
+    "uniqueMovies": 3356,
+    "allPagesScraped": true
   },
   "progress": {
-    "currentPage": 53,
+    "currentPage": 1,
     "currentFile": "Top14.json",
-    "moviesInCurrentFile": 50,
-    "allPagesScraped": false
+    "moviesInCurrentFile": 237,
+    "allPagesScraped": true
   },
   "results": {
     "phase1": {
-      "totalMoviesExtracted": 240,
-      "executionTime": 671289
+      "totalMoviesExtracted": 176,
+      "executionTime": 521539
     },
-    "phase2": null
+    "phase2": {
+      "newMoviesCount": 1,
+      "updatedMoviesCount": 59,
+      "totalHomeMovies": 60,
+      "executionTime": 124193
+    }
   },
   "nextRun": {
-    "phase": "phase1_initial_scraping",
-    "startPage": 53,
+    "phase": "phase2_home_scraping",
+    "startPage": 1,
     "currentFile": "Top14.json"
   }
 }
