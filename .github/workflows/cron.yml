@@ -3,15 +3,15 @@ name: استخراج افلام
 on:
   schedule:
     # ⭐ التشغيل كل 15 دقيقة
-    - cron: '*/15 * * * *'  # كل 15 دقيقة
+    - cron: '*/15 * * * *'
     # ⭐ التوقيتات الثابتة: 07:00, 15:00, 19:00 UTC
-    - cron: '0 7,15,19 * * *'  # دقيقة 0 من الساعات 7,15,19
+    - cron: '0 7,15,19 * * *'
   workflow_dispatch:
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 45  # ⭐ زيادة مهلة التشغيل الكلية
+    timeout-minutes: 45
     
     steps:
     - name: Checkout with token
@@ -49,8 +49,6 @@ jobs:
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        
-        # محاولة sync
         git fetch origin
         git reset --hard origin/main
         git clean -fd
@@ -59,7 +57,7 @@ jobs:
       run: |
         echo "🎬 بدء استخراج الأفلام..."
         node fetch.js --daily-update
-      continue-on-error: true  # ⭐ الاستمرار حتى لو فشل السكريبت
+      continue-on-error: true
     
     - name: Check for changes
       id: changes
@@ -75,25 +73,19 @@ jobs:
     - name: Push changes (if any)
       if: steps.changes.outputs.has_changes == 'true'
       run: |
-        # إضافة التغييرات
         git add -A
-        
-        # عمل commit
         COMMIT_MSG="🎬 تحديث الأفلام - $(date +'%Y-%m-%d %H:%M')"
         git commit -m "$COMMIT_MSG"
         
-        # محاولة push متعددة
         ATTEMPT=1
         MAX_ATTEMPTS=3
         
         while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
           echo "🚀 محاولة Push #$ATTEMPT"
           
-          # أولاً، سحب أحدث التغييرات
           if git pull --rebase origin main; then
             echo "✅ تم سحب التغييرات بنجاح"
             
-            # الآن حاول push
             if git push origin main; then
               echo "🎉 تم رفع التغييرات بنجاح!"
               break
