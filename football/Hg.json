@@ -1,56 +1,66 @@
 {
-  "scrapedAt": "2026-02-10T14:49:52.516Z",
+  "scrapedAt": "2026-02-10T15:52:49.490Z",
   "source": "https://koraplus.blog/",
-  "totalMatches": 17,
+  "totalMatches": 12,
   "matches": [
     {
-      "id": "match_1770734965060_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d8%b3%d8%aa%d9%82%d9%84%d8%a7%d9%84-%d9%88-%d8%a7%d9%84%d8%ad%d8%b3%d9%8a%d9%86-%d8%a5%d8%b1%d8%a8%d8%af-%d8%a8%d8%ab/",
-      "title": "استقلال vs الحسين إربد",
+      "id": "match_1770738753180_0",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%aa%d8%b1%d8%a9-%d9%88-%d8%a7%d9%84%d8%b9%d9%8a%d9%86-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1/",
+      "title": "سترة vs العين",
       "team1": {
-        "name": "استقلال",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/9358.png",
+        "name": "سترة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/16940.png",
         "score": "0"
       },
       "team2": {
-        "name": "الحسين إربد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8285.png",
+        "name": "العين",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8353.png",
         "score": "0"
       },
       "score": "0-0",
       "time": "غير معروف",
       "status": "جارية الآن",
-      "channels": [],
-      "tournament": "دوري أبطال آسيا 2 - دور الـ 16",
+      "channels": [
+        "أبو ظبي الرياضية 1"
+      ],
+      "tournament": "دوري أبطال الخليج للأندية",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-02-10T14:49:25.060Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-10T15:52:33.180Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
     },
     {
-      "id": "match_1770734965061_1",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%88%d8%ad%d8%af%d8%a9-%d9%88-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
-      "title": "الوحدة vs الأهلي",
+      "id": "match_1770738753182_1",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%86%d9%87%d8%b6%d8%a9-%d9%88-%d8%a7%d9%84%d8%b4%d8%a8%d8%a7%d8%a8-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
+      "title": "النهضة vs الشباب",
       "team1": {
-        "name": "الوحدة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8350.png",
+        "name": "النهضة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/12184.png",
         "score": "0"
       },
       "team2": {
-        "name": "الأهلي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8946-2.png",
+        "name": "الشباب",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8945.png",
         "score": "0"
       },
       "score": "0-0",
       "time": "غير معروف",
       "status": "جارية الآن",
       "channels": [
-        "beIN SPORTS HD 1"
+        "ابوظبي الرياضية 2"
       ],
-      "tournament": "دوري أبطال آسيا للنخبة",
+      "tournament": "دوري أبطال الخليج للأندية",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-02-10T14:49:25.061Z",
+      "scrapedAt": "2026-02-10T15:52:33.182Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -62,41 +72,7 @@
       ]
     },
     {
-      "id": "match_1770734965062_2",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d8%a7%d8%b3%d8%a7%d9%81-%d9%83%d8%a7%d8%b1%d8%b4%d9%8a-%d9%88-%d8%a7%d9%84%d8%b4%d8%b1%d8%b7%d8%a9-%d8%a8%d8%ab-%d9%85/",
-      "title": "ناساف كارشي vs الشرطة",
-      "team1": {
-        "name": "ناساف كارشي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8596.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "الشرطة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8246.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "Bein Sports HD2"
-      ],
-      "tournament": "دوري أبطال آسيا للنخبة",
-      "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-10T14:49:25.062Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770734965063_3",
+      "id": "match_1770738753183_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d8%b1%d8%a7%da%a9%d8%aa%d9%88%d8%b1%d8%b3%d8%a7%d8%b2%d9%8a-%d9%88-%d8%a7%d9%84%d8%b3%d8%af-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "تراکتورسازي vs السد",
       "team1": {
@@ -111,16 +87,18 @@
       },
       "score": "0 - 0",
       "time": "6 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [],
+      "status": "بعد قليل",
+      "channels": [
+        "Bein Sports HD2"
+      ],
       "tournament": "دوري أبطال آسيا للنخبة",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-10T14:49:25.063Z",
+      "position": 3,
+      "scrapedAt": "2026-02-10T15:52:33.183Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965064_4",
+      "id": "match_1770738753184_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%b2%d9%88%d8%b1%d8%a7%d8%a1-%d9%88-%d8%a7%d9%84%d9%88%d8%b5%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الزوراء vs الوصل",
       "team1": {
@@ -135,84 +113,18 @@
       },
       "score": "0 - 0",
       "time": "6 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [],
+      "status": "بعد قليل",
+      "channels": [
+        "beIN Sports 3 HD"
+      ],
       "tournament": "دوري أبطال آسيا 2 - دور الـ 16",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-10T14:49:25.064Z",
+      "position": 4,
+      "scrapedAt": "2026-02-10T15:52:33.184Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965065_5",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%af%d8%ad%d9%8a%d9%84-%d9%88-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
-      "title": "الدحيل vs الشارقة",
-      "team1": {
-        "name": "الدحيل",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8329.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "الشارقة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8351.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "6 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN SPORTS HD 1"
-      ],
-      "tournament": "دوري أبطال آسيا للنخبة",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-10T14:49:25.065Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770734965066_6",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b4%d8%a8%d8%a7%d8%a8-%d8%a7%d9%84%d8%a7%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a8%d8%ab-%d9%85/",
-      "title": "شباب الاهلي vs الهلال",
-      "team1": {
-        "name": "شباب الاهلي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8347.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "الهلال",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/5457-2.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "6 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "Bein Sports HD2"
-      ],
-      "tournament": "دوري أبطال آسيا للنخبة",
-      "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-02-10T14:49:25.066Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770734965067_7",
+      "id": "match_1770738753185_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d9%88-%d8%a7%d9%84%d8%ba%d8%b1%d8%a7%d9%81%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
       "title": "الاتحاد vs الغرافة",
       "team1": {
@@ -228,15 +140,25 @@
       "score": "0 - 0",
       "time": "8:15 PM",
       "status": "لم تبدأ بعد",
-      "channels": [],
+      "channels": [
+        "Bein Sports HD2"
+      ],
       "tournament": "دوري أبطال آسيا للنخبة",
       "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-02-10T14:49:25.067Z",
-      "watchServers": null
+      "position": 5,
+      "scrapedAt": "2026-02-10T15:52:33.186Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
     },
     {
-      "id": "match_1770734965068_8",
+      "id": "match_1770738753187_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d8%b4%d9%8a%d9%84%d8%b3%d9%8a-%d9%88-%d9%84%d9%8a%d8%af%d8%b2-%d9%8a%d9%88%d9%86%d8%a7%d9%8a%d8%aa%d8%af-%d8%a8%d8%ab/",
       "title": "تشيلسي vs ليدز يونايتد",
       "team1": {
@@ -255,12 +177,12 @@
       "channels": [],
       "tournament": "الدوري الإنجليزي",
       "page": 1,
-      "position": 9,
-      "scrapedAt": "2026-02-10T14:49:25.068Z",
+      "position": 6,
+      "scrapedAt": "2026-02-10T15:52:33.187Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965069_9",
+      "id": "match_1770738753187_6",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d9%8a%d9%81%d8%b1%d8%aa%d9%88%d9%86-%d9%88-%d8%a8%d9%88%d8%b1%d9%86%d9%85%d9%88%d8%ab-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
       "title": "إيفرتون vs بورنموث",
       "team1": {
@@ -279,12 +201,12 @@
       "channels": [],
       "tournament": "الدوري الإنجليزي",
       "page": 1,
-      "position": 10,
-      "scrapedAt": "2026-02-10T14:49:25.069Z",
+      "position": 7,
+      "scrapedAt": "2026-02-10T15:52:33.187Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965070_10",
+      "id": "match_1770738753188_7",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d9%88%d8%aa%d9%86%d9%87%d8%a7%d9%85-%d9%87%d9%88%d8%aa%d8%b3%d8%a8%d8%b1-%d9%88-%d9%86%d9%8a%d9%88%d9%83%d8%a7%d8%b3/",
       "title": "توتنهام هوتسبر vs نيوكاسل يونايتد",
       "team1": {
@@ -303,12 +225,12 @@
       "channels": [],
       "tournament": "الدوري الإنجليزي",
       "page": 1,
-      "position": 11,
-      "scrapedAt": "2026-02-10T14:49:25.070Z",
+      "position": 8,
+      "scrapedAt": "2026-02-10T15:52:33.188Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965071_11",
+      "id": "match_1770738753189_8",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%87%d8%b1%d8%aa%d8%a7-%d8%a8%d8%b1%d9%84%d9%8a%d9%86-%d9%88-%d9%81%d8%b1%d8%a7%d9%8a%d8%a8%d9%88%d8%b1%d8%ac-%d8%a8%d8%ab/",
       "title": "هرتا برلين vs فرايبورج",
       "team1": {
@@ -327,46 +249,12 @@
       "channels": [],
       "tournament": "كأس المانيا - ربع النهائي",
       "page": 1,
-      "position": 12,
-      "scrapedAt": "2026-02-10T14:49:25.071Z",
+      "position": 9,
+      "scrapedAt": "2026-02-10T15:52:33.189Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965072_12",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%88%d9%85%d8%a7-%d9%88-%d9%83%d8%a7%d9%84%d9%8a%d8%a7%d8%b1%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83/",
-      "title": "روما vs كالياري",
-      "team1": {
-        "name": "روما",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/225-2.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "كالياري",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/243.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "9:45 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "Starzplay"
-      ],
-      "tournament": "الدوري الإيطالي",
-      "page": 1,
-      "position": 13,
-      "scrapedAt": "2026-02-10T14:49:25.072Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770734965073_13",
+      "id": "match_1770738753190_9",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d8%a7%d8%a8%d9%88%d9%84%d9%8a-%d9%88-%d9%83%d9%88%d9%85%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88/",
       "title": "نابولي vs كومو",
       "team1": {
@@ -385,46 +273,12 @@
       "channels": [],
       "tournament": "كأس إيطاليا - ربع النهائي",
       "page": 1,
-      "position": 14,
-      "scrapedAt": "2026-02-10T14:49:25.073Z",
+      "position": 10,
+      "scrapedAt": "2026-02-10T15:52:33.190Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965074_14",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%81%d9%8a%d8%a7%d8%b1%d9%8a%d8%a7%d9%84-%d9%88-%d8%a5%d8%b3%d8%a8%d8%a7%d9%86%d9%8a%d9%88%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8/",
-      "title": "فياريال vs إسبانيول",
-      "team1": {
-        "name": "فياريال",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/133.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "إسبانيول",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/136-2.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "10 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN Sports 3 HD"
-      ],
-      "tournament": "الدوري الإسباني",
-      "page": 1,
-      "position": 15,
-      "scrapedAt": "2026-02-10T14:49:25.074Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
-    },
-    {
-      "id": "match_1770734965075_15",
+      "id": "match_1770738753191_10",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%88%d8%b3%d8%aa-%d9%87%d8%a7%d9%85-%d9%8a%d9%88%d9%86%d8%a7%d9%8a%d8%aa%d8%af-%d9%88-%d9%85%d8%a7%d9%86%d8%b4%d8%b3%d8%aa/",
       "title": "وست هام يونايتد vs مانشستر يونايتد",
       "team1": {
@@ -443,41 +297,33 @@
       "channels": [],
       "tournament": "الدوري الإنجليزي",
       "page": 1,
-      "position": 16,
-      "scrapedAt": "2026-02-10T14:49:25.075Z",
+      "position": 11,
+      "scrapedAt": "2026-02-10T15:52:33.191Z",
       "watchServers": null
     },
     {
-      "id": "match_1770734965076_16",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%88%d8%b1%d8%aa%d9%88-%d9%88-%d8%b3%d8%a8%d9%88%d8%b1%d8%aa%d9%86%d8%ac-%d9%84%d8%b4%d8%a8%d9%88%d9%86%d8%a9-%d8%a8/",
-      "title": "بورتو vs سبورتنج لشبونة",
+      "id": "match_1770738753192_11",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d8%b3%d8%aa%d9%82%d9%84%d8%a7%d9%84-%d9%88-%d8%a7%d9%84%d8%ad%d8%b3%d9%8a%d9%86-%d8%a5%d8%b1%d8%a8%d8%af-%d8%a8%d8%ab/",
+      "title": "استقلال vs الحسين إربد",
       "team1": {
-        "name": "بورتو",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/887.png",
+        "name": "استقلال",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/9358.png",
         "score": "0"
       },
       "team2": {
-        "name": "سبورتنج لشبونة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/890.png",
+        "name": "الحسين إربد",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8285.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "10:45 PM",
-      "status": "لم تبدأ بعد",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
       "channels": [],
-      "tournament": "الدوري البرتغالي",
+      "tournament": "دوري أبطال آسيا 2 - دور الـ 16",
       "page": 1,
-      "position": 17,
-      "scrapedAt": "2026-02-10T14:49:25.076Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://kk.pyxq.online/albaplayer/ontime/",
-          "quality": "HD",
-          "server": "KoraPlus/AlbaPlayer",
-          "id": "potential_server"
-        }
-      ]
+      "position": 12,
+      "scrapedAt": "2026-02-10T15:52:33.192Z",
+      "watchServers": null
     }
   ]
 }
