@@ -1,0 +1,35 @@
+name:  ارمضان 2026
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # يومياً في منتصف الليل
+  workflow_dispatch:      # تشغيل يدوي
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run extractor
+      run: npm run extract
+      env:
+        NODE_OPTIONS: '--max_old_space_size=4096'
+        
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add Ramadan/
+        git commit -m "Update: Extract episodes $(date)" || echo "No changes to commit"
+        git push
