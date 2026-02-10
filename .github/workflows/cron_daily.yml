@@ -1,110 +1,0 @@
-name: استخراج الافلام العربيه
-
-on:
-  workflow_dispatch:
-  schedule:
-    # تشغيل كل يوم عند الساعة 2 صباحاً UTC
-    - cron: "0 2 * * *"  # كل يوم في الساعة 2 صباحاً
-
-jobs:
-  extract-daily:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: |
-          npm install jsdom
-          echo "✅ تم تثبيت الحزم"
-
-      - name: Create movies directory
-        run: |
-          # إنشاء مجلد movies مسبقاً
-          mkdir -p movies
-          echo "📁 تم إنشاء مجلد movies"
-
-      - name: Run fetch_daily.js
-        run: |
-          echo "🚀 بدء عملية الاستخراج اليومي..."
-          echo "📅 الوقت: $(date)"
-          echo "📅 الجدولة: كل يوم في الساعة 2 صباحاً UTC"
-          echo "📁 الملف: fetch_daily.js"
-          echo "🔄 جاري التشغيل..."
-          
-          # تشغيل ملف fetch_daily.js
-          if [ -f "fetch_daily.js" ]; then
-            node fetch_daily.js
-            echo "✅ تم تشغيل fetch_daily.js بنجاح"
-          else
-            echo "❌ ملف fetch_daily.js غير موجود!"
-            echo "📂 الملفات الموجودة:"
-            ls -la *.js || echo "لا توجد ملفات js"
-            exit 1
-          fi
-          
-          echo "✅ تم الانتهاء من الاستخراج اليومي"
-
-      - name: Check results
-        run: |
-          echo "📊 ====== النتائج اليومية ======"
-          echo "⏰ وقت التشغيل: $(date)"
-          
-          # التحقق من وجود ملف Hg.json
-          if [ -f "movies/Hg.json" ]; then
-            echo "✅ تم إنشاء ملف movies/Hg.json"
-            echo "📊 حجم الملف: $(wc -c < movies/Hg.json) بايت"
-            
-            # عرض معلومات عن الملف
-            echo ""
-            echo "📋 معلومات الملف:"
-            echo '{
-              "ملف": "movies/Hg.json",
-              "وقت_التشغيل": "'$(date)'",
-              "الحالة": "✅ جاهز"
-            }' | jq .
-            
-            # عرض أول 3 أفلام
-            echo ""
-            echo "🎥 أول 3 أفلام مستخرجة:"
-            if command -v jq &> /dev/null; then
-              jq '.movies[0:3]' movies/Hg.json
-            else
-              echo "❌ jq غير مثبت، تثبيته..."
-              sudo apt-get install -y jq
-              jq '.movies[0:3]' movies/Hg.json
-            fi
-            
-          else
-            echo "❌ لم يتم إنشاء movies/Hg.json"
-            echo "📂 محتويات مجلد movies:"
-            if [ -d "movies" ]; then
-              ls -la movies/
-            else
-              echo "❌ مجلد movies غير موجود"
-            fi
-          fi
-
-      - name: Commit and push daily changes
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          
-          # إضافة التغييرات اليومية
-          git add movies/Hg.json || echo "⚠️ لا يوجد Hg.json جديد"
-          
-          # التحقق إذا كانت هناك تغييرات
-          if git diff --cached --quiet; then
-            echo "📭 لا توجد تغييرات جديدة للرفع"
-          else
-            echo "🔼 رفع التغييرات اليومية..."
-            git commit -m "🎬 تحديث الأفلام اليومي - $(date +'%Y-%m-%d')" -m "تم استخراج الأفلام اليومي تلقائياً - $(date +'%H:%M')"
-            git push
-            echo "✅ تم رفع التغييرات اليومية"
-          fi
