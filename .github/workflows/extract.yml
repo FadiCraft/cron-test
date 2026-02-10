@@ -1,9 +1,14 @@
-name:  ارمضان 2026
+name: رمضان 2026
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # يومياً في منتصف الليل
-  workflow_dispatch:      # تشغيل يدوي
+    - cron: '0 2 * * *'  # يومياً الساعة 2 صباحاً
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL to extract from'
+        required: false
+        default: 'https://larooza.life/category.php?cat=ramadan-2026'
 
 jobs:
   extract:
@@ -19,17 +24,36 @@ jobs:
         node-version: '18'
         
     - name: Install dependencies
-      run: npm install
-      
-    - name: Run extractor
-      run: npm run extract
-      env:
-        NODE_OPTIONS: '--max_old_space_size=4096'
+      run: |
+        npm install node-html-parser
         
+    - name: Create package.json
+      run: |
+        echo '{
+          "name": "larooza-extractor",
+          "version": "1.0.0",
+          "description": "Extract episodes from Larooza website",
+          "main": "extract-episodes.js",
+          "scripts": {
+            "start": "node extract-episodes.js",
+            "extract": "node extract-episodes.js"
+          },
+          "dependencies": {
+            "node-html-parser": "^6.1.5"
+          },
+          "keywords": ["scraper", "episodes", "larooza"],
+          "author": "",
+          "license": "MIT"
+        }' > package.json
+        
+    - name: Run extractor
+      run: npm run extract ${{ github.event.inputs.url }}
+      continue-on-error: true
+      
     - name: Commit and push changes
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add Ramadan/
-        git commit -m "Update: Extract episodes $(date)" || echo "No changes to commit"
-        git push
+        git add Ramadan/ || echo "No Ramadan folder"
+        git commit -m "Update episodes $(date '+%Y-%m-%d %H:%M')" || echo "No changes to commit"
+        git push || echo "Push failed"
