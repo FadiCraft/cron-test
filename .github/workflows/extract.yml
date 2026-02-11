@@ -8,7 +8,7 @@ on:
       url:
         description: 'URL to extract from'
         required: false
-        default: 'https://z.larooza.life/category.php?cat=ramadan-2026'
+        default: 'https://laroza.bond/category.php?cat=ramadan-2026'
 
 jobs:
   extract:
