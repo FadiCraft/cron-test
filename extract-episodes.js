@@ -7,9 +7,9 @@ const { parse } = require('node-html-parser');
 
 // ==================== الإعدادات ====================
 // ✅ Blogger Settings
-const CLIENT_ID = "676395600013-j9kb2psm5il4aj7o9q9m7k0r521h7rrh.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REFRESH_TOKEN = "1//057rt4gQb0h6bCgYIARAAGAUSNwF-L9IrzWvRhe034kgg-KMqE4lI6OqBaraaWQQNDbpXm9XvvqXaIGBEJH_TVB9aldvxbdnbC-E";
+const CLIENT_ID = "676395600013-5gmnle6clg9f5mqfo7uci45nqurl0hsi.apps.googleusercontent.com";
+const CLIENT_SECRET = "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";
+const REFRESH_TOKEN = "1//05-y_lVbQzPs1CgYIARAAGAUSNwF-L9IrtEhFugmwQXjaGN--8EVbAZZwmAGlroNEXUey43nFiT6hg0MGAHqaKU_oJtdXH_1lFrw";
 const BLOG_ID = "8351599421307503563";
 const SITE_URL = "https://www.kirozozo.xyz/";
 
