@@ -25,25 +25,24 @@ jobs:
         
     - name: Install dependencies
       run: |
-        npm install node-html-parser
+        npm install node-html-parser node-fetch
         
-    - name: Create package.json
+    - name: Create/Update package.json
       run: |
         echo '{
           "name": "larooza-extractor",
           "version": "1.0.0",
-          "description": "Extract episodes from Larooza website",
+          "description": "استخراج ونشر حلقات رمضان 2026",
           "main": "extract-episodes.js",
+          "type": "module",
           "scripts": {
             "start": "node extract-episodes.js",
             "extract": "node extract-episodes.js"
           },
           "dependencies": {
-            "node-html-parser": "^6.1.5"
-          },
-          "keywords": ["scraper", "episodes", "larooza"],
-          "author": "",
-          "license": "MIT"
+            "node-html-parser": "^6.1.5",
+            "node-fetch": "^3.3.2"
+          }
         }' > package.json
         
     - name: Run extractor
@@ -54,6 +53,6 @@ jobs:
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add Ramadan/ || echo "No Ramadan folder"
-        git commit -m "Update episodes $(date '+%Y-%m-%d %H:%M')" || echo "No changes to commit"
+        git add Ramadan/ extracted_history.json || echo "No files to add"
+        git commit -m "📦 تحديث: حلقة جديدة $(date '+%Y-%m-%d %H:%M')" || echo "No changes to commit"
         git push || echo "Push failed"
