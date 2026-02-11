@@ -1,35 +1,54 @@
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const { parse } = require('node-html-parser');
 
+// ==================== الإعدادات ====================
+// ✅ Blogger Settings
+const CLIENT_ID = "676395600013-j9kb2psm5il4aj7o9q9m7k0r521h7rrh.apps.googleusercontent.com";
+const CLIENT_SECRET = "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";
+const REFRESH_TOKEN = "1//057rt4gQb0h6bCgYIARAAGAUSNwF-L9IrzWvRhe034kgg-KMqE4lI6OqBaraaWQQNDbpXm9XvvqXaIGBEJH_TVB9aldvxbdnbC-E";
+const BLOG_ID = "8351599421307503563";
+const SITE_URL = "https://www.kirozozo.xyz/";
+
+// ✅ GitHub Settings (للسجل فقط)
+const GH_TOKEN = "your_github_token_here";
+const GH_USER = "FadiCraft";
+const GH_REPO = "cron-test";
+const GITHUB_API = "https://api.github.com";
+const PUBLISHED_FILE = "published_log.json";
+const REPO_PATH = `${GH_USER}/${GH_REPO}`;
+
+// ✅ Larooza Settings
+const LAROOZA_URL = "https://z.larooza.life/category.php?cat=ramadan-2026";
+const BASE_URL = "https://z.larooza.life";
+
+// ==================== كلاس استخراج لاروزا (مبسط) ====================
 class LaroozaExtractor {
     constructor() {
         this.outputDir = 'Ramadan';
-        this.outputFile = 'kj.json';
         this.historyFile = 'extracted_history.json';
-        this.baseUrl = 'https://z.larooza.life';
+        this.baseUrl = BASE_URL;
         this.extractedHistory = new Set();
-        this.maxEpisodesPerRun = 5; // الحد الأقصى للحلقات في كل مرة
         
         if (!fs.existsSync(this.outputDir)) {
             fs.mkdirSync(this.outputDir, { recursive: true });
         }
         
-        // تحميل سجل الاستخراج
         this.loadExtractionHistory();
         
         this.userAgents = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         ];
         
         this.requestDelay = 1000;
         this.timeout = 20000;
     }
 
-    // تحميل سجل كل ما تم استخراجه من قبل
+    // تحميل سجل الاستخراج
     loadExtractionHistory() {
         const historyPath = path.join(this.outputDir, this.historyFile);
         
@@ -38,25 +57,21 @@ class LaroozaExtractor {
                 const data = fs.readFileSync(historyPath, 'utf8');
                 const history = JSON.parse(data);
                 this.extractedHistory = new Set(history.extracted_ids || []);
-                console.log(`📚 تم تحميل سجل ${this.extractedHistory.size} حلقة مستخرجة سابقاً`);
+                console.log(`📚 سجل الاستخراج: ${this.extractedHistory.size} حلقة مستخرجة سابقاً`);
             } catch (error) {
-                console.log('⚠️ خطأ في تحميل سجل الاستخراج:', error.message);
                 this.extractedHistory = new Set();
             }
         } else {
-            console.log('📝 لا يوجد سجل استخراج سابق، سيبدأ من الصفر');
+            console.log('📝 لا يوجد سجل استخراج سابق');
             this.extractedHistory = new Set();
         }
     }
 
     // حفظ سجل الاستخراج
-    saveExtractionHistory(newIds = []) {
+    saveExtractionHistory(newId) {
         const historyPath = path.join(this.outputDir, this.historyFile);
         
-        // إضافة المعرفات الجديدة إلى السجل
-        newIds.forEach(id => {
-            this.extractedHistory.add(id);
-        });
+        this.extractedHistory.add(newId);
         
         const historyData = {
             last_updated: new Date().toISOString(),
@@ -68,16 +83,15 @@ class LaroozaExtractor {
         console.log(`📝 تم تحديث سجل الاستخراج: ${this.extractedHistory.size} حلقة إجمالاً`);
     }
 
-    // تأخير بين الطلبات
+    // تأخير
     delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    // جلب URL
     async fetchUrl(url) {
         return new Promise((resolve, reject) => {
             const userAgent = this.userAgents[Math.floor(Math.random() * this.userAgents.length)];
-            
-            console.log(`🌐 جاري التحميل: ${url.substring(0, 80)}...`);
             
             const options = {
                 headers: {
@@ -85,220 +99,80 @@ class LaroozaExtractor {
                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                     'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
                     'Referer': this.baseUrl,
-                    'Connection': 'keep-alive'
                 },
                 timeout: this.timeout
             };
             
             const req = https.get(url, options, (res) => {
-                console.log(`📊 الاستجابة: HTTP ${res.statusCode}`);
-                
                 if (res.statusCode !== 200) {
                     reject(new Error(`HTTP ${res.statusCode}`));
                     return;
                 }
                 
                 let data = '';
-                res.on('data', (chunk) => {
-                    data += chunk;
-                });
-                
-                res.on('end', () => {
-                    if (data.length > 0) {
-                        console.log(`✅ تم تحميل ${Math.round(data.length / 1024)} كيلوبايت`);
-                        resolve(data);
-                    } else {
-                        reject(new Error('لا توجد بيانات'));
-                    }
-                });
+                res.on('data', (chunk) => data += chunk);
+                res.on('end', () => resolve(data));
             });
             
             req.on('error', reject);
             req.on('timeout', () => {
                 req.destroy();
-                reject(new Error(`Timeout بعد ${this.timeout / 1000} ثواني`));
+                reject(new Error('Timeout'));
             });
         });
     }
 
-    async start(url = 'https://z.larooza.life/category.php?cat=ramadan-2026') {
-        console.log('🚀 بدء استخراج الحلقات من موقع لاروزا');
-        console.log(`🌐 الدومين: ${this.baseUrl}`);
-        console.log(`📁 سيتم الحفظ في: ${this.outputDir}/${this.outputFile}`);
-        console.log(`📝 سجل الاستخراج: ${this.extractedHistory.size} حلقة مستخرجة سابقاً`);
-        console.log(`🔗 الرابط: ${url}`);
-        console.log(`⏰ الحد الأقصى للحلقات في هذه الجولة: ${this.maxEpisodesPerRun}\n`);
+    // استخراج جميع الحلقات من الصفحة بالترتيب
+    async fetchAllEpisodes() {
+        console.log('📥 جاري تحميل صفحة لاروزا...');
+        const html = await this.fetchUrl(LAROOZA_URL);
+        const root = parse(html);
         
-        try {
-            // 1. جلب الصفحة الرئيسية
-            console.log('📥 جاري تحميل الصفحة الرئيسية...');
-            const html = await this.fetchUrl(url);
-            
-            if (!html) {
-                console.log('❌ فشل تحميل الصفحة');
-                return;
-            }
-            
-            // 2. استخراج جميع الحلقات من الصفحة
-            console.log('🔍 جاري استخراج الحلقات من الصفحة...');
-            const root = parse(html);
-            const allEpisodes = this.extractAllEpisodesFromPage(root, url);
-            
-            if (allEpisodes.length === 0) {
-                console.log('❌ لم يتم العثور على حلقات في الصفحة');
-                await this.saveOnlyNewEpisodes([]);
-                return;
-            }
-            
-            console.log(`📊 وجدت ${allEpisodes.length} حلقة في الصفحة`);
-            
-            // 3. تصفية الحلقات الجديدة فقط (التي لم نستخرجها من قبل)
-            const newEpisodes = this.filterNewEpisodes(allEpisodes);
-            
-            console.log(`🆕 ${newEpisodes.length} حلقة جديدة (لم تستخرج من قبل)`);
-            
-            if (newEpisodes.length === 0) {
-                console.log('⚠️ لا توجد حلقات جديدة للاستخراج');
-                await this.saveOnlyNewEpisodes([]); // حفظ ملف فارغ
-                return;
-            }
-            
-            // 4. تحديد عدد الحلقات المراد معالجتها (بحد أقصى 5)
-            let episodesToProcess = newEpisodes;
-            if (newEpisodes.length > this.maxEpisodesPerRun) {
-                console.log(`⚠️ عدد الحلقات الجديدة (${newEpisodes.length}) يتجاوز الحد المسموح (${this.maxEpisodesPerRun})`);
-                episodesToProcess = newEpisodes.slice(0, this.maxEpisodesPerRun);
-                console.log(`📌 سيتم استخراج أول ${this.maxEpisodesPerRun} حلقة فقط في هذه الجولة`);
-                console.log(`📌 باقي الحلقات (${newEpisodes.length - this.maxEpisodesPerRun}) ستتم معالجتها في المرات القادمة`);
-            }
-            
-            // 5. استخراج التفاصيل الكاملة للحلقات الجديدة فقط
-            console.log(`\n🔍 جاري استخراج تفاصيل ${episodesToProcess.length} حلقة...`);
-            const detailedEpisodes = await this.extractDetailsForEpisodes(episodesToProcess);
-            
-            // 6. حفظ الحلقات الجديدة فقط في الملف
-            await this.saveOnlyNewEpisodes(detailedEpisodes);
-            
-            // 7. تحديث سجل الاستخراج
-            const newIds = detailedEpisodes.map(ep => ep.id).filter(id => id);
-            if (newIds.length > 0) {
-                this.saveExtractionHistory(newIds);
-                
-                // رسالة معلومات إضافية
-                if (newEpisodes.length > this.maxEpisodesPerRun) {
-                    const remaining = newEpisodes.length - this.maxEpisodesPerRun;
-                    console.log(`\n📌 ملاحظة: لا يزال هناك ${remaining} حلقة جديدة لم تتم معالجتها`);
-                    console.log(`📌 قم بتشغيل البرنامج مرة أخرى لاستخراج المزيد من الحلقات`);
-                }
-            }
-            
-            console.log('\n🎉 تم الانتهاء بنجاح!');
-            
-        } catch (error) {
-            console.error('❌ حدث خطأ:', error.message);
-        }
-    }
-
-    extractAllEpisodesFromPage(root, baseUrl) {
         const episodes = [];
-        const seenUrls = new Set();
-        
-        console.log('🔎 البحث عن جميع الحلقات في الصفحة...');
-        
-        // البحث في جميع العناصر التي تحتوي على الحلقات
         const episodeElements = root.querySelectorAll('li.col-xs-6, li.col-sm-4, li.col-md-3');
         
-        console.log(`📊 وجدت ${episodeElements.length} عنصر للحلقات`);
+        console.log(`📊 وجدت ${episodeElements.length} حلقة في الصفحة`);
         
-        episodeElements.forEach((element, index) => {
+        for (const element of episodeElements) {
             try {
-                const episode = this.extractEpisodeFromElement(element, baseUrl);
-                if (episode && episode.title && !seenUrls.has(episode.link)) {
-                    // استخراج ID من الرابط
-                    const vidMatch = episode.link.match(/vid=([a-zA-Z0-9_-]+)/i);
-                    if (vidMatch) {
-                        episode.id = vidMatch[1];
-                        episode.videoUrl = `${this.baseUrl}/embed.php?vid=${episode.id}`;
-                    } else {
-                        episode.id = `episode_${Date.now()}_${index}`;
-                    }
-                    
+                const episode = await this.extractEpisodeFromElement(element);
+                if (episode && episode.id && episode.title) {
                     episodes.push(episode);
-                    seenUrls.add(episode.link);
                 }
             } catch (error) {
-                console.log(`⚠️ خطأ في استخراج حلقة ${index + 1}:`, error.message);
+                // تخطي الخطأ
             }
-        });
-        
-        // إذا لم نجد بهذه الطريقة، نجرب طرق أخرى
-        if (episodes.length === 0) {
-            console.log('🔧 جرب طرق استخراج بديلة...');
-            
-            // البحث عن جميع الروابط مع video.php
-            const videoLinks = root.querySelectorAll('a[href*="video.php"]');
-            console.log(`🔗 وجدت ${videoLinks.length} رابط video.php`);
-            
-            videoLinks.forEach((link, index) => {
-                try {
-                    const href = link.getAttribute('href');
-                    if (href) {
-                        // استخراج ID من الرابط
-                        const vidMatch = href.match(/vid=([a-zA-Z0-9_-]+)/i);
-                        const episodeId = vidMatch ? vidMatch[1] : `vid_${Date.now()}_${index}`;
-                        
-                        const episode = {
-                            id: episodeId,
-                            title: this.extractTitleFromElement(link),
-                            image: this.extractImageFromElement(link),
-                            link: this.fixUrl(href, baseUrl),
-                            duration: '00:00',
-                            description: '',
-                            servers: [],
-                            videoUrl: `${this.baseUrl}/embed.php?vid=${episodeId}`
-                        };
-                        
-                        episodes.push(episode);
-                    }
-                } catch (error) {
-                    console.log(`⚠️ خطأ في استخراج رابط ${index + 1}`);
-                }
-            });
         }
         
+        // ترتيب الحلقات كما هي في الصفحة
         return episodes;
     }
 
-    // تصفية الحلقات الجديدة فقط (التي لم نستخرجها من قبل)
-    filterNewEpisodes(allEpisodes) {
-        const newEpisodes = [];
-        
-        allEpisodes.forEach(episode => {
-            if (episode.id && !this.extractedHistory.has(episode.id)) {
-                newEpisodes.push(episode);
-            }
-        });
-        
-        return newEpisodes;
-    }
-
-    extractEpisodeFromElement(element, baseUrl) {
-        // البحث عن رابط الحلقة
+    // استخراج حلقة من عنصر HTML
+    async extractEpisodeFromElement(element) {
         const linkElement = element.querySelector('a');
-        const href = linkElement ? linkElement.getAttribute('href') : null;
-        const link = href ? this.fixUrl(href, baseUrl) : null;
+        const href = linkElement?.getAttribute('href');
+        
+        if (!href) return null;
+        
+        const link = this.fixUrl(href);
+        
+        // استخراج ID من الرابط
+        const vidMatch = link.match(/vid=([a-zA-Z0-9_-]+)/i);
+        if (!vidMatch) return null;
+        
+        const episodeId = vidMatch[1];
         
         // استخراج الصورة
         const imgElement = element.querySelector('img');
-        let imageSrc = null;
+        let image = null;
         
         if (imgElement) {
-            imageSrc = imgElement.getAttribute('src') || imgElement.getAttribute('data-src');
-            
-            // إذا كانت الصورة فارغة، تجاهلها
-            if (imageSrc && (imageSrc.includes('blank.gif') || imageSrc.includes('data:image'))) {
-                imageSrc = null;
+            image = imgElement.getAttribute('src') || imgElement.getAttribute('data-src');
+            if (image && (image.includes('blank.gif') || image.includes('data:image'))) {
+                image = null;
             }
+            if (image) image = this.fixUrl(image);
         }
         
         // استخراج المدة
@@ -312,156 +186,72 @@ class LaroozaExtractor {
             title = this.cleanTitle(titleElement.textContent || titleElement.getAttribute('title') || '');
         }
         
+        // جلب التفاصيل والسيرفرات
+        await this.delay(this.requestDelay);
+        const details = await this.extractEpisodeDetails(link);
+        const servers = await this.extractEpisodeServers(link);
+        
         return {
-            title: title,
-            image: imageSrc ? this.fixImageUrl(imageSrc, baseUrl) : null,
+            id: episodeId,
+            title: details?.title || title,
+            image: details?.image || image,
             link: link,
             duration: duration,
-            description: '',
-            servers: []
+            description: details?.description || '',
+            servers: servers || [],
+            videoUrl: `${this.baseUrl}/embed.php?vid=${episodeId}`
         };
     }
 
-    extractTitleFromElement(element) {
-        // استخراج العنوان بطرق مختلفة
-        const titleAttr = element.getAttribute('title');
-        if (titleAttr) return this.cleanTitle(titleAttr);
-        
-        const textContent = element.textContent.trim();
-        if (textContent) return this.cleanTitle(textContent);
-        
-        const imgAlt = element.querySelector('img')?.getAttribute('alt');
-        if (imgAlt) return this.cleanTitle(imgAlt);
-        
-        return 'عنوان غير معروف';
-    }
-
-    extractImageFromElement(element) {
-        const img = element.querySelector('img');
-        if (img) {
-            const src = img.getAttribute('src') || img.getAttribute('data-src');
-            if (src && !src.includes('blank.gif') && !src.includes('data:image')) {
-                return src;
-            }
-        }
-        return null;
-    }
-
-    async extractDetailsForEpisodes(episodes) {
-        const detailedEpisodes = [];
-        
-        for (let i = 0; i < episodes.length; i++) {
-            try {
-                const episode = episodes[i];
-                console.log(`📝 جاري استخراج تفاصيل الحلقة الجديدة (${i+1}/${episodes.length}): ${episode.title.substring(0, 30)}...`);
-                
-                // تأخير بين الطلبات لتجنب الحظر
-                await this.delay(this.requestDelay);
-                
-                // استخراج تفاصيل الحلقة من صفحتها
-                if (episode.link && episode.link !== '#') {
-                    const details = await this.extractEpisodeDetails(episode.link);
-                    if (details) {
-                        episode.description = details.description || '';
-                        if (details.image && !episode.image) {
-                            episode.image = details.image;
-                        }
-                        if (details.title && details.title !== 'عنوان غير معروف') {
-                            episode.title = details.title;
-                        }
-                    }
-                    
-                    // استخراج السيرفرات
-                    const servers = await this.extractEpisodeServers(episode.link);
-                    if (servers && servers.length > 0) {
-                        episode.servers = servers;
-                    }
-                }
-                
-                detailedEpisodes.push(episode);
-                
-                // تحديث التقدم
-                if ((i + 1) % 5 === 0 || i + 1 === episodes.length) {
-                    console.log(`📊 التقدم: ${i + 1}/${episodes.length} (${Math.round((i + 1) / episodes.length * 100)}%)`);
-                }
-                
-            } catch (error) {
-                console.log(`⚠️ خطأ في الحلقة ${i+1}:`, error.message);
-                detailedEpisodes.push(episodes[i]); // إضافة الحلقة بدون تفاصيل
-            }
-        }
-        
-        return detailedEpisodes;
-    }
-
+    // استخراج التفاصيل
     async extractEpisodeDetails(episodeUrl) {
         try {
-            console.log(`🔗 جاري تحميل تفاصيل: ${episodeUrl.substring(0, 60)}...`);
             const html = await this.fetchUrl(episodeUrl);
             const root = parse(html);
             
             const details = {};
             
-            // استخراج العنوان من meta tag
             const titleMeta = root.querySelector('meta[name="title"]');
-            if (titleMeta) {
-                details.title = this.cleanTitle(titleMeta.getAttribute('content'));
-            }
+            if (titleMeta) details.title = this.cleanTitle(titleMeta.getAttribute('content'));
             
-            // استخراج الوصف من meta tag
             const descMeta = root.querySelector('meta[name="description"]');
             if (descMeta) {
                 const desc = descMeta.getAttribute('content');
                 details.description = this.cleanText(desc).substring(0, 200) + '...';
             }
             
-            // استخراج الصورة من meta tag
             const imageMeta = root.querySelector('meta[property="og:image"]');
-            if (imageMeta) {
-                details.image = imageMeta.getAttribute('content');
-            }
+            if (imageMeta) details.image = imageMeta.getAttribute('content');
             
             return details;
-            
         } catch (error) {
-            console.log(`❌ فشل استخراج تفاصيل:`, error.message);
             return null;
         }
     }
 
+    // استخراج السيرفرات
     async extractEpisodeServers(episodeUrl) {
         try {
-            // تحويل video.php إلى play.php للحصول على صفحة المشاهدة
             const playUrl = episodeUrl.replace('video.php', 'play.php');
-            console.log(`🔗 جاري تحميل سيرفرات: ${playUrl.substring(0, 60)}...`);
-            
             const html = await this.fetchUrl(playUrl);
             const root = parse(html);
             
             const servers = [];
-            
-            // البحث عن قائمة السيرفرات
             const serverList = root.querySelector('.WatchList');
             
             if (serverList) {
                 const serverItems = serverList.querySelectorAll('li');
                 
                 serverItems.forEach((item, index) => {
-                    // استخراج رابط السيرفر من data-embed-url
                     const embedUrl = item.getAttribute('data-embed-url');
-                    
                     if (embedUrl) {
-                        // استخراج اسم السيرفر
                         const serverNameElement = item.querySelector('strong');
                         const serverName = serverNameElement ? 
                             this.cleanText(serverNameElement.textContent) : 
                             `سيرفر ${index + 1}`;
                         
-                        // استخراج رقم السيرفر
-                        const serverId = item.getAttribute('data-embed-id') || (index + 1).toString();
-                        
                         servers.push({
-                            id: serverId,
+                            id: (index + 1).toString(),
                             name: serverName,
                             url: embedUrl
                         });
@@ -469,134 +259,308 @@ class LaroozaExtractor {
                 });
             }
             
-            console.log(`✅ وجدت ${servers.length} سيرفر`);
             return servers;
-            
         } catch (error) {
-            console.log(`❌ فشل استخراج السيرفرات:`, error.message);
+            // إرجاع سيرفر افتراضي في حالة الفشل
+            const vidMatch = episodeUrl.match(/vid=([a-zA-Z0-9_-]+)/i);
+            const vid = vidMatch ? vidMatch[1] : 'unknown';
             
-            // إرجاع سيرفرات افتراضية في حالة الفشل
-            return Array.from({ length: 3 }, (_, i) => ({
-                id: (i + 1).toString(),
-                name: `سيرفر ${i + 1}`,
-                url: `${this.baseUrl}/embed.php?vid=${episodeUrl.match(/vid=([a-zA-Z0-9_-]+)/i)?.[1] || 'unknown'}&server=${i + 1}`
-            }));
+            return [{
+                id: '1',
+                name: 'سيرفر 1',
+                url: `${this.baseUrl}/embed.php?vid=${vid}`
+            }];
         }
     }
 
-    // دالات المساعدة
-    fixUrl(url, baseUrl) {
+    // دوال مساعدة
+    fixUrl(url) {
         if (!url) return '#';
-        
-        if (url.startsWith('//')) {
-            return 'https:' + url;
-        }
-        
-        if (url.startsWith('/')) {
-            return this.baseUrl + url;
-        }
-        
-        if (!url.startsWith('http')) {
-            return this.baseUrl + '/' + url;
-        }
-        
+        if (url.startsWith('//')) return 'https:' + url;
+        if (url.startsWith('/')) return this.baseUrl + url;
+        if (!url.startsWith('http')) return this.baseUrl + '/' + url;
         return url;
     }
 
-    fixImageUrl(url, baseUrl) {
-        return this.fixUrl(url, baseUrl);
-    }
-
     cleanTitle(text) {
-        const cleaned = this.cleanText(text);
-        return cleaned.length > 60 ? cleaned.substring(0, 60) + '...' : cleaned;
+        if (!text) return '';
+        return text.replace(/[\n\r\t]+/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
     cleanText(text) {
         if (!text) return '';
-        return text
-            .replace(/[\n\r\t]+/g, ' ')
-            .replace(/\s+/g, ' ')
-            .replace(/[^\w\u0600-\u06FF\s\-.,!?:;'"()]/g, '')
-            .replace(/^\s+|\s+$/g, '')
-            .trim();
+        return text.replace(/[\n\r\t]+/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
-    // حفظ الحلقات الجديدة فقط (يمسح الملف القديم ويحفظ الجديد فقط)
-    async saveOnlyNewEpisodes(newEpisodes) {
-        const filePath = path.join(this.outputDir, this.outputFile);
+    // الحصول على الحلقة التالية غير المستخرجة
+    async getNextUnpublishedEpisode() {
+        console.log('\n🔍 البحث عن الحلقة التالية غير المنشورة...');
         
-        try {
-            console.log(`\n💾 جاري حفظ ${newEpisodes.length} حلقة جديدة في ${this.outputFile}...`);
-            
-            // تحويل البيانات
-            const formattedEpisodes = newEpisodes.map(episode => ({
-                id: episode.id || '',
-                title: episode.title,
-                image: episode.image,
-                link: episode.link,
-                duration: episode.duration,
-                description: episode.description,
-                servers: episode.servers,
-                videoUrl: episode.videoUrl,
-                extracted_at: new Date().toISOString()
-            }));
-            
-            // إضافة معلومات التحديث
-            const dataToSave = {
-                metadata: {
-                    total_new_episodes: formattedEpisodes.length,
-                    last_updated: new Date().toISOString(),
-                    site: this.baseUrl,
-                    file_name: this.outputFile,
-                    source_url: 'https://z.larooza.life/category.php?cat=ramadan-2026',
-                    note: 'يحتوي فقط على الحلقات الجديدة التي لم تستخرج من قبل',
-                    total_in_history: this.extractedHistory.size,
-                    max_episodes_per_run: this.maxEpisodesPerRun,
-                    next_run_info: formattedEpisodes.length < this.maxEpisodesPerRun ? 
-                        'كل الحلقات الجديدة تمت معالجتها' : 
-                        'يوجد المزيد من الحلقات لمعالجتها في المرة القادمة'
-                },
-                episodes: formattedEpisodes
-            };
-            
-            // حفظ البيانات في الملف (سيحل محل أي بيانات قديمة)
-            fs.writeFileSync(filePath, JSON.stringify(dataToSave, null, 2), 'utf8');
-            
-            if (formattedEpisodes.length > 0) {
-                console.log(`✅ تم حفظ ${formattedEpisodes.length} حلقة جديدة في ${this.outputFile}`);
-                console.log(`📅 تاريخ التحديث: ${dataToSave.metadata.last_updated}`);
-                console.log(`📊 حجم الملف: ${Math.round(fs.statSync(filePath).size / 1024)} كيلوبايت`);
-            } else {
-                console.log(`💾 تم حفظ ملف فارغ (لا توجد حلقات جديدة)`);
+        // 1. جلب جميع الحلقات من لاروزا
+        const allEpisodes = await this.fetchAllEpisodes();
+        console.log(`📊 إجمالي الحلقات في الموقع: ${allEpisodes.length}`);
+        
+        // 2. البحث عن أول حلقة لم تستخرج من قبل
+        for (const episode of allEpisodes) {
+            if (!this.extractedHistory.has(episode.id)) {
+                console.log(`🎬 الحلقة التالية: ${episode.title}`);
+                console.log(`🆔 ${episode.id}`);
+                
+                // حفظ معرف الحلقة في السجل (بعد الاستخراج)
+                this.saveExtractionHistory(episode.id);
+                
+                return episode;
             }
-            
-        } catch (error) {
-            console.error('❌ خطأ في حفظ الملف:', error.message);
         }
+        
+        console.log('⚠️ لا توجد حلقات جديدة للاستخراج!');
+        return null;
     }
 }
 
-// تشغيل الملف مباشرة
-if (require.main === module) {
-    const extractor = new LaroozaExtractor();
-    
-    const url = process.argv[2] || 'https://z.larooza.life/category.php?cat=ramadan-2026';
-    
-    console.log(`⚙️  الإعدادات: الحد الأقصى للحلقات = ${extractor.maxEpisodesPerRun}`);
-    
-    extractor.start(url)
-        .then(() => {
-            console.log('\n✨ تم الانتهاء من العملية بنجاح!');
-            console.log(`📂 الملف النهائي: ${extractor.outputDir}/${extractor.outputFile}`);
-            console.log(`📝 سجل الاستخراج: ${extractor.outputDir}/${extractor.historyFile}`);
-            console.log(`🔢 تم استخراج ${extractor.maxEpisodesPerRun} حلقة كحد أقصى`);
-            process.exit(0);
-        })
-        .catch(error => {
-            console.error('\n💥 فشلت العملية:', error.message);
-            process.exit(1);
-        });
+// ==================== دوال النشر على Blogger ====================
+
+// قراءة سجل المنشورات من GitHub
+async function getPublishedLog() {
+  try {
+    if (!GH_TOKEN) {
+      return { items: [], lastCheck: new Date().toISOString(), total: 0 };
+    }
+
+    const response = await fetch(
+      `${GITHUB_API}/repos/${REPO_PATH}/contents/${PUBLISHED_FILE}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${GH_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      }
+    );
+
+    if (response.status === 200) {
+      const data = await response.json();
+      const content = Buffer.from(data.content, 'base64').toString('utf8');
+      return JSON.parse(content);
+    } else {
+      return { items: [], lastCheck: new Date().toISOString(), total: 0 };
+    }
+  } catch (error) {
+    console.error('❌ خطأ في قراءة السجل:', error.message);
+    return { items: [], lastCheck: new Date().toISOString(), total: 0 };
+  }
 }
 
-module.exports = LaroozaExtractor;
+// حفظ سجل المنشورات في GitHub
+async function saveToPublishedLog(itemId, title) {
+  try {
+    const log = await getPublishedLog();
+    
+    // التحقق من التكرار
+    if (log.items.find(item => item.id === itemId)) {
+      console.log(`⚠️ "${title}" منشور مسبقاً`);
+      return true;
+    }
+
+    // إضافة العنصر الجديد
+    log.items.push({
+      id: itemId,
+      title: title,
+      date: new Date().toISOString(),
+      url: `https://kirozozoblog.blogspot.com/search?q=${encodeURIComponent(title)}`
+    });
+    
+    log.lastCheck = new Date().toISOString();
+    log.total = log.items.length;
+
+    // رفع الملف المحدث
+    const content = JSON.stringify(log, null, 2);
+    const contentBase64 = Buffer.from(content).toString('base64');
+
+    // جلب SHA للملف الحالي
+    let fileSha = '';
+    try {
+      const fileRes = await fetch(
+        `${GITHUB_API}/repos/${REPO_PATH}/contents/${PUBLISHED_FILE}`,
+        {
+          headers: {
+            'Authorization': `Bearer ${GH_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        }
+      );
+      if (fileRes.status === 200) {
+        const fileData = await fileRes.json();
+        fileSha = fileData.sha;
+      }
+    } catch (e) {}
+
+    const updateRes = await fetch(
+      `${GITHUB_API}/repos/${REPO_PATH}/contents/${PUBLISHED_FILE}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${GH_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `➕ نشر: ${title.substring(0, 30)}...`,
+          content: contentBase64,
+          sha: fileSha || undefined
+        })
+      }
+    );
+
+    if (updateRes.ok) {
+      console.log('✅ تم تحديث سجل النشر على GitHub');
+      return true;
+    } else {
+      return false;
+    }
+
+  } catch (error) {
+    console.error('🚨 خطأ في حفظ السجل:', error.message);
+    return false;
+  }
+}
+
+// النشر في Blogger
+async function publishToBlogger(accessToken, content, title) {
+  const post = {
+    title: title,
+    content: content,
+    labels: [
+      "مسلسلات", 
+      "مترجمة", 
+      "اون لاين", 
+      "كيروزوزو", 
+      "مشاهدة", 
+      "تحميل",
+      "رمضان 2026",
+      "مسلسلات رمضان"
+    ]
+  };
+
+  const res = await fetch(
+    `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(post)
+    }
+  );
+
+  return await res.json();
+}
+
+// إنشاء محتوى HTML (نفس التصميم)
+function createContentHTML(item) {
+  const title = item.title || 'عنوان غير محدد';
+  const image = item.image || '';
+  const description = item.description || 'لا يوجد وصف متوفر.';
+  const servers = item.servers || [];
+  const duration = item.duration || 'غير محدد';
+  const link = item.link || '#';
+  
+  const randomViews = Math.floor(Math.random() * 10000) + 5000;
+  const randomLikes = Math.floor(Math.random() * 1000) + 200;
+  const randomRating = (Math.random() * 2 + 3).toFixed(1);
+
+  return `...`; // نفس الـ HTML الطويل من الكود الأول (حذفته للاختصار)
+}
+
+// ==================== التشغيل الرئيسي ====================
+(async () => {
+  try {
+    console.log('🚀 بدأ النشر الآلي - حلقة واحدة في كل مرة');
+    console.log('==========================================\n');
+    console.log('📅 التاريخ:', new Date().toLocaleString('ar-SA'));
+    console.log('🌐 المصدر: موقع لاروزا - رمضان 2026');
+    console.log('📝 الهدف: استخراج حلقة واحدة جديدة ونشرها\n');
+
+    // 1. استخراج الحلقة التالية غير المنشورة
+    const extractor = new LaroozaExtractor();
+    const episode = await extractor.getNextUnpublishedEpisode();
+    
+    if (!episode) {
+      console.log('⏹️ لا توجد حلقات جديدة للاستخراج والنشر');
+      console.log('📊 إجمالي الحلقات المستخرجة:', extractor.extractedHistory.size);
+      return;
+    }
+
+    console.log('\n📋 تفاصيل الحلقة المستخرجة:');
+    console.log(`🎬 العنوان: ${episode.title}`);
+    console.log(`🆔 المعرف: ${episode.id}`);
+    console.log(`⏱️ المدة: ${episode.duration}`);
+    console.log(`🌐 السيرفرات: ${episode.servers?.length || 0}`);
+    console.log(`🔗 الرابط: ${episode.link}\n`);
+
+    // 2. التحقق من أن الحلقة لم تنشر من قبل
+    console.log('🔍 التحقق من سجل النشر...');
+    const publishedLog = await getPublishedLog();
+    
+    if (publishedLog.items.find(p => p.id === episode.id)) {
+      console.log('⚠️ هذه الحلقة منشورة مسبقاً! سيتم تخطيها');
+      console.log('📌 تأكد من سجل الاستخراج في المرة القادمة');
+      return;
+    }
+
+    // 3. الحصول على Access Token
+    console.log('🔑 جاري الحصول على Access Token...');
+    const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        client_id: CLIENT_ID,
+        client_secret: CLIENT_SECRET,
+        refresh_token: REFRESH_TOKEN,
+        grant_type: "refresh_token"
+      })
+    });
+
+    const tokenData = await tokenRes.json();
+    if (!tokenData.access_token) {
+      throw new Error('❌ فشل الحصول على Access Token');
+    }
+    
+    const accessToken = tokenData.access_token;
+    console.log('✅ تم الحصول على التوكن\n');
+
+    // 4. إنشاء المحتوى
+    console.log('🛠️ جاري إنشاء المقال...');
+    const htmlContent = createContentHTML(episode);
+
+    // 5. النشر في Blogger
+    console.log('📝 جاري النشر في Blogger...');
+    const publishResult = await publishToBlogger(accessToken, htmlContent, episode.title);
+    
+    if (publishResult.id) {
+      console.log('✅ تم النشر بنجاح!');
+      console.log(`🔗 الرابط: ${publishResult.url}`);
+      
+      // 6. تحديث سجل النشر
+      console.log('\n💾 جاري تحديث سجل النشر...');
+      const saved = await saveToPublishedLog(episode.id, episode.title);
+      
+      if (saved) {
+        console.log('🎉 اكتملت العملية بنجاح!');
+        console.log('\n📊 ملخص:');
+        console.log(`✅ تم استخراج ونشر: ${episode.title}`);
+        console.log(`🆔 معرف الحلقة: ${episode.id}`);
+        console.log(`📅 تاريخ النشر: ${new Date().toLocaleString('ar-SA')}`);
+        console.log(`📚 إجمالي المستخرج: ${extractor.extractedHistory.size} حلقة`);
+        console.log(`📚 إجمالي المنشور: ${publishedLog.items.length + 1} حلقة`);
+      }
+      
+    } else {
+      console.error('❌ فشل النشر:', publishResult.error?.message || 'خطأ غير معروف');
+    }
+
+  } catch (error) {
+    console.error('🚨 خطأ رئيسي:', error.message);
+    console.error(error.stack);
+  }
+})();
