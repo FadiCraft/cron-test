@@ -25,7 +25,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        npm install node-html-parser node-fetch   # ← عدل هنا أيضاً
+        npm install node-html-parser node-fetch
         
     - name: Create package.json
       run: |
@@ -40,7 +40,7 @@ jobs:
           },
           "dependencies": {
             "node-html-parser": "^6.1.5",
-            "node-fetch": "^3.3.2"    # ← أضف هذا السطر هنا
+            "node-fetch": "^3.3.2"
           },
           "type": "module"
         }' > package.json
