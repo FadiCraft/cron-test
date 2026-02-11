@@ -22,8 +22,8 @@ const PUBLISHED_FILE = "published_log.json";
 const REPO_PATH = `${GH_USER}/${GH_REPO}`;
 
 // ✅ Larooza Settings
-const LAROOZA_URL = "https://z.larooza.life/category.php?cat=ramadan-2026";
-const BASE_URL = "https://z.larooza.life";
+const LAROOZA_URL = "https://laroza.bond/category.php?cat=ramadan-2026";
+const BASE_URL = "https://laroza.bond";
 
 // ==================== كلاس استخراج لاروزا (مبسط) ====================
 class LaroozaExtractor {
