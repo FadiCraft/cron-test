@@ -20,7 +20,7 @@ const GITHUB_API = "https://api.github.com";
 const PUBLISHED_FILE = "published_log.json";
 const REPO_PATH = `${GH_USER}/${GH_REPO}`;
 
-// ✅ Larooza Settings - الرابط الأصلي المؤكد
+// ✅ Larooza Settings
 const LAROOZA_URL = "https://laroza.bond/category.php?cat=ramadan-2026";
 const BASE_URL = "https://laroza.bond";
 
