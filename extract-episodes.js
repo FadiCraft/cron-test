@@ -1,5 +1,4 @@
-const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
+const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
@@ -13,8 +12,8 @@ const REFRESH_TOKEN = "1//05-y_lVbQzPs1CgYIARAAGAUSNwF-L9IrtEhFugmwQXjaGN--8EVbA
 const BLOG_ID = "8351599421307503563";
 const SITE_URL = "https://www.kirozozo.xyz/";
 
-// ✅ GitHub Settings (للسجل فقط)
-const GH_TOKEN = "your_github_token_here";
+// ✅ GitHub Settings (للسجل فقط) - يجب وضع التوكن الحقيقي
+const GH_TOKEN = "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"; // ⚠️ ضع التوكن الحقيقي من GitHub
 const GH_USER = "FadiCraft";
 const GH_REPO = "cron-test";
 const GITHUB_API = "https://api.github.com";
@@ -25,7 +24,7 @@ const REPO_PATH = `${GH_USER}/${GH_REPO}`;
 const LAROOZA_URL = "https://laroza.bond/category.php?cat=ramadan-2026";
 const BASE_URL = "https://laroza.bond";
 
-// ==================== كلاس استخراج لاروزا (مبسط) ====================
+// ==================== كلاس استخراج لاروزا ====================
 class LaroozaExtractor {
     constructor() {
         this.outputDir = 'Ramadan';
@@ -48,7 +47,6 @@ class LaroozaExtractor {
         this.timeout = 20000;
     }
 
-    // تحميل سجل الاستخراج
     loadExtractionHistory() {
         const historyPath = path.join(this.outputDir, this.historyFile);
         
@@ -67,7 +65,6 @@ class LaroozaExtractor {
         }
     }
 
-    // حفظ سجل الاستخراج
     saveExtractionHistory(newId) {
         const historyPath = path.join(this.outputDir, this.historyFile);
         
@@ -83,12 +80,10 @@ class LaroozaExtractor {
         console.log(`📝 تم تحديث سجل الاستخراج: ${this.extractedHistory.size} حلقة إجمالاً`);
     }
 
-    // تأخير
     delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    // جلب URL
     async fetchUrl(url) {
         return new Promise((resolve, reject) => {
             const userAgent = this.userAgents[Math.floor(Math.random() * this.userAgents.length)];
@@ -122,7 +117,6 @@ class LaroozaExtractor {
         });
     }
 
-    // استخراج جميع الحلقات من الصفحة بالترتيب
     async fetchAllEpisodes() {
         console.log('📥 جاري تحميل صفحة لاروزا...');
         const html = await this.fetchUrl(LAROOZA_URL);
@@ -139,16 +133,12 @@ class LaroozaExtractor {
                 if (episode && episode.id && episode.title) {
                     episodes.push(episode);
                 }
-            } catch (error) {
-                // تخطي الخطأ
-            }
+            } catch (error) {}
         }
         
-        // ترتيب الحلقات كما هي في الصفحة
         return episodes;
     }
 
-    // استخراج حلقة من عنصر HTML
     async extractEpisodeFromElement(element) {
         const linkElement = element.querySelector('a');
         const href = linkElement?.getAttribute('href');
@@ -157,13 +147,11 @@ class LaroozaExtractor {
         
         const link = this.fixUrl(href);
         
-        // استخراج ID من الرابط
         const vidMatch = link.match(/vid=([a-zA-Z0-9_-]+)/i);
         if (!vidMatch) return null;
         
         const episodeId = vidMatch[1];
         
-        // استخراج الصورة
         const imgElement = element.querySelector('img');
         let image = null;
         
@@ -175,18 +163,15 @@ class LaroozaExtractor {
             if (image) image = this.fixUrl(image);
         }
         
-        // استخراج المدة
         const durationElement = element.querySelector('.pm-label-duration');
         const duration = durationElement ? this.cleanText(durationElement.textContent) : '00:00';
         
-        // استخراج العنوان
         const titleElement = element.querySelector('.ellipsis') || element.querySelector('a');
         let title = 'عنوان غير معروف';
         if (titleElement) {
             title = this.cleanTitle(titleElement.textContent || titleElement.getAttribute('title') || '');
         }
         
-        // جلب التفاصيل والسيرفرات
         await this.delay(this.requestDelay);
         const details = await this.extractEpisodeDetails(link);
         const servers = await this.extractEpisodeServers(link);
@@ -203,7 +188,6 @@ class LaroozaExtractor {
         };
     }
 
-    // استخراج التفاصيل
     async extractEpisodeDetails(episodeUrl) {
         try {
             const html = await this.fetchUrl(episodeUrl);
@@ -229,7 +213,6 @@ class LaroozaExtractor {
         }
     }
 
-    // استخراج السيرفرات
     async extractEpisodeServers(episodeUrl) {
         try {
             const playUrl = episodeUrl.replace('video.php', 'play.php');
@@ -261,7 +244,6 @@ class LaroozaExtractor {
             
             return servers;
         } catch (error) {
-            // إرجاع سيرفر افتراضي في حالة الفشل
             const vidMatch = episodeUrl.match(/vid=([a-zA-Z0-9_-]+)/i);
             const vid = vidMatch ? vidMatch[1] : 'unknown';
             
@@ -273,7 +255,6 @@ class LaroozaExtractor {
         }
     }
 
-    // دوال مساعدة
     fixUrl(url) {
         if (!url) return '#';
         if (url.startsWith('//')) return 'https:' + url;
@@ -292,21 +273,17 @@ class LaroozaExtractor {
         return text.replace(/[\n\r\t]+/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
-    // الحصول على الحلقة التالية غير المستخرجة
     async getNextUnpublishedEpisode() {
         console.log('\n🔍 البحث عن الحلقة التالية غير المنشورة...');
         
-        // 1. جلب جميع الحلقات من لاروزا
         const allEpisodes = await this.fetchAllEpisodes();
         console.log(`📊 إجمالي الحلقات في الموقع: ${allEpisodes.length}`);
         
-        // 2. البحث عن أول حلقة لم تستخرج من قبل
         for (const episode of allEpisodes) {
             if (!this.extractedHistory.has(episode.id)) {
                 console.log(`🎬 الحلقة التالية: ${episode.title}`);
                 console.log(`🆔 ${episode.id}`);
                 
-                // حفظ معرف الحلقة في السجل (بعد الاستخراج)
                 this.saveExtractionHistory(episode.id);
                 
                 return episode;
@@ -320,10 +297,10 @@ class LaroozaExtractor {
 
 // ==================== دوال النشر على Blogger ====================
 
-// قراءة سجل المنشورات من GitHub
 async function getPublishedLog() {
   try {
-    if (!GH_TOKEN) {
+    if (!GH_TOKEN || GH_TOKEN === "your_github_token_here") {
+      console.log('⚠️ GH_TOKEN غير مضبوط، استخدام سجل محلي مؤقت');
       return { items: [], lastCheck: new Date().toISOString(), total: 0 };
     }
 
@@ -350,18 +327,20 @@ async function getPublishedLog() {
   }
 }
 
-// حفظ سجل المنشورات في GitHub
 async function saveToPublishedLog(itemId, title) {
   try {
+    if (!GH_TOKEN || GH_TOKEN === "your_github_token_here") {
+      console.log('⚠️ GH_TOKEN غير مضبوط، تخطي حفظ السجل');
+      return true;
+    }
+
     const log = await getPublishedLog();
     
-    // التحقق من التكرار
     if (log.items.find(item => item.id === itemId)) {
       console.log(`⚠️ "${title}" منشور مسبقاً`);
       return true;
     }
 
-    // إضافة العنصر الجديد
     log.items.push({
       id: itemId,
       title: title,
@@ -372,11 +351,9 @@ async function saveToPublishedLog(itemId, title) {
     log.lastCheck = new Date().toISOString();
     log.total = log.items.length;
 
-    // رفع الملف المحدث
     const content = JSON.stringify(log, null, 2);
     const contentBase64 = Buffer.from(content).toString('base64');
 
-    // جلب SHA للملف الحالي
     let fileSha = '';
     try {
       const fileRes = await fetch(
@@ -424,7 +401,6 @@ async function saveToPublishedLog(itemId, title) {
   }
 }
 
-// النشر في Blogger
 async function publishToBlogger(accessToken, content, title) {
   const post = {
     title: title,
@@ -456,7 +432,6 @@ async function publishToBlogger(accessToken, content, title) {
   return await res.json();
 }
 
-// إنشاء محتوى HTML (نفس التصميم)
 function createContentHTML(item) {
   const title = item.title || 'عنوان غير محدد';
   const image = item.image || '';
@@ -469,7 +444,355 @@ function createContentHTML(item) {
   const randomLikes = Math.floor(Math.random() * 1000) + 200;
   const randomRating = (Math.random() * 2 + 3).toFixed(1);
 
-  return `...`; // نفس الـ HTML الطويل من الكود الأول (حذفته للاختصار)
+  let serversHTML = '';
+  if (servers.length > 0) {
+    let buttonsHTML = '';
+    let containersHTML = '';
+    
+    servers.forEach((server, index) => {
+      buttonsHTML += `<button class="server-btn ${index === 0 ? 'active' : ''}" data-server="server${index + 1}">${server.name || `سيرفر ${index + 1}`}</button>`;
+      
+      containersHTML += `<div class="iframe-container ${index === 0 ? 'active' : ''}" id="server${index + 1}">
+        <div class="iframe-placeholder">
+          <div class="play-icon-large" data-url="${server.url || link}">▶</div>
+          <div>${server.name || `سيرفر ${index + 1}`}</div>
+          <div class="watch-instruction">انقر على زر التشغيل لمشاهدة الحلقة</div>
+        </div>
+      </div>`;
+    });
+    
+    serversHTML = `
+    <div class="servers-container" id="serversSection" style="display: none;">
+      <div class="servers-title"><span>📺</span> سيرفرات المشاهدة</div>
+      <div class="server-buttons">${buttonsHTML}</div>
+      ${containersHTML}
+    </div>`;
+  }
+
+  return `<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0a; color: white; }
+    .main-container {
+      align-items: center;
+      background-image: linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,.4)), url('${image}');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 15px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 60px 40px;
+      position: relative;
+      margin: 20px 0;
+    }
+    .content-main { flex: 1; margin-right: 30px; max-width: 70%; }
+    .thumbnail-card {
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 12px;
+      height: 120px;
+      width: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .thumbnail-card img { height: 100%; object-fit: cover; width: 100%; }
+    .thumbnail-overlay {
+      align-items: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    .play-button {
+      align-items: center;
+      background: rgba(245, 197, 24, 0.9);
+      border-radius: 50%;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      margin-bottom: 8px;
+      width: 40px;
+    }
+    .play-button span { color: black; font-size: 18px; margin-left: 2px; }
+    .thumbnail-text { color: white; font-size: 11px; font-weight: bold; line-height: 1.3; margin: 0; text-align: center; }
+    .thumbnail-text span { color: #f5c518; }
+    h1 { font-size: 48px; margin-bottom: 10px; }
+    .rating-stats {
+      display: flex;
+      gap: 20px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.05);
+      padding: 8px 15px;
+      border-radius: 8px;
+    }
+    .stat-item i { color: #f5c518; }
+    .meta-info { font-size: 14px; opacity: 0.9; }
+    .description { color: #dddddd; line-height: 1.7; margin-top: 20px; max-width: 600px; }
+    .player-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 18px;
+      cursor: pointer;
+      background: #f5c518;
+      border-radius: 6px;
+      color: black;
+      font-weight: bold;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+    .site-link {
+      border-radius: 6px;
+      border: 1px solid white;
+      color: white;
+      display: inline-block;
+      padding: 12px 22px;
+      text-decoration: none;
+    }
+    .servers-container { margin-top: 40px; width: 100%; }
+    .servers-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #f5c518;
+      border-bottom: 2px solid #f5c518;
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .server-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .server-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 140px;
+      text-align: center;
+    }
+    .server-btn:hover { background: rgba(245, 197, 24, 0.2); border-color: #f5c518; }
+    .server-btn.active { background: rgba(245, 197, 24, 0.9); color: black; border-color: #f5c518; }
+    .iframe-container {
+      width: 100%;
+      height: 500px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: none;
+    }
+    .iframe-container.active { display: block; }
+    .iframe-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 18px;
+    }
+    .play-icon-large {
+      font-size: 60px;
+      color: #f5c518;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .watch-instruction {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #aaa;
+      text-align: center;
+      max-width: 80%;
+      line-height: 1.5;
+    }
+    .footer-link {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .footer-link a {
+      display: inline-block;
+      background: #f5c518;
+      color: black;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    @media (max-width: 768px) {
+      .main-container { flex-direction: column; padding: 30px 20px; }
+      .content-main { margin-right: 0; max-width: 100%; margin-bottom: 30px; }
+      .thumbnail-card { width: 100%; max-width: 300px; margin: 0 auto; }
+      h1 { font-size: 36px; }
+      .iframe-container { height: 350px; }
+    }
+  </style>
+</head>
+<body>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "${title.replace(/"/g, '\\"')}",
+    "description": "${description.replace(/"/g, '\\"')}",
+    "thumbnailUrl": "${image}",
+    "uploadDate": "${new Date().toISOString()}",
+    "duration": "${duration}",
+    "contentUrl": "${link}",
+    "embedUrl": "${link}",
+    "interactionCount": "${randomViews}",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "${randomRating}",
+      "ratingCount": "${randomLikes}",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "كيروزوزو",
+      "url": "${SITE_URL}"
+    }
+  }
+  </script>
+
+  <div class="main-container">
+    <div class="thumbnail-card">
+      <img alt="${title}" src="${image}" />
+      <div class="thumbnail-overlay">
+        <div class="play-button"><span>▶</span></div>
+        <p class="thumbnail-text">تشغيل<br /><span>${title.split(' ').slice(0, 3).join(' ')}</span></p>
+      </div>
+    </div>
+
+    <div class="content-main">
+      <h1>${title}</h1>
+      
+      <div class="rating-stats">
+        <div class="stat-item"><i class="fas fa-star"></i><span>${randomRating} / 5</span></div>
+        <div class="stat-item"><i class="fas fa-eye"></i><span>${randomViews.toLocaleString()} مشاهدة</span></div>
+        <div class="stat-item"><i class="fas fa-thumbs-up"></i><span>${randomLikes.toLocaleString()} إعجاب</span></div>
+      </div>
+      
+      <p class="meta-info">⭐ ${randomRating} &nbsp; | &nbsp; ${duration} &nbsp; | &nbsp; ${title.includes('مسلسل') ? 'مسلسل دراما' : 'فيلم'} &nbsp; | &nbsp; مترجمة</p>
+      
+      <p class="description">${description}</p>
+      
+      <div style="margin-top: 30px;">
+        <a href="#" id="watchBtn" class="player-btn"><span style="margin-left: 5px;">▶</span> مشاهدة الآن</a>
+        <a href="${SITE_URL}" target="_blank" class="site-link"><i class="fas fa-external-link-alt"></i> زيارة موقع كيروزوزو</a>
+      </div>
+      
+      ${serversHTML}
+    </div>
+  </div>
+
+  <div class="footer-link">
+    <a href="${SITE_URL}" target="_blank"><i class="fas fa-external-link-alt"></i> لمزيد من الأفلام والمسلسلات زوروا موقع كيروزوزو</a>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const watchBtn = document.getElementById('watchBtn');
+    const serversSection = document.getElementById('serversSection');
+    
+    if (watchBtn && serversSection) {
+      watchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (serversSection.style.display === 'none' || serversSection.style.display === '') {
+          serversSection.style.display = 'block';
+          watchBtn.innerHTML = '<span style=\"margin-left: 5px;\">▲</span> إخفاء السيرفرات';
+          serversSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          serversSection.style.display = 'none';
+          watchBtn.innerHTML = '<span style=\"margin-left: 5px;\">▶</span> مشاهدة الآن';
+        }
+      });
+    }
+    
+    const serverButtons = document.querySelectorAll('.server-btn');
+    const iframeContainers = document.querySelectorAll('.iframe-container');
+    
+    serverButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const serverId = this.getAttribute('data-server');
+        serverButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        iframeContainers.forEach(container => container.classList.remove('active'));
+        document.getElementById(serverId).classList.add('active');
+      });
+    });
+    
+    const playIcons = document.querySelectorAll('.play-icon-large');
+    playIcons.forEach(icon => {
+      icon.addEventListener('click', function() {
+        const videoUrl = this.getAttribute('data-url');
+        const container = this.closest('.iframe-container');
+        container.innerHTML = \`<iframe src="\${videoUrl}" width="100%" height="100%" frameborder="0" allowfullscreen style="border: none;"></iframe>\`;
+        showMessage('جاري تشغيل الحلقة...');
+      });
+    });
+    
+    function showMessage(text) {
+      const message = document.createElement('div');
+      message.textContent = text;
+      message.style.cssText = \`
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        z-index: 10000;
+        animation: fadeIn 0.3s;
+      \`;
+      document.body.appendChild(message);
+      setTimeout(() => {
+        message.style.animation = 'fadeOut 0.3s forwards';
+        setTimeout(() => message.remove(), 300);
+      }, 3000);
+    }
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-20px); } }
+    \`;
+    document.head.appendChild(style);
+  });
+  </script>
+</body>
+</html>`;
 }
 
 // ==================== التشغيل الرئيسي ====================
@@ -481,7 +804,6 @@ function createContentHTML(item) {
     console.log('🌐 المصدر: موقع لاروزا - رمضان 2026');
     console.log('📝 الهدف: استخراج حلقة واحدة جديدة ونشرها\n');
 
-    // 1. استخراج الحلقة التالية غير المنشورة
     const extractor = new LaroozaExtractor();
     const episode = await extractor.getNextUnpublishedEpisode();
     
@@ -498,17 +820,14 @@ function createContentHTML(item) {
     console.log(`🌐 السيرفرات: ${episode.servers?.length || 0}`);
     console.log(`🔗 الرابط: ${episode.link}\n`);
 
-    // 2. التحقق من أن الحلقة لم تنشر من قبل
     console.log('🔍 التحقق من سجل النشر...');
     const publishedLog = await getPublishedLog();
     
     if (publishedLog.items.find(p => p.id === episode.id)) {
       console.log('⚠️ هذه الحلقة منشورة مسبقاً! سيتم تخطيها');
-      console.log('📌 تأكد من سجل الاستخراج في المرة القادمة');
       return;
     }
 
-    // 3. الحصول على Access Token
     console.log('🔑 جاري الحصول على Access Token...');
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
       method: "POST",
@@ -529,11 +848,9 @@ function createContentHTML(item) {
     const accessToken = tokenData.access_token;
     console.log('✅ تم الحصول على التوكن\n');
 
-    // 4. إنشاء المحتوى
     console.log('🛠️ جاري إنشاء المقال...');
     const htmlContent = createContentHTML(episode);
 
-    // 5. النشر في Blogger
     console.log('📝 جاري النشر في Blogger...');
     const publishResult = await publishToBlogger(accessToken, htmlContent, episode.title);
     
@@ -541,7 +858,6 @@ function createContentHTML(item) {
       console.log('✅ تم النشر بنجاح!');
       console.log(`🔗 الرابط: ${publishResult.url}`);
       
-      // 6. تحديث سجل النشر
       console.log('\n💾 جاري تحديث سجل النشر...');
       const saved = await saveToPublishedLog(episode.id, episode.title);
       
