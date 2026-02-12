@@ -22,7 +22,7 @@ const REPO_PATH = `${GH_USER}/${GH_REPO}`;
 
 // ✅ Larooza Settings
 const LAROOZA_URL = "https://q.larozavideo.net/category.php?cat=ramadan-2026";
-const BASE_URL = "https://laroza.bond";
+const BASE_URL = "https://q.larozavideo.net";
 
 // ==================== كلاس استخراج لاروزا ====================
 class LaroozaExtractor {
