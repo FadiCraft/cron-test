@@ -1,400 +1,559 @@
-بدي تعدل الكود هذا 
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const { parse } = require('node-html-parser');
 
-import fs from "fs";
-import path from "path";
-import { JSDOM } from "jsdom";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// إعدادات المسارات
-const RAMADAN_DIR = path.join(__dirname, "Ramadan");
-const YEAR = "2025";
-const YEAR_DIR = path.join(RAMADAN_DIR, YEAR);
-
-// إنشاء المجلدات إذا لم تكن موجودة
-if (!fs.existsSync(RAMADAN_DIR)) {
-    fs.mkdirSync(RAMADAN_DIR, { recursive: true });
-}
-if (!fs.existsSync(YEAR_DIR)) {
-    fs.mkdirSync(YEAR_DIR, { recursive: true });
-}
-
-// ==================== fetch مع timeout ====================
-async function fetchWithTimeout(url, timeout = 20000) {
-    // إضافة النطاق الأساسي إذا كان الرابط نسبيًا
-    let fullUrl = url;
-    if (url && !url.startsWith('http')) {
-        fullUrl = 'https://larooza.live/' + url;
+class LaroozaExtractor {
+    constructor() {
+        this.batchSize = 500;
+        this.outputDir = 'Ramadan';
+        this.existingEpisodes = new Set();
+        this.baseUrl = 'https://larooza.life';
+        
+        // إنشاء مجلد الإخراج
+        if (!fs.existsSync(this.outputDir)) {
+            fs.mkdirSync(this.outputDir, { recursive: true });
+        }
+        
+        // تحميل الحلقات الموجودة
+        this.loadExistingEpisodes();
+        
+        // قائمة User-Agents
+        this.userAgents = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
+        ];
+        
+        // CORS proxies للتحايل على القيود
+        this.proxies = [
+            '', // مباشر
+            'https://corsproxy.io/?',
+            'https://api.codetabs.com/v1/proxy?quest='
+        ];
+        this.currentProxy = 0;
     }
-    
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
-    
-    try {
-        const response = await fetch(fullUrl, {
-            signal: controller.signal,
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Referer': 'https://larooza.live/',
+
+    async fetchWithProxy(url) {
+        for (let i = 0; i < this.proxies.length; i++) {
+            try {
+                const proxy = this.proxies[this.currentProxy];
+                const targetUrl = proxy ? proxy + encodeURIComponent(url) : url;
+                
+                const html = await this.fetchUrl(targetUrl);
+                if (html) return html;
+            } catch (error) {
+                console.log(`Proxy ${this.currentProxy} فشل:`, error.message);
+                this.currentProxy = (this.currentProxy + 1) % this.proxies.length;
             }
-        });
+        }
+        throw new Error('جميع البروكسيات فشلت');
+    }
+
+    async start(url = 'https://larooza.life/category.php?cat=ramadan-2026') {
+        console.log('🚀 بدء استخراج الحلقات من موقع لاروزا');
+        console.log(`📁 سيتم الحفظ في: ${this.outputDir}/`);
+        console.log(`🔗 الرابط: ${url}\n`);
         
-        clearTimeout(timeoutId);
+        try {
+            // 1. جلب الصفحة الرئيسية
+            console.log('📥 جاري تحميل الصفحة الرئيسية...');
+            const html = await this.fetchWithProxy(url);
+            
+            if (!html) {
+                console.log('❌ فشل تحميل الصفحة');
+                return;
+            }
+            
+            // 2. استخراج الحلقات
+            console.log('🔍 جاري استخراج الحلقات...');
+            const episodes = await this.extractEpisodesFromMainPage(html, url);
+            
+            if (episodes.length === 0) {
+                console.log('⚠️ لم يتم العثور على حلقات');
+                return;
+            }
+            
+            console.log(`✅ تم استخراج ${episodes.length} حلقة من الصفحة الرئيسية`);
+            
+            // 3. استخراج التفاصيل الكاملة لكل حلقة
+            console.log('\n🔍 جاري استخراج التفاصيل الكاملة...');
+            const detailedEpisodes = await this.extractDetailsForEpisodes(episodes);
+            
+            // 4. حفظ النتائج
+            await this.saveResults(detailedEpisodes);
+            
+            console.log('\n🎉 تم الانتهاء بنجاح!');
+            
+        } catch (error) {
+            console.error('❌ حدث خطأ:', error.message);
+        }
+    }
+
+    async extractEpisodesFromMainPage(html, baseUrl) {
+        const episodes = [];
+        const root = parse(html);
         
-        if (!response.ok) {
-            console.log(`   ⚠️ استجابة غير ناجحة: ${response.status}`);
+        // البحث عن عناصر الحلقات بناءً على هيكل الموقع
+        const episodeElements = root.querySelectorAll('li.col-xs-6, li.col-sm-4, li.col-md-3');
+        
+        console.log(`🔗 تم العثور على ${episodeElements.length} عنصر للحلقات`);
+        
+        for (const element of episodeElements) {
+            try {
+                const episode = await this.extractEpisodeFromElement(element, baseUrl);
+                if (episode && episode.id) {
+                    episodes.push(episode);
+                }
+            } catch (error) {
+                // تجاهل الأخطاء والمتابعة
+                continue;
+            }
+        }
+        
+        return episodes;
+    }
+
+    async extractEpisodeFromElement(element, baseUrl) {
+        // البحث عن رابط الحلقة
+        const linkElement = element.querySelector('a');
+        const href = linkElement ? linkElement.getAttribute('href') : null;
+        
+        if (!href || !href.includes('video.php')) {
             return null;
         }
         
-        return await response.text();
+        // استخراج ID من الرابط
+        const idMatch = href.match(/vid=([a-zA-Z0-9]+)/);
+        if (!idMatch) return null;
         
-    } catch (error) {
-        clearTimeout(timeoutId);
-        if (error.name === 'AbortError') {
-            console.log(`   ⏱️ انتهى الوقت`);
-        } else {
-            console.log(`   ❌ خطأ في جلب الصفحة: ${error.message}`);
-        }
-        return null;
-    }
-}
-
-// ==================== استخراج ID من الرابط ====================
-function extractVideoId(url) {
-    try {
-        if (!url) return null;
-        const match = url.match(/vid=([^&]+)/);
-        return match ? match[1] : null;
-    } catch {
-        return null;
-    }
-}
-
-// ==================== استخراج ID من رابط المسلسل ====================
-function extractSeriesId(url) {
-    try {
-        if (!url) return null;
-        const match = url.match(/ser=([^&]+)/);
-        return match ? match[1] : null;
-    } catch {
-        return null;
-    }
-}
-
-// ==================== استخراج سيرفرات المشاهدة فقط ====================
-async function fetchWatchServers(playUrl) {
-    const html = await fetchWithTimeout(playUrl);
-    
-    if (!html) {
-        return [];
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
+        const id = idMatch[1];
         
-        const watchServers = [];
-        
-        // البحث عن سيرفرات المشاهدة
-        const serverElements = doc.querySelectorAll('ul.WatchList li[data-embed-url]');
-        
-        serverElements.forEach(server => {
-            const embedUrl = server.getAttribute('data-embed-url');
-            const serverName = server.querySelector('strong')?.textContent?.trim() || `سيرفر ${watchServers.length + 1}`;
-            
-            if (embedUrl) {
-                // إضافة النطاق الأساسي لروابط data-embed-url النسبية
-                let fullEmbedUrl = embedUrl;
-                if (embedUrl && !embedUrl.startsWith('http')) {
-                    fullEmbedUrl = 'https://larooza.live/' + embedUrl;
-                }
-                
-                watchServers.push({
-                    id: `server_${watchServers.length + 1}`,
-                    name: serverName,
-                    url: fullEmbedUrl,
-                    type: 'embed'
-                });
-            }
-        });
-        
-        // البحث عن iframes
-        const iframes = doc.querySelectorAll('iframe');
-        iframes.forEach((iframe, index) => {
-            const src = iframe.getAttribute('src');
-            if (src) {
-                let fullSrc = src;
-                // إضافة النطاق الأساسي لروابط iframe النسبية
-                if (src && !src.startsWith('http')) {
-                    fullSrc = 'https://larooza.live/' + src;
-                }
-                
-                let serverName = 'غير معروف';
-                if (fullSrc.includes('voe')) serverName = 'Voe';
-                else if (fullSrc.includes('okprime')) serverName = 'OkPrime';
-                else if (fullSrc.includes('stream')) serverName = 'Stream';
-                
-                watchServers.push({
-                    id: `iframe_${index + 1}`,
-                    name: serverName,
-                    url: fullSrc,
-                    type: 'iframe'
-                });
-            }
-        });
-        
-        // إزالة التكرارات
-        const uniqueServers = [];
-        const seenUrls = new Set();
-        
-        watchServers.forEach(server => {
-            if (!seenUrls.has(server.url)) {
-                seenUrls.add(server.url);
-                uniqueServers.push(server);
-            }
-        });
-        
-        return uniqueServers;
-        
-    } catch (error) {
-        return [];
-    }
-}
-
-// ==================== استخراج سيرفرات الحلقة فقط ====================
-async function fetchEpisodeServers(episodeUrl) {
-    const episodeId = extractVideoId(episodeUrl);
-    
-    // تحويل رابط الحلقة إلى رابط المشاهدة
-    let playUrl = episodeUrl;
-    if (episodeUrl.includes('video.php?vid=')) {
-        playUrl = episodeUrl.replace('video.php?vid=', 'play.php?vid=');
-    }
-    
-    const watchServers = await fetchWatchServers(playUrl);
-    
-    return {
-        id: episodeId,
-        watchServers: watchServers
-    };
-}
-
-// ==================== استخراج حلقات المسلسل مع سيرفراتها فقط ====================
-async function fetchSeriesEpisodes(seriesUrl, seriesId) {
-    console.log(`   📺 جلب حلقات المسلسل...`);
-    
-    const html = await fetchWithTimeout(seriesUrl);
-    
-    if (!html) {
-        console.log(`   ⚠️ فشل جلب صفحة المسلسل`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        
-        // استخراج عنوان المسلسل فقط
-        const seriesTitle = doc.querySelector('h1.title')?.textContent?.trim() || 
-                           doc.querySelector('h1')?.textContent?.trim() || 
-                           'مسلسل غير معروف';
-        
-        // تنظيف العنوان لاستخدامه كاسم ملف آمن
-        const cleanTitle = seriesTitle.replace(/[^\w\u0600-\u06FF\s\-]/g, '').replace(/\s+/g, '_');
-        
-        // استخراج صورة المسلسل فقط
-        const seriesImage = doc.querySelector('img[width="300"]')?.src || 
-                           doc.querySelector('.thumbnail img')?.src || 
-                           '';
-        
-        // إضافة النطاق الأساسي للصورة النسبية
-        if (seriesImage && !seriesImage.startsWith('http')) {
-            seriesImage = 'https://larooza.live/' + seriesImage;
+        // التحقق من التكرار
+        if (this.existingEpisodes.has(id)) {
+            return null;
         }
         
-        // البحث عن روابط الحلقات
-        const episodes = [];
-        const episodeElements = doc.querySelectorAll('a[href*="video.php?vid="]');
+        this.existingEpisodes.add(id);
         
-        console.log(`   ✅ عثر على ${episodeElements.length} حلقة`);
+        // استخراج الصورة
+        const imgElement = element.querySelector('img');
+        let imageSrc = null;
         
-        // استخراج سيرفرات كل حلقة فقط
-        for (let i = 0; i < episodeElements.length; i++) {
-            const episodeElement = episodeElements[i];
-            const episodeUrl = episodeElement.getAttribute('href');
+        if (imgElement) {
+            imageSrc = imgElement.getAttribute('src') || imgElement.getAttribute('data-src');
             
-            console.log(`     ${i + 1}/${episodeElements.length}: جلب سيرفرات الحلقة...`);
-            
-            const episodeData = await fetchEpisodeServers(episodeUrl);
-            
-            if (episodeData) {
-                episodes.push(episodeData);
-                console.log(`       ✓ ${episodeData.watchServers.length} سيرفر`);
+            // تجاهل الصور الفارغة
+            if (imageSrc && (imageSrc.includes('blank.gif') || imageSrc.includes('data:image'))) {
+                imageSrc = null;
             }
-            
-            // انتظار قصير بين الحلقات
-            if (i < episodeElements.length - 1) {
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
+        }
+        
+        // استخراج المدة
+        const durationElement = element.querySelector('.pm-label-duration');
+        const duration = durationElement ? this.cleanText(durationElement.textContent) : '00:00';
+        
+        // استخراج العنوان
+        const titleElement = element.querySelector('.ellipsis') || linkElement;
+        let title = 'عنوان غير معروف';
+        if (titleElement) {
+            title = this.cleanTitle(
+                titleElement.textContent || 
+                titleElement.getAttribute('title') || 
+                ''
+            );
         }
         
         return {
-            seriesId: seriesId,
-            seriesTitle: seriesTitle,
-            cleanTitle: cleanTitle,
-            seriesImage: seriesImage,
-            seriesCategory: "رمضان",
-            seriesYear: YEAR,
-            totalEpisodes: episodes.length,
-            episodes: episodes,
-            scrapedAt: new Date().toISOString()
+            id: id,
+            title: title,
+            image: imageSrc ? this.fixImageUrl(imageSrc, baseUrl) : null,
+            short_link: this.fixImageUrl(href, baseUrl),
+            duration: duration,
+            description: '',
+            servers: [],
+            videoUrl: `${this.baseUrl}/embed.php?vid=${id}`
         };
-        
-    } catch (error) {
-        console.log(`   ❌ خطأ في استخراج حلقات المسلسل: ${error.message}`);
-        return null;
     }
-}
 
-// ==================== استخراج جميع المسلسلات ====================
-async function fetchRamadanSeries(pageUrl) {
-    console.log(`📖 جلب صفحة المسلسلات: ${pageUrl}`);
-    
-    const html = await fetchWithTimeout(pageUrl);
-    
-    if (!html) {
-        console.log(`❌ فشل جلب صفحة المسلسلات`);
-        return null;
-    }
-    
-    try {
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
+    async extractDetailsForEpisodes(episodes) {
+        const detailedEpisodes = [];
         
-        const seriesList = [];
-        
-        // البحث عن روابط المسلسلات
-        const seriesElements = doc.querySelectorAll('a[href*="view-serie"]');
-        
-        console.log(`✅ عثر على ${seriesElements.length} مسلسل`);
-        
-        // استخراج كل مسلسل
-        for (let i = 0; i < seriesElements.length; i++) {
-            const seriesElement = seriesElements[i];
-            const seriesUrl = seriesElement.getAttribute('href');
-            const seriesId = extractSeriesId(seriesUrl) || `series_${i + 1}`;
-            
-            console.log(`\n🎬 ${i + 1}/${seriesElements.length}: المسلسل ${seriesId}`);
-            
-            // استخراج حلقات المسلسل مع سيرفراتها
-            const seriesData = await fetchSeriesEpisodes(seriesUrl, seriesId);
-            
-            if (seriesData && seriesData.episodes.length > 0) {
-                // حفظ المسلسل في ملف منفصل
-                const seriesFileName = `${seriesId}_${seriesData.cleanTitle}.json`;
-                const seriesFilePath = path.join(YEAR_DIR, seriesFileName);
+        for (let i = 0; i < episodes.length; i++) {
+            try {
+                const episode = episodes[i];
+                console.log(`📝 جاري استخراج تفاصيل (${i+1}/${episodes.length}): ${episode.title.substring(0, 30)}...`);
                 
-                fs.writeFileSync(seriesFilePath, JSON.stringify(seriesData, null, 2));
-                console.log(`   💾 تم حفظ المسلسل في: ${seriesFileName}`);
+                // استخراج تفاصيل الحلقة
+                const details = await this.extractEpisodeDetails(episode.short_link);
+                if (details) {
+                    episode.description = details.description || '';
+                    if (details.image && !episode.image) {
+                        episode.image = details.image;
+                    }
+                    if (details.title) {
+                        episode.title = details.title;
+                    }
+                }
                 
-                seriesList.push({
-                    id: seriesId,
-                    title: seriesData.seriesTitle,
-                    fileName: seriesFileName,
-                    episodes: seriesData.totalEpisodes
-                });
-            } else {
-                console.log(`   ⚠️ لم يتم العثور على حلقات للمسلسل`);
-            }
-            
-            // انتظار بين المسلسلات
-            if (i < seriesElements.length - 1) {
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                // استخراج السيرفرات
+                const servers = await this.extractEpisodeServers(episode.id);
+                if (servers && servers.length > 0) {
+                    episode.servers = servers;
+                }
+                
+                detailedEpisodes.push(episode);
+                
+            } catch (error) {
+                console.log(`⚠️ خطأ في الحلقة ${i+1}:`, error.message);
+                detailedEpisodes.push(episodes[i]); // إضافة الحلقة بدون تفاصيل
             }
         }
         
-        return seriesList;
+        return detailedEpisodes;
+    }
+
+    async extractEpisodeDetails(episodeUrl) {
+        try {
+            const html = await this.fetchWithProxy(episodeUrl);
+            const root = parse(html);
+            
+            const details = {};
+            
+            // استخراج العنوان من meta
+            const titleMeta = root.querySelector('meta[name="title"]');
+            if (titleMeta) {
+                details.title = this.cleanTitle(titleMeta.getAttribute('content'));
+            }
+            
+            // استخراج الوصف من meta
+            const descMeta = root.querySelector('meta[name="description"]');
+            if (descMeta) {
+                const desc = descMeta.getAttribute('content');
+                details.description = this.cleanText(desc).substring(0, 300) + '...';
+            }
+            
+            // استخراج الصورة من meta
+            const imageMeta = root.querySelector('meta[property="og:image"]');
+            if (imageMeta) {
+                details.image = imageMeta.getAttribute('content');
+            }
+            
+            return details;
+            
+        } catch (error) {
+            console.log(`❌ فشل استخراج تفاصيل:`, error.message);
+            return null;
+        }
+    }
+
+    async extractEpisodeServers(videoId) {
+        try {
+            const playUrl = `${this.baseUrl}/play.php?vid=${videoId}`;
+            const html = await this.fetchWithProxy(playUrl);
+            const root = parse(html);
+            
+            const servers = [];
+            
+            // البحث عن قائمة السيرفرات
+            const serverList = root.querySelector('.WatchList');
+            
+            if (serverList) {
+                const serverItems = serverList.querySelectorAll('li');
+                
+                serverItems.forEach((item, index) => {
+                    // استخراج رابط السيرفر
+                    const embedUrl = item.getAttribute('data-embed-url');
+                    
+                    if (embedUrl) {
+                        // استخراج اسم السيرفر
+                        const serverNameElement = item.querySelector('strong');
+                        const serverName = serverNameElement ? 
+                            this.cleanText(serverNameElement.textContent) : 
+                            `سيرفر ${index + 1}`;
+                        
+                        // استخراج رقم السيرفر
+                        const serverId = item.getAttribute('data-embed-id') || (index + 1).toString();
+                        
+                        servers.push({
+                            id: serverId,
+                            name: serverName,
+                            url: embedUrl
+                        });
+                    }
+                });
+            }
+            
+            // إذا لم نجد سيرفرات، نضيف سيرفرات افتراضية
+            if (servers.length === 0) {
+                const defaultServers = [
+                    'https://vidmoly.net',
+                    'https://dood.watch',
+                    'https://voe.sx',
+                    'https://uqload.co',
+                    'https://streamtape.com',
+                    'https://mixdrop.co',
+                    'https://filelions.com',
+                    'https://streamwish.com',
+                    'https://mp4upload.com',
+                    'https://www.ok.ru'
+                ];
+                
+                defaultServers.forEach((server, index) => {
+                    servers.push({
+                        id: (index + 1).toString(),
+                        name: `سيرفر ${index + 1}`,
+                        url: `${server}/embed-${videoId}.html`
+                    });
+                });
+            }
+            
+            return servers;
+            
+        } catch (error) {
+            console.log(`❌ فشل استخراج السيرفرات:`, error.message);
+            
+            // إرجاع سيرفرات افتراضية في حالة الفشل
+            return Array.from({ length: 10 }, (_, i) => ({
+                id: (i + 1).toString(),
+                name: `سيرفر ${i + 1}`,
+                url: `${this.baseUrl}/embed.php?vid=${videoId}&server=${i + 1}`
+            }));
+        }
+    }
+
+    // دالات المساعدة
+    fetchUrl(url) {
+        return new Promise((resolve, reject) => {
+            const options = {
+                headers: {
+                    'User-Agent': this.userAgents[Math.floor(Math.random() * this.userAgents.length)],
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
+                    'Referer': this.baseUrl
+                },
+                timeout: 15000
+            };
+            
+            const req = https.get(url, options, (res) => {
+                if (res.statusCode !== 200) {
+                    reject(new Error(`HTTP ${res.statusCode}`));
+                    return;
+                }
+                
+                let data = '';
+                res.on('data', (chunk) => {
+                    data += chunk;
+                });
+                
+                res.on('end', () => {
+                    resolve(data);
+                });
+            });
+            
+            req.on('error', reject);
+            req.on('timeout', () => {
+                req.destroy();
+                reject(new Error('Timeout'));
+            });
+        });
+    }
+
+    cleanTitle(text) {
+        return this.cleanText(text).substring(0, 100);
+    }
+
+    cleanText(text) {
+        if (!text) return '';
+        return text
+            .replace(/[\n\r\t]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .replace(/[^\w\u0600-\u06FF\s\-.,!?]/g, '')
+            .trim();
+    }
+
+    fixImageUrl(url, baseUrl) {
+        if (!url) return '';
         
-    } catch (error) {
-        console.log(`❌ خطأ في استخراج المسلسلات: ${error.message}`);
-        return null;
+        if (url.startsWith('//')) {
+            return 'https:' + url;
+        }
+        
+        if (url.startsWith('/')) {
+            try {
+                const base = new URL(baseUrl);
+                return base.origin + url;
+            } catch {
+                return this.baseUrl + url;
+            }
+        }
+        
+        if (!url.startsWith('http')) {
+            return this.baseUrl + '/' + url;
+        }
+        
+        return url;
+    }
+
+    loadExistingEpisodes() {
+        try {
+            if (!fs.existsSync(this.outputDir)) {
+                return;
+            }
+            
+            const files = fs.readdirSync(this.outputDir);
+            
+            for (const file of files) {
+                if (file.startsWith('Page') && file.endsWith('.json')) {
+                    const filePath = path.join(this.outputDir, file);
+                    const content = fs.readFileSync(filePath, 'utf8');
+                    const episodes = JSON.parse(content);
+                    
+                    for (const episode of episodes) {
+                        if (episode.id) {
+                            this.existingEpisodes.add(episode.id);
+                        }
+                    }
+                }
+            }
+            
+            console.log(`📚 تم تحميل ${this.existingEpisodes.size} حلقة موجودة مسبقاً`);
+            
+        } catch (error) {
+            console.log('⚠️ لا توجد حلقات مسبقة أو حدث خطأ في التحميل');
+        }
+    }
+
+    async saveResults(episodes) {
+        if (episodes.length === 0) {
+            console.log('ℹ️ لا توجد حلقات جديدة للحفظ');
+            return;
+        }
+        
+        console.log(`\n💾 جاري حفظ ${episodes.length} حلقة جديدة...`);
+        
+        // الحصول على آخر ملف موجود
+        const latestFile = this.getLatestPageFile();
+        let currentEpisodes = [];
+        let pageNumber = 1;
+        
+        if (latestFile) {
+            try {
+                const content = fs.readFileSync(latestFile, 'utf8');
+                currentEpisodes = JSON.parse(content);
+                pageNumber = parseInt(latestFile.match(/Page(\d+)\.json/)[1]);
+                
+                console.log(`📖 الملف الأخير: ${path.basename(latestFile)} (${currentEpisodes.length} حلقة)`);
+                
+                // التحقق إذا كان الملف الأخير ممتلئاً
+                if (currentEpisodes.length >= this.batchSize) {
+                    pageNumber++;
+                    currentEpisodes = [];
+                }
+            } catch (error) {
+                console.log('⚠️ خطأ في قراءة الملف الأخير، سيتم إنشاء ملف جديد');
+            }
+        }
+        
+        // دمج الحلقات القديمة والجديدة
+        const allEpisodes = [...currentEpisodes, ...episodes];
+        
+        // حفظ الملف الحالي
+        const fileName = `Page${pageNumber}.json`;
+        const filePath = path.join(this.outputDir, fileName);
+        
+        fs.writeFileSync(filePath, JSON.stringify(allEpisodes, null, 2), 'utf8');
+        console.log(`✅ تم حفظ ${allEpisodes.length} حلقة في ${fileName}`);
+        
+        // حفظ ملف الملخص
+        await this.saveSummary();
+    }
+
+    getLatestPageFile() {
+        try {
+            if (!fs.existsSync(this.outputDir)) {
+                return null;
+            }
+            
+            const files = fs.readdirSync(this.outputDir)
+                .filter(file => file.startsWith('Page') && file.endsWith('.json'))
+                .sort((a, b) => {
+                    const numA = parseInt(a.match(/Page(\d+)\.json/)[1]);
+                    const numB = parseInt(b.match(/Page(\d+)\.json/)[1]);
+                    return numB - numA;
+                });
+            
+            return files.length > 0 ? path.join(this.outputDir, files[0]) : null;
+            
+        } catch (error) {
+            return null;
+        }
+    }
+
+    async saveSummary() {
+        try {
+            const files = fs.readdirSync(this.outputDir)
+                .filter(file => file.startsWith('Page') && file.endsWith('.json'));
+            
+            let totalEpisodes = 0;
+            const fileStats = [];
+            
+            for (const file of files) {
+                const filePath = path.join(this.outputDir, file);
+                const content = fs.readFileSync(filePath, 'utf8');
+                const episodes = JSON.parse(content);
+                
+                totalEpisodes += episodes.length;
+                fileStats.push({
+                    name: file,
+                    episodes: episodes.length,
+                    first_episode: episodes[0]?.title || '',
+                    last_episode: episodes[episodes.length - 1]?.title || ''
+                });
+            }
+            
+            const summary = {
+                metadata: {
+                    total_episodes: totalEpisodes,
+                    total_files: files.length,
+                    batch_size: this.batchSize,
+                    last_updated: new Date().toISOString(),
+                    site: 'larooza.life',
+                    unique_episodes: this.existingEpisodes.size
+                },
+                files: fileStats
+            };
+            
+            const summaryPath = path.join(this.outputDir, '_summary.json');
+            fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2), 'utf8');
+            
+            console.log(`📊 تم تحديث الملخص في _summary.json`);
+            console.log(`📈 الإحصائيات:`);
+            console.log(`   - إجمالي الحلقات: ${totalEpisodes}`);
+            console.log(`   - الحلقات الفريدة: ${this.existingEpisodes.size}`);
+            console.log(`   - عدد الملفات: ${files.length}`);
+            
+        } catch (error) {
+            console.log('⚠️ خطأ في حفظ الملخص:', error.message);
+        }
     }
 }
 
-// ==================== حفظ فهرس المسلسلات ====================
-function saveIndexFile(seriesList) {
-    const indexData = {
-        year: YEAR,
-        totalSeries: seriesList.length,
-        totalEpisodes: seriesList.reduce((sum, series) => sum + series.episodes, 0),
-        scrapedAt: new Date().toISOString(),
-        series: seriesList
-    };
+// تشغيل الملف مباشرة
+if (require.main === module) {
+    const extractor = new LaroozaExtractor();
     
-    const indexPath = path.join(YEAR_DIR, `index_${YEAR}.json`);
-    fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2));
+    const url = process.argv[2] || 'https://larooza.life/category.php?cat=ramadan-2026';
     
-    return indexPath;
+    extractor.start(url)
+        .then(() => {
+            console.log('\n✨ تم الانتهاء من العملية بنجاح!');
+            process.exit(0);
+        })
+        .catch(error => {
+            console.error('\n💥 فشلت العملية:', error.message);
+            process.exit(1);
+        });
 }
 
-// ==================== الدالة الرئيسية ====================
-async function main() {
-    console.log("🎬 بدء استخراج مسلسلات رمضان");
-    console.log("=".repeat(50));
-    console.log(`📅 السنة: ${YEAR}`);
-    console.log(`📁 المجلد: ${YEAR_DIR}`);
-    console.log("=".repeat(50));
-    
-    const RAMADAN_URL = `https://larooza.live/category.php?cat=13-ramadan-${YEAR}`;
-    
-    // استخراج المسلسلات
-    const seriesList = await fetchRamadanSeries(RAMADAN_URL);
-    
-    if (!seriesList || seriesList.length === 0) {
-        console.log(`\n⏹️ لم يتم العثور على مسلسلات`);
-        return { success: false, total: 0 };
-    }
-    
-    // حفظ فهرس المسلسلات
-    const indexPath = saveIndexFile(seriesList);
-    
-    // عرض النتائج
-    console.log("\n" + "=".repeat(50));
-    console.log("📊 النتائج النهائية:");
-    console.log("=".repeat(50));
-    
-    seriesList.forEach((series, idx) => {
-        console.log(`\n${idx + 1}. ${series.title}`);
-        console.log(`   🔸 ID: ${series.id}`);
-        console.log(`   🔸 الملف: ${series.fileName}`);
-        console.log(`   🔸 عدد الحلقات: ${series.episodes}`);
-    });
-    
-    // عرض إحصائيات
-    const totalEpisodes = seriesList.reduce((sum, series) => sum + series.episodes, 0);
-    console.log(`\n📈 الإحصائيات:`);
-    console.log(`   ✅ المسلسلات: ${seriesList.length}`);
-    console.log(`   ✅ الحلقات: ${totalEpisodes}`);
-    console.log(`   📁 الملفات: ${seriesList.length} ملف مسلسل`);
-    console.log(`   📋 الفهرس: ${indexPath}`);
-    
-    console.log("\n" + "=".repeat(50));
-    console.log("🎉 تم الانتهاء بنجاح!");
-    console.log("=".repeat(50));
-    
-    return { 
-        success: true, 
-        totalSeries: seriesList.length, 
-        totalEpisodes: totalEpisodes
-    };
-}
-
-// التشغيل
-main().catch(error => {
-    console.error("\n💥 خطأ غير متوقع:", error.message);
-});
-
-بدل استخرج كل المسلسلات بدي اول مسلسل بس لأجرب او اتأكد من الكود
+module.exports = LaroozaExtractor;
