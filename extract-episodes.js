@@ -13,7 +13,7 @@ const BLOG_ID = "8351599421307503563";
 const SITE_URL = "https://www.kirozozo.xyz/";
 
 // ✅ GitHub Settings (للسجل فقط) - يجب وضع التوكن الحقيقي
-const GH_TOKEN = "your_github_token_here"; // ⚠️ ضع التوكن الحقيقي من GitHub
+const GH_TOKEN = "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"; // ⚠️ ضع التوكن الحقيقي من GitHub
 const GH_USER = "FadiCraft";
 const GH_REPO = "cron-test";
 const GITHUB_API = "https://api.github.com";
