@@ -12,16 +12,16 @@ const REFRESH_TOKEN = "1//05-y_lVbQzPs1CgYIARAAGAUSNwF-L9IrtEhFugmwQXjaGN--8EVbA
 const BLOG_ID = "8351599421307503563";
 const SITE_URL = "https://www.kirozozo.xyz/";
 
-// ✅ GitHub Settings (للسجل فقط)
-const GH_TOKEN = "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";
+// ✅ GitHub Settings (للسجل فقط) - يجب وضع التوكن الحقيقي
+const GH_TOKEN = "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"; // ⚠️ ضع التوكن الحقيقي من GitHub
 const GH_USER = "FadiCraft";
 const GH_REPO = "cron-test";
 const GITHUB_API = "https://api.github.com";
 const PUBLISHED_FILE = "published_log.json";
 const REPO_PATH = `${GH_USER}/${GH_REPO}`;
 
-// ✅ Larooza Settings - استلام الرابط من سطر الأوامر
-const TARGET_URL = process.argv[2] || "https://laroza.bond/category.php?cat=ramadan-2026";
+// ✅ Larooza Settings - الرابط الأصلي المؤكد
+const LAROOZA_URL = "https://laroza.bond/category.php?cat=ramadan-2026";
 const BASE_URL = "https://laroza.bond";
 
 // ==================== كلاس استخراج لاروزا ====================
@@ -30,7 +30,6 @@ class LaroozaExtractor {
         this.outputDir = 'Ramadan';
         this.historyFile = 'extracted_history.json';
         this.baseUrl = BASE_URL;
-        this.targetUrl = TARGET_URL;
         this.extractedHistory = new Set();
         
         if (!fs.existsSync(this.outputDir)) {
@@ -58,7 +57,6 @@ class LaroozaExtractor {
                 this.extractedHistory = new Set(history.extracted_ids || []);
                 console.log(`📚 سجل الاستخراج: ${this.extractedHistory.size} حلقة مستخرجة سابقاً`);
             } catch (error) {
-                console.log('⚠️ خطأ في قراءة سجل الاستخراج، إنشاء سجل جديد');
                 this.extractedHistory = new Set();
             }
         } else {
@@ -121,9 +119,7 @@ class LaroozaExtractor {
 
     async fetchAllEpisodes() {
         console.log('📥 جاري تحميل صفحة لاروزا...');
-        console.log(`🔗 الرابط: ${this.targetUrl}`);
-        
-        const html = await this.fetchUrl(this.targetUrl);
+        const html = await this.fetchUrl(LAROOZA_URL);
         const root = parse(html);
         
         const episodes = [];
@@ -137,9 +133,7 @@ class LaroozaExtractor {
                 if (episode && episode.id && episode.title) {
                     episodes.push(episode);
                 }
-            } catch (error) {
-                // تخطي الأخطاء
-            }
+            } catch (error) {}
         }
         
         return episodes;
@@ -303,7 +297,6 @@ class LaroozaExtractor {
 
 // ==================== دوال النشر على Blogger ====================
 
-// قراءة سجل المنشورات من GitHub مع إنشائه إذا لم يكن موجوداً
 async function getPublishedLog() {
   try {
     if (!GH_TOKEN || GH_TOKEN === "your_github_token_here") {
@@ -322,52 +315,10 @@ async function getPublishedLog() {
     );
 
     if (response.status === 200) {
-      // ✅ الملف موجود - نقرأه
       const data = await response.json();
       const content = Buffer.from(data.content, 'base64').toString('utf8');
       return JSON.parse(content);
-    } 
-    else if (response.status === 404) {
-      // ✅ الملف غير موجود - ننشئه جديد
-      console.log('📄 ملف السجل غير موجود، جاري إنشاؤه...');
-      
-      const newLog = {
-        items: [],
-        lastCheck: new Date().toISOString(),
-        total: 0,
-        created: new Date().toISOString()
-      };
-
-      // إنشاء الملف على GitHub
-      const content = JSON.stringify(newLog, null, 2);
-      const contentBase64 = Buffer.from(content).toString('base64');
-
-      const createRes = await fetch(
-        `${GITHUB_API}/repos/${REPO_PATH}/contents/${PUBLISHED_FILE}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Authorization': `Bearer ${GH_TOKEN}`,
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: '➕ إنشاء ملف سجل النشر',
-            content: contentBase64
-          })
-        }
-      );
-
-      if (createRes.ok) {
-        console.log('✅ تم إنشاء ملف السجل بنجاح');
-        return newLog;
-      } else {
-        console.log('⚠️ فشل إنشاء الملف، استخدام سجل مؤقت');
-        return { items: [], lastCheck: new Date().toISOString(), total: 0 };
-      }
-    } 
-    else {
-      console.log(`⚠️ خطأ في جلب الملف: ${response.status}`);
+    } else {
       return { items: [], lastCheck: new Date().toISOString(), total: 0 };
     }
   } catch (error) {
@@ -376,7 +327,6 @@ async function getPublishedLog() {
   }
 }
 
-// حفظ سجل المنشورات في GitHub
 async function saveToPublishedLog(itemId, title) {
   try {
     if (!GH_TOKEN || GH_TOKEN === "your_github_token_here") {
@@ -386,13 +336,11 @@ async function saveToPublishedLog(itemId, title) {
 
     const log = await getPublishedLog();
     
-    // التحقق من التكرار
     if (log.items.find(item => item.id === itemId)) {
       console.log(`⚠️ "${title}" منشور مسبقاً`);
       return true;
     }
 
-    // إضافة العنصر الجديد
     log.items.push({
       id: itemId,
       title: title,
@@ -403,11 +351,9 @@ async function saveToPublishedLog(itemId, title) {
     log.lastCheck = new Date().toISOString();
     log.total = log.items.length;
 
-    // رفع الملف المحدث
     const content = JSON.stringify(log, null, 2);
     const contentBase64 = Buffer.from(content).toString('base64');
 
-    // جلب SHA للملف الحالي
     let fileSha = '';
     try {
       const fileRes = await fetch(
@@ -446,8 +392,6 @@ async function saveToPublishedLog(itemId, title) {
       console.log('✅ تم تحديث سجل النشر على GitHub');
       return true;
     } else {
-      const error = await updateRes.json();
-      console.error('❌ فشل تحديث السجل:', error.message);
       return false;
     }
 
