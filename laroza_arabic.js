@@ -15,7 +15,7 @@ const CONFIG = {
         ''
     ],
     EPISODES_PER_FILE: 500,
-    DATA_DIR: 'data/Ramdan',
+    DATA_DIR: 'Larozaa/ArabicMovies',
     MAX_PAGES: 50,
     REQUEST_DELAY: 2000,
     HOME_EPISODES_COUNT: 30 // عدد حلقات الصفحة الرئيسية
