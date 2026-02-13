@@ -1,33 +1,35 @@
-name: Update Drama Daily
+name: Drama Auto Export
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # كل 6 ساعات
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 jobs:
-  update:
+  export:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-
-      - name: Install deps
-        run: npm install node-fetch
-
-      - name: Run drama bot
-        run: node drama.js
-
-      - name: Commit & push
+      - name: Show files
         run: |
-          git config --global user.name "Drama Bot"
-          git config --global user.email "bot@github.com"
-          git add drama.json
-          git commit -m "🔄 Update drama list"
+          echo "ROOT:"
+          ls -la
+          echo "----------------"
+          echo "Drama folder:"
+          ls -la Drama || true
+          echo "----------------"
+          find . -name "drama.js"
+
+      - name: Run Drama Script
+        run: node ./drama.js
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Auto update Drama JSON" || echo "No changes"
           git push
