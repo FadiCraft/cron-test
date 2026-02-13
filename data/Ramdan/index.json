@@ -1,14 +1,16 @@
 {
-  "last_update": "2026-02-13T14:49:38.332Z",
-  "total_episodes": 110,
+  "last_update": "2026-02-13T15:04:45.782Z",
+  "total_episodes": 100,
   "total_pages": 1,
   "episodes_per_file": 500,
   "files": [
+    "Home.json",
     "page1.json"
   ],
   "stats": {
-    "episodes_with_servers": 110,
-    "episodes_with_images": 110,
-    "total_servers": 503
+    "home_episodes": 10,
+    "episodes_with_servers": 100,
+    "episodes_with_images": 100,
+    "total_servers": 473
   }
 }
