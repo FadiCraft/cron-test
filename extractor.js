@@ -1,4 +1,4 @@
-// extractor.js - النسخة التزايدية (يضيف الجديد فقط)
+// extractor.js - النسخة التزايدية الذكية (تفحص كل حلقة على حدة)
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import fs from 'fs/promises';
@@ -15,53 +15,50 @@ const CONFIG = {
         'https://api.allorigins.win/raw?url=',
         ''
     ],
-    DELAY_BETWEEN_PAGES: 2000,
-    DELAY_BETWEEN_SERVERS: 800
+    DELAY_BETWEEN_PAGES: 1500,
+    DELAY_BETWEEN_SERVERS: 500,
+    MAX_PAGES: 50 // حد أقصى للصفحات (للأمان)
 };
 
-class IncrementalExtractor {
+class SmartIncrementalExtractor {
     constructor() {
-        this.newEpisodes = [];      // فقط الحلقات الجديدة في هذه التشغيلة
-        this.allExistingLinks = new Set(); // روابط جميع الحلقات الموجودة
-        this.currentPage = 1;
-        this.hasMorePages = true;
+        this.newEpisodes = [];
+        this.existingLinks = new Set();
         this.totalNewServers = 0;
-        this.lastPageBeforeStop = 1;
     }
 
     // ===========================================
-    // 1. تحميل جميع الروابط الموجودة مسبقاً
+    // 1. تحميل جميع الروابط الموجودة
     // ===========================================
     async loadExistingEpisodes() {
-        console.log('\n📂 فحص الحلقات الموجودة مسبقاً...');
+        console.log('\n📂 تحميل الحلقات الموجودة...');
         
         try {
             await fs.mkdir(CONFIG.DATA_DIR, { recursive: true });
             const files = await fs.readdir(CONFIG.DATA_DIR);
             const jsonFiles = files.filter(f => f.startsWith('page') && f.endsWith('.json'));
             
-            let totalExisting = 0;
-            
+            let count = 0;
             for (const file of jsonFiles) {
                 try {
                     const filePath = path.join(CONFIG.DATA_DIR, file);
                     const content = await fs.readFile(filePath, 'utf-8');
                     const data = JSON.parse(content);
                     
-                    if (data.episodes && Array.isArray(data.episodes)) {
+                    if (data.episodes) {
                         for (const ep of data.episodes) {
                             if (ep.link) {
-                                this.allExistingLinks.add(ep.link);
-                                totalExisting++;
+                                this.existingLinks.add(ep.link);
+                                count++;
                             }
                         }
                     }
                 } catch (e) {
-                    console.log(`⚠️ خطأ في قراءة ${file}: ${e.message}`);
+                    // تجاهل الأخطاء
                 }
             }
             
-            console.log(`✅ تم تحميل ${totalExisting} حلقة موجودة (${this.allExistingLinks.size} رابط فريد)`);
+            console.log(`✅ لدينا ${count} حلقة موجودة مسبقاً`);
             
         } catch (error) {
             console.log('📁 لا توجد ملفات سابقة - هذه أول تشغيلة');
@@ -88,177 +85,160 @@ class IncrementalExtractor {
                     return response.data;
                 }
             } catch (e) {
-                // تجاهل الخطأ وجرب البروكسي التالي
+                // جرب البروكسي التالي
             }
         }
-        throw new Error('فشل الاتصال');
+        return null;
     }
 
     // ===========================================
-    // 3. استخراج الحلقات الجديدة فقط من صفحة
+    // 3. فحص صفحة واحدة وأخذ الجديد فقط
     // ===========================================
-    async extractNewEpisodesFromPage(pageNumber) {
+    async extractNewFromPage(pageNumber) {
         const url = `${CONFIG.BASE_URL}/category.php?cat=${CONFIG.CATEGORY}&page=${pageNumber}&order=DESC`;
-        console.log(`📄 الصفحة ${pageNumber}...`);
+        console.log(`\n📄 الصفحة ${pageNumber}...`);
         
-        try {
-            const html = await this.fetch(url);
-            const $ = cheerio.load(html);
-            
-            const newEpisodesInPage = [];
-            let foundExisting = false;
-            
-            $('li.col-xs-6, li.col-sm-4, li.col-md-3').each((index, element) => {
-                const $el = $(element);
-                const $link = $el.find('a[href*="video.php"]').first();
-                
-                let link = $link.attr('href') || '';
-                if (!link) return;
-                
-                if (!link.startsWith('http')) {
-                    link = CONFIG.BASE_URL + (link.startsWith('/') ? link : '/' + link);
-                }
-                
-                // الأهم هنا: نتحقق إذا كانت الحلقة موجودة مسبقاً
-                if (this.allExistingLinks.has(link)) {
-                    foundExisting = true;
-                    return false; // نوقف التكرار - وصلنا للحلقات القديمة
-                }
-                
-                // إذا وصلنا هنا، الحلقة جديدة 👇
-                let title = $el.find('.ellipsis').text().trim() ||
-                          $link.attr('title')?.trim() ||
-                          `حلقة جديدة`;
-                
-                let image = $el.find('img').attr('src') ||
-                          $el.find('img').attr('data-src') ||
-                          '';
-                
-                if (image.includes('blank.gif') || image.includes('data:image')) {
-                    image = '';
-                }
-                
-                let duration = $el.find('.pm-label-duration').first().text().trim() || '00:00';
-                
-                newEpisodesInPage.push({
-                    id: `ramadan-${Date.now()}-${pageNumber}-${index}`,
-                    page: pageNumber,
-                    title: this.cleanTitle(title),
-                    link: link,
-                    image: this.fixImage(image),
-                    duration: duration,
-                    servers: [],
-                    extracted_at: new Date().toISOString(),
-                    is_new: true
-                });
-            });
-            
-            console.log(`   ✅ ${newEpisodesInPage.length} حلقة جديدة`);
-            
-            // إذا وجدنا حلقة قديمة، معناه وصلنا لآخر الحلقات الجديدة
-            if (foundExisting) {
-                console.log(`   🛑 توقف: وصلنا للحلقات القديمة في الصفحة ${pageNumber}`);
-                this.hasMorePages = false;
-                this.lastPageBeforeStop = pageNumber;
-            }
-            
-            return newEpisodesInPage;
-            
-        } catch (error) {
-            console.log(`   ❌ فشل: ${error.message}`);
-            this.hasMorePages = false;
+        const html = await this.fetch(url);
+        if (!html) {
+            console.log(`   ❌ فشل الاتصال`);
             return [];
         }
+        
+        const $ = cheerio.load(html);
+        const newInThisPage = [];
+        
+        // فحص كل حلقة في الصفحة
+        $('li.col-xs-6, li.col-sm-4, li.col-md-3').each((index, element) => {
+            const $el = $(element);
+            const $link = $el.find('a[href*="video.php"]').first();
+            
+            let link = $link.attr('href') || '';
+            if (!link) return;
+            
+            // تصحيح الرابط
+            if (!link.startsWith('http')) {
+                link = CONFIG.BASE_URL + (link.startsWith('/') ? link : '/' + link);
+            }
+            
+            // ★★★ الأهم: نتحقق من الرابط ★★★
+            if (this.existingLinks.has(link)) {
+                console.log(`   ⏭️ حلقة قديمة: ${link.split('/').pop()}`);
+                return; // نتجاهلها ونكمل
+            }
+            
+            // ===== حلقة جديدة =====
+            let title = $el.find('.ellipsis').text().trim() ||
+                       $link.attr('title')?.trim() ||
+                       `حلقة جديدة`;
+            
+            let image = $el.find('img').attr('src') ||
+                       $el.find('img').attr('data-src') ||
+                       '';
+            
+            if (image.includes('blank.gif') || image.includes('data:image')) {
+                image = '';
+            }
+            
+            let duration = $el.find('.pm-label-duration').first().text().trim() || '00:00';
+            
+            const newEpisode = {
+                id: `ramadan-${Date.now()}-p${pageNumber}-${index}`,
+                page: pageNumber,
+                title: this.cleanTitle(title),
+                link: link,
+                image: this.fixImage(image),
+                duration: duration,
+                servers: [],
+                discovered_at: new Date().toISOString()
+            };
+            
+            newInThisPage.push(newEpisode);
+            this.existingLinks.add(link); // نضيف الرابط فوراً لمنع التكرار
+            console.log(`   ✅ جديد: ${title.substring(0, 30)}...`);
+        });
+        
+        console.log(`   📊 الخلاصة: ${newInThisPage.length} حلقة جديدة في الصفحة ${pageNumber}`);
+        return newInThisPage;
     }
 
     // ===========================================
-    // 4. استخراج جميع الحلقات الجديدة فقط
+    // 4. استخراج جميع الحلقات الجديدة من كل الصفحات
     // ===========================================
-    async extractOnlyNewEpisodes() {
+    async extractAllNewEpisodes() {
         console.log('='.repeat(70));
-        console.log('🎬 مستخرج رمضان 2026 - نظام إضافة الحلقات الجديدة فقط');
+        console.log('🎬 مستخرج رمضان 2026 - يفحص كل حلقة على حدة');
         console.log('='.repeat(70));
         
-        // أولاً: تحميل الحلقات الموجودة
         await this.loadExistingEpisodes();
         
-        // ثانياً: استخراج الجديد فقط
-        console.log('\n🔍 البحث عن الحلقات الجديدة...\n');
+        console.log('\n🔍 بدء فحص الصفحات من 1 إلى آخر صفحة...\n');
         
-        this.currentPage = 1;
-        this.hasMorePages = true;
+        let page = 1;
+        let hasContent = true;
         this.newEpisodes = [];
         
-        while (this.hasMorePages) {
-            const newEpisodesInPage = await this.extractNewEpisodesFromPage(this.currentPage);
+        while (hasContent && page <= CONFIG.MAX_PAGES) {
+            const newFromThisPage = await this.extractNewFromPage(page);
             
-            if (newEpisodesInPage.length > 0) {
-                // إضافة الحلقات الجديدة للمصفوفة
-                this.newEpisodes.push(...newEpisodesInPage);
-                
-                // إضافة روابطها للمجموعة (حتى لا نستخرجها مرة أخرى)
-                newEpisodesInPage.forEach(ep => {
-                    this.allExistingLinks.add(ep.link);
-                });
-                
-                console.log(`   📊 إجمالي الجديد: ${this.newEpisodes.length} حلقة`);
+            if (newFromThisPage.length > 0) {
+                this.newEpisodes.push(...newFromThisPage);
+                console.log(`   🆕 إجمالي الجديد حتى الآن: ${this.newEpisodes.length} حلقة`);
             }
             
-            this.currentPage++;
+            // نكمل للصفحة التالية إذا كانت الصفحة الحالية فيها حلقات
+            // (حتى لو كلها قديمة، نكمل لأن يمكن في صفحة 2 حلقات جديدة)
+            hasContent = newFromThisPage.length > 0 || page === 1;
+            page++;
             
-            // وقفة بين الصفحات
-            if (this.hasMorePages) {
+            if (hasContent && page <= CONFIG.MAX_PAGES) {
                 await new Promise(r => setTimeout(r, CONFIG.DELAY_BETWEEN_PAGES));
             }
         }
         
-        console.log(`\n✅ تم العثور على ${this.newEpisodes.length} حلقة جديدة`);
+        console.log(`\n✅ انتهى الفحص. وجدنا ${this.newEpisodes.length} حلقة جديدة`);
         return this.newEpisodes;
     }
 
     // ===========================================
-    // 5. استخراج سيرفرات الحلقات الجديدة فقط
+    // 5. استخراج السيرفرات للجديد فقط
     // ===========================================
     async extractServersForNewEpisodes() {
         if (this.newEpisodes.length === 0) {
-            console.log('\n✨ لا توجد حلقات جديدة لاستخراج سيرفراتها');
+            console.log('\n✨ لا توجد حلقات جديدة لاستخراج السيرفرات');
             return;
         }
         
-        console.log('\n🔄 جاري استخراج سيرفرات الحلقات الجديدة...\n');
+        console.log('\n🔄 جاري استخراج السيرفرات للحلقات الجديدة...\n');
         
         for (let i = 0; i < this.newEpisodes.length; i++) {
             const episode = this.newEpisodes[i];
-            const progress = `${i + 1}/${this.newEpisodes.length}`;
-            
-            console.log(`📌 [${progress}] ${episode.title.substring(0, 40)}...`);
+            console.log(`📌 ${i+1}/${this.newEpisodes.length}: ${episode.title.substring(0, 40)}...`);
             
             try {
                 const playUrl = episode.link.replace('video.php', 'play.php');
                 const html = await this.fetch(playUrl);
-                const $ = cheerio.load(html);
                 
-                const servers = [];
-                
-                $('.WatchList li').each((idx, el) => {
-                    const $el = $(el);
-                    const embedUrl = $el.attr('data-embed-url');
+                if (html) {
+                    const $ = cheerio.load(html);
+                    const servers = [];
                     
-                    if (embedUrl) {
-                        const serverName = $el.find('strong').text().trim() || `سيرفر ${idx + 1}`;
+                    $('.WatchList li').each((idx, el) => {
+                        const $el = $(el);
+                        const embedUrl = $el.attr('data-embed-url');
                         
-                        servers.push({
-                            name: serverName,
-                            url: embedUrl.startsWith('http') ? embedUrl : 'https:' + embedUrl
-                        });
-                    }
-                });
-                
-                episode.servers = servers;
-                this.totalNewServers += servers.length;
-                
-                console.log(`   📺 ${servers.length} سيرفر`);
-                
+                        if (embedUrl) {
+                            const serverName = $el.find('strong').text().trim() || `سيرفر ${idx+1}`;
+                            servers.push({
+                                name: serverName,
+                                url: embedUrl.startsWith('http') ? embedUrl : 'https:' + embedUrl
+                            });
+                        }
+                    });
+                    
+                    episode.servers = servers;
+                    this.totalNewServers += servers.length;
+                    console.log(`   📺 ${servers.length} سيرفر`);
+                }
             } catch (e) {
                 console.log(`   ⚠️ لا يوجد سيرفرات`);
                 episode.servers = [];
@@ -269,123 +249,106 @@ class IncrementalExtractor {
     }
 
     // ===========================================
-    // 6. إضافة الحلقات الجديدة للملفات (ديناميكي)
+    // 6. إضافة الحلقات الجديدة للملفات (يكمل من آخر ملف)
     // ===========================================
-    async appendNewEpisodesToFiles() {
+    async appendToFiles() {
         if (this.newEpisodes.length === 0) {
-            console.log('\n💾 لا توجد بيانات جديدة للحفظ');
-            return 0;
+            console.log('\n💾 لا توجد حلقات جديدة للحفظ');
+            return;
         }
         
-        console.log('\n💾 جاري إضافة الحلقات الجديدة...');
+        console.log('\n💾 جاري حفظ الحلقات الجديدة...');
         
-        // قراءة جميع الملفات الموجودة
+        // قراءة جميع الملفات
         const files = await fs.readdir(CONFIG.DATA_DIR);
-        const jsonFiles = files.filter(f => f.startsWith('page') && f.endsWith('.json'))
+        const pageFiles = files.filter(f => f.startsWith('page') && f.endsWith('.json'))
                               .sort((a, b) => {
-                                  const numA = parseInt(a.match(/page(\d+)\.json/)[1]);
-                                  const numB = parseInt(b.match(/page(\d+)\.json/)[1]);
-                                  return numA - numB;
+                                  const na = parseInt(a.match(/page(\d+)\.json/)[1]);
+                                  const nb = parseInt(b.match(/page(\d+)\.json/)[1]);
+                                  return na - nb;
                               });
         
         let currentFileNumber = 1;
-        let currentFileEpisodes = [];
+        let currentEpisodes = [];
         
-        if (jsonFiles.length > 0) {
-            // نقرأ آخر ملف لنكمل عليه
-            const lastFile = jsonFiles[jsonFiles.length - 1];
+        if (pageFiles.length > 0) {
+            // نقرأ آخر ملف
+            const lastFile = pageFiles[pageFiles.length - 1];
             currentFileNumber = parseInt(lastFile.match(/page(\d+)\.json/)[1]);
             
             const lastFilePath = path.join(CONFIG.DATA_DIR, lastFile);
-            const lastFileContent = await fs.readFile(lastFilePath, 'utf-8');
-            const lastFileData = JSON.parse(lastFileContent);
+            const lastFileData = JSON.parse(await fs.readFile(lastFilePath, 'utf-8'));
+            currentEpisodes = lastFileData.episodes || [];
             
-            currentFileEpisodes = lastFileData.episodes || [];
-            console.log(`📂 آخر ملف: ${lastFile} (${currentFileEpisodes.length} حلقة)`);
+            console.log(`📂 آخر ملف: ${lastFile} (${currentEpisodes.length} حلقة)`);
         }
         
-        // إضافة الحلقات الجديدة واحدة واحدة
-        let remainingNewEpisodes = [...this.newEpisodes];
+        // نضيف الحلقات الجديدة
+        let remaining = [...this.newEpisodes];
         
-        while (remainingNewEpisodes.length > 0) {
-            // كم حلقة نستطيع إضافتها للملف الحالي؟
-            const spaceInCurrentFile = CONFIG.EPISODES_PER_FILE - currentFileEpisodes.length;
+        while (remaining.length > 0) {
+            const spaceLeft = CONFIG.EPISODES_PER_FILE - currentEpisodes.length;
             
-            if (spaceInCurrentFile > 0 && currentFileEpisodes.length > 0) {
-                // في ملف موجود وله مساحة
-                const episodesToAdd = remainingNewEpisodes.splice(0, spaceInCurrentFile);
-                currentFileEpisodes.push(...episodesToAdd);
+            if (spaceLeft > 0) {
+                // نضيف للملف الحالي
+                const toAdd = remaining.splice(0, spaceLeft);
+                currentEpisodes.push(...toAdd);
                 
-                // حفظ الملف المحدث
-                await this.saveFile(currentFileNumber, currentFileEpisodes);
-                console.log(`📄 page${currentFileNumber}.json ← إضافة ${episodesToAdd.length} حلقة (الآن ${currentFileEpisodes.length})`);
-                
-            } else {
-                // الملف الحالي كامل أو لا يوجد ملف - ننشئ ملف جديد
-                if (currentFileEpisodes.length > 0) {
-                    // حفظ الملف القديم كامل
-                    await this.saveFile(currentFileNumber, currentFileEpisodes);
-                }
-                
-                // ننتقل لملف جديد
+                // حفظ الملف
+                await this.saveFile(currentFileNumber, currentEpisodes);
+                console.log(`📄 page${currentFileNumber}.json ← +${toAdd.length} (الآن ${currentEpisodes.length})`);
+            }
+            
+            if (remaining.length > 0) {
+                // الملف الحالي كامل - ننشئ ملف جديد
                 currentFileNumber++;
-                const episodesToAdd = remainingNewEpisodes.splice(0, CONFIG.EPISODES_PER_FILE);
-                currentFileEpisodes = episodesToAdd;
+                const toAdd = remaining.splice(0, CONFIG.EPISODES_PER_FILE);
+                currentEpisodes = toAdd;
                 
-                // حفظ الملف الجديد
-                await this.saveFile(currentFileNumber, currentFileEpisodes);
-                console.log(`📄 page${currentFileNumber}.json (جديد) ← ${episodesToAdd.length} حلقة`);
+                await this.saveFile(currentFileNumber, currentEpisodes);
+                console.log(`📄 page${currentFileNumber}.json (جديد) ← ${toAdd.length} حلقة`);
             }
         }
         
-        // تحديث ملف الفهرس
-        await this.updateIndexFile();
-        
-        return this.newEpisodes.length;
+        // تحديث الفهرس
+        await this.updateIndex();
+        console.log(`📄 index.json ✓`);
     }
-    
+
     // ===========================================
-    // 7. حفظ ملف معين
+    // 7. حفظ ملف
     // ===========================================
     async saveFile(fileNumber, episodes) {
-        const fileName = `page${fileNumber}.json`;
-        const filePath = path.join(CONFIG.DATA_DIR, fileName);
+        const filePath = path.join(CONFIG.DATA_DIR, `page${fileNumber}.json`);
         
-        // ترتيب الحلقات من الأحدث للأقدم
-        const sortedEpisodes = episodes.sort((a, b) => {
-            if (a.page !== b.page) return b.page - a.page;
-            return 0;
-        });
-        
-        const fileData = {
-            file_number: fileNumber,
+        const data = {
+            file: `page${fileNumber}.json`,
             total_episodes: episodes.length,
             last_updated: new Date().toISOString(),
-            episodes: sortedEpisodes
+            episodes: episodes.sort((a, b) => {
+                // ترتيب تنازلي: الأحدث أولاً
+                if (a.page !== b.page) return b.page - a.page;
+                return 0;
+            })
         };
         
-        await fs.writeFile(filePath, JSON.stringify(fileData, null, 2));
+        await fs.writeFile(filePath, JSON.stringify(data, null, 2));
     }
-    
+
     // ===========================================
     // 8. تحديث الفهرس
     // ===========================================
-    async updateIndexFile() {
+    async updateIndex() {
         const files = await fs.readdir(CONFIG.DATA_DIR);
-        const jsonFiles = files.filter(f => f.startsWith('page') && f.endsWith('.json'))
-                              .sort((a, b) => {
-                                  const numA = parseInt(a.match(/page(\d+)\.json/)[1]);
-                                  const numB = parseInt(b.match(/page(\d+)\.json/)[1]);
-                                  return numA - numB;
-                              });
+        const pageFiles = files.filter(f => f.startsWith('page') && f.endsWith('.json'))
+                              .sort();
         
         let totalEpisodes = 0;
         const fileList = [];
         
-        for (const file of jsonFiles) {
+        for (const file of pageFiles) {
             const filePath = path.join(CONFIG.DATA_DIR, file);
-            const content = await fs.readFile(filePath, 'utf-8');
-            const data = JSON.parse(content);
+            const data = JSON.parse(await fs.readFile(filePath, 'utf-8'));
             totalEpisodes += data.episodes?.length || 0;
             
             fileList.push({
@@ -396,13 +359,13 @@ class IncrementalExtractor {
         }
         
         const indexData = {
-            project: "رمضان 2026 - لاروزا (نظام تزايدي)",
+            project: "رمضان 2026 - لاروزا (فحص كل حلقة)",
             last_update: new Date().toISOString(),
             statistics: {
-                total_episodes_all_time: totalEpisodes,
-                new_episodes_this_run: this.newEpisodes.length,
+                total_episodes: totalEpisodes,
+                new_this_run: this.newEpisodes.length,
                 new_servers_this_run: this.totalNewServers,
-                total_files: jsonFiles.length,
+                total_files: pageFiles.length,
                 episodes_per_file: CONFIG.EPISODES_PER_FILE
             },
             files: fileList
@@ -431,27 +394,26 @@ class IncrementalExtractor {
 }
 
 // ===========================================
-// التشغيل الرئيسي
+// التشغيل
 // ===========================================
 try {
-    const extractor = new IncrementalExtractor();
+    const extractor = new SmartIncrementalExtractor();
     
-    // 1. استخراج الحلقات الجديدة فقط
-    await extractor.extractOnlyNewEpisodes();
+    // 1. فحص جميع الصفحات وأخذ الجديد فقط
+    await extractor.extractAllNewEpisodes();
     
     // 2. استخراج السيرفرات للجديد فقط
     await extractor.extractServersForNewEpisodes();
     
-    // 3. إضافة الجديد للملفات (يكمل من حيث توقف)
-    const addedCount = await extractor.appendNewEpisodesToFiles();
+    // 3. إضافة الجديد للملفات
+    await extractor.appendToFiles();
     
-    // 4. النتيجة النهائية
+    // 4. النتيجة
     console.log('\n' + '='.repeat(70));
-    console.log('✅ ملخص التشغيلة الحالية');
+    console.log('✅ ملخص التشغيلة');
     console.log('='.repeat(70));
-    console.log(`📊 حلقات جديدة: ${extractor.newEpisodes.length}`);
+    console.log(`🆕 حلقات جديدة: ${extractor.newEpisodes.length}`);
     console.log(`🔗 سيرفرات جديدة: ${extractor.totalNewServers}`);
-    console.log(`📁 تمت الإضافة في الملفات: pageX.json`);
     console.log('='.repeat(70));
     
 } catch (error) {
