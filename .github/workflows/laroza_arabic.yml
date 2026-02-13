@@ -1,0 +1,41 @@
+name: استخراج افلام عربيه من لاروزا
+on:
+  schedule:
+   - cron: '0 0 */5 * *'
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: جلب الكود
+      uses: actions/checkout@v3
+      
+    - name: إعداد Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # ★ غيرنا من 18 إلى 20 ★
+    
+    - name: حذف الـ cache القديم
+      run: |
+        rm -rf node_modules package-lock.json
+        npm cache clean --force
+    
+    - name: تثبيت الحزم من جديد
+      run: |
+        npm init -y
+        npm install axios@1.6.2 cheerio@1.0.0-rc.12
+    
+    - name: تشغيل المستخرج
+      run: node laroza_arabic.js
+    
+    - name: حفظ البيانات
+      run: |
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
+        git add data/
+        git diff --quiet && git diff --staged --quiet || git commit -m "تحديث تلقائي: $(date '+%Y-%m-%d %H:%M')"
+        git push
