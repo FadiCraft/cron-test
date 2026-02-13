@@ -1,0 +1,33 @@
+name: Update Drama Daily
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # كل 6 ساعات
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install deps
+        run: npm install node-fetch
+
+      - name: Run drama bot
+        run: node drama.js
+
+      - name: Commit & push
+        run: |
+          git config --global user.name "Drama Bot"
+          git config --global user.email "bot@github.com"
+          git add drama.json
+          git commit -m "🔄 Update drama list"
+          git push
