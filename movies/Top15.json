@@ -1,9 +1,9 @@
 {
   "fileName": "Top15.json",
   "fileNumber": 15,
-  "totalMovies": 1,
+  "totalMovies": 3,
   "created": "2026-02-13T13:47:05.493Z",
-  "lastUpdated": "2026-02-13T15:25:29.519Z",
+  "lastUpdated": "2026-02-13T15:43:14.434Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -132,9 +132,277 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-dinner-to-die-for-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 4,
+      "position": 6,
       "currentFile": "Top15.json",
-      "scrapedAt": "2026-02-13T15:25:29.468Z",
+      "scrapedAt": "2026-02-13T15:43:14.382Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 8,
+        "genresCount": 0
+      }
+    },
+    {
+      "id": "202570",
+      "title": "فيلم The Singers 2025 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-singers-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=202570",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BMTI2NmQwMmMtOGFlMS00YjAyLTk0ZDQtM2IyZmRjOWUzNTIzXkEyXkFqcGc@._V1_-scaled-439x650.jpg",
+      "imdbRating": "7.4",
+      "story": "في هذا الفيلم القصير المرشح لجائزة \"أوسكار\" Oscar، تتحول ليلة موحشة في حانة متواضعة إلى لحظة انسجام تبوح بما تكنّه النفوس إثر مسابقة غنائية عفوية.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "Music",
+          "دراما",
+          "كوميدي"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "18 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "بطولة": [
+          "Brian Coover",
+          "Chris Smither",
+          "Daniel Hutchinson",
+          "David Jenner"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "13-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-singers-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-vixbqo8f2b4d.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-singers-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/vixbqo8f2b4d.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/k3c4o01b7ulq",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/buksyvuejd94",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Ddownload",
+          "url": "https://ddownload.com/ourhw00pqwdq",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/3B0595FB557650D",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/799f22cab9fdefd7e1e3da7cdbae8715",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/eijg1m77eycp",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/4cy8a",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-singers-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
+      "position": 1,
+      "currentFile": "Top15.json",
+      "scrapedAt": "2026-02-13T15:43:05.758Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 8,
+        "genresCount": 0
+      }
+    },
+    {
+      "id": "202569",
+      "title": "فيلم Reckless 2026 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reckless-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=202569",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BYmMyN2FlN2UtNDViZi00NjVhLWJhMWQtYzZkYWZjOWFiNWJhXkEyXkFqcGc@-scaled-439x650.jpg",
+      "imdbRating": "6.2",
+      "story": "في إطار من الجريمة والأكشن، يجد مجرم مُدان سابق أُفرج عنه بشروط نفسه مضطرًا لمراوغة الشرط؛ة من أجل الوصول إلى نصيبه من عملية سطو قديمة.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "اكشن",
+          "جريمة",
+          "كوميدي"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "91 دقيقة",
+        "موعد الصدور": [
+          "2026"
+        ],
+        "لغة الفيلم": [
+          "الأنجليزية"
+        ],
+        "دولة الفيلم": [
+          "المملكة المتحدة"
+        ],
+        "بطولة": [
+          "Adam Deacon",
+          "Daniel Fathers",
+          "Dean Gaffney",
+          "Gavin Fraser"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "13-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reckless-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-hyds8idz11t6.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reckless-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/hyds8idz11t6.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/anydal9pnpru",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/sd9zfuu9px9l",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Ddownload",
+          "url": "https://ddownload.com/hbt74q751tvp",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/AB547DE36C01B27",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/c8a6f15e6e96403be778c51125df56d0",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/qirzt7ur2ec6",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/2QDc1",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-reckless-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
+      "position": 2,
+      "currentFile": "Top15.json",
+      "scrapedAt": "2026-02-13T15:43:07.436Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
