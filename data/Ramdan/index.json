@@ -1,12 +1,14 @@
 {
-  "category": "ramadan-2026",
-  "last_update": "2026-02-13T14:33:46.004Z",
+  "last_update": "2026-02-13T14:49:38.332Z",
   "total_episodes": 110,
-  "total_servers": 503,
-  "episodes_with_servers": 110,
-  "total_parts": 1,
+  "total_pages": 1,
   "episodes_per_file": 500,
   "files": [
-    "ramadan-2026-part1.json"
-  ]
+    "page1.json"
+  ],
+  "stats": {
+    "episodes_with_servers": 110,
+    "episodes_with_images": 110,
+    "total_servers": 503
+  }
 }
