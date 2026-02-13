@@ -18,7 +18,7 @@ const CONFIG = {
     DATA_DIR: 'data/Ramdan',
     MAX_PAGES: 50,
     REQUEST_DELAY: 2000,
-    HOME_EPISODES_COUNT: 10 // عدد حلقات الصفحة الرئيسية
+    HOME_EPISODES_COUNT: 30 // عدد حلقات الصفحة الرئيسية
 };
 
 class Extractor {
