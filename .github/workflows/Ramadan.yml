@@ -1,76 +1,38 @@
-name: استخراج حلقات رمضان من لاروزا
+name: استخراج حلقات رمضان
 
 on:
   schedule:
-    # كل 10 دقائق
     - cron: '*/10 * * * *'
-  workflow_dispatch:  # للسماح بالتشغيل اليدوي
+  workflow_dispatch:
   push:
     branches: [ main, master ]
 
 jobs:
-  extract-episodes:
-    name: استخراج الحلقات
+  extract:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: ⬇️ تحميل الكود من المستودع
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-
-      - name: 🔧 إعداد Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
-
-      - name: 📦 تثبيت الاعتماديات
+      
+      - name: تثبيت الاعتماديات
+        run: npm install node-html-parser
+      
+      - name: تشغيل المستخرج
+        continue-on-error: true  # هذا مهم جداً!
         run: |
-          npm init -y
-          npm install node-html-parser
-
-      - name: 🗂️ إنشاء مجلد للحلقات
-        run: |
-          mkdir -p Ramadan
-          mkdir -p logs
-
-      - name: 🚀 تشغيل مستخرج الحلقات
-        id: run_extractor
-        continue-on-error: true
-        run: |
-          echo "⏰ بدء التشغيل: $(date)" > logs/last_run.log
-          node Ramadan.js >> logs/output.log 2>&1
-          echo "✅ تم الانتهاء: $(date)" >> logs/last_run.log
-
-      - name: 📊 التحقق من وجود تغييرات
-        id: check_changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add Ramadan/ logs/
-          if git diff --staged --quiet; then
-            echo "📭 لا توجد حلقات جديدة للحفظ"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "📦 تم العثور على حلقات جديدة!"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: 📤 رفع التغييرات إلى المستودع
-        if: steps.check_changes.outputs.has_changes == 'true'
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          force: true
-          directory: .
-
-      - name: 📈 إرسال إشعار (اختياري)
+          mkdir -p Ramadan logs
+          node Ramadan.js 2>&1 | tee logs/output.log
+          EXIT_CODE=${PIPESTATUS[0]}
+          echo "EXIT_CODE=$EXIT_CODE" >> $GITHUB_ENV
+          
+      - name: رفع التغييرات (حتى لو فشل)
         if: always()
         run: |
-          echo "📊 ملخص التشغيل:" >> $GITHUB_STEP_SUMMARY
-          echo "- الوقت: $(date)" >> $GITHUB_STEP_SUMMARY
-          echo "- الحالة: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          cat logs/last_run.log >> $GITHUB_STEP_SUMMARY
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add Ramadan/ logs/ || true
+          git diff --staged --quiet || git commit -m "تحديث تلقائي $(date)"
+          git push || true
