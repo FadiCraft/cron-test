@@ -2,29 +2,32 @@ name: استخراج حلقات رمضان 2026
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # كل 6 ساعات
-  workflow_dispatch:        # تشغيل يدوي
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [ main ]
 
 jobs:
   extract:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    
-    - uses: actions/setup-node@v3
+    - name: جلب الكود
+      uses: actions/checkout@v3
+      
+    - name: إعداد Node.js
+      uses: actions/setup-node@v3
       with:
         node-version: '18'
     
     - name: تثبيت الحزم
       run: |
-        npm init -y
-        npm install node-fetch cheerio
+        npm install axios cheerio
     
     - name: تشغيل المستخرج
       run: node extractor.js
     
-    - name: حفظ التغييرات
+    - name: حفظ البيانات
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
