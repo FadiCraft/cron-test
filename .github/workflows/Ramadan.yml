@@ -1,38 +1,44 @@
-name: استخراج حلقات رمضان
+name: استخراج حلقات رمضان 2026 من لاروزا
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
-  workflow_dispatch:
+    # يعمل كل 6 ساعات
+    - cron: '0 */6 * * *'
+  workflow_dispatch:  # يسمح بالتشغيل اليدوي
   push:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
-  extract:
+  extract-episodes:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: تثبيت الاعتماديات
-        run: npm install node-html-parser
-      
-      - name: تشغيل المستخرج
-        continue-on-error: true  # هذا مهم جداً!
-        run: |
-          mkdir -p Ramadan logs
-          node Ramadan.js 2>&1 | tee logs/output.log
-          EXIT_CODE=${PIPESTATUS[0]}
-          echo "EXIT_CODE=$EXIT_CODE" >> $GITHUB_ENV
-          
-      - name: رفع التغييرات (حتى لو فشل)
-        if: always()
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add Ramadan/ logs/ || true
-          git diff --staged --quiet || git commit -m "تحديث تلقائي $(date)"
-          git push || true
+    - name: جلب الكود
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: إعداد Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: تثبيت الاعتماديات
+      run: |
+        npm init -y
+        npm install node-fetch cheerio fs-extra
+    
+    - name: إنشاء مجلد البيانات
+      run: |
+        mkdir -p data/Ramdan
+    
+    - name: تشغيل مستخرج الحلقات
+      run: node scripts/extractor.js
+    
+    - name: حفظ التغييرات
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/Ramdan/
+        git diff --quiet && git diff --staged --quiet || git commit -m "تحديث تلقائي: استخراج حلقات رمضان 2026 [$(date +'%Y-%m-%d %H:%M:%S')]"
+        git push
