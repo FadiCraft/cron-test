@@ -1,0 +1,40 @@
+name: Auto Publish to Blogger
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # كل 6 ساعات
+  workflow_dispatch:  # تشغيل يدوي
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install axios cheerio
+        # أو إذا تريد استخدام package.json
+        # npm install
+        
+    - name: Run publishing script
+      env:
+        # إعدادات Blogger
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        BLOG_ID: ${{ secrets.BLOG_ID }}
+        
+        # إعدادات التخزين
+        STORAGE_TOKEN: ${{ secrets.STORAGE_TOKEN }}
+        STORAGE_USERNAME: ${{ secrets.STORAGE_USERNAME }}
+        STORAGE_REPO: ${{ secrets.STORAGE_REPO }}
+        STORAGE_BRANCH: ${{ secrets.STORAGE_BRANCH }}
+      run: node post2.js
