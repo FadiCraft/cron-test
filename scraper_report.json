@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-02-13T10:26:26.302Z",
+  "timestamp": "2026-02-13T12:13:09.023Z",
   "mode": "scrape_series",
   "stats": {
-    "totalSeries": 860,
-    "totalSeasons": 1957,
-    "totalEpisodes": 22514,
-    "seriesPage": 29,
+    "totalSeries": 890,
+    "totalSeasons": 2011,
+    "totalEpisodes": 23137,
+    "seriesPage": 30,
     "allPagesScraped": false,
     "lastHomeUpdate": null
   },
   "files": {
     "seriesFiles": 18,
-    "seasonFiles": 20,
-    "episodeFiles": 46
+    "seasonFiles": 21,
+    "episodeFiles": 47
   },
   "nextRun": {
     "mode": "scrape_series",
-    "startPage": 29,
+    "startPage": 30,
     "recommendation": "متابعة استخراج المسلسلات"
   }
 }
