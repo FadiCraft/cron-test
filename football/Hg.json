@@ -1,10 +1,10 @@
 {
-  "scrapedAt": "2026-02-13T13:09:34.578Z",
+  "scrapedAt": "2026-02-13T14:08:18.123Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 11,
   "matches": [
     {
-      "id": "match_1770988158406_0",
+      "id": "match_1770991678056_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%b4%d8%a8%d8%a7%d8%a8-%d9%88-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الشباب vs الأهلي",
       "team1": {
@@ -17,20 +17,28 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/02/8946-2.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "3:55 PM",
-      "status": "لم تبدأ بعد",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [
         "تطبيق ثمانية"
       ],
       "tournament": "الدوري السعودي",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-02-13T13:09:18.406Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-13T14:07:58.056Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
     },
     {
-      "id": "match_1770988158407_1",
+      "id": "match_1770991678057_1",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%ac%d9%8a%d8%b4-%d8%a7%d9%84%d9%85%d9%84%d9%83%d9%8a-%d9%88-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8%d8%b1%d9%83%d8%a7/",
       "title": "الجيش الملكي vs نهضة بركان",
       "team1": {
@@ -50,11 +58,11 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-02-13T13:09:18.407Z",
+      "scrapedAt": "2026-02-13T14:07:58.057Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158409_2",
+      "id": "match_1770991678059_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%85%d8%ba%d8%b1%d8%a8-%d8%a7%d9%84%d9%81%d8%a7%d8%b3%d9%8a-%d9%88-%d8%a7%d9%84%d9%88%d8%af%d8%a7%d8%af-%d8%a7/",
       "title": "المغرب الفاسي vs الوداد الرياضي",
       "team1": {
@@ -74,11 +82,11 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-02-13T13:09:18.409Z",
+      "scrapedAt": "2026-02-13T14:07:58.059Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158410_3",
+      "id": "match_1770991678061_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d9%88-%d8%a7%d9%84%d8%a7%d8%aa%d9%81%d8%a7%d9%82-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
       "title": "الهلال vs الاتفاق",
       "team1": {
@@ -100,11 +108,19 @@
       "tournament": "الدوري السعودي",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-02-13T13:09:18.410Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-13T14:07:58.061Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
     },
     {
-      "id": "match_1770988158412_4",
+      "id": "match_1770991678062_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d9%88-%d8%a7%d9%84%d9%81%d9%8a%d8%ad%d8%a7%d8%a1-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
       "title": "الاتحاد vs الفيحاء",
       "team1": {
@@ -126,11 +142,19 @@
       "tournament": "الدوري السعودي",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-02-13T13:09:18.412Z",
-      "watchServers": null
+      "scrapedAt": "2026-02-13T14:07:58.062Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://kk.pyxq.online/albaplayer/ontime/",
+          "quality": "HD",
+          "server": "KoraPlus/AlbaPlayer",
+          "id": "potential_server"
+        }
+      ]
     },
     {
-      "id": "match_1770988158413_5",
+      "id": "match_1770991678063_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%aa%d8%a7%d8%af-%d8%b1%d9%8a%d9%86-%d9%88-%d8%a8%d8%a7%d8%b1%d9%8a%d8%b3-%d8%b3%d8%a7%d9%86-%d8%ac%d9%8a%d8%b1%d9%85/",
       "title": "ستاد رين vs باريس سان جيرمان",
       "team1": {
@@ -152,11 +176,11 @@
       "tournament": "الدوري الفرنسي",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-02-13T13:09:18.413Z",
+      "scrapedAt": "2026-02-13T14:07:58.063Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158414_6",
+      "id": "match_1770991678064_6",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%b1%d8%ac%d8%a7%d8%a1-%d8%a7%d9%84%d8%a8%d9%8a%d8%b6%d8%a7%d9%88%d9%8a-%d9%88-%d8%a7%d8%aa%d8%ad%d8%a7%d8%af/",
       "title": "الرجاء البيضاوي vs اتحاد يعقوب المنصور",
       "team1": {
@@ -178,11 +202,11 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-13T13:09:18.414Z",
+      "scrapedAt": "2026-02-13T14:07:58.064Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158415_7",
+      "id": "match_1770991678065_7",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%88%d8%b1%d9%88%d8%b3%d9%8a%d8%a7-%d8%af%d9%88%d8%b1%d8%aa%d9%85%d9%88%d9%86%d8%af-%d9%88-%d9%85%d8%a7%d9%8a%d9%86/",
       "title": "بوروسيا دورتموند vs ماينز 05",
       "team1": {
@@ -204,11 +228,11 @@
       "tournament": "الدوري الألماني",
       "page": 1,
       "position": 8,
-      "scrapedAt": "2026-02-13T13:09:18.415Z",
+      "scrapedAt": "2026-02-13T14:07:58.065Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158416_8",
+      "id": "match_1770991678066_8",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%8a%d8%b3%d8%a7-%d9%88-%d9%85%d9%8a%d9%84%d8%a7%d9%86-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1/",
       "title": "بيسا vs ميلان",
       "team1": {
@@ -230,11 +254,11 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 9,
-      "scrapedAt": "2026-02-13T13:09:18.416Z",
+      "scrapedAt": "2026-02-13T14:07:58.066Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158417_9",
+      "id": "match_1770991678067_9",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d9%84%d8%aa%d8%b4%d9%8a-%d9%88-%d8%a3%d9%88%d8%b3%d8%a7%d8%b3%d9%88%d9%86%d8%a7-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
       "title": "إلتشي vs أوساسونا",
       "team1": {
@@ -256,11 +280,11 @@
       "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 10,
-      "scrapedAt": "2026-02-13T13:09:18.417Z",
+      "scrapedAt": "2026-02-13T14:07:58.067Z",
       "watchServers": null
     },
     {
-      "id": "match_1770988158417_10",
+      "id": "match_1770991678068_10",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%85%d9%88%d9%86%d8%a7%d9%83%d9%88-%d9%88-%d9%86%d8%a7%d9%86%d8%aa-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88/",
       "title": "موناكو vs نانت",
       "team1": {
@@ -282,7 +306,7 @@
       "tournament": "الدوري الفرنسي",
       "page": 1,
       "position": 11,
-      "scrapedAt": "2026-02-13T13:09:18.417Z",
+      "scrapedAt": "2026-02-13T14:07:58.068Z",
       "watchServers": null
     }
   ]
