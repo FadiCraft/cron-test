@@ -5,7 +5,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 const CONFIG = {
-    BASE_URL: 'https://larooza.life',
+    BASE_URL: 'https://laroza.lol', // تم التحديث
     CATEGORY: 'ramadan-2026',
     PROXIES: [
         'https://api.codetabs.com/v1/proxy?quest=',
@@ -17,12 +17,14 @@ const CONFIG = {
     EPISODES_PER_FILE: 500,
     DATA_DIR: 'data/Ramdan',
     MAX_PAGES: 50,
-    REQUEST_DELAY: 2000
+    REQUEST_DELAY: 2000,
+    HOME_EPISODES_COUNT: 10 // عدد حلقات الصفحة الرئيسية
 };
 
 class Extractor {
     constructor() {
         this.episodes = [];
+        this.homeEpisodes = []; // لأول 10 حلقات
     }
 
     async fetch(url) {
@@ -54,6 +56,21 @@ class Extractor {
             }
         }
         throw new Error('فشل الاتصال بجميع البروكسيات');
+    }
+
+    // استخراج ID الحلقة من الرابط
+    extractVideoId(link) {
+        // محاولة استخراج vid من الرابط
+        const vidMatch = link.match(/[?&]vid=([a-f0-9]+)/i) || 
+                        link.match(/\/video\.php\?vid=([a-f0-9]+)/i) ||
+                        link.match(/[?&]id=([a-f0-9]+)/i);
+        
+        if (vidMatch && vidMatch[1]) {
+            return vidMatch[1]; // مثلاً: a77bbfad0
+        }
+        
+        // إذا لم نجد، نستخدم طريقة قديمة
+        return null;
     }
 
     async getTotalPages() {
@@ -95,34 +112,29 @@ class Extractor {
         }
     }
 
-    // دالة جديدة: استخراج الصورة من صفحة المسلسل
     async extractImageFromPage(episodeLink) {
         try {
-            // نحول رابط المشاهدة إلى رابط الصفحة (إذا كان video.php نحوله)
             const pageUrl = episodeLink.includes('video.php') ? episodeLink : episodeLink;
             
             const html = await this.fetch(pageUrl);
             const $ = cheerio.load(html);
             
-            // محاولة استخراج الصورة من meta tag
             let image = $('meta[property="og:image"]').attr('content') || 
                        $('meta[name="twitter:image"]').attr('content') ||
                        $('link[rel="image_src"]').attr('href') ||
                        '';
             
             if (image) {
-                console.log(`      🖼️ تم استخراج الصورة من meta tag`);
                 return this.fixImage(image);
             }
             
             return '';
         } catch (e) {
-            // إذا فشلنا، نرجع سلسلة فارغة
             return '';
         }
     }
 
-    async extractPage(pageNum) {
+    async extractPage(pageNum, limit = null) {
         const pageUrl = `${CONFIG.BASE_URL}/category.php?cat=${CONFIG.CATEGORY}&page=${pageNum}&order=DESC`;
         console.log(`\n📄 استخراج الصفحة ${pageNum}...`);
         
@@ -131,8 +143,14 @@ class Extractor {
             const $ = cheerio.load(html);
             
             const pageEpisodes = [];
+            let count = 0;
             
             $('li.col-xs-6, li.col-sm-4, li.col-md-3, .post, .item, article').each((index, element) => {
+                // إذا كان هناك حد معين ووصلنا له، نتوقف
+                if (limit && count >= limit) {
+                    return false; // يوقف الـ each
+                }
+                
                 try {
                     const $el = $(element);
                     
@@ -150,7 +168,6 @@ class Extractor {
                                    $el.find('img').attr('alt') ||
                                    `حلقة ${index + 1}`;
                         
-                        // استخراج الصورة المصغرة من الصفحة الحالية أولاً
                         let image = $el.find('img').attr('src') || 
                                    $el.find('img').attr('data-src') || 
                                    $el.find('img').attr('data-original') || 
@@ -162,20 +179,23 @@ class Extractor {
                         
                         let duration = $el.find('.duration, .pm-label-duration, .time').first().text().trim() || '00:00';
                         
-                        const videoId = link.match(/[?&]id=(\d+)/);
+                        // استخراج ID الفيديو من الرابط
+                        const videoId = this.extractVideoId(link);
                         
                         pageEpisodes.push({
-                            id: videoId ? `vid-${videoId[1]}` : `page${pageNum}-${Date.now()}-${index}`,
+                            id: videoId || `unknown-${Date.now()}-${index}`, // استخدام ID حقيقي أو مؤقت
                             page: pageNum,
                             title: this.cleanTitle(title),
                             link: link,
-                            image: this.fixImage(image), // الصورة المؤقتة
-                            full_image: '', // سنملأها لاحقاً من صفحة المسلسل
+                            image: this.fixImage(image),
+                            full_image: '',
                             duration: duration,
                             servers: [],
                             extracted_at: new Date().toISOString(),
                             image_extracted: false
                         });
+                        
+                        count++;
                     }
                 } catch (e) {
                     // تجاهل الخطأ واستمر
@@ -243,7 +263,6 @@ class Extractor {
         }
     }
 
-    // دالة جديدة: استخراج الصورة الكاملة للحلقة
     async extractFullImage(episode, episodeIndex, totalInPage) {
         try {
             if (!episode.link || episode.link === '#') {
@@ -252,12 +271,10 @@ class Extractor {
             
             console.log(`      🖼️ جاري استخراج الصورة الكاملة...`);
             
-            // استخراج الصورة من صفحة المسلسل
             const fullImage = await this.extractImageFromPage(episode.link);
             
             if (fullImage) {
                 episode.full_image = fullImage;
-                // إذا لم تكن لدينا صورة مصغرة، نستخدم الصورة الكاملة
                 if (!episode.image) {
                     episode.image = fullImage;
                 }
@@ -276,12 +293,12 @@ class Extractor {
         }
     }
 
-    async processPage(pageNum) {
+    async processPage(pageNum, limit = null, isHomePage = false) {
         console.log('\n' + '='.repeat(60));
-        console.log(`📑 معالجة الصفحة ${pageNum} بالكامل`);
+        console.log(`📑 معالجة الصفحة ${pageNum}${isHomePage ? ' (أول 10 حلقات للصفحة الرئيسية)' : ''}`);
         console.log('='.repeat(60));
         
-        const pageEpisodes = await this.extractPage(pageNum);
+        const pageEpisodes = await this.extractPage(pageNum, limit);
         
         if (pageEpisodes.length === 0) {
             console.log(`⚠️ لا توجد حلقات في الصفحة ${pageNum}`);
@@ -291,13 +308,9 @@ class Extractor {
         console.log(`\n🔄 استخراج السيرفرات والصور (${pageEpisodes.length} حلقة)...\n`);
         
         for (let i = 0; i < pageEpisodes.length; i++) {
-            // استخراج السيرفرات أولاً
             await this.extractServers(pageEpisodes[i], i, pageEpisodes.length);
-            
-            // ثم استخراج الصورة الكاملة
             await this.extractFullImage(pageEpisodes[i], i, pageEpisodes.length);
             
-            // تأخير بسيط بين الحلقات
             if (i < pageEpisodes.length - 1) {
                 await new Promise(resolve => setTimeout(resolve, 500));
             }
@@ -318,16 +331,77 @@ class Extractor {
         return pageEpisodes;
     }
 
+    // دالة جديدة: حفظ أول 10 حلقات في Home.json
+    async saveHomeEpisodes() {
+        console.log('\n🏠 حفظ أول 10 حلقات للصفحة الرئيسية...');
+        
+        try {
+            // استخراج أول 10 حلقات من الصفحة الأولى فقط
+            const homeEpisodes = await this.processPage(1, CONFIG.HOME_EPISODES_COUNT, true);
+            
+            if (homeEpisodes.length > 0) {
+                const filePath = path.join(CONFIG.DATA_DIR, 'Home.json');
+                
+                // تنظيف البيانات للحفظ
+                const cleanEpisodes = homeEpisodes.map(ep => ({
+                    id: ep.id,
+                    title: ep.title,
+                    link: ep.link,
+                    image: ep.full_image || ep.image,
+                    duration: ep.duration,
+                    servers: ep.servers || [],
+                    extracted_at: ep.extracted_at
+                }));
+                
+                const data = {
+                    type: 'home_page',
+                    episodes_count: cleanEpisodes.length,
+                    updated_at: new Date().toISOString(),
+                    episodes: cleanEpisodes
+                };
+                
+                await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+                console.log(`✅ تم حفظ ${cleanEpisodes.length} حلقة في Home.json`);
+                
+                return cleanEpisodes;
+            } else {
+                console.log('⚠️ لا توجد حلقات لحفظها في Home.json');
+                return [];
+            }
+        } catch (error) {
+            console.log(`❌ خطأ في حفظ Home.json: ${error.message}`);
+            return [];
+        }
+    }
+
     async extractAll() {
         console.log('='.repeat(60));
         console.log('🎬 مستخرج حلقات رمضان 2026 من لاروزا');
         console.log('='.repeat(60));
         
+        // أولاً: حفظ أول 10 حلقات في Home.json (يتم تجديده في كل تشغيل)
+        this.homeEpisodes = await this.saveHomeEpisodes();
+        
+        // ثانياً: استخراج باقي الصفحات كالمعتاد
         const totalPages = await this.getTotalPages();
         
         for (let page = 1; page <= totalPages; page++) {
-            const pageEpisodes = await this.processPage(page);
-            this.episodes.push(...pageEpisodes);
+            // للصفحة الأولى، نستخرج الباقي (بعد الـ 10 الأولى)
+            if (page === 1) {
+                // نستكمل استخراج باقي حلقات الصفحة الأولى (بعد الـ 10)
+                console.log(`\n📑 استكمال استخراج باقي حلقات الصفحة 1...`);
+                const remainingEpisodes = await this.processPage(1);
+                
+                // نأخذ الحلقات بعد الـ 10 الأولى
+                if (remainingEpisodes.length > CONFIG.HOME_EPISODES_COUNT) {
+                    const afterHomeEpisodes = remainingEpisodes.slice(CONFIG.HOME_EPISODES_COUNT);
+                    this.episodes.push(...afterHomeEpisodes);
+                }
+            } else {
+                // باقي الصفحات كالمعتاد
+                const pageEpisodes = await this.processPage(page);
+                this.episodes.push(...pageEpisodes);
+            }
             
             if (page < totalPages) {
                 console.log(`\n⏳ انتظار ${CONFIG.REQUEST_DELAY / 1000} ثواني قبل الصفحة التالية...`);
@@ -335,14 +409,16 @@ class Extractor {
             }
         }
         
+        // إحصائيات
         const totalServers = this.episodes.reduce((sum, ep) => sum + (ep.servers?.length || 0), 0);
         const episodesWithServers = this.episodes.filter(ep => ep.servers?.length > 0).length;
         const episodesWithImages = this.episodes.filter(ep => ep.full_image).length;
         
         console.log('\n' + '='.repeat(60));
         console.log('📊 إحصائيات عامة:');
+        console.log(`   🏠 ${this.homeEpisodes.length} حلقة في Home.json`);
         console.log(`   📑 ${totalPages} صفحة`);
-        console.log(`   🎬 ${this.episodes.length} إجمالي الحلقات`);
+        console.log(`   🎬 ${this.episodes.length} إجمالي الحلقات (باقي الصفحات)`);
         console.log(`   📺 ${episodesWithServers} حلقة تحتوي على سيرفرات`);
         console.log(`   🖼️ ${episodesWithImages} حلقة تحتوي على صور كاملة`);
         console.log(`   🔗 ${totalServers} إجمالي السيرفرات`);
@@ -354,6 +430,9 @@ class Extractor {
         
         await fs.mkdir(CONFIG.DATA_DIR, { recursive: true });
         
+        // ملاحظة: Home.json تم حفظه مسبقاً في saveHomeEpisodes()
+        
+        // حفظ باقي الحلقات في ملفات page1.json, page2.json
         const sortedEpisodes = [...this.episodes].sort((a, b) => (a.page || 0) - (b.page || 0));
         
         const chunks = [];
@@ -361,19 +440,17 @@ class Extractor {
             chunks.push(sortedEpisodes.slice(i, i + CONFIG.EPISODES_PER_FILE));
         }
         
-        // حفظ الملفات بالأسماء المطلوبة page1.json, page2.json
         for (let i = 0; i < chunks.length; i++) {
             const pageNum = i + 1;
-            const fileName = `page${pageNum}.json`; // اسم الملف كما تريد
+            const fileName = `page${pageNum}.json`;
             const filePath = path.join(CONFIG.DATA_DIR, fileName);
             
-            // تنظيف البيانات قبل الحفظ
             const cleanEpisodes = chunks[i].map(ep => ({
                 id: ep.id,
                 page: ep.page,
                 title: ep.title,
                 link: ep.link,
-                image: ep.full_image || ep.image, // نستخدم الصورة الكاملة إذا وجدت
+                image: ep.full_image || ep.image,
                 duration: ep.duration,
                 servers: ep.servers || [],
                 extracted_at: ep.extracted_at
@@ -400,8 +477,12 @@ class Extractor {
             total_episodes: sortedEpisodes.length,
             total_pages: chunks.length,
             episodes_per_file: CONFIG.EPISODES_PER_FILE,
-            files: chunks.map((_, i) => `page${i + 1}.json`),
+            files: [
+                'Home.json', // نضيف Home.json للفهرس
+                ...chunks.map((_, i) => `page${i + 1}.json`)
+            ],
             stats: {
+                home_episodes: this.homeEpisodes.length,
                 episodes_with_servers: sortedEpisodes.filter(ep => ep.servers?.length > 0).length,
                 episodes_with_images: episodesWithImages,
                 total_servers: totalServers
@@ -414,12 +495,14 @@ class Extractor {
         );
         
         console.log(`📄 index.json - فهرس البيانات`);
+        console.log(`📄 Home.json - أول ${this.homeEpisodes.length} حلقة للصفحة الرئيسية`);
         
         const withServers = sortedEpisodes.filter(ep => ep.servers?.length > 0).length;
         
         console.log('\n📊 الإحصائيات النهائية:');
-        console.log(`   📁 ${chunks.length} ملف`);
-        console.log(`   🎬 ${sortedEpisodes.length} حلقة`);
+        console.log(`   🏠 ${this.homeEpisodes.length} حلقة (Home.json)`);
+        console.log(`   📁 ${chunks.length} ملف (pageX.json)`);
+        console.log(`   🎬 ${sortedEpisodes.length} حلقة (باقي الصفحات)`);
         console.log(`   📺 ${withServers} حلقة تحتوي على سيرفرات`);
         console.log(`   🖼️ ${episodesWithImages} حلقة تحتوي على صور`);
         console.log(`   🔗 ${totalServers} إجمالي السيرفرات`);
