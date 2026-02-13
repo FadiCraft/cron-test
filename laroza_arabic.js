@@ -1,4 +1,4 @@
-// laroza_arabic.js - مستخرج أفلام عربيه(جميع الصفحات)
+// laroza_arabic.js - مستخرج أفلام عربية (جميع الصفحات)
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import fs from 'fs/promises';
@@ -18,13 +18,13 @@ const CONFIG = {
     DATA_DIR: 'Larozaa/ArabicMovies',
     MAX_PAGES: 50,
     REQUEST_DELAY: 2000,
-    HOME_EPISODES_COUNT: 30 // عدد حلقات الصفحة الرئيسية
+    HOME_EPISODES_COUNT: 30 // عدد الأفلام في الصفحة الرئيسية
 };
 
 class Extractor {
     constructor() {
-        this.episodes = [];
-        this.homeEpisodes = []; // لأول 10 حلقات
+        this.movies = []; // تغيير من episodes إلى movies
+        this.homeMovies = []; // تغيير من homeEpisodes إلى homeMovies
     }
 
     async fetch(url) {
@@ -58,7 +58,7 @@ class Extractor {
         throw new Error('فشل الاتصال بجميع البروكسيات');
     }
 
-    // استخراج ID الحلقة من الرابط
+    // استخراج ID الفيلم من الرابط
     extractVideoId(link) {
         // محاولة استخراج vid من الرابط
         const vidMatch = link.match(/[?&]vid=([a-f0-9]+)/i) || 
@@ -112,9 +112,9 @@ class Extractor {
         }
     }
 
-    async extractImageFromPage(episodeLink) {
+    async extractImageFromPage(movieLink) { // تغيير من episodeLink إلى movieLink
         try {
-            const pageUrl = episodeLink.includes('video.php') ? episodeLink : episodeLink;
+            const pageUrl = movieLink.includes('video.php') ? movieLink : movieLink;
             
             const html = await this.fetch(pageUrl);
             const $ = cheerio.load(html);
@@ -142,7 +142,7 @@ class Extractor {
             const html = await this.fetch(pageUrl);
             const $ = cheerio.load(html);
             
-            const pageEpisodes = [];
+            const pageMovies = []; // تغيير من pageEpisodes إلى pageMovies
             let count = 0;
             
             $('li.col-xs-6, li.col-sm-4, li.col-md-3, .post, .item, article').each((index, element) => {
@@ -166,7 +166,7 @@ class Extractor {
                         let title = $el.find('.ellipsis').text().trim() || 
                                    $el.find('h2, h3, .title').first().text().trim() ||
                                    $el.find('img').attr('alt') ||
-                                   `حلقة ${index + 1}`;
+                                   `فيلم ${index + 1}`; // تغيير من "حلقة" إلى "فيلم"
                         
                         let image = $el.find('img').attr('src') || 
                                    $el.find('img').attr('data-src') || 
@@ -182,8 +182,8 @@ class Extractor {
                         // استخراج ID الفيديو من الرابط
                         const videoId = this.extractVideoId(link);
                         
-                        pageEpisodes.push({
-                            id: videoId || `unknown-${Date.now()}-${index}`, // استخدام ID حقيقي أو مؤقت
+                        pageMovies.push({
+                            id: videoId || `unknown-${Date.now()}-${index}`,
                             page: pageNum,
                             title: this.cleanTitle(title),
                             link: link,
@@ -202,8 +202,8 @@ class Extractor {
                 }
             });
             
-            console.log(`✅ تم استخراج ${pageEpisodes.length} حلقة من الصفحة ${pageNum}`);
-            return pageEpisodes;
+            console.log(`✅ تم استخراج ${pageMovies.length} فيلم من الصفحة ${pageNum}`); // تغيير من "حلقة" إلى "فيلم"
+            return pageMovies;
             
         } catch (error) {
             console.log(`❌ خطأ في استخراج الصفحة ${pageNum}: ${error.message}`);
@@ -211,15 +211,15 @@ class Extractor {
         }
     }
 
-    async extractServers(episode, episodeIndex, totalInPage) {
+    async extractServers(movie, movieIndex, totalInPage) { // تغيير من episode إلى movie
         try {
-            if (!episode.link || episode.link === '#') {
-                episode.servers = [];
+            if (!movie.link || movie.link === '#') {
+                movie.servers = [];
                 return;
             }
             
-            const playUrl = episode.link.replace('video.php', 'play.php');
-            console.log(`   🔗 [${episodeIndex + 1}/${totalInPage}] ${episode.title.substring(0, 30)}...`);
+            const playUrl = movie.link.replace('video.php', 'play.php');
+            console.log(`   🔗 [${movieIndex + 1}/${totalInPage}] ${movie.title.substring(0, 30)}...`);
             
             const html = await this.fetch(playUrl);
             const $ = cheerio.load(html);
@@ -249,7 +249,7 @@ class Extractor {
                 }
             });
             
-            episode.servers = servers;
+            movie.servers = servers;
             
             if (servers.length > 0) {
                 console.log(`      📺 ${servers.length} سيرفر`);
@@ -259,113 +259,113 @@ class Extractor {
             
         } catch (e) {
             console.log(`      ⚠️ فشل استخراج السيرفرات`);
-            episode.servers = [];
+            movie.servers = [];
         }
     }
 
-    async extractFullImage(episode, episodeIndex, totalInPage) {
+    async extractFullImage(movie, movieIndex, totalInPage) { // تغيير من episode إلى movie
         try {
-            if (!episode.link || episode.link === '#') {
+            if (!movie.link || movie.link === '#') {
                 return;
             }
             
             console.log(`      🖼️ جاري استخراج الصورة الكاملة...`);
             
-            const fullImage = await this.extractImageFromPage(episode.link);
+            const fullImage = await this.extractImageFromPage(movie.link);
             
             if (fullImage) {
-                episode.full_image = fullImage;
-                if (!episode.image) {
-                    episode.image = fullImage;
+                movie.full_image = fullImage;
+                if (!movie.image) {
+                    movie.image = fullImage;
                 }
-                episode.image_extracted = true;
+                movie.image_extracted = true;
                 console.log(`      ✅ تم استخراج الصورة الكاملة`);
             } else {
-                episode.full_image = '';
-                episode.image_extracted = false;
+                movie.full_image = '';
+                movie.image_extracted = false;
                 console.log(`      ⚠️ لا توجد صورة كاملة`);
             }
             
         } catch (e) {
             console.log(`      ⚠️ فشل استخراج الصورة`);
-            episode.full_image = '';
-            episode.image_extracted = false;
+            movie.full_image = '';
+            movie.image_extracted = false;
         }
     }
 
     async processPage(pageNum, limit = null, isHomePage = false) {
         console.log('\n' + '='.repeat(60));
-        console.log(`📑 معالجة الصفحة ${pageNum}${isHomePage ? ' (أول 10 حلقات للصفحة الرئيسية)' : ''}`);
+        console.log(`📑 معالجة الصفحة ${pageNum}${isHomePage ? ' (أول 30 فيلم للصفحة الرئيسية)' : ''}`); // تغيير من "حلقة" إلى "فيلم"
         console.log('='.repeat(60));
         
-        const pageEpisodes = await this.extractPage(pageNum, limit);
+        const pageMovies = await this.extractPage(pageNum, limit); // تغيير من pageEpisodes إلى pageMovies
         
-        if (pageEpisodes.length === 0) {
-            console.log(`⚠️ لا توجد حلقات في الصفحة ${pageNum}`);
+        if (pageMovies.length === 0) {
+            console.log(`⚠️ لا توجد أفلام في الصفحة ${pageNum}`); // تغيير من "حلقات" إلى "أفلام"
             return [];
         }
         
-        console.log(`\n🔄 استخراج السيرفرات والصور (${pageEpisodes.length} حلقة)...\n`);
+        console.log(`\n🔄 استخراج السيرفرات والصور (${pageMovies.length} فيلم)...\n`); // تغيير من "حلقة" إلى "فيلم"
         
-        for (let i = 0; i < pageEpisodes.length; i++) {
-            await this.extractServers(pageEpisodes[i], i, pageEpisodes.length);
-            await this.extractFullImage(pageEpisodes[i], i, pageEpisodes.length);
+        for (let i = 0; i < pageMovies.length; i++) {
+            await this.extractServers(pageMovies[i], i, pageMovies.length);
+            await this.extractFullImage(pageMovies[i], i, pageMovies.length);
             
-            if (i < pageEpisodes.length - 1) {
+            if (i < pageMovies.length - 1) {
                 await new Promise(resolve => setTimeout(resolve, 500));
             }
         }
         
-        const serversInPage = pageEpisodes.reduce((sum, ep) => sum + (ep.servers?.length || 0), 0);
-        const episodesWithServers = pageEpisodes.filter(ep => ep.servers?.length > 0).length;
-        const episodesWithImages = pageEpisodes.filter(ep => ep.full_image).length;
+        const serversInPage = pageMovies.reduce((sum, movie) => sum + (movie.servers?.length || 0), 0);
+        const moviesWithServers = pageMovies.filter(movie => movie.servers?.length > 0).length; // تغيير من episodesWithServers إلى moviesWithServers
+        const moviesWithImages = pageMovies.filter(movie => movie.full_image).length; // تغيير من episodesWithImages إلى moviesWithImages
         
         console.log('\n' + '─'.repeat(40));
         console.log(`📊 إحصائيات الصفحة ${pageNum}:`);
-        console.log(`   🎬 ${pageEpisodes.length} حلقة`);
+        console.log(`   🎬 ${pageMovies.length} فيلم`); // تغيير من "حلقة" إلى "فيلم"
         console.log(`   📺 ${serversInPage} سيرفر`);
-        console.log(`   ✨ ${episodesWithServers} حلقة تحتوي على سيرفرات`);
-        console.log(`   🖼️ ${episodesWithImages} حلقة تحتوي على صور كاملة`);
+        console.log(`   ✨ ${moviesWithServers} فيلم يحتوي على سيرفرات`); // تغيير من "حلقة" إلى "فيلم"
+        console.log(`   🖼️ ${moviesWithImages} فيلم يحتوي على صور كاملة`); // تغيير من "حلقة" إلى "فيلم"
         console.log('─'.repeat(40));
         
-        return pageEpisodes;
+        return pageMovies;
     }
 
-    // دالة جديدة: حفظ أول 10 حلقات في Home.json
-    async saveHomeEpisodes() {
-        console.log('\n🏠 حفظ أول 10 حلقات للصفحة الرئيسية...');
+    // حفظ أول 30 فيلم في Home.json
+    async saveHomeMovies() { // تغيير من saveHomeEpisodes إلى saveHomeMovies
+        console.log('\n🏠 حفظ أول 30 فيلم للصفحة الرئيسية...'); // تغيير من "حلقات" إلى "أفلام"
         
         try {
-            // استخراج أول 10 حلقات من الصفحة الأولى فقط
-            const homeEpisodes = await this.processPage(1, CONFIG.HOME_EPISODES_COUNT, true);
+            // استخراج أول 30 فيلم من الصفحة الأولى فقط
+            const homeMovies = await this.processPage(1, CONFIG.HOME_EPISODES_COUNT, true);
             
-            if (homeEpisodes.length > 0) {
+            if (homeMovies.length > 0) {
                 const filePath = path.join(CONFIG.DATA_DIR, 'Home.json');
                 
                 // تنظيف البيانات للحفظ
-                const cleanEpisodes = homeEpisodes.map(ep => ({
-                    id: ep.id,
-                    title: ep.title,
-                    link: ep.link,
-                    image: ep.full_image || ep.image,
-                    duration: ep.duration,
-                    servers: ep.servers || [],
-                    extracted_at: ep.extracted_at
+                const cleanMovies = homeMovies.map(movie => ({ // تغيير من ep إلى movie
+                    id: movie.id,
+                    title: movie.title,
+                    link: movie.link,
+                    image: movie.full_image || movie.image,
+                    duration: movie.duration,
+                    servers: movie.servers || [],
+                    extracted_at: movie.extracted_at
                 }));
                 
                 const data = {
                     type: 'home_page',
-                    episodes_count: cleanEpisodes.length,
+                    movies_count: cleanMovies.length, // تغيير من episodes_count إلى movies_count
                     updated_at: new Date().toISOString(),
-                    episodes: cleanEpisodes
+                    movies: cleanMovies // تغيير من episodes إلى movies
                 };
                 
                 await fs.writeFile(filePath, JSON.stringify(data, null, 2));
-                console.log(`✅ تم حفظ ${cleanEpisodes.length} حلقة في Home.json`);
+                console.log(`✅ تم حفظ ${cleanMovies.length} فيلم في Home.json`); // تغيير من "حلقة" إلى "فيلم"
                 
-                return cleanEpisodes;
+                return cleanMovies;
             } else {
-                console.log('⚠️ لا توجد حلقات لحفظها في Home.json');
+                console.log('⚠️ لا توجد أفلام لحفظها في Home.json'); // تغيير من "حلقات" إلى "أفلام"
                 return [];
             }
         } catch (error) {
@@ -376,31 +376,31 @@ class Extractor {
 
     async extractAll() {
         console.log('='.repeat(60));
-        console.log('🎬 مستخرج حلقات رمضان 2026 من لاروزا');
+        console.log('🎬 مستخرج أفلام عربية من لاروزا'); // تغيير العنوان
         console.log('='.repeat(60));
         
-        // أولاً: حفظ أول 10 حلقات في Home.json (يتم تجديده في كل تشغيل)
-        this.homeEpisodes = await this.saveHomeEpisodes();
+        // أولاً: حفظ أول 30 فيلم في Home.json
+        this.homeMovies = await this.saveHomeMovies(); // تغيير من homeEpisodes إلى homeMovies
         
         // ثانياً: استخراج باقي الصفحات كالمعتاد
         const totalPages = await this.getTotalPages();
         
         for (let page = 1; page <= totalPages; page++) {
-            // للصفحة الأولى، نستخرج الباقي (بعد الـ 10 الأولى)
+            // للصفحة الأولى، نستخرج الباقي (بعد الـ 30 الأولى)
             if (page === 1) {
-                // نستكمل استخراج باقي حلقات الصفحة الأولى (بعد الـ 10)
-                console.log(`\n📑 استكمال استخراج باقي حلقات الصفحة 1...`);
-                const remainingEpisodes = await this.processPage(1);
+                // نستكمل استخراج باقي أفلام الصفحة الأولى (بعد الـ 30)
+                console.log(`\n📑 استكمال استخراج باقي أفلام الصفحة 1...`); // تغيير من "حلقات" إلى "أفلام"
+                const remainingMovies = await this.processPage(1); // تغيير من remainingEpisodes إلى remainingMovies
                 
-                // نأخذ الحلقات بعد الـ 10 الأولى
-                if (remainingEpisodes.length > CONFIG.HOME_EPISODES_COUNT) {
-                    const afterHomeEpisodes = remainingEpisodes.slice(CONFIG.HOME_EPISODES_COUNT);
-                    this.episodes.push(...afterHomeEpisodes);
+                // نأخذ الأفلام بعد الـ 30 الأولى
+                if (remainingMovies.length > CONFIG.HOME_EPISODES_COUNT) {
+                    const afterHomeMovies = remainingMovies.slice(CONFIG.HOME_EPISODES_COUNT);
+                    this.movies.push(...afterHomeMovies); // تغيير من episodes إلى movies
                 }
             } else {
                 // باقي الصفحات كالمعتاد
-                const pageEpisodes = await this.processPage(page);
-                this.episodes.push(...pageEpisodes);
+                const pageMovies = await this.processPage(page); // تغيير من pageEpisodes إلى pageMovies
+                this.movies.push(...pageMovies); // تغيير من episodes إلى movies
             }
             
             if (page < totalPages) {
@@ -410,17 +410,17 @@ class Extractor {
         }
         
         // إحصائيات
-        const totalServers = this.episodes.reduce((sum, ep) => sum + (ep.servers?.length || 0), 0);
-        const episodesWithServers = this.episodes.filter(ep => ep.servers?.length > 0).length;
-        const episodesWithImages = this.episodes.filter(ep => ep.full_image).length;
+        const totalServers = this.movies.reduce((sum, movie) => sum + (movie.servers?.length || 0), 0);
+        const moviesWithServers = this.movies.filter(movie => movie.servers?.length > 0).length;
+        const moviesWithImages = this.movies.filter(movie => movie.full_image).length;
         
         console.log('\n' + '='.repeat(60));
         console.log('📊 إحصائيات عامة:');
-        console.log(`   🏠 ${this.homeEpisodes.length} حلقة في Home.json`);
+        console.log(`   🏠 ${this.homeMovies.length} فيلم في Home.json`); // تغيير من homeEpisodes إلى homeMovies
         console.log(`   📑 ${totalPages} صفحة`);
-        console.log(`   🎬 ${this.episodes.length} إجمالي الحلقات (باقي الصفحات)`);
-        console.log(`   📺 ${episodesWithServers} حلقة تحتوي على سيرفرات`);
-        console.log(`   🖼️ ${episodesWithImages} حلقة تحتوي على صور كاملة`);
+        console.log(`   🎬 ${this.movies.length} إجمالي الأفلام (باقي الصفحات)`); // تغيير من episodes إلى movies
+        console.log(`   📺 ${moviesWithServers} فيلم يحتوي على سيرفرات`);
+        console.log(`   🖼️ ${moviesWithImages} فيلم يحتوي على صور كاملة`);
         console.log(`   🔗 ${totalServers} إجمالي السيرفرات`);
         console.log('='.repeat(60));
     }
@@ -430,14 +430,14 @@ class Extractor {
         
         await fs.mkdir(CONFIG.DATA_DIR, { recursive: true });
         
-        // ملاحظة: Home.json تم حفظه مسبقاً في saveHomeEpisodes()
+        // ملاحظة: Home.json تم حفظه مسبقاً في saveHomeMovies()
         
-        // حفظ باقي الحلقات في ملفات page1.json, page2.json
-        const sortedEpisodes = [...this.episodes].sort((a, b) => (a.page || 0) - (b.page || 0));
+        // حفظ باقي الأفلام في ملفات page1.json, page2.json
+        const sortedMovies = [...this.movies].sort((a, b) => (a.page || 0) - (b.page || 0)); // تغيير من sortedEpisodes إلى sortedMovies
         
         const chunks = [];
-        for (let i = 0; i < sortedEpisodes.length; i += CONFIG.EPISODES_PER_FILE) {
-            chunks.push(sortedEpisodes.slice(i, i + CONFIG.EPISODES_PER_FILE));
+        for (let i = 0; i < sortedMovies.length; i += CONFIG.EPISODES_PER_FILE) {
+            chunks.push(sortedMovies.slice(i, i + CONFIG.EPISODES_PER_FILE));
         }
         
         for (let i = 0; i < chunks.length; i++) {
@@ -445,46 +445,46 @@ class Extractor {
             const fileName = `page${pageNum}.json`;
             const filePath = path.join(CONFIG.DATA_DIR, fileName);
             
-            const cleanEpisodes = chunks[i].map(ep => ({
-                id: ep.id,
-                page: ep.page,
-                title: ep.title,
-                link: ep.link,
-                image: ep.full_image || ep.image,
-                duration: ep.duration,
-                servers: ep.servers || [],
-                extracted_at: ep.extracted_at
+            const cleanMovies = chunks[i].map(movie => ({ // تغيير من ep إلى movie
+                id: movie.id,
+                page: movie.page,
+                title: movie.title,
+                link: movie.link,
+                image: movie.full_image || movie.image,
+                duration: movie.duration,
+                servers: movie.servers || [],
+                extracted_at: movie.extracted_at
             }));
             
             const data = {
                 page: pageNum,
                 total_pages: chunks.length,
-                total_episodes: sortedEpisodes.length,
-                episodes_in_page: chunks[i].length,
+                total_movies: sortedMovies.length, // تغيير من total_episodes إلى total_movies
+                movies_in_page: chunks[i].length, // تغيير من episodes_in_page إلى movies_in_page
                 updated_at: new Date().toISOString(),
-                episodes: cleanEpisodes
+                movies: cleanMovies // تغيير من episodes إلى movies
             };
             
             await fs.writeFile(filePath, JSON.stringify(data, null, 2));
-            console.log(`📄 ${fileName} - ${chunks[i].length} حلقة`);
+            console.log(`📄 ${fileName} - ${chunks[i].length} فيلم`); // تغيير من "حلقة" إلى "فيلم"
         }
         
-        const totalServers = sortedEpisodes.reduce((sum, ep) => sum + (ep.servers?.length || 0), 0);
-        const episodesWithImages = sortedEpisodes.filter(ep => ep.full_image).length;
+        const totalServers = sortedMovies.reduce((sum, movie) => sum + (movie.servers?.length || 0), 0);
+        const moviesWithImages = sortedMovies.filter(movie => movie.full_image).length;
         
         const indexData = {
             last_update: new Date().toISOString(),
-            total_episodes: sortedEpisodes.length,
+            total_movies: sortedMovies.length, // تغيير من total_episodes إلى total_movies
             total_pages: chunks.length,
-            episodes_per_file: CONFIG.EPISODES_PER_FILE,
+            movies_per_file: CONFIG.EPISODES_PER_FILE, // تغيير من episodes_per_file إلى movies_per_file
             files: [
-                'Home.json', // نضيف Home.json للفهرس
+                'Home.json',
                 ...chunks.map((_, i) => `page${i + 1}.json`)
             ],
             stats: {
-                home_episodes: this.homeEpisodes.length,
-                episodes_with_servers: sortedEpisodes.filter(ep => ep.servers?.length > 0).length,
-                episodes_with_images: episodesWithImages,
+                home_movies: this.homeMovies.length, // تغيير من home_episodes إلى home_movies
+                movies_with_servers: sortedMovies.filter(movie => movie.servers?.length > 0).length,
+                movies_with_images: moviesWithImages,
                 total_servers: totalServers
             }
         };
@@ -495,16 +495,16 @@ class Extractor {
         );
         
         console.log(`📄 index.json - فهرس البيانات`);
-        console.log(`📄 Home.json - أول ${this.homeEpisodes.length} حلقة للصفحة الرئيسية`);
+        console.log(`📄 Home.json - أول ${this.homeMovies.length} فيلم للصفحة الرئيسية`); // تغيير من "حلقة" إلى "فيلم"
         
-        const withServers = sortedEpisodes.filter(ep => ep.servers?.length > 0).length;
+        const withServers = sortedMovies.filter(movie => movie.servers?.length > 0).length;
         
         console.log('\n📊 الإحصائيات النهائية:');
-        console.log(`   🏠 ${this.homeEpisodes.length} حلقة (Home.json)`);
+        console.log(`   🏠 ${this.homeMovies.length} فيلم (Home.json)`); // تغيير من "حلقة" إلى "فيلم"
         console.log(`   📁 ${chunks.length} ملف (pageX.json)`);
-        console.log(`   🎬 ${sortedEpisodes.length} حلقة (باقي الصفحات)`);
-        console.log(`   📺 ${withServers} حلقة تحتوي على سيرفرات`);
-        console.log(`   🖼️ ${episodesWithImages} حلقة تحتوي على صور`);
+        console.log(`   🎬 ${sortedMovies.length} فيلم (باقي الصفحات)`); // تغيير من "حلقة" إلى "فيلم"
+        console.log(`   📺 ${withServers} فيلم يحتوي على سيرفرات`);
+        console.log(`   🖼️ ${moviesWithImages} فيلم يحتوي على صور`);
         console.log(`   🔗 ${totalServers} إجمالي السيرفرات`);
     }
 
