@@ -3,7 +3,6 @@ import path from "path";
 import { JSDOM } from "jsdom";
 import { fileURLToPath } from "url";
 import { performance } from "perf_hooks";
-import https from "https";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,37 +16,36 @@ const EPISODES_DIR = path.join(AG_SERIES_DIR, "Episodes");
 const CACHE_DIR = path.join(AG_SERIES_DIR, "Cache");
 const PROGRESS_FILE = path.join(AG_SERIES_DIR, "series_progress.json");
 const HOME_SERIES_FILE = path.join(TV_SERIES_DIR, "Home.json");
-const UPDATE_TRACKER_FILE = path.join(AG_SERIES_DIR, "update_tracker.json");
+const LOGS_DIR = path.join(AG_SERIES_DIR, "Logs");
 
-// إنشاء المجلدات بشكل متوازي
+// إنشاء المجلدات
 const createDirectories = async () => {
     console.log("📁 جاري إنشاء المجلدات...");
-    const dirs = [SERIES_DIR, AG_SERIES_DIR, TV_SERIES_DIR, SEASONS_DIR, EPISODES_DIR, CACHE_DIR];
+    const dirs = [SERIES_DIR, AG_SERIES_DIR, TV_SERIES_DIR, SEASONS_DIR, EPISODES_DIR, CACHE_DIR, LOGS_DIR];
     
-    await Promise.all(dirs.map(async (dir) => {
+    for (const dir of dirs) {
         if (!fs.existsSync(dir)) {
-            await fs.promises.mkdir(dir, { recursive: true });
+            fs.mkdirSync(dir, { recursive: true });
             console.log(`   ✅ تم إنشاء: ${path.basename(dir)}`);
         }
-    }));
-    
+    }
     console.log("✅ اكتمل إنشاء المجلدات\n");
 };
 
 await createDirectories();
 
-// ==================== إعدادات النظام المحسنة ====================
+// ==================== إعدادات النظام ====================
 const CONFIG = {
     itemsPerFile: {
         series: 50,
         seasons: 100,
         episodes: 500
     },
-    pagesPerRun: 3, // بالضبط 3 صفحات في كل تشغيل
-    requestDelay: 1000, // 1 ثانية بين الطلبات
+    pagesPerRun: 3, // استخراج 3 صفحات في كل تشغيل
+    requestDelay: 1500, // 1.5 ثانية بين الطلبات
     maxRetries: 3,
-    concurrentRequests: 2, // طلبين متوازيين كحد أقصى
-    cacheTTL: 3600000, // ساعة واحدة للتخزين المؤقت
+    concurrentRequests: 2,
+    cacheTTL: 3600000, // ساعة
     requestTimeout: 30000,
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 };
@@ -61,12 +59,12 @@ class CacheManager {
     }
 
     getCachePath(url) {
-        const hash = Buffer.from(url).toString('base64').replace(/[/+=]/g, '_');
+        const hash = Buffer.from(url).toString('base64').replace(/[/+=]/g, '_').substring(0, 100);
         return path.join(this.cacheDir, `${hash}.json`);
     }
 
     async get(url) {
-        // فحص الذاكرة المؤقتة أولاً
+        // فحص الذاكرة المؤقتة
         if (this.memoryCache.has(url)) {
             const cached = this.memoryCache.get(url);
             if (Date.now() - cached.timestamp < this.ttl) {
@@ -79,9 +77,9 @@ class CacheManager {
         const cachePath = this.getCachePath(url);
         try {
             if (fs.existsSync(cachePath)) {
-                const stats = await fs.promises.stat(cachePath);
+                const stats = fs.statSync(cachePath);
                 if (Date.now() - stats.mtimeMs < this.ttl) {
-                    const data = JSON.parse(await fs.promises.readFile(cachePath, 'utf8'));
+                    const data = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
                     this.memoryCache.set(url, { data, timestamp: Date.now() });
                     return data;
                 }
@@ -93,33 +91,33 @@ class CacheManager {
     }
 
     async set(url, data) {
-        // تخزين في الذاكرة
         this.memoryCache.set(url, { data, timestamp: Date.now() });
-
-        // تخزين في ملف (بشكل غير متزامن دون انتظار)
+        
+        // تخزين في ملف (بشكل غير متزامن)
         const cachePath = this.getCachePath(url);
-        fs.promises.writeFile(cachePath, JSON.stringify(data, null, 2)).catch(() => {});
-    }
-
-    clear() {
-        this.memoryCache.clear();
+        fs.writeFile(cachePath, JSON.stringify(data, null, 2), () => {});
     }
 }
 
-// ==================== نظام طلبات HTTP محسّن ====================
+// ==================== نظام طلبات HTTP ====================
 class HttpClient {
     constructor(cacheManager) {
         this.cacheManager = cacheManager;
         this.requestQueue = [];
         this.activeRequests = 0;
         this.lastRequestTime = 0;
+        this.stats = {
+            totalRequests: 0,
+            cacheHits: 0,
+            failedRequests: 0
+        };
     }
 
     async fetch(url, useCache = true) {
         if (useCache) {
             const cached = await this.cacheManager.get(url);
             if (cached) {
-                console.log(`   🔵 من الكاش: ${url.substring(0, 50)}...`);
+                this.stats.cacheHits++;
                 return cached;
             }
         }
@@ -153,12 +151,13 @@ class HttpClient {
         try {
             const result = await this.executeRequest(url);
             this.lastRequestTime = Date.now();
+            this.stats.totalRequests++;
             
-            // تخزين في الكاش
             await this.cacheManager.set(url, result);
             
             resolve(result);
         } catch (error) {
+            this.stats.failedRequests++;
             reject(error);
         } finally {
             this.activeRequests--;
@@ -190,6 +189,9 @@ class HttpClient {
                 clearTimeout(timeoutId);
 
                 if (!response.ok) {
+                    if (response.status === 404) {
+                        return null; // صفحة غير موجودة
+                    }
                     throw new Error(`HTTP ${response.status}`);
                 }
 
@@ -197,17 +199,25 @@ class HttpClient {
                 return html;
 
             } catch (error) {
+                if (error.name === 'AbortError') {
+                    console.log(`   ⏱️ انتهاء مهلة الطلب`);
+                }
                 if (i === retries - 1) throw error;
             }
         }
     }
+
+    getStats() {
+        return this.stats;
+    }
 }
 
-// ==================== نظام تتبع التقدم المحسّن ====================
+// ==================== نظام تتبع التقدم ====================
 class ProgressTracker {
     constructor() {
         this.loadProgress();
         this.startTime = performance.now();
+        this.pagesProcessedThisSession = 0;
     }
 
     loadProgress() {
@@ -225,19 +235,17 @@ class ProgressTracker {
                 this.episodeFileNumber = data.episodeFileNumber || 1;
                 this.episodesInCurrentFile = data.episodesInCurrentFile || 0;
                 
-                this.pagesProcessedThisRun = data.pagesProcessedThisRun || 0;
-                this.targetPages = CONFIG.pagesPerRun;
-                this.mode = data.mode || "scrape_series";
-                this.allPagesScraped = data.allPagesScraped || false;
-                
                 this.totalExtracted = data.totalExtracted || {
                     series: 0,
                     seasons: 0,
                     episodes: 0
                 };
                 
+                this.lastRunDate = data.lastRunDate || null;
+                this.totalPagesScraped = data.totalPagesScraped || 0;
+                
                 console.log(`📊 تم استئناف العمل من الصفحة ${this.seriesPage}`);
-                console.log(`🎯 سيتم استخراج ${this.targetPages} صفحات في هذا التشغيل`);
+                console.log(`📊 إجمالي الصفحات المستخرجة سابقاً: ${this.totalPagesScraped}`);
                 
             } else {
                 this.resetProgress();
@@ -256,11 +264,9 @@ class ProgressTracker {
         this.seasonsInCurrentFile = 0;
         this.episodeFileNumber = 1;
         this.episodesInCurrentFile = 0;
-        this.pagesProcessedThisRun = 0;
-        this.targetPages = CONFIG.pagesPerRun;
-        this.mode = "scrape_series";
-        this.allPagesScraped = false;
         this.totalExtracted = { series: 0, seasons: 0, episodes: 0 };
+        this.lastRunDate = null;
+        this.totalPagesScraped = 0;
         this.saveProgress();
     }
 
@@ -273,11 +279,9 @@ class ProgressTracker {
             seasonsInCurrentFile: this.seasonsInCurrentFile,
             episodeFileNumber: this.episodeFileNumber,
             episodesInCurrentFile: this.episodesInCurrentFile,
-            pagesProcessedThisRun: this.pagesProcessedThisRun,
-            targetPages: this.targetPages,
-            mode: this.mode,
-            allPagesScraped: this.allPagesScraped,
             totalExtracted: this.totalExtracted,
+            lastRunDate: new Date().toISOString(),
+            totalPagesScraped: this.totalPagesScraped,
             lastUpdate: new Date().toISOString()
         };
         
@@ -285,15 +289,19 @@ class ProgressTracker {
     }
 
     canProcessMorePages() {
-        return this.pagesProcessedThisRun < this.targetPages && !this.allPagesScraped;
+        return this.pagesProcessedThisSession < CONFIG.pagesPerRun;
     }
 
-    markPageProcessed() {
-        this.pagesProcessedThisRun++;
-        this.seriesPage++;
+    markPageProcessed(success = true) {
+        if (success) {
+            this.pagesProcessedThisSession++;
+            this.seriesPage++;
+            this.totalPagesScraped++;
+        }
         this.saveProgress();
         
-        console.log(`\n📊 تقدم التشغيل: ${this.pagesProcessedThisRun}/${this.targetPages} صفحات`);
+        console.log(`\n📊 تقدم الجلسة: ${this.pagesProcessedThisSession}/${CONFIG.pagesPerRun} صفحات`);
+        console.log(`📊 إجمالي الصفحات: ${this.totalPagesScraped}`);
     }
 
     addToCount(type) {
@@ -305,6 +313,7 @@ class ProgressTracker {
                 if (this.seriesInCurrentFile >= CONFIG.itemsPerFile.series) {
                     this.seriesFileNumber++;
                     this.seriesInCurrentFile = 0;
+                    console.log(`\n📁 ملف مسلسلات جديد: Page${this.seriesFileNumber}.json`);
                 }
                 break;
             case 'seasons':
@@ -312,6 +321,7 @@ class ProgressTracker {
                 if (this.seasonsInCurrentFile >= CONFIG.itemsPerFile.seasons) {
                     this.seasonFileNumber++;
                     this.seasonsInCurrentFile = 0;
+                    console.log(`\n📁 ملف مواسم جديد: Page${this.seasonFileNumber}.json`);
                 }
                 break;
             case 'episodes':
@@ -319,6 +329,7 @@ class ProgressTracker {
                 if (this.episodesInCurrentFile >= CONFIG.itemsPerFile.episodes) {
                     this.episodeFileNumber++;
                     this.episodesInCurrentFile = 0;
+                    console.log(`\n📁 ملف حلقات جديد: Page${this.episodeFileNumber}.json`);
                 }
                 break;
         }
@@ -329,70 +340,67 @@ class ProgressTracker {
     getElapsedTime() {
         return ((performance.now() - this.startTime) / 1000).toFixed(1);
     }
+
+    resetSession() {
+        this.pagesProcessedThisSession = 0;
+        this.startTime = performance.now();
+    }
 }
 
-// ==================== نظام الحفظ المحسّن ====================
+// ==================== نظام الحفظ ====================
 class StorageManager {
     constructor(progress) {
         this.progress = progress;
-        this.writeQueue = [];
-        this.isWriting = false;
     }
 
     async saveItem(directory, fileName, item, type) {
         const filePath = path.join(directory, fileName);
         
-        return new Promise((resolve) => {
-            this.writeQueue.push({ filePath, item, type, resolve });
-            this.processQueue();
-        });
+        try {
+            let data = { info: {}, data: [] };
+            
+            if (fs.existsSync(filePath)) {
+                const content = fs.readFileSync(filePath, 'utf8');
+                data = JSON.parse(content);
+            } else {
+                data.info = {
+                    type,
+                    fileName: path.basename(filePath),
+                    created: new Date().toISOString(),
+                    totalItems: 0
+                };
+            }
+            
+            data.data.push(item);
+            data.info.totalItems = data.data.length;
+            data.info.lastUpdated = new Date().toISOString();
+            
+            fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+            this.progress.addToCount(type);
+            
+            return { success: true, file: path.basename(filePath) };
+        } catch (error) {
+            console.log(`   ⚠️ خطأ في الحفظ: ${error.message}`);
+            return { success: false, error: error.message };
+        }
     }
 
-    async processQueue() {
-        if (this.isWriting || this.writeQueue.length === 0) return;
-        
-        this.isWriting = true;
-        
-        while (this.writeQueue.length > 0) {
-            const batch = this.writeQueue.splice(0, 5); // معالجة 5 عمليات في الدفعة
+    async itemExists(directory, itemId) {
+        try {
+            const files = fs.readdirSync(directory).filter(f => f.endsWith('.json'));
             
-            await Promise.all(batch.map(async ({ filePath, item, type, resolve }) => {
-                try {
-                    let data = { info: {}, data: [] };
-                    
-                    if (fs.existsSync(filePath)) {
-                        const content = await fs.promises.readFile(filePath, 'utf8');
-                        data = JSON.parse(content);
-                    } else {
-                        data.info = {
-                            type,
-                            fileName: path.basename(filePath),
-                            created: new Date().toISOString(),
-                            totalItems: 0
-                        };
-                    }
-                    
-                    data.data.push(item);
-                    data.info.totalItems = data.data.length;
-                    data.info.lastUpdated = new Date().toISOString();
-                    
-                    await fs.promises.writeFile(filePath, JSON.stringify(data, null, 2));
-                    this.progress.addToCount(type);
-                    
-                    resolve({ success: true, file: path.basename(filePath) });
-                } catch (error) {
-                    console.log(`⚠️ خطأ في الحفظ: ${error.message}`);
-                    resolve({ success: false, error: error.message });
+            for (const file of files) {
+                const filePath = path.join(directory, file);
+                const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                
+                if (content.data?.some(item => item.id === itemId)) {
+                    return true;
                 }
-            }));
-            
-            // تأخير صغير بين الدفعات
-            if (this.writeQueue.length > 0) {
-                await new Promise(r => setTimeout(r, 100));
             }
+        } catch (error) {
+            // تجاهل الأخطاء
         }
-        
-        this.isWriting = false;
+        return false;
     }
 }
 
@@ -421,8 +429,10 @@ const extractId = (shortLink) => {
     }
 };
 
-// ==================== استخراج البيانات الأساسية ====================
-const extractDownloadServers = async (doc, httpClient) => {
+const delay = (ms) => new Promise(r => setTimeout(r, ms));
+
+// ==================== استخراج سيرفرات التحميل ====================
+const extractDownloadServers = async (doc) => {
     const servers = {};
     
     try {
@@ -447,7 +457,6 @@ const extractDownloadServers = async (doc, httpClient) => {
             }
         }
         
-        // سيرفر Pro
         const proServer = doc.querySelector('.proServer a.downloadsLink');
         if (proServer) {
             if (!servers["متعدد الجودات"]) servers["متعدد الجودات"] = [];
@@ -483,10 +492,20 @@ const extractSeriesList = async (pageNum, httpClient) => {
     console.log(`\n📺 صفحة ${pageNum}: ${url}`);
     
     const doc = await fetchPageData(url, httpClient);
-    if (!doc) return [];
+    if (!doc) return { success: false, series: [], isEmpty: true };
     
     const series = [];
     const elements = doc.querySelectorAll('.Small--Box a');
+    
+    // تحقق إذا كانت الصفحة فارغة (انتهى المحتوى)
+    if (elements.length === 0) {
+        // تحقق من وجود رسالة خطأ
+        const errorMsg = doc.querySelector('.error, .not-found, .no-results');
+        if (errorMsg || !doc.querySelector('.main-content, .posts, .articles')) {
+            console.log(`   ℹ️ الصفحة ${pageNum} لا تحتوي على مسلسلات (نهاية المحتوى)`);
+            return { success: true, series: [], isEmpty: true };
+        }
+    }
     
     elements.forEach((el, i) => {
         const seriesUrl = el.href;
@@ -502,8 +521,13 @@ const extractSeriesList = async (pageNum, httpClient) => {
         }
     });
     
+    if (series.length === 0) {
+        console.log(`   ℹ️ الصفحة ${pageNum} لا تحتوي على مسلسلات`);
+        return { success: true, series: [], isEmpty: true };
+    }
+    
     console.log(`✅ وجد ${series.length} مسلسل`);
-    return series;
+    return { success: true, series, isEmpty: false };
 };
 
 // ==================== استخراج تفاصيل المسلسل ====================
@@ -517,10 +541,19 @@ const extractSeriesDetails = async (seriesData, httpClient) => {
     
     const details = {};
     doc.querySelectorAll(".RightTaxContent li").forEach(item => {
-        const label = item.querySelector("span")?.textContent?.replace(":", "").trim();
-        if (label) {
-            const links = item.querySelectorAll("a");
-            details[label] = links.length ? Array.from(links).map(a => cleanText(a.textContent)) : cleanText(item.textContent.split(":").slice(1).join(":"));
+        const labelElement = item.querySelector("span");
+        if (labelElement) {
+            const label = cleanText(labelElement.textContent).replace(":", "").trim();
+            if (label) {
+                const links = item.querySelectorAll("a");
+                if (links.length > 0) {
+                    details[label] = Array.from(links).map(a => cleanText(a.textContent));
+                } else {
+                    const text = cleanText(item.textContent);
+                    const value = text.split(":").slice(1).join(":").trim();
+                    details[label] = value;
+                }
+            }
         }
     });
     
@@ -552,16 +585,32 @@ const extractSeasons = async (seriesUrl, httpClient) => {
     seasonElements.forEach((el, i) => {
         const link = el.querySelector('a');
         if (link?.href) {
-            const seasonNum = i + 1;
+            const seasonNumber = i + 1;
             seasons.push({
                 url: link.href,
-                title: cleanText(el.querySelector('.title')?.textContent) || `الموسم ${seasonNum}`,
+                title: cleanText(el.querySelector('.title')?.textContent) || `الموسم ${seasonNumber}`,
                 image: el.querySelector('img')?.src,
-                seasonNumber: seasonNum,
+                seasonNumber,
                 position: i + 1
             });
         }
     });
+    
+    // إذا لم نجد مواسم بالطريقة الأولى، ابحث عن روابط مواسم
+    if (seasons.length === 0) {
+        const seasonLinks = doc.querySelectorAll('a[href*="season"], a[href*="موسم"]');
+        seasonLinks.forEach((link, i) => {
+            if (link.href?.includes('topcinema.rip')) {
+                const seasonNumber = i + 1;
+                seasons.push({
+                    url: link.href,
+                    title: cleanText(link.textContent) || `الموسم ${seasonNumber}`,
+                    seasonNumber,
+                    position: i + 1
+                });
+            }
+        });
+    }
     
     console.log(`   ✅ وجد ${seasons.length} موسم`);
     return seasons;
@@ -576,14 +625,14 @@ const extractSeasonDetails = async (seasonData, seriesId, httpClient) => {
     
     const shortLink = doc.querySelector('#shortlink')?.value || seasonData.url;
     
-    // محاولة العثور على رابط التحميل الكامل
+    // البحث عن رابط التحميل الكامل
     const downloadLink = doc.querySelector('a.downloadFullSeason, a[href*="download"][href*="season"]')?.href;
     
     let downloadServers = {};
     if (downloadLink) {
         const downloadDoc = await fetchPageData(downloadLink, httpClient);
         if (downloadDoc) {
-            downloadServers = await extractDownloadServers(downloadDoc, httpClient);
+            downloadServers = await extractDownloadServers(downloadDoc);
         }
     }
     
@@ -609,19 +658,37 @@ const extractEpisodes = async (seasonUrl, httpClient) => {
     if (!doc) return [];
     
     const episodes = [];
+    
+    // الطريقة الأولى: قسم الحلقات المحدد
     const episodeSection = doc.querySelector('section.allepcont.getMoreByScroll');
     
     if (episodeSection) {
         const links = episodeSection.querySelectorAll('a[href*="topcinema.rip"]');
         
         links.forEach((link, i) => {
-            const episodeNum = i + 1;
+            const episodeNumber = i + 1;
             episodes.push({
                 url: link.href,
-                title: cleanText(link.querySelector('.ep-info h2')?.textContent || link.textContent) || `الحلقة ${episodeNum}`,
-                episodeNumber: episodeNum,
+                title: cleanText(link.querySelector('.ep-info h2, h2, .title')?.textContent || link.textContent) || `الحلقة ${episodeNumber}`,
+                episodeNumber,
                 position: i + 1
             });
+        });
+    }
+    
+    // الطريقة الثانية: البحث عن روابط حلقات
+    if (episodes.length === 0) {
+        const episodeLinks = doc.querySelectorAll('a[href*="حلقة"], a[href*="episode"]');
+        episodeLinks.forEach((link, i) => {
+            if (link.href?.includes('topcinema.rip')) {
+                const episodeNumber = i + 1;
+                episodes.push({
+                    url: link.href,
+                    title: cleanText(link.textContent) || `الحلقة ${episodeNumber}`,
+                    episodeNumber,
+                    position: i + 1
+                });
+            }
         });
     }
     
@@ -651,10 +718,10 @@ const extractEpisodeDetails = async (episodeData, seriesId, seasonId, httpClient
     if (downloadLink) {
         const downloadDoc = await fetchPageData(downloadLink, httpClient);
         if (downloadDoc) {
-            downloadServers = await extractDownloadServers(downloadDoc, httpClient);
+            downloadServers = await extractDownloadServers(downloadDoc);
         }
     } else {
-        downloadServers = await extractDownloadServers(doc, httpClient);
+        downloadServers = await extractDownloadServers(doc);
     }
     
     return {
@@ -671,7 +738,7 @@ const extractEpisodeDetails = async (episodeData, seriesId, seasonId, httpClient
     };
 };
 
-// ==================== الصفحة الرئيسية ====================
+// ==================== مراقبة الصفحة الرئيسية ====================
 const fetchHomeSeries = async (httpClient) => {
     console.log("\n🏠 جلب المسلسلات من الصفحة الرئيسية");
     
@@ -708,69 +775,99 @@ class SeriesScraper {
         this.http = new HttpClient(this.cache);
         this.progress = new ProgressTracker();
         this.storage = new StorageManager(this.progress);
+        this.stats = {
+            pagesProcessed: 0,
+            seriesProcessed: 0,
+            seasonsProcessed: 0,
+            episodesProcessed: 0,
+            startTime: Date.now()
+        };
     }
 
     async processSeriesPage(pageNum) {
-        console.log(`\n📊 معالجة صفحة المسلسلات ${pageNum}`);
+        console.log(`\n${'='.repeat(50)}`);
+        console.log(`📊 معالجة صفحة المسلسلات ${pageNum}`);
+        console.log(`${'='.repeat(50)}`);
         
-        const seriesList = await extractSeriesList(pageNum, this.http);
-        if (seriesList.length === 0) {
-            this.progress.allPagesScraped = true;
+        const result = await extractSeriesList(pageNum, this.http);
+        
+        if (!result.success || result.isEmpty) {
+            console.log(`\n🏁 وصلنا إلى نهاية المسلسلات في الصفحة ${pageNum}`);
             return false;
         }
+        
+        const seriesList = result.series;
+        let seriesProcessed = 0;
         
         for (let i = 0; i < seriesList.length; i++) {
             const series = seriesList[i];
             
+            // التحقق من وجود المسلسل مسبقاً
             const details = await extractSeriesDetails(series, this.http);
             if (!details) continue;
             
-            // حفظ المسلسل
-            const fileName = `Page${this.progress.seriesFileNumber}.json`;
-            await this.storage.saveItem(TV_SERIES_DIR, fileName, details, 'series');
+            const exists = await this.storage.itemExists(TV_SERIES_DIR, details.id);
             
-            // استخراج المواسم
-            const seasons = await extractSeasons(details.url, this.http);
-            
-            for (const season of seasons) {
-                const seasonDetails = await extractSeasonDetails(season, details.id, this.http);
-                if (!seasonDetails) continue;
+            if (!exists) {
+                // حفظ المسلسل الجديد
+                const fileName = `Page${this.progress.seriesFileNumber}.json`;
+                await this.storage.saveItem(TV_SERIES_DIR, fileName, details, 'series');
+                seriesProcessed++;
+                this.stats.seriesProcessed++;
                 
-                // حفظ الموسم
-                const seasonFileName = `Page${this.progress.seasonFileNumber}.json`;
-                await this.storage.saveItem(SEASONS_DIR, seasonFileName, seasonDetails, 'seasons');
+                // استخراج المواسم
+                const seasons = await extractSeasons(details.url, this.http);
                 
-                // استخراج الحلقات
-                const episodes = await extractEpisodes(seasonDetails.url, this.http);
-                
-                for (const episode of episodes) {
-                    const episodeDetails = await extractEpisodeDetails(episode, details.id, seasonDetails.id, this.http);
-                    if (!episodeDetails) continue;
+                for (const season of seasons) {
+                    const seasonDetails = await extractSeasonDetails(season, details.id, this.http);
+                    if (!seasonDetails) continue;
                     
-                    // حفظ الحلقة
-                    const episodeFileName = `Page${this.progress.episodeFileNumber}.json`;
-                    await this.storage.saveItem(EPISODES_DIR, episodeFileName, episodeDetails, 'episodes');
+                    // حفظ الموسم
+                    const seasonFileName = `Page${this.progress.seasonFileNumber}.json`;
+                    await this.storage.saveItem(SEASONS_DIR, seasonFileName, seasonDetails, 'seasons');
+                    this.stats.seasonsProcessed++;
                     
-                    // تأخير بين الحلقات
-                    await new Promise(r => setTimeout(r, 500));
+                    // استخراج الحلقات
+                    const episodes = await extractEpisodes(seasonDetails.url, this.http);
+                    
+                    for (const episode of episodes) {
+                        const episodeDetails = await extractEpisodeDetails(episode, details.id, seasonDetails.id, this.http);
+                        if (!episodeDetails) continue;
+                        
+                        // حفظ الحلقة
+                        const episodeFileName = `Page${this.progress.episodeFileNumber}.json`;
+                        await this.storage.saveItem(EPISODES_DIR, episodeFileName, episodeDetails, 'episodes');
+                        this.stats.episodesProcessed++;
+                        
+                        // تأخير بين الحلقات
+                        await delay(500);
+                    }
+                    
+                    // تأخير بين المواسم
+                    await delay(1000);
                 }
-                
-                // تأخير بين المواسم
-                await new Promise(r => setTimeout(r, 1000));
+            } else {
+                console.log(`   ✅ موجود مسبقاً (تخطي)`);
             }
             
-            // تأخير بين المسلسلات
-            await new Promise(r => setTimeout(r, 1500));
-            
             // عرض تقدم المسلسلات
-            console.log(`   ✅ اكتمل ${i + 1}/${seriesList.length} مسلسل`);
+            console.log(`   ✅ تقدم: ${i + 1}/${seriesList.length} مسلسل`);
+            
+            // تأخير بين المسلسلات
+            await delay(1500);
         }
+        
+        console.log(`\n📊 نتائج الصفحة ${pageNum}:`);
+        console.log(`   🆕 مسلسلات جديدة: ${seriesProcessed}`);
+        console.log(`   📊 إجمالي المسلسلات: ${seriesList.length}`);
         
         return true;
     }
 
     async monitorHomePage() {
-        console.log("\n🏁 بدء مراقبة الصفحة الرئيسية");
+        console.log("\n" + "=".repeat(50));
+        console.log("🏁 بدء مراقبة الصفحة الرئيسية");
+        console.log("=".repeat(50));
         
         const homeSeries = await fetchHomeSeries(this.http);
         
@@ -785,25 +882,23 @@ class SeriesScraper {
             data: homeSeries
         };
         
-        await fs.promises.writeFile(HOME_SERIES_FILE, JSON.stringify(homeData, null, 2));
+        fs.writeFileSync(HOME_SERIES_FILE, JSON.stringify(homeData, null, 2));
         console.log(`💾 تم تحديث Home.json (${homeSeries.length} مسلسل)`);
         
         let newCount = 0;
-        let updatedCount = 0;
         
-        for (let i = 0; i < homeSeries.length; i++) {
+        for (let i = 0; i < Math.min(homeSeries.length, 10); i++) { // نفحص أول 10 مسلسلات فقط في كل مرة
             const series = homeSeries[i];
-            console.log(`\n📊 [${i + 1}/${homeSeries.length}] ${series.title.substring(0, 40)}...`);
+            console.log(`\n📊 [${i + 1}/10] ${series.title.substring(0, 40)}...`);
             
             const details = await extractSeriesDetails(series, this.http);
             if (!details) continue;
             
-            // التحقق من وجود المسلسل
-            const seriesExists = await this.checkSeriesExists(details.id);
+            const exists = await this.storage.itemExists(TV_SERIES_DIR, details.id);
             
-            if (!seriesExists) {
+            if (!exists) {
                 newCount++;
-                console.log(`   🆕 مسلسل جديد`);
+                console.log(`   🆕 مسلسل جديد!`);
                 
                 // حفظ المسلسل الجديد
                 const fileName = `Page${this.progress.seriesFileNumber}.json`;
@@ -818,34 +913,14 @@ class SeriesScraper {
                     const seasonFileName = `Page${this.progress.seasonFileNumber}.json`;
                     await this.storage.saveItem(SEASONS_DIR, seasonFileName, seasonDetails, 'seasons');
                 }
-            } else {
-                console.log(`   ✅ مسجل مسبقاً`);
-                updatedCount++;
             }
             
-            await new Promise(r => setTimeout(r, 1000));
+            await delay(1000);
         }
         
         console.log(`\n📊 نتائج المراقبة:`);
         console.log(`   🆕 مسلسلات جديدة: ${newCount}`);
-        console.log(`   🔄 مسلسلات موجودة: ${updatedCount}`);
-    }
-
-    async checkSeriesExists(seriesId) {
-        try {
-            const files = await fs.promises.readdir(TV_SERIES_DIR);
-            for (const file of files) {
-                if (!file.endsWith('.json')) continue;
-                
-                const content = JSON.parse(await fs.promises.readFile(path.join(TV_SERIES_DIR, file), 'utf8'));
-                if (content.data?.some(item => item.id === seriesId)) {
-                    return true;
-                }
-            }
-        } catch (error) {
-            // تجاهل الأخطاء
-        }
-        return false;
+        console.log(`   📊 إجمالي مسلسلات الصفحة الرئيسية: ${homeSeries.length}`);
     }
 
     async run() {
@@ -858,49 +933,89 @@ class SeriesScraper {
         console.log(`   📅 مواسم: ${this.progress.totalExtracted.seasons}`);
         console.log(`   🎥 حلقات: ${this.progress.totalExtracted.episodes}`);
         console.log(`   📄 الصفحة الحالية: ${this.progress.seriesPage}`);
+        console.log(`   📊 إجمالي الصفحات المستخرجة: ${this.progress.totalPagesScraped}`);
         
-        if (this.progress.mode === 'scrape_series') {
-            console.log(`\n🎯 سيتم استخراج ${this.progress.targetPages} صفحات`);
+        console.log(`\n🎯 سيتم استخراج ${CONFIG.pagesPerRun} صفحات في هذه الجلسة`);
+        
+        this.progress.resetSession();
+        
+        // استخراج الصفحات المطلوبة
+        while (this.progress.canProcessMorePages()) {
+            const currentPage = this.progress.seriesPage;
+            const hasMore = await this.processSeriesPage(currentPage);
             
-            while (this.progress.canProcessMorePages()) {
-                const currentPage = this.progress.seriesPage;
-                const hasMore = await this.processSeriesPage(currentPage);
-                
-                if (!hasMore) {
-                    console.log("\n🏁 تم استخراج جميع الصفحات!");
-                    this.progress.allPagesScraped = true;
-                    break;
-                }
-                
-                this.progress.markPageProcessed();
-                
-                if (this.progress.canProcessMorePages()) {
-                    console.log(`\n⏳ انتظار 3 ثواني قبل الصفحة التالية...`);
-                    await new Promise(r => setTimeout(r, 3000));
-                }
+            if (!hasMore) {
+                console.log(`\n🏁 تم استخراج جميع الصفحات المتاحة (إجمالي ${this.progress.totalPagesScraped} صفحة)`);
+                break;
             }
             
-            // إذا اكتملت جميع الصفحات، انتقل لوضع المراقبة
-            if (this.progress.allPagesScraped) {
-                console.log(`\n🔄 الانتقال لوضع مراقبة الصفحة الرئيسية...`);
-                this.progress.mode = 'monitor_home';
-                this.progress.saveProgress();
-                await this.monitorHomePage();
-            }
+            this.progress.markPageProcessed(true);
+            this.stats.pagesProcessed++;
             
-        } else if (this.progress.mode === 'monitor_home') {
+            if (this.progress.canProcessMorePages()) {
+                console.log(`\n⏳ انتظار 5 ثواني قبل الصفحة التالية...`);
+                await delay(5000);
+            }
+        }
+        
+        // عرض إحصائيات الجلسة
+        const elapsed = this.progress.getElapsedTime();
+        const endTime = Date.now();
+        const totalTime = ((endTime - this.stats.startTime) / 1000).toFixed(1);
+        
+        console.log("\n" + "=".repeat(60));
+        console.log("📊 تقرير نهاية الجلسة");
+        console.log("=".repeat(60));
+        
+        console.log(`⏱️ وقت التنفيذ: ${totalTime} ثانية`);
+        console.log(`📊 الصفحات المعالجة: ${this.stats.pagesProcessed}`);
+        console.log(`   🆕 مسلسلات جديدة: ${this.stats.seriesProcessed}`);
+        console.log(`   🆕 مواسم جديدة: ${this.stats.seasonsProcessed}`);
+        console.log(`   🆕 حلقات جديدة: ${this.stats.episodesProcessed}`);
+        
+        console.log(`\n📊 الإحصائيات التراكمية:`);
+        console.log(`   📺 إجمالي المسلسلات: ${this.progress.totalExtracted.series}`);
+        console.log(`   📅 إجمالي المواسم: ${this.progress.totalExtracted.seasons}`);
+        console.log(`   🎥 إجمالي الحلقات: ${this.progress.totalExtracted.episodes}`);
+        console.log(`   📄 آخر صفحة: ${this.progress.seriesPage}`);
+        console.log(`   📊 إجمالي الصفحات: ${this.progress.totalPagesScraped}`);
+        
+        // إحصائيات HTTP
+        const httpStats = this.http.getStats();
+        console.log(`\n🌐 إحصائيات الطلبات:`);
+        console.log(`   📤 طلبات ناجحة: ${httpStats.totalRequests}`);
+        console.log(`   💾 من الكاش: ${httpStats.cacheHits}`);
+        console.log(`   ❌ طلبات فاشلة: ${httpStats.failedRequests}`);
+        
+        // إذا اكتملت الصفحات، انتقل لوضع المراقبة
+        if (this.progress.totalPagesScraped >= 55) { // افترض أن الموقع يحتوي على 55 صفحة
+            console.log(`\n🔄 تم استخراج 55 صفحة، الانتقال لوضع مراقبة الصفحة الرئيسية...`);
             await this.monitorHomePage();
         }
         
-        // تقرير النهاية
-        const elapsed = this.progress.getElapsedTime();
         console.log("\n" + "=".repeat(60));
-        console.log(`✅ اكتمل التشغيل بنجاح في ${elapsed} ثانية`);
-        console.log(`📊 الإحصائيات النهائية:`);
-        console.log(`   📺 مسلسلات: ${this.progress.totalExtracted.series}`);
-        console.log(`   📅 مواسم: ${this.progress.totalExtracted.seasons}`);
-        console.log(`   🎥 حلقات: ${this.progress.totalExtracted.episodes}`);
+        console.log("✅ اكتملت الجلسة بنجاح");
         console.log("=".repeat(60));
+        
+        // حفظ تقرير الجلسة
+        const sessionReport = {
+            timestamp: new Date().toISOString(),
+            duration: totalTime,
+            pagesProcessed: this.stats.pagesProcessed,
+            newSeries: this.stats.seriesProcessed,
+            newSeasons: this.stats.seasonsProcessed,
+            newEpisodes: this.stats.episodesProcessed,
+            currentPage: this.progress.seriesPage,
+            totalPages: this.progress.totalPagesScraped,
+            totalSeries: this.progress.totalExtracted.series,
+            totalSeasons: this.progress.totalExtracted.seasons,
+            totalEpisodes: this.progress.totalExtracted.episodes,
+            httpStats: httpStats
+        };
+        
+        const reportFile = path.join(LOGS_DIR, `session_${Date.now()}.json`);
+        fs.writeFileSync(reportFile, JSON.stringify(sessionReport, null, 2));
+        console.log(`📄 تم حفظ تقرير الجلسة في: ${reportFile}`);
     }
 }
 
@@ -908,5 +1023,17 @@ class SeriesScraper {
 const scraper = new SeriesScraper();
 scraper.run().catch(error => {
     console.error("\n💥 خطأ غير متوقع:", error.message);
+    console.error(error.stack);
+    
+    // حفظ خطأ
+    const errorReport = {
+        timestamp: new Date().toISOString(),
+        error: error.message,
+        stack: error.stack
+    };
+    
+    const errorFile = path.join(LOGS_DIR, `error_${Date.now()}.json`);
+    fs.writeFileSync(errorFile, JSON.stringify(errorReport, null, 2));
+    console.log(`❌ تم حفظ الخطأ في: ${errorFile}`);
     process.exit(1);
 });
