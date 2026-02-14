@@ -18,20 +18,14 @@ jobs:
     - name: إعداد Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'  # ★ غيرنا من 18 إلى 20 ★
-    
-    - name: حذف الـ cache القديم
-      run: |
-        rm -rf node_modules package-lock.json
-        npm cache clean --force
-    
-    - name: تثبيت الحزم من جديد
-      run: |
-        npm init -y
-        npm install axios@1.6.2 cheerio@1.0.0-rc.12
+        node-version: '20'
+        cache: 'npm' # ★ إضافة تخزين مؤقت لتسريع التثبيت ★
+
+    - name: تثبيت الحزم
+      run: npm ci # ★ استخدام npm ci للتثبيت من package-lock.json (أسرع وأدق) ★
     
     - name: تشغيل المستخرج
-      run: node extractor.js
+      run: npm start # ★ أو node extractor.js مباشرة ★
     
     - name: حفظ البيانات
       run: |
