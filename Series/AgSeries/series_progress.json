@@ -1,19 +1,17 @@
 {
-  "seriesPage": 4,
-  "seriesFileNumber": 2,
-  "seriesInCurrentFile": 40,
-  "seasonFileNumber": 3,
-  "seasonsInCurrentFile": 41,
+  "seriesPage": 7,
+  "seriesFileNumber": 3,
+  "seriesInCurrentFile": 19,
+  "seasonFileNumber": 4,
+  "seasonsInCurrentFile": 43,
   "episodeFileNumber": 6,
-  "episodesInCurrentFile": 28,
-  "pagesProcessedThisRun": 3,
-  "targetPages": 3,
-  "mode": "scrape_series",
-  "allPagesScraped": false,
+  "episodesInCurrentFile": 481,
   "totalExtracted": {
-    "series": 90,
-    "seasons": 241,
-    "episodes": 2528
+    "series": 119,
+    "seasons": 343,
+    "episodes": 2981
   },
-  "lastUpdate": "2026-02-14T16:38:41.695Z"
+  "lastRunDate": "2026-02-14T23:42:12.850Z",
+  "totalPagesScraped": 3,
+  "lastUpdate": "2026-02-14T23:42:12.850Z"
 }
