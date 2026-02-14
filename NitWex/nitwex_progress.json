@@ -1,0 +1,26 @@
+{
+  "currentChannelIndex": 2,
+  "currentChannelPage": 1,
+  "processedChannels": [
+    {
+      "name": "GUMEChannel",
+      "date": "2026-02-14T14:36:17.166Z",
+      "videosCount": 25
+    },
+    {
+      "name": "Shahid",
+      "date": "2026-02-14T14:36:22.070Z",
+      "videosCount": 30
+    }
+  ],
+  "channelsProcessedThisRun": 2,
+  "targetChannelsPerRun": 2,
+  "videoFileNumber": 1,
+  "videosInCurrentFile": 30,
+  "totalExtracted": {
+    "channels": 2,
+    "videos": 30
+  },
+  "lastRunDate": "2026-02-14T14:36:22.070Z",
+  "lastUpdate": "2026-02-14T14:36:22.070Z"
+}
