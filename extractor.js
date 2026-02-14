@@ -526,13 +526,16 @@ class Extractor {
     }
 }
 
+// ========== التعديل هنا ==========
 // التشغيل الرئيسي
-try {
-    const extractor = new Extractor();
-    await extractor.extractAll();
-    await extractor.saveFiles();
-    console.log('\n✅ تم الانتهاء بنجاح!');
-} catch (error) {
-    console.error('\n❌ خطأ:', error.message);
-    process.exit(1);
-}
+(async () => {
+    try {
+        const extractor = new Extractor();
+        await extractor.extractAll();
+        await extractor.saveFiles();
+        console.log('\n✅ تم الانتهاء بنجاح!');
+    } catch (error) {
+        console.error('\n❌ خطأ:', error.message);
+        process.exit(1);
+    }
+})();
