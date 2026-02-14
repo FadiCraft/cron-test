@@ -18,46 +18,49 @@ if (!fs.existsSync(FOOTBALL_DIR)) {
 // ==================== إعدادات المواقع ====================
 const SITES = {
     MAIN: "https://www.kooratimes.com/",
-    STREAM_DOMAIN: "https://10.stremach.live"
+    STREAM_DOMAIN: "https://10.stremach.live",
+    IMAGE_DOMAINS: [
+        "https://www.kooralive07.live",
+        "https://www.livekoratv.com",
+        "https://www.kooratimes.com",
+        "https://www.mop-kora-live.com"
+    ]
 };
 
-// ==================== أنماط الروابط المعروفة ====================
-const MATCH_URL_PATTERNS = [
-    {
-        // نمط روابط المباريات المعتادة
-        pattern: /^\/202[4-6]\/\d{2}\/[^\/]+\.html$/,
-        domain: SITES.STREAM_DOMAIN
-    },
-    {
-        // نمط روابط صفحات المباريات على الموقع الرئيسي
-        pattern: /^\/matches\/[^\/]+\/$/,
-        domain: SITES.MAIN.replace(/\/$/, '')
-    }
-];
-
-// ==================== fetch مع timeout ====================
-async function fetchWithTimeout(url, timeout = 15000) {
+// ==================== fetch مع timeout وتحسين الهيدرز ====================
+async function fetchWithTimeout(url, timeout = 15000, isImage = false) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
+    
+    // هيدرز مخصصة للصور
+    const headers = isImage ? {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8',
+        'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
+        'Referer': SITES.MAIN,
+        'Connection': 'keep-alive',
+        'Sec-Fetch-Dest': 'image',
+        'Sec-Fetch-Mode': 'no-cors',
+        'Sec-Fetch-Site': 'cross-site'
+    } : {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
+        'Referer': SITES.MAIN,
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+    };
     
     try {
         const response = await fetch(url, {
             signal: controller.signal,
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-                'Referer': SITES.MAIN,
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-            }
+            headers: headers
         });
         
         clearTimeout(timeoutId);
         
         if (!response.ok) {
-            console.log(`   ⚠️ استجابة غير ناجحة: ${response.status}`);
             return null;
         }
         
@@ -65,83 +68,48 @@ async function fetchWithTimeout(url, timeout = 15000) {
         
     } catch (error) {
         clearTimeout(timeoutId);
-        if (error.name === 'AbortError') {
-            console.log(`   ⏱️ انتهى الوقت: ${url.substring(0, 60)}...`);
-        }
         return null;
     }
 }
 
-// ==================== بناء رابط المباراة ====================
-function buildMatchUrl(matchData) {
+// ==================== دالة لإصلاح روابط الصور ====================
+function fixImageUrl(url) {
+    if (!url) return null;
+    
     try {
-        // محاولة بناء رابط بناءً على أسماء الفرق والبطولة
-        const team1 = matchData.team1.name;
-        const team2 = matchData.team2.name;
-        const tournament = matchData.tournament;
+        // إزالة الـ data-src والاحتفاظ بالرابط فقط
+        let cleanUrl = url.replace(/^data:image\/.*?base64,.*$/, '').trim();
         
-        // استخراج اسم القناة من البطولة أو الوقت
-        let channel = "bein";
-        if (tournament.includes('أفريقيا')) {
-            channel = "bein";
-        } else if (tournament.includes('إسبانيا')) {
-            channel = "bein";
-        } else if (tournament.includes('إنجلترا')) {
-            channel = "bein";
-        } else if (tournament.includes('ألمانيا')) {
-            channel = "bein";
-        } else if (tournament.includes('فرنسا')) {
-            channel = "bein";
-        } else if (tournament.includes('إيطاليا')) {
-            channel = "ad";
-        } else if (tournament.includes('السعودية')) {
-            channel = "ssc";
+        // إذا كان الرابط يبدأ بـ // نضيف https:
+        if (cleanUrl.startsWith('//')) {
+            cleanUrl = 'https:' + cleanUrl;
         }
         
-        // استخراج رقم القناة (محاولة)
-        let channelNumber = "";
-        if (matchData.time) {
-            const hour = matchData.time.split(':')[0];
-            if (hour >= 22) channelNumber = "1";
-            else if (hour >= 21) channelNumber = "2";
-            else if (hour >= 19) channelNumber = "3";
-            else if (hour >= 18) channelNumber = "4";
-            else if (hour >= 17) channelNumber = "5";
-            else channelNumber = "6";
+        // إذا كان الرابط نسبي (يبدأ بـ /)
+        if (cleanUrl.startsWith('/')) {
+            // نجرب الدومينات المختلفة
+            for (const domain of SITES.IMAGE_DOMAINS) {
+                const fullUrl = domain + cleanUrl;
+                // نرجع أول دومين (سنحاول لاحقاً)
+                return fullUrl;
+            }
         }
         
-        // إنشاء الرابط
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        
-        // قائمة الروابط المحتملة
-        const possibleUrls = [
-            `${SITES.STREAM_DOMAIN}/${year}/${month}/${channel}${channelNumber}hd.html`,
-            `${SITES.STREAM_DOMAIN}/${year}/${month}/${channel}${channelNumber}.html`,
-            `${SITES.STREAM_DOMAIN}/${year}/${month}/bein-sport-${channelNumber}hd.html`,
-            `${SITES.STREAM_DOMAIN}/${year}/${month}/blog-post-${channelNumber}bein.html`,
-        ];
-        
-        // إضافة روابط خاصة
-        if (team1.includes('ريال مدريد') || team2.includes('ريال مدريد')) {
-            possibleUrls.unshift(`${SITES.STREAM_DOMAIN}/${year}/${month}/bein-sport-1hd.html`);
-        }
-        if (team1.includes('إنتر ميلان') || team2.includes('يوفنتوس')) {
-            possibleUrls.unshift(`${SITES.STREAM_DOMAIN}/${year}/${month}/ad-sport-1hd.html`);
+        // التأكد أن الرابط يبدأ بـ http
+        if (!cleanUrl.startsWith('http')) {
+            return SITES.IMAGE_DOMAINS[0] + '/' + cleanUrl.replace(/^\/+/, '');
         }
         
-        return possibleUrls[0]; // نرجع أول رابط كاحتمال
+        return cleanUrl;
         
-    } catch (error) {
-        console.log(`   ⚠️ خطأ في بناء الرابط: ${error.message}`);
+    } catch {
         return null;
     }
 }
 
 // ==================== دالة لاستخراج السيرفر من صفحة المشاهدة ====================
 async function extractStreamServer(matchUrl) {
-    console.log(`   🔍 جلب سيرفر المشاهدة من: ${matchUrl.substring(0, 60)}...`);
+    console.log(`   🔍 جلب سيرفر المشاهدة...`);
     
     const html = await fetchWithTimeout(matchUrl);
     
@@ -154,14 +122,16 @@ async function extractStreamServer(matchUrl) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
-        // البحث عن iframe
+        // 1. البحث عن iframe بالطريقة المباشرة
         const iframes = doc.querySelectorAll('iframe');
+        console.log(`   🔍 فحص ${iframes.length} iframe`);
         
         for (const iframe of iframes) {
             const src = iframe.getAttribute('src');
             if (!src) continue;
             
-            // تنظيف الرابط
+            console.log(`   ✅ وجد iframe: ${src.substring(0, 80)}...`);
+            
             let cleanUrl = src.trim();
             if (cleanUrl.startsWith('//')) {
                 cleanUrl = 'https:' + cleanUrl;
@@ -176,23 +146,42 @@ async function extractStreamServer(matchUrl) {
             };
         }
         
-        // البحث عن أي رابط سيرفر
-        const serverLinks = doc.querySelectorAll('a[href*="albaplayer"], a[href*="koooralive"], a[href*="pl.koooralive"]');
-        if (serverLinks.length > 0) {
-            const href = serverLinks[0].getAttribute('href');
+        // 2. البحث في محتوى الصفحة عن روابط السيرفرات
+        const htmlContent = html.toLowerCase();
+        
+        // البحث عن رابط albaplayer
+        const albaplayerMatch = htmlContent.match(/(?:src|href)=["'](https?:\/\/[^"']*albaplayer[^"']*)["']/i);
+        if (albaplayerMatch) {
+            const url = albaplayerMatch[1];
+            console.log(`   ✅ وجد albaplayer في النص`);
             return {
-                type: 'link',
-                url: href,
+                type: 'iframe',
+                url: url,
                 quality: "HD",
-                server: extractServerName(href),
+                server: "AlbaPlayer",
                 id: `server_${Date.now()}`
             };
         }
         
+        // 3. البحث عن أي رابط لـ pl.koooralive.click
+        const kooraLiveMatch = htmlContent.match(/(?:src|href)=["'](https?:\/\/[^"']*koooralive\.click[^"']*)["']/i);
+        if (kooraLiveMatch) {
+            const url = kooraLiveMatch[1];
+            console.log(`   ✅ وجد رابط KooraLive`);
+            return {
+                type: 'iframe',
+                url: url,
+                quality: "HD",
+                server: "KooraLive",
+                id: `server_${Date.now()}`
+            };
+        }
+        
+        console.log(`   ⚠️ لم يتم العثور على سيرفر`);
         return null;
         
     } catch (error) {
-        console.log(`   ❌ خطأ في استخراج السيرفر: ${error.message}`);
+        console.log(`   ❌ خطأ: ${error.message}`);
         return null;
     }
 }
@@ -226,54 +215,64 @@ async function fetchMatchesFromPage() {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن عناصر المباريات - الطريقة الجديدة
-        const matchContainers = doc.querySelectorAll('.AY_Match, .match-item, [class*="match"]');
+        // البحث عن عناصر المباريات - الطريقة الصحيحة
+        const matchElements = doc.querySelectorAll('.AY_Match');
         
-        console.log(`✅ وجد ${matchContainers.length} عنصر مباراة`);
+        console.log(`✅ وجد ${matchElements.length} مباراة`);
         
-        for (let index = 0; index < matchContainers.length; index++) {
-            const element = matchContainers[index];
+        for (let index = 0; index < matchElements.length; index++) {
+            const element = matchElements[index];
             
             try {
-                // استخراج أسماء الفرق
-                let team1Name = "غير معروف";
-                let team2Name = "غير معروف";
+                // استخراج رابط المباراة من عنصر a داخل MT_Mask
+                const linkElement = element.querySelector('.MT_Mask a');
+                let matchUrl = linkElement ? linkElement.getAttribute('href') : null;
                 
-                // محاولة استخراج أسماء الفرق بعدة طرق
-                const teamElements = element.querySelectorAll('.MT_Team .TM_Name, .team-name, [class*="team"]');
-                
-                if (teamElements.length >= 2) {
-                    team1Name = teamElements[0].textContent.trim();
-                    team2Name = teamElements[1].textContent.trim();
-                } else {
-                    // إذا ما لقينا عناصر الفرق، نبحث عن النص في عناصر معينة
-                    const allText = element.textContent;
-                    const teamNames = extractTeamNames(allText);
-                    if (teamNames) {
-                        team1Name = teamNames.team1;
-                        team2Name = teamNames.team2;
+                // إذا ما لقينا رابط، نجرب البحث في onclick أو أي مصدر آخر
+                if (!matchUrl) {
+                    const onclick = element.querySelector('[onclick*="location"]')?.getAttribute('onclick');
+                    if (onclick) {
+                        const urlMatch = onclick.match(/location\.href\s*=\s*['"]([^'"]+)['"]/);
+                        if (urlMatch) matchUrl = urlMatch[1];
                     }
                 }
                 
-                // استخراج الوقت
-                let matchTime = "غير معروف";
-                const timeElement = element.querySelector('.MT_Time, .time, [class*="time"]');
-                if (timeElement) {
-                    matchTime = timeElement.textContent.trim();
-                } else {
-                    // البحث عن وقت في النص (مثل 15:00)
-                    const timeMatch = element.textContent.match(/(\d{1,2}:\d{2})/);
-                    if (timeMatch) matchTime = timeMatch[1];
+                // استخراج أسماء الفرق
+                const team1Element = element.querySelector('.MT_Team.TM1 .TM_Name');
+                const team2Element = element.querySelector('.MT_Team.TM2 .TM_Name');
+                
+                let team1Name = team1Element ? team1Element.textContent.trim() : "غير معروف";
+                let team2Name = team2Element ? team2Element.textContent.trim() : "غير معروف";
+                
+                // استخراج شعارات الفرق - مع إصلاح الروابط
+                let team1Logo = null;
+                let team2Logo = null;
+                
+                const team1Img = element.querySelector('.MT_Team.TM1 .TM_Logo img');
+                const team2Img = element.querySelector('.MT_Team.TM2 .TM_Logo img');
+                
+                if (team1Img) {
+                    team1Logo = team1Img.getAttribute('src') || team1Img.getAttribute('data-src');
+                    team1Logo = fixImageUrl(team1Logo);
                 }
                 
+                if (team2Img) {
+                    team2Logo = team2Img.getAttribute('src') || team2Img.getAttribute('data-src');
+                    team2Logo = fixImageUrl(team2Logo);
+                }
+                
+                // استخراج الوقت
+                const timeElement = element.querySelector('.MT_Data .MT_Time');
+                const matchTime = timeElement ? timeElement.textContent.trim() : "غير معروف";
+                
                 // استخراج النتيجة
+                const resultElement = element.querySelector('.MT_Data .MT_Result');
                 let team1Score = "0";
                 let team2Score = "0";
                 let score = "0 - 0";
                 
-                const resultElement = element.querySelector('.MT_Result, .result, [class*="score"]');
                 if (resultElement) {
-                    const goals = resultElement.querySelectorAll('.RS-goals, [class*="goal"]');
+                    const goals = resultElement.querySelectorAll('.RS-goals');
                     if (goals.length === 2) {
                         team1Score = goals[0].textContent.trim();
                         team2Score = goals[1].textContent.trim();
@@ -282,49 +281,52 @@ async function fetchMatchesFromPage() {
                 }
                 
                 // استخراج حالة المباراة
-                let matchStatus = "غير معروف";
-                const statusElement = element.querySelector('.MT_Stat, .status, [class*="status"]');
-                if (statusElement) {
-                    matchStatus = statusElement.textContent.trim();
-                }
+                const statusElement = element.querySelector('.MT_Data .MT_Stat');
+                let matchStatus = statusElement ? statusElement.textContent.trim() : "غير معروف";
                 
-                // توحيد الحالات
+                // توحيد حالات المباراة
                 if (matchStatus.includes('جارية')) matchStatus = "جارية الآن";
                 else if (matchStatus.includes('بعد قليل')) matchStatus = "لم تبدأ بعد";
                 else if (matchStatus.includes('لم تبدأ')) matchStatus = "لم تبدأ بعد";
                 else if (matchStatus.includes('انتهت')) matchStatus = "انتهت";
                 
                 // استخراج البطولة
-                let tournament = "غير محدد";
-                const tourElement = element.querySelector('.TourName, .tournament, [class*="tour"]');
-                if (tourElement) {
-                    tournament = tourElement.textContent.trim();
-                } else {
-                    // البحث عن البطولة في النص
-                    const tourMatch = element.textContent.match(/([^\d,]+,\s*[^\d]+)/);
-                    if (tourMatch) tournament = tourMatch[1].trim();
+                const tourElement = element.querySelector('.MT_Data .TourName');
+                let tournament = tourElement ? tourElement.textContent.trim() : "غير محدد";
+                
+                // تحديد القنوات الناقلة
+                const channels = [];
+                if (tournament.includes('إسبانيا')) channels.push("beIN Sports");
+                if (tournament.includes('إنجلترا')) channels.push("beIN Sports");
+                if (tournament.includes('ألمانيا')) channels.push("beIN Sports");
+                if (tournament.includes('فرنسا')) channels.push("beIN Sports");
+                if (tournament.includes('إيطاليا')) channels.push("AD Sports");
+                if (tournament.includes('السعودية')) channels.push("SSC");
+                if (tournament.includes('أفريقيا')) channels.push("beIN Sports");
+                
+                // بناء رابط المشاهدة إذا لم يكن موجوداً
+                if (!matchUrl) {
+                    const today = new Date();
+                    const year = today.getFullYear();
+                    const month = String(today.getMonth() + 1).padStart(2, '0');
+                    
+                    // تحديد القناة المناسبة
+                    let channelPrefix = "bein";
+                    if (tournament.includes('إيطاليا')) channelPrefix = "ad";
+                    else if (tournament.includes('السعودية')) channelPrefix = "ssc";
+                    
+                    // محاولة تحديد رقم القناة
+                    let channelNum = "2";
+                    if (matchTime) {
+                        const hour = parseInt(matchTime.split(':')[0]);
+                        if (hour >= 22) channelNum = "1";
+                        else if (hour >= 20) channelNum = "2";
+                        else if (hour >= 18) channelNum = "3";
+                        else channelNum = "4";
+                    }
+                    
+                    matchUrl = `${SITES.STREAM_DOMAIN}/${year}/${month}/${channelPrefix}${channelNum}hd.html`;
                 }
-                
-                // استخراج الشعارات
-                let team1Logo = null;
-                let team2Logo = null;
-                
-                const logos = element.querySelectorAll('img');
-                if (logos.length >= 2) {
-                    team1Logo = logos[0].getAttribute('src') || logos[0].getAttribute('data-src');
-                    team2Logo = logos[1].getAttribute('src') || logos[1].getAttribute('data-src');
-                }
-                
-                // بناء كائن المباراة
-                const matchData = {
-                    team1: { name: team1Name },
-                    team2: { name: team2Name },
-                    tournament: tournament,
-                    time: matchTime
-                };
-                
-                // بناء رابط المباراة
-                const matchUrl = buildMatchUrl(matchData);
                 
                 const match = {
                     id: `match_${Date.now()}_${index}`,
@@ -343,7 +345,7 @@ async function fetchMatchesFromPage() {
                     score: score,
                     time: matchTime,
                     status: matchStatus,
-                    channels: determineChannels(tournament, matchUrl),
+                    channels: [...new Set(channels)],
                     tournament: tournament,
                     position: index + 1,
                     scrapedAt: new Date().toISOString(),
@@ -352,16 +354,18 @@ async function fetchMatchesFromPage() {
                 
                 matches.push(match);
                 
-                console.log(`   ✓ ${index + 1}: ${match.title} (${match.status})`);
-                console.log(`     الوقت: ${matchTime} | البطولة: ${tournament.substring(0, 30)}...`);
-                console.log(`     الرابط: ${matchUrl || 'غير متوفر'}`);
+                console.log(`   ✓ ${index + 1}: ${match.title}`);
+                console.log(`     ⏱️ ${matchTime} | ${match.status}`);
+                console.log(`     🏆 ${tournament.substring(0, 30)}...`);
+                if (team1Logo) console.log(`     🖼️ شعار 1: موجود`);
+                if (team2Logo) console.log(`     🖼️ شعار 2: موجود`);
                 
             } catch (error) {
-                console.log(`   ✗ خطأ في عنصر ${index + 1}: ${error.message}`);
+                console.log(`   ✗ خطأ في مباراة ${index + 1}: ${error.message}`);
             }
         }
         
-        console.log(`🎯 تم استخراج ${matches.length} مباراة`);
+        console.log(`\n🎯 تم استخراج ${matches.length} مباراة`);
         
         return {
             url: url,
@@ -376,64 +380,12 @@ async function fetchMatchesFromPage() {
     }
 }
 
-// ==================== دوال مساعدة ====================
-function extractTeamNames(text) {
-    try {
-        // قائمة بأسماء الفرق المعروفة
-        const knownTeams = [
-            'ريال مدريد', 'برشلونة', 'أتلتيكو مدريد', 'إشبيلية', 'فالنسيا',
-            'بايرن ميونخ', 'بوروسيا دورتموند', 'لايبزيج', 'باير ليفركوزن',
-            'مانشستر سيتي', 'مانشستر يونايتد', 'ليفربول', 'تشيلسي', 'آرسنال',
-            'إنتر ميلان', 'ميلان', 'يوفنتوس', 'روما', 'نابولي',
-            'باريس سان جيرمان', 'مارسيليا', 'ليون', 'موناكو',
-            'الهلال', 'النصر', 'الاتحاد', 'الأهلي', 'الزمالك', 'بيراميدز',
-            'الترجي', 'النجم', 'الصفاقسي', 'الوداد', 'الرجاء', 'الجيش'
-        ];
-        
-        // البحث عن أسماء الفرق في النص
-        let foundTeams = [];
-        knownTeams.forEach(team => {
-            if (text.includes(team)) {
-                foundTeams.push(team);
-            }
-        });
-        
-        if (foundTeams.length >= 2) {
-            return { team1: foundTeams[0], team2: foundTeams[1] };
-        }
-        
-        return null;
-        
-    } catch {
-        return null;
-    }
-}
-
-function determineChannels(tournament, url) {
-    const channels = [];
-    
-    if (tournament.includes('إسبانيا')) channels.push("beIN Sports");
-    if (tournament.includes('إنجلترا')) channels.push("beIN Sports");
-    if (tournament.includes('ألمانيا')) channels.push("beIN Sports");
-    if (tournament.includes('فرنسا')) channels.push("beIN Sports");
-    if (tournament.includes('إيطاليا')) channels.push("AD Sports");
-    if (tournament.includes('السعودية')) channels.push("SSC");
-    if (tournament.includes('أفريقيا')) channels.push("beIN Sports");
-    
-    if (url) {
-        if (url.includes('bein')) channels.push("beIN Sports");
-        if (url.includes('ssc')) channels.push("SSC");
-        if (url.includes('ad-sport')) channels.push("AD Sports");
-    }
-    
-    return [...new Set(channels)]; // إزالة التكرار
-}
-
-// ==================== استخراج سيرفرات المشاهدة ====================
+// ==================== استخراج سيرفرات المشاهدة للمباريات ====================
 async function fetchMatchesStreams(matches) {
-    console.log(`\n🔍 جلب سيرفرات المشاهدة لـ ${matches.length} مباراة...`);
+    console.log(`\n🔍 جلب سيرفرات المشاهدة...`);
     
     const matchesWithStreams = [];
+    let successCount = 0;
     
     for (let i = 0; i < matches.length; i++) {
         const match = matches[i];
@@ -441,22 +393,14 @@ async function fetchMatchesStreams(matches) {
         console.log(`\n${i + 1}/${matches.length}: ${match.title}`);
         
         if (match.status === "جارية الآن" || match.status === "لم تبدأ بعد") {
-            if (match.url) {
-                try {
-                    const streamServer = await extractStreamServer(match.url);
-                    match.streamServer = streamServer;
-                    
-                    if (streamServer) {
-                        console.log(`   ✅ تم العثور على سيرفر`);
-                    } else {
-                        console.log(`   ⚠️ لا يوجد سيرفر`);
-                    }
-                    
-                } catch (error) {
-                    console.log(`   ❌ خطأ: ${error.message}`);
-                }
+            const streamServer = await extractStreamServer(match.url);
+            
+            if (streamServer) {
+                match.streamServer = streamServer;
+                successCount++;
+                console.log(`   ✅ تم العثور على سيرفر: ${streamServer.server}`);
             } else {
-                console.log(`   ⚠️ لا يوجد رابط للمباراة`);
+                console.log(`   ⚠️ لا يوجد سيرفر`);
             }
         } else {
             console.log(`   ⏭️ ${match.status}`);
@@ -464,15 +408,18 @@ async function fetchMatchesStreams(matches) {
         
         matchesWithStreams.push(match);
         
+        // تأخير بين الطلبات
         if (i < matches.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 800));
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
+    
+    console.log(`\n📊 تم العثور على ${successCount} سيرفر من ${matches.length} مباراة`);
     
     return matchesWithStreams;
 }
 
-// ==================== حفظ البيانات ====================
+// ==================== حفظ البيانات في Hg.json ====================
 function saveToHgFile(data) {
     try {
         const outputData = {
@@ -495,15 +442,25 @@ function saveToHgFile(data) {
         const liveMatches = data.filter(m => m.status === "جارية الآن").length;
         const upcomingMatches = data.filter(m => m.status === "لم تبدأ بعد").length;
         const finishedMatches = data.filter(m => m.status === "انتهت").length;
-        const matchesWithUrls = data.filter(m => m.url).length;
-        const matchesWithStreams = data.filter(m => m.streamServer && m.streamServer.url).length;
+        const matchesWithLogos = data.filter(m => m.team1.logo || m.team2.logo).length;
+        const matchesWithStreams = data.filter(m => m.streamServer).length;
         
         console.log(`\n📈 إحصائيات:`);
         console.log(`   - المباريات الجارية: ${liveMatches}`);
         console.log(`   - المباريات القادمة: ${upcomingMatches}`);
         console.log(`   - المباريات المنتهية: ${finishedMatches}`);
-        console.log(`   - مباريات بروابط: ${matchesWithUrls}/${data.length}`);
+        console.log(`   - مباريات بشعارات: ${matchesWithLogos}`);
         console.log(`   - مباريات بسيرفرات: ${matchesWithStreams}`);
+        
+        // عرض أمثلة
+        console.log(`\n📋 أمثلة:`);
+        data.slice(0, 3).forEach((match, idx) => {
+            console.log(`\n   ${idx + 1}. ${match.title}`);
+            console.log(`     السيرفر: ${match.streamServer?.server || 'لا يوجد'}`);
+            if (match.streamServer) {
+                console.log(`     الرابط: ${match.streamServer.url.substring(0, 60)}...`);
+            }
+        });
         
         return outputData;
         
@@ -523,13 +480,6 @@ async function main() {
         
         if (!pageData || pageData.matches.length === 0) {
             console.log("\n❌ لم يتم العثور على مباريات");
-            
-            fs.writeFileSync(OUTPUT_FILE, JSON.stringify({
-                error: "لم يتم العثور على مباريات",
-                scrapedAt: new Date().toISOString(),
-                matches: []
-            }, null, 2));
-            
             return { success: false, total: 0 };
         }
         
@@ -538,22 +488,14 @@ async function main() {
         
         if (savedData) {
             console.log(`\n🎉 تم الانتهاء بنجاح!`);
-            
-            return { 
-                success: true, 
-                total: savedData.matches.length,
-                live: savedData.matches.filter(m => m.status === "جارية الآن").length,
-                upcoming: savedData.matches.filter(m => m.status === "لم تبدأ بعد").length,
-                finished: savedData.matches.filter(m => m.status === "انتهت").length,
-                filePath: OUTPUT_FILE 
-            };
+            return { success: true, total: savedData.matches.length };
         }
         
         return { success: false, total: 0 };
         
     } catch (error) {
         console.error(`\n💥 خطأ غير متوقع: ${error.message}`);
-        process.exit(1);
+        return { success: false, error: error.message };
     }
 }
 
