@@ -35,7 +35,7 @@ const CONFIG = {
     itemsPerFile: 200,          // 200 فيديو في كل ملف Part
     homeItemsCount: 30,          // 30 فيديو في Home.json
     channelsPerRun: 2,           // عدد القنوات في كل تشغيل
-    videosPerChannel: 50,        // عدد الفيديوهات من كل قناة
+    videosPerChannel: Infinity,        // عدد الفيديوهات من كل قناة
     requestDelay: 1000,
     maxRetries: 3,
     concurrentRequests: 2,
@@ -45,15 +45,7 @@ const CONFIG = {
 
 // ==================== قائمة القنوات المستهدفة ====================
 const TARGET_CHANNELS = [
-    { name: "GUMEChannel", category: "short_films", language: "ar" },
-    { name: "Shahid", category: "series", language: "ar" },
-    { name: "MBCGroup", category: "entertainment", language: "ar" },
-    { name: "Rotana", category: "music", language: "ar" },
-    { name: "AlJazeera", category: "documentary", language: "ar" },
-    { name: "DubaiTV", category: "entertainment", language: "ar" },
-    { name: "AbuDhabiTV", category: "general", language: "ar" },
-    { name: "KuwaitTV", category: "general", language: "ar" },
-    // يمكنك إضافة المزيد
+    { name: "Arcadia.Zone", category: "gaming", language: "en" }
 ];
 
 // ==================== دالة لتوليد أرقام عشوائية ====================
