@@ -1,41 +1,100 @@
-name: استخراج افلام عربيه من لاروزا
+name: Laroza Arabic Movies Scraper
+
 on:
   schedule:
-   - cron: '0 0 */5 * *'
-  workflow_dispatch:
-  push:
-    branches: [ main ]
+    - cron: "0 */6 * * *"  # كل 6 ساعات
+  workflow_dispatch:  # يسمح بالتشغيل اليدوي
 
 jobs:
-  extract:
+  scrape:
     runs-on: ubuntu-latest
     
     steps:
-    - name: جلب الكود
-      uses: actions/checkout@v3
-      
-    - name: إعداد Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'  # ★ غيرنا من 18 إلى 20 ★
-    
-    - name: حذف الـ cache القديم
-      run: |
-        rm -rf node_modules package-lock.json
-        npm cache clean --force
-    
-    - name: تثبيت الحزم من جديد
-      run: |
-        npm init -y
-        npm install axios@1.6.2 cheerio@1.0.0-rc.12
-    
-    - name: تشغيل المستخرج
-      run: node laroza_arabic.js
-    
-    - name: حفظ البيانات
-      run: |
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
-        git add data/
-        git diff --quiet && git diff --staged --quiet || git commit -m "تحديث تلقائي: $(date '+%Y-%m-%d %H:%M')"
-        git push
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Install dependencies
+        run: |
+          npm init -y
+          npm install axios cheerio
+
+      - name: 📂 Create necessary directories
+        run: |
+          mkdir -p Larozaa/ArabicMovies
+          echo "📁 Created directories:"
+          ls -la Larozaa/ArabicMovies/
+
+      - name: 🎬 Create scraper script
+        run: |
+          cat > laroza_arabic.js << 'EOF'
+          // هنا ضع الكود الكامل للسكريبت (الذي أرسلته سابقاً)
+          EOF
+
+      - name: 🚀 Run Laroza scraper
+        id: scrape
+        run: |
+          echo "🚀 Starting Laroza scraper..."
+          echo "⏱️ Start time: $(date)"
+          
+          # تشغيل السكريبت
+          node laroza_arabic.js 2>&1 | tee scraper_output.log
+          
+          echo "⏱️ End time: $(date)"
+
+      - name: 📊 Show results
+        run: |
+          echo "📊 نتائج التشغيل:"
+          echo "=================="
+          echo "📁 Larozaa folder:"
+          ls -la Larozaa/
+          echo "=================="
+          echo "🎬 ArabicMovies folder:"
+          ls -la Larozaa/ArabicMovies/ || true
+          echo "=================="
+          echo "📄 Home.json:"
+          cat Larozaa/ArabicMovies/Home.json 2>/dev/null || echo "لا يوجد Home.json بعد"
+          echo "=================="
+          echo "📊 الملفات الموجودة:"
+          find Larozaa/ArabicMovies -name "*.json" | wc -l
+
+      - name: 💾 Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # التأكد من وجود .gitignore
+          if [ ! -f ".gitignore" ]; then
+            echo "node_modules/" > .gitignore
+            echo "Larozaa/" >> .gitignore
+          fi
+          
+          # إضافة المجلدات المطلوبة فقط
+          git add Larozaa/
+          git add *.js
+          
+          # عمل commit إذا فيه تغييرات
+          if git diff --staged --quiet; then
+            echo "ℹ️ No changes to commit"
+          else
+            # حساب عدد الأفلام
+            MOVIES_COUNT=$(find Larozaa/ArabicMovies -name "*.json" -exec cat {} \; | grep -c '"title"' || echo 0)
+            
+            git commit -m "🤖 Laroza update - $(date +'%Y-%m-%d %H:%M') - $MOVIES_COUNT movies"
+            git push
+            echo "✅ Changes pushed successfully"
+          fi
+
+      - name: 📤 Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: laroza-logs
+          path: |
+            scraper_output.log
+            Larozaa/ArabicMovies/*.json
+          retention-days: 7
