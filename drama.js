@@ -7,17 +7,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ==================== إعدادات المسارات ====================
-const NITWEX_DIR = path.join(__dirname, "NitWex");
-const CHANNELS_DIR = path.join(NITWEX_DIR, "Channels");
-const VIDEOS_DIR = path.join(NITWEX_DIR, "Videos");
-const CACHE_DIR = path.join(NITWEX_DIR, "Cache");
-const PROGRESS_FILE = path.join(NITWEX_DIR, "nitwex_progress.json");
-const CHANNELS_LIST_FILE = path.join(NITWEX_DIR, "channels.json");
+const DAILYMOTION_DIR = path.join(__dirname, "Dailymotion");
+const VIDEOS_DIR = path.join(DAILYMOTION_DIR, "Videos");
+const CACHE_DIR = path.join(DAILYMOTION_DIR, "Cache");
+const PROGRESS_FILE = path.join(DAILYMOTION_DIR, "nitwex_progress.json");
+const HOME_FILE = path.join(VIDEOS_DIR, "Home.json");
 
 // إنشاء المجلدات
 const createDirectories = async () => {
     console.log("📁 جاري إنشاء المجلدات...");
-    const dirs = [NITWEX_DIR, CHANNELS_DIR, VIDEOS_DIR, CACHE_DIR];
+    const dirs = [DAILYMOTION_DIR, VIDEOS_DIR, CACHE_DIR];
     
     await Promise.all(dirs.map(async (dir) => {
         if (!fs.existsSync(dir)) {
@@ -33,13 +32,14 @@ await createDirectories();
 
 // ==================== إعدادات النظام ====================
 const CONFIG = {
-    itemsPerFile: 50,          // عدد الفيديوهات في كل ملف
-    channelsPerRun: 2,          // عدد القنوات في كل تشغيل
-    videosPerChannel: 50,       // عدد الفيديوهات من كل قناة
-    requestDelay: 1000,         // تأخير بين الطلبات
+    itemsPerFile: 200,          // 200 فيديو في كل ملف Part
+    homeItemsCount: 30,          // 30 فيديو في Home.json
+    channelsPerRun: 2,           // عدد القنوات في كل تشغيل
+    videosPerChannel: 50,        // عدد الفيديوهات من كل قناة
+    requestDelay: 1000,
     maxRetries: 3,
     concurrentRequests: 2,
-    cacheTTL: 3600000,          // ساعة
+    cacheTTL: 3600000,
     userAgent: 'NitWex-Bot/1.0'
 };
 
@@ -53,8 +53,17 @@ const TARGET_CHANNELS = [
     { name: "DubaiTV", category: "entertainment", language: "ar" },
     { name: "AbuDhabiTV", category: "general", language: "ar" },
     { name: "KuwaitTV", category: "general", language: "ar" },
-    // يمكنك إضافة المزيد من القنوات هنا
+    // يمكنك إضافة المزيد
 ];
+
+// ==================== دالة لتوليد أرقام عشوائية ====================
+function generateRandomStats(originalValue) {
+    // إذا كانت القيمة أقل من 1000، توليد رقم عشوائي بين 1000 و 50000
+    if (originalValue < 1000) {
+        return Math.floor(Math.random() * (50000 - 1000 + 1)) + 1000;
+    }
+    return originalValue;
+}
 
 // ==================== نظام التخزين المؤقت ====================
 class CacheManager {
@@ -76,7 +85,6 @@ class CacheManager {
     async get(endpoint, params) {
         const key = this.getCacheKey(endpoint, params);
         
-        // فحص الذاكرة المؤقتة
         if (this.memoryCache.has(key)) {
             const cached = this.memoryCache.get(key);
             if (Date.now() - cached.timestamp < this.ttl) {
@@ -85,7 +93,6 @@ class CacheManager {
             this.memoryCache.delete(key);
         }
 
-        // فحص ملف الكاش
         const cachePath = this.getCachePath(key);
         try {
             if (fs.existsSync(cachePath)) {
@@ -96,19 +103,13 @@ class CacheManager {
                     return data;
                 }
             }
-        } catch (error) {
-            // تجاهل أخطاء الكاش
-        }
+        } catch (error) {}
         return null;
     }
 
     async set(endpoint, params, data) {
         const key = this.getCacheKey(endpoint, params);
-        
-        // تخزين في الذاكرة
         this.memoryCache.set(key, { data, timestamp: Date.now() });
-
-        // تخزين في ملف
         const cachePath = this.getCachePath(key);
         fs.promises.writeFile(cachePath, JSON.stringify(data, null, 2)).catch(() => {});
     }
@@ -129,7 +130,6 @@ class DailymotionClient {
     }
 
     async request(endpoint, params = {}, useCache = true) {
-        // بناء URL
         const queryString = new URLSearchParams(params).toString();
         const url = `${this.baseUrl}${endpoint}${queryString ? '?' + queryString : ''}`;
         
@@ -170,10 +170,7 @@ class DailymotionClient {
         try {
             const result = await this.executeRequest(url);
             this.lastRequestTime = Date.now();
-            
-            // تخزين في الكاش
             await this.cacheManager.set(endpoint, params, result);
-            
             resolve(result);
         } catch (error) {
             reject(error);
@@ -217,41 +214,12 @@ class DailymotionClient {
         }
     }
 
-    // دوال مساعدة لـ Dailymotion API
-    async getUserInfo(username) {
-        return this.request(`/user/${username}`, {
-            fields: 'username,screenname,description,avatar_360_url,videos_total,views_total,followers_total,created_time'
-        });
-    }
-
     async getUserVideos(username, page = 1, limit = 25) {
         return this.request(`/user/${username}/videos`, {
-            fields: 'id,title,description,thumbnail_url,url,duration,created_time,views_total,likes_total,comments_total,embed_url',
+            fields: 'id,title,description,thumbnail_url,url,duration,created_time,views_total,likes_total',
             limit: limit,
             page: page,
             sort: 'recent'
-        });
-    }
-
-    async searchVideos(query, owner = null, page = 1, limit = 25) {
-        const params = {
-            fields: 'id,title,description,thumbnail_url,url,duration,created_time,views_total,owner.username',
-            search: query,
-            limit: limit,
-            page: page,
-            sort: 'recent'
-        };
-        
-        if (owner) {
-            params.owners = owner;
-        }
-        
-        return this.request('/videos', params);
-    }
-
-    async getVideoInfo(videoId) {
-        return this.request(`/video/${videoId}`, {
-            fields: 'id,title,description,thumbnail_url,url,duration,created_time,views_total,likes_total,comments_total,embed_url,owner.username,channel.name'
         });
     }
 }
@@ -283,6 +251,7 @@ class ProgressTracker {
                 };
                 
                 this.lastRunDate = data.lastRunDate || null;
+                this.processedVideoIds = data.processedVideoIds || new Set();
                 
                 console.log(`📊 تم استئناف العمل من قناة رقم ${this.currentChannelIndex + 1}`);
                 console.log(`🎯 سيتم معالجة ${this.targetChannelsPerRun} قنوات في هذا التشغيل`);
@@ -308,6 +277,7 @@ class ProgressTracker {
         
         this.totalExtracted = { channels: 0, videos: 0 };
         this.lastRunDate = null;
+        this.processedVideoIds = new Set();
         
         this.saveProgress();
     }
@@ -325,11 +295,20 @@ class ProgressTracker {
             
             totalExtracted: this.totalExtracted,
             lastRunDate: new Date().toISOString(),
+            processedVideoIds: Array.from(this.processedVideoIds),
             
             lastUpdate: new Date().toISOString()
         };
         
         fs.writeFileSync(PROGRESS_FILE, JSON.stringify(progressData, null, 2));
+    }
+
+    isVideoProcessed(videoId) {
+        return this.processedVideoIds.has(videoId);
+    }
+
+    markVideoProcessed(videoId) {
+        this.processedVideoIds.add(videoId);
     }
 
     canProcessMoreChannels() {
@@ -346,7 +325,7 @@ class ProgressTracker {
         
         this.channelsProcessedThisRun++;
         this.currentChannelIndex++;
-        this.currentChannelPage = 1; // إعادة تعيين الصفحة للقناة الجديدة
+        this.currentChannelPage = 1;
         this.totalExtracted.channels++;
         
         this.saveProgress();
@@ -377,34 +356,48 @@ class StorageManager {
         this.progress = progress;
         this.writeQueue = [];
         this.isWriting = false;
-    }
-
-    async saveChannel(channelData) {
-        const fileName = `${channelData.username}.json`;
-        const filePath = path.join(CHANNELS_DIR, fileName);
-        
-        const channelInfo = {
-            info: {
-                type: 'channel',
-                username: channelData.username,
-                screenname: channelData.screenname,
-                lastUpdated: new Date().toISOString()
-            },
-            data: channelData
-        };
-        
-        await fs.promises.writeFile(filePath, JSON.stringify(channelInfo, null, 2));
-        console.log(`   💾 تم حفظ معلومات القناة: ${channelData.username}`);
+        this.homeVideos = []; // لتخزين أحدث 30 فيديو
     }
 
     async saveVideo(videoData) {
-        const fileName = `Videos_Part${this.progress.videoFileNumber}.json`;
+        // إضافة للـ Home (أحدث 30 فيديو)
+        this.addToHome(videoData);
+        
+        // حفظ في الملفات Part
+        const fileName = `Part${this.progress.videoFileNumber}.json`;
         const filePath = path.join(VIDEOS_DIR, fileName);
         
         return new Promise((resolve) => {
             this.writeQueue.push({ filePath, videoData, resolve });
             this.processQueue();
         });
+    }
+
+    addToHome(videoData) {
+        // إضافة الفيديو في البداية (الأحدث أولاً)
+        this.homeVideos.unshift(videoData);
+        
+        // الاحتفاظ بأحدث 30 فيديو فقط
+        if (this.homeVideos.length > CONFIG.homeItemsCount) {
+            this.homeVideos = this.homeVideos.slice(0, CONFIG.homeItemsCount);
+        }
+    }
+
+    async saveHomeFile() {
+        console.log(`   🏠 حفظ أحدث ${this.homeVideos.length} فيديو في Home.json`);
+        
+        const homeData = {
+            info: {
+                type: 'home_videos',
+                description: 'أحدث 30 فيديو',
+                totalVideos: this.homeVideos.length,
+                lastUpdated: new Date().toISOString()
+            },
+            videos: this.homeVideos
+        };
+        
+        await fs.promises.writeFile(HOME_FILE, JSON.stringify(homeData, null, 2));
+        console.log(`   ✅ تم تحديث Home.json`);
     }
 
     async processQueue() {
@@ -425,18 +418,23 @@ class StorageManager {
                     } else {
                         data.info = {
                             type: 'videos',
-                            partNumber: this.progress.videoFileNumber,
+                            partNumber: parseInt(path.basename(filePath).replace('Part', '').replace('.json', '')),
                             created: new Date().toISOString(),
                             totalVideos: 0
                         };
                     }
                     
-                    data.videos.push(videoData);
-                    data.info.totalVideos = data.videos.length;
-                    data.info.lastUpdated = new Date().toISOString();
-                    
-                    await fs.promises.writeFile(filePath, JSON.stringify(data, null, 2));
-                    this.progress.addVideo();
+                    // التحقق من عدم تكرار الفيديو
+                    const exists = data.videos.some(v => v.id === videoData.id);
+                    if (!exists) {
+                        data.videos.push(videoData);
+                        data.info.totalVideos = data.videos.length;
+                        data.info.lastUpdated = new Date().toISOString();
+                        
+                        await fs.promises.writeFile(filePath, JSON.stringify(data, null, 2));
+                        this.progress.addVideo();
+                        this.progress.markVideoProcessed(videoData.id);
+                    }
                     
                     resolve({ success: true, file: path.basename(filePath) });
                 } catch (error) {
@@ -453,35 +451,14 @@ class StorageManager {
         this.isWriting = false;
     }
 
-    async updateChannelsList() {
-        let channelsList = { info: {}, channels: [] };
-        
-        if (fs.existsSync(CHANNELS_LIST_FILE)) {
-            channelsList = JSON.parse(await fs.promises.readFile(CHANNELS_LIST_FILE, 'utf8'));
-        } else {
-            channelsList.info = {
-                type: 'channels_list',
-                created: new Date().toISOString(),
-                totalChannels: 0
-            };
+    async finalize() {
+        // انتظار اكتمال جميع عمليات الحفظ
+        while (this.writeQueue.length > 0 || this.isWriting) {
+            await new Promise(r => setTimeout(r, 500));
         }
         
-        // إضافة القنوات المستهدفة
-        TARGET_CHANNELS.forEach(channel => {
-            if (!channelsList.channels.some(c => c.name === channel.name)) {
-                channelsList.channels.push({
-                    ...channel,
-                    addedAt: new Date().toISOString(),
-                    status: 'active'
-                });
-            }
-        });
-        
-        channelsList.info.totalChannels = channelsList.channels.length;
-        channelsList.info.lastUpdated = new Date().toISOString();
-        
-        await fs.promises.writeFile(CHANNELS_LIST_FILE, JSON.stringify(channelsList, null, 2));
-        console.log(`📋 تم تحديث قائمة القنوات (${channelsList.channels.length} قناة)`);
+        // حفظ ملف Home.json
+        await this.saveHomeFile();
     }
 }
 
@@ -500,7 +477,6 @@ function formatDuration(seconds) {
 }
 
 function formatViews(views) {
-    if (!views) return '0';
     if (views >= 1000000) return (views / 1000000).toFixed(1) + 'M';
     if (views >= 1000) return (views / 1000).toFixed(1) + 'K';
     return views.toString();
@@ -520,24 +496,6 @@ class NitWexScraper {
         console.log(`\n📺 [${channelIndex + 1}/${TARGET_CHANNELS.length}] معالجة قناة: ${channelName}`);
         
         try {
-            // 1. جلب معلومات القناة
-            console.log(`   ℹ️ جلب معلومات القناة...`);
-            const channelInfo = await this.dailymotion.getUserInfo(channelName);
-            
-            if (!channelInfo) {
-                console.log(`   ⚠️ لا توجد معلومات للقناة`);
-                return false;
-            }
-            
-            // حفظ معلومات القناة
-            await this.storage.saveChannel({
-                ...channelInfo,
-                category: channelConfig.category,
-                language: channelConfig.language,
-                targetName: channelName
-            });
-            
-            // 2. جلب فيديوهات القناة
             console.log(`   🎬 جلب فيديوهات القناة...`);
             let page = this.progress.currentChannelPage;
             let videosFetched = 0;
@@ -556,6 +514,19 @@ class NitWexScraper {
                 for (const video of videosData.list) {
                     if (videosFetched >= CONFIG.videosPerChannel) break;
                     
+                    // التحقق من عدم تكرار الفيديو
+                    if (this.progress.isVideoProcessed(video.id)) {
+                        console.log(`      ⏭️ فيديو مكرر: ${video.id}`);
+                        continue;
+                    }
+                    
+                    // تطبيق قاعدة الأرقام العشوائية
+                    const originalViews = video.views_total || 0;
+                    const originalLikes = video.likes_total || 0;
+                    
+                    const enhancedViews = generateRandomStats(originalViews);
+                    const enhancedLikes = generateRandomStats(originalLikes);
+                    
                     // تجهيز بيانات الفيديو للحفظ
                     const videoInfo = {
                         id: video.id,
@@ -563,21 +534,22 @@ class NitWexScraper {
                         description: video.description || '',
                         thumbnail: video.thumbnail_url,
                         url: video.url,
-                        embedUrl: video.embed_url || `https://www.dailymotion.com/embed/video/${video.id}`,
+                        embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
                         duration: video.duration,
                         durationFormatted: formatDuration(video.duration),
-                        views: video.views_total || 0,
-                        viewsFormatted: formatViews(video.views_total),
-                        likes: video.likes_total || 0,
-                        comments: video.comments_total || 0,
+                        views: enhancedViews,  // استخدام القيمة المحسنة
+                        viewsFormatted: formatViews(enhancedViews),
+                        originalViews: originalViews,  // حفظ القيمة الأصلية للرجوع إليها
+                        likes: enhancedLikes,
+                        originalLikes: originalLikes,
                         uploadedAt: video.created_time,
                         uploadedAtFormatted: new Date(video.created_time * 1000).toISOString(),
                         channel: {
-                            name: channelInfo.screenname || channelName,
-                            username: channelName,
+                            name: channelName,
                             category: channelConfig.category,
                             language: channelConfig.language
                         },
+                        statsEnhanced: originalViews < 1000 || originalLikes < 1000, // هل تم تحسين الإحصائيات؟
                         scrapedAt: new Date().toISOString()
                     };
                     
@@ -585,13 +557,11 @@ class NitWexScraper {
                     await this.storage.saveVideo(videoInfo);
                     videosFetched++;
                     
-                    // عرض تقدم متواضع
                     if (videosFetched % 10 === 0) {
                         console.log(`         ✅ ${videosFetched} فيديو...`);
                     }
                 }
                 
-                // التحقق من وجود صفحات إضافية
                 if (videosData.page < videosData.pages) {
                     page++;
                     await new Promise(r => setTimeout(r, CONFIG.requestDelay));
@@ -600,15 +570,20 @@ class NitWexScraper {
                 }
             }
             
-            console.log(`   ✅ اكتمل: ${videosFetched} فيديو من ${channelName}`);
+            console.log(`   ✅ اكتمل: ${videosFetched} فيديو جديد من ${channelName}`);
             
-            // تحديث التقدم
-            this.progress.markChannelProcessed(channelName);
+            if (videosFetched > 0) {
+                this.progress.markChannelProcessed(channelName);
+            } else {
+                // إذا ما في فيديوهات جديدة، انتقل للقناة التالية
+                this.progress.currentChannelIndex++;
+                this.progress.saveProgress();
+            }
             
             return true;
             
         } catch (error) {
-            console.log(`   ❌ خطأ في معالجة القناة ${channelName}: ${error.message}`);
+            console.log(`   ❌ خطأ: ${error.message}`);
             return false;
         }
     }
@@ -621,13 +596,11 @@ class NitWexScraper {
         console.log(`📊 الإحصائيات الحالية:`);
         console.log(`   📺 قنوات: ${this.progress.totalExtracted.channels}`);
         console.log(`   🎥 فيديوهات: ${this.progress.totalExtracted.videos}`);
-        console.log(`   📄 ملف الفيديو الحالي: ${this.progress.videoFileNumber}`);
+        console.log(`   📄 ملف Part الحالي: ${this.progress.videoFileNumber}`);
+        console.log(`   🏠 سيتم حفظ أحدث ${CONFIG.homeItemsCount} فيديو في Home.json`);
         
         console.log(`\n🎯 سيتم معالجة ${this.progress.targetChannelsPerRun} قنوات`);
         console.log(`📋 إجمالي القنوات المستهدفة: ${TARGET_CHANNELS.length}`);
-        
-        // تحديث قائمة القنوات
-        await this.storage.updateChannelsList();
         
         // معالجة القنوات
         let processedCount = 0;
@@ -640,18 +613,16 @@ class NitWexScraper {
             
             if (success) {
                 processedCount++;
-            } else {
-                // إذا فشلت القناة، انتقل للتالية
-                this.progress.currentChannelIndex++;
-                this.progress.saveProgress();
             }
             
-            // تأخير بين القنوات
             if (this.progress.canProcessMoreChannels()) {
                 console.log(`\n⏳ انتظار 3 ثواني قبل القناة التالية...`);
                 await new Promise(r => setTimeout(r, 3000));
             }
         }
+        
+        // إنهاء و حفظ Home.json
+        await this.storage.finalize();
         
         // تقرير النهاية
         const elapsed = this.progress.getElapsedTime();
@@ -660,9 +631,14 @@ class NitWexScraper {
         console.log(`📊 الإحصائيات النهائية:`);
         console.log(`   📺 قنوات معالجة: ${processedCount}`);
         console.log(`   🎥 فيديوهات جديدة: ${this.progress.totalExtracted.videos}`);
-        console.log(`   📄 آخر ملف فيديو: ${this.progress.videoFileNumber}`);
+        console.log(`   📄 آخر ملف Part: ${this.progress.videoFileNumber}`);
+        console.log(`   🏠 أحدث فيديوهات: ${CONFIG.homeItemsCount} في Home.json`);
         
-        // معلومات للجولة القادمة
+        // إحصائيات تحسين الأرقام
+        console.log(`\n📊 إحصائيات تحسين الأرقام:`);
+        console.log(`   📈 تم تحسين الفيديوهات ذات المشاهدات < 1000`);
+        console.log(`   🎲 أرقام عشوائية بين 1000 و 50000`);
+        
         if (this.progress.currentChannelIndex < TARGET_CHANNELS.length) {
             console.log(`\n🔄 للتشغيل القادم:`);
             console.log(`   📺 سيبدأ من قناة: ${TARGET_CHANNELS[this.progress.currentChannelIndex].name}`);
@@ -671,25 +647,6 @@ class NitWexScraper {
         }
         
         console.log("=".repeat(60));
-        
-        // إحصائيات الكاش
-        console.log(`\n📦 معلومات الكاش:`);
-        console.log(`   📁 مجلد الكاش: ${CACHE_DIR}`);
-        console.log(`   💾 حجم الكاش: ${this.getCacheSize()}`);
-    }
-
-    getCacheSize() {
-        try {
-            const files = fs.readdirSync(CACHE_DIR);
-            let totalSize = 0;
-            files.forEach(file => {
-                const stats = fs.statSync(path.join(CACHE_DIR, file));
-                totalSize += stats.size;
-            });
-            return (totalSize / 1024).toFixed(2) + ' KB';
-        } catch {
-            return '0 KB';
-        }
     }
 }
 
