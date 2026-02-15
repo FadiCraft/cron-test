@@ -1,35 +1,60 @@
-name: دراما قصيره
+name: استخراج مسلسلات رمضان 2026
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
-  workflow_dispatch:
+    - cron: "0 6 * * *"     # الساعة 6 صباحاً كل يوم
+  workflow_dispatch:         # للسماح بالتشغيل اليدوي
 
 jobs:
-  export:
+  extract:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # نجلب كل التاريخ عشان نعمل pull
 
       - name: Show files
         run: |
           echo "ROOT:"
           ls -la
           echo "----------------"
-          echo "Drama folder:"
-          ls -la Drama || true
+          echo "Data folder:"
+          ls -la data/ || true
           echo "----------------"
-          find . -name "drama.js"
+          find . -name "extractor.js"
 
-      - name: Run Drama Script
-        run: node ./drama.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install axios cheerio
+
+      - name: Run Extractor
+        run: node extractor.js
 
       - name: Commit & Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # إعدادات Git
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add .
-          git commit -m "Auto update Drama JSON" || echo "No changes"
-          git push
+          
+          # نجيب آخر التغييرات من GitHub
+          git pull --rebase origin main || git pull --no-rebase origin main
+          
+          # نضيف الملفات الجديدة
+          git add data/ || true
+          
+          # نسوي commit إذا في تغييرات
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -m "تحديث يومي: $(date +'%Y-%m-%d %H:%M')"
+            git push origin main
+            echo "✅ تم رفع التغييرات"
+          else
+            echo "ℹ️ لا توجد تغييرات جديدة"
+          fi
