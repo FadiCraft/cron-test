@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-15T20:54:42.713Z",
+  "timestamp": "2026-02-15T21:09:25.012Z",
   "phase": "phase1_initial_scraping",
   "systemStats": {
     "totalMovies": 3376,
@@ -8,21 +8,21 @@
     "allPagesScraped": true
   },
   "progress": {
-    "currentPage": 49,
-    "currentFile": "Top12.json",
-    "moviesInCurrentFile": 16,
+    "currentPage": 53,
+    "currentFile": "Top13.json",
+    "moviesInCurrentFile": 13,
     "allPagesScraped": false
   },
   "results": {
     "phase1": {
       "totalMoviesExtracted": 0,
-      "executionTime": 633231
+      "executionTime": 595139
     },
     "phase2": null
   },
   "nextRun": {
     "phase": "phase1_initial_scraping",
-    "startPage": 49,
-    "currentFile": "Top12.json"
+    "startPage": 53,
+    "currentFile": "Top13.json"
   }
 }
