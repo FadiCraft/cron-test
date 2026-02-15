@@ -1,9 +1,9 @@
-name:   دراما قصيره 
+name: دراما قصيره
 
 on:
   schedule:
-    - cron: "0 6 * * *"     # الساعة 6 صباحاً كل يوم
-  workflow_dispatch:         # للسماح بالتشغيل اليدوي
+    - cron: "0 6 * * *"
+  workflow_dispatch:
 
 jobs:
   extract:
@@ -13,17 +13,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0      # نجلب كل التاريخ عشان نعمل pull
-
-      - name: Show files
-        run: |
-          echo "ROOT:"
-          ls -la
-          echo "----------------"
-          echo "Data folder:"
-          ls -la data/ || true
-          echo "----------------"
-          find . -name "drama.js"
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -44,17 +35,25 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           
-          # نجيب آخر التغييرات من GitHub
-          git pull --rebase origin main || git pull --no-rebase origin main
+          # نضيف ملفات البيانات فقط (نتجاهل node_modules)
+          git add data/ Dailymotion/ *.json || true
           
-          # نضيف الملفات الجديدة
-          git add data/ || true
+          # نرجع ملفات node_modules لو كانت مضافة
+          git reset -- node_modules/ || true
           
-          # نسوي commit إذا في تغييرات
-          if ! git diff --quiet || ! git diff --staged --quiet; then
-            git commit -m "تحديث يومي: $(date +'%Y-%m-%d %H:%M')"
-            git push origin main
-            echo "✅ تم رفع التغييرات"
-          else
+          # نتأكد إذا في تغييرات
+          if git diff --staged --quiet; then
             echo "ℹ️ لا توجد تغييرات جديدة"
+            exit 0
           fi
+          
+          # نسوي commit
+          git commit -m "تحديث: $(date +'%Y-%m-%d %H:%M')"
+          
+          # نجيب آخر التغييرات
+          git pull origin main --no-rebase --no-edit || echo "⚠️ فشل pull"
+          
+          # نرفع
+          git push origin main
+          
+          echo "✅ تم رفع التغييرات"
