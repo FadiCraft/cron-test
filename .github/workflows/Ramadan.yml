@@ -1,41 +1,36 @@
-name: استخراج حلقات رمضان
+name: استخراج حلقات رمضان 2026
+
 on:
   schedule:
-    - cron: '0 3 * * *'  # كل يوم 3 الفجر
-  workflow_dispatch:  # للسماح بالتشغيل اليدوي
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [ main ]
 
 jobs:
   extract:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # نجلب كل التاريخ عشان نعمل pull
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm install axios cheerio
-        
-      - name: Run extractor
-        run: node extractor.js
-        
-      - name: Commit and push if changes
-        run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          
-          # نسحب آخر التغييرات أولاً
-          git pull --rebase origin main
-          
-          # نضيف الملفات الجديدة
-          git add data/
-          
-          # نسوي commit إذا في تغييرات
-          git diff --staged --quiet || git commit -m "تحديث: $(date)"
-          
-          # ندفع التغييرات
-          git push origin main
+    - name: جلب الكود
+      uses: actions/checkout@v3
+      
+    - name: إعداد Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm' # ★ إضافة تخزين مؤقت لتسريع التثبيت ★
+
+    - name: تثبيت الحزم
+      run: npm ci # ★ استخدام npm ci للتثبيت من package-lock.json (أسرع وأدق) ★
+    
+    - name: تشغيل المستخرج
+      run: npm start # ★ أو node extractor.js مباشرة ★
+    
+   - name: حفظ البيانات
+  run: |
+    git config user.name "GitHub Action"
+    git config user.email "action@github.com"
+    git add movies/  # ★ تغيير من data/ إلى movies/ ★
+    git diff --quiet && git diff --staged --quiet || git commit -m "تحديث تلقائي: $(date '+%Y-%m-%d %H:%M')"
+    git push
