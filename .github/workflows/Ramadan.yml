@@ -2,7 +2,7 @@ name: استخراج حلقات رمضان 2026
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'   # كل 6 ساعات
   workflow_dispatch:
   push:
     branches: [ main ]
@@ -13,6 +13,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # مهم: نجلب كل التاريخ عشان نعمل pull
     
     - uses: actions/setup-node@v3
       with:
@@ -28,6 +30,17 @@ jobs:
       run: |
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
-        git add data/ movies/ || true
-        git diff --quiet && git diff --staged --quiet || git commit -m "تحديث: $(date)"
-        git push
+        
+        # نسحب آخر التغييرات من GitHub أولاً (مهم جداً)
+        git pull --rebase origin main
+        
+        # نضيف الملفات الجديدة
+        git add data/ || true
+        
+        # نتأكد إذا في تغييرات
+        if ! git diff --quiet || ! git diff --staged --quiet; then
+          git commit -m "تحديث: $(date)"
+          git push origin main
+        else
+          echo "لا توجد تغييرات جديدة"
+        fi
