@@ -41,9 +41,11 @@ class ProgressTracker {
             this.data = {
                 last_scan: null,
                 series: {}, // لكل مسلسل: آخر حلقة استخرجناها
+                all_episodes: {}, // جميع الحلقات المستخرجة (لمنع التكرار)
                 statistics: {
                     total_series: 0,
-                    total_episodes: 0
+                    total_episodes: 0,
+                    first_scan: true
                 }
             };
         }
@@ -55,20 +57,36 @@ class ProgressTracker {
         await fs.writeFile(this.filePath, JSON.stringify(this.data, null, 2));
     }
 
+    // هل هذه أول مرة نشغل فيها الكود؟
+    isFirstScan() {
+        return !this.data.last_scan;
+    }
+
     // هل هذه الحلقة جديدة؟ (ما استخرجناها قبل كدة)
-    isEpisodeNew(seriesId, episodeId) {
-        const seriesProgress = this.data.series[seriesId];
-        if (!seriesProgress) return true; // مسلسل جديد
-        
-        // نشوف إذا في هادا الحلقة محفوظة
-        return !seriesProgress.episodes || !seriesProgress.episodes[episodeId];
+    isEpisodeNew(episodeId) {
+        return !this.data.all_episodes || !this.data.all_episodes[episodeId];
     }
 
     // سجل أننا استخرجنا حلقة
     markEpisodeExtracted(seriesId, episodeId, episodeData) {
+        // سجل الحلقة في قائمة كل الحلقات
+        if (!this.data.all_episodes) {
+            this.data.all_episodes = {};
+        }
+        
+        this.data.all_episodes[episodeId] = {
+            series_id: seriesId,
+            extracted_at: new Date().toISOString(),
+            title: episodeData.title,
+            number: episodeData.number,
+            season: episodeData.season
+        };
+        
+        // سجل آخر حلقة للمسلسل
         if (!this.data.series[seriesId]) {
             this.data.series[seriesId] = {
                 last_episode: null,
+                last_season: 1,
                 episodes: {}
             };
         }
@@ -80,24 +98,28 @@ class ProgressTracker {
             season: episodeData.season
         };
         
-        this.data.series[seriesId].last_episode = episodeId;
+        // تحديث آخر حلقة إذا كانت هذه الحلقة أحدث
+        const currentLast = this.data.series[seriesId].last_episode;
+        if (!currentLast || (episodeData.number && episodeData.number > (this.data.series[seriesId].episodes[currentLast]?.number || 0))) {
+            this.data.series[seriesId].last_episode = episodeId;
+            this.data.series[seriesId].last_season = episodeData.season;
+        }
+        
         this.data.last_scan = new Date().toISOString();
     }
 
-    // سجل مسلسل جديد
-    markSeriesExtracted(seriesId, seriesData) {
-        if (!this.data.series[seriesId]) {
-            this.data.series[seriesId] = {
-                first_seen: new Date().toISOString(),
-                title: seriesData.title,
-                episodes: {}
-            };
-        }
+    // جلب آخر حلقة استخرجناها لمسلسل معين
+    getLastEpisodeForSeries(seriesId) {
+        return this.data.series[seriesId]?.last_episode || null;
     }
 
-    // جلب آخر توقيت مسح
-    getLastScanTime() {
-        return this.data.last_scan ? new Date(this.data.last_scan) : null;
+    // جلب رقم آخر حلقة استخرجناها
+    getLastEpisodeNumber(seriesId) {
+        const lastEpisodeId = this.getLastEpisodeForSeries(seriesId);
+        if (lastEpisodeId && this.data.series[seriesId]?.episodes[lastEpisodeId]) {
+            return this.data.series[seriesId].episodes[lastEpisodeId].number;
+        }
+        return 0;
     }
 }
 
@@ -107,6 +129,7 @@ class SeriesExtractor {
         this.seriesList = []; // للمسلسلات في Home.json
         this.newEpisodes = []; // للحلقات الجديدة فقط
         this.allEpisodes = []; // جميع الحلقات (لإعادة توزيعها)
+        this.isFirstScan = progressTracker.isFirstScan();
     }
 
     async fetch(url, retryCount = 0) {
@@ -202,11 +225,6 @@ class SeriesExtractor {
             url = url.replace('http://', 'https://');
         }
         
-        // بدل laroza.cfd إلى q.larozavideo.net إذا لزم الأمر
-        if (url.includes('laroza.cfd')) {
-            url = url.replace('laroza.cfd', 'q.larozavideo.net');
-        }
-        
         return url;
     }
 
@@ -231,26 +249,14 @@ class SeriesExtractor {
                     const seriesId = this.extractSeriesId(link);
                     
                     if (seriesId && title) {
-                        // نحاول نلقى الصورة
-                        let image = '';
-                        
-                        // البحث عن الصورة في العناصر القريبة
-                        const parentDiv = $(el).closest('div').parent();
-                        const img = parentDiv.find('img.pm-thumb').first() || 
-                                   parentDiv.find('img').first() ||
-                                   $(el).closest('.item, .post, div').find('img[src*="thumbs"]').first();
-                        
-                        if (img.length) {
-                            image = img.attr('src') || img.attr('data-src') || img.attr('data-original') || '';
-                        }
-                        
                         allSeries.set(seriesId, {
                             id: seriesId,
                             title: title,
-                            image: this.fixImage(image),
-                            seasons: 1, // سنحدثها لاحقاً من صفحة المسلسل
+                            image: '', // سنملأها لاحقاً من أول حلقة
+                            seasons: 1,
                             last_season: 1,
-                            last_update: new Date().toISOString()
+                            last_update: new Date().toISOString(),
+                            episodes_count: 0
                         });
                     }
                 });
@@ -286,16 +292,10 @@ class SeriesExtractor {
                 series.title = fullTitle;
             }
             
-            // استخراج الصورة إذا ما لقيناها قبل
-            if (!series.image) {
-                const img = $('.pm-poster-img img, .poster img, img[src*="thumbs"]').first();
-                series.image = this.fixImage(img.attr('src') || img.attr('data-src') || '');
-            }
-            
             // البحث عن كل المواسم
             const seasons = [];
             
-            // البحث عن عناصر الموسم (بطرق مختلفة)
+            // البحث عن عناصر الموسم
             $('.Tab button.tablinks, .seasons button, [class*="season"] button, .tab button').each((i, el) => {
                 const seasonText = $(el).text().trim();
                 const match = seasonText.match(/\d+/);
@@ -305,8 +305,8 @@ class SeriesExtractor {
             });
             
             // البحث عن divs الخاصة بالمواسم
-            let lastSeasonDiv = null;
             let lastSeasonNumber = 1;
+            let seasonHtml = html;
             
             $('div[id^="Season"], div[class*="season"], .tabcontent').each((i, el) => {
                 const id = $(el).attr('id') || '';
@@ -318,29 +318,19 @@ class SeriesExtractor {
                     // إذا كان هذا أكبر رقم، نخزنه
                     if (seasonNum > lastSeasonNumber) {
                         lastSeasonNumber = seasonNum;
-                        lastSeasonDiv = $(el);
+                        seasonHtml = $(el).html() || html;
                     }
                 }
             });
             
             // إذا في مواسم متعددة، نأخذ آخر واحد
             let targetSeason = 1;
-            let seasonHtml = html;
             
             if (seasons.length > 0) {
                 targetSeason = Math.max(...seasons);
                 series.seasons = seasons.length;
                 series.last_season = targetSeason;
                 console.log(`   📺 المسلسل فيه ${seasons.length} مواسم, نأخذ الموسم ${targetSeason}`);
-                
-                // البحث عن div الموسم الأخير
-                const lastSeasonId = `Season${targetSeason}`;
-                const seasonDiv = $(`#${lastSeasonId}, .${lastSeasonId}, [data-season="${targetSeason}"]`).first();
-                
-                if (seasonDiv.length) {
-                    // استخراج HTML الموسم
-                    seasonHtml = seasonDiv.html() || html;
-                }
             } else {
                 console.log(`   📺 المسلسل موسم واحد`);
             }
@@ -363,6 +353,7 @@ class SeriesExtractor {
     async extractEpisodesFromSeason(series, html, seasonNum) {
         const $ = cheerio.load(html);
         const episodes = [];
+        let firstEpisodeImage = ''; // لصورة المسلسل (من أول حلقة)
         
         $('.thumbnail, .post, .item, .video-item, li.col-xs-6').each((i, el) => {
             try {
@@ -402,6 +393,11 @@ class SeriesExtractor {
                 // استخراج رقم الحلقة
                 const episodeNumber = this.extractEpisodeNumber(title);
                 
+                // إذا كانت هذه أول حلقة، نحفظ صورتها للمسلسل
+                if (i === 0 && image && !series.image) {
+                    firstEpisodeImage = image;
+                }
+                
                 // المدة
                 let duration = $el.find('.duration, .pm-label-duration, .time').first().text().trim() || '00:00';
                 
@@ -414,7 +410,7 @@ class SeriesExtractor {
                     link: link,
                     season: seasonNum,
                     duration: duration,
-                    servers: [], // سنعباها لاحقاً
+                    servers: [],
                     extracted_at: new Date().toISOString()
                 });
                 
@@ -423,9 +419,15 @@ class SeriesExtractor {
             }
         });
         
+        // ترتيب الحلقات تصاعدياً حسب الرقم
+        episodes.sort((a, b) => (a.number || 0) - (b.number || 0));
+        
         console.log(`   📥 تم العثور على ${episodes.length} حلقة في الموسم ${seasonNum}`);
         
-        return episodes;
+        return {
+            episodes,
+            firstEpisodeImage
+        };
     }
 
     // معالجة مسلسل واحد
@@ -437,33 +439,45 @@ class SeriesExtractor {
             const { targetSeason, seasonHtml } = await this.extractLastSeason(series);
             
             // استخراج حلقات آخر موسم
-            const episodes = await this.extractEpisodesFromSeason(series, seasonHtml, targetSeason);
+            const { episodes, firstEpisodeImage } = await this.extractEpisodesFromSeason(series, seasonHtml, targetSeason);
+            
+            // تعيين صورة المسلسل من أول حلقة إذا لم تكن موجودة
+            if (!series.image && firstEpisodeImage) {
+                series.image = this.fixImage(firstEpisodeImage);
+            }
+            
+            // معرفة آخر حلقة استخرجناها سابقاً لهذا المسلسل
+            const lastEpisodeNumber = this.progress.getLastEpisodeNumber(series.id);
+            console.log(`   📊 آخر حلقة محفوظة: ${lastEpisodeNumber || 'لا يوجد'}`);
             
             // معالجة كل حلقة
             for (let i = 0; i < episodes.length; i++) {
                 const episode = episodes[i];
                 
-                // تحقق إذا كانت الحلقة جديدة
-                if (this.progress.isEpisodeNew(series.id, episode.id)) {
-                    console.log(`      🔄 [جديد] ${episode.title.substring(0, 50)}...`);
-                    
-                    // استخرج السيرفرات
-                    await this.extractEpisodeServers(episode);
-                    
-                    // أضفها للحلقات الجديدة
-                    this.newEpisodes.push(episode);
-                    
-                    // سجل في progress
-                    this.progress.markEpisodeExtracted(series.id, episode.id, episode);
-                    
-                    // تأخير بين الحلقات
-                    await new Promise(resolve => setTimeout(resolve, 500));
+                // تحقق إذا كانت الحلقة جديدة (لم نستخرجها من قبل)
+                const isNew = this.progress.isEpisodeNew(episode.id);
+                
+                if (isNew) {
+                    // إذا كانت أول مرة أو الحلقة أحدث من آخر حلقة محفوظة
+                    if (this.isFirstScan || !lastEpisodeNumber || (episode.number && episode.number > lastEpisodeNumber)) {
+                        console.log(`      🔄 [جديد] ${episode.title.substring(0, 50)}...`);
+                        
+                        // استخرج السيرفرات
+                        await this.extractEpisodeServers(episode);
+                        
+                        // أضفها للحلقات الجديدة
+                        this.newEpisodes.push(episode);
+                        
+                        // سجل في progress
+                        this.progress.markEpisodeExtracted(series.id, episode.id, episode);
+                        
+                        // تأخير بين الحلقات
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    } else {
+                        console.log(`      ⏭️ [تخطي] ${episode.title.substring(0, 40)}... (أقدم من آخر حلقة)`);
+                    }
                 } else {
-                    console.log(`      ✅ [قديم] ${episode.title.substring(0, 40)}... (موجود)`);
-                    
-                    // حتى لو قديمة، نحتاجها لإعادة التوزيع
-                    // لكن بدون سيرفرات (لأنها محفوظة)
-                    this.allEpisodes.push(episode);
+                    console.log(`      ✅ [موجود] ${episode.title.substring(0, 40)}... (مستخرج سابقاً)`);
                 }
             }
             
@@ -487,7 +501,6 @@ class SeriesExtractor {
             $('.WatchList li, .server-list li, .servers li, [class*="server"] li').each((i, el) => {
                 const $el = $(el);
                 
-                // الرابط ممكن يكون في data-embed-url أو data-src أو href
                 let embedUrl = $el.attr('data-embed-url') || 
                               $el.attr('data-src') || 
                               $el.find('a').attr('href') ||
@@ -499,10 +512,8 @@ class SeriesExtractor {
                                     $el.text().trim().split('\n')[0].trim() ||
                                     `سيرفر ${i + 1}`;
                     
-                    // تنظيف اسم السيرفر
                     serverName = serverName.replace(/[\\n\\r\\t]+/g, ' ').trim();
                     
-                    // تأكد من أن الرابط كامل
                     if (embedUrl.startsWith('//')) embedUrl = 'https:' + embedUrl;
                     else if (!embedUrl.startsWith('http')) embedUrl = CONFIG.BASE_URL + '/' + embedUrl;
                     
@@ -522,7 +533,7 @@ class SeriesExtractor {
         }
     }
 
-    // تحميل جميع الحلقات الموجودة
+    // تحميل جميع الحلقات الموجودة (لإعادة التوزيع)
     async loadAllEpisodes() {
         const eclipsDir = path.join(CONFIG.DATA_DIR, CONFIG.ECLIPS_DIR);
         
@@ -559,9 +570,19 @@ class SeriesExtractor {
         // نرتب حسب تاريخ الاستخراج (الأحدث أولاً)
         allEpisodesForHome.sort((a, b) => new Date(b.extracted_at) - new Date(a.extracted_at));
         
-        // نأخذ أول 10
-        const latest10 = allEpisodesForHome.slice(0, 10).map(ep => {
-            // نبحث عن عنوان المسلسل
+        // نأخذ أول 10 (مع تجنب التكرار)
+        const uniqueEpisodes = [];
+        const seenIds = new Set();
+        
+        for (const ep of allEpisodesForHome) {
+            if (!seenIds.has(ep.id)) {
+                seenIds.add(ep.id);
+                uniqueEpisodes.push(ep);
+            }
+            if (uniqueEpisodes.length >= 10) break;
+        }
+        
+        const latest10 = uniqueEpisodes.map(ep => {
             const series = this.seriesList.find(s => s.id === ep.series_id);
             return {
                 id: ep.id,
@@ -603,7 +624,8 @@ class SeriesExtractor {
             title: s.title,
             image: s.image,
             seasons: s.seasons || 1,
-            last_season: s.last_season || 1
+            last_season: s.last_season || 1,
+            episodes_count: s.episodes_count || 0
         }));
         
         const data = {
@@ -621,8 +643,21 @@ class SeriesExtractor {
         const eclipsDir = path.join(CONFIG.DATA_DIR, CONFIG.ECLIPS_DIR);
         await fs.mkdir(eclipsDir, { recursive: true });
         
-        // نجمع كل الحلقات (القديمة + الجديدة)
-        let allEpisodes = [...this.allEpisodes, ...this.newEpisodes];
+        // نجمع كل الحلقات (القديمة + الجديدة) مع تجنب التكرار
+        const allEpisodesMap = new Map();
+        
+        // نضيف القديمة
+        for (const ep of this.allEpisodes) {
+            allEpisodesMap.set(ep.id, ep);
+        }
+        
+        // نضيف الجديدة (ستحل محل القديمة إذا كان هناك تكرار)
+        for (const ep of this.newEpisodes) {
+            allEpisodesMap.set(ep.id, ep);
+        }
+        
+        // نحول الـ Map إلى Array
+        let allEpisodes = Array.from(allEpisodesMap.values());
         
         // نرتب الحلقات حسب تاريخ الاستخراج (الأحدث أولاً)
         allEpisodes.sort((a, b) => new Date(b.extracted_at) - new Date(a.extracted_at));
@@ -679,11 +714,14 @@ class SeriesExtractor {
         // عدد المسلسلات
         const totalSeries = this.seriesList.length;
         
-        // عدد الحلقات الكلي
-        const totalEpisodes = this.allEpisodes.length + this.newEpisodes.length;
+        // عدد الحلقات الكلي (بدون تكرار)
+        const allEpisodesMap = new Map();
+        for (const ep of this.allEpisodes) allEpisodesMap.set(ep.id, ep);
+        for (const ep of this.newEpisodes) allEpisodesMap.set(ep.id, ep);
+        const totalEpisodes = allEpisodesMap.size;
         
         // آخر 10 حلقات للعرض السريع
-        const allEpisodesForLatest = [...this.allEpisodes, ...this.newEpisodes];
+        const allEpisodesForLatest = Array.from(allEpisodesMap.values());
         allEpisodesForLatest.sort((a, b) => new Date(b.extracted_at) - new Date(a.extracted_at));
         
         const latestEpisodes = allEpisodesForLatest.slice(0, 10).map(ep => ({
@@ -712,7 +750,8 @@ class SeriesExtractor {
             total_series: totalSeries,
             total_episodes: totalEpisodes,
             new_episodes_today: this.newEpisodes.length,
-            last_scan: new Date().toISOString()
+            last_scan: new Date().toISOString(),
+            first_scan: false
         };
         
         this.progress.data.latest_episodes = latestEpisodes;
@@ -725,6 +764,11 @@ class SeriesExtractor {
     async run() {
         console.log('='.repeat(60));
         console.log('🎬 مستخرج مسلسلات وحلقات رمضان 2026');
+        if (this.isFirstScan) {
+            console.log('📌 هذه هي المرة الأولى - سيتم استخراج كل الحلقات');
+        } else {
+            console.log('📌 تشغيل تحديث - سيتم استخراج الحلقات الجديدة فقط');
+        }
         console.log('='.repeat(60));
         
         // 0. تحميل الحلقات الموجودة
@@ -735,7 +779,7 @@ class SeriesExtractor {
         
         // 2. معالجة كل مسلسل
         console.log('\n' + '='.repeat(60));
-        console.log('🔄 جاري معالجة المسلسلات واستخراج الحلقات الجديدة...');
+        console.log('🔄 جاري معالجة المسلسلات واستخراج الحلقات...');
         console.log('='.repeat(60));
         
         for (let i = 0; i < this.seriesList.length; i++) {
@@ -772,13 +816,19 @@ class SeriesExtractor {
         console.log('='.repeat(60));
         console.log(`📁 المسلسلات: ${this.seriesList.length} مسلسل`);
         console.log(`🆕 الحلقات الجديدة اليوم: ${this.newEpisodes.length} حلقة`);
-        console.log(`📚 إجمالي الحلقات: ${this.allEpisodes.length + this.newEpisodes.length} حلقة`);
+        
+        // حساب إجمالي الحلقات بدون تكرار
+        const allEpisodesMap = new Map();
+        for (const ep of this.allEpisodes) allEpisodesMap.set(ep.id, ep);
+        for (const ep of this.newEpisodes) allEpisodesMap.set(ep.id, ep);
+        
+        console.log(`📚 إجمالي الحلقات: ${allEpisodesMap.size} حلقة`);
         
         if (this.newEpisodes.length > 0) {
             console.log('\n📋 الحلقات الجديدة:');
             this.newEpisodes.slice(0, 5).forEach((ep, i) => {
                 const series = this.seriesList.find(s => s.id === ep.series_id);
-                console.log(`   ${i + 1}. ${series?.title || 'مسلسل'} - ${ep.title}`);
+                console.log(`   ${i + 1}. ${series?.title || 'مسلسل'} - الحلقة ${ep.number || ''}`);
             });
             
             if (this.newEpisodes.length > 5) {
