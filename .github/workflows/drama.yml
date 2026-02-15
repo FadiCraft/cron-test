@@ -23,7 +23,7 @@ jobs:
           echo "Data folder:"
           ls -la data/ || true
           echo "----------------"
-          find . -name "extractor.js"
+          find . -name "drama.js"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -34,7 +34,7 @@ jobs:
         run: npm install axios cheerio
 
       - name: Run Extractor
-        run: node extractor.js
+        run: node drama.js
 
       - name: Commit & Push
         env:
