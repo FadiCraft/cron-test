@@ -2,7 +2,7 @@ name: استخراج حلقات رمضان 2026
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # كل 6 ساعات
+    - cron: '0 */6 * * *'
   workflow_dispatch:
   push:
     branches: [ main ]
@@ -15,7 +15,6 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-        token: ${{ secrets.GITHUB_TOKEN }}
     
     - uses: actions/setup-node@v3
       with:
@@ -28,40 +27,24 @@ jobs:
       run: node extractor.js
     
     - name: حفظ التغييرات
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        # إعدادات Git
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         
-        # أولاً: نضيف الملفات الجديدة
+        # نضيف الملفات الجديدة
         git add data/ || true
         
-        # ثانياً: نسوي commit للتغييرات المحلية
-        if ! git diff --quiet || ! git diff --staged --quiet; then
-          git commit -m "تحديث: $(date)"
-          echo "✅ تم عمل commit للتغييرات"
-        else
-          echo "ℹ️ لا توجد تغييرات جديدة"
+        # نتأكد إذا في تغييرات
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "✅ لا توجد تغييرات جديدة"
           exit 0
         fi
         
-        # ثالثاً: نجيب آخر التغييرات من GitHub
-        echo "🔄 جلب آخر التغييرات من GitHub..."
-        git fetch origin main
+        # نسوي commit
+        git commit -m "تحديث: $(date)"
         
-        # رابعاً: نحاول ندمج التغييرات (rebase)
-        if git rebase origin/main; then
-          echo "✅ تم rebase بنجاح"
-        else
-          echo "⚠️ فشل rebase، نجرب merge..."
-          git rebase --abort
-          git pull origin main --no-rebase --no-edit
-        fi
+        # نجيب آخر التغييرات (باستخدام merge وليس rebase)
+        git pull origin main --no-rebase --no-edit || echo "ℹ️ لا يوجد تحديثات من GitHub"
         
-        # خامساً: نرفع التغييرات
-        echo "🚀 رفع التغييرات إلى GitHub..."
+        # نرفع
         git push origin main
-        
-        echo "✅ تم الحفظ والرفع بنجاح"
