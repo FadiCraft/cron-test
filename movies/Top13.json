@@ -1,9 +1,9 @@
 {
   "fileName": "Top13.json",
   "fileNumber": 13,
-  "totalMovies": 474,
+  "totalMovies": 477,
   "created": "2026-02-09T20:38:17.739Z",
-  "lastUpdated": "2026-02-15T21:46:15.262Z",
+  "lastUpdated": "2026-02-15T22:13:05.690Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -78756,9 +78756,433 @@
       ],
       "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-stay-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
+      "position": 4,
+      "currentFile": "Top13.json",
+      "scrapedAt": "2026-02-15T22:13:05.613Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 9,
+        "genresCount": 0
+      }
+    },
+    {
+      "id": "203020",
+      "title": "فيلم A Fisherman’s Tale 2024 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-a-fishermans-tale-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=203020",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BNGUzNjg1MTQtNmU1Yy00MTA1LWE2YTMtZTFjNjI2ODAyOGQyXkEyXkFqcGc@-437x650.jpg",
+      "imdbRating": "5.3",
+      "story": "تقول الأسطورة أنه منذ فترة طويلة، ازدهرت الطبيعة في وئام حول البحيرة، حتى وصل الشر. الرجال، الذين أعمتهم الرغبات المظلمة، جلبوا الخوف والكراهية والموت. يطلق عليه الصيادون اسم \"لا ميرينغوا\"، أي الذي يسحبك إلى البحيرة بسبب خطاياك.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "اثارة",
+          "رعب",
+          "فانتازيا"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "103 دقيقة",
+        "موعد الصدور": [
+          "2024"
+        ],
+        "لغة الفيلم": [
+          "الإسبانية"
+        ],
+        "دولة الفيلم": [
+          "المكسيك"
+        ],
+        "بطولة": [
+          "Agustin Cornejo",
+          "Alejandra Herrera",
+          "Andrés Delgado",
+          "Anna Diaz"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "15-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-a-fishermans-tale-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-u87173dkrt1s.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-a-fishermans-tale-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/u87173dkrt1s.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/5jo1x49f0jza",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/r8c4xmlp2zlh",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Ddownload",
+          "url": "https://ddownload.com/tbt53hh960gh",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/CC9E9E1A0AFD9B1",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1Fichier",
+          "url": "https://1fichier.com/?0ucu1ot8ey4b9xrihcpc",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/0f020ceb90195bba422744e53b0d415b",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/e4k7nnnazf5q",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/4SweA",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-a-fishermans-tale-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
       "position": 1,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-15T21:46:15.245Z",
+      "scrapedAt": "2026-02-15T22:13:00.414Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 9,
+        "genresCount": 0
+      }
+    },
+    {
+      "id": "203027",
+      "title": "فيلم The Haunted Forest 2025 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-haunted-forest-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=203027",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BYzFlNjY5OTktODhkMS00Y2Q4LTlmNzAtODcwOWQyN2MwZTUwXkEyXkFqcGc@-scaled-439x650.jpg",
+      "imdbRating": "7.7",
+      "story": "يأخذ مراهق وظيفة ممثل تخويف في منطقة جذب في الغابة المسكونة. بعد الارتباط مع زملائه غريب الأطوار في العمل، يجبره الموت المأساوي على إعادة النظر في اهتماماته المظلمة.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "رعب"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "93 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "لغة الفيلم": [
+          "الأنجليزية"
+        ],
+        "دولة الفيلم": [
+          "الولايات المتحدة الامريكية"
+        ],
+        "بطولة": [
+          "Cedric Gegel",
+          "Ellie Christiansen",
+          "Grayson Gwaze",
+          "Jamie Bernadette"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "15-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-haunted-forest-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-pvykofprhq07.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-haunted-forest-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/pvykofprhq07.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/pu2si73ws89a",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/ibmeikzyd9m8",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Ddownload",
+          "url": "https://ddownload.com/aasokmrqz3vr",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/4EE6D8141485972",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1Fichier",
+          "url": "https://1fichier.com/?8ndex4ez4v1wlwxoi08j",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/be56452cefbe106a2b74336b04b4a3ea",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/hyumm109vhe1",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/4cyM7",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-the-haunted-forest-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
+      "position": 2,
+      "currentFile": "Top13.json",
+      "scrapedAt": "2026-02-15T22:13:02.126Z",
+      "stats": {
+        "watchServersCount": 2,
+        "downloadServersCount": 9,
+        "genresCount": 0
+      }
+    },
+    {
+      "id": "203024",
+      "title": "فيلم Kissing Is the Easy Part 2026 مترجم اون لاين",
+      "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kissing-is-the-easy-part-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://topcinema.rip/?p=203024",
+      "image": "https://topcinema.rip/wp-content/uploads/2026/02/MV5BNzM0ODY2YzYtMjQ2YS00ZmViLWIxYmQtZmQ4NTg2M2NhYWRhXkEyXkFqcGc@-scaled-438x650.jpg",
+      "imdbRating": "",
+      "story": "يوافق الطالب المتفوق شون على تدريس فلورا المتمردة مقابل الحصول على خطاب توصية للالتحاق بالجامعة. لكن انجذابهما المتزايد يعقد الأمور أكثر من مجرد أهدافهما الأكاديمية.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "رومانسي"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "موعد الصدور": [
+          "2026"
+        ],
+        "بطولة": [
+          "Alaina Clarke",
+          "Asher Angel",
+          "Chloe Cavelle",
+          "Daniel Falk"
+        ]
+      },
+      "year": null,
+      "quality": null,
+      "runtime": "15-02-2026",
+      "genres": [],
+      "countries": [],
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kissing-is-the-easy-part-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "source": "og:video:secure_url"
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-cjrontbccqfx.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "width": "100%",
+          "height": "100%"
+        }
+      ],
+      "watchPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kissing-is-the-easy-part-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/cjrontbccqfx.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "UpDown",
+          "url": "https://updown.cam/yksgdbohvd78",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Mdiaload",
+          "url": "https://down.mdiaload.com/yj5d73qdfixp",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Ddownload",
+          "url": "https://ddownload.com/3hltq1khskoh",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Nitroflare",
+          "url": "https://nitroflare.com/view/07BC71C7A661BBE",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1Fichier",
+          "url": "https://1fichier.com/?93j212zjy2vep3cwsoth",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Rapidgator",
+          "url": "https://rapidgator.net/file/944f6b8f171a25496c352bf7e7175cc5",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "Freedl",
+          "url": "https://frdl.io/d5m2ocpcn5nt",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "CloudFile",
+          "url": "https://1cloudfile.com/4Swek",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
+      "downloadPage": "https://topcinema.rip/%d9%81%d9%8a%d9%84%d9%85-kissing-is-the-easy-part-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
+      "page": 1,
+      "position": 3,
+      "currentFile": "Top13.json",
+      "scrapedAt": "2026-02-15T22:13:03.822Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
