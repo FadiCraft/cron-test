@@ -149,6 +149,11 @@
       "lastCheck": "2026-02-16T05:30:20.367Z",
       "seasonCount": 5,
       "episodeCount": 0
+    },
+    "gt_122455": {
+      "lastCheck": "2026-02-17T02:29:42.480Z",
+      "seasonCount": 5,
+      "episodeCount": 2
     }
   },
   "seasonsLastChecked": {
@@ -503,10 +508,73 @@
     "gt_122447": {
       "lastCheck": "2026-02-16T05:30:20.366Z",
       "episodeCount": 10
+    },
+    "gt_122460": {
+      "lastCheck": "2026-02-17T02:29:29.683Z",
+      "episodeCount": 10
+    },
+    "gt_122459": {
+      "lastCheck": "2026-02-17T02:29:33.388Z",
+      "episodeCount": 10
+    },
+    "gt_122458": {
+      "lastCheck": "2026-02-17T02:29:36.560Z",
+      "episodeCount": 10
+    },
+    "gt_122457": {
+      "lastCheck": "2026-02-17T02:29:39.677Z",
+      "episodeCount": 10
+    },
+    "gt_122456": {
+      "lastCheck": "2026-02-17T02:29:42.480Z",
+      "episodeCount": 10
     }
   },
   "episodesLastChecked": {},
-  "updateLog": [],
+  "updateLog": [
+    {
+      "timestamp": "2026-02-17T02:29:29.682Z",
+      "type": "موسم",
+      "id": "gt_122460",
+      "title": "مسلسل Orphan Black الموسم الخامس مترجم",
+      "changes": {
+        "newEpisodes": 10,
+        "episodes": [
+          "الحلقة 10",
+          "الحلقة 9",
+          "الحلقة 8",
+          "الحلقة 7",
+          "الحلقة 6",
+          "الحلقة 5",
+          "الحلقة 4",
+          "الحلقة 3",
+          "الحلقة 2",
+          "الحلقة 1"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-02-17T02:29:33.387Z",
+      "type": "موسم",
+      "id": "gt_122459",
+      "title": "مسلسل Orphan Black الموسم الرابع مترجم",
+      "changes": {
+        "newEpisodes": 10,
+        "episodes": [
+          "الحلقة 10",
+          "الحلقة 9",
+          "الحلقة 8",
+          "الحلقة 7",
+          "الحلقة 6",
+          "الحلقة 5",
+          "الحلقة 4",
+          "الحلقة 3",
+          "الحلقة 2",
+          "الحلقة 1"
+        ]
+      }
+    }
+  ],
   "homeSeriesHistory": [
     {
       "timestamp": "2026-02-15T20:44:47.970Z",
@@ -1323,7 +1391,75 @@
         "مسلسل Vanished مترجم",
         "مسلسل Stranger Things مترجم"
       ]
+    },
+    {
+      "timestamp": "2026-02-17T02:29:21.165Z",
+      "count": 30,
+      "seriesIds": [
+        "gt_122455",
+        "gt_122446",
+        "gt_122400",
+        "gt_122216",
+        "gt_19031",
+        "gt_122394",
+        "gt_11979",
+        "gt_29851",
+        "gt_42048",
+        "gt_32848",
+        "gt_108856",
+        "gt_122267",
+        "gt_122334",
+        "gt_121309",
+        "gt_120616",
+        "gt_122233",
+        "gt_47794",
+        "gt_121633",
+        "gt_122226",
+        "gt_93661",
+        "gt_35441",
+        "gt_122197",
+        "gt_51737",
+        "gt_51188",
+        "gt_122125",
+        "gt_122142",
+        "gt_122161",
+        "gt_122136",
+        "gt_121785",
+        "gt_21163"
+      ],
+      "seriesTitles": [
+        "مسلسل Orphan Black مترجم",
+        "مسلسل Hell on Wheels مترجم",
+        "مسلسل Bates Motel مترجم",
+        "مسلسل The Borderline مترجم",
+        "مسلسل Dark Winds مترجم",
+        "مسلسل Yellowstone مترجم",
+        "مسلسل The Lincoln Lawyer مترجم",
+        "مسلسل Sex Education مترجم",
+        "مسلسل El Chapo مترجم",
+        "مسلسل Bodyguard مترجم",
+        "مسلسل In the Mud مترجم",
+        "مسلسل Speechless مترجم",
+        "مسلسل Love Story مترجم",
+        "مسلسل The Beauty مترجم",
+        "مسلسل Star Trek: Starfleet Academy مترجم",
+        "مسلسل How to Get to Heaven from Belfast مترجم",
+        "مسلسل Lost in Space مترجم",
+        "مسلسل Castle مترجم",
+        "مسلسل Lead Children مترجم",
+        "مسلسل Cross مترجم",
+        "مسلسل Fuller House مترجم",
+        "مسلسل Motorvalley مترجم",
+        "مسلسل The Artful Dodger مترجم",
+        "مسلسل 3% مترجم",
+        "مسلسل Superstore مترجم",
+        "مسلسل Under Salt Marsh مترجم",
+        "مسلسل Betrayal مترجم",
+        "مسلسل The 'Burbs مترجم",
+        "مسلسل Vanished مترجم",
+        "مسلسل Stranger Things مترجم"
+      ]
     }
   ],
-  "lastUpdated": "2026-02-16T22:34:50.201Z"
+  "lastUpdated": "2026-02-17T02:29:42.480Z"
 }
