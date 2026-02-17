@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-02-17T00:05:15.629Z",
+  "last_scan": "2026-02-17T19:06:43.563Z",
   "series": {
     "193369381": {
       "last_episode": "c5c18decf",
@@ -626,13 +626,19 @@
       }
     },
     "64387fca3": {
-      "last_episode": "2344c2855",
+      "last_episode": "1c8463e5a",
       "last_season": 1,
       "episodes": {
         "2344c2855": {
           "extracted_at": "2026-02-17T00:03:09.655Z",
           "title": "مسلسل بنات عبدالغني الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "1c8463e5a": {
+          "extracted_at": "2026-02-17T19:03:59.700Z",
+          "title": "مسلسل بنات عبدالغني الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -674,13 +680,19 @@
       }
     },
     "a6e8205e8": {
-      "last_episode": "b0833bd3f",
+      "last_episode": "9dc5db3d1",
       "last_season": 1,
       "episodes": {
         "b0833bd3f": {
           "extracted_at": "2026-02-17T00:03:22.708Z",
           "title": "مسلسل لوبي الغرام الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "9dc5db3d1": {
+          "extracted_at": "2026-02-17T19:05:05.377Z",
+          "title": "مسلسل لوبي الغرام الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -998,13 +1010,19 @@
       }
     },
     "0ed21e78f": {
-      "last_episode": "d1c4e8a1c",
+      "last_episode": "b53c87205",
       "last_season": 1,
       "episodes": {
         "d1c4e8a1c": {
           "extracted_at": "2026-02-17T00:04:48.013Z",
           "title": "مسلسل عايلة مايلة الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "b53c87205": {
+          "extracted_at": "2026-02-17T19:06:36.139Z",
+          "title": "مسلسل عايلة مايلة الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -1034,13 +1052,19 @@
       }
     },
     "84adc7f83": {
-      "last_episode": "f99d3caaf",
+      "last_episode": "001b4e923",
       "last_season": 1,
       "episodes": {
         "f99d3caaf": {
           "extracted_at": "2026-02-17T00:04:57.446Z",
           "title": "مسلسل سعادة المجنون الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "001b4e923": {
+          "extracted_at": "2026-02-17T19:06:43.563Z",
+          "title": "مسلسل سعادة المجنون الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -1769,16 +1793,84 @@
       "title": "مسلسل السوق الحرة الحلقة 1 الاولي",
       "number": 1,
       "season": 1
+    },
+    "1c8463e5a": {
+      "series_id": "64387fca3",
+      "extracted_at": "2026-02-17T19:03:59.700Z",
+      "title": "مسلسل بنات عبدالغني الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
+    },
+    "9dc5db3d1": {
+      "series_id": "a6e8205e8",
+      "extracted_at": "2026-02-17T19:05:05.377Z",
+      "title": "مسلسل لوبي الغرام الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
+    },
+    "b53c87205": {
+      "series_id": "0ed21e78f",
+      "extracted_at": "2026-02-17T19:06:36.139Z",
+      "title": "مسلسل عايلة مايلة الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
+    },
+    "001b4e923": {
+      "series_id": "84adc7f83",
+      "extracted_at": "2026-02-17T19:06:43.563Z",
+      "title": "مسلسل سعادة المجنون الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
     }
   },
   "statistics": {
     "total_series": 98,
-    "total_episodes": 93,
-    "new_episodes_today": 0,
-    "last_scan": "2026-02-17T14:16:17.035Z",
+    "total_episodes": 97,
+    "new_episodes_today": 4,
+    "last_scan": "2026-02-17T19:07:01.705Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "001b4e923",
+      "series_id": "84adc7f83",
+      "series_title": "مسلسل سعادة المجنون",
+      "title": "مسلسل سعادة المجنون الحلقة 2 الثانية",
+      "image": "https://laroza.rest/uploads/thumbs/f99d3caaf-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-17T19:06:42.833Z"
+    },
+    {
+      "id": "b53c87205",
+      "series_id": "0ed21e78f",
+      "series_title": "مسلسل عايلة مايلة",
+      "title": "مسلسل عايلة مايلة الحلقة 2 الثانية",
+      "image": "https://laroza.rest/uploads/thumbs/d1c4e8a1c-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-17T19:06:35.642Z"
+    },
+    {
+      "id": "9dc5db3d1",
+      "series_id": "a6e8205e8",
+      "series_title": "مسلسل لوبي الغرام",
+      "title": "مسلسل لوبي الغرام الحلقة 2 الثانية",
+      "image": "https://laroza.rest/uploads/thumbs/b0833bd3f-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-17T19:05:02.446Z"
+    },
+    {
+      "id": "1c8463e5a",
+      "series_id": "64387fca3",
+      "series_title": "مسلسل بنات عبدالغني",
+      "title": "مسلسل بنات عبدالغني الحلقة 2 الثانية",
+      "image": "https://laroza.rest/uploads/thumbs/2344c2855-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-17T19:03:58.508Z"
+    },
     {
       "id": "172e17385",
       "series_id": "7bfb7e4b0",
@@ -1838,78 +1930,38 @@
       "number": 1,
       "season": 2,
       "added_at": "2026-02-17T00:04:59.804Z"
-    },
-    {
-      "id": "f99d3caaf",
-      "series_id": "84adc7f83",
-      "series_title": "مسلسل سعادة المجنون",
-      "title": "مسلسل سعادة المجنون الحلقة 1 الاولي",
-      "image": "https://laroza.rest/uploads/thumbs/f99d3caaf-1.jpg",
-      "number": 1,
-      "season": 1,
-      "added_at": "2026-02-17T00:04:56.582Z"
-    },
-    {
-      "id": "2403475fa",
-      "series_id": "b5f4bc95e",
-      "series_title": "مسلسل كوميدي تانا",
-      "title": "مسلسل كوميدي تانا الحلقة 1 الاولي",
-      "image": "https://laroza.rest/uploads/thumbs/2403475fa-1.jpg",
-      "number": 1,
-      "season": 1,
-      "added_at": "2026-02-17T00:04:53.927Z"
-    },
-    {
-      "id": "a3218cf30",
-      "series_id": "ceef8c734",
-      "series_title": "مسلسل با الحبيب",
-      "title": "مسلسل با الحبيب الحلقة 1 الاولي",
-      "image": "https://laroza.rest/uploads/thumbs/a3218cf30-1.jpg",
-      "number": 1,
-      "season": 1,
-      "added_at": "2026-02-17T00:04:50.432Z"
-    },
-    {
-      "id": "d1c4e8a1c",
-      "series_id": "0ed21e78f",
-      "series_title": "مسلسل عايلة مايلة",
-      "title": "مسلسل عايلة مايلة الحلقة 1 الاولي",
-      "image": "https://laroza.rest/uploads/thumbs/d1c4e8a1c-1.jpg",
-      "number": 1,
-      "season": 1,
-      "added_at": "2026-02-17T00:04:47.167Z"
     }
   ],
   "latest_series": [
     {
-      "id": "70efa0e07",
-      "title": "مسلسل المحافظة 15",
-      "image": "https://laroza.rest/uploads/thumbs/52fca8afd-1.jpg",
-      "added_at": "2026-02-17T14:12:41.642Z"
+      "id": "d8cb9c11b",
+      "title": "مسلسل الكينج",
+      "image": "https://laroza.rest/uploads/thumbs/92ae9f039-1.jpg",
+      "added_at": "2026-02-17T18:59:32.910Z"
     },
     {
-      "id": "4c571827e",
-      "title": "مسلسل أمور عائلية",
-      "image": "https://laroza.rest/uploads/thumbs/c8db11c88-1.jpg",
-      "added_at": "2026-02-17T14:12:41.642Z"
+      "id": "81ce0a5d7",
+      "title": "مسلسل علي كلاي",
+      "image": "https://laroza.rest/uploads/thumbs/0ec1512a8-1.jpg",
+      "added_at": "2026-02-17T18:59:32.910Z"
     },
     {
-      "id": "c8023b120",
-      "title": "مسلسل صبر أم أيوب",
-      "image": "https://laroza.rest/uploads/thumbs/81e550563-1.jpg",
-      "added_at": "2026-02-17T14:12:41.642Z"
+      "id": "1cf22b484",
+      "title": "مسلسل افراج",
+      "image": "https://laroza.rest/uploads/thumbs/372599929-1.jpg",
+      "added_at": "2026-02-17T18:59:32.910Z"
     },
     {
-      "id": "f84c14da4",
-      "title": "مسلسل اليتيم",
-      "image": "https://laroza.rest/uploads/thumbs/bf287f6da-1.jpg",
-      "added_at": "2026-02-17T14:12:41.642Z"
+      "id": "c",
+      "title": "النص",
+      "image": "",
+      "added_at": "2026-02-17T18:59:32.910Z"
     },
     {
-      "id": "7417b359a",
-      "title": "مسلسل نوبة وتوبة",
-      "image": "https://laroza.rest/uploads/thumbs/fa28ee052-1.jpg",
-      "added_at": "2026-02-17T14:12:41.642Z"
+      "id": "ae583760b",
+      "title": "مسلسل الست موناليزا",
+      "image": "https://laroza.rest/uploads/thumbs/cfee36307-1.jpg",
+      "added_at": "2026-02-17T18:59:32.910Z"
     }
   ]
 }
