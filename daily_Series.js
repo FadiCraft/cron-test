@@ -452,7 +452,7 @@ async function fetchPage(url) {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-            'Referer': 'https://topcinema.rip/'
+            'Referer': 'https://topcinema.red'
         };
         
         const controller = new AbortController();
@@ -867,7 +867,7 @@ class FileManager {
 async function fetchHomePageSeries() {
     console.log("\n🏠 ===== جلب المسلسلات من الصفحة الرئيسية =====");
     
-    const url = "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
+    const url = "https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
     console.log(`🔗 الرابط: ${url}`);
     
     const html = await fetchWithRetry(url);
@@ -932,8 +932,8 @@ async function fetchHomePageSeries() {
 // ==================== استخراج قائمة المسلسلات من الصفحة ====================
 async function fetchSeriesListFromPage(pageNum) {
     const url = pageNum === 1 
-        ? "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/"
-        : `https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/page/${pageNum}/`;
+        ? "https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/"
+        : `https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/page/${pageNum}/`;
     
     console.log(`\n📺 ====== جلب صفحة المسلسلات ${pageNum} ======`);
     console.log(`🔗 الرابط: ${url}`);
@@ -1545,7 +1545,7 @@ class OrganizedScraper {
                 console.log(`❌ خطأ: الصفحة الأولى لا تحتوي على مسلسلات!`);
                 console.log(`🔍 تحقق من:
                 1. الاتصال بالإنترنت
-                2. الموقع يعمل (https://topcinema.rip)
+                2. الموقع يعمل (https://topcinema.red)
                 3. هيكل الموقع لم يتغير`);
                 
                 // حفظ محتوى الصفحة للتحليل
@@ -1856,7 +1856,7 @@ async function main() {
         // تحقق أولاً من أن الصفحة الأولى قابلة للجلب
         if (progress.seriesPage === 1 && progress.totalExtracted.series === 0) {
             console.log(`\n🔍 جاري التحقق من إمكانية الوصول إلى الموقع...`);
-            const testHtml = await fetchWithRetry("https://topcinema.rip/");
+            const testHtml = await fetchWithRetry("https://topcinema.red/");
             if (!testHtml) {
                 console.log(`❌ لا يمكن الوصول إلى الموقع!`);
                 console.log(`💡 تأكد من:`);
@@ -1971,7 +1971,7 @@ async function main() {
     // نصائح للتشغيل التالي
     if (progress.mode === 'scrape_series' && progress.seriesPage === 1 && progress.totalExtracted.series === 0) {
         console.log(`\n💡 نصائح:`);
-        console.log(`   1. تأكد من أن الموقع يعمل: https://topcinema.rip`);
+        console.log(`   1. تأكد من أن الموقع يعمل: https://topcinema.red`);
         console.log(`   2. تحقق من اتصال الإنترنت`);
         console.log(`   3. جرب تشغيل البرنامج مرة أخرى بعد دقيقة`);
     } else if (progress.mode === 'scrape_series') {
@@ -2025,7 +2025,7 @@ main().catch(async error => {
     // نصائح للمستخدم
     console.log("\n💡 نصائح لحل المشكلة:");
     console.log("1. تحقق من اتصال الإنترنت");
-    console.log("2. تأكد من أن الموقع يعمل (https://topcinema.rip)");
+    console.log("2. تأكد من أن الموقع يعمل (https://topcinema.red)");
     console.log("3. قد يكون الموقع يحظر الطلبات الكثيرة - جرب زيادة DELAY_BETWEEN_REQUESTS");
     console.log("4. افحص ملف debug_log.json في مجلد AgSeries لمزيد من التفاصيل");
     
