@@ -17,7 +17,6 @@ const HOME_SERIES_FILE = path.join(TV_SERIES_DIR, "Home.json");
 const UPDATE_TRACKER_FILE = path.join(AG_SERIES_DIR, "update_tracker.json");
 const REPORT_FILE = path.join(AG_SERIES_DIR, "scraper_report.json");
 const ERROR_FILE = path.join(AG_SERIES_DIR, "scraper_error.json");
-const DEBUG_FILE = path.join(AG_SERIES_DIR, "debug_log.json"); // ملف جديد للتصحيح
 
 // إنشاء المجلدات إذا لم تكن موجودة
 const createDirectories = () => {
@@ -40,60 +39,9 @@ const ITEMS_PER_FILE = {
     episodes: 500
 };
 
-const PAGES_PER_RUN = 1;
+const PAGES_PER_RUN = 1;  // تم التعديل: صفحة واحدة لكل تشغيل
 const DELAY_BETWEEN_REQUESTS = 2000;
 const MAX_RETRIES = 3;
-
-// ==================== نظام التصحيح ====================
-class DebugLogger {
-    constructor() {
-        this.logs = [];
-        this.loadDebug();
-    }
-    
-    loadDebug() {
-        try {
-            if (fs.existsSync(DEBUG_FILE)) {
-                this.logs = JSON.parse(fs.readFileSync(DEBUG_FILE, 'utf8'));
-            } else {
-                this.logs = [];
-            }
-        } catch (error) {
-            this.logs = [];
-        }
-    }
-    
-    log(type, message, data = null) {
-        const entry = {
-            timestamp: new Date().toISOString(),
-            type: type,
-            message: message,
-            data: data
-        };
-        
-        this.logs.push(entry);
-        
-        // نحتفظ بآخر 500 سجل فقط
-        if (this.logs.length > 500) {
-            this.logs = this.logs.slice(-500);
-        }
-        
-        fs.writeFileSync(DEBUG_FILE, JSON.stringify(this.logs, null, 2));
-        
-        // عرض في الكونسول
-        console.log(`🔍 [${type}] ${message}`);
-        if (data) {
-            console.log(`   📊 البيانات:`, data);
-        }
-    }
-    
-    clear() {
-        this.logs = [];
-        fs.writeFileSync(DEBUG_FILE, JSON.stringify([], null, 2));
-    }
-}
-
-const debug = new DebugLogger();
 
 // ==================== نظام تتبع التحديثات ====================
 class UpdateTracker {
@@ -109,7 +57,7 @@ class UpdateTracker {
                 this.seasonsLastChecked = data.seasonsLastChecked || {};
                 this.episodesLastChecked = data.episodesLastChecked || {};
                 this.updateLog = data.updateLog || [];
-                this.homeSeriesHistory = data.homeSeriesHistory || [];
+                this.homeSeriesHistory = data.homeSeriesHistory || []; // سجل تاريخ مسلسلات الصفحة الرئيسية
             } else {
                 this.seriesLastChecked = {};
                 this.seasonsLastChecked = {};
@@ -119,7 +67,7 @@ class UpdateTracker {
                 this.saveTracker();
             }
         } catch (error) {
-            debug.log('ERROR', 'لا يمكن تحميل متتبع التحديثات', error.message);
+            console.log("⚠️ لا يمكن تحميل متتبع التحديثات، إنشاء جديد");
             this.seriesLastChecked = {};
             this.seasonsLastChecked = {};
             this.episodesLastChecked = {};
@@ -135,7 +83,7 @@ class UpdateTracker {
             seasonsLastChecked: this.seasonsLastChecked,
             episodesLastChecked: this.episodesLastChecked,
             updateLog: this.updateLog.slice(-100),
-            homeSeriesHistory: this.homeSeriesHistory.slice(-50),
+            homeSeriesHistory: this.homeSeriesHistory.slice(-50), // آخر 50 تحديث للصفحة الرئيسية
             lastUpdated: new Date().toISOString()
         };
         
@@ -248,20 +196,13 @@ class ProgressTracker {
                     episodes: 0
                 };
                 
-                this.lastHomeSeriesIds = data.lastHomeSeriesIds || [];
-                
-                debug.log('INFO', 'تم تحميل حالة التقدم', {
-                    page: this.seriesPage,
-                    mode: this.mode,
-                    allPagesScraped: this.allPagesScraped
-                });
+                this.lastHomeSeriesIds = data.lastHomeSeriesIds || []; // آخر IDs من الصفحة الرئيسية
                 
             } else {
-                debug.log('INFO', 'لا يوجد ملف تقدم، إنشاء جديد');
                 this.resetProgress();
             }
         } catch (error) {
-            debug.log('ERROR', 'خطأ في تحميل التقدم', error.message);
+            console.log("⚠️ لا يمكن تحميل حالة التقدم، إنشاء جديد");
             this.resetProgress();
         }
     }
@@ -332,7 +273,6 @@ class ProgressTracker {
         };
         
         fs.writeFileSync(PROGRESS_FILE, JSON.stringify(progressData, null, 2));
-        debug.log('INFO', 'تم حفظ حالة التقدم', { page: this.seriesPage, mode: this.mode });
     }
     
     addSeriesToFile() {
@@ -386,7 +326,6 @@ class ProgressTracker {
     }
     
     markAllPagesScraped() {
-        debug.log('INFO', 'تم تحديد جميع الصفحات كمستخرجة');
         this.allPagesScraped = true;
         this.mode = "monitor_home";
         this.shouldStop = true;
@@ -394,7 +333,6 @@ class ProgressTracker {
     }
     
     switchToHomeMode() {
-        debug.log('INFO', 'التحول إلى وضع مراقبة الصفحة الرئيسية');
         this.mode = "monitor_home";
         this.shouldStop = true;
         this.saveProgress();
@@ -419,8 +357,6 @@ async function delay(ms) {
 }
 
 async function fetchWithRetry(url, retries = MAX_RETRIES) {
-    debug.log('FETCH', 'محاولة جلب', { url: url.substring(0, 50), retries });
-    
     for (let i = 0; i < retries; i++) {
         try {
             if (i > 0) {
@@ -429,18 +365,12 @@ async function fetchWithRetry(url, retries = MAX_RETRIES) {
             }
             
             const result = await fetchPage(url);
-            if (result) {
-                debug.log('FETCH', 'نجح الجلب', { url: url.substring(0, 50), attempt: i + 1 });
-                return result;
-            }
+            if (result) return result;
             
         } catch (error) {
-            debug.log('FETCH_ERROR', 'فشلت المحاولة', { attempt: i + 1, error: error.message });
             console.log(`   ⚠️ محاولة ${i + 1} فشلت: ${error.message}`);
         }
     }
-    
-    debug.log('FETCH_FAILED', 'فشل جميع المحاولات', { url: url.substring(0, 50) });
     return null;
 }
 
@@ -452,26 +382,13 @@ async function fetchPage(url) {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-            'Referer': 'https://topcinema.red'
+            'Referer': 'https://topcinema.rip/'
         };
-        
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000);
         
         const response = await fetch(url, { 
             headers,
-            signal: controller.signal
+            timeout: 30000
         });
-        
-        clearTimeout(timeoutId);
-        
-        debug.log('FETCH_RESPONSE', 'استجابة الخادم', { 
-            status: response.status, 
-            statusText: response.statusText,
-            headers: Object.fromEntries(response.headers)
-        });
-        
-        console.log(`📊 حالة الاستجابة: ${response.status} ${response.statusText}`);
         
         if (!response.ok) {
             console.log(`❌ فشل الجلب: ${response.status} ${response.statusText}`);
@@ -479,29 +396,11 @@ async function fetchPage(url) {
         }
         
         const html = await response.text();
-        console.log(`📄 حجم الصفحة: ${html.length} حرف`);
-        
-        if (html.length < 1000) {
-            console.log(`⚠️ تحذير: الصفحة صغيرة جداً (أقل من 1000 حرف)!`);
-            debug.log('WARNING', 'صفحة صغيرة جداً', { length: html.length, url });
-            
-            // حفظ الصفحة الصغيرة للفحص
-            const debugPagePath = path.join(AG_SERIES_DIR, `debug_page_${Date.now()}.html`);
-            fs.writeFileSync(debugPagePath, html);
-            console.log(`💾 تم حفظ الصفحة للتصحيح في: ${debugPagePath}`);
-        }
-        
         await delay(DELAY_BETWEEN_REQUESTS);
         return html;
         
     } catch (error) {
-        if (error.name === 'AbortError') {
-            console.log(`❌ انتهى الوقت المحدد للجلب (30 ثانية)`);
-            debug.log('TIMEOUT', 'انتهاء وقت الجلب', { url: url.substring(0, 50) });
-        } else {
-            console.log(`❌ خطأ في الجلب: ${error.message}`);
-            debug.log('FETCH_ERROR', error.message, { url: url.substring(0, 50) });
-        }
+        console.log(`❌ خطأ في الجلب: ${error.message}`);
         return null;
     }
 }
@@ -710,7 +609,7 @@ class FileManager {
             
             return parsed;
         } catch (error) {
-            debug.log('FILE_ERROR', 'خطأ في قراءة الملف', { file: filePath, error: error.message });
+            console.log(`⚠️ خطأ في قراءة الملف ${filePath}: ${error.message}`);
             return { info: { type: 'data', totalItems: 0 }, data: [] };
         }
     }
@@ -743,6 +642,7 @@ class FileManager {
         return fileContent;
     }
     
+    // دالة جديدة لحفظ Home.json (استبدال كامل)
     saveHomeFile(seriesList) {
         const fileInfo = {
             type: 'home_series',
@@ -787,7 +687,7 @@ class FileManager {
             
             return null;
         } catch (error) {
-            debug.log('FILE_ERROR', 'خطأ في البحث', { directory, itemId, error: error.message });
+            console.log(`⚠️ خطأ في البحث: ${error.message}`);
             return null;
         }
     }
@@ -809,7 +709,7 @@ class FileManager {
             
             return items;
         } catch (error) {
-            debug.log('FILE_ERROR', 'خطأ في الحصول على العناصر', { directory, error: error.message });
+            console.log(`⚠️ خطأ في الحصول على العناصر: ${error.message}`);
             return items;
         }
     }
@@ -857,7 +757,7 @@ class FileManager {
             
             return { success: false, message: 'Item not found' };
         } catch (error) {
-            debug.log('FILE_ERROR', 'خطأ في التحديث', { directory, itemId, error: error.message });
+            console.log(`⚠️ خطأ في التحديث: ${error.message}`);
             return { success: false, error: error.message };
         }
     }
@@ -867,7 +767,7 @@ class FileManager {
 async function fetchHomePageSeries() {
     console.log("\n🏠 ===== جلب المسلسلات من الصفحة الرئيسية =====");
     
-    const url = "https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
+    const url = "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
     console.log(`🔗 الرابط: ${url}`);
     
     const html = await fetchWithRetry(url);
@@ -886,8 +786,6 @@ async function fetchHomePageSeries() {
         const seriesElements = doc.querySelectorAll('.Small--Box a');
         console.log(`✅ وجدت ${seriesElements.length} مسلسل في الصفحة الرئيسية`);
         
-        debug.log('HOME_PAGE', 'عناصر الصفحة الرئيسية', { count: seriesElements.length });
-        
         for (let i = 0; i < seriesElements.length; i++) {
             const element = seriesElements[i];
             const seriesUrl = element.href;
@@ -897,6 +795,7 @@ async function fetchHomePageSeries() {
                 const image = element.querySelector('img')?.src;
                 const seasonsCount = cleanText(element.querySelector('.number.Collection span')?.textContent || "");
                 
+                // استخراج ID مؤقت للمقارنة
                 const tempId = extractIdFromShortLink(seriesUrl);
                 
                 seriesList.push({
@@ -922,7 +821,6 @@ async function fetchHomePageSeries() {
         
     } catch (error) {
         console.error(`❌ خطأ في استخراج الصفحة الرئيسية:`, error.message);
-        debug.log('ERROR', 'خطأ في استخراج الصفحة الرئيسية', error.message);
         return [];
     } finally {
         await delay(1000);
@@ -932,17 +830,14 @@ async function fetchHomePageSeries() {
 // ==================== استخراج قائمة المسلسلات من الصفحة ====================
 async function fetchSeriesListFromPage(pageNum) {
     const url = pageNum === 1 
-        ? "https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/"
-        : `https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/page/${pageNum}/`;
+        ? "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/"
+        : `https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/page/${pageNum}/`;
     
-    console.log(`\n📺 ====== جلب صفحة المسلسلات ${pageNum} ======`);
+    console.log(`\n📺 ===== جلب صفحة المسلسلات ${pageNum} =====`);
     console.log(`🔗 الرابط: ${url}`);
     
     const html = await fetchWithRetry(url);
-    if (!html) {
-        debug.log('SERIES_PAGE_FAIL', 'فشل جلب صفحة المسلسلات', { pageNum });
-        return null;
-    }
+    if (!html) return null;
     
     try {
         const dom = new JSDOM(html);
@@ -953,24 +848,6 @@ async function fetchSeriesListFromPage(pageNum) {
         
         const seriesElements = doc.querySelectorAll('.Small--Box a');
         console.log(`✅ وجدت ${seriesElements.length} مسلسل في الصفحة`);
-        
-        debug.log('SERIES_PAGE', 'نتائج صفحة المسلسلات', { 
-            pageNum, 
-            count: seriesElements.length,
-            htmlLength: html.length 
-        });
-        
-        if (seriesElements.length === 0) {
-            // ربما الصفحة لا تحتوي على مسلسلات
-            console.log(`⚠️ لا توجد عناصر مسلسلات في الصفحة ${pageNum}`);
-            
-            // تحقق مما إذا كانت هذه صفحة موجودة أصلاً
-            const pagination = doc.querySelector('.pagination, .wp-pagenavi, .nav-links');
-            if (!pagination) {
-                console.log(`📭 يبدو أن هذه آخر صفحة (لا يوجد ترقيم صفحات)`);
-                return null;
-            }
-        }
         
         for (let i = 0; i < seriesElements.length; i++) {
             const element = seriesElements[i];
@@ -997,7 +874,6 @@ async function fetchSeriesListFromPage(pageNum) {
         
     } catch (error) {
         console.error(`❌ خطأ في الصفحة ${pageNum}:`, error.message);
-        debug.log('ERROR', 'خطأ في معالجة صفحة المسلسلات', { pageNum, error: error.message });
         return null;
     } finally {
         await delay(1000);
@@ -1490,6 +1366,7 @@ class UpdateDetector {
         const newSeries = [];
         
         for (const series of currentHomeSeries) {
+            // استخراج ID حقيقي للمسلسل
             const seriesDetails = await fetchSeriesDetails(series);
             if (seriesDetails && !storedSeriesIds.includes(seriesDetails.id)) {
                 newSeries.push(seriesDetails);
@@ -1514,62 +1391,19 @@ class OrganizedScraper {
         
         const pageData = await fetchSeriesListFromPage(pageNum);
         
-        // 🔴 تصحيح: تحقق مما إذا كان هناك مسلسلات أم لا
-        if (!pageData) {
-            console.log(`⚠️ فشل جلب الصفحة ${pageNum} - ربما مشكلة في الاتصال أو انتهت الصفحات`);
-            
-            // إذا كنا في الصفحة 1، هذا خطأ - يجب ألا ننتقل للمراقبة
-            if (pageNum === 1) {
-                console.log(`❌ خطأ: لا يمكن جلب الصفحة الأولى!`);
-                console.log(`🔄 سأحاول مرة أخرى في التشغيل القادم`);
-                this.progress.shouldStop = true;  // نوقف التشغيل لكن لا ننتقل للمراقبة
-                return false;
-            }
-            
-            // إذا كنا في صفحة متقدمة، ربما وصلنا للنهاية
-            console.log(`🏠 ربما وصلنا لآخر صفحة؟ سأنتقل لمراقبة الصفحة الرئيسية`);
-            console.log(`📊 إجمالي المسلسلات المستخرجة حتى الآن: ${this.progress.totalExtracted.series}`);
-            
-            // سؤال المستخدم (إذا كان هذا في بيئة تفاعلية)
-            console.log(`❓ إذا كنت متأكداً أن هذه آخر صفحة، اكتب 'نعم' في المرة القادمة`);
-            
+        if (!pageData || pageData.series.length === 0) {
+            console.log(`\n🏁 وصلنا إلى آخر صفحة!`);
             this.progress.markAllPagesScraped();
             return false;
         }
         
-        if (pageData.series.length === 0) {
-            console.log(`📭 الصفحة ${pageNum} لا تحتوي على مسلسلات`);
-            
-            // إذا كانت الصفحة الأولى ولا تحتوي على مسلسلات، هناك مشكلة!
-            if (pageNum === 1) {
-                console.log(`❌ خطأ: الصفحة الأولى لا تحتوي على مسلسلات!`);
-                console.log(`🔍 تحقق من:
-                1. الاتصال بالإنترنت
-                2. الموقع يعمل (https://topcinema.red)
-                3. هيكل الموقع لم يتغير`);
-                
-                // حفظ محتوى الصفحة للتحليل
-                debug.log('PAGE_EMPTY', 'الصفحة الأولى فارغة', { pageNum });
-                this.progress.shouldStop = true;
-                return false;
-            }
-            
-            // للصفحات الأخرى، ربما وصلنا للنهاية
-            console.log(`🏁 يبدو أننا وصلنا لآخر صفحة (الصفحة ${pageNum})`);
-            console.log(`📊 إجمالي المسلسلات المستخرجة: ${this.progress.totalExtracted.series}`);
-            this.progress.markAllPagesScraped();
-            return false;
-        }
-        
-        console.log(`📊 جاهز لاستخراج ${pageData.series.length} مسلسل من الصفحة ${pageNum}`);
+        console.log(`📊 جاهز لاستخراج ${pageData.series.length} مسلسل`);
         
         // تحديث Home.json بمسلسلات الصفحة الأولى فقط
         if (pageNum === 1) {
-            console.log(`🏠 تحديث Home.json بمسلسلات الصفحة الأولى...`);
             await this.updateHomeFile(pageData.series);
         }
         
-        let extractedCount = 0;
         for (let i = 0; i < pageData.series.length; i++) {
             const seriesData = pageData.series[i];
             
@@ -1610,24 +1444,19 @@ class OrganizedScraper {
                 console.log(`   💾 تم حفظ المسلسل في ${this.progress.currentSeriesFile}`);
                 this.progress.addSeriesToFile();
                 this.progress.currentSeriesId = seriesDetails.id;
-                extractedCount++;
                 
                 await this.extractSeasonsForSeries(seriesDetails);
             }
             
             if (i < pageData.series.length - 1) {
-                console.log(`   ⏳ انتظار 2 ثانية قبل المسلسل التالي...`);
                 await delay(2000);
             }
         }
         
-        console.log(`\n✅ اكتملت معالجة الصفحة ${pageNum}`);
-        console.log(`📊 تم استخراج ${extractedCount} مسلسل جديد من هذه الصفحة`);
-        console.log(`📊 الإجمالي الكلي: ${this.progress.totalExtracted.series} مسلسل`);
-        
         return true;
     }
     
+    // دالة جديدة لتحديث Home.json
     async updateHomeFile(homeSeriesList) {
         console.log(`\n🏠 تحديث ملف Home.json بمسلسلات الصفحة الأولى...`);
         
@@ -1761,10 +1590,6 @@ class OrganizedScraper {
         const allStoredSeries = this.fileManager.getAllItems(TV_SERIES_DIR);
         const storedSeriesIds = new Set(allStoredSeries.map(s => s.id));
         
-        console.log(`\n📊 إحصائيات:`);
-        console.log(`   📁 المسلسلات المخزنة: ${allStoredSeries.length}`);
-        console.log(`   🏠 مسلسلات الصفحة الرئيسية: ${homeSeries.length}`);
-        
         // البحث عن مسلسلات جديدة
         console.log("\n🔍 البحث عن مسلسلات جديدة...");
         let newSeriesCount = 0;
@@ -1853,28 +1678,6 @@ async function main() {
         console.log(`   📄 الصفحة الحالية: ${progress.seriesPage}`);
         console.log(`   📁 ملف المسلسلات: ${progress.currentSeriesFile} (${progress.seriesInCurrentFile}/${ITEMS_PER_FILE.series})`);
         
-        // تحقق أولاً من أن الصفحة الأولى قابلة للجلب
-        if (progress.seriesPage === 1 && progress.totalExtracted.series === 0) {
-            console.log(`\n🔍 جاري التحقق من إمكانية الوصول إلى الموقع...`);
-            const testHtml = await fetchWithRetry("https://topcinema.red/");
-            if (!testHtml) {
-                console.log(`❌ لا يمكن الوصول إلى الموقع!`);
-                console.log(`💡 تأكد من:`);
-                console.log(`   1. اتصالك بالإنترنت`);
-                console.log(`   2. الموقع يعمل (افتحه في المتصفح)`);
-                console.log(`   3. لا يوجد حظر للموقع`);
-                
-                const errorReport = {
-                    error: "Cannot access website",
-                    timestamp: new Date().toISOString(),
-                    recommendation: "تحقق من الاتصال بالإنترنت والموقع"
-                };
-                fs.writeFileSync(ERROR_FILE, JSON.stringify(errorReport, null, 2));
-                return;
-            }
-            console.log(`✅ الموقع يعمل، البدء في الاستخراج...\n`);
-        }
-        
         if (progress.allPagesScraped) {
             console.log(`\n🏁 تم استخراج جميع صفحات المسلسلات!`);
             console.log(`🔄 التبديل لوضع مراقبة الصفحة الرئيسية...`);
@@ -1882,18 +1685,17 @@ async function main() {
         } else {
             progress.resetForNewRun();
             
-            console.log(`\n📌 ملاحظة: سيتم استخراج صفحة واحدة فقط في هذا التشغيل`);
-            console.log(`   (يمكنك تغيير PAGES_PER_RUN لاستخراج أكثر من صفحة)\n`);
-            
-            let hasMorePages = await scraper.processSeriesPage(progress.seriesPage);
-            
-            if (hasMorePages) {
-                progress.addPageProcessed();
+            let hasMorePages = true;
+            while (!progress.shouldStop && hasMorePages) {
+                hasMorePages = await scraper.processSeriesPage(progress.seriesPage);
                 
-                if (!progress.shouldStop && hasMorePages) {
-                    // لا ننتقل للصفحة التالية تلقائياً، ننتظر التشغيل القادم
-                    console.log(`\n✅ اكتملت الصفحة ${progress.seriesPage - 1}`);
-                    console.log(`👉 في المرة القادمة، سيبدأ من الصفحة ${progress.seriesPage}`);
+                if (hasMorePages) {
+                    progress.addPageProcessed();
+                    
+                    if (!progress.shouldStop) {
+                        console.log(`\n⏳ انتظار 3 ثواني قبل الصفحة التالية...`);
+                        await delay(3000);
+                    }
                 }
             }
         }
@@ -1909,19 +1711,6 @@ async function main() {
     console.log("🎉 اكتمل التشغيل!");
     console.log("=".repeat(60));
     
-    // إحصائيات الملفات
-    let seriesFiles = [];
-    let seasonFiles = [];
-    let episodeFiles = [];
-    
-    try {
-        seriesFiles = fs.existsSync(TV_SERIES_DIR) ? fs.readdirSync(TV_SERIES_DIR).filter(f => f.endsWith('.json')) : [];
-        seasonFiles = fs.existsSync(SEASONS_DIR) ? fs.readdirSync(SEASONS_DIR).filter(f => f.endsWith('.json')) : [];
-        episodeFiles = fs.existsSync(EPISODES_DIR) ? fs.readdirSync(EPISODES_DIR).filter(f => f.endsWith('.json')) : [];
-        } catch (e) {
-        debug.log('ERROR', 'خطأ في قراءة الملفات', e.message);
-    }
-    
     const finalReport = {
         timestamp: new Date().toISOString(),
         mode: progress.mode,
@@ -1934,12 +1723,9 @@ async function main() {
             lastHomeUpdate: progress.lastHomeUpdate
         },
         files: {
-            seriesFiles: seriesFiles.length,
-            seasonFiles: seasonFiles.length,
-            episodeFiles: episodeFiles.length,
-            seriesFilesList: seriesFiles,
-            seasonFilesList: seasonFiles,
-            episodeFilesList: episodeFiles
+            seriesFiles: fs.readdirSync(TV_SERIES_DIR).filter(f => f.endsWith('.json')).length,
+            seasonFiles: fs.readdirSync(SEASONS_DIR).filter(f => f.endsWith('.json')).length,
+            episodeFiles: fs.readdirSync(EPISODES_DIR).filter(f => f.endsWith('.json')).length
         },
         nextRun: {
             mode: progress.mode,
@@ -1952,98 +1738,22 @@ async function main() {
     fs.writeFileSync(REPORT_FILE, JSON.stringify(finalReport, null, 2));
     console.log(`📄 تم حفظ التقرير في: ${REPORT_FILE}`);
     console.log(`📊 ${finalReport.files.seriesFiles} ملف مسلسلات, ${finalReport.files.seasonFiles} ملف مواسم, ${finalReport.files.episodeFiles} ملف حلقات`);
-    
-    // عرض محتوى ملف التصحيح إذا وجد
-    if (fs.existsSync(DEBUG_FILE)) {
-        const debugLogs = JSON.parse(fs.readFileSync(DEBUG_FILE, 'utf8'));
-        const recentErrors = debugLogs.filter(log => log.type.includes('ERROR') || log.type.includes('FETCH_FAILED')).slice(-5);
-        
-        if (recentErrors.length > 0) {
-            console.log(`\n🔍 آخر أخطاء التصحيح (${recentErrors.length}):`);
-            recentErrors.forEach((log, i) => {
-                console.log(`   ${i+1}. [${log.type}] ${log.message}`);
-            });
-        }
-    }
-    
     console.log("=".repeat(60));
-    
-    // نصائح للتشغيل التالي
-    if (progress.mode === 'scrape_series' && progress.seriesPage === 1 && progress.totalExtracted.series === 0) {
-        console.log(`\n💡 نصائح:`);
-        console.log(`   1. تأكد من أن الموقع يعمل: https://topcinema.red`);
-        console.log(`   2. تحقق من اتصال الإنترنت`);
-        console.log(`   3. جرب تشغيل البرنامج مرة أخرى بعد دقيقة`);
-    } else if (progress.mode === 'scrape_series') {
-        console.log(`\n👉 للتشغيل التالي:`);
-        console.log(`   قم بتشغيل البرنامج مرة أخرى لاستخراج الصفحة ${progress.seriesPage}`);
-        if (progress.seriesPage > 1) {
-            console.log(`   تم استخراج ${progress.totalExtracted.series} مسلسل حتى الآن`);
-        }
-    } else if (progress.mode === 'monitor_home') {
-        console.log(`\n👉 للتشغيل التالي:`);
-        console.log(`   سيتم مراقبة الصفحة الرئيسية للبحث عن مسلسلات جديدة`);
-        console.log(`   آخر مراقبة: ${progress.lastHomeUpdate ? new Date(progress.lastHomeUpdate).toLocaleString() : 'لم تتم'}`);
-    }
 }
 
-// ==================== تشغيل البرنامج مع معالجة أفضل للأخطاء ====================
-main().catch(async error => {
+// ==================== تشغيل البرنامج ====================
+main().catch(error => {
     console.error("\n💥 خطأ غير متوقع:", error.message);
     console.error("Stack:", error.stack);
     
-    // محاولة حفظ أكبر قدر من المعلومات عن الخطأ
     const errorReport = {
-        error: {
-            message: error.message,
-            stack: error.stack,
-            name: error.name,
-            code: error.code
-        },
-        system: {
-            platform: process.platform,
-            nodeVersion: process.version,
-            memory: process.memoryUsage(),
-            uptime: process.uptime()
-        },
+        error: error.message,
+        stack: error.stack,
         timestamp: new Date().toISOString()
     };
     
-    // محاولة إضافة حالة التقدم إذا كانت موجودة
-    try {
-        if (fs.existsSync(PROGRESS_FILE)) {
-            errorReport.progress = JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
-        }
-    } catch (e) {
-        errorReport.progressError = e.message;
-    }
-    
-    // حفظ تقرير الخطأ
+    // حفظ تقرير الخطأ داخل مجلد AgSeries
     fs.writeFileSync(ERROR_FILE, JSON.stringify(errorReport, null, 2));
-    console.log(`❌ تم حفظ تقرير الخطأ المفصل في ${ERROR_FILE}`);
-    
-    // نصائح للمستخدم
-    console.log("\n💡 نصائح لحل المشكلة:");
-    console.log("1. تحقق من اتصال الإنترنت");
-    console.log("2. تأكد من أن الموقع يعمل (https://topcinema.red)");
-    console.log("3. قد يكون الموقع يحظر الطلبات الكثيرة - جرب زيادة DELAY_BETWEEN_REQUESTS");
-    console.log("4. افحص ملف debug_log.json في مجلد AgSeries لمزيد من التفاصيل");
-    
+    console.log(`❌ تم حفظ الخطأ في ${ERROR_FILE}`);
     process.exit(1);
 });
-
-// ==================== تصدير الدوال للاختبار (اختياري) ====================
-export {
-    fetchPage,
-    fetchSeriesListFromPage,
-    fetchSeriesDetails,
-    extractSeasonsFromSeriesPage,
-    fetchSeasonDetails,
-    extractEpisodesFromSeasonPage,
-    fetchEpisodeDetails,
-    ProgressTracker,
-    FileManager,
-    OrganizedScraper,
-    UpdateDetector,
-    debug
-};
