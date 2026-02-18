@@ -330,8 +330,9 @@ async function fetchMoviesFromPage(pageNum) {
                 const titleElement = element.querySelector('h3.title');
                 const title = cleanText(titleElement?.textContent || `فيلم ${i + 1}`);
                 
-                // محاولة استخراج رقم التقييم من القائمة (اختياري)
-                const imdbElement = element.querySelector('.liList .imdbRating i.fa-star + ?'); // يصعب استخراجه بدقة هنا، سنعتمد على صفحة التفاصيل
+                // ✅ **السطر التالي هو سبب المشكلة - قم بحذفه أو التعليق عليه**
+                // محاولة استخراج رقم التقييم من القائمة (اختياري) - ليس ضرورياً
+                // const imdbElement = element.querySelector('.liList .imdbRating i.fa-star + ?'); // <-- علق هذا السطر أو احذفه
                 
                 movies.push({
                     id: extractMovieId(movieUrl),
@@ -347,10 +348,9 @@ async function fetchMoviesFromPage(pageNum) {
         
     } catch (error) {
         console.error(`❌ خطأ في الصفحة ${pageNum}:`, error.message);
-        return null;
+        return null; // هذا سيعيد null للصفحة الأولى ويسبب فشلها
     }
 }
-
 // ==================== دالة متخصصة لاستخراج سيرفرات المشاهدة (لا تغيير يذكر) ====================
 async function extractWatchServers(watchUrl) {
     try {
