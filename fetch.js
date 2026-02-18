@@ -20,6 +20,7 @@ if (!fs.existsSync(MOVIES_DIR)) {
 // ==================== إعدادات جديدة ====================
 const MOVIES_PER_FILE = 250;        // 250 فيلم في كل ملف
 const PAGES_PER_RUN = 5;           // 5 صفحات في كل تشغيل
+const BASE_URL = "https://topcinema.red"; // ✅ تحديث الرابط الأساسي
 
 // ==================== نظام الفهرس ====================
 class MovieIndex {
@@ -253,9 +254,10 @@ async function fetchPage(url) {
         console.log(`🌐 جاري جلب: ${url.substring(0, 60)}...`);
         
         const headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
+            'Referer': BASE_URL,
         };
         
         const response = await fetch(url, { headers });
@@ -279,25 +281,28 @@ function cleanText(text) {
 
 function extractMovieId(url) {
     try {
-        const match = url.match(/p=(\d+)/);
+        // محاولة استخراج ID من الرابط القصير ?p=198907
+        const match = url.match(/[?&]p=(\d+)/);
         if (match && match[1]) {
             return match[1];
         }
+        // محاولة استخراج ID من نهاية الرابط العادي
         const urlObj = new URL(url);
         const pathParts = urlObj.pathname.split('/').filter(p => p);
         const lastPart = pathParts[pathParts.length - 1];
-        const numMatch = lastPart.match(/(\d+)/);
+        const numMatch = lastPart.match(/(\d+)$/);
         return numMatch ? numMatch[1] : `temp_${Date.now()}`;
     } catch {
         return `temp_${Date.now()}`;
     }
 }
 
-// ==================== استخراج الأفلام من صفحة ====================
+// ==================== استخراج الأفلام من صفحة (مُحدّث) ====================
 async function fetchMoviesFromPage(pageNum) {
+    // ✅ تحديث الرابط لاستخدام BASE_URL الجديد
     const url = pageNum === 1 
-        ? "https://topcinema.rip/movies/"
-        : `https://topcinema.rip/movies/page/${pageNum}/`;
+        ? `${BASE_URL}/movies/`
+        : `${BASE_URL}/movies/page/${pageNum}/`;
     
     console.log(`\n📖 ===== جلب الصفحة ${pageNum === 1 ? "Home" : pageNum} =====`);
     console.log(`🔗 الرابط: ${url}`);
@@ -312,21 +317,24 @@ async function fetchMoviesFromPage(pageNum) {
         
         console.log("🔍 البحث عن الأفلام...");
         
-        const movieElements = doc.querySelectorAll('.Small--Box a');
+        // ✅ تحديث محدد العنصر (selector) ليتوافق مع الهيكل الجديد
+        const movieElements = doc.querySelectorAll('.Small--Box a.recent--block');
         console.log(`✅ وجدت ${movieElements.length} فيلم في الصفحة`);
         
         for (let i = 0; i < movieElements.length; i++) {
             const element = movieElements[i];
             const movieUrl = element.href;
             
-            if (movieUrl && movieUrl.includes('topcinema.rip')) {
-                const movieId = extractMovieId(movieUrl);
-                const title = cleanText(element.querySelector('.title')?.textContent || 
-                                      element.textContent || 
-                                      `فيلم ${i + 1}`);
+            if (movieUrl && movieUrl.includes(BASE_URL.replace('https://', ''))) { // ✅ تحديث التحقق
+                // ✅ استخراج العنوان من h3.title بدلاً من title attribute
+                const titleElement = element.querySelector('h3.title');
+                const title = cleanText(titleElement?.textContent || `فيلم ${i + 1}`);
+                
+                // محاولة استخراج رقم التقييم من القائمة (اختياري)
+                const imdbElement = element.querySelector('.liList .imdbRating i.fa-star + ?'); // يصعب استخراجه بدقة هنا، سنعتمد على صفحة التفاصيل
                 
                 movies.push({
-                    id: movieId,
+                    id: extractMovieId(movieUrl),
                     title: title,
                     url: movieUrl,
                     page: pageNum,
@@ -343,7 +351,7 @@ async function fetchMoviesFromPage(pageNum) {
     }
 }
 
-// ==================== دالة متخصصة لاستخراج سيرفرات المشاهدة ====================
+// ==================== دالة متخصصة لاستخراج سيرفرات المشاهدة (لا تغيير يذكر) ====================
 async function extractWatchServers(watchUrl) {
     try {
         console.log(`   👁️ جاري استخراج سيرفرات المشاهدة...`);
@@ -400,7 +408,7 @@ async function extractWatchServers(watchUrl) {
     }
 }
 
-// ==================== دالة متخصصة لاستخراج سيرفرات التحميل ====================
+// ==================== دالة متخصصة لاستخراج سيرفرات التحميل (مُحدّثة بالكامل) ====================
 async function extractDownloadServers(downloadUrl) {
     try {
         console.log(`   ⬇️ جاري استخراج سيرفرات التحميل...`);
@@ -411,36 +419,38 @@ async function extractDownloadServers(downloadUrl) {
         const doc = dom.window.document;
         const servers = [];
         
-        // استخراج سيرفرات التحميل السريعة
+        // ✅ 1. استخراج سيرفرات التحميل السريعة (proServer)
         const proServers = doc.querySelectorAll('.proServer a.downloadsLink');
         proServers.forEach(server => {
-            const serverInfo = {
-                name: cleanText(server.querySelector('p')?.textContent || "Pro Server"),
+            const nameElement = server.querySelector('.text p');
+            const qualityElement = server.querySelector('.text span');
+            
+            servers.push({
+                name: cleanText(nameElement?.textContent || "Pro Server"),
                 url: server.href,
-                quality: cleanText(server.querySelector('span')?.textContent || "متعدد الجودات"),
+                quality: cleanText(qualityElement?.textContent || "سريع"),
                 type: "pro_server",
                 icon: server.querySelector('i')?.className || "",
                 label: "سيرفر سريع"
-            };
-            servers.push(serverInfo);
+            });
         });
         
-        // استخراج سيرفرات التحميل حسب الجودة
+        // ✅ 2. استخراج سيرفرات التحميل حسب الجودة (DownloadBlock)
         const downloadBlocks = doc.querySelectorAll('.DownloadBlock');
         downloadBlocks.forEach(block => {
+            // استخراج الجودة من الـ span داخل h2.download-title
             const qualityElement = block.querySelector('.download-title span');
             const quality = qualityElement ? cleanText(qualityElement.textContent) : "غير محدد";
             
-            const serverLinks = block.querySelectorAll('a.downloadsLink');
+            const serverLinks = block.querySelectorAll('ul.download-items a.downloadsLink');
             serverLinks.forEach(link => {
-                const serverName = cleanText(link.querySelector('span')?.textContent || 
-                                           link.querySelector('p')?.textContent || 
-                                           "غير معروف");
+                const nameElement = link.querySelector('.text p');
+                const qualityTextElement = link.querySelector('.text span');
                 
                 servers.push({
-                    name: serverName,
+                    name: cleanText(nameElement?.textContent || "غير معروف"),
                     url: link.href,
-                    quality: quality,
+                    quality: quality, // الجودة من العنوان الرئيسي للبلوك
                     type: "download_server",
                     icon: link.querySelector('i')?.className || "",
                     label: "سيرفر تحميل"
@@ -462,7 +472,7 @@ async function extractDownloadServers(downloadUrl) {
     }
 }
 
-// ==================== استخراج تفاصيل الفيلم الكاملة ====================
+// ==================== استخراج تفاصيل الفيلم الكاملة (مُحدّثة) ====================
 async function fetchMovieDetails(movie, currentFileName) {
     console.log(`\n🎬 [${movie.position}] ${movie.title.substring(0, 40)}...`);
     
@@ -476,36 +486,68 @@ async function fetchMovieDetails(movie, currentFileName) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
-        // استخراج ID من الرابط المختصر
-        const shortLinkInput = doc.querySelector('#shortlink');
-        const shortLink = shortLinkInput ? shortLinkInput.value : movie.url;
+        // ✅ تحديث: استخراج ID من الرابط المختصر في input#shortlink
+        const shortLinkInput = doc.querySelector('input#shortlink');
+        let shortLink = shortLinkInput ? shortLinkInput.value : movie.url;
         const movieId = extractMovieId(shortLink);
         
-        // البيانات الأساسية
-        const title = cleanText(doc.querySelector(".post-title a")?.textContent || movie.title);
-        const image = doc.querySelector(".image img")?.src;
-        const imdbRating = cleanText(doc.querySelector(".imdbR span")?.textContent);
-        const story = cleanText(doc.querySelector(".story p")?.textContent);
+        // ✅ تحديث: العنوان
+        const titleElement = doc.querySelector("h1.post-title a");
+        const title = cleanText(titleElement?.textContent || movie.title);
         
-        // التفاصيل
+        // ✅ تحديث: الصورة
+        const image = doc.querySelector(".image img")?.src;
+        
+        // ✅ تحديث: تقييم IMDb
+        const imdbElement = doc.querySelector(".imdbR span");
+        const imdbRating = imdbElement ? cleanText(imdbElement.textContent) : null;
+        
+        // ✅ تحديث: القصة
+        const storyElement = doc.querySelector(".story p");
+        const story = cleanText(storyElement?.textContent) || "غير متوفر";
+        
+        // ✅ تحديث: التفاصيل (RightTaxContent) - تم إعادة هيكلتها بالكامل
         const details = {};
-        const detailItems = doc.querySelectorAll(".RightTaxContent li");
+        const detailItems = doc.querySelectorAll("ul.RightTaxContent li");
         
         detailItems.forEach(item => {
             const labelElement = item.querySelector("span");
             if (labelElement) {
-                const label = cleanText(labelElement.textContent).replace(":", "").trim();
-                if (label) {
-                    const links = item.querySelectorAll("a");
-                    if (links.length > 0) {
-                        const values = Array.from(links).map(a => cleanText(a.textContent));
-                        details[label] = values;
+                let label = cleanText(labelElement.textContent).replace(":", "").trim();
+                // توحيد أسماء الحقول
+                if (label.includes('قسم')) label = 'القسم';
+                else if (label.includes('نوع')) label = 'النوع';
+                else if (label.includes('جودة')) label = 'الجودة';
+                else if (label.includes('توقيت')) label = 'المدة';
+                else if (label.includes('صدور')) label = 'سنة الإنتاج';
+                else if (label.includes('لغة')) label = 'اللغة';
+                else if (label.includes('دولة')) label = 'البلد';
+                else if (label.includes('بطولة')) label = 'التمثيل';
+                
+                const links = item.querySelectorAll("a");
+                if (links.length > 0) {
+                    // إذا كان يحتوي على روابط (أقسام، أنواع، الخ)
+                    details[label] = Array.from(links).map(a => cleanText(a.textContent));
+                } else {
+                    // إذا كان نصاً عادياً (مثل المدة)
+                    const strongElement = item.querySelector("strong");
+                    if (strongElement) {
+                        details[label] = cleanText(strongElement.textContent);
                     } else {
                         const text = cleanText(item.textContent);
                         const value = text.split(":").slice(1).join(":").trim();
                         details[label] = value;
                     }
                 }
+            } else {
+                // معالجة الحالات التي لا يوجد فيها span (نادر)
+                 const actorCheck = item.classList.contains('actor');
+                 if (actorCheck) {
+                     const actorLinks = item.querySelectorAll('a');
+                     if (actorLinks.length > 0) {
+                         details['التمثيل'] = Array.from(actorLinks).map(a => cleanText(a.textContent));
+                     }
+                 }
             }
         });
         
@@ -525,21 +567,13 @@ async function fetchMovieDetails(movie, currentFileName) {
             downloadServers = await extractDownloadServers(downloadButton.href);
         }
         
-        // ==================== استخراج المعلومات الإضافية ====================
-        const yearElement = doc.querySelector('.year');
-        const year = yearElement ? cleanText(yearElement.textContent) : null;
-        
-        const qualityElement = doc.querySelector('.quality');
-        const quality = qualityElement ? cleanText(qualityElement.textContent) : null;
-        
-        const runtimeElement = doc.querySelector('.runtime');
-        const runtime = runtimeElement ? cleanText(runtimeElement.textContent) : null;
-        
-        const genreElements = doc.querySelectorAll('.genre a');
-        const genres = Array.from(genreElements).map(g => cleanText(g.textContent));
-        
-        const countryElements = doc.querySelectorAll('.country a');
-        const countries = Array.from(countryElements).map(c => cleanText(c.textContent));
+        // استخراج المعلومات الإضافية من كائن التفاصيل الجديد
+        const year = details['سنة الإنتاج'] ? (Array.isArray(details['سنة الإنتاج']) ? details['سنة الإنتاج'][0] : details['سنة الإنتاج']) : null;
+        const quality = details['الجودة'] ? (Array.isArray(details['الجودة']) ? details['الجودة'].join(' - ') : details['الجودة']) : null;
+        const runtime = details['المدة'] || null;
+        const genres = details['النوع'] || [];
+        const countries = details['البلد'] ? (Array.isArray(details['البلد']) ? details['البلد'] : [details['البلد']]) : [];
+        const cast = details['التمثيل'] || [];
         
         return {
             id: movieId,
@@ -548,7 +582,7 @@ async function fetchMovieDetails(movie, currentFileName) {
             shortLink: shortLink,
             image: image,
             imdbRating: imdbRating,
-            story: story || "غير متوفر",
+            story: story,
             details: details,
             
             // المعلومات الإضافية
@@ -557,6 +591,7 @@ async function fetchMovieDetails(movie, currentFileName) {
             runtime: runtime,
             genres: genres,
             countries: countries,
+            cast: cast, // ✅ إضافة cast بشكل منفصل
             
             // سيرفرات المشاهدة
             watchServers: watchServers,
@@ -586,7 +621,7 @@ async function fetchMovieDetails(movie, currentFileName) {
     }
 }
 
-// ==================== حفظ الأفلام في الملفات المرتبة ====================
+// ==================== حفظ الأفلام في الملفات المرتبة (بدون تغيير) ====================
 function saveMovieToTopFile(movie, progress) {
     const filePath = path.join(MOVIES_DIR, progress.currentFileName);
     
@@ -639,7 +674,7 @@ function saveMovieToTopFile(movie, progress) {
     return fileContent;
 }
 
-// ==================== حفظ جميع أفلام الصفحة الأولى في Home.json ====================
+// ==================== حفظ جميع أفلام الصفحة الأولى في Home.json (بدون تغيير) ====================
 function saveAllMoviesToHomeFile(moviesData) {
     const fileContent = {
         fileName: "Home.json",
@@ -655,7 +690,7 @@ function saveAllMoviesToHomeFile(moviesData) {
     return fileContent;
 }
 
-// ==================== تحديث فيلم في جميع الملفات ====================
+// ==================== تحديث فيلم في جميع الملفات (بدون تغيير) ====================
 function updateMovieInAllFiles(movieId, updatedMovie, progress) {
     console.log(`   🔄 جاري تحديث الفيلم في جميع الملفات...`);
     
@@ -688,7 +723,7 @@ function updateMovieInAllFiles(movieId, updatedMovie, progress) {
     return updatedCount;
 }
 
-// ==================== المرحلة 1: استخراج جميع الصفحات ====================
+// ==================== المرحلة 1: استخراج جميع الصفحات (بدون تغيير) ====================
 async function phase1InitialScraping(progress, index) {
     console.log("🚀 المرحلة 1: بدء الاستخراج الأولي");
     console.log("=".repeat(60));
@@ -773,7 +808,7 @@ async function phase1InitialScraping(progress, index) {
     return { totalMoviesExtracted, executionTime: Date.now() - startTime };
 }
 
-// ==================== المرحلة 2: نظام Home.json والتحديثات ====================
+// ==================== المرحلة 2: نظام Home.json والتحديثات (بدون تغيير) ====================
 async function phase2HomeScraping(progress, index) {
     console.log("\n🔄 المرحلة 2: نظام Home.json والتحديثات");
     console.log("=".repeat(60));
@@ -848,9 +883,10 @@ async function phase2HomeScraping(progress, index) {
     };
 }
 
-// ==================== الدالة الرئيسية ====================
+// ==================== الدالة الرئيسية (بدون تغيير يذكر، فقط إضافة BASE_URL في البداية) ====================
 async function main() {
     console.log("🎬 نظام استخراج الأفلام المتقدم");
+    console.log(`🌐 الرابط الأساسي: ${BASE_URL}`);
     console.log("⏱️ الوقت: " + new Date().toLocaleString());
     console.log("=".repeat(60));
     
