@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-02-18T16:08:02.778Z",
+  "last_scan": "2026-02-18T16:45:37.158Z",
   "series": {
     "193369381": {
       "last_episode": "c5c18decf",
@@ -26,7 +26,7 @@
       }
     },
     "81ce0a5d7": {
-      "last_episode": "0ec1512a8",
+      "last_episode": "3b1ee88b2",
       "last_season": 1,
       "episodes": {
         "0ec1512a8": {
@@ -34,17 +34,29 @@
           "title": "مسلسل علي كلاي الحلقة 1 الاولي",
           "number": 1,
           "season": 1
+        },
+        "3b1ee88b2": {
+          "extracted_at": "2026-02-18T16:44:15.151Z",
+          "title": "مسلسل علي كلاي الحلقة 2 الثانية",
+          "number": 2,
+          "season": 1
         }
       }
     },
     "1cf22b484": {
-      "last_episode": "372599929",
+      "last_episode": "d767d322e",
       "last_season": 1,
       "episodes": {
         "372599929": {
           "extracted_at": "2026-02-18T16:01:30.399Z",
           "title": "مسلسل افراج الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "d767d322e": {
+          "extracted_at": "2026-02-18T16:44:29.607Z",
+          "title": "مسلسل افراج الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -122,13 +134,19 @@
       }
     },
     "97faca994": {
-      "last_episode": "3649610ac",
+      "last_episode": "1337cc8f7",
       "last_season": 1,
       "episodes": {
         "3649610ac": {
           "extracted_at": "2026-02-18T16:01:56.664Z",
           "title": "مسلسل فخر الدلتا الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "1337cc8f7": {
+          "extracted_at": "2026-02-18T16:44:42.146Z",
+          "title": "مسلسل فخر الدلتا الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -572,13 +590,19 @@
       }
     },
     "8664232f9": {
-      "last_episode": "c9b313dbc",
+      "last_episode": "5aac4c765",
       "last_season": 7,
       "episodes": {
         "c9b313dbc": {
           "extracted_at": "2026-02-18T16:04:23.668Z",
           "title": "مسلسل حامض حلو 7 الحلقة 1 الاولي",
           "number": 1,
+          "season": 7
+        },
+        "5aac4c765": {
+          "extracted_at": "2026-02-18T16:45:37.158Z",
+          "title": "مسلسل حامض حلو 7 الحلقة 2 الثانية",
+          "number": 2,
           "season": 7
         }
       }
@@ -2121,16 +2145,84 @@
       "title": "مسلسل السوق الحرة الحلقة 1 الاولي",
       "number": 1,
       "season": 1
+    },
+    "3b1ee88b2": {
+      "series_id": "81ce0a5d7",
+      "extracted_at": "2026-02-18T16:44:15.151Z",
+      "title": "مسلسل علي كلاي الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
+    },
+    "d767d322e": {
+      "series_id": "1cf22b484",
+      "extracted_at": "2026-02-18T16:44:29.607Z",
+      "title": "مسلسل افراج الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
+    },
+    "1337cc8f7": {
+      "series_id": "97faca994",
+      "extracted_at": "2026-02-18T16:44:42.146Z",
+      "title": "مسلسل فخر الدلتا الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
+    },
+    "5aac4c765": {
+      "series_id": "8664232f9",
+      "extracted_at": "2026-02-18T16:45:37.158Z",
+      "title": "مسلسل حامض حلو 7 الحلقة 2 الثانية",
+      "number": 2,
+      "season": 7
     }
   },
   "statistics": {
     "total_series": 97,
-    "total_episodes": 121,
-    "new_episodes_today": 121,
-    "last_scan": "2026-02-18T16:08:04.948Z",
+    "total_episodes": 125,
+    "new_episodes_today": 4,
+    "last_scan": "2026-02-18T16:46:56.479Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "5aac4c765",
+      "series_id": "8664232f9",
+      "series_title": "مسلسل حامض حلو ج7",
+      "title": "مسلسل حامض حلو 7 الحلقة 2 الثانية",
+      "image": "https://laroza.skin/uploads/thumbs/c9b313dbc-1.jpg",
+      "number": 2,
+      "season": 7,
+      "added_at": "2026-02-18T16:45:36.394Z"
+    },
+    {
+      "id": "1337cc8f7",
+      "series_id": "97faca994",
+      "series_title": "مسلسل فخر الدلتا",
+      "title": "مسلسل فخر الدلتا الحلقة 2 الثانية",
+      "image": "https://laroza.skin/uploads/thumbs/3649610ac-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-18T16:44:41.519Z"
+    },
+    {
+      "id": "d767d322e",
+      "series_id": "1cf22b484",
+      "series_title": "مسلسل افراج",
+      "title": "مسلسل افراج الحلقة 2 الثانية",
+      "image": "https://laroza.skin/uploads/thumbs/372599929-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-18T16:44:24.892Z"
+    },
+    {
+      "id": "3b1ee88b2",
+      "series_id": "81ce0a5d7",
+      "series_title": "مسلسل علي كلاي",
+      "title": "مسلسل علي كلاي الحلقة 2 الثانية",
+      "image": "https://laroza.skin/uploads/thumbs/0ec1512a8-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-18T16:44:14.619Z"
+    },
     {
       "id": "172e17385",
       "series_id": "7bfb7e4b0",
@@ -2190,46 +2282,6 @@
       "number": 2,
       "season": 1,
       "added_at": "2026-02-18T16:07:45.636Z"
-    },
-    {
-      "id": "9af1822e2",
-      "series_id": "3af201230",
-      "series_title": "مسلسل عرض وطلب",
-      "title": "مسلسل عرض وطلب الحلقة 1 الاولي",
-      "image": "https://laroza.skin/uploads/thumbs/9af1822e2-1.jpg",
-      "number": 1,
-      "season": 1,
-      "added_at": "2026-02-18T16:07:41.645Z"
-    },
-    {
-      "id": "bfa0deb2c",
-      "series_id": "801312c15",
-      "series_title": "مسلسل ديربي",
-      "title": "مسلسل ديربي 2 الحلقة 1 الاولي",
-      "image": "https://laroza.skin/uploads/thumbs/bfa0deb2c-1.jpg",
-      "number": 1,
-      "season": 2,
-      "added_at": "2026-02-18T16:07:38.471Z"
-    },
-    {
-      "id": "001b4e923",
-      "series_id": "84adc7f83",
-      "series_title": "مسلسل سعادة المجنون",
-      "title": "مسلسل سعادة المجنون الحلقة 2 الثانية",
-      "image": "https://laroza.skin/uploads/thumbs/f99d3caaf-1.jpg",
-      "number": 2,
-      "season": 1,
-      "added_at": "2026-02-18T16:07:32.980Z"
-    },
-    {
-      "id": "2403475fa",
-      "series_id": "b5f4bc95e",
-      "series_title": "مسلسل كوميدي تانا",
-      "title": "مسلسل كوميدي تانا الحلقة 1 الاولي",
-      "image": "https://laroza.skin/uploads/thumbs/2403475fa-1.jpg",
-      "number": 1,
-      "season": 1,
-      "added_at": "2026-02-18T16:07:30.009Z"
     }
   ],
   "latest_series": [
@@ -2237,31 +2289,31 @@
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
       "image": "https://laroza.skin/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-02-18T16:01:16.053Z"
+      "added_at": "2026-02-18T16:44:10.909Z"
     },
     {
       "id": "81ce0a5d7",
       "title": "مسلسل علي كلاي",
       "image": "https://laroza.skin/uploads/thumbs/0ec1512a8-1.jpg",
-      "added_at": "2026-02-18T16:01:16.053Z"
+      "added_at": "2026-02-18T16:44:10.909Z"
     },
     {
       "id": "1cf22b484",
       "title": "مسلسل افراج",
       "image": "https://laroza.skin/uploads/thumbs/372599929-1.jpg",
-      "added_at": "2026-02-18T16:01:16.053Z"
+      "added_at": "2026-02-18T16:44:10.909Z"
     },
     {
       "id": "c",
       "title": "النص",
       "image": "",
-      "added_at": "2026-02-18T16:01:16.053Z"
+      "added_at": "2026-02-18T16:44:10.909Z"
     },
     {
       "id": "ae583760b",
       "title": "مسلسل الست موناليزا",
       "image": "https://laroza.skin/uploads/thumbs/cfee36307-1.jpg",
-      "added_at": "2026-02-18T16:01:16.053Z"
+      "added_at": "2026-02-18T16:44:10.909Z"
     }
   ]
 }
