@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-02-18T16:52:11.285Z",
+  "mode": "scrape_series",
+  "stats": {
+    "totalSeries": 0,
+    "totalSeasons": 0,
+    "totalEpisodes": 0,
+    "seriesPage": 1,
+    "allPagesScraped": false,
+    "lastHomeUpdate": null
+  },
+  "files": {
+    "seriesFiles": 1,
+    "seasonFiles": 0,
+    "episodeFiles": 0,
+    "seriesFilesList": [
+      "Home.json"
+    ],
+    "seasonFilesList": [],
+    "episodeFilesList": []
+  },
+  "nextRun": {
+    "mode": "scrape_series",
+    "startPage": 1,
+    "recommendation": "متابعة استخراج المسلسلات"
+  }
+}

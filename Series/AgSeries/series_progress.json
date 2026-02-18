@@ -1,0 +1,26 @@
+{
+  "seriesPage": 1,
+  "seriesFileNumber": 1,
+  "seriesInCurrentFile": 0,
+  "seasonFileNumber": 1,
+  "seasonsInCurrentFile": 0,
+  "episodeFileNumber": 1,
+  "episodesInCurrentFile": 0,
+  "pagesProcessedThisRun": 0,
+  "shouldStop": false,
+  "allPagesScraped": false,
+  "mode": "scrape_series",
+  "currentSeriesId": null,
+  "currentSeasonId": null,
+  "currentSeriesFile": "Page1.json",
+  "currentSeasonFile": "Page1.json",
+  "currentEpisodeFile": "Page1.json",
+  "lastHomeUpdate": null,
+  "totalExtracted": {
+    "series": 0,
+    "seasons": 0,
+    "episodes": 0
+  },
+  "lastHomeSeriesIds": [],
+  "lastUpdate": "2026-02-18T16:52:07.681Z"
+}
