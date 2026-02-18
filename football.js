@@ -75,8 +75,169 @@ function detectServerType(url) {
     if (urlLower.includes(".m3u8")) return "M3U8";
     if (urlLower.includes(".mp4")) return "MP4";
     if (urlLower.includes("kk.pyxq.online")) return "KoraPlus";
+    if (urlLower.includes("gomatch")) return "GoMatch";
     
     return "غير معروف";
+}
+
+// ==================== استخراج رابط البث النهائي من الصفحات الوسيطة ====================
+async function extractFinalStreamUrl(intermediateUrl, depth = 0) {
+    // منع التكرار اللانهائي (حد أقصى 3 مستويات)
+    if (depth > 3) {
+        console.log(`   ⚠️ وصلنا للحد الأقصى من العمق (3 مستويات)`);
+        return {
+            type: 'intermediate',
+            url: intermediateUrl,
+            server: detectServerType(intermediateUrl),
+            note: 'وصلنا للحد الأقصى من العمق'
+        };
+    }
+    
+    console.log(`   ${'  '.repeat(depth)}🔍 محاولة استخراج الرابط النهائي من: ${intermediateUrl.substring(0, 80)}...`);
+    
+    // إذا كان الرابط مباشراً (ينتهي بـ .m3u8 أو .mp4)
+    if (intermediateUrl.includes('.m3u8') || intermediateUrl.includes('.mp4')) {
+        console.log(`   ${'  '.repeat(depth)}✅ رابط مباشر: ${intermediateUrl.substring(0, 80)}...`);
+        return {
+            type: 'direct',
+            url: intermediateUrl,
+            server: intermediateUrl.includes('.m3u8') ? 'M3U8' : 'MP4'
+        };
+    }
+    
+    // جلب الصفحة الوسيطة
+    const html = await fetchWithTimeout(intermediateUrl);
+    if (!html) {
+        return {
+            type: 'intermediate',
+            url: intermediateUrl,
+            server: detectServerType(intermediateUrl),
+            error: 'فشل جلب الصفحة'
+        };
+    }
+    
+    try {
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        
+        // استراتيجية 1: البحث عن iframe داخل الصفحة
+        const iframes = doc.querySelectorAll('iframe');
+        console.log(`   ${'  '.repeat(depth)}🔍 فحص ${iframes.length} iframe في الصفحة الوسيطة`);
+        
+        for (const iframe of iframes) {
+            const src = iframe.getAttribute('src');
+            if (!src) continue;
+            
+            // التعامل مع الروابط النسبية
+            const fullUrl = src.startsWith('http') ? src : new URL(src, intermediateUrl).href;
+            
+            // إذا كان الرابط الجديد لا يزال وسيطاً، نتعمق أكثر
+            if (fullUrl.includes('gomatch') || fullUrl.includes('albaplayer') || fullUrl.includes('ontime')) {
+                const deeperResult = await extractFinalStreamUrl(fullUrl, depth + 1);
+                if (deeperResult && deeperResult.type === 'direct') {
+                    return deeperResult;
+                }
+            }
+            
+            // فحص إذا كان رابط بث مباشر
+            if (fullUrl.includes('.m3u8') || fullUrl.includes('.mp4')) {
+                console.log(`   ${'  '.repeat(depth)}✅ وجد رابط مباشر في iframe: ${fullUrl.substring(0, 80)}...`);
+                return {
+                    type: 'direct',
+                    url: fullUrl,
+                    server: fullUrl.includes('.m3u8') ? 'M3U8' : 'MP4'
+                };
+            }
+        }
+        
+        // استراتيجية 2: البحث في script tags عن روابط البث
+        const scripts = doc.querySelectorAll('script');
+        for (const script of scripts) {
+            const content = script.textContent || script.innerHTML;
+            
+            // البحث عن روابط .m3u8 في محتوى script
+            const m3u8Regex = /(https?:\/\/[^"'\s]+\.m3u8[^"'\s]*)/g;
+            const mp4Regex = /(https?:\/\/[^"'\s]+\.mp4[^"'\s]*)/g;
+            
+            let match;
+            while ((match = m3u8Regex.exec(content)) !== null) {
+                console.log(`   ${'  '.repeat(depth)}✅ وجد رابط M3U8 في script`);
+                return {
+                    type: 'direct',
+                    url: match[1],
+                    server: 'M3U8'
+                };
+            }
+            
+            while ((match = mp4Regex.exec(content)) !== null) {
+                console.log(`   ${'  '.repeat(depth)}✅ وجد رابط MP4 في script`);
+                return {
+                    type: 'direct',
+                    url: match[1],
+                    server: 'MP4'
+                };
+            }
+            
+            // البحث عن روابط iframe داخل script
+            const iframeRegex = /src=["'](https?:\/\/[^"']+)["']/g;
+            while ((match = iframeRegex.exec(content)) !== null) {
+                const url = match[1];
+                if (url.includes('gomatch') || url.includes('albaplayer') || url.includes('ontime')) {
+                    const deeperResult = await extractFinalStreamUrl(url, depth + 1);
+                    if (deeperResult && deeperResult.type === 'direct') {
+                        return deeperResult;
+                    }
+                }
+            }
+        }
+        
+        // استراتيجية 3: البحث عن عناصر video
+        const videos = doc.querySelectorAll('video source, video');
+        for (const video of videos) {
+            const src = video.getAttribute('src') || video.getAttribute('data-src');
+            if (src && (src.includes('.m3u8') || src.includes('.mp4'))) {
+                const fullUrl = src.startsWith('http') ? src : new URL(src, intermediateUrl).href;
+                console.log(`   ${'  '.repeat(depth)}✅ وجد رابط مباشر في video tag`);
+                return {
+                    type: 'direct',
+                    url: fullUrl,
+                    server: src.includes('.m3u8') ? 'M3U8' : 'MP4'
+                };
+            }
+        }
+        
+        // استراتيجية 4: البحث في meta tags
+        const metaTags = doc.querySelectorAll('meta[property="og:video"], meta[name="twitter:player"]');
+        for (const meta of metaTags) {
+            const content = meta.getAttribute('content');
+            if (content && (content.includes('.m3u8') || content.includes('.mp4'))) {
+                console.log(`   ${'  '.repeat(depth)}✅ وجد رابط مباشر في meta tag`);
+                return {
+                    type: 'direct',
+                    url: content,
+                    server: content.includes('.m3u8') ? 'M3U8' : 'MP4'
+                };
+            }
+        }
+        
+        // إذا لم نجد رابطاً مباشراً، نعيد الرابط الأصلي مع ملاحظة
+        console.log(`   ${'  '.repeat(depth)}⚠️ لم يتم العثور على رابط مباشر في الصفحة الوسيطة`);
+        return {
+            type: 'intermediate',
+            url: intermediateUrl,
+            server: detectServerType(intermediateUrl),
+            note: 'هذا رابط صفحة وسيطة، قد يحتاج إلى زيارة للحصول على البث المباشر'
+        };
+        
+    } catch (error) {
+        console.log(`   ${'  '.repeat(depth)}❌ خطأ في استخراج الرابط النهائي: ${error.message}`);
+        return {
+            type: 'intermediate',
+            url: intermediateUrl,
+            server: detectServerType(intermediateUrl),
+            error: error.message
+        };
+    }
 }
 
 // ==================== استخراج سيرفرات المشاهدة من صفحة المباراة ====================
@@ -97,6 +258,7 @@ async function fetchWatchServers(matchUrl) {
         console.log(`   🔍 البحث عن سيرفرات المشاهدة...`);
         
         const servers = [];
+        const processedUrls = new Set(); // لتجنب التكرار
         
         // استراتيجية 1: البحث عن iframes مباشرة
         const iframes = doc.querySelectorAll('iframe');
@@ -106,112 +268,93 @@ async function fetchWatchServers(matchUrl) {
             const src = iframe.getAttribute('src');
             if (!src || src.trim() === '') continue;
             
-            const serverType = detectServerType(src);
-            console.log(`   🔍 وجد iframe: ${src.substring(0, 100)}...`);
-            console.log(`   🔍 نوع السيرفر: ${serverType}`);
+            const fullUrl = src.startsWith('http') ? src : new URL(src, matchUrl).href;
             
-            if (serverType !== "غير معروف") {
-                // تجنب التكرار
-                const isDuplicate = servers.some(s => s.url === src.trim());
-                if (!isDuplicate) {
-                    console.log(`   ✅ وجد iframe: ${serverType} - ${src.substring(0, 80)}...`);
+            if (processedUrls.has(fullUrl)) continue;
+            processedUrls.add(fullUrl);
+            
+            console.log(`   🔍 وجد iframe: ${fullUrl.substring(0, 100)}...`);
+            
+            // محاولة استخراج الرابط النهائي
+            const finalStream = await extractFinalStreamUrl(fullUrl);
+            
+            if (finalStream) {
+                console.log(`   ✅ تم استخراج الرابط النهائي: ${finalStream.url.substring(0, 100)}...`);
+                
+                servers.push({
+                    type: finalStream.type,
+                    url: finalStream.url,
+                    quality: "HD",
+                    server: finalStream.server || detectServerType(finalStream.url),
+                    id: `stream_${servers.length + 1}`,
+                    source: 'iframe',
+                    intermediateUrl: finalStream.type === 'intermediate' ? fullUrl : undefined
+                });
+            }
+        }
+        
+        // استراتيجية 2: البحث في scripts عن روابط مباشرة
+        const scripts = doc.querySelectorAll('script');
+        console.log(`   🔍 فحص ${scripts.length} script`);
+        
+        for (const script of scripts) {
+            const content = script.textContent || script.innerHTML;
+            
+            // البحث عن روابط .m3u8
+            const m3u8Regex = /(https?:\/\/[^"'\s]+\.m3u8[^"'\s]*)/g;
+            let match;
+            while ((match = m3u8Regex.exec(content)) !== null) {
+                const url = match[1];
+                if (!processedUrls.has(url)) {
+                    processedUrls.add(url);
+                    console.log(`   ✅ وجد رابط M3U8 مباشر في script: ${url.substring(0, 80)}...`);
                     servers.push({
-                        type: 'iframe',
-                        url: src.trim(),
+                        type: 'direct',
+                        url: url,
                         quality: "HD",
-                        server: serverType,
-                        id: `iframe_${servers.length + 1}`,
-                        source: 'iframe'
+                        server: 'M3U8',
+                        id: `m3u8_${servers.length + 1}`,
+                        source: 'script'
+                    });
+                }
+            }
+            
+            // البحث عن روابط .mp4
+            const mp4Regex = /(https?:\/\/[^"'\s]+\.mp4[^"'\s]*)/g;
+            while ((match = mp4Regex.exec(content)) !== null) {
+                const url = match[1];
+                if (!processedUrls.has(url)) {
+                    processedUrls.add(url);
+                    console.log(`   ✅ وجد رابط MP4 مباشر في script: ${url.substring(0, 80)}...`);
+                    servers.push({
+                        type: 'direct',
+                        url: url,
+                        quality: "HD",
+                        server: 'MP4',
+                        id: `mp4_${servers.length + 1}`,
+                        source: 'script'
                     });
                 }
             }
         }
         
-        // استراتيجية 2: البحث عن divs معينة قد تحتوي على روابط
-        const playerDivs = doc.querySelectorAll('div[class*="player"], div[class*="Player"], div[class*="stream"], div[class*="Stream"], div[class*="embed"], div[class*="Embed"]');
-        
-        for (const div of playerDivs) {
-            const html = div.innerHTML;
-            
-            // البحث عن src في iframes داخل div
-            const iframeRegex = /<iframe[^>]*src=["']([^"']+)["'][^>]*>/gi;
-            let match;
-            while ((match = iframeRegex.exec(html)) !== null) {
-                const url = match[1];
-                const serverType = detectServerType(url);
-                
-                if (serverType !== "غير معروف") {
-                    const isDuplicate = servers.some(s => s.url === url.trim());
-                    if (!isDuplicate) {
-                        console.log(`   ✅ وجد في div iframe: ${serverType} - ${url.substring(0, 80)}...`);
-                        servers.push({
-                            type: 'iframe',
-                            url: url.trim(),
-                            quality: "HD",
-                            server: serverType,
-                            id: `div_iframe_${servers.length + 1}`,
-                            source: 'player_div'
-                        });
-                    }
-                }
-            }
-        }
-        
-        // استراتيجية 3: البحث عن scripts التي تحتوي على روابط
-        const scripts = doc.querySelectorAll('script');
-        for (const script of scripts) {
-            const content = script.textContent || script.innerHTML;
-            if (content.includes('iframe') || content.includes('src') || 
-                content.includes('albaplayer') || content.includes('ontime')) {
-                
-                // البحث عن روابط iframe في script
-                const iframeRegex = /src=["'](https?:\/\/[^"']+)["']/g;
-                const matches = content.match(iframeRegex);
-                
-                if (matches) {
-                    for (const match of matches) {
-                        const url = match.replace(/src=["']|["']/g, '');
-                        const serverType = detectServerType(url);
-                        
-                        if (serverType !== "غير معروف") {
-                            const isDuplicate = servers.some(s => s.url === url.trim());
-                            if (!isDuplicate) {
-                                console.log(`   ✅ وجد في script: ${serverType} - ${url.substring(0, 80)}...`);
-                                servers.push({
-                                    type: 'iframe',
-                                    url: url.trim(),
-                                    quality: "HD",
-                                    server: serverType,
-                                    id: `script_${servers.length + 1}`,
-                                    source: 'script'
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        // استراتيجية 4: البحث عن روابط مباشرة في الصفحة
-        const allLinks = doc.querySelectorAll('a[href*="albaplayer"], a[href*="ontime"], a[href*="stream"], a[href*="player"]');
-        
-        for (const link of allLinks) {
-            const href = link.getAttribute('href');
-            if (href && href.includes('http')) {
-                const serverType = detectServerType(href);
-                if (serverType !== "غير معروف") {
-                    const isDuplicate = servers.some(s => s.url === href.trim());
-                    if (!isDuplicate) {
-                        console.log(`   ✅ وجد في رابط a: ${serverType} - ${href.substring(0, 80)}...`);
-                        servers.push({
-                            type: 'direct',
-                            url: href.trim(),
-                            quality: "HD",
-                            server: serverType,
-                            id: `link_${servers.length + 1}`,
-                            source: 'a_tag'
-                        });
-                    }
+        // استراتيجية 3: البحث عن عناصر video مباشرة
+        const videos = doc.querySelectorAll('video source, video');
+        for (const video of videos) {
+            const src = video.getAttribute('src') || video.getAttribute('data-src');
+            if (src) {
+                const fullUrl = src.startsWith('http') ? src : new URL(src, matchUrl).href;
+                if (!processedUrls.has(fullUrl) && (fullUrl.includes('.m3u8') || fullUrl.includes('.mp4'))) {
+                    processedUrls.add(fullUrl);
+                    console.log(`   ✅ وجد رابط مباشر في video tag: ${fullUrl.substring(0, 80)}...`);
+                    servers.push({
+                        type: 'direct',
+                        url: fullUrl,
+                        quality: "HD",
+                        server: fullUrl.includes('.m3u8') ? 'M3U8' : 'MP4',
+                        id: `video_${servers.length + 1}`,
+                        source: 'video_tag'
+                    });
                 }
             }
         }
@@ -220,39 +363,25 @@ async function fetchWatchServers(matchUrl) {
         if (servers.length > 0) {
             console.log(`   📊 تم العثور على ${servers.length} سيرفر مشاهدة`);
             
-            // عرض جميع السيرفرات الموجودة
-            servers.forEach((server, index) => {
-                console.log(`   ${index + 1}. ${server.server}: ${server.url.substring(0, 100)}...`);
+            // ترتيب السيرفرات: المباشرة أولاً
+            servers.sort((a, b) => {
+                if (a.type === 'direct' && b.type !== 'direct') return -1;
+                if (a.type !== 'direct' && b.type === 'direct') return 1;
+                return 0;
             });
             
-            return servers.slice(0, 3); // إرجاع أول 3 سيرفرات فقط
+            // عرض جميع السيرفرات الموجودة
+            servers.forEach((server, index) => {
+                console.log(`   ${index + 1}. ${server.server} (${server.type}): ${server.url.substring(0, 100)}...`);
+                if (server.intermediateUrl) {
+                    console.log(`     (من صفحة وسيطة: ${server.intermediateUrl.substring(0, 80)}...)`);
+                }
+            });
+            
+            return servers.slice(0, 5); // إرجاع أول 5 سيرفرات فقط
             
         } else {
             console.log(`   ⚠️ لم يتم العثور على أي سيرفرات مشاهدة`);
-            
-            // محاولة أخيرة: البحث عن أي إشارة لـ albaplayer أو ontime
-            const pageContent = doc.body.innerHTML;
-            const potentialDomains = ['kk.pyxq.online', 'albaplayer', 'ontime'];
-            
-            for (const domain of potentialDomains) {
-                if (pageContent.includes(domain)) {
-                    console.log(`   🔍 وجد إشارة إلى ${domain} في الصفحة`);
-                    
-                    // محاولة بناء رابط افتراضي
-                    const potentialUrl = `https://kk.pyxq.online/albaplayer/ontime/`;
-                    console.log(`   💡 رابط محتمل: ${potentialUrl}`);
-                    
-                    return [{
-                        type: 'iframe',
-                        url: potentialUrl,
-                        quality: "HD",
-                        server: "KoraPlus/AlbaPlayer",
-                        id: 'potential_server',
-                        source: 'auto_generated'
-                    }];
-                }
-            }
-            
             return null;
         }
         
@@ -519,7 +648,7 @@ function saveToHgFile(data) {
             // تنظيف watchServers
             if (cleanMatch.watchServers && Array.isArray(cleanMatch.watchServers)) {
                 cleanMatch.watchServers = cleanMatch.watchServers.map(server => {
-                    // إزالة خاصية source إذا كانت موجودة
+                    // إزالة خصائص غير ضرورية
                     const { source, ...serverWithoutSource } = server;
                     return serverWithoutSource;
                 });
@@ -550,11 +679,20 @@ function saveToHgFile(data) {
         const finishedMatches = cleanData.filter(m => m.status === "انتهت").length;
         const matchesWithServers = cleanData.filter(m => m.watchServers && m.watchServers.length > 0).length;
         
+        // إحصائيات السيرفرات المباشرة
+        const directStreams = cleanData.reduce((count, match) => {
+            if (match.watchServers) {
+                return count + match.watchServers.filter(s => s.type === 'direct').length;
+            }
+            return count;
+        }, 0);
+        
         console.log(`\n📈 إحصائيات:`);
         console.log(`   - المباريات الجارية: ${liveMatches}`);
         console.log(`   - المباريات القادمة: ${upcomingMatches}`);
         console.log(`   - المباريات المنتهية: ${finishedMatches}`);
         console.log(`   - المباريات بسيرفرات مشاهدة: ${matchesWithServers}/${liveMatches + upcomingMatches}`);
+        console.log(`   - روابط مباشرة (M3U8/MP4): ${directStreams}`);
         
         // عرض أمثلة
         console.log(`\n📋 أمثلة على المباريات المستخرجة:`);
@@ -566,7 +704,8 @@ function saveToHgFile(data) {
             if (match.watchServers && match.watchServers.length > 0) {
                 console.log(`     السيرفرات: ${match.watchServers.length} سيرفر`);
                 match.watchServers.forEach((server, sIdx) => {
-                    console.log(`       ${sIdx + 1}. ${server.server}: ${server.url.substring(0, 80)}...`);
+                    const type = server.type === 'direct' ? '🔴 مباشر' : '🟡 وسيط';
+                    console.log(`       ${sIdx + 1}. ${type} ${server.server}: ${server.url.substring(0, 80)}...`);
                 });
             } else {
                 console.log(`     السيرفرات: لا يوجد`);
@@ -607,6 +746,13 @@ async function main() {
         const savedData = saveToHgFile(matchesWithDetails);
         
         if (savedData) {
+            const directStreams = savedData.matches.reduce((count, match) => {
+                if (match.watchServers) {
+                    return count + match.watchServers.filter(s => s.type === 'direct').length;
+                }
+                return count;
+            }, 0);
+            
             console.log(`\n🎉 تم الانتهاء بنجاح!`);
             
             return { 
@@ -616,6 +762,7 @@ async function main() {
                 upcoming: savedData.matches.filter(m => m.status === "لم تبدأ بعد").length,
                 finished: savedData.matches.filter(m => m.status === "انتهت").length,
                 withServers: savedData.matches.filter(m => m.watchServers && m.watchServers.length > 0).length,
+                directStreams: directStreams,
                 filePath: OUTPUT_FILE 
             };
         }
@@ -650,6 +797,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
             console.log(`المباريات القادمة: ${result.upcoming}`);
             console.log(`المباريات المنتهية: ${result.finished}`);
             console.log(`المباريات بسيرفرات مشاهدة: ${result.withServers}`);
+            console.log(`روابط مباشرة (M3U8/MP4): ${result.directStreams}`);
             console.log(`المسار: ${result.filePath}`);
         }
         process.exit(result.success ? 0 : 1);
