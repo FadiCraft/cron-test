@@ -126,5 +126,128 @@
     "data": {
       "pageNum": 1
     }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:54.477Z",
+    "type": "INFO",
+    "message": "تم تحميل حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "scrape_series",
+      "allPagesScraped": false
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:54.479Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:55.444Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cache-control": "max-age=3, must-revalidate",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "9cff0e0729765870-DFW",
+        "connection": "keep-alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Wed, 18 Feb 2026 16:55:55 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=46BUZF3PrJOlIjHOv4u5oMsJRYkPCLB4i4AlvNLB%2FPQmNLiegQTue3Dvp%2B%2BCmNPsOvyoJzKXSIYopWWCiDzH9CDufFFBCgsPvH5V\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=6,cfOrigin;dur=665",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding,Cookie"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:57.462Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:57.463Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "scrape_series"
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:57.464Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/category/%d9%85%d8%b3%d9%84%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:57.787Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cache-control": "max-age=3, must-revalidate",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "9cff0e183d5a5870-DFW",
+        "connection": "keep-alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Wed, 18 Feb 2026 16:55:57 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=HWZiSJ1pfiFhiWwyw7zlhGmV44IOHyItJZEcAZgn8W7eOKvQ1l5%2BKav2CtpZVR5Omr4Cth8hfMjWWHV5Etx6ElAv4yhVidI8dksc\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=2,cfOrigin;dur=291",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding,Cookie"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:55:59.791Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/category/%d9%85%d8%b3%d9%84%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:56:00.023Z",
+    "type": "SERIES_PAGE",
+    "message": "نتائج صفحة المسلسلات",
+    "data": {
+      "pageNum": 1,
+      "count": 30,
+      "htmlLength": 164288
+    }
+  },
+  {
+    "timestamp": "2026-02-18T16:56:01.038Z",
+    "type": "PAGE_EMPTY",
+    "message": "الصفحة الأولى فارغة",
+    "data": {
+      "pageNum": 1
+    }
   }
 ]
