@@ -17,6 +17,7 @@ const HOME_SERIES_FILE = path.join(TV_SERIES_DIR, "Home.json");
 const UPDATE_TRACKER_FILE = path.join(AG_SERIES_DIR, "update_tracker.json");
 const REPORT_FILE = path.join(AG_SERIES_DIR, "scraper_report.json");
 const ERROR_FILE = path.join(AG_SERIES_DIR, "scraper_error.json");
+const DEBUG_FILE = path.join(AG_SERIES_DIR, "debug_log.json");
 
 // إنشاء المجلدات إذا لم تكن موجودة
 const createDirectories = () => {
@@ -39,9 +40,58 @@ const ITEMS_PER_FILE = {
     episodes: 500
 };
 
-const PAGES_PER_RUN = 1;  // تم التعديل: صفحة واحدة لكل تشغيل
+const PAGES_PER_RUN = 1;
 const DELAY_BETWEEN_REQUESTS = 2000;
 const MAX_RETRIES = 3;
+
+// ==================== نظام التصحيح ====================
+class DebugLogger {
+    constructor() {
+        this.logs = [];
+        this.loadDebug();
+    }
+    
+    loadDebug() {
+        try {
+            if (fs.existsSync(DEBUG_FILE)) {
+                this.logs = JSON.parse(fs.readFileSync(DEBUG_FILE, 'utf8'));
+            } else {
+                this.logs = [];
+            }
+        } catch (error) {
+            this.logs = [];
+        }
+    }
+    
+    log(type, message, data = null) {
+        const entry = {
+            timestamp: new Date().toISOString(),
+            type: type,
+            message: message,
+            data: data
+        };
+        
+        this.logs.push(entry);
+        
+        if (this.logs.length > 500) {
+            this.logs = this.logs.slice(-500);
+        }
+        
+        fs.writeFileSync(DEBUG_FILE, JSON.stringify(this.logs, null, 2));
+        
+        console.log(`🔍 [${type}] ${message}`);
+        if (data) {
+            console.log(`   📊 البيانات:`, data);
+        }
+    }
+    
+    clear() {
+        this.logs = [];
+        fs.writeFileSync(DEBUG_FILE, JSON.stringify([], null, 2));
+    }
+}
+
+const debug = new DebugLogger();
 
 // ==================== نظام تتبع التحديثات ====================
 class UpdateTracker {
@@ -57,7 +107,7 @@ class UpdateTracker {
                 this.seasonsLastChecked = data.seasonsLastChecked || {};
                 this.episodesLastChecked = data.episodesLastChecked || {};
                 this.updateLog = data.updateLog || [];
-                this.homeSeriesHistory = data.homeSeriesHistory || []; // سجل تاريخ مسلسلات الصفحة الرئيسية
+                this.homeSeriesHistory = data.homeSeriesHistory || [];
             } else {
                 this.seriesLastChecked = {};
                 this.seasonsLastChecked = {};
@@ -67,7 +117,7 @@ class UpdateTracker {
                 this.saveTracker();
             }
         } catch (error) {
-            console.log("⚠️ لا يمكن تحميل متتبع التحديثات، إنشاء جديد");
+            debug.log('ERROR', 'لا يمكن تحميل متتبع التحديثات', error.message);
             this.seriesLastChecked = {};
             this.seasonsLastChecked = {};
             this.episodesLastChecked = {};
@@ -83,7 +133,7 @@ class UpdateTracker {
             seasonsLastChecked: this.seasonsLastChecked,
             episodesLastChecked: this.episodesLastChecked,
             updateLog: this.updateLog.slice(-100),
-            homeSeriesHistory: this.homeSeriesHistory.slice(-50), // آخر 50 تحديث للصفحة الرئيسية
+            homeSeriesHistory: this.homeSeriesHistory.slice(-50),
             lastUpdated: new Date().toISOString()
         };
         
@@ -196,13 +246,20 @@ class ProgressTracker {
                     episodes: 0
                 };
                 
-                this.lastHomeSeriesIds = data.lastHomeSeriesIds || []; // آخر IDs من الصفحة الرئيسية
+                this.lastHomeSeriesIds = data.lastHomeSeriesIds || [];
+                
+                debug.log('INFO', 'تم تحميل حالة التقدم', {
+                    page: this.seriesPage,
+                    mode: this.mode,
+                    allPagesScraped: this.allPagesScraped
+                });
                 
             } else {
+                debug.log('INFO', 'لا يوجد ملف تقدم، إنشاء جديد');
                 this.resetProgress();
             }
         } catch (error) {
-            console.log("⚠️ لا يمكن تحميل حالة التقدم، إنشاء جديد");
+            debug.log('ERROR', 'خطأ في تحميل التقدم', error.message);
             this.resetProgress();
         }
     }
@@ -273,6 +330,7 @@ class ProgressTracker {
         };
         
         fs.writeFileSync(PROGRESS_FILE, JSON.stringify(progressData, null, 2));
+        debug.log('INFO', 'تم حفظ حالة التقدم', { page: this.seriesPage, mode: this.mode });
     }
     
     addSeriesToFile() {
@@ -326,6 +384,7 @@ class ProgressTracker {
     }
     
     markAllPagesScraped() {
+        debug.log('INFO', 'تم تحديد جميع الصفحات كمستخرجة');
         this.allPagesScraped = true;
         this.mode = "monitor_home";
         this.shouldStop = true;
@@ -333,6 +392,7 @@ class ProgressTracker {
     }
     
     switchToHomeMode() {
+        debug.log('INFO', 'التحول إلى وضع مراقبة الصفحة الرئيسية');
         this.mode = "monitor_home";
         this.shouldStop = true;
         this.saveProgress();
@@ -357,6 +417,8 @@ async function delay(ms) {
 }
 
 async function fetchWithRetry(url, retries = MAX_RETRIES) {
+    debug.log('FETCH', 'محاولة جلب', { url: url.substring(0, 50), retries });
+    
     for (let i = 0; i < retries; i++) {
         try {
             if (i > 0) {
@@ -365,12 +427,18 @@ async function fetchWithRetry(url, retries = MAX_RETRIES) {
             }
             
             const result = await fetchPage(url);
-            if (result) return result;
+            if (result) {
+                debug.log('FETCH', 'نجح الجلب', { url: url.substring(0, 50), attempt: i + 1 });
+                return result;
+            }
             
         } catch (error) {
+            debug.log('FETCH_ERROR', 'فشلت المحاولة', { attempt: i + 1, error: error.message });
             console.log(`   ⚠️ محاولة ${i + 1} فشلت: ${error.message}`);
         }
     }
+    
+    debug.log('FETCH_FAILED', 'فشل جميع المحاولات', { url: url.substring(0, 50) });
     return null;
 }
 
@@ -382,13 +450,25 @@ async function fetchPage(url) {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
-            'Referer': 'https://topcinema.rip/'
+            'Referer': 'https://topcinema.red/'
         };
+        
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
         
         const response = await fetch(url, { 
             headers,
-            timeout: 30000
+            signal: controller.signal
         });
+        
+        clearTimeout(timeoutId);
+        
+        debug.log('FETCH_RESPONSE', 'استجابة الخادم', { 
+            status: response.status, 
+            statusText: response.statusText
+        });
+        
+        console.log(`📊 حالة الاستجابة: ${response.status} ${response.statusText}`);
         
         if (!response.ok) {
             console.log(`❌ فشل الجلب: ${response.status} ${response.statusText}`);
@@ -396,11 +476,28 @@ async function fetchPage(url) {
         }
         
         const html = await response.text();
+        console.log(`📄 حجم الصفحة: ${html.length} حرف`);
+        
+        if (html.length < 1000) {
+            console.log(`⚠️ تحذير: الصفحة صغيرة جداً (أقل من 1000 حرف)!`);
+            debug.log('WARNING', 'صفحة صغيرة جداً', { length: html.length, url });
+            
+            const debugPagePath = path.join(AG_SERIES_DIR, `debug_page_${Date.now()}.html`);
+            fs.writeFileSync(debugPagePath, html);
+            console.log(`💾 تم حفظ الصفحة للتصحيح في: ${debugPagePath}`);
+        }
+        
         await delay(DELAY_BETWEEN_REQUESTS);
         return html;
         
     } catch (error) {
-        console.log(`❌ خطأ في الجلب: ${error.message}`);
+        if (error.name === 'AbortError') {
+            console.log(`❌ انتهى الوقت المحدد للجلب (30 ثانية)`);
+            debug.log('TIMEOUT', 'انتهاء وقت الجلب', { url: url.substring(0, 50) });
+        } else {
+            console.log(`❌ خطأ في الجلب: ${error.message}`);
+            debug.log('FETCH_ERROR', error.message, { url: url.substring(0, 50) });
+        }
         return null;
     }
 }
@@ -428,159 +525,7 @@ function extractIdFromShortLink(shortLink) {
     }
 }
 
-// ==================== استخراج سيرفرات تحميل الموسم ====================
-async function extractSeasonDownloadServers(downloadUrl) {
-    try {
-        console.log(`     ⬇️  جاري استخراج سيرفرات تحميل الموسم...`);
-        const html = await fetchWithRetry(downloadUrl);
-        if (!html) return {};
-        
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        const servers = {};
-        
-        const downloadBlocks = doc.querySelectorAll('.DownloadBlock');
-        
-        downloadBlocks.forEach(block => {
-            const qualityElement = block.querySelector('.download-title span');
-            const quality = qualityElement ? cleanText(qualityElement.textContent) : "غير محدد";
-            
-            const serverLinks = block.querySelectorAll('a.downloadsLink');
-            const qualityServers = [];
-            
-            serverLinks.forEach(link => {
-                const serverName = cleanText(link.querySelector('span')?.textContent || 
-                                           link.querySelector('p')?.textContent || 
-                                           "غير معروف");
-                
-                qualityServers.push({
-                    name: serverName,
-                    url: link.href,
-                    quality: quality
-                });
-            });
-            
-            if (qualityServers.length > 0) {
-                servers[quality] = qualityServers;
-            }
-        });
-        
-        console.log(`     ✅ تم العثور على سيرفرات تحميل لـ ${Object.keys(servers).length} جودة`);
-        return servers;
-        
-    } catch (error) {
-        console.log(`     ⚠️ خطأ في استخراج سيرفرات التحميل: ${error.message}`);
-        return {};
-    } finally {
-        await delay(500);
-    }
-}
-
-// ==================== استخراج سيرفرات تحميل الحلقة ====================
-async function extractEpisodeDownloadServers(downloadUrl) {
-    try {
-        console.log(`       ⬇️  جاري استخراج سيرفرات تحميل الحلقة...`);
-        const html = await fetchWithRetry(downloadUrl);
-        if (!html) return {};
-        
-        const dom = new JSDOM(html);
-        const doc = dom.window.document;
-        const servers = {};
-        
-        const downloadBlocks = doc.querySelectorAll('.DownloadBlock');
-        
-        downloadBlocks.forEach(block => {
-            const qualityElement = block.querySelector('.download-title span');
-            const quality = qualityElement ? cleanText(qualityElement.textContent) : "غير محدد";
-            
-            const serverLinks = block.querySelectorAll('a.downloadsLink');
-            const qualityServers = [];
-            
-            serverLinks.forEach(link => {
-                const serverName = cleanText(link.querySelector('span')?.textContent || 
-                                           link.querySelector('p')?.textContent || 
-                                           "غير معروف");
-                
-                qualityServers.push({
-                    name: serverName,
-                    url: link.href,
-                    quality: quality
-                });
-            });
-            
-            if (qualityServers.length > 0) {
-                servers[quality] = qualityServers;
-            }
-        });
-        
-        console.log(`       ✅ تم العثور على سيرفرات تحميل لـ ${Object.keys(servers).length} جودة`);
-        return servers;
-        
-    } catch (error) {
-        console.log(`       ⚠️ خطأ في استخراج سيرفرات التحميل: ${error.message}`);
-        return {};
-    } finally {
-        await delay(500);
-    }
-}
-
-// ==================== استخراج سيرفرات التحميل من صفحة الحلقة مباشرة ====================
-async function extractDownloadServersFromPage(doc) {
-    try {
-        const servers = {};
-        
-        const downloadBox = doc.querySelector('.DownloadBox');
-        if (!downloadBox) return servers;
-        
-        const downloadBlocks = downloadBox.querySelectorAll('.DownloadBlock');
-        
-        downloadBlocks.forEach(block => {
-            const qualityElement = block.querySelector('.download-title span');
-            const quality = qualityElement ? cleanText(qualityElement.textContent) : "غير محدد";
-            
-            const serverLinks = block.querySelectorAll('a.downloadsLink');
-            const qualityServers = [];
-            
-            serverLinks.forEach(link => {
-                const serverNameElement = link.querySelector('span') || link.querySelector('p');
-                const serverName = serverNameElement ? cleanText(serverNameElement.textContent) : "غير معروف";
-                
-                qualityServers.push({
-                    name: serverName,
-                    url: link.href,
-                    quality: quality
-                });
-            });
-            
-            if (qualityServers.length > 0) {
-                servers[quality] = qualityServers;
-            }
-        });
-        
-        const proServer = downloadBox.querySelector('.proServer a.downloadsLink');
-        if (proServer) {
-            const serverNameElement = proServer.querySelector('span') || proServer.querySelector('p');
-            const serverName = serverNameElement ? cleanText(serverNameElement.textContent) : "متعدد الجودات";
-            
-            if (!servers["متعدد الجودات"]) {
-                servers["متعدد الجودات"] = [];
-            }
-            servers["متعدد الجودات"].push({
-                name: serverName,
-                url: proServer.href,
-                quality: "متعدد الجودات"
-            });
-        }
-        
-        return servers;
-        
-    } catch (error) {
-        console.log(`       ⚠️ خطأ في استخراج سيرفرات التحميل من الصفحة: ${error.message}`);
-        return {};
-    }
-}
-
-// ==================== نظام الملفات المحسن ====================
+// ==================== نظام الملفات ====================
 class FileManager {
     constructor() {
         this.ensureDirectories();
@@ -609,7 +554,7 @@ class FileManager {
             
             return parsed;
         } catch (error) {
-            console.log(`⚠️ خطأ في قراءة الملف ${filePath}: ${error.message}`);
+            debug.log('FILE_ERROR', 'خطأ في قراءة الملف', { file: filePath, error: error.message });
             return { info: { type: 'data', totalItems: 0 }, data: [] };
         }
     }
@@ -642,7 +587,6 @@ class FileManager {
         return fileContent;
     }
     
-    // دالة جديدة لحفظ Home.json (استبدال كامل)
     saveHomeFile(seriesList) {
         const fileInfo = {
             type: 'home_series',
@@ -687,7 +631,7 @@ class FileManager {
             
             return null;
         } catch (error) {
-            console.log(`⚠️ خطأ في البحث: ${error.message}`);
+            debug.log('FILE_ERROR', 'خطأ في البحث', { directory, itemId, error: error.message });
             return null;
         }
     }
@@ -709,56 +653,8 @@ class FileManager {
             
             return items;
         } catch (error) {
-            console.log(`⚠️ خطأ في الحصول على العناصر: ${error.message}`);
+            debug.log('FILE_ERROR', 'خطأ في الحصول على العناصر', { directory, error: error.message });
             return items;
-        }
-    }
-    
-    updateItem(directory, itemId, updatedData, idField = 'id') {
-        try {
-            const files = fs.readdirSync(directory)
-                .filter(file => file.startsWith('Page') && file.endsWith('.json'));
-            
-            for (const file of files) {
-                const filePath = path.join(directory, file);
-                const content = this.readJsonFile(filePath);
-                
-                if (content.data && Array.isArray(content.data)) {
-                    const itemIndex = content.data.findIndex(item => item[idField] === itemId);
-                    
-                    if (itemIndex !== -1) {
-                        const oldItem = { ...content.data[itemIndex] };
-                        
-                        content.data[itemIndex] = {
-                            ...oldItem,
-                            ...updatedData,
-                            updatedAt: new Date().toISOString(),
-                            originalCreatedAt: oldItem.createdAt || oldItem.scrapedAt
-                        };
-                        
-                        content.info.lastUpdated = new Date().toISOString();
-                        
-                        const backupPath = filePath + '.backup';
-                        if (fs.existsSync(filePath)) {
-                            fs.copyFileSync(filePath, backupPath);
-                        }
-                        
-                        fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
-                        
-                        return {
-                            success: true,
-                            oldItem: oldItem,
-                            newItem: content.data[itemIndex],
-                            file: file
-                        };
-                    }
-                }
-            }
-            
-            return { success: false, message: 'Item not found' };
-        } catch (error) {
-            console.log(`⚠️ خطأ في التحديث: ${error.message}`);
-            return { success: false, error: error.message };
         }
     }
 }
@@ -767,7 +663,7 @@ class FileManager {
 async function fetchHomePageSeries() {
     console.log("\n🏠 ===== جلب المسلسلات من الصفحة الرئيسية =====");
     
-    const url = "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
+    const url = "https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
     console.log(`🔗 الرابط: ${url}`);
     
     const html = await fetchWithRetry(url);
@@ -783,19 +679,38 @@ async function fetchHomePageSeries() {
         
         console.log("🔍 البحث عن المسلسلات في الصفحة الرئيسية...");
         
-        const seriesElements = doc.querySelectorAll('.Small--Box a');
+        // تحديث: البحث عن عناصر المسلسلات في الصفحة الرئيسية
+        const seriesElements = doc.querySelectorAll('.Small--Box a.recent--block');
         console.log(`✅ وجدت ${seriesElements.length} مسلسل في الصفحة الرئيسية`);
+        
+        debug.log('HOME_PAGE', 'عناصر الصفحة الرئيسية', { count: seriesElements.length });
         
         for (let i = 0; i < seriesElements.length; i++) {
             const element = seriesElements[i];
             const seriesUrl = element.href;
             
-            if (seriesUrl && seriesUrl.includes('topcinema.rip')) {
+            if (seriesUrl && seriesUrl.includes('topcinema.red')) {
                 const title = cleanText(element.querySelector('.title')?.textContent || element.textContent);
                 const image = element.querySelector('img')?.src;
-                const seasonsCount = cleanText(element.querySelector('.number.Collection span')?.textContent || "");
                 
-                // استخراج ID مؤقت للمقارنة
+                // استخراج عدد المواسم من عنصر Collection
+                const seasonsElement = element.querySelector('.number.Collection span');
+                const seasonsCount = seasonsElement ? cleanText(seasonsElement.textContent) : "";
+                
+                // استخراج تقييم IMDB
+                const imdbElement = element.querySelector('.imdbRating i.fa-star')?.parentElement;
+                const imdbRating = imdbElement ? cleanText(imdbElement.textContent) : "";
+                
+                // استخراج الأنواع (Genres)
+                const genres = [];
+                const liItems = element.querySelectorAll('ul.liList li');
+                liItems.forEach(li => {
+                    const text = cleanText(li.textContent);
+                    if (text && !text.includes('IMDb') && !text.includes('WEB') && !text.includes('BluRay') && !text.includes('HD')) {
+                        genres.push(text);
+                    }
+                });
+                
                 const tempId = extractIdFromShortLink(seriesUrl);
                 
                 seriesList.push({
@@ -804,6 +719,8 @@ async function fetchHomePageSeries() {
                     title: title,
                     image: image,
                     seasonsCount: seasonsCount,
+                    imdbRating: imdbRating,
+                    genres: genres,
                     page: 1,
                     position: i + 1,
                     fromHomePage: true,
@@ -821,6 +738,7 @@ async function fetchHomePageSeries() {
         
     } catch (error) {
         console.error(`❌ خطأ في استخراج الصفحة الرئيسية:`, error.message);
+        debug.log('ERROR', 'خطأ في استخراج الصفحة الرئيسية', error.message);
         return [];
     } finally {
         await delay(1000);
@@ -829,15 +747,17 @@ async function fetchHomePageSeries() {
 
 // ==================== استخراج قائمة المسلسلات من الصفحة ====================
 async function fetchSeriesListFromPage(pageNum) {
-    const url = pageNum === 1 
-        ? "https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/"
-        : `https://topcinema.rip/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/page/${pageNum}/`;
+    const baseUrl = "https://topcinema.red/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a/";
+    const url = pageNum === 1 ? baseUrl : `${baseUrl}page/${pageNum}/`;
     
-    console.log(`\n📺 ===== جلب صفحة المسلسلات ${pageNum} =====`);
+    console.log(`\n📺 ====== جلب صفحة المسلسلات ${pageNum} ======`);
     console.log(`🔗 الرابط: ${url}`);
     
     const html = await fetchWithRetry(url);
-    if (!html) return null;
+    if (!html) {
+        debug.log('SERIES_PAGE_FAIL', 'فشل جلب صفحة المسلسلات', { pageNum });
+        return null;
+    }
     
     try {
         const dom = new JSDOM(html);
@@ -846,23 +766,61 @@ async function fetchSeriesListFromPage(pageNum) {
         
         console.log("🔍 البحث عن المسلسلات...");
         
-        const seriesElements = doc.querySelectorAll('.Small--Box a');
+        // تحديث: البحث عن عناصر المسلسلات في صفحة القائمة
+        const seriesElements = doc.querySelectorAll('.Small--Box a.recent--block');
         console.log(`✅ وجدت ${seriesElements.length} مسلسل في الصفحة`);
+        
+        debug.log('SERIES_PAGE', 'نتائج صفحة المسلسلات', { 
+            pageNum, 
+            count: seriesElements.length,
+            htmlLength: html.length 
+        });
+        
+        if (seriesElements.length === 0) {
+            console.log(`⚠️ لا توجد عناصر مسلسلات في الصفحة ${pageNum}`);
+            
+            // تحقق من وجود ترقيم صفحات
+            const pagination = doc.querySelector('.pagination, .wp-pagenavi, .nav-links');
+            if (!pagination && pageNum > 1) {
+                console.log(`📭 يبدو أن هذه آخر صفحة (لا يوجد ترقيم صفحات)`);
+                return null;
+            }
+            return { url, series: [] };
+        }
         
         for (let i = 0; i < seriesElements.length; i++) {
             const element = seriesElements[i];
             const seriesUrl = element.href;
             
-            if (seriesUrl && seriesUrl.includes('topcinema.rip')) {
+            if (seriesUrl && seriesUrl.includes('topcinema.red')) {
                 const title = cleanText(element.querySelector('.title')?.textContent || element.textContent);
                 const image = element.querySelector('img')?.src;
-                const seasonsCount = cleanText(element.querySelector('.number.Collection span')?.textContent || "");
+                
+                // استخراج عدد المواسم
+                const seasonsElement = element.querySelector('.number.Collection span');
+                const seasonsCount = seasonsElement ? cleanText(seasonsElement.textContent) : "";
+                
+                // استخراج تقييم IMDB
+                const imdbElement = element.querySelector('.imdbRating i.fa-star')?.parentElement;
+                const imdbRating = imdbElement ? cleanText(imdbElement.textContent) : "";
+                
+                // استخراج الجودة
+                let quality = "";
+                const liItems = element.querySelectorAll('ul.liList li');
+                liItems.forEach(li => {
+                    const text = cleanText(li.textContent);
+                    if (text && (text.includes('WEB') || text.includes('BluRay') || text.includes('HD'))) {
+                        quality = text;
+                    }
+                });
                 
                 seriesList.push({
                     url: seriesUrl,
                     title: title,
                     image: image,
                     seasonsCount: seasonsCount,
+                    imdbRating: imdbRating,
+                    quality: quality,
                     page: pageNum,
                     position: i + 1,
                     scrapedAt: new Date().toISOString()
@@ -870,10 +828,12 @@ async function fetchSeriesListFromPage(pageNum) {
             }
         }
         
+        console.log(`📊 تم العثور على ${seriesList.length} مسلسل في الصفحة ${pageNum}`);
         return { url, series: seriesList };
         
     } catch (error) {
         console.error(`❌ خطأ في الصفحة ${pageNum}:`, error.message);
+        debug.log('ERROR', 'خطأ في معالجة صفحة المسلسلات', { pageNum, error: error.message });
         return null;
     } finally {
         await delay(1000);
@@ -894,15 +854,28 @@ async function fetchSeriesDetails(seriesData) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
+        // تحديث: استخراج الرابط المختصر
         const shortLinkInput = doc.querySelector('#shortlink');
         const shortLink = shortLinkInput ? shortLinkInput.value : seriesData.url;
         const seriesId = extractIdFromShortLink(shortLink);
         
-        const title = cleanText(doc.querySelector(".post-title a")?.textContent || seriesData.title);
-        const image = doc.querySelector(".image img")?.src || seriesData.image;
-        const imdbRating = cleanText(doc.querySelector(".imdbR span")?.textContent);
-        const story = cleanText(doc.querySelector(".story p")?.textContent);
+        // تحديث: استخراج العنوان
+        const titleElement = doc.querySelector(".post-title a");
+        const title = titleElement ? cleanText(titleElement.textContent) : seriesData.title;
         
+        // تحديث: استخراج الصورة
+        const imageElement = doc.querySelector(".image img");
+        const image = imageElement ? imageElement.src : seriesData.image;
+        
+        // تحديث: استخراج تقييم IMDB
+        const imdbElement = doc.querySelector(".imdbR span");
+        const imdbRating = imdbElement ? cleanText(imdbElement.textContent) : seriesData.imdbRating;
+        
+        // تحديث: استخراج قصة المسلسل
+        const storyElement = doc.querySelector(".story p");
+        const story = storyElement ? cleanText(storyElement.textContent) : "غير متوفر";
+        
+        // تحديث: استخراج التفاصيل من القائمة الجانبية
         const details = {};
         const detailItems = doc.querySelectorAll(".RightTaxContent li");
         
@@ -924,6 +897,10 @@ async function fetchSeriesDetails(seriesData) {
             }
         });
         
+        // تحديث: استخراج رابط عرض جميع المواسم
+        const watchButton = doc.querySelector('.BTNSDownWatch a.watch');
+        const seasonsListUrl = watchButton ? watchButton.href : null;
+        
         return {
             id: seriesId,
             title: title,
@@ -931,8 +908,9 @@ async function fetchSeriesDetails(seriesData) {
             shortLink: shortLink,
             image: image,
             imdbRating: imdbRating,
-            story: story || "غير متوفر",
+            story: story,
             details: details,
+            seasonsListUrl: seasonsListUrl,
             page: seriesData.page,
             position: seriesData.position,
             scrapedAt: new Date().toISOString(),
@@ -941,6 +919,7 @@ async function fetchSeriesDetails(seriesData) {
         
     } catch (error) {
         console.log(`   ❌ خطأ: ${error.message}`);
+        debug.log('ERROR', 'خطأ في استخراج تفاصيل المسلسل', { url: seriesData.url, error: error.message });
         return null;
     } finally {
         await delay(500);
@@ -962,58 +941,54 @@ async function extractSeasonsFromSeriesPage(seriesUrl) {
         const doc = dom.window.document;
         const seasons = [];
         
-        const seasonElements = doc.querySelectorAll('.Small--Box.Season');
-        
-        if (seasonElements.length > 0) {
-            seasonElements.forEach((element, i) => {
-                const link = element.querySelector('a');
-                if (link && link.href) {
-                    const seasonNumberElement = element.querySelector('.epnum span');
-                    let seasonNumber = i + 1;
-                    
-                    if (seasonNumberElement && seasonNumberElement.nextSibling) {
-                        const seasonNumText = seasonNumberElement.nextSibling.textContent.trim();
-                        const numMatch = seasonNumText.match(/\d+/);
-                        if (numMatch) seasonNumber = parseInt(numMatch[0]);
-                    }
-                    
-                    const seasonTitle = cleanText(element.querySelector('.title')?.textContent || `الموسم ${seasonNumber}`);
-                    const seasonImage = element.querySelector('img')?.src;
-                    
-                    seasons.push({
-                        url: link.href,
-                        title: seasonTitle,
-                        image: seasonImage,
-                        seasonNumber: seasonNumber,
-                        position: i + 1
-                    });
-                }
-            });
-        } else {
-            console.log(`   ℹ️  لا توجد مواسم بالطريقة العادية، جاري البحث بطريقة بديلة...`);
-            const allLinks = doc.querySelectorAll('a[href*="season"], a[href*="موسم"]');
-            allLinks.forEach(link => {
-                if (link.href.includes('topcinema.rip') && 
-                    (link.href.includes('/series/') || link.textContent.includes('موسم'))) {
-                    const title = cleanText(link.textContent);
-                    const numMatch = title.match(/\d+/);
-                    const seasonNumber = numMatch ? parseInt(numMatch[0]) : seasons.length + 1;
-                    
-                    seasons.push({
-                        url: link.href,
-                        title: title || `الموسم ${seasonNumber}`,
-                        seasonNumber: seasonNumber,
-                        position: seasons.length + 1
-                    });
-                }
-            });
+        // تحديث: البحث عن المواسم في قسم tabContents
+        const seasonsSection = doc.querySelector('section.allseasonss');
+        if (!seasonsSection) {
+            console.log(`   ℹ️  لا يوجد قسم للمواسم في الصفحة`);
+            return [];
         }
         
-        console.log(`   ✅ وجدت ${seasons.length} موسم`);
+        const seasonElements = seasonsSection.querySelectorAll('.Small--Box.Season');
+        console.log(`   ✅ وجدت ${seasonElements.length} موسم`);
+        
+        seasonElements.forEach((element, index) => {
+            const link = element.querySelector('a');
+            if (link && link.href) {
+                // استخراج رقم الموسم
+                const epnumElement = element.querySelector('.epnum');
+                let seasonNumber = index + 1;
+                
+                if (epnumElement) {
+                    const epnumText = cleanText(epnumElement.textContent);
+                    const numMatch = epnumText.match(/\d+/);
+                    if (numMatch) {
+                        seasonNumber = parseInt(numMatch[0]);
+                    }
+                }
+                
+                // استخراج عنوان الموسم
+                const titleElement = element.querySelector('.title');
+                const seasonTitle = titleElement ? cleanText(titleElement.textContent) : `الموسم ${seasonNumber}`;
+                
+                // استخراج صورة الموسم
+                const imgElement = element.querySelector('img');
+                const seasonImage = imgElement ? imgElement.src : null;
+                
+                seasons.push({
+                    url: link.href,
+                    title: seasonTitle,
+                    image: seasonImage,
+                    seasonNumber: seasonNumber,
+                    position: index + 1
+                });
+            }
+        });
+        
         return seasons;
         
     } catch (error) {
         console.log(`   ❌ خطأ في استخراج المواسم: ${error.message}`);
+        debug.log('ERROR', 'خطأ في استخراج المواسم', { url: seriesUrl, error: error.message });
         return [];
     } finally {
         await delay(500);
@@ -1022,7 +997,7 @@ async function extractSeasonsFromSeriesPage(seriesUrl) {
 
 // ==================== استخراج بيانات الموسم الكاملة ====================
 async function fetchSeasonDetails(seasonData, seriesId) {
-    console.log(`   🎞️  الموسم ${seasonData.seasonNumber || seasonData.position}: ${seasonData.title.substring(0, 30)}...`);
+    console.log(`   🎞️  الموسم ${seasonData.seasonNumber}: ${seasonData.title.substring(0, 30)}...`);
     
     try {
         const html = await fetchWithRetry(seasonData.url);
@@ -1034,37 +1009,27 @@ async function fetchSeasonDetails(seasonData, seriesId) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
+        // استخراج الرابط المختصر
         const shortLinkInput = doc.querySelector('#shortlink');
         const shortLink = shortLinkInput ? shortLinkInput.value : seasonData.url;
         const seasonId = extractIdFromShortLink(shortLink);
         
-        const title = cleanText(doc.querySelector(".post-title a")?.textContent || seasonData.title);
-        const image = doc.querySelector(".image img")?.src || seasonData.image;
+        // استخراج العنوان
+        const titleElement = doc.querySelector(".post-title a");
+        const title = titleElement ? cleanText(titleElement.textContent) : seasonData.title;
         
-        let seasonNumber = seasonData.seasonNumber;
-        if (!seasonNumber) {
-            const numberMatch = title.match(/\d+/);
-            seasonNumber = numberMatch ? parseInt(numberMatch[0]) : 1;
-        }
-        
-        const downloadButton = doc.querySelector('a.downloadFullSeason, a[href*="download"][href*="season"]');
-        const fullDownloadUrl = downloadButton ? downloadButton.href : null;
-        
-        let downloadServers = {};
-        if (fullDownloadUrl) {
-            downloadServers = await extractSeasonDownloadServers(fullDownloadUrl);
-        }
+        // استخراج الصورة
+        const imageElement = doc.querySelector(".image img");
+        const image = imageElement ? imageElement.src : seasonData.image;
         
         return {
             id: seasonId,
             seriesId: seriesId,
-            seasonNumber: seasonNumber,
+            seasonNumber: seasonData.seasonNumber,
             title: title,
             url: seasonData.url,
             shortLink: shortLink,
             image: image,
-            fullDownloadUrl: fullDownloadUrl,
-            downloadServers: downloadServers,
             scrapedAt: new Date().toISOString(),
             lastUpdated: new Date().toISOString()
         };
@@ -1092,56 +1057,51 @@ async function extractEpisodesFromSeasonPage(seasonUrl) {
         const doc = dom.window.document;
         const episodes = [];
         
-        const episodeSection = doc.querySelector('section.allepcont.getMoreByScroll');
-        
-        if (episodeSection) {
-            const episodeLinks = episodeSection.querySelectorAll('a[href*="topcinema.rip"]');
-            
-            episodeLinks.forEach((link, i) => {
-                const episodeNumElement = link.querySelector('.epnum');
-                
-                if (episodeNumElement) {
-                    const episodeNumText = episodeNumElement.textContent.trim();
-                    const episodeNumMatch = episodeNumText.match(/\d+/);
-                    const episodeNumber = episodeNumMatch ? parseInt(episodeNumMatch[0]) : i + 1;
-                    
-                    const titleElement = link.querySelector('.ep-info h2') || link;
-                    const episodeTitle = cleanText(titleElement.textContent || titleElement.title || `الحلقة ${episodeNumber}`);
-                    
-                    episodes.push({
-                        url: link.href,
-                        title: episodeTitle,
-                        episodeNumber: episodeNumber,
-                        position: i + 1
-                    });
-                }
-            });
-        } else {
-            console.log(`     ℹ️  لم يتم العثور على قسم الحلقات بالطريقة المباشرة، جاري البحث بطريقة بديلة...`);
-            
-            const allLinks = doc.querySelectorAll('a[href*="topcinema.rip"]');
-            
-            allLinks.forEach((link, i) => {
-                const linkText = link.textContent + ' ' + (link.title || '');
-                if (linkText.includes('حلقة') || link.href.includes('حلقة')) {
-                    const episodeNumMatch = linkText.match(/حلقة\s*(\d+)/) || linkText.match(/\s(\d+)\s/) || [null, i + 1];
-                    const episodeNumber = parseInt(episodeNumMatch[1]);
-                    
-                    episodes.push({
-                        url: link.href,
-                        title: cleanText(link.textContent || link.title || `الحلقة ${episodeNumber}`),
-                        episodeNumber: episodeNumber,
-                        position: episodes.length + 1
-                    });
-                }
-            });
+        // تحديث: البحث عن الحلقات في قسم allepcont
+        const episodesSection = doc.querySelector('section.allepcont');
+        if (!episodesSection) {
+            console.log(`     ℹ️  لا يوجد قسم للحلقات في الصفحة`);
+            return [];
         }
         
-        console.log(`     ✅ وجدت ${episodes.length} حلقة`);
+        const episodeLinks = episodesSection.querySelectorAll('a[href*="topcinema.red"]');
+        console.log(`     ✅ وجدت ${episodeLinks.length} حلقة`);
+        
+        episodeLinks.forEach((link, index) => {
+            // استخراج رقم الحلقة
+            const epnumElement = link.querySelector('.epnum');
+            let episodeNumber = index + 1;
+            
+            if (epnumElement) {
+                const epnumText = cleanText(epnumElement.textContent);
+                const numMatch = epnumText.match(/\d+/);
+                if (numMatch) {
+                    episodeNumber = parseInt(numMatch[0]);
+                }
+            }
+            
+            // استخراج عنوان الحلقة
+            const titleElement = link.querySelector('.ep-info h2');
+            const episodeTitle = titleElement ? cleanText(titleElement.textContent) : `الحلقة ${episodeNumber}`;
+            
+            // استخراج صورة الحلقة
+            const imgElement = link.querySelector('.image img');
+            const episodeImage = imgElement ? imgElement.src : null;
+            
+            episodes.push({
+                url: link.href,
+                title: episodeTitle,
+                episodeNumber: episodeNumber,
+                image: episodeImage,
+                position: index + 1
+            });
+        });
+        
         return episodes;
         
     } catch (error) {
         console.log(`     ❌ خطأ في استخراج الحلقات: ${error.message}`);
+        debug.log('ERROR', 'خطأ في استخراج الحلقات', { url: seasonUrl, error: error.message });
         return [];
     } finally {
         await delay(500);
@@ -1162,46 +1122,32 @@ async function fetchEpisodeDetails(episodeData, seriesId, seasonId) {
         const dom = new JSDOM(html);
         const doc = dom.window.document;
         
+        // استخراج الرابط المختصر
         const shortLinkInput = doc.querySelector('#shortlink');
         const shortLink = shortLinkInput ? shortLinkInput.value : episodeData.url;
         const episodeId = extractIdFromShortLink(shortLink);
         
-        let episodeNumber = episodeData.episodeNumber;
-        if (!episodeNumber) {
-            const numberMatch = episodeData.title.match(/\d+/);
-            episodeNumber = numberMatch ? parseInt(numberMatch[0]) : 1;
-        }
+        // استخراج عنوان الحلقة
+        const titleElement = doc.querySelector(".post-title a");
+        const title = titleElement ? cleanText(titleElement.textContent) : episodeData.title;
         
+        // استخراج سيرفر المشاهدة (قد يكون موجوداً في meta tags)
         let watchServer = null;
         const watchMeta = doc.querySelector('meta[property="og:video:url"], meta[property="og:video:secure_url"]');
         if (watchMeta && watchMeta.content) {
             watchServer = watchMeta.content;
-        } else {
-            const watchButton = doc.querySelector('a.watch[href*="/watch/"]');
-            if (watchButton && watchButton.href) {
-                watchServer = watchButton.href;
-            }
-        }
-        
-        let downloadServers = {};
-        const downloadButton = doc.querySelector('a[href*="download"]');
-        if (downloadButton) {
-            const downloadUrl = downloadButton.href;
-            downloadServers = await extractEpisodeDownloadServers(downloadUrl);
-        } else {
-            downloadServers = await extractDownloadServersFromPage(doc);
         }
         
         return {
             id: episodeId,
             seriesId: seriesId,
             seasonId: seasonId,
-            episodeNumber: episodeNumber,
-            title: episodeData.title,
+            episodeNumber: episodeData.episodeNumber,
+            title: title,
             url: episodeData.url,
             shortLink: shortLink,
+            image: episodeData.image,
             watchServer: watchServer,
-            downloadServers: downloadServers,
             scrapedAt: new Date().toISOString(),
             lastUpdated: new Date().toISOString()
         };
@@ -1236,9 +1182,9 @@ class UpdateDetector {
                 return { hasUpdates: false, updates: [] };
             }
             
-            const oldSeries = seriesData.item;
             const updates = [];
             
+            // التحقق من وجود مواسم جديدة
             const currentSeasons = await extractSeasonsFromSeriesPage(seriesUrl);
             
             const storedSeasons = this.fileManager.getAllItems(SEASONS_DIR)
@@ -1259,18 +1205,6 @@ class UpdateDetector {
                     newSeasons: newSeasons.length,
                     seasons: newSeasons.map(s => s.title)
                 });
-            }
-            
-            for (const storedSeason of storedSeasons) {
-                const seasonUpdates = await this.checkSeasonForUpdates(storedSeason);
-                if (seasonUpdates.hasUpdates) {
-                    updates.push({
-                        type: 'season_updates',
-                        seasonId: storedSeason.id,
-                        seasonTitle: storedSeason.title,
-                        updates: seasonUpdates.updates
-                    });
-                }
             }
             
             this.updateTracker.markSeriesChecked(seriesId, currentSeasons.length, updates.length);
@@ -1361,21 +1295,6 @@ class UpdateDetector {
         
         return newEpisodes;
     }
-    
-    async detectNewSeries(currentHomeSeries, storedSeriesIds) {
-        const newSeries = [];
-        
-        for (const series of currentHomeSeries) {
-            // استخراج ID حقيقي للمسلسل
-            const seriesDetails = await fetchSeriesDetails(series);
-            if (seriesDetails && !storedSeriesIds.includes(seriesDetails.id)) {
-                newSeries.push(seriesDetails);
-            }
-            await delay(1000);
-        }
-        
-        return newSeries;
-    }
 }
 
 // ==================== نظام الاستخراج المنظم ====================
@@ -1391,19 +1310,45 @@ class OrganizedScraper {
         
         const pageData = await fetchSeriesListFromPage(pageNum);
         
-        if (!pageData || pageData.series.length === 0) {
-            console.log(`\n🏁 وصلنا إلى آخر صفحة!`);
+        if (!pageData) {
+            console.log(`⚠️ فشل جلب الصفحة ${pageNum}`);
+            
+            if (pageNum === 1) {
+                console.log(`❌ خطأ: لا يمكن جلب الصفحة الأولى!`);
+                console.log(`🔄 سأحاول مرة أخرى في التشغيل القادم`);
+                this.progress.shouldStop = true;
+                return false;
+            }
+            
+            console.log(`🏠 ربما وصلنا لآخر صفحة؟`);
             this.progress.markAllPagesScraped();
             return false;
         }
         
-        console.log(`📊 جاهز لاستخراج ${pageData.series.length} مسلسل`);
+        if (pageData.series.length === 0) {
+            console.log(`📭 الصفحة ${pageNum} لا تحتوي على مسلسلات`);
+            
+            if (pageNum === 1) {
+                console.log(`❌ خطأ: الصفحة الأولى لا تحتوي على مسلسلات!`);
+                console.log(`🔍 تحقق من هيكل الموقع`);
+                this.progress.shouldStop = true;
+                return false;
+            }
+            
+            console.log(`🏁 يبدو أننا وصلنا لآخر صفحة (الصفحة ${pageNum})`);
+            console.log(`📊 إجمالي المسلسلات المستخرجة: ${this.progress.totalExtracted.series}`);
+            this.progress.markAllPagesScraped();
+            return false;
+        }
         
-        // تحديث Home.json بمسلسلات الصفحة الأولى فقط
+        console.log(`📊 جاهز لاستخراج ${pageData.series.length} مسلسل من الصفحة ${pageNum}`);
+        
         if (pageNum === 1) {
+            console.log(`🏠 تحديث Home.json بمسلسلات الصفحة الأولى...`);
             await this.updateHomeFile(pageData.series);
         }
         
+        let extractedCount = 0;
         for (let i = 0; i < pageData.series.length; i++) {
             const seriesData = pageData.series[i];
             
@@ -1428,8 +1373,7 @@ class OrganizedScraper {
                 );
                 
                 if (updateResult.hasUpdates) {
-                    console.log(`   📈 تطبيق التحديثات...`);
-                    await this.applyUpdates(seriesDetails.id, updateResult.updates);
+                    console.log(`   📈 تم اكتشاف تحديثات`);
                 }
                 
             } else {
@@ -1444,23 +1388,27 @@ class OrganizedScraper {
                 console.log(`   💾 تم حفظ المسلسل في ${this.progress.currentSeriesFile}`);
                 this.progress.addSeriesToFile();
                 this.progress.currentSeriesId = seriesDetails.id;
+                extractedCount++;
                 
                 await this.extractSeasonsForSeries(seriesDetails);
             }
             
             if (i < pageData.series.length - 1) {
+                console.log(`   ⏳ انتظار 2 ثانية قبل المسلسل التالي...`);
                 await delay(2000);
             }
         }
         
+        console.log(`\n✅ اكتملت معالجة الصفحة ${pageNum}`);
+        console.log(`📊 تم استخراج ${extractedCount} مسلسل جديد من هذه الصفحة`);
+        console.log(`📊 الإجمالي الكلي: ${this.progress.totalExtracted.series} مسلسل`);
+        
         return true;
     }
     
-    // دالة جديدة لتحديث Home.json
     async updateHomeFile(homeSeriesList) {
         console.log(`\n🏠 تحديث ملف Home.json بمسلسلات الصفحة الأولى...`);
         
-        // استخراج التفاصيل الكاملة لمسلسلات الصفحة الأولى
         const fullSeriesDetails = [];
         for (let i = 0; i < homeSeriesList.length; i++) {
             const seriesData = homeSeriesList[i];
@@ -1476,11 +1424,9 @@ class OrganizedScraper {
             }
         }
         
-        // حفظ في Home.json (استبدال كامل)
         this.fileManager.saveHomeFile(fullSeriesDetails);
         console.log(`✅ تم تحديث Home.json بـ ${fullSeriesDetails.length} مسلسل`);
         
-        // تسجيل IDs للمسلسلات للمقارنة المستقبلية
         const seriesIds = fullSeriesDetails.map(s => s.id);
         this.progress.updateHomeSeriesIds(seriesIds);
         this.progress.updateTracker.recordHomeCheck(fullSeriesDetails);
@@ -1565,14 +1511,6 @@ class OrganizedScraper {
         }
     }
     
-    async applyUpdates(seriesId, updates) {
-        for (const update of updates) {
-            if (update.type === 'new_seasons') {
-                console.log(`   🆕 جاري إضافة ${update.count} موسم جديد...`);
-            }
-        }
-    }
-    
     async monitorHomePage() {
         console.log("\n🏠 ===== بدء مراقبة الصفحة الرئيسية =====");
         
@@ -1583,14 +1521,15 @@ class OrganizedScraper {
             return;
         }
         
-        // تحديث Home.json
         await this.updateHomeFile(homeSeries);
         
-        // الحصول على جميع IDs المسلسلات المخزنة
         const allStoredSeries = this.fileManager.getAllItems(TV_SERIES_DIR);
         const storedSeriesIds = new Set(allStoredSeries.map(s => s.id));
         
-        // البحث عن مسلسلات جديدة
+        console.log(`\n📊 إحصائيات:`);
+        console.log(`   📁 المسلسلات المخزنة: ${allStoredSeries.length}`);
+        console.log(`   🏠 مسلسلات الصفحة الرئيسية: ${homeSeries.length}`);
+        
         console.log("\n🔍 البحث عن مسلسلات جديدة...");
         let newSeriesCount = 0;
         
@@ -1604,7 +1543,6 @@ class OrganizedScraper {
                 const seriesDetails = await fetchSeriesDetails(seriesData);
                 
                 if (seriesDetails) {
-                    // حفظ المسلسل الجديد
                     const savedSeries = this.fileManager.saveToFile(
                         TV_SERIES_DIR,
                         this.progress.currentSeriesFile,
@@ -1614,7 +1552,6 @@ class OrganizedScraper {
                     this.progress.addSeriesToFile();
                     newSeriesCount++;
                     
-                    // استخراج مواسمه وحلقاته
                     await this.extractSeasonsForSeries(seriesDetails);
                 }
             }
@@ -1622,7 +1559,6 @@ class OrganizedScraper {
             await delay(1500);
         }
         
-        // البحث عن تحديثات للمسلسلات الموجودة
         console.log("\n🔄 البحث عن تحديثات للمسلسلات الموجودة...");
         let updatedSeriesCount = 0;
         
@@ -1678,6 +1614,25 @@ async function main() {
         console.log(`   📄 الصفحة الحالية: ${progress.seriesPage}`);
         console.log(`   📁 ملف المسلسلات: ${progress.currentSeriesFile} (${progress.seriesInCurrentFile}/${ITEMS_PER_FILE.series})`);
         
+        if (progress.seriesPage === 1 && progress.totalExtracted.series === 0) {
+            console.log(`\n🔍 جاري التحقق من إمكانية الوصول إلى الموقع...`);
+            const testHtml = await fetchWithRetry("https://topcinema.red/");
+            if (!testHtml) {
+                console.log(`❌ لا يمكن الوصول إلى الموقع!`);
+                console.log(`💡 تأكد من:`);
+                console.log(`   1. اتصالك بالإنترنت`);
+                console.log(`   2. الموقع يعمل (افتحه في المتصفح)`);
+                
+                const errorReport = {
+                    error: "Cannot access website",
+                    timestamp: new Date().toISOString()
+                };
+                fs.writeFileSync(ERROR_FILE, JSON.stringify(errorReport, null, 2));
+                return;
+            }
+            console.log(`✅ الموقع يعمل، البدء في الاستخراج...\n`);
+        }
+        
         if (progress.allPagesScraped) {
             console.log(`\n🏁 تم استخراج جميع صفحات المسلسلات!`);
             console.log(`🔄 التبديل لوضع مراقبة الصفحة الرئيسية...`);
@@ -1685,17 +1640,17 @@ async function main() {
         } else {
             progress.resetForNewRun();
             
-            let hasMorePages = true;
-            while (!progress.shouldStop && hasMorePages) {
-                hasMorePages = await scraper.processSeriesPage(progress.seriesPage);
+            console.log(`\n📌 ملاحظة: سيتم استخراج صفحة واحدة فقط في هذا التشغيل`);
+            console.log(`   (يمكنك تغيير PAGES_PER_RUN لاستخراج أكثر من صفحة)\n`);
+            
+            let hasMorePages = await scraper.processSeriesPage(progress.seriesPage);
+            
+            if (hasMorePages) {
+                progress.addPageProcessed();
                 
-                if (hasMorePages) {
-                    progress.addPageProcessed();
-                    
-                    if (!progress.shouldStop) {
-                        console.log(`\n⏳ انتظار 3 ثواني قبل الصفحة التالية...`);
-                        await delay(3000);
-                    }
+                if (!progress.shouldStop && hasMorePages) {
+                    console.log(`\n✅ اكتملت الصفحة ${progress.seriesPage - 1}`);
+                    console.log(`👉 في المرة القادمة، سيبدأ من الصفحة ${progress.seriesPage}`);
                 }
             }
         }
@@ -1711,6 +1666,18 @@ async function main() {
     console.log("🎉 اكتمل التشغيل!");
     console.log("=".repeat(60));
     
+    let seriesFiles = [];
+    let seasonFiles = [];
+    let episodeFiles = [];
+    
+    try {
+        seriesFiles = fs.existsSync(TV_SERIES_DIR) ? fs.readdirSync(TV_SERIES_DIR).filter(f => f.endsWith('.json')) : [];
+        seasonFiles = fs.existsSync(SEASONS_DIR) ? fs.readdirSync(SEASONS_DIR).filter(f => f.endsWith('.json')) : [];
+        episodeFiles = fs.existsSync(EPISODES_DIR) ? fs.readdirSync(EPISODES_DIR).filter(f => f.endsWith('.json')) : [];
+    } catch (e) {
+        debug.log('ERROR', 'خطأ في قراءة الملفات', e.message);
+    }
+    
     const finalReport = {
         timestamp: new Date().toISOString(),
         mode: progress.mode,
@@ -1723,9 +1690,9 @@ async function main() {
             lastHomeUpdate: progress.lastHomeUpdate
         },
         files: {
-            seriesFiles: fs.readdirSync(TV_SERIES_DIR).filter(f => f.endsWith('.json')).length,
-            seasonFiles: fs.readdirSync(SEASONS_DIR).filter(f => f.endsWith('.json')).length,
-            episodeFiles: fs.readdirSync(EPISODES_DIR).filter(f => f.endsWith('.json')).length
+            seriesFiles: seriesFiles.length,
+            seasonFiles: seasonFiles.length,
+            episodeFiles: episodeFiles.length
         },
         nextRun: {
             mode: progress.mode,
@@ -1734,26 +1701,93 @@ async function main() {
         }
     };
     
-    // حفظ التقرير داخل مجلد AgSeries
     fs.writeFileSync(REPORT_FILE, JSON.stringify(finalReport, null, 2));
     console.log(`📄 تم حفظ التقرير في: ${REPORT_FILE}`);
     console.log(`📊 ${finalReport.files.seriesFiles} ملف مسلسلات, ${finalReport.files.seasonFiles} ملف مواسم, ${finalReport.files.episodeFiles} ملف حلقات`);
+    
+    if (fs.existsSync(DEBUG_FILE)) {
+        const debugLogs = JSON.parse(fs.readFileSync(DEBUG_FILE, 'utf8'));
+        const recentErrors = debugLogs.filter(log => log.type.includes('ERROR') || log.type.includes('FETCH_FAILED')).slice(-5);
+        
+        if (recentErrors.length > 0) {
+            console.log(`\n🔍 آخر أخطاء التصحيح (${recentErrors.length}):`);
+            recentErrors.forEach((log, i) => {
+                console.log(`   ${i+1}. [${log.type}] ${log.message}`);
+            });
+        }
+    }
+    
     console.log("=".repeat(60));
+    
+    if (progress.mode === 'scrape_series' && progress.seriesPage === 1 && progress.totalExtracted.series === 0) {
+        console.log(`\n💡 نصائح:`);
+        console.log(`   1. تأكد من أن الموقع يعمل: https://topcinema.red`);
+        console.log(`   2. تحقق من اتصال الإنترنت`);
+        console.log(`   3. جرب تشغيل البرنامج مرة أخرى بعد دقيقة`);
+    } else if (progress.mode === 'scrape_series') {
+        console.log(`\n👉 للتشغيل التالي:`);
+        console.log(`   قم بتشغيل البرنامج مرة أخرى لاستخراج الصفحة ${progress.seriesPage}`);
+        if (progress.seriesPage > 1) {
+            console.log(`   تم استخراج ${progress.totalExtracted.series} مسلسل حتى الآن`);
+        }
+    } else if (progress.mode === 'monitor_home') {
+        console.log(`\n👉 للتشغيل التالي:`);
+        console.log(`   سيتم مراقبة الصفحة الرئيسية للبحث عن مسلسلات جديدة`);
+        console.log(`   آخر مراقبة: ${progress.lastHomeUpdate ? new Date(progress.lastHomeUpdate).toLocaleString() : 'لم تتم'}`);
+    }
 }
 
 // ==================== تشغيل البرنامج ====================
-main().catch(error => {
+main().catch(async error => {
     console.error("\n💥 خطأ غير متوقع:", error.message);
     console.error("Stack:", error.stack);
     
     const errorReport = {
-        error: error.message,
-        stack: error.stack,
+        error: {
+            message: error.message,
+            stack: error.stack,
+            name: error.name,
+            code: error.code
+        },
+        system: {
+            platform: process.platform,
+            nodeVersion: process.version,
+            memory: process.memoryUsage(),
+            uptime: process.uptime()
+        },
         timestamp: new Date().toISOString()
     };
     
-    // حفظ تقرير الخطأ داخل مجلد AgSeries
+    try {
+        if (fs.existsSync(PROGRESS_FILE)) {
+            errorReport.progress = JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
+        }
+    } catch (e) {
+        errorReport.progressError = e.message;
+    }
+    
     fs.writeFileSync(ERROR_FILE, JSON.stringify(errorReport, null, 2));
-    console.log(`❌ تم حفظ الخطأ في ${ERROR_FILE}`);
+    console.log(`❌ تم حفظ تقرير الخطأ المفصل في ${ERROR_FILE}`);
+    
+    console.log("\n💡 نصائح لحل المشكلة:");
+    console.log("1. تحقق من اتصال الإنترنت");
+    console.log("2. تأكد من أن الموقع يعمل (https://topcinema.red)");
+    console.log("3. افحص ملف debug_log.json في مجلد AgSeries لمزيد من التفاصيل");
+    
     process.exit(1);
 });
+
+export {
+    fetchPage,
+    fetchSeriesListFromPage,
+    fetchSeriesDetails,
+    extractSeasonsFromSeriesPage,
+    fetchSeasonDetails,
+    extractEpisodesFromSeasonPage,
+    fetchEpisodeDetails,
+    ProgressTracker,
+    FileManager,
+    OrganizedScraper,
+    UpdateDetector,
+    debug
+};
