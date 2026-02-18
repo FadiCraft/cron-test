@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import puppeteer from "puppeteer";
+import { JSDOM } from "jsdom";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,12 +25,16 @@ async function fetchWithTimeout(url, timeout = 15000) {
             signal: controller.signal,
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'ar,en-US;q=0.7,en;q=0.3',
+                'Referer': 'https://koraplus.blog/',
             }
         });
         
         clearTimeout(timeoutId);
         
         if (!response.ok) {
+            console.log(`   ⚠️ استجابة غير ناجحة: ${response.status}`);
             return null;
         }
         
@@ -38,6 +42,9 @@ async function fetchWithTimeout(url, timeout = 15000) {
         
     } catch (error) {
         clearTimeout(timeoutId);
+        if (error.name === 'AbortError') {
+            console.log(`   ⏱️ انتهى الوقت: ${url}`);
+        }
         return null;
     }
 }
@@ -52,114 +59,115 @@ function detectServerType(url) {
     if (urlLower.includes("streamtape")) return "StreamTape";
     if (urlLower.includes("doodstream")) return "DoodStream";
     if (urlLower.includes("voe")) return "Voe";
-    if (urlLower.includes("vidcloud")) return "VidCloud";
-    if (urlLower.includes("koora")) return "Koora";
     if (urlLower.includes("on-time") || urlLower.includes("ontime")) return "OnTime";
-    if (urlLower.includes("streamable")) return "Streamable";
-    if (urlLower.includes("mixdrop")) return "MixDrop";
-    if (urlLower.includes("vidoza")) return "Vidoza";
-    if (urlLower.includes("upstream")) return "UpStream";
-    if (urlLower.includes("player")) return "Player";
-    if (urlLower.includes("kk.pyxq.online")) return "KoraPlus";
     if (urlLower.includes("gomatch")) return "GoMatch";
-    if (urlLower.includes("youtube")) return "YouTube";
-    if (urlLower.includes("facebook")) return "Facebook";
+    if (urlLower.includes("kk.pyxq.online")) return "KoraPlus";
     
     return "غير معروف";
 }
 
-// ==================== استخراج رابط المشغل من صفحة المباراة ====================
-async function fetchMatchPlayer(matchUrl) {
-    console.log(`   🔍 جلب رابط المشغل من: ${matchUrl}`);
-    
-    let browser = null;
-    
+// ==================== استخراج رابط المشغل من الـ HTML ====================
+function extractPlayerFromHTML(html, pageUrl) {
     try {
-        // تشغيل المتصفح
-        browser = await puppeteer.launch({
-            headless: "new",
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
-        });
-        
-        const page = await browser.newPage();
-        
-        // تعيين User Agent
-        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-        
-        console.log(`   🌐 تحميل الصفحة...`);
-        await page.goto(matchUrl, { waitUntil: 'networkidle2', timeout: 30000 });
-        
-        // انتظار 3 ثواني للـ JavaScript
-        console.log(`   ⏳ انتظار تحميل JavaScript...`);
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        
-        // محاكاة التمرير لتحميل الـ iframe
-        console.log(`   📜 التمرير لأسفل...`);
-        await page.evaluate(() => {
-            window.scrollBy(0, 1000);
-        });
-        
-        // انتظار ثانيتين بعد التمرير
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
         
         // البحث عن iframe
-        const iframeData = await page.evaluate(() => {
-            // البحث في كل الـ iframes
-            const iframes = document.querySelectorAll('iframe');
+        const iframes = doc.querySelectorAll('iframe');
+        
+        for (const iframe of iframes) {
+            const src = iframe.getAttribute('src');
+            if (!src || src.trim() === '') continue;
             
-            for (const iframe of iframes) {
-                const src = iframe.getAttribute('src');
-                if (src && src.trim() !== '') {
-                    // تحقق إذا كان الرابط من نوع المشغل المطلوب
-                    if (src.includes('gomatch') || src.includes('albaplayer') || src.includes('ontime')) {
-                        return {
-                            found: true,
-                            src: src,
-                            type: 'player'
-                        };
-                    }
+            // تحويل الرابط النسبي إلى كامل
+            let fullUrl = src;
+            if (!src.startsWith('http')) {
+                try {
+                    fullUrl = new URL(src, pageUrl).href;
+                } catch (e) {
+                    continue;
                 }
             }
             
-            // إذا لم نجد، نرجع أول iframe موجود
-            if (iframes.length > 0) {
-                const firstIframe = iframes[0];
-                const src = firstIframe.getAttribute('src');
-                if (src) {
-                    return {
-                        found: true,
-                        src: src,
-                        type: 'iframe'
-                    };
-                }
+            // التحقق من أنه رابط مشغل
+            if (fullUrl.includes('gomatch') || fullUrl.includes('albaplayer') || 
+                fullUrl.includes('ontime') || fullUrl.includes('player')) {
+                
+                const serverType = detectServerType(fullUrl);
+                
+                return [{
+                    type: 'iframe',
+                    url: fullUrl,
+                    quality: "HD",
+                    server: serverType,
+                    id: 'player_1',
+                    source: 'iframe'
+                }];
             }
-            
-            return { found: false };
-        });
-        
-        await browser.close();
-        
-        if (iframeData.found) {
-            console.log(`   ✅ وجد رابط المشغل: ${iframeData.src.substring(0, 100)}...`);
-            
-            const serverType = detectServerType(iframeData.src);
-            
-            return [{
-                type: 'iframe',
-                url: iframeData.src,
-                quality: "HD",
-                server: serverType,
-                id: `player_1`,
-                source: 'match_page'
-            }];
-        } else {
-            console.log(`   ⚠️ لم يتم العثور على أي مشغل`);
-            return null;
         }
         
+        // البحث في محتوى script عن روابط iframe
+        const scripts = doc.querySelectorAll('script');
+        for (const script of scripts) {
+            const content = script.textContent || script.innerHTML;
+            
+            // البحث عن متغير يحتوي على رابط iframe
+            const iframeUrlMatch = content.match(/iframeUrl\s*=\s*["']([^"']+)["']/);
+            if (iframeUrlMatch) {
+                const url = iframeUrlMatch[1];
+                if (url.includes('gomatch') || url.includes('albaplayer')) {
+                    return [{
+                        type: 'iframe',
+                        url: url,
+                        quality: "HD",
+                        server: detectServerType(url),
+                        id: 'player_1',
+                        source: 'script_variable'
+                    }];
+                }
+            }
+            
+            // البحث عن رابط مباشر في script
+            const srcMatch = content.match(/src:\s*["']([^"']+)["']/);
+            if (srcMatch) {
+                const url = srcMatch[1];
+                if (url.includes('gomatch') || url.includes('albaplayer')) {
+                    return [{
+                        type: 'iframe',
+                        url: url,
+                        quality: "HD",
+                        server: detectServerType(url),
+                        id: 'player_1',
+                        source: 'script_src'
+                    }];
+                }
+            }
+        }
+        
+        // البحث في div الذي قد يحتوي على iframe
+        const playerDiv = doc.querySelector('#iframe-placeholder, .player-container, [class*="player"]');
+        if (playerDiv) {
+            const innerHtml = playerDiv.innerHTML;
+            const iframeMatch = innerHtml.match(/<iframe[^>]*src=["']([^"']+)["']/);
+            if (iframeMatch) {
+                const url = iframeMatch[1];
+                if (url.includes('gomatch') || url.includes('albaplayer')) {
+                    return [{
+                        type: 'iframe',
+                        url: url,
+                        quality: "HD",
+                        server: detectServerType(url),
+                        id: 'player_1',
+                        source: 'placeholder'
+                    }];
+                }
+            }
+        }
+        
+        return null;
+        
     } catch (error) {
-        console.log(`   ❌ خطأ: ${error.message}`);
-        if (browser) await browser.close();
+        console.log(`   ❌ خطأ في استخراج المشغل: ${error.message}`);
         return null;
     }
 }
@@ -184,7 +192,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
         const matches = [];
         
         // البحث عن جميع عناصر المباريات
-        const matchElements = doc.querySelectorAll('.match-container');
+        const matchElements = doc.querySelectorAll('.match-container, article, .post');
         
         console.log(`✅ وجد ${matchElements.length} مباراة`);
         
@@ -193,7 +201,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
             
             try {
                 // استخراج رابط المباراة
-                const matchLink = element.querySelector('a');
+                const matchLink = element.querySelector('a[href*="koraplus.blog"]');
                 let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
                 
                 if (!matchUrl) continue;
@@ -204,38 +212,27 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 }
                 
                 // استخراج أسماء الفريقين
-                const team1Elem = element.querySelector('.right-team .team-name');
-                const team2Elem = element.querySelector('.left-team .team-name');
+                const team1Elem = element.querySelector('.right-team .team-name, .team-home, .team1');
+                const team2Elem = element.querySelector('.left-team .team-name, .team-away, .team2');
                 
-                const team1Name = team1Elem ? team1Elem.textContent.trim() : "غير معروف";
-                const team2Name = team2Elem ? team2Elem.textContent.trim() : "غير معروف";
+                const team1Name = team1Elem ? team1Elem.textContent.trim() : "فريق أول";
+                const team2Name = team2Elem ? team2Elem.textContent.trim() : "فريق ثاني";
                 
                 // استخراج حالة المباراة
                 let matchStatus = "غير معروف";
-                const statusElement = element.querySelector('.match-timing .date');
+                const statusElement = element.querySelector('.match-timing .date, .status, .match-status');
                 if (statusElement) {
                     const statusText = statusElement.textContent.trim();
-                    if (statusText === "جارية الان") matchStatus = "جارية الآن";
-                    else if (statusText === "لم تبدأ بعد") matchStatus = "لم تبدأ بعد";
-                    else if (statusText === "انتهت المباراة") matchStatus = "انتهت";
+                    if (statusText.includes("جارية")) matchStatus = "جارية الآن";
+                    else if (statusText.includes("لم تبدأ")) matchStatus = "لم تبدأ بعد";
+                    else if (statusText.includes("انتهت")) matchStatus = "انتهت";
                 }
                 
-                // استخراج القنوات والبطولة
-                const channels = [];
+                // استخراج البطولة
                 let tournament = "غير محدد";
-                
-                const channelItems = element.querySelectorAll('.match-info li span');
-                channelItems.forEach((item, idx) => {
-                    const text = item.textContent.trim();
-                    if (text && text !== "غير معروف") {
-                        if (idx < 2) channels.push(text);
-                        else if (idx === 2) tournament = text;
-                    }
-                });
-                
-                // تنظيف البطولة
-                if (tournament.includes(',')) {
-                    tournament = tournament.split(',').slice(1).join(',').trim();
+                const tournamentElem = element.querySelector('.match-info li:last-child span, .tournament, .league');
+                if (tournamentElem) {
+                    tournament = tournamentElem.textContent.trim();
                 }
                 
                 const match = {
@@ -245,10 +242,8 @@ async function fetchMatchesFromPage(pageNum = 1) {
                     team1: { name: team1Name },
                     team2: { name: team2Name },
                     status: matchStatus,
-                    channels: channels,
                     tournament: tournament,
-                    scrapedAt: new Date().toISOString(),
-                    player: null  // سيتم ملؤه لاحقاً
+                    scrapedAt: new Date().toISOString()
                 };
                 
                 matches.push(match);
@@ -272,11 +267,11 @@ async function fetchMatchesFromPage(pageNum = 1) {
     }
 }
 
-// ==================== استخراج تفاصيل المباريات ====================
-async function fetchMatchesDetails(matches) {
+// ==================== استخراج روابط المشغل للمباريات ====================
+async function fetchMatchesPlayers(matches) {
     console.log(`\n🔍 جلب روابط المشغل لـ ${matches.length} مباراة...`);
     
-    const matchesWithDetails = [];
+    const matchesWithPlayers = [];
     
     for (let i = 0; i < matches.length; i++) {
         const match = matches[i];
@@ -285,33 +280,45 @@ async function fetchMatchesDetails(matches) {
         
         // استخراج رابط المشغل للمباريات الجارية أو القادمة فقط
         if (match.status === "جارية الآن" || match.status === "لم تبدأ بعد") {
-            const player = await fetchMatchPlayer(match.url);
+            console.log(`   🔗 جلب الصفحة: ${match.url.substring(0, 80)}...`);
             
-            matchesWithDetails.push({
-                ...match,
-                player: player
-            });
+            const html = await fetchWithTimeout(match.url);
             
-            if (player) {
-                console.log(`   ✅ تم العثور على رابط المشغل`);
+            if (html) {
+                const player = extractPlayerFromHTML(html, match.url);
+                
+                matchesWithPlayers.push({
+                    ...match,
+                    player: player
+                });
+                
+                if (player) {
+                    console.log(`   ✅ تم العثور على رابط المشغل: ${player[0].url.substring(0, 80)}...`);
+                } else {
+                    console.log(`   ⚠️ لم يتم العثور على رابط مشغل`);
+                }
             } else {
-                console.log(`   ⚠️ لا يوجد رابط مشغل`);
+                console.log(`   ❌ فشل جلب صفحة المباراة`);
+                matchesWithPlayers.push({
+                    ...match,
+                    player: null
+                });
             }
         } else {
-            matchesWithDetails.push({
+            matchesWithPlayers.push({
                 ...match,
                 player: null
             });
-            console.log(`   ⏭️ مباراة منتهية - لا يوجد مشغل`);
+            console.log(`   ⏭️ مباراة منتهية`);
         }
         
-        // انتظار بين المباريات
+        // انتظار قصير بين الطلبات
         if (i < matches.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     
-    return matchesWithDetails;
+    return matchesWithPlayers;
 }
 
 // ==================== حفظ البيانات في Hg.json ====================
@@ -351,23 +358,23 @@ async function main() {
     console.log("=".repeat(60));
     
     try {
-        // التحقق من تثبيت Puppeteer
-        try {
-            await puppeteer.version();
-        } catch (error) {
-            console.log("❌ Puppeteer غير مثبت. قم بتشغيل: npm install puppeteer");
-            return { success: false };
-        }
-        
         const pageData = await fetchMatchesFromPage(1);
         
         if (!pageData || pageData.matches.length === 0) {
             console.log("\n❌ لم يتم العثور على مباريات");
+            
+            fs.writeFileSync(OUTPUT_FILE, JSON.stringify({
+                error: "لم يتم العثور على مباريات",
+                scrapedAt: new Date().toISOString(),
+                totalMatches: 0,
+                matches: []
+            }, null, 2));
+            
             return { success: false };
         }
         
-        const matchesWithDetails = await fetchMatchesDetails(pageData.matches);
-        const savedData = saveToHgFile(matchesWithDetails);
+        const matchesWithPlayers = await fetchMatchesPlayers(pageData.matches);
+        const savedData = saveToHgFile(matchesWithPlayers);
         
         if (savedData) {
             console.log(`\n🎉 تم الانتهاء بنجاح!`);
