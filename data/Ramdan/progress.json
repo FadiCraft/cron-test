@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-02-18T17:16:02.565Z",
+  "last_scan": "2026-02-18T17:19:45.220Z",
   "series": {
     "193369381": {
       "last_episode": "c5c18decf",
@@ -1304,13 +1304,19 @@
       }
     },
     "1bcbf8b34": {
-      "last_episode": "ed1acc21a",
+      "last_episode": "e05d8b8fc",
       "last_season": 1,
       "episodes": {
         "ed1acc21a": {
           "extracted_at": "2026-02-18T16:07:59.680Z",
           "title": "مسلسل عيلة الملك الحلقة 1 الاولي",
           "number": 1,
+          "season": 1
+        },
+        "e05d8b8fc": {
+          "extracted_at": "2026-02-18T17:19:45.220Z",
+          "title": "مسلسل عيلة الملك الحلقة 2 الثانية",
+          "number": 2,
           "season": 1
         }
       }
@@ -2270,16 +2276,33 @@
       "title": "مسلسل السوق الحرة الحلقة 2 الثانية",
       "number": 2,
       "season": 1
+    },
+    "e05d8b8fc": {
+      "series_id": "1bcbf8b34",
+      "extracted_at": "2026-02-18T17:19:45.220Z",
+      "title": "مسلسل عيلة الملك الحلقة 2 الثانية",
+      "number": 2,
+      "season": 1
     }
   },
   "statistics": {
     "total_series": 97,
-    "total_episodes": 132,
-    "new_episodes_today": 5,
-    "last_scan": "2026-02-18T17:16:04.750Z",
+    "total_episodes": 133,
+    "new_episodes_today": 1,
+    "last_scan": "2026-02-18T17:19:49.536Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "e05d8b8fc",
+      "series_id": "1bcbf8b34",
+      "series_title": "مسلسل عيلة الملك",
+      "title": "مسلسل عيلة الملك الحلقة 2 الثانية",
+      "image": "https://laroza.skin/uploads/thumbs/ed1acc21a-1.jpg",
+      "number": 2,
+      "season": 1,
+      "added_at": "2026-02-18T17:19:44.178Z"
+    },
     {
       "id": "714b6d741",
       "series_id": "7bfb7e4b0",
@@ -2369,16 +2392,6 @@
       "number": 2,
       "season": 1,
       "added_at": "2026-02-18T16:44:41.519Z"
-    },
-    {
-      "id": "d767d322e",
-      "series_id": "1cf22b484",
-      "series_title": "مسلسل افراج",
-      "title": "مسلسل افراج الحلقة 2 الثانية",
-      "image": "https://laroza.skin/uploads/thumbs/372599929-1.jpg",
-      "number": 2,
-      "season": 1,
-      "added_at": "2026-02-18T16:44:24.892Z"
     }
   ],
   "latest_series": [
@@ -2386,31 +2399,31 @@
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
       "image": "https://laroza.skin/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-02-18T17:13:24.706Z"
+      "added_at": "2026-02-18T17:16:34.922Z"
     },
     {
-      "id": "2de92c30a",
-      "title": "مسلسل مناعة",
-      "image": "https://laroza.skin/uploads/thumbs/53de16b08-1.jpg",
-      "added_at": "2026-02-18T17:13:24.706Z"
+      "id": "81ce0a5d7",
+      "title": "مسلسل علي كلاي",
+      "image": "https://laroza.skin/uploads/thumbs/0ec1512a8-1.jpg",
+      "added_at": "2026-02-18T17:16:34.922Z"
     },
     {
-      "id": "703e6a3a4",
-      "title": "مسلسل درش",
-      "image": "https://laroza.skin/uploads/thumbs/f127518b4-1.jpg",
-      "added_at": "2026-02-18T17:13:24.706Z"
+      "id": "1cf22b484",
+      "title": "مسلسل افراج",
+      "image": "https://laroza.skin/uploads/thumbs/372599929-1.jpg",
+      "added_at": "2026-02-18T17:16:34.922Z"
     },
     {
-      "id": "97faca994",
-      "title": "مسلسل فخر الدلتا",
-      "image": "https://laroza.skin/uploads/thumbs/3649610ac-1.jpg",
-      "added_at": "2026-02-18T17:13:24.706Z"
+      "id": "c",
+      "title": "النص",
+      "image": "",
+      "added_at": "2026-02-18T17:16:34.922Z"
     },
     {
-      "id": "516dbb3e7",
-      "title": "مسلسل وننسى اللي كان",
-      "image": "https://laroza.skin/uploads/thumbs/715c38ccc-1.jpg",
-      "added_at": "2026-02-18T17:13:24.706Z"
+      "id": "ae583760b",
+      "title": "مسلسل الست موناليزا",
+      "image": "https://laroza.skin/uploads/thumbs/cfee36307-1.jpg",
+      "added_at": "2026-02-18T17:16:34.922Z"
     }
   ]
 }
