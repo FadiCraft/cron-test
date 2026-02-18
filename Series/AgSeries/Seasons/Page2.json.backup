@@ -1,167 +1,13 @@
 {
   "info": {
     "type": "data",
-    "fileName": "Page1.json",
-    "totalItems": 99,
-    "created": "2026-02-18T17:31:22.742Z",
-    "lastUpdated": "2026-02-18T19:01:29.821Z",
-    "lastItemAdded": "2026-02-18T19:01:29.821Z"
+    "fileName": "Page2.json",
+    "totalItems": 71,
+    "created": "2026-02-18T19:03:26.142Z",
+    "lastUpdated": "2026-02-18T20:05:16.001Z",
+    "lastItemAdded": "2026-02-18T20:05:16.001Z"
   },
   "data": [
-    {
-      "id": "gt_122476",
-      "seriesId": "gt_122475",
-      "seasonNumber": 1,
-      "title": "مسلسل 56 Days الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-56-days-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122476",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/sdJLbucggwGj8NdX0UN2zt1Vwmn-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:31:22.242Z",
-      "lastUpdated": "2026-02-18T17:31:22.242Z"
-    },
-    {
-      "id": "gt_122473",
-      "seriesId": "gt_122470",
-      "seasonNumber": 3,
-      "title": "مسلسل Future Man الموسم الثالث مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122473",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/49mOgAEa4eKpPsoBH8UvvXwEMDT-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:32:04.155Z",
-      "lastUpdated": "2026-02-18T17:32:04.155Z"
-    },
-    {
-      "id": "gt_122472",
-      "seriesId": "gt_122470",
-      "seasonNumber": 2,
-      "title": "مسلسل Future Man الموسم الثاني مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122472",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/9P72cymABXbQKaOUBdZf6pOW64e-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:32:39.702Z",
-      "lastUpdated": "2026-02-18T17:32:39.702Z"
-    },
-    {
-      "id": "gt_122471",
-      "seriesId": "gt_122470",
-      "seasonNumber": 1,
-      "title": "مسلسل Future Man الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122471",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/nWOf73kvq363IEjyIUfIMZuc8Dy-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:33:33.963Z",
-      "lastUpdated": "2026-02-18T17:33:33.963Z"
-    },
-    {
-      "id": "gt_35287",
-      "seriesId": "gt_35284",
-      "seasonNumber": 3,
-      "title": "مسلسل Anne with an E الموسم الثالث مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35287",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/AfdA3ATmvQnsVr6ZqbSWVmnHWlg.jpg",
-      "scrapedAt": "2026-02-18T17:34:34.419Z",
-      "lastUpdated": "2026-02-18T17:34:34.419Z"
-    },
-    {
-      "id": "gt_35286",
-      "seriesId": "gt_35284",
-      "seasonNumber": 2,
-      "title": "مسلسل Anne with an E الموسم الثاني مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35286",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/gleq7oBpkgkuLUY1vdYY12ppPKK.jpg",
-      "scrapedAt": "2026-02-18T17:35:18.051Z",
-      "lastUpdated": "2026-02-18T17:35:18.051Z"
-    },
-    {
-      "id": "gt_35285",
-      "seriesId": "gt_35284",
-      "seasonNumber": 1,
-      "title": "مسلسل Anne with an E الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35285",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/jrgeHLyis4kdaiOQX73vMJIOqRz.jpg",
-      "scrapedAt": "2026-02-18T17:36:01.330Z",
-      "lastUpdated": "2026-02-18T17:36:01.330Z"
-    },
-    {
-      "id": "gt_122460",
-      "seriesId": "gt_122455",
-      "seasonNumber": 5,
-      "title": "مسلسل Orphan Black الموسم الخامس مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122460",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/bbvvqHYd47R3xFJZ0QyXgLexOna-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:36:40.636Z",
-      "lastUpdated": "2026-02-18T17:36:40.636Z"
-    },
-    {
-      "id": "gt_122459",
-      "seriesId": "gt_122455",
-      "seasonNumber": 4,
-      "title": "مسلسل Orphan Black الموسم الرابع مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122459",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/rSbYpZTqIJaB8z57FvcfSwpCYe5-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:37:24.958Z",
-      "lastUpdated": "2026-02-18T17:37:24.958Z"
-    },
-    {
-      "id": "gt_122458",
-      "seriesId": "gt_122455",
-      "seasonNumber": 3,
-      "title": "مسلسل Orphan Black الموسم الثالث مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122458",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/w1WoOIraR4umkX0M4sCLy0Wjygj-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:38:09.227Z",
-      "lastUpdated": "2026-02-18T17:38:09.227Z"
-    },
-    {
-      "id": "gt_122457",
-      "seriesId": "gt_122455",
-      "seasonNumber": 2,
-      "title": "مسلسل Orphan Black الموسم الثاني مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122457",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/v6ptHRJ2qEVn94DcBCDWVXpQZrU-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:38:53.260Z",
-      "lastUpdated": "2026-02-18T17:38:53.260Z"
-    },
-    {
-      "id": "gt_122456",
-      "seriesId": "gt_122455",
-      "seasonNumber": 1,
-      "title": "مسلسل Orphan Black الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122456",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/5sfJOpwnkuXmXK7K1YDcRY4rTE.jpg",
-      "scrapedAt": "2026-02-18T17:39:36.699Z",
-      "lastUpdated": "2026-02-18T17:39:36.699Z"
-    },
-    {
-      "id": "gt_122451",
-      "seriesId": "gt_122446",
-      "seasonNumber": 5,
-      "title": "مسلسل Hell on Wheels الموسم الخامس مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122451",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/ckC9pL9yeYpOoK5aJ7GbYYWheK7.jpg",
-      "scrapedAt": "2026-02-18T17:40:25.777Z",
-      "lastUpdated": "2026-02-18T17:40:25.777Z"
-    },
-    {
-      "id": "gt_122450",
-      "seriesId": "gt_122446",
-      "seasonNumber": 4,
-      "title": "مسلسل Hell on Wheels الموسم الرابع مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122450",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/l1BkRx7PAS3BW5w4b3aF63NG4Mx.jpg",
-      "scrapedAt": "2026-02-18T17:41:24.343Z",
-      "lastUpdated": "2026-02-18T17:41:24.343Z"
-    },
     {
       "id": "gt_122449",
       "seriesId": "gt_122446",
@@ -170,8 +16,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122449",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/54OXKDMrGqIQvmwDyB95417uTGu.jpg",
-      "scrapedAt": "2026-02-18T17:42:19.205Z",
-      "lastUpdated": "2026-02-18T17:42:19.205Z"
+      "scrapedAt": "2026-02-18T19:03:25.642Z",
+      "lastUpdated": "2026-02-18T19:03:25.642Z"
     },
     {
       "id": "gt_122448",
@@ -181,8 +27,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122448",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/crHMFNQhYXxjPlU2URNYagsx5BB.jpg",
-      "scrapedAt": "2026-02-18T17:43:02.595Z",
-      "lastUpdated": "2026-02-18T17:43:02.595Z"
+      "scrapedAt": "2026-02-18T19:04:10.430Z",
+      "lastUpdated": "2026-02-18T19:04:10.430Z"
     },
     {
       "id": "gt_122447",
@@ -192,8 +38,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122447",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/wNIYtNyuAXsdmm638CAP3FohdPe.jpg",
-      "scrapedAt": "2026-02-18T17:43:46.119Z",
-      "lastUpdated": "2026-02-18T17:43:46.119Z"
+      "scrapedAt": "2026-02-18T19:04:55.240Z",
+      "lastUpdated": "2026-02-18T19:04:55.240Z"
     },
     {
       "id": "gt_122405",
@@ -203,8 +49,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bates-motel-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122405",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/2cxoT1dt3ZpaHNdiMKKWczhJe1c.jpg",
-      "scrapedAt": "2026-02-18T17:44:35.376Z",
-      "lastUpdated": "2026-02-18T17:44:35.376Z"
+      "scrapedAt": "2026-02-18T19:05:45.854Z",
+      "lastUpdated": "2026-02-18T19:05:45.854Z"
     },
     {
       "id": "gt_122404",
@@ -214,8 +60,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bates-motel-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122404",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/bXfiCWqF5po6TOTg8WnniCYNhVm.jpg",
-      "scrapedAt": "2026-02-18T17:45:19.459Z",
-      "lastUpdated": "2026-02-18T17:45:19.459Z"
+      "scrapedAt": "2026-02-18T19:06:30.194Z",
+      "lastUpdated": "2026-02-18T19:06:30.194Z"
     },
     {
       "id": "gt_122403",
@@ -225,8 +71,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bates-motel-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122403",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/xXKcfZE7ulYxgjjYv51s0zDG69s-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:46:03.075Z",
-      "lastUpdated": "2026-02-18T17:46:03.075Z"
+      "scrapedAt": "2026-02-18T19:07:15.151Z",
+      "lastUpdated": "2026-02-18T19:07:15.151Z"
     },
     {
       "id": "gt_122402",
@@ -236,8 +82,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bates-motel-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122402",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/rqXx8exh7vyXnVqU99NzO62Zap2-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:46:46.979Z",
-      "lastUpdated": "2026-02-18T17:46:46.979Z"
+      "scrapedAt": "2026-02-18T19:08:00.424Z",
+      "lastUpdated": "2026-02-18T19:08:00.424Z"
     },
     {
       "id": "gt_122401",
@@ -247,8 +93,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bates-motel-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122401",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/4D9ady2tbbo5z2i2jITUaKQjTCw.jpg",
-      "scrapedAt": "2026-02-18T17:47:30.682Z",
-      "lastUpdated": "2026-02-18T17:47:30.682Z"
+      "scrapedAt": "2026-02-18T19:08:44.403Z",
+      "lastUpdated": "2026-02-18T19:08:44.403Z"
     },
     {
       "id": "gt_122217",
@@ -258,8 +104,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-borderline-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122217",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BOWJlYmE3NzctYmM4OC00ZDY3LTlmZWItMTI1Zjg2OWZhYzAwXkEyXkFqcGc@._V1_.jpg",
-      "scrapedAt": "2026-02-18T17:48:20.789Z",
-      "lastUpdated": "2026-02-18T17:48:20.789Z"
+      "scrapedAt": "2026-02-18T19:09:34.857Z",
+      "lastUpdated": "2026-02-18T19:09:34.857Z"
     },
     {
       "id": "gt_122407",
@@ -269,8 +115,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-winds-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122407",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/_640x_f6bb31f56482a282b32452936fb8315e0e793fdebb96f4a1e177a0b7ea0a871e.jpg",
-      "scrapedAt": "2026-02-18T17:48:41.034Z",
-      "lastUpdated": "2026-02-18T17:48:41.034Z"
+      "scrapedAt": "2026-02-18T19:09:55.482Z",
+      "lastUpdated": "2026-02-18T19:09:55.482Z"
     },
     {
       "id": "gt_102980",
@@ -280,8 +126,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-winds-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=102980",
       "image": "https://topcinema.red/wp-content/uploads/2025/03/kDlrMN0P9ByrEH2GoRbBFeZHbcf-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:48:51.609Z",
-      "lastUpdated": "2026-02-18T17:48:51.609Z"
+      "scrapedAt": "2026-02-18T19:10:05.834Z",
+      "lastUpdated": "2026-02-18T19:10:05.834Z"
     },
     {
       "id": "gt_19032",
@@ -291,8 +137,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-winds-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=19032",
       "image": "https://topcinema.red/wp-content/uploads/2023/07/MV5BZGM5ZTU4NmQtZDg5ZC00YjdlLWJkNjMtZjJlNmJjNGI3MzRlXkEyXkFqcGdeQXVyMTM1NjM2ODg1._V1_SX700.jpg",
-      "scrapedAt": "2026-02-18T17:49:28.143Z",
-      "lastUpdated": "2026-02-18T17:49:28.143Z"
+      "scrapedAt": "2026-02-18T19:10:43.163Z",
+      "lastUpdated": "2026-02-18T19:10:43.163Z"
     },
     {
       "id": "gt_122399",
@@ -302,8 +148,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-yellowstone-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122399",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/peNC0eyc3TQJa6x4TdKcBPNP4t0-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:50:03.249Z",
-      "lastUpdated": "2026-02-18T17:50:03.249Z"
+      "scrapedAt": "2026-02-18T19:11:18.400Z",
+      "lastUpdated": "2026-02-18T19:11:18.400Z"
     },
     {
       "id": "gt_122398",
@@ -313,8 +159,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-yellowstone-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122398",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/axyyFDEtb6BSeNjyHHh8tsOGlID.jpg",
-      "scrapedAt": "2026-02-18T17:50:40.754Z",
-      "lastUpdated": "2026-02-18T17:50:40.754Z"
+      "scrapedAt": "2026-02-18T19:11:55.735Z",
+      "lastUpdated": "2026-02-18T19:11:55.735Z"
     },
     {
       "id": "gt_122397",
@@ -324,8 +170,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-yellowstone-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122397",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/43nVQqVsrshaOx9GfJq6JstsfCX-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:51:25.075Z",
-      "lastUpdated": "2026-02-18T17:51:25.075Z"
+      "scrapedAt": "2026-02-18T19:12:41.331Z",
+      "lastUpdated": "2026-02-18T19:12:41.331Z"
     },
     {
       "id": "gt_122396",
@@ -335,8 +181,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-yellowstone-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122396",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/3ePlESS6eyUj9W7yPEbzhwWaiFo-scaled.jpg",
-      "scrapedAt": "2026-02-18T17:52:09.512Z",
-      "lastUpdated": "2026-02-18T17:52:09.512Z"
+      "scrapedAt": "2026-02-18T19:13:25.712Z",
+      "lastUpdated": "2026-02-18T19:13:25.712Z"
     },
     {
       "id": "gt_122395",
@@ -346,8 +192,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-yellowstone-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122395",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/pAYgWMmwfyMTf1thfbzoPDAE7dc.jpg",
-      "scrapedAt": "2026-02-18T17:52:53.862Z",
-      "lastUpdated": "2026-02-18T17:52:53.862Z"
+      "scrapedAt": "2026-02-18T19:14:10.183Z",
+      "lastUpdated": "2026-02-18T19:14:10.183Z"
     },
     {
       "id": "gt_111362",
@@ -357,8 +203,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=111362",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/_640x_df08fa9716c4eace675a1c676a44f18126f9923830b97f36e88c54504fa0020b.jpg",
-      "scrapedAt": "2026-02-18T17:53:41.054Z",
-      "lastUpdated": "2026-02-18T17:53:41.054Z"
+      "scrapedAt": "2026-02-18T19:14:57.376Z",
+      "lastUpdated": "2026-02-18T19:14:57.376Z"
     },
     {
       "id": "gt_90249",
@@ -368,8 +214,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=90249",
       "image": "https://topcinema.red/wp-content/uploads/2024/10/fovrX6M1SMjDQUWKkZbgAIp0m8f.jpg",
-      "scrapedAt": "2026-02-18T17:54:25.725Z",
-      "lastUpdated": "2026-02-18T17:54:25.725Z"
+      "scrapedAt": "2026-02-18T19:15:43.010Z",
+      "lastUpdated": "2026-02-18T19:15:43.010Z"
     },
     {
       "id": "gt_11980",
@@ -379,8 +225,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=11980",
       "image": "https://topcinema.red/wp-content/uploads/2023/07/_640x_e094e76906668155d9570c40c4f8baf0ad8901953d22ca61d368d1bf7861484f.jpg",
-      "scrapedAt": "2026-02-18T17:55:09.569Z",
-      "lastUpdated": "2026-02-18T17:55:09.569Z"
+      "scrapedAt": "2026-02-18T19:16:27.458Z",
+      "lastUpdated": "2026-02-18T19:16:27.458Z"
     },
     {
       "id": "gt_21312",
@@ -390,8 +236,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=21312",
       "image": "https://topcinema.red/wp-content/uploads/2023/08/2u9rXPwfgTlh86d8jr4K7GHqqs7.jpg",
-      "scrapedAt": "2026-02-18T17:55:53.210Z",
-      "lastUpdated": "2026-02-18T17:55:53.210Z"
+      "scrapedAt": "2026-02-18T19:17:12.276Z",
+      "lastUpdated": "2026-02-18T19:17:12.276Z"
     },
     {
       "id": "gt_29855",
@@ -401,8 +247,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-sex-education-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=29855",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/8TIEbGYzDRxBQrb7z4cL7AWkgZq.jpg",
-      "scrapedAt": "2026-02-18T17:56:42.618Z",
-      "lastUpdated": "2026-02-18T17:56:42.618Z"
+      "scrapedAt": "2026-02-18T19:18:03.264Z",
+      "lastUpdated": "2026-02-18T19:18:03.264Z"
     },
     {
       "id": "gt_29854",
@@ -412,8 +258,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-sex-education-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=29854",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/qHb5NKWG67vl2dqtSEAHUGUw3EM.jpg",
-      "scrapedAt": "2026-02-18T17:57:18.857Z",
-      "lastUpdated": "2026-02-18T17:57:18.857Z"
+      "scrapedAt": "2026-02-18T19:18:41.838Z",
+      "lastUpdated": "2026-02-18T19:18:41.838Z"
     },
     {
       "id": "gt_29853",
@@ -423,8 +269,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-sex-education-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=29853",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/tgecOYPSMflcG1jz9zhz1vzcpn2.jpg",
-      "scrapedAt": "2026-02-18T17:57:55.829Z",
-      "lastUpdated": "2026-02-18T17:57:55.829Z"
+      "scrapedAt": "2026-02-18T19:19:19.102Z",
+      "lastUpdated": "2026-02-18T19:19:19.102Z"
     },
     {
       "id": "gt_29852",
@@ -434,8 +280,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-sex-education-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=29852",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/_640x_0bdbff8f8a03e862fc60ecde6940984ee5e660b393211b1909bae46174b33a12.jpg",
-      "scrapedAt": "2026-02-18T17:58:32.635Z",
-      "lastUpdated": "2026-02-18T17:58:32.635Z"
+      "scrapedAt": "2026-02-18T19:19:56.174Z",
+      "lastUpdated": "2026-02-18T19:19:56.174Z"
     },
     {
       "id": "gt_42051",
@@ -445,8 +291,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-el-chapo-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=42051",
       "image": "https://topcinema.red/wp-content/uploads/2023/10/5gZ7oIDqOXGJ1nAruP4j0x9GB7n.jpg",
-      "scrapedAt": "2026-02-18T17:59:15.726Z",
-      "lastUpdated": "2026-02-18T17:59:15.726Z"
+      "scrapedAt": "2026-02-18T19:20:39.274Z",
+      "lastUpdated": "2026-02-18T19:20:39.274Z"
     },
     {
       "id": "gt_42050",
@@ -456,8 +302,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-el-chapo-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=42050",
       "image": "https://topcinema.red/wp-content/uploads/2023/10/8GsHCu5DLzPnlgF1rRFxClcTnGT.jpg",
-      "scrapedAt": "2026-02-18T18:00:11.161Z",
-      "lastUpdated": "2026-02-18T18:00:11.161Z"
+      "scrapedAt": "2026-02-18T19:21:35.560Z",
+      "lastUpdated": "2026-02-18T19:21:35.560Z"
     },
     {
       "id": "gt_42049",
@@ -467,8 +313,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-el-chapo-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=42049",
       "image": "https://topcinema.red/wp-content/uploads/2023/10/icOYB3dT8t8YTMdkXsTpz0KAfpD.jpg",
-      "scrapedAt": "2026-02-18T18:01:02.818Z",
-      "lastUpdated": "2026-02-18T18:01:02.818Z"
+      "scrapedAt": "2026-02-18T19:22:27.357Z",
+      "lastUpdated": "2026-02-18T19:22:27.357Z"
     },
     {
       "id": "gt_32849",
@@ -478,8 +324,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bodyguard-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=32849",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/MV5BOTQ2YmU5YWYtYTdhMS00YjdmLThlMWMtMWVkZGVmNTVhOWE0XkEyXkFqcGdeQXVyODEyMzI2OTE@.jpg_V1_SX700.jpg",
-      "scrapedAt": "2026-02-18T18:01:48.877Z",
-      "lastUpdated": "2026-02-18T18:01:48.877Z"
+      "scrapedAt": "2026-02-18T19:23:14.035Z",
+      "lastUpdated": "2026-02-18T19:23:14.035Z"
     },
     {
       "id": "gt_122333",
@@ -489,8 +335,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-in-the-mud-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122333",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/633462858_1336380785183887_49493999557638121_n.jpg",
-      "scrapedAt": "2026-02-18T18:02:24.677Z",
-      "lastUpdated": "2026-02-18T18:02:24.677Z"
+      "scrapedAt": "2026-02-18T19:23:49.556Z",
+      "lastUpdated": "2026-02-18T19:23:49.556Z"
     },
     {
       "id": "gt_108857",
@@ -500,8 +346,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-in-the-mud-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=108857",
       "image": "https://topcinema.red/wp-content/uploads/2025/08/MV5BMWE4ZTQ5OWYtNTRiNi00NjQxLTllMGQtNWViM2U5NTQ3ZmRiXkEyXkFqcGc@.jpg_V1_SX700.jpg",
-      "scrapedAt": "2026-02-18T18:03:01.508Z",
-      "lastUpdated": "2026-02-18T18:03:01.508Z"
+      "scrapedAt": "2026-02-18T19:24:26.097Z",
+      "lastUpdated": "2026-02-18T19:24:26.097Z"
     },
     {
       "id": "gt_122270",
@@ -511,8 +357,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-speechless-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122270",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/7EHM9vaAWBBWgBJnQapYKjGIVHt-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:03:46.323Z",
-      "lastUpdated": "2026-02-18T18:03:46.323Z"
+      "scrapedAt": "2026-02-18T19:25:09.649Z",
+      "lastUpdated": "2026-02-18T19:25:09.649Z"
     },
     {
       "id": "gt_122269",
@@ -522,8 +368,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-speechless-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122269",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/wy1DlZHbn2iF7BK2wXug8YJ5PHc-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:05:16.482Z",
-      "lastUpdated": "2026-02-18T18:05:16.482Z"
+      "scrapedAt": "2026-02-18T19:26:39.169Z",
+      "lastUpdated": "2026-02-18T19:26:39.169Z"
     },
     {
       "id": "gt_122268",
@@ -533,8 +379,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-speechless-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122268",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/rK9DgWO5x2fzeRGzaKD72hYnr9N-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:06:30.733Z",
-      "lastUpdated": "2026-02-18T18:06:30.733Z"
+      "scrapedAt": "2026-02-18T19:27:55.946Z",
+      "lastUpdated": "2026-02-18T19:27:55.946Z"
     },
     {
       "id": "gt_122335",
@@ -544,8 +390,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-love-story-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122335",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BMjRjZGJlZDgtODkzMi00OTYzLWEwNzAtM2ZiNGZiMmMwMzA3XkEyXkFqcGc@.jpg",
-      "scrapedAt": "2026-02-18T18:08:09.180Z",
-      "lastUpdated": "2026-02-18T18:08:09.180Z"
+      "scrapedAt": "2026-02-18T19:29:34.985Z",
+      "lastUpdated": "2026-02-18T19:29:34.985Z"
     },
     {
       "id": "gt_121310",
@@ -555,8 +401,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-beauty-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121310",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/qKOoFawE4fdzNPNdGRWtI2qsFib-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:08:32.620Z",
-      "lastUpdated": "2026-02-18T18:08:32.620Z"
+      "scrapedAt": "2026-02-18T19:29:58.578Z",
+      "lastUpdated": "2026-02-18T19:29:58.578Z"
     },
     {
       "id": "gt_120617",
@@ -566,8 +412,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-star-trek-starfleet-academy-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=120617",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/MV5BZGFkNWNjMWQtMDI4Ny00M2FhLTk2NjMtMDg3MGI2NzM5ZjVhXkEyXkFqcGc@.jpg_V1_SX700.jpg",
-      "scrapedAt": "2026-02-18T18:09:08.261Z",
-      "lastUpdated": "2026-02-18T18:09:08.261Z"
+      "scrapedAt": "2026-02-18T19:30:33.448Z",
+      "lastUpdated": "2026-02-18T19:30:33.448Z"
     },
     {
       "id": "gt_122234",
@@ -577,8 +423,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-how-to-get-to-heaven-from-belfast-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122234",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BZTc0MmJlOTEtNWEwNC00ZTljLWExMTgtYWFhMWFiOTI3MmMyXkEyXkFqcGc@.jpg",
-      "scrapedAt": "2026-02-18T18:09:42.894Z",
-      "lastUpdated": "2026-02-18T18:09:42.894Z"
+      "scrapedAt": "2026-02-18T19:31:09.629Z",
+      "lastUpdated": "2026-02-18T19:31:09.629Z"
     },
     {
       "id": "gt_47797",
@@ -588,8 +434,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-lost-in-space-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=47797",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/nF6x04wogGbnF1mUwRzEaePHDOr-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:10:25.675Z",
-      "lastUpdated": "2026-02-18T18:10:25.675Z"
+      "scrapedAt": "2026-02-18T19:31:52.091Z",
+      "lastUpdated": "2026-02-18T19:31:52.091Z"
     },
     {
       "id": "gt_47796",
@@ -599,8 +445,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-lost-in-space-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=47796",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/fGYgz47SLZlvfeHX7pS5hcTMPAX.jpg",
-      "scrapedAt": "2026-02-18T18:11:02.332Z",
-      "lastUpdated": "2026-02-18T18:11:02.332Z"
+      "scrapedAt": "2026-02-18T19:32:28.912Z",
+      "lastUpdated": "2026-02-18T19:32:28.912Z"
     },
     {
       "id": "gt_47795",
@@ -610,8 +456,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-lost-in-space-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=47795",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/y8NJnTXzb4rio9uvVYFVrXEMofU.jpg",
-      "scrapedAt": "2026-02-18T18:11:46.670Z",
-      "lastUpdated": "2026-02-18T18:11:46.670Z"
+      "scrapedAt": "2026-02-18T19:33:13.326Z",
+      "lastUpdated": "2026-02-18T19:33:13.326Z"
     },
     {
       "id": "gt_121641",
@@ -621,8 +467,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%85%d9%86-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121641",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/65yF0vzRQABdMF2fUDFGKH6sXni-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:12:36.970Z",
-      "lastUpdated": "2026-02-18T18:12:36.970Z"
+      "scrapedAt": "2026-02-18T19:34:04.574Z",
+      "lastUpdated": "2026-02-18T19:34:04.574Z"
     },
     {
       "id": "gt_121640",
@@ -632,8 +478,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121640",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/fLVi4LHqAcwGALlrLbVsqRHLOj3-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:14:07.427Z",
-      "lastUpdated": "2026-02-18T18:14:07.427Z"
+      "scrapedAt": "2026-02-18T19:35:34.861Z",
+      "lastUpdated": "2026-02-18T19:35:34.861Z"
     },
     {
       "id": "gt_121639",
@@ -643,8 +489,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%af%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121639",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/ccJOoVJQt3Cny1vchKmPtopa4SA-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:15:41.361Z",
-      "lastUpdated": "2026-02-18T18:15:41.361Z"
+      "scrapedAt": "2026-02-18T19:37:08.499Z",
+      "lastUpdated": "2026-02-18T19:37:08.499Z"
     },
     {
       "id": "gt_121638",
@@ -654,8 +500,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121638",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/xKcKk1lkagwIOC4ygfeQhCECdFh-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:17:15.404Z",
-      "lastUpdated": "2026-02-18T18:17:15.404Z"
+      "scrapedAt": "2026-02-18T19:38:41.235Z",
+      "lastUpdated": "2026-02-18T19:38:41.235Z"
     },
     {
       "id": "gt_121637",
@@ -665,8 +511,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121637",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/1A0iHY52nytMmcbAY2aLmAvRYz1-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:18:52.375Z",
-      "lastUpdated": "2026-02-18T18:18:52.375Z"
+      "scrapedAt": "2026-02-18T19:40:17.677Z",
+      "lastUpdated": "2026-02-18T19:40:17.677Z"
     },
     {
       "id": "gt_121636",
@@ -676,8 +522,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121636",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/d5IgnFWM6r3K8N2S8SROdUZwpsE-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:20:26.058Z",
-      "lastUpdated": "2026-02-18T18:20:26.058Z"
+      "scrapedAt": "2026-02-18T19:41:50.123Z",
+      "lastUpdated": "2026-02-18T19:41:50.123Z"
     },
     {
       "id": "gt_121635",
@@ -687,8 +533,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121635",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/xA3s9Ti1p2kfoW9GBUXeZ2U6NE8-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:22:03.459Z",
-      "lastUpdated": "2026-02-18T18:22:03.459Z"
+      "scrapedAt": "2026-02-18T19:43:26.167Z",
+      "lastUpdated": "2026-02-18T19:43:26.167Z"
     },
     {
       "id": "gt_121634",
@@ -698,8 +544,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=121634",
       "image": "https://topcinema.red/wp-content/uploads/2026/01/9OE42PKojV7IueBxAAhbQbyfc6L-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:23:40.000Z",
-      "lastUpdated": "2026-02-18T18:23:40.000Z"
+      "scrapedAt": "2026-02-18T19:45:03.193Z",
+      "lastUpdated": "2026-02-18T19:45:03.193Z"
     },
     {
       "id": "gt_122227",
@@ -709,8 +555,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-lead-children-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122227",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BNTg5MGViYTItOWRhMi00ZDM1LWExNWQtN2U5YWJjMTJhZDQ2XkEyXkFqcGc@._V1_.jpg",
-      "scrapedAt": "2026-02-18T18:24:30.010Z",
-      "lastUpdated": "2026-02-18T18:24:30.010Z"
+      "scrapedAt": "2026-02-18T19:45:52.467Z",
+      "lastUpdated": "2026-02-18T19:45:52.467Z"
     },
     {
       "id": "gt_122225",
@@ -720,8 +566,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-cross-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122225",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BMWIzZjg0MTYtMjMxYy00NWJiLWJjMDUtOWE5NWIxNDBiY2FhXkEyXkFqcGc@._V1_.jpg",
-      "scrapedAt": "2026-02-18T18:25:05.106Z",
-      "lastUpdated": "2026-02-18T18:25:05.106Z"
+      "scrapedAt": "2026-02-18T19:46:27.316Z",
+      "lastUpdated": "2026-02-18T19:46:27.316Z"
     },
     {
       "id": "gt_93662",
@@ -731,8 +577,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-cross-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=93662",
       "image": "https://topcinema.red/wp-content/uploads/2024/11/MV5BMTE0ZGVjMjUtMDI1ZC00MTZiLWI1OWMtMTI3ZGI4ODU4OTU4XkEyXkFqcGc@.jpg_V1_SX700.jpg",
-      "scrapedAt": "2026-02-18T18:25:26.576Z",
-      "lastUpdated": "2026-02-18T18:25:26.576Z"
+      "scrapedAt": "2026-02-18T19:46:49.009Z",
+      "lastUpdated": "2026-02-18T19:46:49.009Z"
     },
     {
       "id": "gt_35467",
@@ -742,8 +588,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-fuller-house-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=35467",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/4NqdUYnLd8Yp44i25EkB4ZXqoch.jpg",
-      "scrapedAt": "2026-02-18T18:26:10.014Z",
-      "lastUpdated": "2026-02-18T18:26:10.014Z"
+      "scrapedAt": "2026-02-18T19:47:32.051Z",
+      "lastUpdated": "2026-02-18T19:47:32.051Z"
     },
     {
       "id": "gt_35466",
@@ -753,8 +599,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-fuller-house-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=35466",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/gp9u9KgxQmk5zKBcup5J8cslikd.jpg",
-      "scrapedAt": "2026-02-18T18:27:25.410Z",
-      "lastUpdated": "2026-02-18T18:27:25.410Z"
+      "scrapedAt": "2026-02-18T19:48:46.322Z",
+      "lastUpdated": "2026-02-18T19:48:46.322Z"
     },
     {
       "id": "gt_35465",
@@ -764,8 +610,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-fuller-house-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=35465",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/MV5BMjAxMzU5MzA0MF5BMl5BanBnXkFtZTgwODgyOTg1MzI@._V1_SY1000_CR006741000_AL_.jpg",
-      "scrapedAt": "2026-02-18T18:28:21.371Z",
-      "lastUpdated": "2026-02-18T18:28:21.371Z"
+      "scrapedAt": "2026-02-18T19:49:41.369Z",
+      "lastUpdated": "2026-02-18T19:49:41.369Z"
     },
     {
       "id": "gt_35464",
@@ -775,8 +621,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-fuller-house-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=35464",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/s02.jpg",
-      "scrapedAt": "2026-02-18T18:29:36.641Z",
-      "lastUpdated": "2026-02-18T18:29:36.641Z"
+      "scrapedAt": "2026-02-18T19:50:55.312Z",
+      "lastUpdated": "2026-02-18T19:50:55.312Z"
     },
     {
       "id": "gt_35463",
@@ -786,8 +632,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-fuller-house-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=35463",
       "image": "https://topcinema.red/wp-content/uploads/2023/09/s01.jpg",
-      "scrapedAt": "2026-02-18T18:30:32.013Z",
-      "lastUpdated": "2026-02-18T18:30:32.013Z"
+      "scrapedAt": "2026-02-18T19:51:51.135Z",
+      "lastUpdated": "2026-02-18T19:51:51.135Z"
     },
     {
       "id": "gt_122198",
@@ -797,8 +643,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-motorvalley-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122198",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BNDRmZjA5YTItMWI3OC00ZjE1LWFkY2YtZWNlZmQ2NDI3MWE1XkEyXkFqcGc@.jpg",
-      "scrapedAt": "2026-02-18T18:31:33.410Z",
-      "lastUpdated": "2026-02-18T18:31:33.410Z"
+      "scrapedAt": "2026-02-18T19:52:53.887Z",
+      "lastUpdated": "2026-02-18T19:52:53.887Z"
     },
     {
       "id": "gt_122209",
@@ -808,8 +654,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-artful-dodger-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122209",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/lcyax0pIH6vZWbho2hxsMTt9KpN-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:32:08.015Z",
-      "lastUpdated": "2026-02-18T18:32:08.015Z"
+      "scrapedAt": "2026-02-18T19:53:28.860Z",
+      "lastUpdated": "2026-02-18T19:53:28.860Z"
     },
     {
       "id": "gt_51738",
@@ -819,8 +665,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-artful-dodger-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=51738",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/MV5BZTdkZWZkYTktM2FlYi00MWE2LWExYWYtNDE4NDA2MWRhNWUyXkEyXkFqcGdeQXVyMTM1NjM2ODg1._V1_SX700.jpg",
-      "scrapedAt": "2026-02-18T18:32:45.114Z",
-      "lastUpdated": "2026-02-18T18:32:45.114Z"
+      "scrapedAt": "2026-02-18T19:54:05.815Z",
+      "lastUpdated": "2026-02-18T19:54:05.815Z"
     },
     {
       "id": "gt_51235",
@@ -830,8 +676,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-3-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=51235",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/bOqBR7CYLj2pF6tXwjieN5IY3O.jpg",
-      "scrapedAt": "2026-02-18T18:33:27.460Z",
-      "lastUpdated": "2026-02-18T18:33:27.460Z"
+      "scrapedAt": "2026-02-18T19:54:49.106Z",
+      "lastUpdated": "2026-02-18T19:54:49.106Z"
     },
     {
       "id": "gt_51191",
@@ -841,8 +687,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-3-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=51191",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/oMAnTroSw0ZWWBme5Yonys9BdQN.jpg",
-      "scrapedAt": "2026-02-18T18:34:00.852Z",
-      "lastUpdated": "2026-02-18T18:34:00.852Z"
+      "scrapedAt": "2026-02-18T19:55:21.747Z",
+      "lastUpdated": "2026-02-18T19:55:21.747Z"
     },
     {
       "id": "gt_51190",
@@ -852,8 +698,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-3-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=51190",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/1yHKcGugqsjWyDZqEdXZa1eOOk1.jpg",
-      "scrapedAt": "2026-02-18T18:34:38.017Z",
-      "lastUpdated": "2026-02-18T18:34:38.017Z"
+      "scrapedAt": "2026-02-18T19:55:58.123Z",
+      "lastUpdated": "2026-02-18T19:55:58.123Z"
     },
     {
       "id": "gt_51189",
@@ -863,8 +709,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-3-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=51189",
       "image": "https://topcinema.red/wp-content/uploads/2023/11/brI6fjoSwsg48gzRvP6rlqZd3NM-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:35:21.858Z",
-      "lastUpdated": "2026-02-18T18:35:21.858Z"
+      "scrapedAt": "2026-02-18T19:56:42.090Z",
+      "lastUpdated": "2026-02-18T19:56:42.090Z"
     },
     {
       "id": "gt_122131",
@@ -874,8 +720,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-superstore-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b3%d8%a7%d8%af%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122131",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/maBJkaBM4UqAttn9UkLCfZEVEfk-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:36:03.743Z",
-      "lastUpdated": "2026-02-18T18:36:03.743Z"
+      "scrapedAt": "2026-02-18T19:57:25.347Z",
+      "lastUpdated": "2026-02-18T19:57:25.347Z"
     },
     {
       "id": "gt_122130",
@@ -885,8 +731,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-superstore-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122130",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/2tpY5qIYwH85njvjI5BnH4VNA6p-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:37:08.118Z",
-      "lastUpdated": "2026-02-18T18:37:08.118Z"
+      "scrapedAt": "2026-02-18T19:58:28.484Z",
+      "lastUpdated": "2026-02-18T19:58:28.484Z"
     },
     {
       "id": "gt_122129",
@@ -896,8 +742,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-superstore-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122129",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/aNqCjp1nlg5OPpYu7gX4GnIO7zU.jpg",
-      "scrapedAt": "2026-02-18T18:38:33.760Z",
-      "lastUpdated": "2026-02-18T18:38:33.760Z"
+      "scrapedAt": "2026-02-18T19:59:54.798Z",
+      "lastUpdated": "2026-02-18T19:59:54.798Z"
     },
     {
       "id": "gt_122128",
@@ -907,8 +753,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-superstore-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122128",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/hDKw3ijhSJXJJ84uJw3b0vsL52X-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:40:03.427Z",
-      "lastUpdated": "2026-02-18T18:40:03.427Z"
+      "scrapedAt": "2026-02-18T20:01:23.594Z",
+      "lastUpdated": "2026-02-18T20:01:23.594Z"
     },
     {
       "id": "gt_122127",
@@ -918,8 +764,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-superstore-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122127",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/7GteyFuoainMFg9WwY6sjPwGqNc-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:41:33.473Z",
-      "lastUpdated": "2026-02-18T18:41:33.473Z"
+      "scrapedAt": "2026-02-18T20:02:52.252Z",
+      "lastUpdated": "2026-02-18T20:02:52.252Z"
     },
     {
       "id": "gt_122126",
@@ -929,8 +775,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-superstore-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122126",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/A2ogFsUOqMPh1oUixYXJsJ2L8ji-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:43:01.249Z",
-      "lastUpdated": "2026-02-18T18:43:01.249Z"
+      "scrapedAt": "2026-02-18T20:04:21.719Z",
+      "lastUpdated": "2026-02-18T20:04:21.719Z"
     },
     {
       "id": "gt_122143",
@@ -940,162 +786,8 @@
       "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-under-salt-marsh-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
       "shortLink": "https://topcinema.red?gt=122143",
       "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BZTM4MTEzMDQtOWI2NS00NzllLWE0OTctNzFlZmE4YjdjOGZiXkEyXkFqcGc@.jpg",
-      "scrapedAt": "2026-02-18T18:43:54.479Z",
-      "lastUpdated": "2026-02-18T18:43:54.479Z"
-    },
-    {
-      "id": "gt_122162",
-      "seriesId": "gt_122161",
-      "seasonNumber": 1,
-      "title": "مسلسل Betrayal الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-betrayal-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122162",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BYzdiMDNmYWItZGE5Yi00N2ZmLWJmNmEtOTVmYzliNzc5OTg1XkEyXkFqcGc@.jpg",
-      "scrapedAt": "2026-02-18T18:44:21.718Z",
-      "lastUpdated": "2026-02-18T18:44:21.718Z"
-    },
-    {
-      "id": "gt_122476",
-      "seriesId": "gt_122475",
-      "seasonNumber": 1,
-      "title": "مسلسل 56 Days الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-56-days-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122476",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/sdJLbucggwGj8NdX0UN2zt1Vwmn-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:52:12.631Z",
-      "lastUpdated": "2026-02-18T18:52:12.631Z"
-    },
-    {
-      "id": "gt_122473",
-      "seriesId": "gt_122470",
-      "seasonNumber": 3,
-      "title": "مسلسل Future Man الموسم الثالث مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122473",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/49mOgAEa4eKpPsoBH8UvvXwEMDT-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:52:55.280Z",
-      "lastUpdated": "2026-02-18T18:52:55.280Z"
-    },
-    {
-      "id": "gt_122472",
-      "seriesId": "gt_122470",
-      "seasonNumber": 2,
-      "title": "مسلسل Future Man الموسم الثاني مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122472",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/9P72cymABXbQKaOUBdZf6pOW64e-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:53:32.059Z",
-      "lastUpdated": "2026-02-18T18:53:32.059Z"
-    },
-    {
-      "id": "gt_122471",
-      "seriesId": "gt_122470",
-      "seasonNumber": 1,
-      "title": "مسلسل Future Man الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122471",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/nWOf73kvq363IEjyIUfIMZuc8Dy-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:54:27.724Z",
-      "lastUpdated": "2026-02-18T18:54:27.724Z"
-    },
-    {
-      "id": "gt_35287",
-      "seriesId": "gt_35284",
-      "seasonNumber": 3,
-      "title": "مسلسل Anne with an E الموسم الثالث مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35287",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/AfdA3ATmvQnsVr6ZqbSWVmnHWlg.jpg",
-      "scrapedAt": "2026-02-18T18:55:30.514Z",
-      "lastUpdated": "2026-02-18T18:55:30.514Z"
-    },
-    {
-      "id": "gt_35286",
-      "seriesId": "gt_35284",
-      "seasonNumber": 2,
-      "title": "مسلسل Anne with an E الموسم الثاني مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35286",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/gleq7oBpkgkuLUY1vdYY12ppPKK.jpg",
-      "scrapedAt": "2026-02-18T18:56:14.910Z",
-      "lastUpdated": "2026-02-18T18:56:14.910Z"
-    },
-    {
-      "id": "gt_35285",
-      "seriesId": "gt_35284",
-      "seasonNumber": 1,
-      "title": "مسلسل Anne with an E الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35285",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/jrgeHLyis4kdaiOQX73vMJIOqRz.jpg",
-      "scrapedAt": "2026-02-18T18:56:59.873Z",
-      "lastUpdated": "2026-02-18T18:56:59.873Z"
-    },
-    {
-      "id": "gt_122460",
-      "seriesId": "gt_122455",
-      "seasonNumber": 5,
-      "title": "مسلسل Orphan Black الموسم الخامس مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122460",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/bbvvqHYd47R3xFJZ0QyXgLexOna-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:57:39.952Z",
-      "lastUpdated": "2026-02-18T18:57:39.952Z"
-    },
-    {
-      "id": "gt_122459",
-      "seriesId": "gt_122455",
-      "seasonNumber": 4,
-      "title": "مسلسل Orphan Black الموسم الرابع مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122459",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/rSbYpZTqIJaB8z57FvcfSwpCYe5-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:58:25.113Z",
-      "lastUpdated": "2026-02-18T18:58:25.113Z"
-    },
-    {
-      "id": "gt_122458",
-      "seriesId": "gt_122455",
-      "seasonNumber": 3,
-      "title": "مسلسل Orphan Black الموسم الثالث مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%84%d8%ab-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122458",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/w1WoOIraR4umkX0M4sCLy0Wjygj-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:59:09.279Z",
-      "lastUpdated": "2026-02-18T18:59:09.279Z"
-    },
-    {
-      "id": "gt_122457",
-      "seriesId": "gt_122455",
-      "seasonNumber": 2,
-      "title": "مسلسل Orphan Black الموسم الثاني مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122457",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/v6ptHRJ2qEVn94DcBCDWVXpQZrU-scaled.jpg",
-      "scrapedAt": "2026-02-18T18:59:54.295Z",
-      "lastUpdated": "2026-02-18T18:59:54.295Z"
-    },
-    {
-      "id": "gt_122456",
-      "seriesId": "gt_122455",
-      "seasonNumber": 1,
-      "title": "مسلسل Orphan Black الموسم الاول مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%a7%d9%88%d9%84-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122456",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/5sfJOpwnkuXmXK7K1YDcRY4rTE.jpg",
-      "scrapedAt": "2026-02-18T19:00:38.386Z",
-      "lastUpdated": "2026-02-18T19:00:38.386Z"
-    },
-    {
-      "id": "gt_122451",
-      "seriesId": "gt_122446",
-      "seasonNumber": 5,
-      "title": "مسلسل Hell on Wheels الموسم الخامس مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d8%a7%d9%84%d9%85%d9%88%d8%b3%d9%85-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122451",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/ckC9pL9yeYpOoK5aJ7GbYYWheK7.jpg",
-      "scrapedAt": "2026-02-18T19:01:29.320Z",
-      "lastUpdated": "2026-02-18T19:01:29.320Z"
+      "scrapedAt": "2026-02-18T20:05:15.499Z",
+      "lastUpdated": "2026-02-18T20:05:15.499Z"
     }
   ]
 }
