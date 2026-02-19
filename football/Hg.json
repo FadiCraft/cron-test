@@ -1,44 +1,10 @@
 {
-  "scrapedAt": "2026-02-19T17:16:02.426Z",
+  "scrapedAt": "2026-02-19T18:07:58.543Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 9,
   "matches": [
     {
-      "id": "match_1771521350771_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%87%d8%b6%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%85%d8%b1%d8%a9-%d9%88-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8%d8%b1%d9%83-2/",
-      "title": "نهضة الزمامرة vs نهضة بركان",
-      "team1": {
-        "name": "نهضة الزمامرة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/49266.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "نهضة بركان",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/9974.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "الرياضية المغربية (3)"
-      ],
-      "tournament": "الدوري المغربي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-19T17:15:50.771Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://pl.gomatch-live.com/albaplayer/arryadia/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
-    },
-    {
-      "id": "match_1771521350772_1",
+      "id": "match_1771524466363_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%a7%d9%88%d9%83-%d8%b3%d8%a7%d9%84%d9%88%d9%86%d9%8a%d9%83%d8%a7-%d9%88-%d8%b3%d9%8a%d9%84%d8%aa%d8%a7-%d9%81%d9%8a/",
       "title": "باوك سالونيكا vs سيلتا فيجو",
       "team1": {
@@ -51,20 +17,28 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/02/158.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "7:45 PM",
-      "status": "بعد قليل",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [
         "beIN SPORTS HD 4"
       ],
       "tournament": "الدوري الأوروبي - بلاي اوف",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-19T17:15:50.772Z",
-      "watchServers": null
+      "position": 1,
+      "scrapedAt": "2026-02-19T18:07:46.363Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://pl.gomatch-live.com/albaplayer/bein4/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
     },
     {
-      "id": "match_1771521350773_2",
+      "id": "match_1771524466364_1",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%85%d9%88%d8%b3%d8%aa%d8%a7%d8%b1-%d9%88-%d9%83%d8%b1%d9%8a%d8%b3%d8%aa%d8%a7%d9%84-%d8%a8%d8%a7%d9%84%d8%a7%d8%b3-%d8%a8/",
       "title": "موستار vs كريستال بالاس",
       "team1": {
@@ -77,18 +51,26 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/02/10-2.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "7:45 PM",
-      "status": "بعد قليل",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [],
       "tournament": "دوري المؤتمر الأوروبي - بلاي اوف",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-19T17:15:50.773Z",
-      "watchServers": null
+      "position": 2,
+      "scrapedAt": "2026-02-19T18:07:46.364Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://pl.gomatch-live.com/albaplayer/bein22/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
     },
     {
-      "id": "match_1771521350775_3",
+      "id": "match_1771524466365_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%81%d9%86%d8%b1%d8%a8%d8%ae%d8%b4%d8%a9-%d9%88-%d9%86%d9%88%d8%aa%d9%86%d8%ac%d9%87%d8%a7%d9%85-%d9%81%d9%88%d8%b1%d8%b3/",
       "title": "فنربخشة vs نوتنجهام فورست",
       "team1": {
@@ -101,20 +83,28 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/02/29-3.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "7:45 PM",
-      "status": "بعد قليل",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [
         "beIN SPORTS HD 1"
       ],
       "tournament": "الدوري الأوروبي - بلاي اوف",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-19T17:15:50.775Z",
-      "watchServers": null
+      "position": 3,
+      "scrapedAt": "2026-02-19T18:07:46.365Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://pl.gomatch-live.com/albaplayer/1bein1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
     },
     {
-      "id": "match_1771521350776_4",
+      "id": "match_1771524466366_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d9%88-%d8%b3%d8%a8%d8%a7%d9%87%d8%a7%d9%86-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الأهلي vs سباهان",
       "team1": {
@@ -129,26 +119,18 @@
       },
       "score": "0 - 0",
       "time": "8:15 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "الكأس 7"
       ],
       "tournament": "دوري أبطال آسيا 2 - دور الـ 16",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-19T17:15:50.776Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://2.wwwkoora.com/albaplayer/bein-sports-hd-6/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "position": 4,
+      "scrapedAt": "2026-02-19T18:07:46.366Z",
+      "watchServers": null
     },
     {
-      "id": "match_1771521350777_5",
+      "id": "match_1771524466367_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d9%86%d8%ac%d9%85%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الأهلي vs النجمة",
       "team1": {
@@ -169,8 +151,8 @@
       ],
       "tournament": "الدوري السعودي",
       "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-19T17:15:50.777Z",
+      "position": 5,
+      "scrapedAt": "2026-02-19T18:07:46.367Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -182,7 +164,7 @@
       ]
     },
     {
-      "id": "match_1771521350779_6",
+      "id": "match_1771524466368_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d8%ac%d9%88%d9%86%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الأهلي vs الجونة",
       "team1": {
@@ -203,8 +185,8 @@
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-02-19T17:15:50.779Z",
+      "position": 6,
+      "scrapedAt": "2026-02-19T18:07:46.368Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -216,7 +198,7 @@
       ]
     },
     {
-      "id": "match_1771521350780_7",
+      "id": "match_1771524466369_6",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d9%8a%d9%84%d8%aa%d9%8a%d9%83-%d9%88-%d8%b4%d8%aa%d9%88%d8%aa%d8%ac%d8%a7%d8%b1%d8%aa-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
       "title": "سيلتيك vs شتوتجارت",
       "team1": {
@@ -235,8 +217,8 @@
       "channels": [],
       "tournament": "الدوري الأوروبي - بلاي اوف",
       "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-02-19T17:15:50.780Z",
+      "position": 7,
+      "scrapedAt": "2026-02-19T18:07:46.369Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -248,7 +230,7 @@
       ]
     },
     {
-      "id": "match_1771521350781_8",
+      "id": "match_1771524466370_7",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d9%8a%d9%84-%d9%88-%d8%a7%d9%84%d9%86%d8%ac%d9%85-%d8%a7%d9%84%d8%a3%d8%ad%d9%85%d8%b1-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7/",
       "title": "ليل vs النجم الأحمر",
       "team1": {
@@ -269,8 +251,8 @@
       ],
       "tournament": "الدوري الأوروبي - بلاي اوف",
       "page": 1,
-      "position": 9,
-      "scrapedAt": "2026-02-19T17:15:50.781Z",
+      "position": 8,
+      "scrapedAt": "2026-02-19T18:07:46.370Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -280,6 +262,32 @@
           "id": "player_1"
         }
       ]
+    },
+    {
+      "id": "match_1771524466371_8",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%87%d8%b6%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%85%d8%b1%d8%a9-%d9%88-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8%d8%b1%d9%83-2/",
+      "title": "نهضة الزمامرة vs نهضة بركان",
+      "team1": {
+        "name": "نهضة الزمامرة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/49266.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "نهضة بركان",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/9974.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
+      "channels": [
+        "الرياضية المغربية (3)"
+      ],
+      "tournament": "الدوري المغربي",
+      "page": 1,
+      "position": 9,
+      "scrapedAt": "2026-02-19T18:07:46.371Z",
+      "watchServers": null
     }
   ]
 }
