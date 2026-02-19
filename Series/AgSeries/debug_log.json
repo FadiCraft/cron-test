@@ -1,15 +1,33 @@
 [
   {
-    "timestamp": "2026-02-19T14:12:33.890Z",
+    "timestamp": "2026-02-19T15:51:36.824Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:51:37.075Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:51:39.079Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
       "attempt": 1
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:34.454Z",
+    "timestamp": "2026-02-19T15:51:39.654Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -18,16 +36,16 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:34.455Z",
+    "timestamp": "2026-02-19T15:51:40.454Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
       "retries": 3
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:34.770Z",
+    "timestamp": "2026-02-19T15:51:40.717Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -36,43 +54,16 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:36.772Z",
+    "timestamp": "2026-02-19T15:51:42.720Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
       "attempt": 1
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:37.331Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:37.645Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:39.648Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:40.305Z",
+    "timestamp": "2026-02-19T15:51:43.371Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -81,34 +72,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:40.307Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:40.622Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:42.626Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:43.229Z",
+    "timestamp": "2026-02-19T15:51:44.174Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -117,7 +81,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:44.064Z",
+    "timestamp": "2026-02-19T15:51:44.426Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -126,7 +90,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:46.067Z",
+    "timestamp": "2026-02-19T15:51:46.430Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -135,7 +99,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:46.645Z",
+    "timestamp": "2026-02-19T15:51:47.028Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -144,511 +108,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:12:47.445Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:47.827Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:49.831Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:50.410Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:51.212Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:51.603Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:53.605Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:54.259Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:55.061Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:55.448Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:57.451Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:58.056Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:58.856Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:12:59.245Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:01.249Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:01.830Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:02.632Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:03.012Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:05.014Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:05.585Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:06.385Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:06.778Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:08.782Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:09.341Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:10.142Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:10.521Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:12.524Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:13.081Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:13.883Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:14.266Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:16.271Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:16.925Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:17.726Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:18.108Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:20.110Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:20.719Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:21.521Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:21.900Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:23.903Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:24.485Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:25.287Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:25.672Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:27.674Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:28.250Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:29.051Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:29.432Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:31.437Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:32.086Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:32.888Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:33.267Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:35.271Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:35.865Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:36.665Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:37.043Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:39.047Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:39.631Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:13:41.132Z",
+    "timestamp": "2026-02-19T15:51:48.529Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -657,7 +117,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:41.446Z",
+    "timestamp": "2026-02-19T15:51:48.779Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -666,7 +126,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:43.450Z",
+    "timestamp": "2026-02-19T15:51:50.783Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -675,7 +135,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:44.030Z",
+    "timestamp": "2026-02-19T15:51:51.374Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -684,7 +144,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:44.031Z",
+    "timestamp": "2026-02-19T15:51:51.375Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -693,7 +153,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:44.345Z",
+    "timestamp": "2026-02-19T15:51:51.627Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -702,7 +162,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:46.348Z",
+    "timestamp": "2026-02-19T15:51:53.629Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -711,7 +171,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:46.927Z",
+    "timestamp": "2026-02-19T15:51:54.220Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -720,7 +180,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:47.418Z",
+    "timestamp": "2026-02-19T15:51:54.474Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -729,7 +189,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:49.424Z",
+    "timestamp": "2026-02-19T15:51:56.478Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -738,7 +198,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:49.983Z",
+    "timestamp": "2026-02-19T15:51:57.047Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -747,7 +207,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:50.785Z",
+    "timestamp": "2026-02-19T15:51:57.849Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -756,7 +216,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:51.169Z",
+    "timestamp": "2026-02-19T15:51:58.002Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -765,7 +225,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:53.173Z",
+    "timestamp": "2026-02-19T15:52:00.098Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -774,7 +234,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:53.727Z",
+    "timestamp": "2026-02-19T15:52:00.662Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -783,7 +243,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:54.530Z",
+    "timestamp": "2026-02-19T15:52:01.463Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -792,7 +252,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:54.909Z",
+    "timestamp": "2026-02-19T15:52:01.719Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -801,7 +261,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:56.913Z",
+    "timestamp": "2026-02-19T15:52:03.723Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -810,7 +270,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:57.473Z",
+    "timestamp": "2026-02-19T15:52:04.288Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -819,7 +279,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:58.275Z",
+    "timestamp": "2026-02-19T15:52:05.089Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -828,7 +288,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:13:58.657Z",
+    "timestamp": "2026-02-19T15:52:05.345Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -837,7 +297,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:00.659Z",
+    "timestamp": "2026-02-19T15:52:07.349Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -846,7 +306,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:01.323Z",
+    "timestamp": "2026-02-19T15:52:07.911Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -855,7 +315,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:02.124Z",
+    "timestamp": "2026-02-19T15:52:08.713Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -864,7 +324,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:02.509Z",
+    "timestamp": "2026-02-19T15:52:08.965Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -873,7 +333,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:04.513Z",
+    "timestamp": "2026-02-19T15:52:10.969Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -882,7 +342,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:05.112Z",
+    "timestamp": "2026-02-19T15:52:11.526Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -891,7 +351,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:05.912Z",
+    "timestamp": "2026-02-19T15:52:12.326Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -900,7 +360,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:06.298Z",
+    "timestamp": "2026-02-19T15:52:12.579Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -909,7 +369,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:08.302Z",
+    "timestamp": "2026-02-19T15:52:14.583Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -918,7 +378,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:08.883Z",
+    "timestamp": "2026-02-19T15:52:15.143Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -927,7 +387,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:09.684Z",
+    "timestamp": "2026-02-19T15:52:15.945Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -936,7 +396,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:10.069Z",
+    "timestamp": "2026-02-19T15:52:16.198Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -945,7 +405,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:12.072Z",
+    "timestamp": "2026-02-19T15:52:18.203Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -954,7 +414,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:12.642Z",
+    "timestamp": "2026-02-19T15:52:18.859Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -963,7 +423,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:13.444Z",
+    "timestamp": "2026-02-19T15:52:19.661Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -972,7 +432,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:13.759Z",
+    "timestamp": "2026-02-19T15:52:19.914Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -981,7 +441,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:15.762Z",
+    "timestamp": "2026-02-19T15:52:21.918Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -990,7 +450,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:16.334Z",
+    "timestamp": "2026-02-19T15:52:22.522Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -999,7 +459,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:17.135Z",
+    "timestamp": "2026-02-19T15:52:23.325Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1008,7 +468,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:17.516Z",
+    "timestamp": "2026-02-19T15:52:23.577Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1017,7 +477,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:19.520Z",
+    "timestamp": "2026-02-19T15:52:25.579Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1026,7 +486,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:20.082Z",
+    "timestamp": "2026-02-19T15:52:26.161Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1035,7 +495,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:20.884Z",
+    "timestamp": "2026-02-19T15:52:26.963Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1044,7 +504,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:21.267Z",
+    "timestamp": "2026-02-19T15:52:27.213Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1053,7 +513,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:23.270Z",
+    "timestamp": "2026-02-19T15:52:29.217Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1062,7 +522,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:23.863Z",
+    "timestamp": "2026-02-19T15:52:29.793Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1071,7 +531,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:24.663Z",
+    "timestamp": "2026-02-19T15:52:30.595Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1080,7 +540,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:25.045Z",
+    "timestamp": "2026-02-19T15:52:30.848Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1089,7 +549,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:27.049Z",
+    "timestamp": "2026-02-19T15:52:32.853Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1098,7 +558,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:27.631Z",
+    "timestamp": "2026-02-19T15:52:33.521Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1107,7 +567,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:28.432Z",
+    "timestamp": "2026-02-19T15:52:34.323Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1116,7 +576,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:28.817Z",
+    "timestamp": "2026-02-19T15:52:34.574Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1125,7 +585,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:30.820Z",
+    "timestamp": "2026-02-19T15:52:36.578Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1134,7 +594,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:31.383Z",
+    "timestamp": "2026-02-19T15:52:37.180Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1143,7 +603,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:32.184Z",
+    "timestamp": "2026-02-19T15:52:37.982Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1152,7 +612,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:32.568Z",
+    "timestamp": "2026-02-19T15:52:38.236Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1161,7 +621,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:34.572Z",
+    "timestamp": "2026-02-19T15:52:40.240Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1170,7 +630,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:35.138Z",
+    "timestamp": "2026-02-19T15:52:40.822Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1179,7 +639,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:35.938Z",
+    "timestamp": "2026-02-19T15:52:41.623Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1188,7 +648,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:36.321Z",
+    "timestamp": "2026-02-19T15:52:41.880Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1197,7 +657,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:38.325Z",
+    "timestamp": "2026-02-19T15:52:43.884Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1206,7 +666,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:38.881Z",
+    "timestamp": "2026-02-19T15:52:44.459Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1215,7 +675,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:39.683Z",
+    "timestamp": "2026-02-19T15:52:45.261Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1224,7 +684,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:40.066Z",
+    "timestamp": "2026-02-19T15:52:45.513Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1233,7 +693,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:42.069Z",
+    "timestamp": "2026-02-19T15:52:47.517Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1242,7 +702,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:42.627Z",
+    "timestamp": "2026-02-19T15:52:48.169Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1251,7 +711,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:43.428Z",
+    "timestamp": "2026-02-19T15:52:48.971Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1260,7 +720,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:43.810Z",
+    "timestamp": "2026-02-19T15:52:49.238Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1269,7 +729,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:45.812Z",
+    "timestamp": "2026-02-19T15:52:51.242Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1278,7 +738,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:46.372Z",
+    "timestamp": "2026-02-19T15:52:51.845Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1287,7 +747,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:47.173Z",
+    "timestamp": "2026-02-19T15:52:52.647Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1296,7 +756,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:47.574Z",
+    "timestamp": "2026-02-19T15:52:52.899Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1305,7 +765,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:49.577Z",
+    "timestamp": "2026-02-19T15:52:54.903Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1314,7 +774,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:50.134Z",
+    "timestamp": "2026-02-19T15:52:55.482Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1323,7 +783,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:50.935Z",
+    "timestamp": "2026-02-19T15:52:56.285Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1332,7 +792,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:51.319Z",
+    "timestamp": "2026-02-19T15:52:56.533Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1341,7 +801,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:53.322Z",
+    "timestamp": "2026-02-19T15:52:58.537Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1350,7 +810,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:53.876Z",
+    "timestamp": "2026-02-19T15:52:59.110Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1359,115 +819,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:14:54.678Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:14:55.064Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:14:57.067Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:14:57.623Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:14:58.426Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:14:58.812Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:00.814Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:01.368Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:02.169Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:02.557Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:04.562Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:05.118Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:15:06.620Z",
+    "timestamp": "2026-02-19T15:53:00.613Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1476,7 +828,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:06.964Z",
+    "timestamp": "2026-02-19T15:53:00.871Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1485,7 +837,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:08.968Z",
+    "timestamp": "2026-02-19T15:53:02.875Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1494,7 +846,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:09.524Z",
+    "timestamp": "2026-02-19T15:53:03.536Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1503,7 +855,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:09.525Z",
+    "timestamp": "2026-02-19T15:53:03.537Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1512,7 +864,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:09.841Z",
+    "timestamp": "2026-02-19T15:53:03.790Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1521,7 +873,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:11.844Z",
+    "timestamp": "2026-02-19T15:53:05.793Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1530,7 +882,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:12.415Z",
+    "timestamp": "2026-02-19T15:53:06.400Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1539,7 +891,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:12.886Z",
+    "timestamp": "2026-02-19T15:53:06.653Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1548,7 +900,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:14.889Z",
+    "timestamp": "2026-02-19T15:53:08.656Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1557,7 +909,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:15.443Z",
+    "timestamp": "2026-02-19T15:53:09.232Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1566,7 +918,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:16.244Z",
+    "timestamp": "2026-02-19T15:53:10.034Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1575,7 +927,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:16.559Z",
+    "timestamp": "2026-02-19T15:53:10.273Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1584,7 +936,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:18.562Z",
+    "timestamp": "2026-02-19T15:53:12.276Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1593,7 +945,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:19.117Z",
+    "timestamp": "2026-02-19T15:53:12.846Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1602,7 +954,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:19.919Z",
+    "timestamp": "2026-02-19T15:53:13.646Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1611,7 +963,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:20.303Z",
+    "timestamp": "2026-02-19T15:53:13.895Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1620,7 +972,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:22.307Z",
+    "timestamp": "2026-02-19T15:53:15.898Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1629,7 +981,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:22.860Z",
+    "timestamp": "2026-02-19T15:53:16.459Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1638,7 +990,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:23.663Z",
+    "timestamp": "2026-02-19T15:53:17.261Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1647,7 +999,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:24.044Z",
+    "timestamp": "2026-02-19T15:53:17.514Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1656,7 +1008,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:26.048Z",
+    "timestamp": "2026-02-19T15:53:19.516Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1665,7 +1017,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:26.603Z",
+    "timestamp": "2026-02-19T15:53:20.069Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1674,7 +1026,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:27.404Z",
+    "timestamp": "2026-02-19T15:53:20.869Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1683,7 +1035,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:27.786Z",
+    "timestamp": "2026-02-19T15:53:21.120Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1692,7 +1044,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:29.790Z",
+    "timestamp": "2026-02-19T15:53:23.124Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1701,7 +1053,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:30.344Z",
+    "timestamp": "2026-02-19T15:53:23.680Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1710,7 +1062,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:31.145Z",
+    "timestamp": "2026-02-19T15:53:24.480Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1719,7 +1071,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:31.528Z",
+    "timestamp": "2026-02-19T15:53:24.741Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1728,7 +1080,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:33.532Z",
+    "timestamp": "2026-02-19T15:53:26.743Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1737,7 +1089,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:34.086Z",
+    "timestamp": "2026-02-19T15:53:27.297Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1746,7 +1098,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:34.888Z",
+    "timestamp": "2026-02-19T15:53:28.099Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1755,7 +1107,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:35.272Z",
+    "timestamp": "2026-02-19T15:53:28.352Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1764,7 +1116,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:37.276Z",
+    "timestamp": "2026-02-19T15:53:30.355Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1773,7 +1125,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:37.832Z",
+    "timestamp": "2026-02-19T15:53:31.000Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1782,7 +1134,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:38.635Z",
+    "timestamp": "2026-02-19T15:53:31.800Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1791,7 +1143,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:39.016Z",
+    "timestamp": "2026-02-19T15:53:32.049Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1800,7 +1152,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:41.019Z",
+    "timestamp": "2026-02-19T15:53:34.053Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1809,7 +1161,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:41.576Z",
+    "timestamp": "2026-02-19T15:53:34.655Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1818,7 +1170,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:42.377Z",
+    "timestamp": "2026-02-19T15:53:35.458Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1827,7 +1179,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:42.761Z",
+    "timestamp": "2026-02-19T15:53:35.711Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1836,7 +1188,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:44.763Z",
+    "timestamp": "2026-02-19T15:53:37.714Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1845,7 +1197,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:45.316Z",
+    "timestamp": "2026-02-19T15:53:38.293Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1854,7 +1206,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:46.119Z",
+    "timestamp": "2026-02-19T15:53:39.094Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1863,7 +1215,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:46.433Z",
+    "timestamp": "2026-02-19T15:53:39.345Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1872,7 +1224,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:48.437Z",
+    "timestamp": "2026-02-19T15:53:41.349Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1881,7 +1233,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:48.994Z",
+    "timestamp": "2026-02-19T15:53:41.927Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1890,7 +1242,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:49.795Z",
+    "timestamp": "2026-02-19T15:53:42.727Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1899,7 +1251,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:50.177Z",
+    "timestamp": "2026-02-19T15:53:42.980Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1908,7 +1260,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:52.181Z",
+    "timestamp": "2026-02-19T15:53:44.983Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1917,7 +1269,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:52.735Z",
+    "timestamp": "2026-02-19T15:53:45.641Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1926,7 +1278,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:53.537Z",
+    "timestamp": "2026-02-19T15:53:46.443Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1935,7 +1287,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:53.922Z",
+    "timestamp": "2026-02-19T15:53:46.694Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1944,7 +1296,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:55.925Z",
+    "timestamp": "2026-02-19T15:53:48.697Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1953,7 +1305,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:56.482Z",
+    "timestamp": "2026-02-19T15:53:49.299Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1962,7 +1314,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:57.285Z",
+    "timestamp": "2026-02-19T15:53:50.100Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -1971,7 +1323,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:57.666Z",
+    "timestamp": "2026-02-19T15:53:50.353Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -1980,7 +1332,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:15:59.670Z",
+    "timestamp": "2026-02-19T15:53:52.357Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -1989,7 +1341,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:00.226Z",
+    "timestamp": "2026-02-19T15:53:52.935Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -1998,331 +1350,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:01.027Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:01.409Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:03.414Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:03.967Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:04.769Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:05.157Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:07.161Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:07.715Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:08.517Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:08.901Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:10.904Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:11.459Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:12.262Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:12.642Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:14.647Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:15.201Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:16.002Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:16.383Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:18.387Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:18.941Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:19.742Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:20.127Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:22.130Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:22.685Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:23.487Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:23.868Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:25.872Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:26.426Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:27.228Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:27.606Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:29.610Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:30.162Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:30.965Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:31.279Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:33.282Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:33.836Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:16:35.338Z",
+    "timestamp": "2026-02-19T15:53:54.437Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2331,7 +1359,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:35.652Z",
+    "timestamp": "2026-02-19T15:53:54.685Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2340,7 +1368,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:37.657Z",
+    "timestamp": "2026-02-19T15:53:56.687Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2349,7 +1377,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:38.211Z",
+    "timestamp": "2026-02-19T15:53:57.261Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2358,7 +1386,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:38.212Z",
+    "timestamp": "2026-02-19T15:53:57.263Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2367,7 +1395,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:38.525Z",
+    "timestamp": "2026-02-19T15:53:57.512Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2376,7 +1404,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:40.530Z",
+    "timestamp": "2026-02-19T15:53:59.516Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2385,7 +1413,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:41.094Z",
+    "timestamp": "2026-02-19T15:54:00.178Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2394,7 +1422,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:41.907Z",
+    "timestamp": "2026-02-19T15:54:00.429Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2403,7 +1431,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:43.911Z",
+    "timestamp": "2026-02-19T15:54:02.433Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2412,7 +1440,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:44.466Z",
+    "timestamp": "2026-02-19T15:54:03.019Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2421,7 +1449,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:45.268Z",
+    "timestamp": "2026-02-19T15:54:03.821Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2430,7 +1458,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:45.651Z",
+    "timestamp": "2026-02-19T15:54:04.076Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2439,7 +1467,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:47.655Z",
+    "timestamp": "2026-02-19T15:54:06.080Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2448,7 +1476,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:48.211Z",
+    "timestamp": "2026-02-19T15:54:06.668Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2457,7 +1485,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:49.013Z",
+    "timestamp": "2026-02-19T15:54:07.469Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2466,7 +1494,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:49.394Z",
+    "timestamp": "2026-02-19T15:54:07.725Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2475,7 +1503,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:51.399Z",
+    "timestamp": "2026-02-19T15:54:09.727Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2484,7 +1512,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:52.059Z",
+    "timestamp": "2026-02-19T15:54:10.297Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2493,7 +1521,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:52.860Z",
+    "timestamp": "2026-02-19T15:54:11.098Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2502,7 +1530,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:53.244Z",
+    "timestamp": "2026-02-19T15:54:11.361Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2511,7 +1539,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:55.249Z",
+    "timestamp": "2026-02-19T15:54:13.365Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2520,7 +1548,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:55.852Z",
+    "timestamp": "2026-02-19T15:54:14.025Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2529,7 +1557,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:56.654Z",
+    "timestamp": "2026-02-19T15:54:14.827Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2538,7 +1566,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:57.039Z",
+    "timestamp": "2026-02-19T15:54:15.078Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2547,7 +1575,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:59.042Z",
+    "timestamp": "2026-02-19T15:54:17.081Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2556,7 +1584,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:16:59.624Z",
+    "timestamp": "2026-02-19T15:54:17.682Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2565,7 +1593,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:00.427Z",
+    "timestamp": "2026-02-19T15:54:18.484Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2574,7 +1602,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:00.809Z",
+    "timestamp": "2026-02-19T15:54:18.734Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2583,7 +1611,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:02.812Z",
+    "timestamp": "2026-02-19T15:54:20.737Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2592,7 +1620,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:03.387Z",
+    "timestamp": "2026-02-19T15:54:21.324Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2601,7 +1629,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:04.190Z",
+    "timestamp": "2026-02-19T15:54:22.125Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2610,7 +1638,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:04.572Z",
+    "timestamp": "2026-02-19T15:54:22.375Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2619,7 +1647,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:06.577Z",
+    "timestamp": "2026-02-19T15:54:24.379Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2628,7 +1656,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:07.144Z",
+    "timestamp": "2026-02-19T15:54:24.952Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2637,7 +1665,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:07.945Z",
+    "timestamp": "2026-02-19T15:54:25.753Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2646,7 +1674,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:08.330Z",
+    "timestamp": "2026-02-19T15:54:26.007Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2655,7 +1683,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:10.333Z",
+    "timestamp": "2026-02-19T15:54:28.011Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2664,7 +1692,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:10.899Z",
+    "timestamp": "2026-02-19T15:54:28.670Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2673,7 +1701,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:11.702Z",
+    "timestamp": "2026-02-19T15:54:29.472Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2682,7 +1710,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:12.085Z",
+    "timestamp": "2026-02-19T15:54:29.732Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2691,7 +1719,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:14.088Z",
+    "timestamp": "2026-02-19T15:54:31.736Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2700,7 +1728,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:14.647Z",
+    "timestamp": "2026-02-19T15:54:32.340Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2709,7 +1737,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:15.450Z",
+    "timestamp": "2026-02-19T15:54:33.142Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2718,7 +1746,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:15.829Z",
+    "timestamp": "2026-02-19T15:54:33.394Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2727,7 +1755,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:17.832Z",
+    "timestamp": "2026-02-19T15:54:35.398Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2736,7 +1764,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:18.396Z",
+    "timestamp": "2026-02-19T15:54:35.981Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2745,7 +1773,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:19.196Z",
+    "timestamp": "2026-02-19T15:54:36.782Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2754,7 +1782,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:19.578Z",
+    "timestamp": "2026-02-19T15:54:37.038Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2763,7 +1791,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:21.582Z",
+    "timestamp": "2026-02-19T15:54:39.042Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2772,7 +1800,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:22.139Z",
+    "timestamp": "2026-02-19T15:54:39.622Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2781,7 +1809,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:22.941Z",
+    "timestamp": "2026-02-19T15:54:40.425Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2790,7 +1818,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:23.330Z",
+    "timestamp": "2026-02-19T15:54:40.690Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2799,7 +1827,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:25.332Z",
+    "timestamp": "2026-02-19T15:54:42.693Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2808,7 +1836,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:25.888Z",
+    "timestamp": "2026-02-19T15:54:43.265Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2817,7 +1845,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:26.690Z",
+    "timestamp": "2026-02-19T15:54:44.066Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -2826,7 +1854,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:27.070Z",
+    "timestamp": "2026-02-19T15:54:44.224Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -2835,7 +1863,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:29.074Z",
+    "timestamp": "2026-02-19T15:54:46.228Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -2844,7 +1872,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:29.632Z",
+    "timestamp": "2026-02-19T15:54:46.792Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -2853,331 +1881,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:17:30.433Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:30.745Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:32.749Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:33.304Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:34.104Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:34.484Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:36.487Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:37.044Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:37.846Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:38.229Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:40.231Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:40.788Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:41.589Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:41.972Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:43.975Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:44.532Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:45.333Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:45.723Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:47.727Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:48.281Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:49.082Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:49.482Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:51.486Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:52.043Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:52.843Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:53.229Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:55.233Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:55.791Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:56.592Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:56.975Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:58.978Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:17:59.533Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:00.334Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:00.714Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:02.717Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:03.277Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:04.778Z",
+    "timestamp": "2026-02-19T15:54:48.294Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -3186,7 +1890,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:05.645Z",
+    "timestamp": "2026-02-19T15:54:48.543Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -3195,7 +1899,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:07.649Z",
+    "timestamp": "2026-02-19T15:54:50.547Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -3204,7 +1908,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:08.205Z",
+    "timestamp": "2026-02-19T15:54:51.105Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -3213,7 +1917,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:08.206Z",
+    "timestamp": "2026-02-19T15:54:51.107Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -3222,7 +1926,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:08.519Z",
+    "timestamp": "2026-02-19T15:54:51.355Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -3231,7 +1935,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:10.523Z",
+    "timestamp": "2026-02-19T15:54:53.359Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -3240,799 +1944,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:18:11.088Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:11.499Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:13.503Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:14.058Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:14.858Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:15.243Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:17.246Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:17.801Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:18.603Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:18.985Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:20.989Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:21.547Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:22.349Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:22.734Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:24.737Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:25.292Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:26.094Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:26.492Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:28.495Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:29.050Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:29.852Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:30.246Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:32.248Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:32.806Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:33.607Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:33.987Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:35.991Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:36.545Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:37.346Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:37.732Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:39.735Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:40.291Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:41.092Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:41.472Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:43.476Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:44.030Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:44.832Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:45.216Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:47.220Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:47.774Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:48.575Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:48.961Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:50.965Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:51.520Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:52.321Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:52.703Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:54.707Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:55.261Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:56.061Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:56.444Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:58.448Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:59.001Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:18:59.804Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:00.194Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:02.198Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:02.753Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:03.554Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:03.937Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:05.940Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:06.494Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:07.295Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:07.609Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:09.612Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:10.167Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:10.967Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:11.281Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:13.285Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:13.839Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:14.640Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:15.535Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:17.540Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:18.094Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:18.896Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:19.275Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:21.279Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:21.833Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:22.635Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:23.017Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:25.019Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:25.574Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:26.375Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:26.759Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:28.762Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:29.314Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:30.114Z",
-    "type": "FETCH",
-    "message": "محاولة جلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "retries": 3
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:30.428Z",
-    "type": "FETCH_RESPONSE",
-    "message": "استجابة الخادم",
-    "data": {
-      "status": 200,
-      "statusText": "OK"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:32.431Z",
-    "type": "FETCH",
-    "message": "نجح الجلب",
-    "data": {
-      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
-      "attempt": 1
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:32.988Z",
-    "type": "INFO",
-    "message": "تم حفظ حالة التقدم",
-    "data": {
-      "page": 1,
-      "mode": "monitor_home"
-    }
-  },
-  {
-    "timestamp": "2026-02-19T14:19:34.489Z",
+    "timestamp": "2026-02-19T15:54:53.906Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4041,7 +1953,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:34.804Z",
+    "timestamp": "2026-02-19T15:54:54.164Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4050,7 +1962,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:36.807Z",
+    "timestamp": "2026-02-19T15:54:56.167Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4059,7 +1971,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:37.359Z",
+    "timestamp": "2026-02-19T15:54:56.815Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4068,7 +1980,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:37.360Z",
+    "timestamp": "2026-02-19T15:54:56.816Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4077,7 +1989,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:37.673Z",
+    "timestamp": "2026-02-19T15:54:57.067Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4086,7 +1998,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:39.677Z",
+    "timestamp": "2026-02-19T15:54:59.071Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4095,7 +2007,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:40.232Z",
+    "timestamp": "2026-02-19T15:54:59.665Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4104,7 +2016,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:41.022Z",
+    "timestamp": "2026-02-19T15:54:59.919Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4113,7 +2025,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:43.025Z",
+    "timestamp": "2026-02-19T15:55:01.923Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4122,7 +2034,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:43.673Z",
+    "timestamp": "2026-02-19T15:55:02.494Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4131,7 +2043,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:44.474Z",
+    "timestamp": "2026-02-19T15:55:03.296Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4140,7 +2052,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:44.853Z",
+    "timestamp": "2026-02-19T15:55:03.698Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4149,7 +2061,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:46.856Z",
+    "timestamp": "2026-02-19T15:55:05.702Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4158,7 +2070,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:47.453Z",
+    "timestamp": "2026-02-19T15:55:06.268Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4167,7 +2079,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:48.254Z",
+    "timestamp": "2026-02-19T15:55:07.069Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4176,7 +2088,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:48.569Z",
+    "timestamp": "2026-02-19T15:55:07.324Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4185,7 +2097,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:50.572Z",
+    "timestamp": "2026-02-19T15:55:09.328Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4194,7 +2106,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:51.147Z",
+    "timestamp": "2026-02-19T15:55:09.968Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4203,7 +2115,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:51.950Z",
+    "timestamp": "2026-02-19T15:55:10.770Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4212,7 +2124,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:52.331Z",
+    "timestamp": "2026-02-19T15:55:11.023Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4221,7 +2133,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:54.335Z",
+    "timestamp": "2026-02-19T15:55:13.027Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4230,7 +2142,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:54.901Z",
+    "timestamp": "2026-02-19T15:55:13.623Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4239,7 +2151,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:55.702Z",
+    "timestamp": "2026-02-19T15:55:14.424Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4248,7 +2160,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:56.085Z",
+    "timestamp": "2026-02-19T15:55:14.673Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4257,7 +2169,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:58.089Z",
+    "timestamp": "2026-02-19T15:55:16.678Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4266,7 +2178,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:58.659Z",
+    "timestamp": "2026-02-19T15:55:17.250Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4275,7 +2187,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:59.460Z",
+    "timestamp": "2026-02-19T15:55:18.051Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4284,7 +2196,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:19:59.841Z",
+    "timestamp": "2026-02-19T15:55:18.300Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4293,7 +2205,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:01.844Z",
+    "timestamp": "2026-02-19T15:55:20.305Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4302,7 +2214,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:02.407Z",
+    "timestamp": "2026-02-19T15:55:20.867Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4311,7 +2223,133 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:03.208Z",
+    "timestamp": "2026-02-19T15:55:22.368Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:22.618Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:24.622Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:25.187Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:25.188Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:25.439Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:27.444Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:28.006Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:28.865Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:30.867Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:31.421Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:31.422Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:31.684Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:33.691Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:34.258Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4320,7 +2358,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:04.044Z",
+    "timestamp": "2026-02-19T15:55:34.511Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4329,7 +2367,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:06.047Z",
+    "timestamp": "2026-02-19T15:55:36.515Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4338,7 +2376,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:06.608Z",
+    "timestamp": "2026-02-19T15:55:37.064Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4347,7 +2385,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:07.409Z",
+    "timestamp": "2026-02-19T15:55:37.866Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4356,7 +2394,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:07.788Z",
+    "timestamp": "2026-02-19T15:55:38.118Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4365,7 +2403,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:09.791Z",
+    "timestamp": "2026-02-19T15:55:40.121Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4374,7 +2412,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:10.349Z",
+    "timestamp": "2026-02-19T15:55:40.767Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4383,7 +2421,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:11.150Z",
+    "timestamp": "2026-02-19T15:55:41.569Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4392,7 +2430,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:12.136Z",
+    "timestamp": "2026-02-19T15:55:41.822Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4401,7 +2439,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:14.140Z",
+    "timestamp": "2026-02-19T15:55:43.824Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4410,7 +2448,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:14.789Z",
+    "timestamp": "2026-02-19T15:55:44.417Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4419,7 +2457,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:15.592Z",
+    "timestamp": "2026-02-19T15:55:45.218Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4428,7 +2466,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:15.970Z",
+    "timestamp": "2026-02-19T15:55:45.470Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4437,7 +2475,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:17.974Z",
+    "timestamp": "2026-02-19T15:55:47.474Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4446,7 +2484,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:18.571Z",
+    "timestamp": "2026-02-19T15:55:48.051Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4455,7 +2493,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:19.372Z",
+    "timestamp": "2026-02-19T15:55:48.852Z",
     "type": "FETCH",
     "message": "محاولة جلب",
     "data": {
@@ -4464,7 +2502,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:19.750Z",
+    "timestamp": "2026-02-19T15:55:49.330Z",
     "type": "FETCH_RESPONSE",
     "message": "استجابة الخادم",
     "data": {
@@ -4473,7 +2511,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:21.754Z",
+    "timestamp": "2026-02-19T15:55:51.333Z",
     "type": "FETCH",
     "message": "نجح الجلب",
     "data": {
@@ -4482,7 +2520,7 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:20:22.332Z",
+    "timestamp": "2026-02-19T15:55:51.899Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
@@ -4491,7 +2529,1969 @@
     }
   },
   {
-    "timestamp": "2026-02-19T14:21:08.883Z",
+    "timestamp": "2026-02-19T15:55:52.700Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:53.018Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:55.022Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:55.667Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:56.469Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:56.719Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:58.722Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:55:59.321Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:00.123Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:00.375Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:02.378Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:02.956Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:04.459Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:04.711Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:06.716Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:07.278Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:07.279Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:07.529Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:09.533Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:10.099Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:10.351Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:12.355Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:12.916Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:13.718Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:13.971Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:15.973Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:16.524Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:17.325Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:17.836Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:19.840Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:20.481Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:21.282Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:21.530Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:23.533Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:24.134Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:24.934Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:25.246Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:27.250Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:27.826Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:28.627Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:28.884Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:30.887Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:31.449Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:32.251Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:32.502Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:34.506Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:35.142Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:35.942Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:36.194Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:38.197Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:38.798Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:40.299Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:40.555Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:42.560Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:43.143Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:43.144Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:43.401Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:45.405Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:45.968Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:46.218Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:48.220Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:48.871Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:48.872Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:49.129Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:51.133Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:51.724Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:52.349Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:54.352Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:54.925Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:55.728Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:55.980Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:57.983Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:58.554Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:59.354Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:56:59.610Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:01.614Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:02.175Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:02.977Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:03.227Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:05.229Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:05.782Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:06.583Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:06.839Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:08.843Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:09.404Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:10.205Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:10.457Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:12.462Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:13.009Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:13.810Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:14.063Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:16.067Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:16.711Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:18.213Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:18.465Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:20.468Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:21.071Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:21.073Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:21.323Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:23.326Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:23.908Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:24.161Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:26.165Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:26.730Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:27.532Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:27.785Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:29.788Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:30.349Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:31.149Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:31.410Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:33.414Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:33.968Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:34.770Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:35.025Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:37.032Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:37.684Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:38.486Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:38.752Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:40.755Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:41.369Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:42.170Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:42.428Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:44.432Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:45.010Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:45.811Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:46.063Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:48.065Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:48.633Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:49.434Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:49.687Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:51.690Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:52.330Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:53.832Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:54.080Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:56.084Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:56.683Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:56.685Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:56.935Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:58.940Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:59.518Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:57:59.784Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:01.787Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:02.350Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:03.151Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:03.417Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:05.419Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:05.983Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:06.784Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:07.041Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:09.044Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:09.601Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:10.404Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:10.656Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:12.660Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:13.220Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:14.023Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:14.274Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:16.278Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:16.832Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:17.634Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:17.890Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:19.895Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:20.455Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:21.256Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:21.410Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:23.509Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:24.061Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:24.864Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:25.116Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:27.120Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:27.768Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:28.569Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:28.832Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:30.837Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:31.440Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:32.241Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:32.493Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:34.497Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:35.070Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:36.572Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:36.829Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:38.834Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:39.406Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:39.407Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:39.664Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:41.670Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:42.323Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:42.573Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:44.578Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:45.164Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:45.966Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:46.219Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:48.223Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:48.800Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:49.601Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:49.852Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:51.857Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:52.420Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:53.222Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:53.471Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:55.475Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:56.127Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:56.930Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:57.182Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:59.185Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:58:59.776Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:00.578Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:00.831Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:02.835Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:03.415Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:04.217Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:04.470Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:06.474Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:07.042Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:07.845Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:08.502Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:10.506Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/%d9%85%d8%b3%d9%84%d8%b3%d9%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:11.148Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "monitor_home"
+    }
+  },
+  {
+    "timestamp": "2026-02-19T15:59:57.699Z",
     "type": "INFO",
     "message": "تم حفظ حالة التقدم",
     "data": {
