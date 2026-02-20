@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-02-20T18:55:39.744Z",
+  "last_scan": "2026-02-20T19:30:33.658Z",
   "series": {
     "193369381": {
       "last_episode": "c5c18decf",
@@ -818,7 +818,7 @@
       }
     },
     "E325739F8": {
-      "last_episode": "3101f697d",
+      "last_episode": "71564e2a5",
       "last_season": 2,
       "episodes": {
         "fb50e99fd": {
@@ -831,6 +831,12 @@
           "extracted_at": "2026-02-20T16:01:16.755Z",
           "title": "مسلسل بنات العم 2 - انتقام الموتى الحلقة 2 الثانية",
           "number": 2,
+          "season": 2
+        },
+        "71564e2a5": {
+          "extracted_at": "2026-02-20T19:29:03.189Z",
+          "title": "مسلسل بنات العم 2 - انتقام الموتى الحلقة 3 الثالثة",
+          "number": 3,
           "season": 2
         }
       }
@@ -1844,7 +1850,7 @@
       }
     },
     "801312c15": {
-      "last_episode": "5d2415521",
+      "last_episode": "ed9df0d32",
       "last_season": 2,
       "episodes": {
         "bfa0deb2c": {
@@ -1857,6 +1863,12 @@
           "extracted_at": "2026-02-20T16:07:48.029Z",
           "title": "مسلسل ديربي 2 الحلقة 2 الثانية",
           "number": 2,
+          "season": 2
+        },
+        "ed9df0d32": {
+          "extracted_at": "2026-02-20T19:30:33.658Z",
+          "title": "مسلسل ديربي 2 الحلقة 3 الثالثة",
+          "number": 3,
           "season": 2
         }
       }
@@ -3717,16 +3729,50 @@
       "title": "مسلسل السوق الحرة الحلقة 4 الرابعة",
       "number": 4,
       "season": 1
+    },
+    "71564e2a5": {
+      "series_id": "E325739F8",
+      "extracted_at": "2026-02-20T19:29:03.189Z",
+      "title": "مسلسل بنات العم 2 - انتقام الموتى الحلقة 3 الثالثة",
+      "number": 3,
+      "season": 2
+    },
+    "ed9df0d32": {
+      "series_id": "801312c15",
+      "extracted_at": "2026-02-20T19:30:33.658Z",
+      "title": "مسلسل ديربي 2 الحلقة 3 الثالثة",
+      "number": 3,
+      "season": 2
     }
   },
   "statistics": {
     "total_series": 91,
-    "total_episodes": 247,
-    "new_episodes_today": 22,
-    "last_scan": "2026-02-20T18:55:41.822Z",
+    "total_episodes": 249,
+    "new_episodes_today": 2,
+    "last_scan": "2026-02-20T19:30:50.283Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "ed9df0d32",
+      "series_id": "801312c15",
+      "series_title": "مسلسل ديربي",
+      "title": "مسلسل ديربي 2 الحلقة 3 الثالثة",
+      "image": "https://laroza.life/uploads/thumbs/bfa0deb2c-1.jpg",
+      "number": 3,
+      "season": 2,
+      "added_at": "2026-02-20T19:30:32.813Z"
+    },
+    {
+      "id": "71564e2a5",
+      "series_id": "E325739F8",
+      "series_title": "مسلسل بنات العم",
+      "title": "مسلسل بنات العم 2 - انتقام الموتى الحلقة 3 الثالثة",
+      "image": "https://laroza.life/uploads/thumbs/fb50e99fd-1.jpg",
+      "number": 3,
+      "season": 2,
+      "added_at": "2026-02-20T19:29:02.209Z"
+    },
     {
       "id": "95a45541c",
       "series_id": "7bfb7e4b0",
@@ -3806,26 +3852,6 @@
       "number": 5,
       "season": 1,
       "added_at": "2026-02-20T18:54:13.387Z"
-    },
-    {
-      "id": "0b6d5a5ce",
-      "series_id": "64387fca3",
-      "series_title": "مسلسل بنات عبدالغني",
-      "title": "مسلسل بنات عبدالغني الحلقة 5 الخامسة",
-      "image": "https://laroza.life/uploads/thumbs/2344c2855-1.jpg",
-      "number": 5,
-      "season": 1,
-      "added_at": "2026-02-20T18:54:10.812Z"
-    },
-    {
-      "id": "4b89a9b53",
-      "series_id": "f6ba66438",
-      "series_title": "مسلسل سموم القيظ",
-      "title": "مسلسل سموم القيظ الحلقة 4 الرابعة",
-      "image": "https://laroza.life/uploads/thumbs/8a5e68a1d-1.jpg",
-      "number": 4,
-      "season": 1,
-      "added_at": "2026-02-20T18:54:08.016Z"
     }
   ],
   "latest_series": [
@@ -3833,31 +3859,31 @@
       "id": "1b42",
       "title": "فن الحرب",
       "image": "",
-      "added_at": "2026-02-20T18:51:46.789Z"
+      "added_at": "2026-02-20T19:27:29.039Z"
     },
     {
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
       "image": "https://laroza.life/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-02-20T18:51:46.789Z"
+      "added_at": "2026-02-20T19:27:29.039Z"
     },
     {
       "id": "81ce0a5d7",
       "title": "مسلسل علي كلاي",
       "image": "https://laroza.life/uploads/thumbs/0ec1512a8-1.jpg",
-      "added_at": "2026-02-20T18:51:46.789Z"
+      "added_at": "2026-02-20T19:27:29.039Z"
     },
     {
       "id": "1cf22b484",
       "title": "مسلسل افراج",
       "image": "https://laroza.life/uploads/thumbs/372599929-1.jpg",
-      "added_at": "2026-02-20T18:51:46.789Z"
+      "added_at": "2026-02-20T19:27:29.039Z"
     },
     {
       "id": "c",
       "title": "النص",
       "image": "",
-      "added_at": "2026-02-20T18:51:46.789Z"
+      "added_at": "2026-02-20T19:27:29.039Z"
     }
   ]
 }
