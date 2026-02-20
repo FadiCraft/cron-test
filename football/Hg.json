@@ -1,34 +1,10 @@
 {
-  "scrapedAt": "2026-02-20T21:21:44.742Z",
+  "scrapedAt": "2026-02-20T21:48:59.760Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 8,
   "matches": [
     {
-      "id": "match_1771622493913_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%a7%d8%b3%d9%88%d9%84%d9%88-%d9%88-%d9%87%d9%8a%d9%84%d8%a7%d8%b3-%d9%81%d9%8a%d8%b1%d9%88%d9%86%d8%a7-%d8%a8%d8%ab/",
-      "title": "ساسولو vs هيلاس فيرونا",
-      "team1": {
-        "name": "ساسولو",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/266.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "هيلاس فيرونا",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/316.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [],
-      "tournament": "الدوري الإيطالي",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-20T21:21:33.913Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1771622493914_1",
+      "id": "match_1771624132210_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%aa%d9%84%d8%aa%d9%8a%d9%83-%d8%a8%d9%84%d8%a8%d8%a7%d9%88-%d9%88-%d8%a5%d9%84%d8%aa%d8%b4%d9%8a-%d8%a8%d8%ab-%d9%85/",
       "title": "أتلتيك بلباو vs إلتشي",
       "team1": {
@@ -49,8 +25,8 @@
       ],
       "tournament": "الدوري الإسباني",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-20T21:21:33.914Z",
+      "position": 1,
+      "scrapedAt": "2026-02-20T21:48:52.210Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -62,7 +38,31 @@
       ]
     },
     {
-      "id": "match_1771622493915_2",
+      "id": "match_1771624132211_1",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b3%d8%a7%d8%b3%d9%88%d9%84%d9%88-%d9%88-%d9%87%d9%8a%d9%84%d8%a7%d8%b3-%d9%81%d9%8a%d8%b1%d9%88%d9%86%d8%a7-%d8%a8%d8%ab/",
+      "title": "ساسولو vs هيلاس فيرونا",
+      "team1": {
+        "name": "ساسولو",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/266.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "هيلاس فيرونا",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/316.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
+      "channels": [],
+      "tournament": "الدوري الإيطالي",
+      "page": 1,
+      "position": 2,
+      "scrapedAt": "2026-02-20T21:48:52.211Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1771624132212_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%b1%d9%8a%d8%b3%d8%aa-%d9%88-%d8%a3%d9%88%d9%84%d9%85%d8%a8%d9%8a%d9%83-%d9%85%d8%a7%d8%b1%d8%b3%d9%8a%d9%84%d9%8a/",
       "title": "بريست vs أولمبيك مارسيليا",
       "team1": {
@@ -77,24 +77,16 @@
       },
       "score": "0-0",
       "time": "غير معروف",
-      "status": "جارية الآن",
+      "status": "انتهت",
       "channels": [],
       "tournament": "الدوري الفرنسي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-02-20T21:21:33.915Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://pl.gomatch-live.com/albaplayer/bein22/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "scrapedAt": "2026-02-20T21:48:52.212Z",
+      "watchServers": null
     },
     {
-      "id": "match_1771622493916_3",
+      "id": "match_1771624132213_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%85%d8%a7%d9%8a%d9%86%d8%b2-05-%d9%88-%d9%87%d8%a7%d9%85%d8%a8%d9%88%d8%b1%d8%ac-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
       "title": "ماينز 05 vs هامبورج",
       "team1": {
@@ -109,16 +101,16 @@
       },
       "score": "0-0",
       "time": "غير معروف",
-      "status": "جارية الآن",
+      "status": "انتهت",
       "channels": [],
       "tournament": "الدوري الألماني",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-02-20T21:21:33.916Z",
+      "scrapedAt": "2026-02-20T21:48:52.213Z",
       "watchServers": null
     },
     {
-      "id": "match_1771622493917_4",
+      "id": "match_1771624132214_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d8%af%d8%b2-%d9%88-%d8%b3%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d9%83%d8%a7-%d9%83%d9%84%d9%8a/",
       "title": "بيراميدز vs سيراميكا كليوباترا",
       "team1": {
@@ -133,24 +125,16 @@
       },
       "score": "0-0",
       "time": "غير معروف",
-      "status": "جارية الآن",
+      "status": "انتهت",
       "channels": [],
       "tournament": "الدوري المصري",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-02-20T21:21:33.917Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://pl.gomatch-live.com/albaplayer/on-time-sport-2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "scrapedAt": "2026-02-20T21:48:52.214Z",
+      "watchServers": null
     },
     {
-      "id": "match_1771622493918_5",
+      "id": "match_1771624132216_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%84%d9%83-%d9%88-%d8%ad%d8%b1%d8%b3-%d8%a7%d9%84%d8%ad%d8%af%d9%88%d8%af-%d8%a8%d8%ab-%d9%85/",
       "title": "الزمالك vs حرس الحدود",
       "team1": {
@@ -165,26 +149,18 @@
       },
       "score": "0-0",
       "time": "غير معروف",
-      "status": "جارية الآن",
+      "status": "انتهت",
       "channels": [
         "أون سبورت 1"
       ],
       "tournament": "الدوري المصري",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-02-20T21:21:33.918Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://pl.gomatch-live.com/albaplayer/on-time-sport-1/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "scrapedAt": "2026-02-20T21:48:52.216Z",
+      "watchServers": null
     },
     {
-      "id": "match_1771622493919_6",
+      "id": "match_1771624132217_6",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b6%d9%85%d9%83-%d9%88-%d8%a7%d9%84%d8%b4%d8%a8%d8%a7%d8%a8-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1/",
       "title": "ضمك vs الشباب",
       "team1": {
@@ -204,11 +180,11 @@
       "tournament": "الدوري السعودي",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-02-20T21:21:33.919Z",
+      "scrapedAt": "2026-02-20T21:48:52.217Z",
       "watchServers": null
     },
     {
-      "id": "match_1771622493920_7",
+      "id": "match_1771624132218_7",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d8%ae%d8%af%d9%88%d8%af-%d9%88-%d8%a7%d9%84%d9%82%d8%a7%d8%af%d8%b3%d9%8a%d8%a9-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "الأخدود vs القادسية",
       "team1": {
@@ -228,7 +204,7 @@
       "tournament": "الدوري السعودي",
       "page": 1,
       "position": 8,
-      "scrapedAt": "2026-02-20T21:21:33.920Z",
+      "scrapedAt": "2026-02-20T21:48:52.218Z",
       "watchServers": null
     }
   ]
