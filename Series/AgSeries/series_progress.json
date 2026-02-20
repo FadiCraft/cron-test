@@ -1,25 +1,25 @@
 {
   "seriesPage": 1,
-  "seriesFileNumber": 12,
-  "seriesInCurrentFile": 20,
-  "seasonFileNumber": 17,
-  "seasonsInCurrentFile": 86,
-  "episodeFileNumber": 39,
-  "episodesInCurrentFile": 323,
+  "seriesFileNumber": 13,
+  "seriesInCurrentFile": 0,
+  "seasonFileNumber": 18,
+  "seasonsInCurrentFile": 74,
+  "episodeFileNumber": 41,
+  "episodesInCurrentFile": 320,
   "pagesProcessedThisRun": 0,
   "shouldStop": true,
   "allPagesScraped": true,
   "mode": "monitor_home",
   "currentSeriesId": null,
   "currentSeasonId": "gt_35463",
-  "currentSeriesFile": "Page12.json",
-  "currentSeasonFile": "Page17.json",
-  "currentEpisodeFile": "Page39.json",
-  "lastHomeUpdate": "2026-02-20T09:52:52.882Z",
+  "currentSeriesFile": "Page13.json",
+  "currentSeasonFile": "Page18.json",
+  "currentEpisodeFile": "Page41.json",
+  "lastHomeUpdate": "2026-02-20T11:53:16.194Z",
   "totalExtracted": {
-    "series": 570,
-    "seasons": 1686,
-    "episodes": 19323
+    "series": 600,
+    "seasons": 1774,
+    "episodes": 20320
   },
   "lastHomeSeriesIds": [
     "gt_45221",
@@ -53,5 +53,5 @@
     "gt_93661",
     "gt_35441"
   ],
-  "lastUpdate": "2026-02-20T09:52:52.882Z"
+  "lastUpdate": "2026-02-20T11:53:16.194Z"
 }
