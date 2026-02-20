@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-02-20T07:02:39.821Z",
-  "total_series": 93,
+  "last_update": "2026-02-20T13:05:59.492Z",
+  "total_series": 91,
   "series": [
     {
       "id": "c9",
@@ -21,6 +21,14 @@
     {
       "id": "c",
       "title": "النص",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "a",
+      "title": "حد أقصى",
       "image": "",
       "seasons": 1,
       "last_season": 1,
@@ -219,14 +227,6 @@
       "episodes_count": 0
     },
     {
-      "id": "53516896f",
-      "title": "مسلسل أولاد الراعي",
-      "image": "https://laroza.shop/uploads/thumbs/89b8facc2-1.jpg",
-      "seasons": 2,
-      "last_season": 1,
-      "episodes_count": 0
-    },
-    {
       "id": "ceef8c734",
       "title": "مسلسل با الحبيب",
       "image": "https://laroza.shop/uploads/thumbs/a3218cf30-1.jpg",
@@ -323,14 +323,6 @@
       "episodes_count": 0
     },
     {
-      "id": "c7e23a82b",
-      "title": "مسلسل حد أقصى",
-      "image": "https://laroza.shop/uploads/thumbs/ec0b2f5bf-1.jpg",
-      "seasons": 2,
-      "last_season": 1,
-      "episodes_count": 0
-    },
-    {
       "id": "2e0b75162",
       "title": "مسلسل حكاية نرجس",
       "image": "https://laroza.shop/uploads/thumbs/0d592a5a9-1.jpg",
@@ -351,14 +343,6 @@
       "title": "مسلسل حين لا يرانا أحد",
       "image": "",
       "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 0
-    },
-    {
-      "id": "703e6a3a4",
-      "title": "مسلسل درش",
-      "image": "https://laroza.shop/uploads/thumbs/f127518b4-1.jpg",
-      "seasons": 2,
       "last_season": 1,
       "episodes_count": 0
     },
@@ -541,7 +525,7 @@
     {
       "id": "81ce0a5d7",
       "title": "مسلسل علي كلاي",
-      "image": "https://laroza.shop/uploads/thumbs/0ec1512a8-1.jpg",
+      "image": "",
       "seasons": 2,
       "last_season": 1,
       "episodes_count": 0
