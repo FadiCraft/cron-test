@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-02-19T23:44:40.508Z",
+  "timestamp": "2026-02-20T03:08:11.204Z",
   "mode": "monitor_home",
   "stats": {
-    "totalSeries": 450,
-    "totalSeasons": 1334,
-    "totalEpisodes": 15336,
+    "totalSeries": 480,
+    "totalSeasons": 1422,
+    "totalEpisodes": 16332,
     "seriesPage": 1,
     "allPagesScraped": true,
-    "lastHomeUpdate": "2026-02-19T23:44:40.506Z"
+    "lastHomeUpdate": "2026-02-20T03:08:11.202Z"
   },
   "files": {
-    "seriesFiles": 10,
-    "seasonFiles": 14,
-    "episodeFiles": 31
+    "seriesFiles": 11,
+    "seasonFiles": 15,
+    "episodeFiles": 33
   },
   "nextRun": {
     "mode": "monitor_home",
