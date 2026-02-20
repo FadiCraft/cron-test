@@ -1,453 +1,13 @@
 {
   "info": {
-    "type": "home_series",
-    "fileName": "Home.json",
-    "totalItems": 30,
-    "created": "2026-02-20T08:38:59.324Z",
-    "lastUpdated": "2026-02-20T08:38:59.324Z",
-    "source": "الصفحة الأولى",
-    "note": "يتم تحديث هذا الملف في كل تشغيل بآخر مسلسلات الصفحة الأولى"
+    "type": "data",
+    "fileName": "Page12.json",
+    "totalItems": 20,
+    "created": "2026-02-20T09:02:22.103Z",
+    "lastUpdated": "2026-02-20T09:46:59.032Z",
+    "lastItemAdded": "2026-02-20T09:46:59.032Z"
   },
   "data": [
-    {
-      "id": "gt_45221",
-      "title": "مسلسل The Last Thing He Told Me مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-last-thing-he-told-me-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=45221",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/_640x_4b54ce1a20f913c4cf4e8d4cac2624d3d51fb5976052792536a26e15af174eaf.jpg",
-      "imdbRating": "6.5",
-      "story": "في الموسم الثاني، يعود (أوين) إلى الظهور بعد خمس سنوات من الهروب، فتجد (هانا) وابنة زوجها (بايلي) نفسيهما في سباق مع الزمن لمعرفة كيفية لمّ شمل العائلة، قبل أن يلحق بهما الماضي ويقلب حياتهما رأسًا على عقب.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "اثارة",
-          "دراما",
-          "غموض"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "توقيت المسلسل": "4 ساعة و 35 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "المخرجين": [
-          "Daisy von Scherler Mayer",
-          "Deniz Gamze Ergven",
-          "Lila Neugebauer"
-        ],
-        "بطولة": [
-          "Aisha Tyler",
-          "Alex Denney",
-          "Angourie Rice",
-          "Augusto Aguilera"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-last-thing-he-told-me-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-02-20T08:36:49.222Z",
-      "lastUpdated": "2026-02-20T08:36:49.222Z"
-    },
-    {
-      "id": "gt_42678",
-      "title": "مسلسل Travelers مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-travelers-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=42678",
-      "image": "https://topcinema.red/wp-content/uploads/2023/10/MV5BMjUzOTQwOTg1MF5BMl5BanBnXkFtZTgwNzE4NzQ3NjM@._V1_.jpg",
-      "imdbRating": "8",
-      "story": "يتعقّب عميل فيدرالي أربعة أشخاص يبدو أنهم قد اكتسبوا فجأة شخصيات جديدة تمامًا... وهو ما يقوده إلى اكتشاف مريع حول مستقبل البشرية.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "خيال علمي",
-          "دراما",
-          "غموض"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "توقيت المسلسل": "45 دقيقة",
-        "موعد الصدور": [
-          "2018"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "كندا"
-        ],
-        "المخرجين": [
-          "Amanda Tapping",
-          "Andy Mikita",
-          "Bryan C Knight"
-        ],
-        "بطولة": [
-          "Arnold Pinnock",
-          "Ben Immanuel",
-          "Douglas Chapman",
-          "Dylan Playfair"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-travelers-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-02-20T08:36:53.565Z",
-      "lastUpdated": "2026-02-20T08:36:53.565Z"
-    },
-    {
-      "id": "gt_122497",
-      "title": "مسلسل Being Gordon Ramsay مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-being-gordon-ramsay-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122497",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/MV5BNzZmODhhNDUtMDA2OC00Mzc2LTk3YWYtNDFkMGFhNzVhN2I4XkEyXkFqcGc@.jpg",
-      "imdbRating": "",
-      "story": "تابع كبير الطهاة \"غوردن رامزي\" الشهير بعيدًا عن الأضواء، وهو يوازن ما بين حياته العائلية وإمبراطوريته العالمية وأكبر مشروع يطلقه حتى الآن في هذا الوثائقي الشامل والغنيّ بالتفاصيل.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "وثائقي"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "موعد الصدور": [
-          "2026"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "المملكة المتحدة"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-being-gordon-ramsay-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-02-20T08:36:57.885Z",
-      "lastUpdated": "2026-02-20T08:36:57.885Z"
-    },
-    {
-      "id": "gt_32212",
-      "title": "مسلسل Outer Banks مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-outer-banks-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=32212",
-      "image": "https://topcinema.red/wp-content/uploads/2024/10/MV5BY2FmYmJiYTQtYmJhZC00ZTIxLTk3OTAtNzc3NDk0NGMxYTdmXkEyXkFqcGc@._V1_.jpg",
-      "imdbRating": "7.5",
-      "story": "في الموسم الرابع، وبعد عثورهم على الذهب، يعتقد الفريق أن مهمتهم انتهت بالعثور على الكنز الثمين وتحقيق أحلامهم، ولكن يتضح أن للقصة فصول آخرى.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "اكشن",
-          "جريمة",
-          "دراما"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "توقيت المسلسل": "50 دقيقة",
-        "موعد الصدور": [
-          "2024"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "المخرجين": [
-          "Cherie Nowlan",
-          "Darnell Martin",
-          "Gonzalo Amat"
-        ],
-        "بطولة": [
-          "Austin North",
-          "Carlacia Grant",
-          "Caroline Arapoglou",
-          "Charles Esten"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-outer-banks-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-02-20T08:37:02.286Z",
-      "lastUpdated": "2026-02-20T08:37:02.286Z"
-    },
-    {
-      "id": "gt_21467",
-      "title": "مسلسل The Night Agent مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-night-agent-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=21467",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/76fD9Ho5zJWJD3WhcUiWwZpKTcb.jpg",
-      "imdbRating": "7.5",
-      "story": "في الموسم الثالث، يلاحق (بيتر ساذرلاند) عميل متمرّد في وزارة الخزانة فرّ إلى إسطنبول حاملًا بيانات شديدة الحساسية، فيدخل في خيوط شبكة مالية مظلمة ومؤامرة دولية تشمل قتلة محترفين.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "اثارة",
-          "اكشن",
-          "دراما"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "توقيت المسلسل": "45 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "المخرجين": [
-          "Adam Arkin",
-          "Guy Ferland",
-          "Millicent Shelton"
-        ],
-        "بطولة": [
-          "Andre Anthony",
-          "Andres Collantes",
-          "Ben Cotton",
-          "Christopher Shyer"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-night-agent-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-02-20T08:37:06.637Z",
-      "lastUpdated": "2026-02-20T08:37:06.637Z"
-    },
-    {
-      "id": "gt_122490",
-      "title": "مسلسل Life in Pieces مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-life-in-pieces-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122490",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/vac76nqALSJfy9AN0D9sSh1fQFE-scaled.jpg",
-      "imdbRating": "8",
-      "story": "تستمر الحياة داخل أسرة (جريج) حيث تقضي الأسرة عطلتها في منتجع (يوكاتان) يكتشف كل من (جين) و(جريج) أن (مات) و(كولين) قاما بخداع الجميع، أيضًا (هيذر) تتيح لـ(جون) تدبير شؤون المنزل؛ وعلى جانب أخر (جوان) تتعافى من جراحة في الركبة مع توالي الأحداث.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "كوميدي"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "موعد الصدور": [
-          "2019"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Angelique Cabral",
-          "Betsy Brandt",
-          "Colin Hanks",
-          "Dan Bakkedahl"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-life-in-pieces-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-02-20T08:37:11.031Z",
-      "lastUpdated": "2026-02-20T08:37:11.031Z"
-    },
-    {
-      "id": "gt_122475",
-      "title": "مسلسل 56 Days مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-56-days-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122475",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/sdJLbucggwGj8NdX0UN2zt1Vwmn-scaled.jpg",
-      "imdbRating": "",
-      "story": "بعد لقاء عابر في أحد المتاجر الكبرى، ينخرط (أوليفر) و(سيارا) في علاقة عاطفية، لكن بعد 56 يومًا، يؤدي العثور على جثة قُتلت بوحشية إلى فتح تحقيق يتوغّل في تفاصيل قصتهما المضطربة.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "جريمة",
-          "دراما",
-          "غموض"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "موعد الصدور": [
-          "2026"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Alfredo Narciso",
-          "Anthony Therrien",
-          "Avan Jogia",
-          "Dorian Missick"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-56-days-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 7,
-      "scrapedAt": "2026-02-20T08:37:15.389Z",
-      "lastUpdated": "2026-02-20T08:37:15.389Z"
-    },
-    {
-      "id": "gt_122470",
-      "title": "مسلسل Future Man مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122470",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/49mOgAEa4eKpPsoBH8UvvXwEMDT-scaled.jpg",
-      "imdbRating": "7.6",
-      "story": "في الموسم الثالث من مسلسل (رجل المستقبل)، يُجبر كل من جوش وتايجر ووولف على التنافس في ديكاتالون، لكن تنشأ عدد من التعقيدات التي تضعهم في خلاف مع بعضهم البعض.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "اكشن",
-          "كوميدي",
-          "مغامرة"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "موعد الصدور": [
-          "2020"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Derek Wilson",
-          "Ed Begley Jr",
-          "Eliza Coupe",
-          "Glenne Headly"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-future-man-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-02-20T08:37:19.717Z",
-      "lastUpdated": "2026-02-20T08:37:19.717Z"
-    },
-    {
-      "id": "gt_35284",
-      "title": "مسلسل Anne with an E مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=35284",
-      "image": "https://topcinema.red/wp-content/uploads/2023/09/AfdA3ATmvQnsVr6ZqbSWVmnHWlg.jpg",
-      "imdbRating": "8.6",
-      "story": "مسلسل مقتبس من رواية (آن من غرين غيبلز) للكاتبة (لوسي مود مونتغمري)، تدور الأحداث في أواخر القرن التاسع عشر حول مغامرات الفتاة اليتيمة (آن) التي يتم إرسالها بالخطأ إلى عائلة تريد صبيًّا ليتبنوه.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "دراما",
-          "عائلي"
-        ],
-        "جودة المسلسل": [
-          "1080p WEB-DL"
-        ],
-        "توقيت المسلسل": "1 ساعة",
-        "موعد الصدور": [
-          "2017"
-        ],
-        "لغة المسلسل": [
-          "Micmac"
-        ],
-        "دولة المسلسل": [
-          "كندا"
-        ],
-        "المخرجين": [
-          "Amanda Tapping",
-          "Anne Wheeler",
-          "David Evans"
-        ],
-        "بطولة": [
-          "Amybeth McNulty",
-          "Aymeric Jett Montaz",
-          "Christian Martyn",
-          "Corrine Koslo"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-anne-with-an-e-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 9,
-      "scrapedAt": "2026-02-20T08:37:24.679Z",
-      "lastUpdated": "2026-02-20T08:37:24.679Z"
-    },
-    {
-      "id": "gt_122455",
-      "title": "مسلسل Orphan Black مترجم",
-      "url": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/",
-      "shortLink": "https://topcinema.red?gt=122455",
-      "image": "https://topcinema.red/wp-content/uploads/2026/02/bbvvqHYd47R3xFJZ0QyXgLexOna-scaled.jpg",
-      "imdbRating": "8.3",
-      "story": "بعد أن وجدت نفسها في عزلة بجزيرة نائية، تسعى (سارة) الجريحة للهرب ولمِّ شمل عائلتها، قبل أن تعثر على اكتشاف صادم، سيكشف لها العديد من الأسرار المبهمة.",
-      "details": {
-        "قسم المسلسل": [
-          "مسلسلات اجنبي"
-        ],
-        "نوع المسلسل": [
-          "اثارة",
-          "خيال علمي",
-          "دراما"
-        ],
-        "جودة المسلسل": [
-          "1080p BluRay"
-        ],
-        "موعد الصدور": [
-          "2017"
-        ],
-        "لغة المسلسل": [
-          "الأنجليزية"
-        ],
-        "دولة المسلسل": [
-          "كندا"
-        ],
-        "بطولة": [
-          "Ari Millen",
-          "Dylan Bruce",
-          "Evelyne Brochu",
-          "Jordan Gavaris"
-        ]
-      },
-      "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-orphan-black-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
-      "page": 1,
-      "position": 10,
-      "scrapedAt": "2026-02-20T08:37:28.994Z",
-      "lastUpdated": "2026-02-20T08:37:28.994Z"
-    },
     {
       "id": "gt_122446",
       "title": "مسلسل Hell on Wheels مترجم",
@@ -486,8 +46,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-hell-on-wheels-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 11,
-      "scrapedAt": "2026-02-20T08:37:33.306Z",
-      "lastUpdated": "2026-02-20T08:37:33.306Z"
+      "scrapedAt": "2026-02-20T09:02:21.602Z",
+      "lastUpdated": "2026-02-20T09:02:21.602Z"
     },
     {
       "id": "gt_122400",
@@ -528,8 +88,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bates-motel-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 12,
-      "scrapedAt": "2026-02-20T08:37:37.615Z",
-      "lastUpdated": "2026-02-20T08:37:37.615Z"
+      "scrapedAt": "2026-02-20T09:06:30.003Z",
+      "lastUpdated": "2026-02-20T09:06:30.003Z"
     },
     {
       "id": "gt_122216",
@@ -569,8 +129,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-borderline-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 13,
-      "scrapedAt": "2026-02-20T08:37:42.475Z",
-      "lastUpdated": "2026-02-20T08:37:42.475Z"
+      "scrapedAt": "2026-02-20T09:10:11.979Z",
+      "lastUpdated": "2026-02-20T09:10:11.979Z"
     },
     {
       "id": "gt_19031",
@@ -616,8 +176,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-dark-winds-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 14,
-      "scrapedAt": "2026-02-20T08:37:46.825Z",
-      "lastUpdated": "2026-02-20T08:37:46.825Z"
+      "scrapedAt": "2026-02-20T09:10:31.849Z",
+      "lastUpdated": "2026-02-20T09:10:31.849Z"
     },
     {
       "id": "gt_122394",
@@ -657,8 +217,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-yellowstone-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 15,
-      "scrapedAt": "2026-02-20T08:37:51.165Z",
-      "lastUpdated": "2026-02-20T08:37:51.165Z"
+      "scrapedAt": "2026-02-20T09:11:52.423Z",
+      "lastUpdated": "2026-02-20T09:11:52.423Z"
     },
     {
       "id": "gt_11979",
@@ -705,8 +265,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-lincoln-lawyer-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 16,
-      "scrapedAt": "2026-02-20T08:37:55.811Z",
-      "lastUpdated": "2026-02-20T08:37:55.811Z"
+      "scrapedAt": "2026-02-20T09:15:24.195Z",
+      "lastUpdated": "2026-02-20T09:15:24.195Z"
     },
     {
       "id": "gt_29851",
@@ -753,8 +313,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-sex-education-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 17,
-      "scrapedAt": "2026-02-20T08:38:00.853Z",
-      "lastUpdated": "2026-02-20T08:38:00.853Z"
+      "scrapedAt": "2026-02-20T09:18:21.556Z",
+      "lastUpdated": "2026-02-20T09:18:21.556Z"
     },
     {
       "id": "gt_42048",
@@ -801,8 +361,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-el-chapo-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 18,
-      "scrapedAt": "2026-02-20T08:38:05.211Z",
-      "lastUpdated": "2026-02-20T08:38:05.211Z"
+      "scrapedAt": "2026-02-20T09:20:49.579Z",
+      "lastUpdated": "2026-02-20T09:20:49.579Z"
     },
     {
       "id": "gt_32848",
@@ -849,8 +409,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-bodyguard-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 19,
-      "scrapedAt": "2026-02-20T08:38:09.535Z",
-      "lastUpdated": "2026-02-20T08:38:09.535Z"
+      "scrapedAt": "2026-02-20T09:23:20.170Z",
+      "lastUpdated": "2026-02-20T09:23:20.170Z"
     },
     {
       "id": "gt_108856",
@@ -887,8 +447,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-in-the-mud-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 20,
-      "scrapedAt": "2026-02-20T08:38:14.461Z",
-      "lastUpdated": "2026-02-20T08:38:14.461Z"
+      "scrapedAt": "2026-02-20T09:23:54.015Z",
+      "lastUpdated": "2026-02-20T09:23:54.015Z"
     },
     {
       "id": "gt_122267",
@@ -927,8 +487,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-speechless-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 21,
-      "scrapedAt": "2026-02-20T08:38:19.485Z",
-      "lastUpdated": "2026-02-20T08:38:19.485Z"
+      "scrapedAt": "2026-02-20T09:25:10.355Z",
+      "lastUpdated": "2026-02-20T09:25:10.355Z"
     },
     {
       "id": "gt_122334",
@@ -969,8 +529,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-love-story-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 22,
-      "scrapedAt": "2026-02-20T08:38:23.793Z",
-      "lastUpdated": "2026-02-20T08:38:23.793Z"
+      "scrapedAt": "2026-02-20T09:29:25.023Z",
+      "lastUpdated": "2026-02-20T09:29:25.023Z"
     },
     {
       "id": "gt_121309",
@@ -1010,8 +570,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-the-beauty-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 23,
-      "scrapedAt": "2026-02-20T08:38:28.118Z",
-      "lastUpdated": "2026-02-20T08:38:28.118Z"
+      "scrapedAt": "2026-02-20T09:29:48.209Z",
+      "lastUpdated": "2026-02-20T09:29:48.209Z"
     },
     {
       "id": "gt_120616",
@@ -1049,8 +609,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-star-trek-starfleet-academy-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 24,
-      "scrapedAt": "2026-02-20T08:38:32.421Z",
-      "lastUpdated": "2026-02-20T08:38:32.421Z"
+      "scrapedAt": "2026-02-20T09:30:25.616Z",
+      "lastUpdated": "2026-02-20T09:30:25.616Z"
     },
     {
       "id": "gt_122233",
@@ -1090,8 +650,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-how-to-get-to-heaven-from-belfast-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 25,
-      "scrapedAt": "2026-02-20T08:38:37.286Z",
-      "lastUpdated": "2026-02-20T08:38:37.286Z"
+      "scrapedAt": "2026-02-20T09:31:03.033Z",
+      "lastUpdated": "2026-02-20T09:31:03.033Z"
     },
     {
       "id": "gt_47794",
@@ -1138,8 +698,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-lost-in-space-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 26,
-      "scrapedAt": "2026-02-20T08:38:41.598Z",
-      "lastUpdated": "2026-02-20T08:38:41.598Z"
+      "scrapedAt": "2026-02-20T09:31:43.884Z",
+      "lastUpdated": "2026-02-20T09:31:43.884Z"
     },
     {
       "id": "gt_121633",
@@ -1180,8 +740,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-castle-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 27,
-      "scrapedAt": "2026-02-20T08:38:45.906Z",
-      "lastUpdated": "2026-02-20T08:38:45.906Z"
+      "scrapedAt": "2026-02-20T09:33:50.062Z",
+      "lastUpdated": "2026-02-20T09:33:50.062Z"
     },
     {
       "id": "gt_122226",
@@ -1220,8 +780,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-lead-children-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 28,
-      "scrapedAt": "2026-02-20T08:38:50.207Z",
-      "lastUpdated": "2026-02-20T08:38:50.207Z"
+      "scrapedAt": "2026-02-20T09:45:21.113Z",
+      "lastUpdated": "2026-02-20T09:45:21.113Z"
     },
     {
       "id": "gt_93661",
@@ -1264,8 +824,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-cross-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 29,
-      "scrapedAt": "2026-02-20T08:38:54.517Z",
-      "lastUpdated": "2026-02-20T08:38:54.517Z"
+      "scrapedAt": "2026-02-20T09:45:56.071Z",
+      "lastUpdated": "2026-02-20T09:45:56.071Z"
     },
     {
       "id": "gt_35441",
@@ -1312,8 +872,8 @@
       "seasonsListUrl": "https://topcinema.red/series/%d9%85%d8%b3%d9%84%d8%b3%d9%84-fuller-house-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/list/",
       "page": 1,
       "position": 30,
-      "scrapedAt": "2026-02-20T08:38:58.823Z",
-      "lastUpdated": "2026-02-20T08:38:58.823Z"
+      "scrapedAt": "2026-02-20T09:46:58.532Z",
+      "lastUpdated": "2026-02-20T09:46:58.532Z"
     }
   ]
 }
