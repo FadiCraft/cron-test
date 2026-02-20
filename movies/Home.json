@@ -2,7 +2,7 @@
   "fileName": "Home.json",
   "description": "جميع أفلام الصفحة الأولى",
   "totalMovies": 60,
-  "lastUpdated": "2026-02-20T19:06:44.867Z",
+  "lastUpdated": "2026-02-20T19:39:34.480Z",
   "movies": [
     {
       "id": "203869",
@@ -13,49 +13,35 @@
       "imdbRating": null,
       "story": "يروي مسلسل \"ذا دريدفول\" قصة آن وحماتها مورين اللتين تعيشان حياة قاسية ومنعزلة على هامش المجتمع - ولكن عندما يعود رجل من ماضيهما، فإنه سيطلق سلسلة من الأحداث التي ستصبح نقطة تحول بالنسبة لآن.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "94 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "94 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Catherine McDonough",
           "Huxley Sheppard",
           "Isidro-Lucking Dylan",
           "Jonathan Howard"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "94 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Catherine McDonough",
-        "Huxley Sheppard",
-        "Isidro-Lucking Dylan",
-        "Jonathan Howard"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -144,11 +130,11 @@
       "page": 1,
       "position": 1,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:39.484Z",
+      "scrapedAt": "2026-02-20T19:37:28.115Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -160,49 +146,35 @@
       "imdbRating": null,
       "story": "تختفي \"ليدي\" الصغيرة في الغابة وسط انشغال عائلتها بحزم محتويات المنزل. وحين يندلع حريق في الأرجاء، تخوض والدتها سباقًا مع الزمن لإنقاذها قبل فوات الأوان.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "107 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "107 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الإسبانية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "إسبانيا"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Belén Cuesta",
           "Diana Gómez",
           "Elena Silva",
           "Enric Auquer"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "107 دقيقة",
-      "genres": [
-        "اثارة",
-        "دراما"
-      ],
-      "countries": [
-        "إسبانيا"
-      ],
-      "cast": [
-        "Belén Cuesta",
-        "Diana Gómez",
-        "Elena Silva",
-        "Enric Auquer"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -291,11 +263,11 @@
       "page": 1,
       "position": 2,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:41.643Z",
+      "scrapedAt": "2026-02-20T19:37:30.181Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -307,33 +279,26 @@
       "imdbRating": null,
       "story": "بعد معاناة مع شبح الوحدة، يجمع القدر بين ثلاثة غرباء يعملون في أحد المتاجر الكبرى، فتغدو صحبتهم ملاذًا دافئًا وهم يستكشفون معًا جوهر الروابط الإنسانية وحقيقة الحب.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اسيوي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "رومانسي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "113 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "113 دقيقة",
+        "موعد الصدور": [
           "2026"
-        ],
-        "اللغة": [
-          "الكورية"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "113 دقيقة",
-      "genres": [
-        "دراما",
-        "رومانسي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -422,11 +387,11 @@
       "page": 1,
       "position": 3,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:43.921Z",
+      "scrapedAt": "2026-02-20T19:37:32.224Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -438,44 +403,32 @@
       "imdbRating": "7.7",
       "story": "تعاني رينا من حالات إجهاض متكررة، ويظهر لها شكل جنيّ مرعب يشبه رجلاً عجوزاً - يُعرف باسم جيتيه إيرينغ، وهو كيان شرير يهاجم سلالة الدم.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "106 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "106 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الإندونيسية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Agus Firmansyah",
           "Bambang Deban",
           "Darius Sinathrya",
           "Egy Fedly"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "106 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Agus Firmansyah",
-        "Bambang Deban",
-        "Darius Sinathrya",
-        "Egy Fedly"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -564,11 +517,11 @@
       "page": 1,
       "position": 4,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:46.049Z",
+      "scrapedAt": "2026-02-20T19:37:34.268Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -580,46 +533,33 @@
       "imdbRating": "5.8",
       "story": "عندما يختفي شقيقه وينسى الجميع وجوده، يجب على \"سام\" حل اللغز قبل أن يختفي \"فين\" إلى الأبد.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب",
           "فانتازيا",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "720p WEB-DL"
         ],
-        "المدة": "91 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "91 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Adeline Lo",
           "Bean Reid",
           "Bob Frazer",
           "Chase Petriw"
         ]
       },
-      "year": "2025",
-      "quality": "720p WEB-DL",
-      "runtime": "91 دقيقة",
-      "genres": [
-        "رعب",
-        "فانتازيا",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Adeline Lo",
-        "Bean Reid",
-        "Bob Frazer",
-        "Chase Petriw"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -708,11 +648,11 @@
       "page": 1,
       "position": 5,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:48.174Z",
+      "scrapedAt": "2026-02-20T19:37:36.302Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -724,47 +664,34 @@
       "imdbRating": "7.8",
       "story": "يتحول أمل المرأة في الحصول على علاج معجزة إلى كابوس عندما تواجه الروح الانتقامية لساحرة ملعونة، مصممة على اعتبارها وعاءً لقوتها الشريرة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "95 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "95 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "أستراليا"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Anna Steen",
           "Benn Welford",
           "David Wilson",
           "Dennis Coard"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "95 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "أستراليا"
-      ],
-      "cast": [
-        "Anna Steen",
-        "Benn Welford",
-        "David Wilson",
-        "Dennis Coard"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -853,11 +780,11 @@
       "page": 1,
       "position": 6,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:50.288Z",
+      "scrapedAt": "2026-02-20T19:37:38.330Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -869,51 +796,36 @@
       "imdbRating": "7.7",
       "story": "في هذه القصة الحقيقية المغمورة، يتحول بيروقراطي سويدي إلى بطل حرب غير متوقع، حين يعمل على إنقاذ أرواح اليهود خلال أحلك أيام الحرب العالمية الثانية.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "تاريخي",
           "دراما",
           "سيرة ذاتية"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "102 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "102 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "السويدية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "السويد"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Carl Jacobson",
           "Henrik Dorsin",
           "Johan Glans",
           "Jonas Karlsson"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "102 دقيقة",
-      "genres": [
-        "تاريخي",
-        "دراما",
-        "سيرة ذاتية"
-      ],
-      "countries": [
-        "السويد"
-      ],
-      "cast": [
-        "Carl Jacobson",
-        "Henrik Dorsin",
-        "Johan Glans",
-        "Jonas Karlsson"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -994,11 +906,11 @@
       "page": 1,
       "position": 7,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:52.411Z",
+      "scrapedAt": "2026-02-20T19:37:40.602Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -1010,49 +922,35 @@
       "imdbRating": "9.1",
       "story": "تتبع الأحداث قصة تائه له ماضي غامض يصل إلى بلدة صغيرة يعاني سكانها من زعيم مجرم لا يرحمهم، لذا يقرر مساعدتهم على التخلص من ذلك الحاكم الظالم، وتتوالى الأحداث.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "اكشن"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "95 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "95 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Chris Mullinax",
           "Dolph Lundgren",
           "Harvey Keitel",
           "Hector Melgoza"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "95 دقيقة",
-      "genres": [
-        "اثارة",
-        "اكشن"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Chris Mullinax",
-        "Dolph Lundgren",
-        "Harvey Keitel",
-        "Hector Melgoza"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -1141,11 +1039,11 @@
       "page": 1,
       "position": 8,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:54.527Z",
+      "scrapedAt": "2026-02-20T19:37:42.642Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -1157,52 +1055,37 @@
       "imdbRating": "6.2",
       "story": "يتتبع الفيلم حياة المحقق (برات) التي تنقلب رأسًا على عقب بعد اتهامه ظلمًا بارتكاب جريمة خطيرة في مجتمع تنتشر فيه هذه الجرائم، لذا يبذل قصارى جهده لإثبات براءته.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اكشن",
           "جريمة",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL",
           "720p WEB-DL"
         ],
-        "المدة": "100 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "100 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Annabelle Wallis",
           "Chris Pratt",
           "Chris Sullivan",
           "Jamie McBride"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL - 720p WEB-DL",
-      "runtime": "100 دقيقة",
-      "genres": [
-        "اكشن",
-        "جريمة",
-        "دراما"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Annabelle Wallis",
-        "Chris Pratt",
-        "Chris Sullivan",
-        "Jamie McBride"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -1331,11 +1214,11 @@
       "page": 1,
       "position": 9,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:56.651Z",
+      "scrapedAt": "2026-02-20T19:37:44.684Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 13,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -1347,46 +1230,35 @@
       "imdbRating": "5.3",
       "story": "في إطار من الرعب، ينتقل لاعب كرة قدم أمريكية شاب إلى مجمع معزول؛ في سبيل التدرب تحت قيادة لاعب وسط مسن، ولكن يكتشف الشاب أن الأمر ليس كما يبدو.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب",
           "رياضي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 36 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 36 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adam Tedesco",
           "Austin Pulliam",
           "Bryce Dylan",
           "Don Benjamin"
         ]
       },
-      "year": "2025",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 36 دقيقة",
-      "genres": [
-        "رعب",
-        "رياضي"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Adam Tedesco",
-        "Austin Pulliam",
-        "Bryce Dylan",
-        "Don Benjamin"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -1467,11 +1339,11 @@
       "page": 1,
       "position": 10,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:04:58.777Z",
+      "scrapedAt": "2026-02-20T19:37:46.734Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -1483,48 +1355,36 @@
       "imdbRating": "6.7",
       "story": "ينتقل كلب وفيّ إلى منزل ريفي مع صاحبه (تود)، فيكتشف قوى خارقة للطبيعة بالمنطقة، ومع تهديد الكيانات المظلمة لرفيقه البشري، يتعين على الكلب الشجاع القتال لحماية من يحب.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 12 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 12 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Anya Krawcheck",
           "Arielle Friedman",
           "Hunter Goetz",
           "Indy"
         ]
       },
-      "year": "2025",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 12 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب",
-        "كوميدي"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Anya Krawcheck",
-        "Arielle Friedman",
-        "Hunter Goetz",
-        "Indy"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -1605,11 +1465,11 @@
       "page": 1,
       "position": 11,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:00.908Z",
+      "scrapedAt": "2026-02-20T19:37:48.776Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -1621,47 +1481,36 @@
       "imdbRating": "7.8",
       "story": "تدور الأحداث في إطار من الرعب، حيث يستيقظ رسول من غيبوبته فيكتشف أن العالم قد تعرض لغزو الزومبي، وذلك بعد مرور 28 عامًا على تفشي فيروس الغضب.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "خيال علمي",
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL",
           "720p WEB-DL"
         ],
-        "المدة": "1 ساعة و 49 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 49 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Alfie Williams",
           "Celi Crossland",
           "Chi Lewis-Parry",
           "Connor Newall"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL - 720p WEB-DL",
-      "runtime": "1 ساعة و 49 دقيقة",
-      "genres": [
-        "خيال علمي",
-        "رعب"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Alfie Williams",
-        "Celi Crossland",
-        "Chi Lewis-Parry",
-        "Connor Newall"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -1790,11 +1639,11 @@
       "page": 1,
       "position": 12,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:03.047Z",
+      "scrapedAt": "2026-02-20T19:37:50.831Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 13,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -1806,51 +1655,36 @@
       "imdbRating": "5.9",
       "story": "عندما تستيقظ ديانا من غيبوبة وتفقد ذاكرتها، تلجأ هي وزوجها إلى علاجات تجريبية في مركز طبي ناءٍ. ومع ازدياد حدة هذه العلاجات، يُختبر زواجهما وتبدأ ديانا بالتشكيك في دوافع زوجها الحقيقية.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب",
           "فانتازيا",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "113 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "113 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "كندا"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Ahmed Moneka",
           "Ben Petrie",
           "Cynthia Ashperger",
           "Grace Glowicki"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "113 دقيقة",
-      "genres": [
-        "رعب",
-        "فانتازيا",
-        "كوميدي"
-      ],
-      "countries": [
-        "كندا"
-      ],
-      "cast": [
-        "Ahmed Moneka",
-        "Ben Petrie",
-        "Cynthia Ashperger",
-        "Grace Glowicki"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -1939,11 +1773,11 @@
       "page": 1,
       "position": 13,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:05.160Z",
+      "scrapedAt": "2026-02-20T19:37:52.998Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -1955,51 +1789,36 @@
       "imdbRating": "5.3",
       "story": "تقول الأسطورة أنه منذ فترة طويلة، ازدهرت الطبيعة في وئام حول البحيرة، حتى وصل الشر. الرجال، الذين أعمتهم الرغبات المظلمة، جلبوا الخوف والكراهية والموت. يطلق عليه الصيادون اسم \"لا ميرينغوا\"، أي الذي يسحبك إلى البحيرة بسبب خطاياك.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب",
           "فانتازيا"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "103 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "103 دقيقة",
+        "موعد الصدور": [
           "2024"
         ],
-        "اللغة": [
-          "الإسبانية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "المكسيك"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Agustin Cornejo",
           "Alejandra Herrera",
           "Andrés Delgado",
           "Anna Diaz"
         ]
       },
-      "year": "2024",
-      "quality": "1080p WEB-DL",
-      "runtime": "103 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب",
-        "فانتازيا"
-      ],
-      "countries": [
-        "المكسيك"
-      ],
-      "cast": [
-        "Agustin Cornejo",
-        "Alejandra Herrera",
-        "Andrés Delgado",
-        "Anna Diaz"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2096,11 +1915,11 @@
       "page": 1,
       "position": 14,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:07.276Z",
+      "scrapedAt": "2026-02-20T19:37:55.267Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -2112,47 +1931,34 @@
       "imdbRating": "7.7",
       "story": "يأخذ مراهق وظيفة ممثل تخويف في منطقة جذب في الغابة المسكونة. بعد الارتباط مع زملائه غريب الأطوار في العمل، يجبره الموت المأساوي على إعادة النظر في اهتماماته المظلمة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "93 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "93 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Cedric Gegel",
           "Ellie Christiansen",
           "Grayson Gwaze",
           "Jamie Bernadette"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "93 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Cedric Gegel",
-        "Ellie Christiansen",
-        "Grayson Gwaze",
-        "Jamie Bernadette"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2249,11 +2055,11 @@
       "page": 1,
       "position": 15,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:09.390Z",
+      "scrapedAt": "2026-02-20T19:37:57.637Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -2265,38 +2071,30 @@
       "imdbRating": null,
       "story": "يوافق الطالب المتفوق شون على تدريس فلورا المتمردة مقابل الحصول على خطاب توصية للالتحاق بالجامعة. لكن انجذابهما المتزايد يعقد الأمور أكثر من مجرد أهدافهما الأكاديمية.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رومانسي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Alaina Clarke",
           "Asher Angel",
           "Chloe Cavelle",
           "Daniel Falk"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "رومانسي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Alaina Clarke",
-        "Asher Angel",
-        "Chloe Cavelle",
-        "Daniel Falk"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2393,11 +2191,11 @@
       "page": 1,
       "position": 16,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:11.501Z",
+      "scrapedAt": "2026-02-20T19:37:59.672Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -2409,42 +2207,31 @@
       "imdbRating": "3.2",
       "story": "في إطار من الرعب، يتبع العمل قصة زوجين في الأمتار الأخيرة من زواجهما الفاشل، حيث تظهر قوى خارقة للطبيعة تسيطر عليهما وتضعهما في صراع من أجل البقاء.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "84 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "84 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Brandon Firla",
           "Dominic Stephens",
           "Megalyn Echikunwoke",
           "Mo McRae"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "84 دقيقة",
-      "genres": [
-        "رعب"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Brandon Firla",
-        "Dominic Stephens",
-        "Megalyn Echikunwoke",
-        "Mo McRae"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2541,11 +2328,11 @@
       "page": 1,
       "position": 17,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:13.618Z",
+      "scrapedAt": "2026-02-20T19:38:01.709Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -2557,47 +2344,34 @@
       "imdbRating": "5.7",
       "story": "يعثر مجموعة من طلاب المرحلة الثانوية غير المنسجمين بالصدفة على صافرة موت أزتكية قديمة وملعونة، ويكتشفون أن نفخها والصوت المرعب الذي تُصدره سيُستدعى بموجبه موتهم المستقبلي ليطاردهم.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "720p HDTS"
         ],
-        "المدة": "100 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "100 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "كندا"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Ali Skovbye",
           "Dafne Keen",
           "Janaya Stephens",
           "Jhaleil Swaby"
         ]
       },
-      "year": "2025",
-      "quality": "720p HDTS",
-      "runtime": "100 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "كندا"
-      ],
-      "cast": [
-        "Ali Skovbye",
-        "Dafne Keen",
-        "Janaya Stephens",
-        "Jhaleil Swaby"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2686,11 +2460,11 @@
       "page": 1,
       "position": 18,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:15.731Z",
+      "scrapedAt": "2026-02-20T19:38:03.736Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -2702,51 +2476,36 @@
       "imdbRating": "5.4",
       "story": "تكره جينا عيد ميلادها الذي يوافق يوم عيد الحب، فتسافر إلى اليونان لمنع صديقها من طلب يدها للزواج. وبمساعدة المصطافين جوني وشقيقته ميكي، تخطط لتأجيل الأمر، بينما تتساءل عن علاقتها.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "رومانسي",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "720p WEB-DL"
         ],
-        "المدة": "95 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "95 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Henry Zammit Cordina",
           "Jake Cannavale",
           "Lil Rel Howery",
           "Marisa Tomei"
         ]
       },
-      "year": "2026",
-      "quality": "720p WEB-DL",
-      "runtime": "95 دقيقة",
-      "genres": [
-        "دراما",
-        "رومانسي",
-        "كوميدي"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Henry Zammit Cordina",
-        "Jake Cannavale",
-        "Lil Rel Howery",
-        "Marisa Tomei"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2835,11 +2594,11 @@
       "page": 1,
       "position": 19,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:17.845Z",
+      "scrapedAt": "2026-02-20T19:38:05.898Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -2851,47 +2610,34 @@
       "imdbRating": "4.1",
       "story": "في الفصل الختامي من القصة، يواجه الناجون تهديدات جديدة من الغرباء المقنعين، حيث تظهر أسرار تهدد حياتهم بينما تتلاشى الحدود بين الواقع والخطر في صراعهم للبقاء على قيد الحياة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "720p HDTS"
         ],
-        "المدة": "91 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "91 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Brian Law",
           "Dani Klupsch",
           "Ella Bruccoleri",
           "Ema Horvath"
         ]
       },
-      "year": "2026",
-      "quality": "720p HDTS",
-      "runtime": "91 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Brian Law",
-        "Dani Klupsch",
-        "Ella Bruccoleri",
-        "Ema Horvath"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -2980,11 +2726,11 @@
       "page": 1,
       "position": 20,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:19.971Z",
+      "scrapedAt": "2026-02-20T19:38:08.070Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -2996,49 +2742,35 @@
       "imdbRating": "6.9",
       "story": "عندما تقابل رايلي البالغة من العمر 16 عامًا نجم الروك الذي تعشق في لقاء عارض وتكتشف أنه مدمن مخدرات يعاني من اضطرابات وظيفية، تتولى هي مهمة مساعدته، مما يؤدي في النهاية إلى تحويل أحلامها المراهقة إلى حقيقة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "720p WEB-DL"
         ],
-        "المدة": "93 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "93 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "كندا"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Amanda Brugel",
           "Andrea Senior",
           "Aya Furukawa",
           "Erika Swayze"
         ]
       },
-      "year": "2025",
-      "quality": "720p WEB-DL",
-      "runtime": "93 دقيقة",
-      "genres": [
-        "اثارة",
-        "دراما"
-      ],
-      "countries": [
-        "كندا"
-      ],
-      "cast": [
-        "Amanda Brugel",
-        "Andrea Senior",
-        "Aya Furukawa",
-        "Erika Swayze"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3127,11 +2859,11 @@
       "page": 1,
       "position": 21,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:22.081Z",
+      "scrapedAt": "2026-02-20T19:38:10.235Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -3143,43 +2875,33 @@
       "imdbRating": "7.4",
       "story": "في هذا الفيلم القصير المرشح لجائزة \"أوسكار\" Oscar، تتحول ليلة موحشة في حانة متواضعة إلى لحظة انسجام تبوح بما تكنّه النفوس إثر مسابقة غنائية عفوية.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "Music",
           "دراما",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "18 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "18 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Brian Coover",
           "Chris Smither",
           "Daniel Hutchinson",
           "David Jenner"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "18 دقيقة",
-      "genres": [
-        "Music",
-        "دراما",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Brian Coover",
-        "Chris Smither",
-        "Daniel Hutchinson",
-        "David Jenner"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3268,11 +2990,11 @@
       "page": 1,
       "position": 22,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:24.191Z",
+      "scrapedAt": "2026-02-20T19:38:12.511Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -3284,51 +3006,36 @@
       "imdbRating": "6.2",
       "story": "في إطار من الجريمة والأكشن، يجد مجرم مُدان سابق أُفرج عنه بشروط نفسه مضطرًا لمراوغة الشرط؛ة من أجل الوصول إلى نصيبه من عملية سطو قديمة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اكشن",
           "جريمة",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "91 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "91 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adam Deacon",
           "Daniel Fathers",
           "Dean Gaffney",
           "Gavin Fraser"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "91 دقيقة",
-      "genres": [
-        "اكشن",
-        "جريمة",
-        "كوميدي"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Adam Deacon",
-        "Daniel Fathers",
-        "Dean Gaffney",
-        "Gavin Fraser"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3417,11 +3124,11 @@
       "page": 1,
       "position": 23,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:26.308Z",
+      "scrapedAt": "2026-02-20T19:38:14.557Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -3433,41 +3140,30 @@
       "imdbRating": null,
       "story": "يتبع العمل قصة (جون) التي تنتقل إلى إيطاليا لبدء حياة جديدة بعد وفاة شقيقها. وفي مدرستها الجديدة تكتشف بمرور الوقت حقيقة زملائها، ومع تصاعد التوتر وكشف الحقائق الخفية، يصبح عليها اختيار الشخص المناسب لها وسط عالم من الأكاذيب.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "رومانسي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Luca Melucci",
           "Mia Jenkins",
           "Pepe Barroso"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "دراما",
-        "رومانسي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Luca Melucci",
-        "Mia Jenkins",
-        "Pepe Barroso"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3556,11 +3252,11 @@
       "page": 1,
       "position": 24,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:28.412Z",
+      "scrapedAt": "2026-02-20T19:38:16.712Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -3572,47 +3268,34 @@
       "imdbRating": null,
       "story": "يأخذ \"جو\"، شقيق \"ميديا\" سليط اللسان، حفيده المراهق الذي يستعد للالتحاق بالجامعة والمنطوي على نفسه في رحلة جامحة عبر البلاد، ليعلّمه دروسًا من واقع الحياة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "109 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "109 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Amber Reign",
           "Ben Swilley",
           "Bethany Anne Lind",
           "Brenda Hurley"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "109 دقيقة",
-      "genres": [
-        "كوميدي"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Amber Reign",
-        "Ben Swilley",
-        "Bethany Anne Lind",
-        "Brenda Hurley"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3701,11 +3384,11 @@
       "page": 1,
       "position": 25,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:30.537Z",
+      "scrapedAt": "2026-02-20T19:38:18.889Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -3717,48 +3400,36 @@
       "imdbRating": "5.8",
       "story": "تتلقى مصورة معلومة قد تسلط الضوء على مشاهدتها لجسم طائر مجهول في طفولتها، لكن موجة حر وبعض الضيوف غير المتوقعين يهددون بعرقلة تحقيقها.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "خيال علمي",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "103 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "103 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adriana Aluna Martinez",
           "Alex Camacho",
           "Bourke Floyd",
           "Bradley Fisher"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "103 دقيقة",
-      "genres": [
-        "اثارة",
-        "خيال علمي",
-        "دراما"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Adriana Aluna Martinez",
-        "Alex Camacho",
-        "Bourke Floyd",
-        "Bradley Fisher"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3847,11 +3518,11 @@
       "page": 1,
       "position": 26,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:32.653Z",
+      "scrapedAt": "2026-02-20T19:38:21.187Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -3863,47 +3534,34 @@
       "imdbRating": "4.4",
       "story": "هانا، مصورة متخصصة في فنون الطهي، وصديقها إيفان يشتركان في شغفٍ بمحتوى الجرائم الحقيقية. عندما يقترح إيفان تمثيل سيناريو جريمة حقيقية خاص بهما، يتضمن وجبة قاتلة وفتاة الجيران، تنقلب الأمور رأسًا على عقب.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "74 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "74 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "جنوب أفريقيا"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Nina Erasmus",
           "Shamilla Miller",
           "Steven John Ward"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "74 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب"
-      ],
-      "countries": [
-        "جنوب أفريقيا"
-      ],
-      "cast": [
-        "Nina Erasmus",
-        "Shamilla Miller",
-        "Steven John Ward"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -3992,11 +3650,11 @@
       "page": 1,
       "position": 27,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:34.756Z",
+      "scrapedAt": "2026-02-20T19:38:23.452Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -4008,49 +3666,35 @@
       "imdbRating": null,
       "story": "عندما يتطوع ممرض في وحدة العناية المركزة لمساعدة مريض في غيبوبة متهم بقتل ست نساء، ينجذب إلى شبكة مرعبة من الأكاذيب والهوس والأسرار القاتلة بينما يسابق محقق الزمن لإيقاف القاتل.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "غموض"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "105 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "105 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adam Hampton",
           "Ben Hall",
           "Brent Bailey",
           "Bruce Davis"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "105 دقيقة",
-      "genres": [
-        "اثارة",
-        "غموض"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Adam Hampton",
-        "Ben Hall",
-        "Brent Bailey",
-        "Bruce Davis"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4139,11 +3783,11 @@
       "page": 1,
       "position": 28,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:36.860Z",
+      "scrapedAt": "2026-02-20T19:38:25.721Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -4155,43 +3799,33 @@
       "imdbRating": "7.3",
       "story": "حكاية مؤثرة عن فتاة غارقة في الحزن، والفتى الذي يحبها، وكيف يقود الجشع القلوب الطيبة إلى أفعال شريرة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "فانتازيا",
           "كرتون"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "17 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "17 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Colm Feore",
           "Gabrielle Dallaire",
           "James Hyndman",
           "Simone Paradis"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "17 دقيقة",
-      "genres": [
-        "دراما",
-        "فانتازيا",
-        "كرتون"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Colm Feore",
-        "Gabrielle Dallaire",
-        "James Hyndman",
-        "Simone Paradis"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4280,11 +3914,11 @@
       "page": 1,
       "position": 29,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:38.970Z",
+      "scrapedAt": "2026-02-20T19:38:27.978Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -4296,51 +3930,36 @@
       "imdbRating": "7.2",
       "story": "في إطار مستوحى من أحداث حقيقية، يتبع العمل قصة امرأة من عائلة أمريكية ذات أصول صينية تكتشف ميول ابنها المراهق العنيفة، فتضطر لبذل كل جهد لحمايته وربما حماية الآخرين.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "جريمة",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "97 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "97 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adam Chanler-Berat",
           "Anthony Comis",
           "Anzi DeBenedetto",
           "Dana de Celis"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "97 دقيقة",
-      "genres": [
-        "اثارة",
-        "جريمة",
-        "دراما"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Adam Chanler-Berat",
-        "Anthony Comis",
-        "Anzi DeBenedetto",
-        "Dana de Celis"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4429,11 +4048,11 @@
       "page": 1,
       "position": 30,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:41.094Z",
+      "scrapedAt": "2026-02-20T19:38:30.026Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -4445,51 +4064,36 @@
       "imdbRating": "5.1",
       "story": "يكتشف شرطي في لوس أنجلوس أن فرقة شرطة خاصة تخفي سراً خطيراً يهدد سكان الحي الذي نشأ فيه، فيدخل في سباق مع الوقت لكشف الحقيقة وحماية أهله.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب",
           "غموض"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "104 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "104 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "CM Punk",
           "Colin Young",
           "Dermot Mulroney",
           "Evan Shafran"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "104 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب",
-        "غموض"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "CM Punk",
-        "Colin Young",
-        "Dermot Mulroney",
-        "Evan Shafran"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4586,11 +4190,11 @@
       "page": 1,
       "position": 31,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:43.206Z",
+      "scrapedAt": "2026-02-20T19:38:32.332Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -4602,44 +4206,34 @@
       "imdbRating": "2.8",
       "story": "صوفي البالغة من العمر 16 عامًا في طور التبني عندما تبدأ قوة شريرة من الفولكلور في نيوجيرسي بتعذيب عائلتها الجديدة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "132 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "132 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Amy Joyce Winkler",
           "Chris Myers",
           "Clementine Benstock",
           "Dori Milly Grace"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "132 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Amy Joyce Winkler",
-        "Chris Myers",
-        "Clementine Benstock",
-        "Dori Milly Grace"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4736,11 +4330,11 @@
       "page": 1,
       "position": 32,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:45.311Z",
+      "scrapedAt": "2026-02-20T19:38:34.374Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -4752,40 +4346,31 @@
       "imdbRating": null,
       "story": "تسافر لورين إلى إيطاليا لإعادة تسمية صلصة روسو باستا، لكن صدامها الثقافي مع تراث ماسون وفرانشيسكا في الطهي يتطور إلى اكتشافات أعمق حول الحب والحياة وأولويات العمل.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رومانسي",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adrienne Bailon-Houghton",
           "Alex Marcel",
           "Dina Panozzo",
           "Julia Vosnakis"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "رومانسي",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Adrienne Bailon-Houghton",
-        "Alex Marcel",
-        "Dina Panozzo",
-        "Julia Vosnakis"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4874,11 +4459,11 @@
       "page": 1,
       "position": 33,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:47.421Z",
+      "scrapedAt": "2026-02-20T19:38:36.633Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -4890,35 +4475,27 @@
       "imdbRating": null,
       "story": "تجتاح مدينة \"ساو باولو\" موجة عنف غير مسبوقة، فتضطر محامية تربطها صلات بعالم الجريمة إلى عقد اتفاق مع الشرطة لإنقاذ ابنة أختها المخطوفة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اكشن",
           "جريمة",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "103 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "103 دقيقة",
+        "موعد الصدور": [
           "2026"
-        ],
-        "اللغة": [
-          "البرتغالية"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "103 دقيقة",
-      "genres": [
-        "اكشن",
-        "جريمة",
-        "دراما"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -4999,11 +4576,11 @@
       "page": 1,
       "position": 34,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:49.544Z",
+      "scrapedAt": "2026-02-20T19:38:38.671Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -5015,46 +4592,33 @@
       "imdbRating": null,
       "story": "بعد تعرضه للتنمر بسبب رغبته في تحقيق النجومية، يجد \"كينجي\" مكانه في ملهًى ليلي ويتلقى المساعدة من طبيب رائد في المجال، لتظهر الشخصية الحقيقية \"آي هارونا\" على خشبة المسرح.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اسيوي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "Music",
           "دراما",
           "سيرة ذاتية"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "130 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "130 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "اليابانية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Ataru Nakamura",
           "Haruki Mochizuki",
           "Kaito Yoshimura",
           "Megumi"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "130 دقيقة",
-      "genres": [
-        "Music",
-        "دراما",
-        "سيرة ذاتية"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Ataru Nakamura",
-        "Haruki Mochizuki",
-        "Kaito Yoshimura",
-        "Megumi"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5135,11 +4699,11 @@
       "page": 1,
       "position": 35,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:51.667Z",
+      "scrapedAt": "2026-02-20T19:38:40.723Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -5151,47 +4715,34 @@
       "imdbRating": "6.2",
       "story": "تحاول الطالبة الجامعية (لوسي) وأصدقائها النجاة عندما يُصاب شمبانزي أليف لعائلتهم بداء الكلب، حيث يصبح عدوانيًا وخطيرًا، فيبتكرون طرقًا مختلفة للبقاء على قيد الحياة من الشمبانزي الشرس.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "89 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "89 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Albert Magashi",
           "Amina Abdi",
           "Ben Pronsky",
           "Benjamin Cheng"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "89 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Albert Magashi",
-        "Amina Abdi",
-        "Ben Pronsky",
-        "Benjamin Cheng"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5272,11 +4823,11 @@
       "page": 1,
       "position": 36,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:53.794Z",
+      "scrapedAt": "2026-02-20T19:38:42.968Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -5288,48 +4839,36 @@
       "imdbRating": "5.6",
       "story": "في عام 1987، يسعى (جيريمي فيتزجيرالد) للخروج من التذبذب والفوضى بحياته نحو الاستقرار، وحينما يقبل وظيفة حارس أمن بمطعم بيتزا فريدي فازبير الجديد، سرعان ما يلاحظ أمورًا مريبة هناك خلال ورديته الأولى.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب",
           "غموض"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 44 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 44 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Ann Mahoney",
           "Audrey Lynn-Marie",
           "Bentley Cooper",
           "Carl Palmer"
         ]
       },
-      "year": "2025",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 44 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب",
-        "غموض"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Ann Mahoney",
-        "Audrey Lynn-Marie",
-        "Bentley Cooper",
-        "Carl Palmer"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5410,11 +4949,11 @@
       "page": 1,
       "position": 37,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:55.919Z",
+      "scrapedAt": "2026-02-20T19:38:45.021Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -5426,44 +4965,34 @@
       "imdbRating": null,
       "story": "ينفذ زوجان يئاسان سلسلة من عمليات السطو المُرهِقة، ليجدَا نفسيهما عالقين في لعبة مطاردة مُميتة عندما تفشل آخر عملية لهما. تُختبر ثقتهما عندما يكشف ضحيتهما عن أجندة خفية تقود إلى القتل.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "84 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "84 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Emilija Matic",
           "Frank Grillo",
           "Lacy McClory",
           "Landa"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "84 دقيقة",
-      "genres": [
-        "اثارة"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Emilija Matic",
-        "Frank Grillo",
-        "Lacy McClory",
-        "Landa"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5544,11 +5073,11 @@
       "page": 1,
       "position": 38,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:05:58.031Z",
+      "scrapedAt": "2026-02-20T19:38:47.291Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -5560,35 +5089,27 @@
       "imdbRating": "8.7",
       "story": "يشعل الحفل الخيري المؤثر، الذي يُحيه \"إيدي فيدر\" في \"سياتل\"، الحماسة في هذا الفيلم الوثائقي الذي يتتبّع الجهود لإيجاد علاج لاضطراب انحلال البشرة الفقاعي (إي بي)، الوراثي والنادر.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "سيرة ذاتية",
           "وثائقي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "105 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "105 دقيقة",
+        "موعد الصدور": [
           "2025"
-        ],
-        "اللغة": [
-          "الأنجليزية"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "105 دقيقة",
-      "genres": [
-        "دراما",
-        "سيرة ذاتية",
-        "وثائقي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5677,11 +5198,11 @@
       "page": 1,
       "position": 39,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:00.164Z",
+      "scrapedAt": "2026-02-20T19:38:49.335Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -5693,22 +5214,22 @@
       "imdbRating": "6",
       "story": "البطلة التعيسة أغنيس تتجسد من جديد في كل مرة ترتكب نفس الخطأ: الوقوع في حب الرجل الخطأ.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "فانتازيا",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 29 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 29 دقيقة",
+        "موعد الصدور": [
           "2024"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
         "المخرجين": [
@@ -5717,30 +5238,18 @@
         "المؤلفين": [
           "Alice Lowe"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Alice Lowe",
           "Aneurin Barnard",
           "Boyd Clack",
           "Dan Renton Skinner"
         ]
       },
-      "year": "2024",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 29 دقيقة",
-      "genres": [
-        "دراما",
-        "فانتازيا",
-        "كوميدي"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Alice Lowe",
-        "Aneurin Barnard",
-        "Boyd Clack",
-        "Dan Renton Skinner"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5837,11 +5346,11 @@
       "page": 1,
       "position": 40,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:02.289Z",
+      "scrapedAt": "2026-02-20T19:38:51.371Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -5853,49 +5362,35 @@
       "imdbRating": "8.1",
       "story": "تدور الأحداث في مدينة نيويورك في خمسينات القرن الماضي، حيث يسعى لاعب تنس الطاولة المتمرد (مارتي رايزمان) لتحقيق أحلامه، ويخوض رحلته الخاصة من القاع إلى القمة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "رياضي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "149 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "149 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Abel Ferrara",
           "Alexander Brinitzer",
           "Blake Gioviti",
           "Dennis Creaghan"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "149 دقيقة",
-      "genres": [
-        "دراما",
-        "رياضي"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Abel Ferrara",
-        "Alexander Brinitzer",
-        "Blake Gioviti",
-        "Dennis Creaghan"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -5992,11 +5487,11 @@
       "page": 1,
       "position": 41,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:04.430Z",
+      "scrapedAt": "2026-02-20T19:38:53.439Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -6008,48 +5503,36 @@
       "imdbRating": "7.3",
       "story": "في إطار من الكوميديا والخيال، يحصل الأشخاص المتوفيين على فرصة مدتها أسبوع لاختيار المكان الذي سيمكثون فيه للأبد، ولكن يختلف الأمر بالنسبة لـ (جوان) و(لاري) و(لوك)، حيث يبحث كل منهم عن الشخص المناسب لقضاء الحياة الأبدية معه.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "فانتازيا",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 54 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 54 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Barry Primus",
           "Betty Buckley",
           "Callum Turner",
           "Carson Bokenfohr"
         ]
       },
-      "year": "2025",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 54 دقيقة",
-      "genres": [
-        "دراما",
-        "فانتازيا",
-        "كوميدي"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Barry Primus",
-        "Betty Buckley",
-        "Callum Turner",
-        "Carson Bokenfohr"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -6146,11 +5629,11 @@
       "page": 1,
       "position": 42,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:06.554Z",
+      "scrapedAt": "2026-02-20T19:38:55.492Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -6162,51 +5645,36 @@
       "imdbRating": "4.2",
       "story": "يقرر (جيمس) الذهاب إلى منطقة التل الصامت بعد تلقيه خطاب غامض يطلب منه العودة، ويواجه هناك العديد من الأهوال المألوفة والغير مألوفة في مدينة يسكنها الرعب.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "رعب",
           "غموض"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "106 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "106 دقيقة",
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Emily Carding",
           "Eve Macklin",
           "Evie Templeton",
           "Hannah Emily Anderson"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "106 دقيقة",
-      "genres": [
-        "دراما",
-        "رعب",
-        "غموض"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Emily Carding",
-        "Eve Macklin",
-        "Evie Templeton",
-        "Hannah Emily Anderson"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -6303,11 +5771,11 @@
       "page": 1,
       "position": 43,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:08.660Z",
+      "scrapedAt": "2026-02-20T19:38:57.781Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -6319,48 +5787,36 @@
       "imdbRating": "7.5",
       "story": "تدور الأحداث في المستقبل على كوكب بعيد، حيث يجد كائن فضائي شاب منبوذ من عشيرته نفسه في تحالف غير متوقع مع امرأة تدعى (ثيا)، وينطلق برحلة دموية في سبيل العثور على خصمه النهائي.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اكشن",
           "خيال علمي",
           "مغامرة"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 47 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 47 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Alison Wright",
           "Cameron Brown",
           "Dimitrius Schuster-Koloamatangi",
           "Elle Fanning"
         ]
       },
-      "year": "2025",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 47 دقيقة",
-      "genres": [
-        "اكشن",
-        "خيال علمي",
-        "مغامرة"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Alison Wright",
-        "Cameron Brown",
-        "Dimitrius Schuster-Koloamatangi",
-        "Elle Fanning"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -6449,11 +5905,11 @@
       "page": 1,
       "position": 44,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:10.761Z",
+      "scrapedAt": "2026-02-20T19:38:59.973Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -6465,42 +5921,31 @@
       "imdbRating": "7.5",
       "story": "يتبع الفيلم قصة رئيس إيطالي أرمل خلال أشهره الأخيرة في المنصب، حيث يواجه أزمات أخلاقية حول تشريعات القتل الرحيم والعفو عن القتلة، بينما يصارع ذكريات خيانة زوجته الراحلة له.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "133 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "133 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الإيطالية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Alessia Giuliani",
           "Anna Ferzetti",
           "Giovanna Guida",
           "Giuseppe Gaiani"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "133 دقيقة",
-      "genres": [
-        "دراما"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Alessia Giuliani",
-        "Anna Ferzetti",
-        "Giovanna Guida",
-        "Giuseppe Gaiani"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -6581,11 +6026,11 @@
       "page": 1,
       "position": 45,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:12.858Z",
+      "scrapedAt": "2026-02-20T19:39:02.005Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -6597,49 +6042,35 @@
       "imdbRating": "7.6",
       "story": "تُوقظ عاملة تقليم أشجار مفجوعة وابنها شبحاً عندما يبدآن بقطع الأشجار في ملكية رجل منعزل غامض.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "100 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "100 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Adam Keene",
           "Aimee Doherty",
           "Ariel Sandoval",
           "Bill Thorpe"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "100 دقيقة",
-      "genres": [
-        "اثارة",
-        "رعب"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Adam Keene",
-        "Aimee Doherty",
-        "Ariel Sandoval",
-        "Bill Thorpe"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -6736,11 +6167,11 @@
       "page": 1,
       "position": 46,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:14.971Z",
+      "scrapedAt": "2026-02-20T19:39:04.251Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -6752,42 +6183,31 @@
       "imdbRating": "4.7",
       "story": "يُجبر شاب على إثبات براءته بعد اختفاء خطيبته وابنه الرضيع. ومع تراكم الأدلة الغامضة ضده، يبدأ في إدراك أن أحدهم يحاول توريطه.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "90 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "90 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Allen Burns",
           "Alyona",
           "Analisa Wall",
           "Andrew Reid"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "90 دقيقة",
-      "genres": [
-        "اثارة"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Allen Burns",
-        "Alyona",
-        "Analisa Wall",
-        "Andrew Reid"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -6884,11 +6304,11 @@
       "page": 1,
       "position": 47,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:17.094Z",
+      "scrapedAt": "2026-02-20T19:39:06.293Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -6900,52 +6320,37 @@
       "imdbRating": "6.7",
       "story": "تستكشف الجداول الزمنية المزدوجة ذكريات أرملة يابانية تمتد عبر ناغازاكي ما بعد الحرب في الخمسينيات وإنجلترا خلال حقبة الحرب الباردة في الثمانينيات، وتكشف الأسرار التي تتشابك بين تجاربها الماضية والحالية عبر الحدود.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي",
           "افلام اسيوي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "تاريخي",
           "حربي",
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "123 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "123 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "اليابان"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Camilla Aiko",
           "Daichi Watanabe",
           "Fumi Nikaidô",
           "Kôhei Matsushita"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "123 دقيقة",
-      "genres": [
-        "تاريخي",
-        "حربي",
-        "دراما"
-      ],
-      "countries": [
-        "اليابان"
-      ],
-      "cast": [
-        "Camilla Aiko",
-        "Daichi Watanabe",
-        "Fumi Nikaidô",
-        "Kôhei Matsushita"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7034,11 +6439,11 @@
       "page": 1,
       "position": 48,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:19.202Z",
+      "scrapedAt": "2026-02-20T19:39:08.328Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -7050,48 +6455,34 @@
       "imdbRating": null,
       "story": "يروي الفيلم قصة شابين من جيل الألفية يقومان ببيع شقق في نيويورك لا يملكانها لمشترين جدد يجهلون أنهم يتعرضون للاحتيال. تنجح خطتهما ببراعة حتى يصادفا مالك شقة يخفي سرًا مظلمًا، فيقلب الطاولة عليهما.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Alicia Witt",
           "Cedric Benjamin",
           "Cynthia Clancy",
           "David Call"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "اثارة",
-        "رعب"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Alicia Witt",
-        "Cedric Benjamin",
-        "Cynthia Clancy",
-        "David Call"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7180,11 +6571,11 @@
       "page": 1,
       "position": 49,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:21.324Z",
+      "scrapedAt": "2026-02-20T19:39:10.374Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -7196,51 +6587,36 @@
       "imdbRating": "7.2",
       "story": "تتبع الأحداث قصة (إيرين كيلي) التي تسافر عبر أكوان موازية لتقتل قاتل ابنتها مرارًا وتكرارًا، وبينما تندفع نحو الانتقام، تتأرجح إنسانيتها على المحك.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اكشن",
           "جريمة",
           "مغامرة"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "107 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "107 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "الولايات المتحدة الامريكية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Clinton Lowe",
           "Dan Perrault",
           "Debra Christofferson",
           "Dendrie Taylor"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "107 دقيقة",
-      "genres": [
-        "اكشن",
-        "جريمة",
-        "مغامرة"
-      ],
-      "countries": [
-        "الولايات المتحدة الامريكية"
-      ],
-      "cast": [
-        "Clinton Lowe",
-        "Dan Perrault",
-        "Debra Christofferson",
-        "Dendrie Taylor"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7329,11 +6705,11 @@
       "page": 1,
       "position": 50,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:23.449Z",
+      "scrapedAt": "2026-02-20T19:39:12.534Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -7345,30 +6721,26 @@
       "imdbRating": null,
       "story": "ليست \"تاندو\" محظوظة في الحب دائمًا، لكن حين يعود صديقها المقرب من سفره مصطحبًا \"خطيبة\" في خطوة مفاجئة، تضطر إلى مواجهة مشاعر الغيرة التي بدأت تعتريها أيضًا وسط فوضى مشاعرها.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رومانسي",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "95 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "95 دقيقة",
+        "موعد الصدور": [
           "2026"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "95 دقيقة",
-      "genres": [
-        "رومانسي",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7449,11 +6821,11 @@
       "page": 1,
       "position": 51,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:25.560Z",
+      "scrapedAt": "2026-02-20T19:39:14.803Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -7465,43 +6837,31 @@
       "imdbRating": null,
       "story": "يجد فابيان، المحتال الهارب من مطارديه، نفسه في حفل زفاف شتوي حيث يخطط لسرقة تمثال ثمين. لكن جريمة قتل تعرقل خططه.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "جريمة",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الألمانية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Algis Matulionis",
           "Andrius Ziurauskas",
           "Anton Dreger",
           "Barbara Philipp"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "جريمة",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Algis Matulionis",
-        "Andrius Ziurauskas",
-        "Anton Dreger",
-        "Barbara Philipp"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7582,11 +6942,11 @@
       "page": 1,
       "position": 52,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:27.685Z",
+      "scrapedAt": "2026-02-20T19:39:17.082Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -7598,46 +6958,33 @@
       "imdbRating": "7.4",
       "story": "تنتقل (سوري) إلى مدرسة جديدة، حيث تعثر في درج مقعدها على رسالة مجهولة تتضمن تعريفًا بالمدرسة وتلميحًا يقودها مغامرة غير متوقعة داخل أروقة المدرسة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام انمي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "كرتون",
           "مغامرة"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "96 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "96 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الكورية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Kim Min-ju",
           "Lee Soo-hyun",
           "Min Seung-woo",
           "Nam Doh-hyeong"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "96 دقيقة",
-      "genres": [
-        "دراما",
-        "كرتون",
-        "مغامرة"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Kim Min-ju",
-        "Lee Soo-hyun",
-        "Min Seung-woo",
-        "Nam Doh-hyeong"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7734,11 +7081,11 @@
       "page": 1,
       "position": 53,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:29.800Z",
+      "scrapedAt": "2026-02-20T19:39:19.425Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -7750,49 +7097,35 @@
       "imdbRating": "5.1",
       "story": "في العالم الافتراضي حيث تسود لغة الأرقام، وتُترجم المشاهدات والإعجابات إلى أرباح مادية يتسابق صناع المحتوى لتقديم مادة مثيرة تجتذب ملايين المشاهدين، تبرز منصة WAG للبثوث المباشرة التي تقدم عروض مغرية للمتصدرين، ويخوض صانع المحتوى “وو سانغ” المختص بالغموض وتحليل الجرائم معركة شرسة للحفاظ على صدارته بتتبع آثار قاتل متسلسل في بث مباشر.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اسيوي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "اثارة",
           "غموض"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "91 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "91 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الكورية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "كوريا الجنوبية"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Bin Chan Uk",
           "Choo Suk-young",
           "Ha Seo Yoon",
           "Han Seong-Yeon"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "91 دقيقة",
-      "genres": [
-        "اثارة",
-        "غموض"
-      ],
-      "countries": [
-        "كوريا الجنوبية"
-      ],
-      "cast": [
-        "Bin Chan Uk",
-        "Choo Suk-young",
-        "Ha Seo Yoon",
-        "Han Seong-Yeon"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -7881,11 +7214,11 @@
       "page": 1,
       "position": 54,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:31.921Z",
+      "scrapedAt": "2026-02-20T19:39:21.469Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -7897,44 +7230,34 @@
       "imdbRating": "6.3",
       "story": "بعد وفاة زوجته المفاجئة، يجد أبٌ نفسه وحيدًا في مسؤولية تربية ولديه الصغيرين، بينما تتهاوى حياته من حوله وتدخل في حالة من الفوضى، يمر الأب برحلة تقوده إلى تقبل الذات.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 38 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 38 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Annie Hall Southern",
           "Benedict Cumberbatch",
           "Charlie Harman",
           "Claire Cartwright"
         ]
       },
-      "year": "2025",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 38 دقيقة",
-      "genres": [
-        "دراما"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Annie Hall Southern",
-        "Benedict Cumberbatch",
-        "Charlie Harman",
-        "Claire Cartwright"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -8023,11 +7346,11 @@
       "page": 1,
       "position": 55,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:34.035Z",
+      "scrapedAt": "2026-02-20T19:39:23.666Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -8039,47 +7362,34 @@
       "imdbRating": "7.3",
       "story": "تتبع القصة عالمة آثار تسافر إلى أيرلندا للكشف عن مقبرة مهجورة منذ زمن طويل. يُطلق تهديدٌ ما، وعليها أن تُقاتل لحماية ابنتها المراهقة من الوقوع تحت سيطرة موريغان، إلهة الحرب الوثنية الانتقامية.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رعب"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "96 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "96 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Antonia Campbell-Hughes",
           "Art Parkinson",
           "Celina Chien",
           "Desmond Eastwood"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "96 دقيقة",
-      "genres": [
-        "رعب"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Antonia Campbell-Hughes",
-        "Art Parkinson",
-        "Celina Chien",
-        "Desmond Eastwood"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -8160,11 +7470,11 @@
       "page": 1,
       "position": 56,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:36.153Z",
+      "scrapedAt": "2026-02-20T19:39:25.818Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 1
+        "genresCount": 0
       }
     },
     {
@@ -8176,30 +7486,26 @@
       "imdbRating": null,
       "story": "تكشف لقطات لم تُعرض من قبل وروايات شهود حصرية خفايا القضية المروّعة والمثيرة للجدل، المتعلقة بممرضة حديثي الولادة \"لوسي ليتبي\"، المُدانة بإيذاء أطفال رضّع حتى الموت.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "جريمة",
           "وثائقي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "92 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "92 دقيقة",
+        "موعد الصدور": [
           "2026"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": "92 دقيقة",
-      "genres": [
-        "جريمة",
-        "وثائقي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -8280,11 +7586,11 @@
       "page": 1,
       "position": 57,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:38.272Z",
+      "scrapedAt": "2026-02-20T19:39:27.844Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -8296,46 +7602,33 @@
       "imdbRating": null,
       "story": "يعود (كيرميت) وأصدقاؤه في معالجة عصرية في إعادة إحياء لبرنامج المنوعات الكلاسيكي الشهير (The Muppet Show)، حيث تجمعهم التجربة المطعمة بسحر الحنين بلمسات كوميدية جديدة، مع الحفاظ على الروح الخالدة لشخصيات الدمى المتحركة.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي",
           "افلام انمي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "Music",
           "عائلي",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Bill Barretta",
           "Brian Henson",
           "Colleen Smith",
           "Dave Goelz"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "Music",
-        "عائلي",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Bill Barretta",
-        "Brian Henson",
-        "Colleen Smith",
-        "Dave Goelz"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -8424,11 +7717,11 @@
       "page": 1,
       "position": 58,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:40.393Z",
+      "scrapedAt": "2026-02-20T19:39:29.891Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
@@ -8440,43 +7733,31 @@
       "imdbRating": null,
       "story": "يستكشف هذا العمل جوانب الحب الرومانسي الحديث، صعوده وهبوطه.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رومانسي",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "سنة الإنتاج": [
+        "موعد الصدور": [
           "2026"
         ],
-        "اللغة": [
-          "الأنجليزية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Alex Castillo",
           "Andre Reiter",
           "Annie Gonzalez",
           "Carlos Gonzalez-Vio"
         ]
       },
-      "year": "2026",
-      "quality": "1080p WEB-DL",
-      "runtime": null,
-      "genres": [
-        "رومانسي",
-        "كوميدي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Alex Castillo",
-        "Andre Reiter",
-        "Annie Gonzalez",
-        "Carlos Gonzalez-Vio"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -8565,11 +7846,11 @@
       "page": 1,
       "position": 59,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:42.521Z",
+      "scrapedAt": "2026-02-20T19:39:31.935Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 2
+        "genresCount": 0
       }
     },
     {
@@ -8581,42 +7862,31 @@
       "imdbRating": "7.3",
       "story": "تستيقظ فتاة في المدرسة الثانوية كل يوم من دون أن تتذكر ما جرى في الأمس، لكن حين توافق على مواعدة زميلها الخجول، هل يمكن أن يكبر حبهما مع كل بداية جديدة؟",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اسيوي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "رومانسي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p WEB-DL"
         ],
-        "المدة": "105 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "105 دقيقة",
+        "موعد الصدور": [
           "2025"
         ],
-        "اللغة": [
-          "الكورية"
-        ],
-        "التمثيل": [
+        "بطولة": [
           "Choo Young-woo",
           "Jin Ho-eun",
           "Jo Yoo-jung",
           "Shin Si-ah"
         ]
       },
-      "year": "2025",
-      "quality": "1080p WEB-DL",
-      "runtime": "105 دقيقة",
-      "genres": [
-        "رومانسي"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
       "countries": [],
-      "cast": [
-        "Choo Young-woo",
-        "Jin Ho-eun",
-        "Jo Yoo-jung",
-        "Shin Si-ah"
-      ],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -8705,11 +7975,11 @@
       "page": 1,
       "position": 60,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:44.644Z",
+      "scrapedAt": "2026-02-20T19:39:34.266Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
-        "genresCount": 1
+        "genresCount": 0
       }
     }
   ]

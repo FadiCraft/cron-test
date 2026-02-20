@@ -3,7 +3,7 @@
   "fileNumber": 6,
   "totalMovies": 500,
   "created": "2026-02-09T14:09:04.533Z",
-  "lastUpdated": "2026-02-20T19:06:02.453Z",
+  "lastUpdated": "2026-02-20T19:38:51.526Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -36626,22 +36626,22 @@
       "imdbRating": "6",
       "story": "البطلة التعيسة أغنيس تتجسد من جديد في كل مرة ترتكب نفس الخطأ: الوقوع في حب الرجل الخطأ.",
       "details": {
-        "القسم": [
+        "قسم الفيلم": [
           "افلام اجنبي"
         ],
-        "النوع": [
+        "نوع الفيلم": [
           "دراما",
           "فانتازيا",
           "كوميدي"
         ],
-        "الجودة": [
+        "جودة الفيلم": [
           "1080p BluRay"
         ],
-        "المدة": "1 ساعة و 29 دقيقة",
-        "سنة الإنتاج": [
+        "توقيت الفيلم": "1 ساعة و 29 دقيقة",
+        "موعد الصدور": [
           "2024"
         ],
-        "البلد": [
+        "دولة الفيلم": [
           "المملكة المتحدة"
         ],
         "المخرجين": [
@@ -36650,30 +36650,18 @@
         "المؤلفين": [
           "Alice Lowe"
         ],
-        "التمثيل": [
+        "بطولة": [
           "Alice Lowe",
           "Aneurin Barnard",
           "Boyd Clack",
           "Dan Renton Skinner"
         ]
       },
-      "year": "2024",
-      "quality": "1080p BluRay",
-      "runtime": "1 ساعة و 29 دقيقة",
-      "genres": [
-        "دراما",
-        "فانتازيا",
-        "كوميدي"
-      ],
-      "countries": [
-        "المملكة المتحدة"
-      ],
-      "cast": [
-        "Alice Lowe",
-        "Aneurin Barnard",
-        "Boyd Clack",
-        "Dan Renton Skinner"
-      ],
+      "year": null,
+      "quality": null,
+      "runtime": "2026-02-20",
+      "genres": [],
+      "countries": [],
       "watchServers": [
         {
           "name": "مشاهدة مباشرة",
@@ -36770,11 +36758,11 @@
       "page": 1,
       "position": 40,
       "currentFile": "Top13.json",
-      "scrapedAt": "2026-02-20T19:06:02.289Z",
+      "scrapedAt": "2026-02-20T19:38:51.371Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
-        "genresCount": 3
+        "genresCount": 0
       }
     },
     {
