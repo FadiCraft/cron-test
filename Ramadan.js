@@ -12,9 +12,9 @@ class LaroozaPagedExtractor {
         
         // نفس الإعدادات
         this.baseUrls = [
-            'https://q.larozavideo.net',
-            'https://www.larozavideo.net',
-            'https://larozavideo.net'
+            'https://larozza.mom',
+            'https://larozza.makeup',
+            'https://m.laroza-tv.net'
         ];
         this.baseUrl = this.baseUrls[0];
         
