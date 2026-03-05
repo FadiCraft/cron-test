@@ -1,10 +1,76 @@
 {
-  "scrapedAt": "2026-03-05T19:38:00.651Z",
+  "scrapedAt": "2026-03-05T20:19:30.424Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 8,
   "matches": [
     {
-      "id": "match_1772739471261_0",
+      "id": "match_1772741960389_0",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d9%88%d9%84%d9%85%d8%a8%d9%8a%d9%83-%d9%84%d9%8a%d9%88%d9%86-%d9%88-%d9%84%d8%a7%d9%86%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8/",
+      "title": "أولمبيك ليون vs لانس",
+      "team1": {
+        "name": "أولمبيك ليون",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/465.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "لانس",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/481.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
+      "channels": [],
+      "tournament": "كأس فرنسا - ربع النهائي",
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-03-05T20:19:20.389Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://4.wwwkoora.com/albaplayer/bein-sports-hd-3/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
+    },
+    {
+      "id": "match_1772741960395_1",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d9%88%d8%aa%d9%86%d9%87%d8%a7%d9%85-%d9%87%d9%88%d8%aa%d8%b3%d8%a8%d8%b1-%d9%88-%d9%83%d8%b1%d9%8a%d8%b3%d8%aa%d8%a7/",
+      "title": "توتنهام هوتسبر vs كريستال بالاس",
+      "team1": {
+        "name": "توتنهام هوتسبر",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/114.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "كريستال بالاس",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/10.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
+      "channels": [
+        "beIN SPORTS HD 1"
+      ],
+      "tournament": "الدوري الإنجليزي",
+      "page": 1,
+      "position": 2,
+      "scrapedAt": "2026-03-05T20:19:20.395Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://4.wwwkoora.com/albaplayer/bein-sports-hd-1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
+    },
+    {
+      "id": "match_1772741960396_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%85%d9%82%d8%a7%d9%88%d9%84%d9%88%d9%86-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8-%d9%88-%d8%a7%d9%84%d8%a3%d9%87%d9%84/",
       "title": "المقاولون العرب vs الأهلي",
       "team1": {
@@ -25,8 +91,8 @@
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-03-05T19:37:51.261Z",
+      "position": 3,
+      "scrapedAt": "2026-03-05T20:19:20.396Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -38,7 +104,7 @@
       ]
     },
     {
-      "id": "match_1772739471262_1",
+      "id": "match_1772741960397_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%ad%d8%b1%d8%b3-%d8%a7%d9%84%d8%ad%d8%af%d9%88%d8%af-%d9%88-%d8%a8%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d8%af%d8%b2-%d8%a8%d8%ab/",
       "title": "حرس الحدود vs بيراميدز",
       "team1": {
@@ -59,8 +125,8 @@
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-03-05T19:37:51.262Z",
+      "position": 4,
+      "scrapedAt": "2026-03-05T20:19:20.397Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -72,7 +138,39 @@
       ]
     },
     {
-      "id": "match_1772739471263_2",
+      "id": "match_1772741960398_4",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d9%88%d9%84%d9%85%d8%a8%d9%8a%d9%83-%d9%85%d8%a7%d8%b1%d8%b3%d9%8a%d9%84%d9%8a%d8%a7-%d9%88-%d8%aa%d9%88%d9%84%d9%88/",
+      "title": "أولمبيك مارسيليا vs تولوز",
+      "team1": {
+        "name": "أولمبيك مارسيليا",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/469.png",
+        "score": "2"
+      },
+      "team2": {
+        "name": "تولوز",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/482-2.png",
+        "score": "2"
+      },
+      "score": "2-2",
+      "time": "غير معروف",
+      "status": "جارية الآن",
+      "channels": [],
+      "tournament": "كأس فرنسا - ربع النهائي",
+      "page": 1,
+      "position": 5,
+      "scrapedAt": "2026-03-05T20:19:20.398Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://4.wwwkoora.com/albaplayer/bein-sports-hd-8/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
+    },
+    {
+      "id": "match_1772741960400_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d9%88%d8%b1%d9%8a%d8%a7%d9%86-%d9%88-%d9%86%d9%8a%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1/",
       "title": "لوريان vs نيس",
       "team1": {
@@ -91,8 +189,8 @@
       "channels": [],
       "tournament": "كأس فرنسا - ربع النهائي",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-03-05T19:37:51.263Z",
+      "position": 6,
+      "scrapedAt": "2026-03-05T20:19:20.400Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -104,89 +202,7 @@
       ]
     },
     {
-      "id": "match_1772739471264_3",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d9%88%d8%aa%d9%86%d9%87%d8%a7%d9%85-%d9%87%d9%88%d8%aa%d8%b3%d8%a8%d8%b1-%d9%88-%d9%83%d8%b1%d9%8a%d8%b3%d8%aa%d8%a7/",
-      "title": "توتنهام هوتسبر vs كريستال بالاس",
-      "team1": {
-        "name": "توتنهام هوتسبر",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/114.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "كريستال بالاس",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/10.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "10 PM",
-      "status": "بعد قليل",
-      "channels": [
-        "beIN SPORTS HD 1"
-      ],
-      "tournament": "الدوري الإنجليزي",
-      "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-03-05T19:37:51.264Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1772739471265_4",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d9%88%d9%84%d9%85%d8%a8%d9%8a%d9%83-%d9%85%d8%a7%d8%b1%d8%b3%d9%8a%d9%84%d9%8a%d8%a7-%d9%88-%d8%aa%d9%88%d9%84%d9%88/",
-      "title": "أولمبيك مارسيليا vs تولوز",
-      "team1": {
-        "name": "أولمبيك مارسيليا",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/469.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "تولوز",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/02/482-2.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "10 PM",
-      "status": "بعد قليل",
-      "channels": [],
-      "tournament": "كأس فرنسا - ربع النهائي",
-      "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-03-05T19:37:51.265Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1772739471266_5",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d9%88%d9%84%d9%85%d8%a8%d9%8a%d9%83-%d9%84%d9%8a%d9%88%d9%86-%d9%88-%d9%84%d8%a7%d9%86%d8%b3-%d8%a8%d8%ab-%d9%85%d8%a8/",
-      "title": "أولمبيك ليون vs لانس",
-      "team1": {
-        "name": "أولمبيك ليون",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/465.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "لانس",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/481.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "10:10 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [],
-      "tournament": "كأس فرنسا - ربع النهائي",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-03-05T19:37:51.266Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://4.wwwkoora.com/albaplayer/bein-sports-hd-3/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
-    },
-    {
-      "id": "match_1772739471266_6",
+      "id": "match_1772741960401_6",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%88%d8%af%d8%a7%d8%af-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d9%88-%d8%a7%d9%84%d8%ac%d9%8a%d8%b4-%d8%a7-2/",
       "title": "الوداد الرياضي vs الجيش الملكي",
       "team1": {
@@ -208,11 +224,11 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-03-05T19:37:51.266Z",
+      "scrapedAt": "2026-03-05T20:19:20.401Z",
       "watchServers": null
     },
     {
-      "id": "match_1772739471267_7",
+      "id": "match_1772741960402_7",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8%d8%b1%d9%83%d8%a7%d9%86-%d9%88-%d8%ad%d8%b3%d9%86%d9%8a%d8%a9-%d8%a3%d9%83%d8%a7%d8%af%d9%8a/",
       "title": "نهضة بركان vs حسنية أكادير",
       "team1": {
@@ -234,7 +250,7 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 8,
-      "scrapedAt": "2026-03-05T19:37:51.267Z",
+      "scrapedAt": "2026-03-05T20:19:20.402Z",
       "watchServers": null
     }
   ]
