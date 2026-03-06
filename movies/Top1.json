@@ -3,7 +3,7 @@
   "fileNumber": 2,
   "totalMovies": 500,
   "created": "2026-02-09T11:04:59.433Z",
-  "lastUpdated": "2026-03-06T15:54:42.597Z",
+  "lastUpdated": "2026-03-06T16:29:28.905Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -2999,7 +2999,7 @@
       "page": 1,
       "position": 46,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:54:15.881Z",
+      "scrapedAt": "2026-03-06T16:28:56.923Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 15,
@@ -3568,7 +3568,7 @@
       "page": 1,
       "position": 48,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:54:19.593Z",
+      "scrapedAt": "2026-03-06T16:29:01.297Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -5489,7 +5489,7 @@
       "page": 1,
       "position": 44,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:54:12.164Z",
+      "scrapedAt": "2026-03-06T16:28:52.573Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -5615,7 +5615,7 @@
       "page": 1,
       "position": 35,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:53:55.177Z",
+      "scrapedAt": "2026-03-06T16:28:32.286Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -7941,7 +7941,7 @@
       "page": 1,
       "position": 60,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:54:42.578Z",
+      "scrapedAt": "2026-03-06T16:29:28.887Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 13,
@@ -9472,7 +9472,7 @@
       "page": 1,
       "position": 40,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:54:04.785Z",
+      "scrapedAt": "2026-03-06T16:28:43.573Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -30358,7 +30358,7 @@
       "page": 1,
       "position": 47,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:54:17.736Z",
+      "scrapedAt": "2026-03-06T16:28:59.185Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 7,
@@ -37086,7 +37086,7 @@
       "page": 1,
       "position": 15,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:53:17.478Z",
+      "scrapedAt": "2026-03-06T16:27:48.007Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -37347,16 +37347,72 @@
           "type": "download_server",
           "icon": "fas fa-download",
           "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://updown.cam/0hmf4umwvu9p",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://down.mdiaload.com/kqn5ohfhpbvb",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://ddownload.com/fdu888olfny6",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://nitroflare.com/view/8794DF777AA7BA7",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://rapidgator.net/file/be203e6ab4a29adc5fd87f750f3b1225",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://frdl.io/oadcstzhc4w5",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://1cloudfile.com/2QLqg",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
         }
       ],
       "downloadPage": "https://topcinema.fan/%d9%81%d9%8a%d9%84%d9%85-the-strangers-chapter-3-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
       "position": 4,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-03-06T15:52:56.829Z",
+      "scrapedAt": "2026-03-06T16:27:24.407Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 8,
+        "downloadServersCount": 15,
         "genresCount": 0
       }
     },
