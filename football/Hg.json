@@ -1,10 +1,44 @@
 {
-  "scrapedAt": "2026-03-09T19:50:29.538Z",
+  "scrapedAt": "2026-03-09T20:30:58.608Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1773085820911_0",
+      "id": "match_1773088249522_0",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d8%b3%d8%a8%d8%a7%d9%86%d9%8a%d9%88%d9%84-%d9%88-%d8%b1%d9%8a%d8%a7%d9%84-%d8%a3%d9%88%d9%81%d9%8a%d9%8a%d8%af%d9%88/",
+      "title": "إسبانيول vs ريال أوفييدو",
+      "team1": {
+        "name": "إسبانيول",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/136-1.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "ريال أوفييدو",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/193.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
+      "channels": [
+        "beIN Sports 3 HD"
+      ],
+      "tournament": "الدوري الإسباني",
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-03-09T20:30:49.522Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://live.baranewssumsel.online/albaplayer/bein3/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
+    },
+    {
+      "id": "match_1773088249524_1",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d8%a7%d8%aa%d8%b3%d9%8a%d9%88-%d9%88-%d8%b3%d8%a7%d8%b3%d9%88%d9%84%d9%88-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "لاتسيو vs ساسولو",
       "team1": {
@@ -25,8 +59,8 @@
       ],
       "tournament": "الدوري الإيطالي",
       "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-03-09T19:50:20.911Z",
+      "position": 2,
+      "scrapedAt": "2026-03-09T20:30:49.524Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -38,7 +72,7 @@
       ]
     },
     {
-      "id": "match_1773085820912_1",
+      "id": "match_1773088249525_2",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%88%d8%b3%d8%aa-%d9%87%d8%a7%d9%85-%d9%8a%d9%88%d9%86%d8%a7%d9%8a%d8%aa%d8%af-%d9%88-%d8%a8%d8%b1%d9%8a%d9%86%d8%aa%d9%81/",
       "title": "وست هام يونايتد vs برينتفورد",
       "team1": {
@@ -59,8 +93,8 @@
       ],
       "tournament": "كاس الاتحاد الإنجليزي - الدور 5",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-03-09T19:50:20.912Z",
+      "position": 3,
+      "scrapedAt": "2026-03-09T20:30:49.525Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -72,7 +106,7 @@
       ]
     },
     {
-      "id": "match_1773085820913_2",
+      "id": "match_1773088249526_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a8%d9%86%d9%83-%d8%a7%d9%84%d8%a7%d9%87%d9%84%d9%8a-%d9%88-%d8%a8%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d8%af%d8%b2/",
       "title": "البنك الاهلي vs بيراميدز",
       "team1": {
@@ -93,8 +127,8 @@
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-03-09T19:50:20.913Z",
+      "position": 4,
+      "scrapedAt": "2026-03-09T20:30:49.526Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -106,7 +140,7 @@
       ]
     },
     {
-      "id": "match_1773085820914_3",
+      "id": "match_1773088249527_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b7%d9%84%d8%a7%d8%a6%d8%b9-%d8%a7%d9%84%d8%ac%d9%8a%d8%b4-%d9%88-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d8%a8%d8%ab-%d9%85/",
       "title": "طلائع الجيش vs الأهلي",
       "team1": {
@@ -127,8 +161,8 @@
       ],
       "tournament": "الدوري المصري",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-03-09T19:50:20.914Z",
+      "position": 5,
+      "scrapedAt": "2026-03-09T20:30:49.527Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -140,33 +174,7 @@
       ]
     },
     {
-      "id": "match_1773085820915_4",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d8%b3%d8%a8%d8%a7%d9%86%d9%8a%d9%88%d9%84-%d9%88-%d8%b1%d9%8a%d8%a7%d9%84-%d8%a3%d9%88%d9%81%d9%8a%d9%8a%d8%af%d9%88/",
-      "title": "إسبانيول vs ريال أوفييدو",
-      "team1": {
-        "name": "إسبانيول",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/136-1.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "ريال أوفييدو",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/193.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "10 PM",
-      "status": "بعد قليل",
-      "channels": [
-        "beIN Sports 3 HD"
-      ],
-      "tournament": "الدوري الإسباني",
-      "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-03-09T19:50:20.915Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1773085820916_5",
+      "id": "match_1773088249528_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%aa%d9%88%d8%a7%d8%b1%d9%83%d8%a9-%d9%88-%d8%a7%d9%84%d9%88%d8%af%d8%a7%d8%af-%d8%a7%d9%84/",
       "title": "اتحاد تواركة vs الوداد الرياضي",
       "team1": {
@@ -188,11 +196,11 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-03-09T19:50:20.916Z",
+      "scrapedAt": "2026-03-09T20:30:49.528Z",
       "watchServers": null
     },
     {
-      "id": "match_1773085820918_6",
+      "id": "match_1773088249529_6",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8%d8%b1%d9%83%d8%a7%d9%86-%d9%88-%d8%a7%d9%84%d8%af%d9%81%d8%a7%d8%b9-%d8%a7%d9%84%d8%ad%d8%b3/",
       "title": "نهضة بركان vs الدفاع الحسني الجديدي",
       "team1": {
@@ -214,7 +222,7 @@
       "tournament": "الدوري المغربي",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-03-09T19:50:20.918Z",
+      "scrapedAt": "2026-03-09T20:30:49.529Z",
       "watchServers": null
     }
   ]
