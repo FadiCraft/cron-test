@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-03-10T04:33:08.022Z",
+  "last_scan": "2026-03-10T09:11:23.442Z",
   "series": {
     "193369381": {
       "last_episode": "321456406",
@@ -560,7 +560,7 @@
       }
     },
     "fd55e6ca6": {
-      "last_episode": "a4215803a",
+      "last_episode": "83ef56474",
       "last_season": 1,
       "episodes": {
         "545666282": {
@@ -651,6 +651,12 @@
           "extracted_at": "2026-03-08T18:38:53.895Z",
           "title": "برنامج رامز ليفل الوحش الحلقة 19 التاسعة عشر",
           "number": 19,
+          "season": 1
+        },
+        "83ef56474": {
+          "extracted_at": "2026-03-10T07:19:04.232Z",
+          "title": "برنامج رامز ليفل الوحش الحلقة 20 العشرون",
+          "number": 20,
           "season": 1
         }
       }
@@ -1832,7 +1838,7 @@
       }
     },
     "fd8b9e5e9": {
-      "last_episode": "bd499228b",
+      "last_episode": "29f283a3b",
       "last_season": 1,
       "episodes": {
         "f1f951efc": {
@@ -1953,6 +1959,12 @@
           "extracted_at": "2026-03-09T02:29:34.057Z",
           "title": "مسلسل اسال روحك الحلقة 20 العشرون",
           "number": 20,
+          "season": 1
+        },
+        "29f283a3b": {
+          "extracted_at": "2026-03-10T07:52:38.566Z",
+          "title": "مسلسل اسال روحك الحلقة 21 الحادية والعشرون",
+          "number": 21,
           "season": 1
         }
       }
@@ -2834,7 +2846,7 @@
       }
     },
     "cd537c4e8": {
-      "last_episode": "ba4a4583e",
+      "last_episode": "793f566e1",
       "last_season": 1,
       "episodes": {
         "a9b93d2c4": {
@@ -2931,6 +2943,12 @@
           "extracted_at": "2026-03-09T02:29:58.071Z",
           "title": "مسلسل بالحرام الحلقة 21 الحادية والعشرون",
           "number": 21,
+          "season": 1
+        },
+        "793f566e1": {
+          "extracted_at": "2026-03-10T08:03:40.268Z",
+          "title": "مسلسل بالحرام الحلقة 22 الثانية والعشرون",
+          "number": 22,
           "season": 1
         }
       }
@@ -3452,7 +3470,7 @@
       }
     },
     "812858e07": {
-      "last_episode": "ab2f79991",
+      "last_episode": "40d37b222",
       "last_season": 1,
       "episodes": {
         "2b93888d9": {
@@ -3579,6 +3597,12 @@
           "extracted_at": "2026-03-08T18:43:09.471Z",
           "title": "مسلسل مطبخ المدينة الحلقة 21 الحادية والعشرون",
           "number": 21,
+          "season": 1
+        },
+        "40d37b222": {
+          "extracted_at": "2026-03-10T08:09:00.922Z",
+          "title": "مسلسل مطبخ المدينة الحلقة 22 الثانية والعشرون",
+          "number": 22,
           "season": 1
         }
       }
@@ -5774,7 +5798,7 @@
       }
     },
     "11e59e09d": {
-      "last_episode": "eab0a0197",
+      "last_episode": "c7377df90",
       "last_season": 1,
       "episodes": {
         "832016646": {
@@ -5895,6 +5919,12 @@
           "extracted_at": "2026-03-08T18:44:45.846Z",
           "title": "مسلسل اخر كلام الحلقة 20 العشرون",
           "number": 20,
+          "season": 1
+        },
+        "c7377df90": {
+          "extracted_at": "2026-03-10T08:35:51.051Z",
+          "title": "مسلسل اخر كلام الحلقة 21 الحادية والعشرون",
+          "number": 21,
           "season": 1
         }
       }
@@ -7838,7 +7868,7 @@
       }
     },
     "70efa0e07": {
-      "last_episode": "e15b933f3",
+      "last_episode": "8a8b14e22",
       "last_season": 1,
       "episodes": {
         "52fca8afd": {
@@ -7959,6 +7989,12 @@
           "extracted_at": "2026-03-08T18:47:47.264Z",
           "title": "مسلسل المحافظة 15 الحلقة 20 العشرون",
           "number": 20,
+          "season": 1
+        },
+        "8a8b14e22": {
+          "extracted_at": "2026-03-10T09:11:23.442Z",
+          "title": "مسلسل المحافظة 15 الحلقة 21 الحادية والعشرون",
+          "number": 21,
           "season": 1
         }
       }
@@ -18913,16 +18949,118 @@
       "title": "مسلسل الخطيفة الحلقة 20 العشرون",
       "number": 20,
       "season": 1
+    },
+    "83ef56474": {
+      "series_id": "fd55e6ca6",
+      "extracted_at": "2026-03-10T07:19:04.232Z",
+      "title": "برنامج رامز ليفل الوحش الحلقة 20 العشرون",
+      "number": 20,
+      "season": 1
+    },
+    "29f283a3b": {
+      "series_id": "fd8b9e5e9",
+      "extracted_at": "2026-03-10T07:52:38.566Z",
+      "title": "مسلسل اسال روحك الحلقة 21 الحادية والعشرون",
+      "number": 21,
+      "season": 1
+    },
+    "793f566e1": {
+      "series_id": "cd537c4e8",
+      "extracted_at": "2026-03-10T08:03:40.268Z",
+      "title": "مسلسل بالحرام الحلقة 22 الثانية والعشرون",
+      "number": 22,
+      "season": 1
+    },
+    "40d37b222": {
+      "series_id": "812858e07",
+      "extracted_at": "2026-03-10T08:09:00.922Z",
+      "title": "مسلسل مطبخ المدينة الحلقة 22 الثانية والعشرون",
+      "number": 22,
+      "season": 1
+    },
+    "c7377df90": {
+      "series_id": "11e59e09d",
+      "extracted_at": "2026-03-10T08:35:51.051Z",
+      "title": "مسلسل اخر كلام الحلقة 21 الحادية والعشرون",
+      "number": 21,
+      "season": 1
+    },
+    "8a8b14e22": {
+      "series_id": "70efa0e07",
+      "extracted_at": "2026-03-10T09:11:23.442Z",
+      "title": "مسلسل المحافظة 15 الحلقة 21 الحادية والعشرون",
+      "number": 21,
+      "season": 1
     }
   },
   "statistics": {
     "total_series": 96,
-    "total_episodes": 1415,
-    "new_episodes_today": 33,
-    "last_scan": "2026-03-10T04:41:14.895Z",
+    "total_episodes": 1421,
+    "new_episodes_today": 6,
+    "last_scan": "2026-03-10T09:33:57.626Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "8a8b14e22",
+      "series_id": "70efa0e07",
+      "series_title": "مسلسل المحافظة 15",
+      "title": "مسلسل المحافظة 15 الحلقة 21 الحادية والعشرون",
+      "image": "https://larozza.wiki/uploads/thumbs/52fca8afd-1.jpg",
+      "number": 21,
+      "season": 1,
+      "added_at": "2026-03-10T09:11:12.876Z"
+    },
+    {
+      "id": "c7377df90",
+      "series_id": "11e59e09d",
+      "series_title": "مسلسل أخر كلام",
+      "title": "مسلسل اخر كلام الحلقة 21 الحادية والعشرون",
+      "image": "https://larozza.wiki/uploads/thumbs/95998f98f-1.jpg",
+      "number": 21,
+      "season": 1,
+      "added_at": "2026-03-10T08:35:01.961Z"
+    },
+    {
+      "id": "40d37b222",
+      "series_id": "812858e07",
+      "series_title": "مسلسل مطبخ المدينة",
+      "title": "مسلسل مطبخ المدينة الحلقة 22 الثانية والعشرون",
+      "image": "https://larozza.wiki/uploads/thumbs/2b93888d9-1.jpg",
+      "number": 22,
+      "season": 1,
+      "added_at": "2026-03-10T08:08:52.966Z"
+    },
+    {
+      "id": "793f566e1",
+      "series_id": "cd537c4e8",
+      "series_title": "بالحرام",
+      "title": "مسلسل بالحرام الحلقة 22 الثانية والعشرون",
+      "image": "https://larozza.wiki/uploads/thumbs/692e3e19d-1.jpg",
+      "number": 22,
+      "season": 1,
+      "added_at": "2026-03-10T08:03:30.100Z"
+    },
+    {
+      "id": "29f283a3b",
+      "series_id": "fd8b9e5e9",
+      "series_title": "اسأل روحك",
+      "title": "مسلسل اسال روحك الحلقة 21 الحادية والعشرون",
+      "image": "https://larozza.wiki/uploads/thumbs/f1f951efc-1.jpg",
+      "number": 21,
+      "season": 1,
+      "added_at": "2026-03-10T07:51:34.270Z"
+    },
+    {
+      "id": "83ef56474",
+      "series_id": "fd55e6ca6",
+      "series_title": "رامز ليفل الوحش",
+      "title": "برنامج رامز ليفل الوحش الحلقة 20 العشرون",
+      "image": "https://larozza.wiki/uploads/thumbs/5a8ef2596-1.jpg",
+      "number": 20,
+      "season": 1,
+      "added_at": "2026-03-10T07:18:06.706Z"
+    },
     {
       "id": "78ef3ec47",
       "series_id": "94d42abbd",
@@ -18962,66 +19100,6 @@
       "number": 21,
       "season": 1,
       "added_at": "2026-03-10T04:15:27.485Z"
-    },
-    {
-      "id": "2255f3b92",
-      "series_id": "1bcbf8b34",
-      "series_title": "مسلسل عيلة الملك",
-      "title": "مسلسل عيلة الملك الحلقة 21 الحادية والعشرون",
-      "image": "https://larozza.wiki/uploads/thumbs/ed1acc21a-1.jpg",
-      "number": 21,
-      "season": 1,
-      "added_at": "2026-03-10T04:14:08.445Z"
-    },
-    {
-      "id": "15f1202f1",
-      "series_id": "c232bee64",
-      "series_title": "مسلسل مستقبل زاهر 2: الغربان",
-      "title": "مسلسل مستقبل زاهر 2: الغربان الحلقة 2 الثانية",
-      "image": "https://larozza.wiki/uploads/thumbs/756427d51-1.jpg",
-      "number": 2,
-      "season": 2,
-      "added_at": "2026-03-10T04:09:02.588Z"
-    },
-    {
-      "id": "26437a6e8",
-      "series_id": "c232bee64",
-      "series_title": "مسلسل مستقبل زاهر 2: الغربان",
-      "title": "مسلسل مستقبل زاهر 2: الغربان الحلقة 3 الثالثة",
-      "image": "https://larozza.wiki/uploads/thumbs/756427d51-1.jpg",
-      "number": 3,
-      "season": 2,
-      "added_at": "2026-03-10T04:09:02.587Z"
-    },
-    {
-      "id": "ae9fc7adc",
-      "series_id": "c232bee64",
-      "series_title": "مسلسل مستقبل زاهر 2: الغربان",
-      "title": "مسلسل مستقبل زاهر 2: الغربان الحلقة 4 الرابعة",
-      "image": "https://larozza.wiki/uploads/thumbs/756427d51-1.jpg",
-      "number": 4,
-      "season": 2,
-      "added_at": "2026-03-10T04:09:02.587Z"
-    },
-    {
-      "id": "c1f7a1a24",
-      "series_id": "c232bee64",
-      "series_title": "مسلسل مستقبل زاهر 2: الغربان",
-      "title": "مسلسل مستقبل زاهر 2: الغربان الحلقة 5 الخامسة",
-      "image": "https://larozza.wiki/uploads/thumbs/756427d51-1.jpg",
-      "number": 5,
-      "season": 2,
-      "added_at": "2026-03-10T04:09:02.587Z"
-    },
-    {
-      "id": "b8aac9f9e",
-      "series_id": "e6926d8ca",
-      "series_title": "مسلسل حي الجرادية",
-      "title": "مسلسل حي الجرادية الحلقة 22 الثانية والعشرون",
-      "image": "https://larozza.wiki/uploads/thumbs/aeddcc6b7-1.jpg",
-      "number": 22,
-      "season": 1,
-      "added_at": "2026-03-10T04:05:02.191Z"
     }
   ],
   "latest_series": [
@@ -19029,31 +19107,31 @@
       "id": "81ce0a5d7",
       "title": "مسلسل علي كلاي",
       "image": "",
-      "added_at": "2026-03-10T02:10:33.471Z"
+      "added_at": "2026-03-10T06:56:14.878Z"
     },
     {
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
-      "image": "https://larozza.wiki/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-03-10T02:10:33.471Z"
+      "image": "",
+      "added_at": "2026-03-10T06:56:14.878Z"
     },
     {
       "id": "9",
       "title": "مسلسل المداح 6",
       "image": "",
-      "added_at": "2026-03-10T02:10:33.471Z"
+      "added_at": "2026-03-10T06:56:14.878Z"
     },
     {
       "id": "1cf22b484",
       "title": "مسلسل افراج",
       "image": "",
-      "added_at": "2026-03-10T02:10:33.471Z"
+      "added_at": "2026-03-10T06:56:14.878Z"
     },
     {
       "id": "5",
       "title": "مسلسل مناعة",
       "image": "",
-      "added_at": "2026-03-10T02:10:33.471Z"
+      "added_at": "2026-03-10T06:56:14.878Z"
     }
   ]
 }
