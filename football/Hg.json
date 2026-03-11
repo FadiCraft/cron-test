@@ -1,62 +1,36 @@
 {
-  "scrapedAt": "2026-03-11T20:53:22.186Z",
+  "scrapedAt": "2026-03-11T21:30:20.445Z",
   "source": "https://koraplus.blog/",
-  "totalMatches": 6,
+  "totalMatches": 2,
   "matches": [
     {
-      "id": "match_1773262395393_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b2%d8%af-%d9%88-%d9%85%d9%88%d8%af%d8%b1%d9%86-%d8%b3%d8%a8%d9%88%d8%b1%d8%aa-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
-      "title": "زد vs مودرن سبورت",
+      "id": "match_1773264618143_0",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d9%85%d8%af%d8%b1%d9%8a%d8%af-%d9%88-%d9%85%d8%a7%d9%86%d8%b4%d8%b3%d8%aa%d8%b1-%d8%b3%d9%8a%d8%aa/",
+      "title": "ريال مدريد vs مانشستر سيتي",
       "team1": {
-        "name": "زد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/29732.png",
-        "score": "0"
+        "name": "ريال مدريد",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/131-5.png",
+        "score": "3"
       },
       "team2": {
-        "name": "مودرن سبورت",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/50877.png",
+        "name": "مانشستر سيتي",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/110-4.png",
         "score": "0"
       },
-      "score": "0-0",
+      "score": "3-0",
       "time": "غير معروف",
       "status": "جارية الآن",
       "channels": [
-        "أون سبورت 2"
+        "beIN SPORTS HD 1"
       ],
-      "tournament": "الدوري المصري",
+      "tournament": "دوري أبطال اوروبا - دور الـ 16",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-03-11T20:53:15.393Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1773262395394_1",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d9%86%d8%a8%d9%8a-%d9%88-%d8%a7%d9%84%d8%b2%d9%85%d8%a7%d9%84%d9%83-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-2/",
-      "title": "إنبي vs الزمالك",
-      "team1": {
-        "name": "إنبي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/8300-1.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "الزمالك",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/8201-2.png",
-        "score": "0"
-      },
-      "score": "1-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "أون سبورت 1"
-      ],
-      "tournament": "الدوري المصري",
-      "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-03-11T20:53:15.394Z",
+      "scrapedAt": "2026-03-11T21:30:18.143Z",
       "watchServers": [
         {
           "type": "iframe",
-          "url": "https://live.baranewssumsel.online/albaplayer/on-time-sport-1/",
+          "url": "https://6.wwwkoora.com/albaplayer/bein-sports-hd-1/",
           "quality": "HD",
           "server": "AlbaPlayer",
           "id": "player_1"
@@ -64,17 +38,17 @@
       ]
     },
     {
-      "id": "match_1773262395395_2",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%a7%d8%b1%d9%8a%d8%b3-%d8%b3%d8%a7%d9%86-%d8%ac%d9%8a%d8%b1%d9%85%d8%a7%d9%86-%d9%88-%d8%aa%d8%b4%d9%8a%d9%84%d8%b3-2/",
+      "id": "match_1773264618144_1",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%a7%d8%b1%d9%8a%d8%b3-%d8%b3%d8%a7%d9%86-%d8%ac%d9%8a%d8%b1%d9%85%d8%a7%d9%86-%d9%88-%d8%aa%d8%b4%d9%8a%d9%84%d8%b3/",
       "title": "باريس سان جيرمان vs تشيلسي",
       "team1": {
         "name": "باريس سان جيرمان",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/480-1.png",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/480-4.png",
         "score": "2"
       },
       "team2": {
         "name": "تشيلسي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/106-2.png",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/106-5.png",
         "score": "1"
       },
       "score": "2-1",
@@ -85,95 +59,17 @@
       ],
       "tournament": "دوري أبطال اوروبا - دور الـ 16",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-03-11T20:53:15.395Z",
+      "position": 2,
+      "scrapedAt": "2026-03-11T21:30:18.144Z",
       "watchServers": [
         {
           "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-2/",
+          "url": "https://6.wwwkoora.com/albaplayer/bein-sports-hd-2/",
           "quality": "HD",
           "server": "AlbaPlayer",
           "id": "player_1"
         }
       ]
-    },
-    {
-      "id": "match_1773262395396_3",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%88%d8%af%d9%88-%d8%ac%d9%84%d9%8a%d9%85%d8%aa-%d9%88-%d8%b3%d8%a8%d9%88%d8%b1%d8%aa%d9%86%d8%ac-%d9%84%d8%b4%d8%a8-2/",
-      "title": "بودو جليمت vs سبورتنج لشبونة",
-      "team1": {
-        "name": "بودو جليمت",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/1978-1.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "سبورتنج لشبونة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/890-2.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "11 PM",
-      "status": "بعد قليل",
-      "channels": [
-        "beIN Sports 3 HD"
-      ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
-      "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-03-11T20:53:15.396Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1773262395397_4",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%a7%d9%8a%d8%b1-%d9%84%d9%8a%d9%81%d8%b1%d9%83%d9%88%d8%b2%d9%86-%d9%88-%d8%a3%d8%b1%d8%b3%d9%86%d8%a7%d9%84-%d8%a8-2/",
-      "title": "باير ليفركوزن vs أرسنال",
-      "team1": {
-        "name": "باير ليفركوزن",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/333-1.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "أرسنال",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/104-2.png",
-        "score": "1"
-      },
-      "score": "1-1",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "beIN SPORTS HD 1"
-      ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
-      "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-03-11T20:53:15.397Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1773262395398_5",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d9%85%d8%af%d8%b1%d9%8a%d8%af-%d9%88-%d9%85%d8%a7%d9%86%d8%b4%d8%b3%d8%aa%d8%b1-%d8%b3%d9%8a%d8%aa-2/",
-      "title": "ريال مدريد vs مانشستر سيتي",
-      "team1": {
-        "name": "ريال مدريد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/131-2.png",
-        "score": "3"
-      },
-      "team2": {
-        "name": "مانشستر سيتي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/110-1.png",
-        "score": "0"
-      },
-      "score": "3-0",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "beIN SPORTS HD 1"
-      ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-03-11T20:53:15.398Z",
-      "watchServers": null
     }
   ]
 }
