@@ -501,5 +501,88 @@
       "count": 30,
       "htmlLength": 163624
     }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:12.912Z",
+    "type": "INFO",
+    "message": "تم تحميل حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "scrape_series",
+      "allPagesScraped": false
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:12.915Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:14.531Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:16.544Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:16.545Z",
+    "type": "INFO",
+    "message": "تم حفظ حالة التقدم",
+    "data": {
+      "page": 1,
+      "mode": "scrape_series"
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:16.545Z",
+    "type": "FETCH",
+    "message": "محاولة جلب",
+    "data": {
+      "url": "https://topcinema.red/category/%d9%85%d8%b3%d9%84%",
+      "retries": 3
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:16.819Z",
+    "type": "FETCH_RESPONSE",
+    "message": "استجابة الخادم",
+    "data": {
+      "status": 200,
+      "statusText": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:18.824Z",
+    "type": "FETCH",
+    "message": "نجح الجلب",
+    "data": {
+      "url": "https://topcinema.red/category/%d9%85%d8%b3%d9%84%",
+      "attempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-03-15T18:34:19.027Z",
+    "type": "SERIES_PAGE",
+    "message": "نتائج صفحة المسلسلات",
+    "data": {
+      "pageNum": 1,
+      "count": 30,
+      "htmlLength": 163620
+    }
   }
 ]
