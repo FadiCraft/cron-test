@@ -24469,8 +24469,8 @@
   "statistics": {
     "total_series": 95,
     "total_episodes": 1842,
-    "new_episodes_today": 96,
-    "last_scan": "2026-03-17T02:20:59.413Z",
+    "new_episodes_today": 0,
+    "last_scan": "2026-03-17T07:10:56.798Z",
     "first_scan": false
   },
   "latest_episodes": [
@@ -24577,34 +24577,34 @@
   ],
   "latest_series": [
     {
+      "id": "5",
+      "title": "مسلسل مناعة",
+      "image": "",
+      "added_at": "2026-03-17T07:07:32.267Z"
+    },
+    {
+      "id": "198f04f5b",
+      "title": "مسلسل عرض وطلب",
+      "image": "https://larozza.ink/uploads/thumbs/49b123ca1-1.jpg",
+      "added_at": "2026-03-17T07:07:32.267Z"
+    },
+    {
+      "id": "96f285f56",
+      "title": "مسلسل فرصة أخيرة",
+      "image": "https://larozza.ink/uploads/thumbs/8b489cf51-1.jpg",
+      "added_at": "2026-03-17T07:07:32.267Z"
+    },
+    {
+      "id": "a",
+      "title": "مسلسل حكاية نرجس",
+      "image": "",
+      "added_at": "2026-03-17T07:07:32.267Z"
+    },
+    {
       "id": "81ce0a5d7",
       "title": "مسلسل علي كلاي",
       "image": "https://larozza.ink/uploads/thumbs/0ec1512a8-1.jpg",
-      "added_at": "2026-03-17T02:14:02.231Z"
-    },
-    {
-      "id": "d8cb9c11b",
-      "title": "مسلسل الكينج",
-      "image": "https://larozza.ink/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-03-17T02:14:02.231Z"
-    },
-    {
-      "id": "9",
-      "title": "مسلسل المداح 6",
-      "image": "",
-      "added_at": "2026-03-17T02:14:02.231Z"
-    },
-    {
-      "id": "1cf22b484",
-      "title": "مسلسل افراج",
-      "image": "https://larozza.ink/uploads/thumbs/372599929-1.jpg",
-      "added_at": "2026-03-17T02:14:02.231Z"
-    },
-    {
-      "id": "ae583760b",
-      "title": "مسلسل الست موناليزا",
-      "image": "",
-      "added_at": "2026-03-17T02:14:02.231Z"
+      "added_at": "2026-03-17T07:07:32.266Z"
     }
   ]
 }
