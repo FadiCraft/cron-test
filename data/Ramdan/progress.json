@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-03-18T02:29:54.516Z",
+  "last_scan": "2026-03-18T13:20:15.938Z",
   "series": {
     "193369381": {
       "last_episode": "f008176a8",
@@ -1826,7 +1826,7 @@
       }
     },
     "5d5295f57": {
-      "last_episode": "2dc4947f0",
+      "last_episode": "42b3129aa",
       "last_season": 1,
       "episodes": {
         "2dcdec911": {
@@ -1911,6 +1911,12 @@
           "extracted_at": "2026-03-17T13:24:18.886Z",
           "title": "مسلسل قطر صغنطوط الحلقة 14 الرابعة عشر",
           "number": 14,
+          "season": 1
+        },
+        "42b3129aa": {
+          "extracted_at": "2026-03-18T13:17:53.401Z",
+          "title": "مسلسل قطر صغنطوط الحلقة 15 الخامسة عشر والاخيرة",
+          "number": 15,
           "season": 1
         }
       }
@@ -3746,7 +3752,7 @@
       }
     },
     "a4225b39e": {
-      "last_episode": "5b0aea3f0",
+      "last_episode": "932d591b3",
       "last_season": 1,
       "episodes": {
         "982203424": {
@@ -3915,6 +3921,12 @@
           "extracted_at": "2026-03-17T19:09:33.326Z",
           "title": "مسلسل بخمس ارواح الحلقة 29 التاسعة والعشرون",
           "number": 29,
+          "season": 1
+        },
+        "932d591b3": {
+          "extracted_at": "2026-03-18T13:18:40.697Z",
+          "title": "مسلسل بخمس ارواح الحلقة 30 الثلاثون والاخيرة",
+          "number": 30,
           "season": 1
         }
       }
@@ -6230,7 +6242,7 @@
       }
     },
     "f84c14da4": {
-      "last_episode": "2cc961a3c",
+      "last_episode": "ae17d9bd1",
       "last_season": 1,
       "episodes": {
         "703653976": {
@@ -6405,6 +6417,12 @@
           "extracted_at": "2026-03-17T13:26:10.594Z",
           "title": "مسلسل اليتيم الحلقة 29 التاسعة والعشرون",
           "number": 29,
+          "season": 1
+        },
+        "ae17d9bd1": {
+          "extracted_at": "2026-03-18T13:19:20.567Z",
+          "title": "مسلسل اليتيم الحلقة 30 الثلاثون والاخيرة",
+          "number": 30,
           "season": 1
         }
       }
@@ -6962,7 +6980,7 @@
       }
     },
     "24198170e": {
-      "last_episode": "2355d2164",
+      "last_episode": "147a839a9",
       "last_season": 1,
       "episodes": {
         "ed3685732": {
@@ -7137,6 +7155,12 @@
           "extracted_at": "2026-03-17T13:26:26.476Z",
           "title": "مسلسل درب الذهب الحلقة 29 التاسعة والعشرون",
           "number": 29,
+          "season": 1
+        },
+        "147a839a9": {
+          "extracted_at": "2026-03-18T13:19:38.872Z",
+          "title": "مسلسل درب الذهب الحلقة 30 الثلاثون والاخيرة",
+          "number": 30,
           "season": 1
         }
       }
@@ -8894,7 +8918,7 @@
       }
     },
     "a7532ecf1": {
-      "last_episode": "3c76fc77d",
+      "last_episode": "dabf8be69",
       "last_season": 1,
       "episodes": {
         "55aaaa8b8": {
@@ -9069,6 +9093,12 @@
           "extracted_at": "2026-03-17T13:27:14.355Z",
           "title": "مسلسل البخت الحلقة 29 التاسعة والعشرون",
           "number": 29,
+          "season": 1
+        },
+        "dabf8be69": {
+          "extracted_at": "2026-03-18T13:20:15.938Z",
+          "title": "مسلسل البخت الحلقة 30 الثلاثون والاخيرة",
+          "number": 30,
           "season": 1
         }
       }
@@ -25166,16 +25196,101 @@
       "title": "مسلسل عايلة مايلة الحلقة 30 الثلاثون",
       "number": 30,
       "season": 1
+    },
+    "42b3129aa": {
+      "series_id": "5d5295f57",
+      "extracted_at": "2026-03-18T13:17:53.401Z",
+      "title": "مسلسل قطر صغنطوط الحلقة 15 الخامسة عشر والاخيرة",
+      "number": 15,
+      "season": 1
+    },
+    "932d591b3": {
+      "series_id": "a4225b39e",
+      "extracted_at": "2026-03-18T13:18:40.697Z",
+      "title": "مسلسل بخمس ارواح الحلقة 30 الثلاثون والاخيرة",
+      "number": 30,
+      "season": 1
+    },
+    "ae17d9bd1": {
+      "series_id": "f84c14da4",
+      "extracted_at": "2026-03-18T13:19:20.567Z",
+      "title": "مسلسل اليتيم الحلقة 30 الثلاثون والاخيرة",
+      "number": 30,
+      "season": 1
+    },
+    "147a839a9": {
+      "series_id": "24198170e",
+      "extracted_at": "2026-03-18T13:19:38.872Z",
+      "title": "مسلسل درب الذهب الحلقة 30 الثلاثون والاخيرة",
+      "number": 30,
+      "season": 1
+    },
+    "dabf8be69": {
+      "series_id": "a7532ecf1",
+      "extracted_at": "2026-03-18T13:20:15.938Z",
+      "title": "مسلسل البخت الحلقة 30 الثلاثون والاخيرة",
+      "number": 30,
+      "season": 1
     }
   },
   "statistics": {
     "total_series": 94,
-    "total_episodes": 1896,
-    "new_episodes_today": 0,
-    "last_scan": "2026-03-18T07:08:21.256Z",
+    "total_episodes": 1901,
+    "new_episodes_today": 5,
+    "last_scan": "2026-03-18T13:21:10.361Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "dabf8be69",
+      "series_id": "a7532ecf1",
+      "series_title": "مسلسل البخت",
+      "title": "مسلسل البخت الحلقة 30 الثلاثون والاخيرة",
+      "image": "https://laroza.work/uploads/thumbs/55aaaa8b8-1.jpg",
+      "number": 30,
+      "season": 1,
+      "added_at": "2026-03-18T13:20:15.359Z"
+    },
+    {
+      "id": "147a839a9",
+      "series_id": "24198170e",
+      "series_title": "مسلسل درب الذهب",
+      "title": "مسلسل درب الذهب الحلقة 30 الثلاثون والاخيرة",
+      "image": "https://laroza.work/uploads/thumbs/ed3685732-1.jpg",
+      "number": 30,
+      "season": 1,
+      "added_at": "2026-03-18T13:19:38.251Z"
+    },
+    {
+      "id": "ae17d9bd1",
+      "series_id": "f84c14da4",
+      "series_title": "مسلسل اليتيم",
+      "title": "مسلسل اليتيم الحلقة 30 الثلاثون والاخيرة",
+      "image": "https://laroza.work/uploads/thumbs/bf287f6da-1.jpg",
+      "number": 30,
+      "season": 1,
+      "added_at": "2026-03-18T13:19:20.159Z"
+    },
+    {
+      "id": "932d591b3",
+      "series_id": "a4225b39e",
+      "series_title": "مسلسل بخمس أرواح",
+      "title": "مسلسل بخمس ارواح الحلقة 30 الثلاثون والاخيرة",
+      "image": "https://laroza.work/uploads/thumbs/514ed510c-1.jpg",
+      "number": 30,
+      "season": 1,
+      "added_at": "2026-03-18T13:18:40.130Z"
+    },
+    {
+      "id": "42b3129aa",
+      "series_id": "5d5295f57",
+      "series_title": "مسلسل قطر صغنطوط",
+      "title": "مسلسل قطر صغنطوط الحلقة 15 الخامسة عشر والاخيرة",
+      "image": "https://laroza.work/uploads/thumbs/2dcdec911-1.jpg",
+      "number": 15,
+      "season": 1,
+      "added_at": "2026-03-18T13:17:52.768Z"
+    },
     {
       "id": "d2c0a347a",
       "series_id": "0ed21e78f",
@@ -25225,56 +25340,6 @@
       "number": 29,
       "season": 1,
       "added_at": "2026-03-18T02:28:21.920Z"
-    },
-    {
-      "id": "9932c4239",
-      "series_id": "9f5220386",
-      "series_title": "مسلسل الغميضة",
-      "title": "مسلسل الغميضة الحلقة 30 الثلاثون",
-      "image": "https://larozza.ink/uploads/thumbs/abd442d4a-1.jpg",
-      "number": 30,
-      "season": 1,
-      "added_at": "2026-03-18T02:27:59.845Z"
-    },
-    {
-      "id": "89660489c",
-      "series_id": "85aa7b7ee",
-      "series_title": "مسلسل الهيبة: رأس الجبل",
-      "title": "مسلسل الهيبة راس الجبل الحلقة 28 الثامنة والعشرون",
-      "image": "https://larozza.ink/uploads/thumbs/6b94c076f-1.jpg",
-      "number": 28,
-      "season": 1,
-      "added_at": "2026-03-18T02:27:51.984Z"
-    },
-    {
-      "id": "668434826",
-      "series_id": "cd537c4e8",
-      "series_title": "مسلسل بالحرام",
-      "title": "مسلسل بالحرام الحلقة 30 الثلاثون والاخيرة",
-      "image": "https://larozza.ink/uploads/thumbs/692e3e19d-1.jpg",
-      "number": 30,
-      "season": 1,
-      "added_at": "2026-03-18T02:27:42.123Z"
-    },
-    {
-      "id": "cc530b80b",
-      "series_id": "fd8b9e5e9",
-      "series_title": "مسلسل اسأل روحك",
-      "title": "مسلسل اسال روحك الحلقة 29 التاسعة والعشرون",
-      "image": "https://larozza.ink/uploads/thumbs/f1f951efc-1.jpg",
-      "number": 29,
-      "season": 1,
-      "added_at": "2026-03-18T02:27:25.003Z"
-    },
-    {
-      "id": "0cf9c0e13",
-      "series_id": "0a38bbdf6",
-      "series_title": "مسلسل ن النسوة",
-      "title": "مسلسل ن النسوة الحلقة 15 الخامسة عشر والاخيرة",
-      "image": "https://larozza.ink/uploads/thumbs/715a3abbf-1.jpg",
-      "number": 15,
-      "season": 1,
-      "added_at": "2026-03-18T02:27:12.724Z"
     }
   ],
   "latest_series": [
@@ -25282,31 +25347,31 @@
       "id": "d",
       "title": "مسلسل علي كلاي",
       "image": "",
-      "added_at": "2026-03-18T07:04:37.698Z"
+      "added_at": "2026-03-18T13:17:03.115Z"
     },
     {
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
       "image": "https://laroza.work/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-03-18T07:04:37.698Z"
+      "added_at": "2026-03-18T13:17:03.115Z"
     },
     {
       "id": "9",
       "title": "مسلسل المداح 6",
       "image": "",
-      "added_at": "2026-03-18T07:04:37.698Z"
+      "added_at": "2026-03-18T13:17:03.115Z"
     },
     {
       "id": "1cf22b484",
       "title": "مسلسل افراج",
       "image": "https://laroza.work/uploads/thumbs/372599929-1.jpg",
-      "added_at": "2026-03-18T07:04:37.698Z"
+      "added_at": "2026-03-18T13:17:03.115Z"
     },
     {
-      "id": "ae583760b",
-      "title": "مسلسل الست موناليزا",
+      "id": "5",
+      "title": "مسلسل مناعة",
       "image": "",
-      "added_at": "2026-03-18T07:04:37.698Z"
+      "added_at": "2026-03-18T13:17:03.115Z"
     }
   ]
 }
