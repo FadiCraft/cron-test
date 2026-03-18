@@ -1,44 +1,10 @@
 {
-  "scrapedAt": "2026-03-18T18:00:08.734Z",
+  "scrapedAt": "2026-03-18T19:14:59.497Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 6,
   "matches": [
     {
-      "id": "match_1773856799584_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%b1%d8%b4%d9%84%d9%88%d9%86%d8%a9-%d9%88-%d9%86%d9%8a%d9%88%d9%83%d8%a7%d8%b3%d9%84-%d9%8a%d9%88%d9%86%d8%a7%d9%8a/",
-      "title": "برشلونة vs نيوكاسل يونايتد",
-      "team1": {
-        "name": "برشلونة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/132-2.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "نيوكاسل يونايتد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/116-3.png",
-        "score": "0"
-      },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "جارية الآن",
-      "channels": [
-        "Bein Sports HD2"
-      ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-03-18T17:59:59.584Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
-    },
-    {
-      "id": "match_1773856799585_1",
+      "id": "match_1773861291007_0",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "الأهلي vs الهلال",
       "team1": {
@@ -51,20 +17,28 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/03/5457-3.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "9 PM",
-      "status": "لم تبدأ بعد",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [
         "تطبيق ثمانية"
       ],
       "tournament": "كأس الملك - نصف النهائي",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-03-18T17:59:59.585Z",
-      "watchServers": null
+      "position": 1,
+      "scrapedAt": "2026-03-18T19:14:51.007Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://12.sportsurges.online/albaplayer/thmanya1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
     },
     {
-      "id": "match_1773856799586_2",
+      "id": "match_1773861291008_1",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%ae%d9%84%d9%88%d8%af-%d9%88-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
       "title": "الخلود vs الاتحاد",
       "team1": {
@@ -77,20 +51,62 @@
         "logo": "https://koraplus.blog/wp-content/uploads/2026/03/8593-2.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "9 PM",
-      "status": "لم تبدأ بعد",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [
         "تطبيق ثمانية"
       ],
       "tournament": "كأس الملك - نصف النهائي",
       "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-03-18T17:59:59.586Z",
-      "watchServers": null
+      "position": 2,
+      "scrapedAt": "2026-03-18T19:14:51.008Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://12.sportsurges.online/albaplayer/thmanya2/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
     },
     {
-      "id": "match_1773856799587_3",
+      "id": "match_1773861291009_2",
+      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%b1%d8%b4%d9%84%d9%88%d9%86%d8%a9-%d9%88-%d9%86%d9%8a%d9%88%d9%83%d8%a7%d8%b3%d9%84-%d9%8a%d9%88%d9%86%d8%a7%d9%8a/",
+      "title": "برشلونة vs نيوكاسل يونايتد",
+      "team1": {
+        "name": "برشلونة",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/132-2.png",
+        "score": "2"
+      },
+      "team2": {
+        "name": "نيوكاسل يونايتد",
+        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/116-3.png",
+        "score": "1"
+      },
+      "score": "2-1",
+      "time": "غير معروف",
+      "status": "جارية الآن",
+      "channels": [
+        "Bein Sports HD2"
+      ],
+      "tournament": "دوري أبطال اوروبا - دور الـ 16",
+      "page": 1,
+      "position": 3,
+      "scrapedAt": "2026-03-18T19:14:51.009Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-2/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
+    },
+    {
+      "id": "match_1773861291010_3",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%a7%d9%8a%d8%b1%d9%86-%d9%85%d9%8a%d9%88%d9%86%d8%ae-%d9%88-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d8%a8/",
       "title": "بايرن ميونخ vs أتالانتا",
       "team1": {
@@ -112,11 +128,11 @@
       "tournament": "دوري أبطال اوروبا - دور الـ 16",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-03-18T17:59:59.587Z",
+      "scrapedAt": "2026-03-18T19:14:51.010Z",
       "watchServers": null
     },
     {
-      "id": "match_1773856799588_4",
+      "id": "match_1773861291016_4",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84-%d9%88-%d8%ba%d9%84%d8%b7%d8%a9-%d8%b3%d8%b1%d8%a7%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "ليفربول vs غلطة سراي",
       "team1": {
@@ -138,11 +154,11 @@
       "tournament": "دوري أبطال اوروبا - دور الـ 16",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-03-18T17:59:59.588Z",
+      "scrapedAt": "2026-03-18T19:14:51.016Z",
       "watchServers": null
     },
     {
-      "id": "match_1773856799589_5",
+      "id": "match_1773861291017_5",
       "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d9%88%d8%aa%d9%86%d9%87%d8%a7%d9%85-%d9%87%d9%88%d8%aa%d8%b3%d8%a8%d8%b1-%d9%88-%d8%a3%d8%aa%d9%84%d8%aa%d9%8a%d9%83/",
       "title": "توتنهام هوتسبر vs أتلتيكو مدريد",
       "team1": {
@@ -164,7 +180,7 @@
       "tournament": "دوري أبطال اوروبا - دور الـ 16",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-03-18T17:59:59.589Z",
+      "scrapedAt": "2026-03-18T19:14:51.017Z",
       "watchServers": null
     }
   ]
