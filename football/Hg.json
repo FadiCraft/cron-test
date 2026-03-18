@@ -1,20 +1,104 @@
 {
-  "scrapedAt": "2026-03-18T22:18:06.662Z",
+  "scrapedAt": "2026-03-18T23:53:55.067Z",
   "source": "https://koraplus.blog/",
-  "totalMatches": 6,
+  "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1773872278441_0",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%b1%d8%b4%d9%84%d9%88%d9%86%d8%a9-%d9%88-%d9%86%d9%8a%d9%88%d9%83%d8%a7%d8%b3%d9%84-%d9%8a%d9%88%d9%86%d8%a7%d9%8a/",
-      "title": "برشلونة vs نيوكاسل يونايتد",
+      "id": "match_1773878024178_0",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%86%d8%aa%d8%b1-%d9%85%d9%8a%d8%a7%d9%85%d9%8a-%d9%88-%d9%86%d8%a7%d8%b4%d9%81%d9%8a%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8/",
+      "title": "انتر ميامي vs ناشفيل",
       "team1": {
-        "name": "برشلونة",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/132-2.png",
+        "name": "انتر ميامي",
+        "logo": "",
         "score": "0"
       },
       "team2": {
-        "name": "نيوكاسل يونايتد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/116-3.png",
+        "name": "ناشفيل",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/51126.png",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
+      "channels": [],
+      "tournament": "دوري أبطال ش. امريكا - دور الـ 16",
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-03-18T23:53:44.178Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-8/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
+    },
+    {
+      "id": "match_1773878024180_1",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%85%d9%8a%d8%aa%d9%8a%d9%8a%d9%84%d8%a7%d9%86%d8%af-%d9%88-%d9%86%d9%88%d8%aa%d9%86%d8%ac%d9%87%d8%a7%d9%85-%d9%81%d9%88/",
+      "title": "ميتييلاند vs نوتنجهام فورست",
+      "team1": {
+        "name": "ميتييلاند",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/1823-1.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "نوتنجهام فورست",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/29-2.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "7:45 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN Sports 3 HD"
+      ],
+      "tournament": "الدوري الأوروبي - دور الـ 16",
+      "page": 1,
+      "position": 2,
+      "scrapedAt": "2026-03-18T23:53:44.180Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1773878024181_2",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a2%d9%8a%d9%83-%d9%84%d8%a7%d8%b1%d9%86%d9%83%d8%a7-%d9%88-%d9%83%d8%b1%d9%8a%d8%b3%d8%aa%d8%a7%d9%84-%d8%a8%d8%a7%d9%84/",
+      "title": "آيك لارنكا vs كريستال بالاس",
+      "team1": {
+        "name": "آيك لارنكا",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/2274-1.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "كريستال بالاس",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/10-3.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "7:45 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [
+        "beIN SPORTS HD 4"
+      ],
+      "tournament": "دوري المؤتمر الأوروبي - دور الـ 16",
+      "page": 1,
+      "position": 3,
+      "scrapedAt": "2026-03-18T23:53:44.181Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1773878024182_3",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d9%88%d9%84%d9%85%d8%a8%d9%8a%d9%83-%d9%84%d9%8a%d9%88%d9%86-%d9%88-%d8%b3%d9%8a%d9%84%d8%aa%d8%a7-%d9%81%d9%8a%d8%ac/",
+      "title": "أولمبيك ليون vs سيلتا فيجو",
+      "team1": {
+        "name": "أولمبيك ليون",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/465-4.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "سيلتا فيجو",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/158-3.png",
         "score": "0"
       },
       "score": "0 - 0",
@@ -23,100 +107,50 @@
       "channels": [
         "Bein Sports HD2"
       ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
+      "tournament": "الدوري الأوروبي - دور الـ 16",
       "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-03-18T22:17:58.441Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "position": 4,
+      "scrapedAt": "2026-03-18T23:53:44.182Z",
+      "watchServers": null
     },
     {
-      "id": "match_1773872278442_1",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a-%d9%88-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
-      "title": "الأهلي vs الهلال",
+      "id": "match_1773878024183_4",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%88%d9%85%d8%a7-%d9%88-%d8%a8%d9%88%d9%84%d9%88%d9%86%d9%8a%d8%a7-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83/",
+      "title": "روما vs بولونيا",
       "team1": {
-        "name": "الأهلي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/8946-1.png",
+        "name": "روما",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/225-4.png",
         "score": "0"
       },
       "team2": {
-        "name": "الهلال",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/5457-3.png",
+        "name": "بولونيا",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/245-3.png",
         "score": "0"
       },
       "score": "0 - 0",
-      "time": "9 PM",
+      "time": "10 PM",
       "status": "لم تبدأ بعد",
       "channels": [
-        "تطبيق ثمانية"
+        "Bein Sports HD2"
       ],
-      "tournament": "كأس الملك - نصف النهائي",
+      "tournament": "الدوري الأوروبي - دور الـ 16",
       "page": 1,
-      "position": 2,
-      "scrapedAt": "2026-03-18T22:17:58.442Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://12.sportsurges.online/albaplayer/thmanya1/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "position": 5,
+      "scrapedAt": "2026-03-18T23:53:44.183Z",
+      "watchServers": null
     },
     {
-      "id": "match_1773872278443_2",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%ae%d9%84%d9%88%d8%af-%d9%88-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
-      "title": "الخلود vs الاتحاد",
+      "id": "match_1773878024184_5",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d8%a8%d9%8a%d8%aa%d9%8a%d8%b3-%d9%88-%d8%a8%d8%a7%d9%86%d8%a7%d8%ab%d9%8a%d9%86%d9%8a%d9%83%d9%88/",
+      "title": "ريال بيتيس vs باناثينيكوس",
       "team1": {
-        "name": "الخلود",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/55800-1.png",
+        "name": "ريال بيتيس",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/146-4.png",
         "score": "0"
       },
       "team2": {
-        "name": "الاتحاد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/8593-2.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "9 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "تطبيق ثمانية"
-      ],
-      "tournament": "كأس الملك - نصف النهائي",
-      "page": 1,
-      "position": 3,
-      "scrapedAt": "2026-03-18T22:17:58.443Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://12.sportsurges.online/albaplayer/thmanya2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
-    },
-    {
-      "id": "match_1773872278444_3",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d8%a7%d9%8a%d8%b1%d9%86-%d9%85%d9%8a%d9%88%d9%86%d8%ae-%d9%88-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d8%a8/",
-      "title": "بايرن ميونخ vs أتالانتا",
-      "team1": {
-        "name": "بايرن ميونخ",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/331-3.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "أتالانتا",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/232-4.png",
+        "name": "باناثينيكوس",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/1022-1.png",
         "score": "0"
       },
       "score": "0 - 0",
@@ -125,32 +159,24 @@
       "channels": [
         "beIN SPORTS HD 4"
       ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
+      "tournament": "الدوري الأوروبي - دور الـ 16",
       "page": 1,
-      "position": 4,
-      "scrapedAt": "2026-03-18T22:17:58.444Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-4/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "position": 6,
+      "scrapedAt": "2026-03-18T23:53:44.184Z",
+      "watchServers": null
     },
     {
-      "id": "match_1773872278445_4",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84-%d9%88-%d8%ba%d9%84%d8%b7%d8%a9-%d8%b3%d8%b1%d8%a7%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8/",
-      "title": "ليفربول vs غلطة سراي",
+      "id": "match_1773878024185_6",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%b3%d8%aa%d9%88%d9%86-%d9%81%d9%8a%d9%84%d8%a7-%d9%88-%d9%84%d9%8a%d9%84-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
+      "title": "أستون فيلا vs ليل",
       "team1": {
-        "name": "ليفربول",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/108-3.png",
+        "name": "أستون فيلا",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/109-3.png",
         "score": "0"
       },
       "team2": {
-        "name": "غلطة سراي",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/945-1.png",
+        "name": "ليل",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/478-3.png",
         "score": "0"
       },
       "score": "0 - 0",
@@ -159,53 +185,11 @@
       "channels": [
         "beIN SPORTS HD 1"
       ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
+      "tournament": "الدوري الأوروبي - دور الـ 16",
       "page": 1,
-      "position": 5,
-      "scrapedAt": "2026-03-18T22:17:58.445Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-1/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
-    },
-    {
-      "id": "match_1773872278446_5",
-      "url": "https://koraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%aa%d9%88%d8%aa%d9%86%d9%87%d8%a7%d9%85-%d9%87%d9%88%d8%aa%d8%b3%d8%a8%d8%b1-%d9%88-%d8%a3%d8%aa%d9%84%d8%aa%d9%8a%d9%83/",
-      "title": "توتنهام هوتسبر vs أتلتيكو مدريد",
-      "team1": {
-        "name": "توتنهام هوتسبر",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/114-4.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "أتلتيكو مدريد",
-        "logo": "https://koraplus.blog/wp-content/uploads/2026/03/134-3.png",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "10 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN Sports 3 HD"
-      ],
-      "tournament": "دوري أبطال اوروبا - دور الـ 16",
-      "page": 1,
-      "position": 6,
-      "scrapedAt": "2026-03-18T22:17:58.446Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-3/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "position": 7,
+      "scrapedAt": "2026-03-18T23:53:44.185Z",
+      "watchServers": null
     }
   ]
 }
