@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-03-19T02:38:54.593Z",
+  "last_scan": "2026-03-19T19:11:28.700Z",
   "series": {
     "193369381": {
       "last_episode": "f008176a8",
@@ -848,7 +848,7 @@
       }
     },
     "fd55e6ca6": {
-      "last_episode": "21b50b014",
+      "last_episode": "5616ae9ce",
       "last_season": 1,
       "episodes": {
         "545666282": {
@@ -999,6 +999,12 @@
           "extracted_at": "2026-03-18T19:06:08.498Z",
           "title": "برنامج رامز ليفل الوحش الحلقة 29 التاسعة والعشرون",
           "number": 29,
+          "season": 1
+        },
+        "5616ae9ce": {
+          "extracted_at": "2026-03-19T19:10:20.026Z",
+          "title": "برنامج رامز ليفل الوحش الحلقة 30 الثلاثون",
+          "number": 30,
           "season": 1
         }
       }
@@ -3362,7 +3368,7 @@
       }
     },
     "a0bee9f69": {
-      "last_episode": "81539c8e4",
+      "last_episode": "9adce7c08",
       "last_season": 1,
       "episodes": {
         "348481898": {
@@ -3657,6 +3663,12 @@
           "extracted_at": "2026-03-18T19:07:30.018Z",
           "title": "برنامج الف ليلة مع فيفي عبده الحلقة 49 التاسعة والاربعون",
           "number": 49,
+          "season": 1
+        },
+        "9adce7c08": {
+          "extracted_at": "2026-03-19T19:11:28.700Z",
+          "title": "برنامج الف ليلة مع فيفي عبده الحلقة 50 الخمسون",
+          "number": 50,
           "season": 1
         }
       }
@@ -25647,16 +25659,50 @@
       "title": "مسلسل عمارة السعادة الحلقة 29 التاسعة والعشرون",
       "number": 29,
       "season": 1
+    },
+    "5616ae9ce": {
+      "series_id": "fd55e6ca6",
+      "extracted_at": "2026-03-19T19:10:20.026Z",
+      "title": "برنامج رامز ليفل الوحش الحلقة 30 الثلاثون",
+      "number": 30,
+      "season": 1
+    },
+    "9adce7c08": {
+      "series_id": "a0bee9f69",
+      "extracted_at": "2026-03-19T19:11:28.700Z",
+      "title": "برنامج الف ليلة مع فيفي عبده الحلقة 50 الخمسون",
+      "number": 50,
+      "season": 1
     }
   },
   "statistics": {
     "total_series": 94,
-    "total_episodes": 1933,
-    "new_episodes_today": 0,
-    "last_scan": "2026-03-19T13:13:14.627Z",
+    "total_episodes": 1935,
+    "new_episodes_today": 2,
+    "last_scan": "2026-03-19T19:14:33.962Z",
     "first_scan": false
   },
   "latest_episodes": [
+    {
+      "id": "9adce7c08",
+      "series_id": "a0bee9f69",
+      "series_title": "مسلسل ألف ليله مع فيفي عبده",
+      "title": "برنامج الف ليلة مع فيفي عبده الحلقة 50 الخمسون",
+      "image": "https://laroza.icu/uploads/thumbs/edfa691a8-1.jpg",
+      "number": 50,
+      "season": 1,
+      "added_at": "2026-03-19T19:11:28.267Z"
+    },
+    {
+      "id": "5616ae9ce",
+      "series_id": "fd55e6ca6",
+      "series_title": "مسلسل رامز ليفل الوحش",
+      "title": "برنامج رامز ليفل الوحش الحلقة 30 الثلاثون",
+      "image": "https://laroza.icu/uploads/thumbs/5a8ef2596-1.jpg",
+      "number": 30,
+      "season": 1,
+      "added_at": "2026-03-19T19:10:19.518Z"
+    },
     {
       "id": "35335a98d",
       "series_id": "249d68f38",
@@ -25736,26 +25782,6 @@
       "number": 30,
       "season": 1,
       "added_at": "2026-03-19T02:36:10.063Z"
-    },
-    {
-      "id": "9372863f9",
-      "series_id": "85aa7b7ee",
-      "series_title": "مسلسل الهيبة: رأس الجبل",
-      "title": "مسلسل الهيبة راس الجبل الحلقة 29 التاسعة والعشرون",
-      "image": "https://laroza.work/uploads/thumbs/6b94c076f-1.jpg",
-      "number": 29,
-      "season": 1,
-      "added_at": "2026-03-19T02:36:06.181Z"
-    },
-    {
-      "id": "969d4be11",
-      "series_id": "fd8b9e5e9",
-      "series_title": "مسلسل اسأل روحك",
-      "title": "مسلسل اسال روحك الحلقة 30 الثلاثون والاخيرة",
-      "image": "https://laroza.work/uploads/thumbs/f1f951efc-1.jpg",
-      "number": 30,
-      "season": 1,
-      "added_at": "2026-03-19T02:35:21.783Z"
     }
   ],
   "latest_series": [
@@ -25763,31 +25789,31 @@
       "id": "d",
       "title": "مسلسل علي كلاي",
       "image": "",
-      "added_at": "2026-03-19T13:09:24.850Z"
+      "added_at": "2026-03-19T19:09:47.835Z"
     },
     {
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
       "image": "https://laroza.icu/uploads/thumbs/92ae9f039-1.jpg",
-      "added_at": "2026-03-19T13:09:24.850Z"
+      "added_at": "2026-03-19T19:09:47.835Z"
     },
     {
       "id": "9",
       "title": "مسلسل المداح 6",
       "image": "",
-      "added_at": "2026-03-19T13:09:24.850Z"
+      "added_at": "2026-03-19T19:09:47.835Z"
     },
     {
       "id": "1cf22b484",
       "title": "مسلسل افراج",
       "image": "https://laroza.icu/uploads/thumbs/372599929-1.jpg",
-      "added_at": "2026-03-19T13:09:24.850Z"
+      "added_at": "2026-03-19T19:09:47.835Z"
     },
     {
       "id": "5",
       "title": "مسلسل مناعة",
       "image": "",
-      "added_at": "2026-03-19T13:09:24.850Z"
+      "added_at": "2026-03-19T19:09:47.835Z"
     }
   ]
 }
