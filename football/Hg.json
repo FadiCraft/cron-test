@@ -1,10 +1,10 @@
 {
-  "scrapedAt": "2026-03-20T17:25:36.985Z",
+  "scrapedAt": "2026-03-20T19:02:09.083Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1774027527617_0",
+      "id": "match_1774033319651_0",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%83%d8%a7%d9%84%d9%8a%d8%a7%d8%b1%d9%8a-%d9%88-%d9%86%d8%a7%d8%a8%d9%88%d9%84%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
       "title": "كالياري vs نابولي",
       "team1": {
@@ -17,20 +17,28 @@
         "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/234-2.png",
         "score": "0"
       },
-      "score": "0 - 0",
-      "time": "7:30 PM",
-      "status": "بعد قليل",
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "جارية الآن",
       "channels": [
         "Starzplay"
       ],
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 1,
-      "scrapedAt": "2026-03-20T17:25:27.617Z",
-      "watchServers": null
+      "scrapedAt": "2026-03-20T19:01:59.651Z",
+      "watchServers": [
+        {
+          "type": "iframe",
+          "url": "https://12.sportsurges.online/albaplayer/ad-premium-1/",
+          "quality": "HD",
+          "server": "AlbaPlayer",
+          "id": "player_1"
+        }
+      ]
     },
     {
-      "id": "match_1774027527618_1",
+      "id": "match_1774033319652_1",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d8%a7%d9%8a%d8%a8%d8%b2%d9%8a%d8%ac-%d9%88-%d9%87%d9%88%d9%81%d9%86%d9%87%d8%a7%d9%8a%d9%85-%d8%a8%d8%ab-%d9%85%d8%a8/",
       "title": "لايبزيج vs هوفنهايم",
       "team1": {
@@ -45,26 +53,18 @@
       },
       "score": "0 - 0",
       "time": "9:30 PM",
-      "status": "لم تبدأ بعد",
+      "status": "بعد قليل",
       "channels": [
         "شاهد - Shahid VIP"
       ],
       "tournament": "الدوري الألماني",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-03-20T17:25:27.618Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://12.sportsurges.online/albaplayer/ch2/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
+      "scrapedAt": "2026-03-20T19:01:59.652Z",
+      "watchServers": null
     },
     {
-      "id": "match_1774027527619_2",
+      "id": "match_1774033319654_2",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%84%d8%a7%d9%86%d8%b3-%d9%88-%d8%a3%d9%86%d8%ac%d9%8a%d9%87-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88%d8%b1/",
       "title": "لانس vs أنجيه",
       "team1": {
@@ -86,7 +86,7 @@
       "tournament": "الدوري الفرنسي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-03-20T17:25:27.619Z",
+      "scrapedAt": "2026-03-20T19:01:59.654Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "id": "match_1774027527620_3",
+      "id": "match_1774033319655_3",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%ac%d9%86%d9%88%d9%89-%d9%88-%d8%a3%d9%88%d8%af%d9%8a%d9%86%d9%8a%d8%b2%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1/",
       "title": "جنوى vs أودينيزي",
       "team1": {
@@ -120,11 +120,11 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-03-20T17:25:27.620Z",
+      "scrapedAt": "2026-03-20T19:01:59.655Z",
       "watchServers": null
     },
     {
-      "id": "match_1774027527621_4",
+      "id": "match_1774033319656_4",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%88%d8%b1%d9%86%d9%85%d9%88%d8%ab-%d9%88-%d9%85%d8%a7%d9%86%d8%b4%d8%b3%d8%aa%d8%b1-%d9%8a%d9%88%d9%86%d8%a7%d9%8a/",
       "title": "بورنموث vs مانشستر يونايتد",
       "team1": {
@@ -146,7 +146,7 @@
       "tournament": "الدوري الإنجليزي",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-03-20T17:25:27.621Z",
+      "scrapedAt": "2026-03-20T19:01:59.656Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -158,7 +158,7 @@
       ]
     },
     {
-      "id": "match_1774027527623_5",
+      "id": "match_1774033319656_5",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%81%d9%8a%d8%a7%d8%b1%d9%8a%d8%a7%d9%84-%d9%88-%d8%b1%d9%8a%d8%a7%d9%84-%d8%b3%d9%88%d8%b3%d9%8a%d8%af%d8%a7%d8%af-%d8%a8/",
       "title": "فياريال vs ريال سوسيداد",
       "team1": {
@@ -180,7 +180,7 @@
       "tournament": "الدوري الإسباني",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-03-20T17:25:27.623Z",
+      "scrapedAt": "2026-03-20T19:01:59.656Z",
       "watchServers": [
         {
           "type": "iframe",
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "id": "match_1774027527624_6",
+      "id": "match_1774033319658_6",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a8%d9%88%d8%b1%d8%aa%d9%88-%d9%88-%d8%b4%d8%aa%d9%88%d8%aa%d8%ac%d8%a7%d8%b1%d8%aa-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4/",
       "title": "بورتو vs شتوتجارت",
       "team1": {
@@ -214,7 +214,7 @@
       "tournament": "الدوري الأوروبي - دور الـ 16",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-03-20T17:25:27.624Z",
+      "scrapedAt": "2026-03-20T19:01:59.658Z",
       "watchServers": [
         {
           "type": "iframe",
