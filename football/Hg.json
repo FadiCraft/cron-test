@@ -1,10 +1,37 @@
 {
-  "scrapedAt": "2026-03-23T16:39:00.161Z",
+  "scrapedAt": "2026-03-23T20:51:44.340Z",
   "source": "https://koraplus.blog/",
   "totalMatches": 8,
   "matches": [
     {
-      "id": "match_1774283919621_0",
+      "id": "match_1774299097320_0",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%8a%d9%88%d9%8a%d9%88%d8%b1%d9%83-%d8%b3%d9%8a%d8%aa%d9%8a-%d9%88-%d8%a7%d9%86%d8%aa%d8%b1-%d9%85%d9%8a%d8%a7%d9%85/",
+      "title": "نيويورك سيتي vs انتر ميامي",
+      "team1": {
+        "name": "نيويورك سيتي",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/1774071143_69be2d67d86f6.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "انتر ميامي",
+        "logo": "",
+        "score": "0"
+      },
+      "score": "0-0",
+      "time": "غير معروف",
+      "status": "انتهت",
+      "channels": [
+        "beIN SPORTS",
+        "غير مدرج"
+      ],
+      "tournament": "غير محدد",
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-03-23T20:51:37.320Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1774299097321_1",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a7%d9%84%d8%b3%d9%88%d8%af%d8%a7%d9%86%d9%8a-%d9%88-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8/",
       "title": "الهلال السوداني vs نهضة بركان",
       "team1": {
@@ -19,53 +46,18 @@
       },
       "score": "0-1",
       "time": "غير معروف",
-      "status": "جارية الآن",
+      "status": "انتهت",
       "channels": [
         "beIN Sports 5 HD"
       ],
       "tournament": "دوري أبطال أفريقيا - ربع النهائي",
       "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-03-23T16:38:39.621Z",
-      "watchServers": [
-        {
-          "type": "iframe",
-          "url": "https://15.wwwkoora.com/albaplayer/bein-sports-hd-5/",
-          "quality": "HD",
-          "server": "AlbaPlayer",
-          "id": "player_1"
-        }
-      ]
-    },
-    {
-      "id": "match_1774283919622_1",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%8a%d9%88%d9%8a%d9%88%d8%b1%d9%83-%d8%b3%d9%8a%d8%aa%d9%8a-%d9%88-%d8%a7%d9%86%d8%aa%d8%b1-%d9%85%d9%8a%d8%a7%d9%85/",
-      "title": "نيويورك سيتي vs انتر ميامي",
-      "team1": {
-        "name": "نيويورك سيتي",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/1774071143_69be2d67d86f6.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "انتر ميامي",
-        "logo": "",
-        "score": "0"
-      },
-      "score": "0 - 0",
-      "time": "8 PM",
-      "status": "لم تبدأ بعد",
-      "channels": [
-        "beIN SPORTS",
-        "غير مدرج"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
       "position": 2,
-      "scrapedAt": "2026-03-23T16:38:39.622Z",
+      "scrapedAt": "2026-03-23T20:51:37.321Z",
       "watchServers": null
     },
     {
-      "id": "match_1774283919623_2",
+      "id": "match_1774299097322_2",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d9%88-%d9%87%d9%8a%d9%84%d8%a7%d8%b3-%d9%81%d9%8a%d8%b1%d9%88%d9%86%d8%a7/",
       "title": "أتالانتا vs هيلاس فيرونا",
       "team1": {
@@ -87,11 +79,11 @@
       "tournament": "الدوري الإيطالي",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-03-23T16:38:39.623Z",
+      "scrapedAt": "2026-03-23T20:51:37.322Z",
       "watchServers": null
     },
     {
-      "id": "match_1774283919624_3",
+      "id": "match_1774299097323_3",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a8%d8%b9%d8%ab-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d8%a8%d9%88%d8%ad%d8%ac%d9%84%d8%a9-%d9%88/",
       "title": "البعث الرياضي ببوحجلة vs الإتحاد الرياضي بقصور الساف",
       "team1": {
@@ -111,11 +103,11 @@
       "tournament": "كأس تونس - دور الـ 16",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-03-23T16:38:39.624Z",
+      "scrapedAt": "2026-03-23T20:51:37.323Z",
       "watchServers": null
     },
     {
-      "id": "match_1774283919626_4",
+      "id": "match_1774299097324_4",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%aa%d9%82%d8%af%d9%85-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d8%b3%d8%a7%d9%82%d9%8a%d8%a9-%d8%a7/",
       "title": "التقدم الرياضي بساقية الدائر vs المشعل الرياضي بالساحلين",
       "team1": {
@@ -135,11 +127,11 @@
       "tournament": "كأس تونس - دور الـ 16",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-03-23T16:38:39.626Z",
+      "scrapedAt": "2026-03-23T20:51:37.324Z",
       "watchServers": null
     },
     {
-      "id": "match_1774283919626_5",
+      "id": "match_1774299097326_5",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%83%d9%88%d9%83%d8%a8-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d8%b9%d9%82%d8%a7%d8%b1%d8%a8-%d9%88/",
       "title": "الكوكب الرياضي بعقارب vs الملعب القابسي",
       "team1": {
@@ -159,11 +151,11 @@
       "tournament": "كأس تونس - دور الـ 16",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-03-23T16:38:39.626Z",
+      "scrapedAt": "2026-03-23T20:51:37.326Z",
       "watchServers": null
     },
     {
-      "id": "match_1774283919627_6",
+      "id": "match_1774299097327_6",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%b3%d9%87%d9%85-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d9%82%d8%b5%d8%b1-%d9%82%d9%81%d8%b5%d8%a9/",
       "title": "السهم الرياضي بقصر قفصة vs النجم الساحلي",
       "team1": {
@@ -183,11 +175,11 @@
       "tournament": "كأس تونس - دور الـ 16",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-03-23T16:38:39.628Z",
+      "scrapedAt": "2026-03-23T20:51:37.327Z",
       "watchServers": null
     },
     {
-      "id": "match_1774283919629_7",
+      "id": "match_1774299097328_7",
       "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%a7%d9%84%d9%85%d9%86%d8%b3%d8%aa%d9%8a%d8%b1%d9%8a-%d9%88-%d8%a7%d9%84%d9%86/",
       "title": "الاتحاد المنستيري vs النادي الأفريقي",
       "team1": {
@@ -207,7 +199,7 @@
       "tournament": "كأس تونس - دور الـ 16",
       "page": 1,
       "position": 8,
-      "scrapedAt": "2026-03-23T16:38:39.629Z",
+      "scrapedAt": "2026-03-23T20:51:37.328Z",
       "watchServers": null
     }
   ]
