@@ -1,205 +1,174 @@
 {
-  "scrapedAt": "2026-03-23T21:33:16.361Z",
+  "scrapedAt": "2026-03-25T02:55:03.540Z",
   "source": "https://koraplus.blog/",
-  "totalMatches": 8,
+  "totalMatches": 7,
   "matches": [
     {
-      "id": "match_1774301589343_0",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%86%d9%8a%d9%88%d9%8a%d9%88%d8%b1%d9%83-%d8%b3%d9%8a%d8%aa%d9%8a-%d9%88-%d8%a7%d9%86%d8%aa%d8%b1-%d9%85%d9%8a%d8%a7%d9%85/",
-      "title": "نيويورك سيتي vs انتر ميامي",
+      "id": "match_1774407293829_0",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%88%d8%a7%d8%af%d9%8a-%d8%af%d8%ac%d9%84%d8%a9-%d9%88-%d8%b7%d9%84%d8%a7%d8%a6%d8%b9-%d8%a7%d9%84%d8%ac%d9%8a%d8%b4-%d8%a8/",
+      "title": "وادي دجلة vs طلائع الجيش",
       "team1": {
-        "name": "نيويورك سيتي",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/1774071143_69be2d67d86f6.png",
+        "name": "وادي دجلة",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8311.png",
         "score": "0"
       },
       "team2": {
-        "name": "انتر ميامي",
+        "name": "طلائع الجيش",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8306-2.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "5 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [],
+      "tournament": "كأس الرابطة المصرية - ربع النهائي",
+      "page": 1,
+      "position": 1,
+      "scrapedAt": "2026-03-25T02:54:53.829Z",
+      "watchServers": null
+    },
+    {
+      "id": "match_1774407293830_1",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b4%d8%a8%d8%a7%d8%a8-%d8%a8%d9%84%d9%88%d8%b2%d8%af%d8%a7%d8%af-%d9%88-%d9%85%d9%88%d9%84%d9%88%d8%af%d9%8a%d8%a9-%d8%a7/",
+      "title": "شباب بلوزداد vs مولودية الجزائر",
+      "team1": {
+        "name": "شباب بلوزداد",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8225-2.png",
+        "score": "0"
+      },
+      "team2": {
+        "name": "مولودية الجزائر",
         "logo": "",
         "score": "0"
       },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "beIN SPORTS",
-        "غير مدرج"
-      ],
-      "tournament": "غير محدد",
-      "page": 1,
-      "position": 1,
-      "scrapedAt": "2026-03-23T21:33:09.343Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1774301589344_1",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%87%d9%84%d8%a7%d9%84-%d8%a7%d9%84%d8%b3%d9%88%d8%af%d8%a7%d9%86%d9%8a-%d9%88-%d9%86%d9%87%d8%b6%d8%a9-%d8%a8/",
-      "title": "الهلال السوداني vs نهضة بركان",
-      "team1": {
-        "name": "الهلال السوداني",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/12778-2.png",
-        "score": "0"
-      },
-      "team2": {
-        "name": "نهضة بركان",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/9974-3.png",
-        "score": "1"
-      },
-      "score": "0-1",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "beIN Sports 5 HD"
-      ],
-      "tournament": "دوري أبطال أفريقيا - ربع النهائي",
+      "score": "0 - 0",
+      "time": "6:45 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [],
+      "tournament": "الدوري الجزائري",
       "page": 1,
       "position": 2,
-      "scrapedAt": "2026-03-23T21:33:09.344Z",
+      "scrapedAt": "2026-03-25T02:54:53.830Z",
       "watchServers": null
     },
     {
-      "id": "match_1774301589345_2",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a3%d8%aa%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%a7-%d9%88-%d9%87%d9%8a%d9%84%d8%a7%d8%b3-%d9%81%d9%8a%d8%b1%d9%88%d9%86%d8%a7/",
-      "title": "أتالانتا vs هيلاس فيرونا",
+      "id": "match_1774407293831_2",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d8%b1%d9%8a%d8%aa%d8%b1%d9%8a%d8%a7-%d9%88-%d8%a5%d8%b3%d9%88%d8%a7%d8%aa%d9%8a%d9%86%d9%8a-%d8%a8%d8%ab-%d9%85%d8%a8/",
+      "title": "إريتريا vs إسواتيني",
       "team1": {
-        "name": "أتالانتا",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/232-4.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "هيلاس فيرونا",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/316-1.png",
+        "name": "إريتريا",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/19850.png",
         "score": "0"
       },
-      "score": "1-0",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [
-        "Starzplay"
-      ],
-      "tournament": "الدوري الإيطالي",
+      "team2": {
+        "name": "إسواتيني",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/5605.png",
+        "score": "0"
+      },
+      "score": "0 - 0",
+      "time": "7 PM",
+      "status": "لم تبدأ بعد",
+      "channels": [],
+      "tournament": "تصفيات كأس الأمم الإفريقية - تصفيات أولية",
       "page": 1,
       "position": 3,
-      "scrapedAt": "2026-03-23T21:33:09.345Z",
+      "scrapedAt": "2026-03-25T02:54:53.831Z",
       "watchServers": null
     },
     {
-      "id": "match_1774301589346_3",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a8%d8%b9%d8%ab-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d8%a8%d9%88%d8%ad%d8%ac%d9%84%d8%a9-%d9%88/",
-      "title": "البعث الرياضي ببوحجلة vs الإتحاد الرياضي بقصور الساف",
+      "id": "match_1774407293832_3",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%b1%d9%8a%d8%a7%d9%84-%d9%85%d8%af%d8%b1%d9%8a%d8%af-%d8%b3%d9%8a%d8%af%d8%a7%d8%aa-%d9%88-%d8%a8%d8%b1%d8%b4%d9%84%d9%88/",
+      "title": "ريال مدريد - سيدات vs برشلونة - سيدات",
       "team1": {
-        "name": "البعث الرياضي ببوحجلة",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/73169.png",
+        "name": "ريال مدريد - سيدات",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/56903.png",
         "score": "0"
       },
       "team2": {
-        "name": "الإتحاد الرياضي بقصور الساف",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/28929.png",
+        "name": "برشلونة - سيدات",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/24094.png",
         "score": "0"
       },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "انتهت",
+      "score": "0 - 0",
+      "time": "7:45 PM",
+      "status": "لم تبدأ بعد",
       "channels": [],
-      "tournament": "كأس تونس - دور الـ 16",
+      "tournament": "دوري أبطال أوروبا للسيدات - ربع النهائي",
       "page": 1,
       "position": 4,
-      "scrapedAt": "2026-03-23T21:33:09.346Z",
+      "scrapedAt": "2026-03-25T02:54:53.832Z",
       "watchServers": null
     },
     {
-      "id": "match_1774301589347_4",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%aa%d9%82%d8%af%d9%85-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d8%b3%d8%a7%d9%82%d9%8a%d8%a9-%d8%a7/",
-      "title": "التقدم الرياضي بساقية الدائر vs المشعل الرياضي بالساحلين",
+      "id": "match_1774407293833_4",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a5%d9%86%d8%a8%d9%8a-%d9%88-%d8%a8%d8%aa%d8%b1%d9%88%d8%ac%d8%aa-%d8%a8%d8%ab-%d9%85%d8%a8%d8%a7%d8%b4%d8%b1-%d9%83%d9%88/",
+      "title": "إنبي vs بتروجت",
       "team1": {
-        "name": "التقدم الرياضي بساقية الدائر",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/46043.png",
+        "name": "إنبي",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8300-4.png",
         "score": "0"
       },
       "team2": {
-        "name": "المشعل الرياضي بالساحلين",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/93940.png",
+        "name": "بتروجت",
+        "logo": "",
         "score": "0"
       },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "انتهت",
+      "score": "0 - 0",
+      "time": "8 PM",
+      "status": "لم تبدأ بعد",
       "channels": [],
-      "tournament": "كأس تونس - دور الـ 16",
+      "tournament": "كأس الرابطة المصرية - ربع النهائي",
       "page": 1,
       "position": 5,
-      "scrapedAt": "2026-03-23T21:33:09.347Z",
+      "scrapedAt": "2026-03-25T02:54:53.833Z",
       "watchServers": null
     },
     {
-      "id": "match_1774301589348_5",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d9%83%d9%88%d9%83%d8%a8-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d8%b9%d9%82%d8%a7%d8%b1%d8%a8-%d9%88/",
-      "title": "الكوكب الرياضي بعقارب vs الملعب القابسي",
+      "id": "match_1774407293834_5",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%a7%d9%84%d8%b9%d8%a7%d8%b5%d9%85%d8%a9-%d9%88-%d8%b4%d8%a8%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84/",
+      "title": "اتحاد العاصمة vs شبيبة القبائل",
       "team1": {
-        "name": "الكوكب الرياضي بعقارب",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/83735.png",
+        "name": "اتحاد العاصمة",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8220-3.png",
         "score": "0"
       },
       "team2": {
-        "name": "الملعب القابسي",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/18323.png",
+        "name": "شبيبة القبائل",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8223.png",
         "score": "0"
       },
-      "score": "0-0",
-      "time": "غير معروف",
-      "status": "انتهت",
+      "score": "0 - 0",
+      "time": "9 PM",
+      "status": "لم تبدأ بعد",
       "channels": [],
-      "tournament": "كأس تونس - دور الـ 16",
+      "tournament": "الدوري الجزائري",
       "page": 1,
       "position": 6,
-      "scrapedAt": "2026-03-23T21:33:09.348Z",
+      "scrapedAt": "2026-03-25T02:54:53.834Z",
       "watchServers": null
     },
     {
-      "id": "match_1774301589349_6",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%b3%d9%87%d9%85-%d8%a7%d9%84%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a-%d8%a8%d9%82%d8%b5%d8%b1-%d9%82%d9%81%d8%b5%d8%a9/",
-      "title": "السهم الرياضي بقصر قفصة vs النجم الساحلي",
+      "id": "match_1774407293835_6",
+      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d9%85%d8%a7%d9%86%d8%b4%d8%b3%d8%aa%d8%b1-%d9%8a%d9%88%d9%86%d8%a7%d9%8a%d8%aa%d8%af-%d8%b3%d9%8a%d8%af%d8%a7%d8%aa-%d9%88/",
+      "title": "مانشستر يونايتد - سيدات vs بايرن ميونيخ - سيدات",
       "team1": {
-        "name": "السهم الرياضي بقصر قفصة",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/23704.png",
+        "name": "مانشستر يونايتد - سيدات",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/55157.png",
         "score": "0"
       },
       "team2": {
-        "name": "النجم الساحلي",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8241.png",
-        "score": "5"
+        "name": "بايرن ميونيخ - سيدات",
+        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/24126.png",
+        "score": "0"
       },
-      "score": "0-5",
-      "time": "غير معروف",
-      "status": "انتهت",
+      "score": "0 - 0",
+      "time": "10 PM",
+      "status": "لم تبدأ بعد",
       "channels": [],
-      "tournament": "كأس تونس - دور الـ 16",
+      "tournament": "دوري أبطال أوروبا للسيدات - ربع النهائي",
       "page": 1,
       "position": 7,
-      "scrapedAt": "2026-03-23T21:33:09.349Z",
-      "watchServers": null
-    },
-    {
-      "id": "match_1774301589350_7",
-      "url": "https://kooraplus.blog/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%a8%d8%a7%d8%b1%d8%a7%d8%a9-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af-%d8%a7%d9%84%d9%85%d9%86%d8%b3%d8%aa%d9%8a%d8%b1%d9%8a-%d9%88-%d8%a7%d9%84%d9%86/",
-      "title": "الاتحاد المنستيري vs النادي الأفريقي",
-      "team1": {
-        "name": "الاتحاد المنستيري",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8769-1.png",
-        "score": "1"
-      },
-      "team2": {
-        "name": "النادي الأفريقي",
-        "logo": "https://kooraplus.blog/wp-content/uploads/2026/03/8239-1.png",
-        "score": "0"
-      },
-      "score": "1-0",
-      "time": "غير معروف",
-      "status": "انتهت",
-      "channels": [],
-      "tournament": "كأس تونس - دور الـ 16",
-      "page": 1,
-      "position": 8,
-      "scrapedAt": "2026-03-23T21:33:09.350Z",
+      "scrapedAt": "2026-03-25T02:54:53.835Z",
       "watchServers": null
     }
   ]
