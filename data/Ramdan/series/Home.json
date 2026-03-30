@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-03-29T18:49:10.144Z",
-  "total_series": 85,
+  "last_update": "2026-03-30T02:43:42.220Z",
+  "total_series": 87,
   "series": [
     {
       "id": "c",
@@ -45,6 +45,14 @@
     {
       "id": "12",
       "title": "عين سحرية",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "4",
+      "title": "كوميدي تانا",
       "image": "",
       "seasons": 1,
       "last_season": 1,
@@ -355,6 +363,14 @@
       "episodes_count": 28
     },
     {
+      "id": "20",
+      "title": "مسلسل حكاية نرجس",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
       "id": "3d171dc50",
       "title": "مسلسل حمدية",
       "image": "https://larozaa.rest/uploads/thumbs/1d0241458-1.jpg",
@@ -365,10 +381,10 @@
     {
       "id": "e6926d8ca",
       "title": "مسلسل حي الجرادية",
-      "image": "",
+      "image": "https://larozaa.rest/uploads/thumbs/aeddcc6b7-1.jpg",
       "seasons": 1,
       "last_season": 1,
-      "episodes_count": 29
+      "episodes_count": 30
     },
     {
       "id": "24198170e",
@@ -611,7 +627,7 @@
       "episodes_count": 29
     },
     {
-      "id": "4",
+      "id": "0d",
       "title": "مسلسل مناعة",
       "image": "",
       "seasons": 1,
