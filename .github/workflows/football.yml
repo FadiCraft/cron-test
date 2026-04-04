@@ -17,17 +17,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install Puppeteer Manually
         run: |
-          npm install
-          # تثبيت المتصفح اللازم لـ Puppeteer
+          # هنا نقوم بتثبيت المكتبة للأكشن فقط دون تعديل package.json
+          npm install puppeteer 
+          # تثبيت متصفح كروم اللازم للتشغيل
           npx puppeteer browsers install chrome
+          echo "✅ تم تثبيت Puppeteer بنجاح"
+
+      - name: Create football directory
+        run: mkdir -p football
 
       - name: Run football.js
         run: |
-          mkdir -p football
+          echo "⚽ بدء استخراج المباريات..."
           node football.js
 
       - name: Commit and push changes
@@ -35,11 +39,9 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add football/Hg.json
-          
-          # التحقق إذا كانت هناك تغييرات فعلاً قبل الـ commit
           if git diff --cached --quiet; then
-            echo "لا توجد تغييرات جديدة"
+            echo "📭 لا توجد تغييرات"
           else
-            git commit -m "⚽ تحديث المباريات التلقائي - $(date)"
+            git commit -m "⚽ تحديث المباريات التلقائي"
             git push
           fi
