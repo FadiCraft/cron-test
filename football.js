@@ -1,76 +1,152 @@
 import fs from "fs";
 import path from "path";
-import { JSDOM } from "jsdom";
+import puppeteer from "puppeteer";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const FOOTBALL_DIR = path.resolve(__dirname, "football");
+
+const FOOTBALL_DIR = path.join(__dirname, "football");
 const OUTPUT_FILE = path.join(FOOTBALL_DIR, "Hg.json");
 
-if (!fs.existsSync(FOOTBALL_DIR)) fs.mkdirSync(FOOTBALL_DIR, { recursive: true });
-
-async function fetchWithTimeout(url) {
-    try {
-        const response = await fetch(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            },
-            signal: AbortSignal.timeout(20000)
-        });
-        return response.ok ? await response.text() : null;
-    } catch (error) { return null; }
+if (!fs.existsSync(FOOTBALL_DIR)) {
+    fs.mkdirSync(FOOTBALL_DIR, { recursive: true });
 }
 
-async function scrape() {
-    const url = "https://koranews.site88.one/"; 
-    console.log(`🌐 محاولة جلب البيانات من: ${url}`);
+// ==================== استخراج المباريات باستخدام Puppeteer ====================
+async function fetchMatchesWithPuppeteer() {
+    const baseUrl = "https://koraplus.blog/"; // تأكد من الرابط الصحيح هنا
+    console.log(`\n🌐 جاري فتح المتصفح لجلب: ${baseUrl}`);
+
+    const browser = await puppeteer.launch({
+        headless: "new", // تشغيل في الخلفية
+        args: ['--no-sandbox', '--disable-setuid-sandbox'] // ضروري لبيئات Linux/GitHub Actions
+    });
+
+    const page = await browser.newPage();
     
-    const html = await fetchWithTimeout(url);
-    if (!html) {
-        console.log("❌ فشل الجلب.");
+    try {
+        // تعيين User-Agent لتبدو كمتصفح حقيقي
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+        
+        // الذهاب للموقع والانتظار حتى يستقر الشبكة
+        await page.goto(baseUrl, { waitUntil: 'networkidle2', timeout: 60000 });
+
+        // الانتظار الإضافي للتأكد من تحميل سكربتات المباريات (مثلاً ننتظر ظهور كلاس معين)
+        console.log("⏳ انتظار تحميل الجافا سكربت والمباريات...");
+        await new Promise(resolve => setTimeout(resolve, 5000)); 
+
+        // استخراج البيانات من داخل المتصفح
+        const matches = await page.evaluate(() => {
+            // ملاحظة: قمت بتحديث المحددات (Selectors) بناءً على الهيكل الأكثر شيوعاً للمواقع التي تستخدمها
+            const results = [];
+            const matchElements = document.querySelectorAll('.match-card, .match-container, a.match-card-link');
+
+            matchElements.forEach((el, index) => {
+                try {
+                    // محاولة استخراج الرابط
+                    let url = el.href || el.querySelector('a')?.href || "";
+                    
+                    // استخراج الأسماء (نبحث عن أي نص داخل كلاسات الفريق)
+                    const teamNames = el.querySelectorAll('.team-name');
+                    const team1 = teamNames[0]?.textContent.trim() || "غير معروف";
+                    const team2 = teamNames[1]?.textContent.trim() || "غير معروف";
+
+                    // استخراج الحالة
+                    const status = el.querySelector('.match-status, .date')?.textContent.trim() || "غير معروف";
+                    
+                    // استخراج النتيجة
+                    const scoreElem = el.querySelector('.match-score, .result');
+                    const score = scoreElem ? scoreElem.textContent.trim().replace(/\s+/g, ' ') : "0 - 0";
+
+                    results.push({
+                        id: `match_${Date.now()}_${index}`,
+                        url: url,
+                        title: `${team1} vs ${team2}`,
+                        team1: { name: team1, score: score.split('-')[0]?.trim() || "0" },
+                        team2: { name: team2, score: score.split('-')[1]?.trim() || "0" },
+                        score: score,
+                        status: status,
+                        tournament: el.querySelector('.match-league, .match-info-bar span:last-child')?.textContent.trim() || "غير محدد",
+                        scrapedAt: new Date().toISOString()
+                    });
+                } catch (e) {}
+            });
+            return results;
+        });
+
+        await browser.close();
+        return matches;
+
+    } catch (error) {
+        console.error(`❌ خطأ أثناء التشغيل: ${error.message}`);
+        await browser.close();
+        return [];
+    }
+}
+
+// ==================== استخراج روابط المشغل (بالتتابع) ====================
+async function fetchPlayerUrl(matchUrl) {
+    if (!matchUrl) return null;
+    
+    const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox'] });
+    const page = await browser.newPage();
+    
+    try {
+        await page.goto(matchUrl, { waitUntil: 'networkidle2', timeout: 45000 });
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        const playerInfo = await page.evaluate(() => {
+            const iframe = document.querySelector('iframe[src*="albaplayer"], iframe[src*="gomatch"], iframe[src*="ontime"]');
+            if (iframe) {
+                return [{
+                    type: 'iframe',
+                    url: iframe.src,
+                    quality: "HD",
+                    server: "LiveServer",
+                    id: 'p1'
+                }];
+            }
+            return null;
+        });
+
+        await browser.close();
+        return playerInfo;
+    } catch (e) {
+        await browser.close();
+        return null;
+    }
+}
+
+// ==================== الدالة الرئيسية ====================
+async function main() {
+    console.log("⚽ بدء استخراج المباريات (وضع المتصفح الذكي)...");
+    
+    const matches = await fetchMatchesWithPuppeteer();
+    
+    if (matches.length === 0) {
+        console.log("⚠️ لم يتم العثور على مباريات. قد يكون المبدل (Selector) بحاجة لتحديث.");
         return;
     }
 
-    const dom = new JSDOM(html);
-    const doc = dom.window.document;
-    const matches = [];
+    console.log(`✅ وجدنا ${matches.length} مباراة. جاري فحص روابط البث للمباريات الجارية...`);
 
-    // محاولة البحث بعدة طرق (Selectors) لضمان الوصول للكروت
-    // 1. الطريقة المباشرة بالكلاس
-    // 2. البحث عن أي مقال (article)
-    // 3. البحث عن أي رابط يحتوي على كلمة "مباراة" في العنوان
-    let cards = doc.querySelectorAll('a.match-card-link, article.match-card, .match-item, a[href*="match"]');
+    for (let i = 0; i < matches.length; i++) {
+        // فحص روابط البث فقط للمباريات الجارية الآن
+        if (matches[i].status.includes("جارية") || matches[i].status.includes("مباشر")) {
+            console.log(`🔗 جلب مشغل: ${matches[i].title}`);
+            matches[i].watchServers = await fetchPlayerUrl(matches[i].url);
+        }
+    }
 
-    console.log(`🔍 فحص العناصر المكتشفة: ${cards.length}`);
+    const outputData = {
+        scrapedAt: new Date().toISOString(),
+        total: matches.length,
+        matches: matches
+    };
 
-    cards.forEach((el, i) => {
-        // التأكد من أننا نأخذ الرابط الصحيح (إما العنصر نفسه أو الأب له)
-        const matchUrl = el.tagName === 'A' ? el.href : el.closest('a')?.href;
-        if (!matchUrl || matches.some(m => m.url === matchUrl)) return;
-
-        const teamNames = el.querySelectorAll('.team-name');
-        if (teamNames.length < 2) return; // تخطي العناصر التي ليست مباريات حقيقية
-
-        const scoreSpans = el.querySelectorAll('.match-score span:not(.score-sep)');
-        const status = el.querySelector('.match-status')?.textContent.trim() || "قريباً";
-        const tour = el.querySelector('.match-league, .match-info-bar')?.textContent.trim() || "بطولة";
-
-        matches.push({
-            id: Date.now() + i,
-            home: teamNames[0].textContent.trim(),
-            away: teamNames[1].textContent.trim(),
-            score: scoreSpans.length >= 2 ? `${scoreSpans[0].textContent.trim()}-${scoreSpans[1].textContent.trim()}` : "0-0",
-            status: status,
-            tournament: tour,
-            url: matchUrl
-        });
-    });
-
-    const finalData = { lastUpdate: new Date().toISOString(), count: matches.length, matches: matches };
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(finalData, null, 2));
-    console.log(`🚀 تم الحفظ! وجدنا: ${matches.length} مباراة.`);
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(outputData, null, 2));
+    console.log(`\n🎉 تم الحفظ بنجاح في ${OUTPUT_FILE}`);
 }
 
-scrape();
+main();
