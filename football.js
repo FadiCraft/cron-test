@@ -152,7 +152,7 @@ function extractPlayerFromHTML(html, pageUrl) {
 
 // ==================== استخراج المباريات من الصفحة الرئيسية ====================
 async function fetchMatchesFromPage(pageNum = 1) {
-    const baseUrl = "https://koraplus.blog/";
+    const baseUrl = "https://koraplus.blog/"; // يمكنك تغيير الرابط هنا إذا تغير النطاق الأساسي
     const url = pageNum === 1 ? baseUrl : `${baseUrl}page/${pageNum}/`;
     
     console.log(`\n📄 الصفحة ${pageNum}: ${url}`);
@@ -169,8 +169,8 @@ async function fetchMatchesFromPage(pageNum = 1) {
         const doc = dom.window.document;
         const matches = [];
         
-        // البحث عن جميع عناصر المباريات
-        const matchElements = doc.querySelectorAll('.match-container');
+        // البحث عن جميع عناصر المباريات بالهيكل الجديد
+        const matchElements = doc.querySelectorAll('.match-card');
         
         console.log(`✅ وجد ${matchElements.length} مباراة`);
         
@@ -178,8 +178,8 @@ async function fetchMatchesFromPage(pageNum = 1) {
             const element = matchElements[index];
             
             try {
-                // استخراج رابط المباراة
-                const matchLink = element.querySelector('a');
+                // استخراج رابط المباراة (من العنصر الأب <a>)
+                const matchLink = element.closest('a');
                 let matchUrl = matchLink ? matchLink.getAttribute('href') : null;
                 
                 if (!matchUrl) continue;
@@ -190,77 +190,69 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 }
                 
                 // استخراج أسماء الفريقين والشعارات
-                const team1NameElem = element.querySelector('.right-team .team-name');
-                const team2NameElem = element.querySelector('.left-team .team-name');
+                const teams = element.querySelectorAll('.team-name');
+                let team1Name = teams[0] ? teams[0].textContent.trim() : "غير معروف";
+                let team2Name = teams[1] ? teams[1].textContent.trim() : "غير معروف";
                 
-                let team1Name = team1NameElem ? team1NameElem.textContent.trim() : "غير معروف";
-                let team2Name = team2NameElem ? team2NameElem.textContent.trim() : "غير معروف";
+                const logos = element.querySelectorAll('.team-logo img');
+                let team1Logo = logos[0] ? (logos[0].getAttribute('src') || logos[0].getAttribute('data-src')) : null;
+                let team2Logo = logos[1] ? (logos[1].getAttribute('src') || logos[1].getAttribute('data-src')) : null;
                 
-                // استخراج شعارات الفريقين
-                const team1Img = element.querySelector('.right-team img');
-                const team2Img = element.querySelector('.left-team img');
-                
-                let team1Logo = team1Img ? (team1Img.getAttribute('src') || team1Img.getAttribute('data-src')) : null;
-                let team2Logo = team2Img ? (team2Img.getAttribute('src') || team2Img.getAttribute('data-src')) : null;
-                
-                // استخراج النتيجة والوقت
+                // استخراج النتيجة
+                const scoreElement = element.querySelector('.match-score');
+                let score = "0 - 0";
                 let team1Score = "0";
                 let team2Score = "0";
-                let score = "0 - 0";
-                let matchTime = "غير معروف";
-                
-                const resultElement = element.querySelector('.match-timing .result');
-                const timeElement = element.querySelector('.match-timing div:not(.result):not(.date)');
-                
-                if (resultElement) {
-                    const resultText = resultElement.textContent.trim();
-                    const scores = resultText.split('-');
-                    if (scores.length === 2) {
-                        team1Score = scores[0].trim();
-                        team2Score = scores[1].trim();
-                        score = resultText;
-                    }
-                }
-                
-                if (timeElement) {
-                    matchTime = timeElement.textContent.trim();
-                }
-                
-                // استخراج حالة المباراة
-                let matchStatus = "غير معروف";
-                const statusElement = element.querySelector('.match-timing .date');
-                if (statusElement) {
-                    const statusText = statusElement.textContent.trim();
-                    if (statusText === "جارية الان") {
-                        matchStatus = "جارية الآن";
-                    } else if (statusText === "لم تبدأ بعد") {
-                        matchStatus = "لم تبدأ بعد";
-                    } else if (statusText === "انتهت المباراة") {
-                        matchStatus = "انتهت";
+
+                if (scoreElement) {
+                    const scoreSpans = scoreElement.querySelectorAll('span:not(.score-sep)');
+                    if(scoreSpans.length >= 2) {
+                        team1Score = scoreSpans[0].textContent.trim();
+                        team2Score = scoreSpans[1].textContent.trim();
+                        score = `${team1Score} - ${team2Score}`;
                     } else {
-                        matchStatus = statusText;
+                        score = scoreElement.textContent.replace(/\s+/g, ' ').trim();
                     }
                 }
                 
-                // استخراج القنوات والبطولة
+                // استخراج الوقت والحالة
+                const statusElem = element.querySelector('.match-status');
+                const timeElem = element.querySelector('.match-time');
+                
+                let matchStatusRaw = statusElem ? statusElem.textContent.trim() : "غير معروف";
+                let matchTime = timeElem ? timeElem.textContent.replace('⏰', '').trim() : "غير معروف";
+                
+                // توحيد نصوص حالة المباراة
+                let matchStatus = matchStatusRaw;
+                if (matchStatusRaw === "جارية الان") {
+                    matchStatus = "جارية الآن";
+                    if(matchTime === "غير معروف") matchTime = "مباشر";
+                } else if (matchStatusRaw === "بعد قليل" || matchStatusRaw === "لم تبدأ") {
+                    matchStatus = "لم تبدأ بعد";
+                } else if (matchStatusRaw === "انتهت المباراة" || matchStatusRaw === "انتهت") {
+                    matchStatus = "انتهت";
+                }
+                
+                // استخراج القنوات والبطولة من شريط المعلومات (.match-info-bar)
                 const channels = [];
                 let tournament = "غير محدد";
                 
-                const channelItems = element.querySelectorAll('.match-info li span');
-                channelItems.forEach((item, idx) => {
-                    const text = item.textContent.trim();
-                    if (text && text !== "غير معروف") {
-                        if (idx < 2) {
-                            channels.push(text);
-                        } else if (idx === 2) {
-                            tournament = text;
-                        }
+                const infoBarSpans = element.querySelectorAll('.match-info-bar span');
+                if (infoBarSpans.length > 0) {
+                    let channelText = infoBarSpans[0].textContent.replace('📺', '').trim();
+                    if (channelText && channelText !== "غير معروف") {
+                        channels.push(channelText);
                     }
-                });
+                }
                 
-                // تنظيف البطولة
-                if (tournament.includes(',')) {
-                    tournament = tournament.split(',').slice(1).join(',').trim();
+                if (infoBarSpans.length > 1) {
+                    let tourText = infoBarSpans[1].textContent.replace('🏆', '').trim();
+                    // تنظيف البطولة إذا كانت تحتوي على فاصلة مثل "فرنسا, الدوري الفرنسي"
+                    if (tourText.includes(',')) {
+                        tournament = tourText.split(',').slice(1).join(',').trim();
+                    } else {
+                        tournament = tourText;
+                    }
                 }
                 
                 const match = {
@@ -289,7 +281,7 @@ async function fetchMatchesFromPage(pageNum = 1) {
                 };
                 
                 matches.push(match);
-                console.log(`   ✓ ${index + 1}: ${match.title} (${match.status})`);
+                console.log(`   ✓ ${index + 1}: ${match.title} (${match.status}) | ${score}`);
                 
             } catch (error) {
                 console.log(`   ✗ خطأ: ${error.message}`);
