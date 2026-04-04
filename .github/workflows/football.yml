@@ -3,8 +3,7 @@ name: استخراج مباريات
 on:
   workflow_dispatch:
   schedule:
-    # تشغيل كل 10 دقائق
-    - cron: "*/10 * * * *"  # كل 10 دقائق
+    - cron: "*/10 * * * *"
 
 jobs:
   extract-football-matches:
@@ -12,159 +11,35 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          
+          node-version: '20'
+          cache: 'npm'
+
       - name: Install dependencies
         run: |
-          npm install jsdom
-          echo "✅ تم تثبيت الحزم المطلوبة"
-
-      - name: Create football directory
-        run: |
-          # إنشاء مجلد football مسبقاً
-          mkdir -p football
-          echo "📁 تم إنشاء مجلد football"
+          npm install
+          # تثبيت المتصفح اللازم لـ Puppeteer
+          npx puppeteer browsers install chrome
 
       - name: Run football.js
         run: |
-          echo "⚽ بدء استخراج المباريات..."
-          echo "📅 الوقت: $(date)"
-          echo "⏰ الجدولة: كل 10 دقائق"
-          echo "📁 الملف: football.js"
-          echo "🔄 جاري التشغيل..."
-          
-          # تشغيل ملف football.js
-          if [ -f "football.js" ]; then
-            node football.js
-            EXIT_CODE=$?
-            if [ $EXIT_CODE -eq 0 ]; then
-              echo "✅ تم تشغيل football.js بنجاح"
-            else
-              echo "❌ football.js خرج برمز خطأ: $EXIT_CODE"
-              exit $EXIT_CODE
-            fi
-          else
-            echo "❌ ملف football.js غير موجود!"
-            echo "📂 الملفات الموجودة:"
-            ls -la *.js || echo "لا توجد ملفات js"
-            exit 1
-          fi
-          
-          echo "✅ تم الانتهاء من استخراج المباريات"
-
-      - name: Check results
-        run: |
-          echo "📊 ====== نتائج استخراج المباريات ======"
-          echo "⏰ وقت التشغيل: $(date)"
-          echo "🔄 التكرار: كل 10 دقائق"
-          
-          # التحقق من وجود ملف Hg.json
-          if [ -f "football/Hg.json" ]; then
-            echo "✅ تم إنشاء/تحديث ملف football/Hg.json"
-            
-            # عرض حجم الملف
-            FILE_SIZE=$(wc -c < football/Hg.json)
-            echo "📊 حجم الملف: $FILE_SIZE بايت"
-            
-            # عرض آخر وقت تحديث
-            LAST_MODIFIED=$(stat -c %y football/Hg.json 2>/dev/null || date -r football/Hg.json)
-            echo "🕒 آخر تحديث: $LAST_MODIFIED"
-            
-            # تثبيت jq إذا لم يكن مثبتاً
-            if ! command -v jq &> /dev/null; then
-              echo "📦 تثبيت jq لعرض البيانات..."
-              sudo apt-get update && sudo apt-get install -y jq
-            fi
-            
-            # عرض معلومات عامة عن الملف
-            echo ""
-            echo "📋 معلومات الملف:"
-            if jq -e '.totalMatches' football/Hg.json > /dev/null 2>&1; then
-              TOTAL_MATCHES=$(jq -r '.totalMatches' football/Hg.json)
-              SCRAPED_AT=$(jq -r '.scrapedAt' football/Hg.json)
-              echo "🎯 إجمالي المباريات: $TOTAL_MATCHES"
-              echo "⏰ وقت الاستخراج: $SCRAPED_AT"
-              
-              # عد المباريات التي تحتوي على سيرفرات مشاهدة
-              if jq -e '.matches[] | select(.watchServers != null) | length' football/Hg.json > /dev/null 2>&1; then
-                WITH_SERVERS=$(jq '[.matches[] | select(.watchServers != null)] | length' football/Hg.json)
-                echo "📺 مباريات مع سيرفرات مشاهدة: $WITH_SERVERS"
-                echo "❌ مباريات بدون سيرفرات: $((TOTAL_MATCHES - WITH_SERVERS))"
-              fi
-              
-              # عرض أول 3 مباريات
-              echo ""
-              echo "⚽ أول 3 مباريات مستخرجة:"
-              jq -r '.matches[0:3] | .[] | "  - \(.title) (\(.status)) | النتيجة: \(.score) | البطولة: \(.tournament)"' football/Hg.json
-              
-            else
-              echo "⚠️ هيكل JSON غير صالح أو لا يحتوي على البيانات المتوقعة"
-            fi
-            
-          else
-            echo "❌ لم يتم إنشاء football/Hg.json"
-            echo "📂 محتويات مجلد football:"
-            if [ -d "football" ]; then
-              ls -la football/
-            else
-              echo "❌ مجلد football غير موجود"
-            fi
-          fi
+          mkdir -p football
+          node football.js
 
       - name: Commit and push changes
         run: |
-          # تكوين Git
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
+          git add football/Hg.json
           
-          # إضافة التغييرات
-          git add football/Hg.json || echo "⚠️ لا يوجد Hg.json جديد"
-          git add football/error.json 2>/dev/null || echo "⚠️ لا يوجد error.json"
-          
-          # التحقق إذا كانت هناك تغييرات
+          # التحقق إذا كانت هناك تغييرات فعلاً قبل الـ commit
           if git diff --cached --quiet; then
-            echo "📭 لا توجد تغييرات جديدة للرفع"
+            echo "لا توجد تغييرات جديدة"
           else
-            echo "🔼 رفع التغييرات..."
-            git commit -m "⚽ تحديث المباريات - $(date +'%Y-%m-%d %H:%M')" -m "تحديث تلقائي كل 10 دقائق" -m "عدد المباريات: $(jq -r '.totalMatches // 0' football/Hg.json 2>/dev/null || echo 0)"
+            git commit -m "⚽ تحديث المباريات التلقائي - $(date)"
             git push
-            echo "✅ تم رفع التغييرات"
-          fi
-
-      - name: Create log file
-        run: |
-          # إنشاء ملف سجل
-          TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')
-          LOG_FILE="football/scrape_log.json"
-          
-          # قراءة البيانات الحالية أو إنشاء مصفوفة فارغة
-          if [ -f "$LOG_FILE" ]; then
-            # إضافة سجل جديد
-            jq --arg timestamp "$TIMESTAMP" \
-               --arg total "$(jq -r '.totalMatches // 0' football/Hg.json 2>/dev/null || echo 0)" \
-               '. += [{"timestamp": $timestamp, "total_matches": $total|tonumber, "file_size": '$(wc -c < football/Hg.json 2>/dev/null || echo 0)'}]' \
-               "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
-          else
-            # إنشاء ملف سجل جديد
-            echo '[{"timestamp": "'$TIMESTAMP'", "total_matches": '$(jq -r '.totalMatches // 0' football/Hg.json 2>/dev/null || echo 0)', "file_size": '$(wc -c < football/Hg.json 2>/dev/null || echo 0)'}]' > "$LOG_FILE"
-          fi
-          
-          # إضافة ملف السجل إلى Git
-          git add "$LOG_FILE"
-          git commit -m "📝 تحديث سجل التشغيل - $TIMESTAMP" || echo "⚠️ لا توجد تغييرات في السجل"
-          git push || echo "⚠️ لا توجد تغييرات للرفع"
-
-      - name: Clean up old logs (مرة يومياً)
-        if: github.event.schedule == '*/10 * * * *'
-        run: |
-          # تنظيف السجلات القديمة (تحتفظ بـ 100 سجل فقط)
-          LOG_FILE="football/scrape_log.json"
-          if [ -f "$LOG_FILE" ]; then
-            jq '.[-100:]' "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
-            echo "🧹 تم تنظيف السجلات (بقي 100 سجل فقط)"
           fi
