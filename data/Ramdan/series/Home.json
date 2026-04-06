@@ -1,7 +1,15 @@
 {
-  "last_update": "2026-04-05T18:57:31.535Z",
+  "last_update": "2026-04-06T02:51:39.693Z",
   "total_series": 87,
   "series": [
+    {
+      "id": "7",
+      "title": "اللون الأزرق",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
     {
       "id": "c",
       "title": "النص 2",
@@ -205,18 +213,10 @@
     {
       "id": "d8cb9c11b",
       "title": "مسلسل الكينج",
-      "image": "",
+      "image": "https://larozaa.space/uploads/thumbs/92ae9f039-1.jpg",
       "seasons": 1,
       "last_season": 1,
-      "episodes_count": 28
-    },
-    {
-      "id": "d3edb5382",
-      "title": "مسلسل اللون الأزرق",
-      "image": "https://larozaa.space/uploads/thumbs/2bb9ee8de-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 14
+      "episodes_count": 30
     },
     {
       "id": "95564673d",
@@ -520,7 +520,7 @@
       "image": "https://larozaa.space/uploads/thumbs/408ac47a6-1.jpg",
       "seasons": 1,
       "last_season": 1,
-      "episodes_count": 29
+      "episodes_count": 30
     },
     {
       "id": "1bcbf8b34",
