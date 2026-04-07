@@ -1,12 +1,12 @@
 {
-  "scrapedAt": "٧‏/٤‏/٢٠٢٦، ٧:٤٤:١٦ م",
+  "scrapedAt": "٧‏/٤‏/٢٠٢٦، ٨:٤٠:٠٢ م",
   "totalMatches": 4,
   "matches": [
     {
       "url": "https://koranews.site88.one/koranews/%d8%b3%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d9%83%d8%a7-%d9%83%d9%84%d9%8a%d9%88%d8%a8%d8%a7%d8%aa%d8%b1%d8%a7%d9%88%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a%d9%81%d9%8a%d9%85%d8%b5%d8%b1-%d8%a7%d9%84%d8%af/",
-      "status": "بعد قليل",
+      "status": "جارية الان",
       "league": "مصر, الدوري المصري - المرحلة النهائية - مجموعة البطولة",
-      "time": "09:00 PM",
+      "time": "",
       "channel": "أون سبورت",
       "score": "0 - 0",
       "team1": {
@@ -17,12 +17,12 @@
         "name": "الأهلي",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/05/1.png"
       },
-      "id": 511954,
+      "id": 575524,
       "watchServers": [
         {
           "id": "server_1",
           "name": "سيرفر رئيسي",
-          "url": "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=koranews.site88.one&gdpr=0&gdpr_consent=#{%22bundle%22:{%22origin%22:0},%22optout%22:{%22value%22:false,%22origin%22:0},%22tld%22:%22site88.one%22,%22topUrl%22:%22koranews.site88.one%22,%22version%22:106039,%22origin%22:%22publishertagids%22,%22requestId%22:%220.14092972143126414%22}"
+          "url": "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=koranews.site88.one&gdpr=0&gdpr_consent=#{%22bundle%22:{%22origin%22:0},%22optout%22:{%22value%22:false,%22origin%22:0},%22tld%22:%22site88.one%22,%22topUrl%22:%22koranews.site88.one%22,%22version%22:106039,%22origin%22:%22publishertagids%22,%22requestId%22:%220.0020993505089650366%22}"
         },
         {
           "id": "server_2",
@@ -32,8 +32,8 @@
       ]
     },
     {
-      "url": "https://www.kooora-lives1.info/",
-      "status": "لم تبدأ بعد",
+      "url": "https://koranews.site88.one/koranews/%d8%b3%d8%a8%d9%88%d8%b1%d8%aa%d9%86%d8%ac-%d9%84%d8%b4%d8%a8%d9%88%d9%86%d8%a9%d9%88%d8%a3%d8%b1%d8%b3%d9%86%d8%a7%d9%84%d9%81%d9%8a%d8%a3%d9%88%d8%b1%d9%88%d8%a8%d8%a7-%d8%af%d9%88%d8%b1%d9%8a/",
+      "status": "بعد قليل",
       "league": "أوروبا, دوري أبطال اوروبا - ربع النهائي",
       "time": "10:00 PM",
       "channel": "Bein Sports HD2",
@@ -46,12 +46,18 @@
         "name": "أرسنال",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/05/83.png"
       },
-      "id": 799791,
-      "watchServers": null
+      "id": 989458,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fkoranews.site88.one%2Fkoranews%2F%25d8%25b3%25d8%25a8%25d9%2588%25d8%25b1%25d8%25aa%25d9%2586%25d8%25ac-%25d9%2584%25d8%25b4%25d8%25a8%25d9%2588%25d9%2586%25d8%25a9%25d9%2588%25d8%25a3%25d8%25b1%25d8%25b3%25d9%2586%25d8%25a7%25d9%2584%25d9%2581%25d9%258a%25d8%25a3%25d9%2588%25d8%25b1%25d9%2588%25d8%25a8%25d8%25a7-%25d8%25af%25d9%2588%25d8%25b1%25d9%258a%2F"
+        }
+      ]
     },
     {
-      "url": "https://www.kooora-lives1.info/",
-      "status": "لم تبدأ بعد",
+      "url": "https://koranews.site88.one/koranews/%d8%b1%d9%8a%d8%a7%d9%84-%d9%85%d8%af%d8%b1%d9%8a%d8%af%d9%88%d8%a8%d8%a7%d9%8a%d8%b1%d9%86-%d9%85%d9%8a%d9%88%d9%86%d8%ae%d9%81%d9%8a%d8%a3%d9%88%d8%b1%d9%88%d8%a8%d8%a7-%d8%af%d9%88%d8%b1%d9%8a/",
+      "status": "بعد قليل",
       "league": "أوروبا, دوري أبطال اوروبا - ربع النهائي",
       "time": "10:00 PM",
       "channel": "beIN SPORTS HD 1",
@@ -64,8 +70,14 @@
         "name": "بايرن ميونخ",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/331.png"
       },
-      "id": 792671,
-      "watchServers": null
+      "id": 142578,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fkoranews.site88.one%2Fkoranews%2F%25d8%25b1%25d9%258a%25d8%25a7%25d9%2584-%25d9%2585%25d8%25af%25d8%25b1%25d9%258a%25d8%25af%25d9%2588%25d8%25a8%25d8%25a7%25d9%258a%25d8%25b1%25d9%2586-%25d9%2585%25d9%258a%25d9%2588%25d9%2586%25d8%25ae%25d9%2581%25d9%258a%25d8%25a3%25d9%2588%25d8%25b1%25d9%2588%25d8%25a8%25d8%25a7-%25d8%25af%25d9%2588%25d8%25b1%25d9%258a%2F"
+        }
+      ]
     },
     {
       "url": "https://koranews.site88.one/koranews/%d8%b3%d9%85%d9%88%d8%ad%d8%a9%d9%88%d8%a5%d9%86%d8%a8%d9%8a%d9%81%d9%8a%d9%85%d8%b5%d8%b1-%d8%a7%d9%84%d8%af%d9%88%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d8%b5%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d8%b1%d8%ad/",
@@ -82,7 +94,7 @@
         "name": "إنبي",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/8300.png"
       },
-      "id": 605301,
+      "id": 430345,
       "watchServers": null
     }
   ]
