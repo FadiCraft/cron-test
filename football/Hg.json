@@ -1,9 +1,9 @@
 {
-  "scrapedAt": "٧‏/٤‏/٢٠٢٦، ١:٣٧:٢١ م",
+  "scrapedAt": "٧‏/٤‏/٢٠٢٦، ٢:٤١:٠٨ م",
   "totalMatches": 4,
   "matches": [
     {
-      "url": "https://www.kooora-lives1.info/",
+      "url": "https://koranews.site88.one/koranews/%d8%b3%d9%85%d9%88%d8%ad%d8%a9%d9%88%d8%a5%d9%86%d8%a8%d9%8a%d9%81%d9%8a%d9%85%d8%b5%d8%b1-%d8%a7%d9%84%d8%af%d9%88%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d8%b5%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d8%b1%d8%ad/",
       "status": "لم تبدأ بعد",
       "league": "مصر, الدوري المصري - المرحلة النهائية - مجموعة البطولة",
       "time": "06:00 PM",
@@ -17,11 +17,22 @@
         "name": "إنبي",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/8300.png"
       },
-      "id": 381784,
-      "watchServers": null
+      "id": 763376,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=koranews.site88.one&gdpr=0&gdpr_consent=#{%22bundle%22:{%22origin%22:0},%22optout%22:{%22value%22:false,%22origin%22:0},%22tld%22:%22site88.one%22,%22topUrl%22:%22koranews.site88.one%22,%22version%22:106039,%22origin%22:%22publishertagids%22,%22requestId%22:%220.18130328128127882%22}"
+        },
+        {
+          "id": "server_2",
+          "name": "سيرفر رئيسي",
+          "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fkoranews.site88.one%2Fkoranews%2F%25d8%25b3%25d9%2585%25d9%2588%25d8%25ad%25d8%25a9%25d9%2588%25d8%25a5%25d9%2586%25d8%25a8%25d9%258a%25d9%2581%25d9%258a%25d9%2585%25d8%25b5%25d8%25b1-%25d8%25a7%25d9%2584%25d8%25af%25d9%2588%25d8%25b1%25d9%258a-%25d8%25a7%25d9%2584%25d9%2585%25d8%25b5%25d8%25b1%25d9%258a-%25d8%25a7%25d9%2584%25d9%2585%25d8%25b1%25d8%25ad%2F"
+        }
+      ]
     },
     {
-      "url": "https://www.kooora-lives1.info/",
+      "url": "https://koranews.site88.one/koranews/%d8%b3%d9%8a%d8%b1%d8%a7%d9%85%d9%8a%d9%83%d8%a7-%d9%83%d9%84%d9%8a%d9%88%d8%a8%d8%a7%d8%aa%d8%b1%d8%a7%d9%88%d8%a7%d9%84%d8%a3%d9%87%d9%84%d9%8a%d9%81%d9%8a%d9%85%d8%b5%d8%b1-%d8%a7%d9%84%d8%af/",
       "status": "لم تبدأ بعد",
       "league": "مصر, الدوري المصري - المرحلة النهائية - مجموعة البطولة",
       "time": "09:00 PM",
@@ -35,8 +46,14 @@
         "name": "الأهلي",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/05/1.png"
       },
-      "id": 595821,
-      "watchServers": null
+      "id": 739004,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fkoranews.site88.one%2Fkoranews%2F%25d8%25b3%25d9%258a%25d8%25b1%25d8%25a7%25d9%2585%25d9%258a%25d9%2583%25d8%25a7-%25d9%2583%25d9%2584%25d9%258a%25d9%2588%25d8%25a8%25d8%25a7%25d8%25aa%25d8%25b1%25d8%25a7%25d9%2588%25d8%25a7%25d9%2584%25d8%25a3%25d9%2587%25d9%2584%25d9%258a%25d9%2581%25d9%258a%25d9%2585%25d8%25b5%25d8%25b1-%25d8%25a7%25d9%2584%25d8%25af%2F"
+        }
+      ]
     },
     {
       "url": "https://www.kooora-lives1.info/",
@@ -53,7 +70,7 @@
         "name": "أرسنال",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/05/83.png"
       },
-      "id": 688269,
+      "id": 146435,
       "watchServers": null
     },
     {
@@ -71,7 +88,7 @@
         "name": "بايرن ميونخ",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/331.png"
       },
-      "id": 349369,
+      "id": 960925,
       "watchServers": null
     }
   ]
