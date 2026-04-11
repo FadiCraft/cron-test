@@ -25793,17 +25793,17 @@
     }
   },
   "statistics": {
-    "total_series": 0,
+    "total_series": 86,
     "total_episodes": 1944,
     "new_episodes_today": 0,
-    "last_scan": "2026-04-11T02:28:06.809Z",
+    "last_scan": "2026-04-11T10:11:02.571Z",
     "first_scan": false
   },
   "latest_episodes": [
     {
       "id": "24ff2d23f",
       "series_id": "157b245c0",
-      "series_title": "",
+      "series_title": "عرش الشيطان",
       "title": "مسلسل عرش الشيطان الحلقة 29 التاسعة والعشرون",
       "image": "https://larozaa.website/uploads/thumbs/4542cf943-1.jpg",
       "number": 29,
@@ -25813,7 +25813,7 @@
     {
       "id": "5cb3c4040",
       "series_id": "157b245c0",
-      "series_title": "",
+      "series_title": "عرش الشيطان",
       "title": "مسلسل عرش الشيطان الحلقة 30 الثلاثون والاخيرة",
       "image": "https://larozaa.website/uploads/thumbs/4542cf943-1.jpg",
       "number": 30,
@@ -25823,7 +25823,7 @@
     {
       "id": "6e39fa816",
       "series_id": "157b245c0",
-      "series_title": "",
+      "series_title": "عرش الشيطان",
       "title": "مسلسل عرش الشيطان الحلقة 27 السابعة والعشرون",
       "image": "https://larozaa.xyz/uploads/thumbs/4542cf943-1.jpg",
       "number": 27,
@@ -25833,7 +25833,7 @@
     {
       "id": "b4dd92d95",
       "series_id": "157b245c0",
-      "series_title": "",
+      "series_title": "عرش الشيطان",
       "title": "مسلسل عرش الشيطان الحلقة 28 الثامنة والعشرون",
       "image": "https://larozaa.xyz/uploads/thumbs/4542cf943-1.jpg",
       "number": 28,
@@ -25843,7 +25843,7 @@
     {
       "id": "9718bbcc3",
       "series_id": "249d68f38",
-      "series_title": "",
+      "series_title": "عمارة السعادة",
       "title": "مسلسل عمارة السعادة الحلقة 30 الثلاثون",
       "image": "https://laroza.icu/uploads/thumbs/408ac47a6-1.jpg",
       "number": 30,
@@ -25853,7 +25853,7 @@
     {
       "id": "556fb20c7",
       "series_id": "157b245c0",
-      "series_title": "",
+      "series_title": "عرش الشيطان",
       "title": "مسلسل عرش الشيطان الحلقة 26 السادسة والعشرون",
       "image": "https://laroza.icu/uploads/thumbs/4542cf943-1.jpg",
       "number": 26,
@@ -25863,7 +25863,7 @@
     {
       "id": "7ddb55ff9",
       "series_id": "a5fd4a91c",
-      "series_title": "",
+      "series_title": "بيت أم ليلة",
       "title": "مسلسل بيت ام ليلة الحلقة 25 الخامسة والعشرون",
       "image": "https://laroza.icu/uploads/thumbs/d38cee407-1.jpg",
       "number": 25,
@@ -25873,7 +25873,7 @@
     {
       "id": "d7e8b7de4",
       "series_id": "a5fd4a91c",
-      "series_title": "",
+      "series_title": "بيت أم ليلة",
       "title": "مسلسل بيت ام ليلة الحلقة 26 السادسة والعشرون",
       "image": "https://laroza.icu/uploads/thumbs/d38cee407-1.jpg",
       "number": 26,
@@ -25883,7 +25883,7 @@
     {
       "id": "c75fdb45a",
       "series_id": "85aa7b7ee",
-      "series_title": "",
+      "series_title": "الهيبة: رأس الجبل",
       "title": "مسلسل الهيبة راس الجبل الحلقة 30 الثلاثون والاخيرة",
       "image": "https://laroza.icu/uploads/thumbs/6b94c076f-1.jpg",
       "number": 30,
@@ -25893,7 +25893,7 @@
     {
       "id": "9adce7c08",
       "series_id": "a0bee9f69",
-      "series_title": "",
+      "series_title": "ألف ليله مع فيفي عبده",
       "title": "برنامج الف ليلة مع فيفي عبده الحلقة 50 الخمسون",
       "image": "https://laroza.icu/uploads/thumbs/edfa691a8-1.jpg",
       "number": 50,
@@ -25901,5 +25901,36 @@
       "added_at": "2026-03-19T19:11:28.267Z"
     }
   ],
-  "latest_series": []
+  "latest_series": [
+    {
+      "id": "9",
+      "title": "المداح ج6",
+      "image": "",
+      "added_at": "2026-04-11T07:04:14.663Z"
+    },
+    {
+      "id": "1cf22b484",
+      "title": "افراج",
+      "image": "",
+      "added_at": "2026-04-11T07:04:14.663Z"
+    },
+    {
+      "id": "a4",
+      "title": "فن الحرب",
+      "image": "",
+      "added_at": "2026-04-11T07:04:14.663Z"
+    },
+    {
+      "id": "ae583760b",
+      "title": "مسلسل الست موناليزا",
+      "image": "",
+      "added_at": "2026-04-11T07:04:14.663Z"
+    },
+    {
+      "id": "17d",
+      "title": "فخر الدلتا",
+      "image": "",
+      "added_at": "2026-04-11T07:04:14.663Z"
+    }
+  ]
 }
