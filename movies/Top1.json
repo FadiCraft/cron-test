@@ -3,7 +3,7 @@
   "fileNumber": 2,
   "totalMovies": 500,
   "created": "2026-02-09T11:04:59.433Z",
-  "lastUpdated": "2026-04-15T14:29:42.888Z",
+  "lastUpdated": "2026-04-15T15:47:26.410Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -5248,7 +5248,7 @@
           "رعب"
         ],
         "جودة الفيلم": [
-          "1080p WEB-DL"
+          "1080p BluRay"
         ],
         "توقيت الفيلم": "113 دقيقة",
         "موعد الصدور": [
@@ -5266,7 +5266,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-11",
+      "runtime": "2026-04-15",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -5279,7 +5279,7 @@
         },
         {
           "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-i7rtur6fq3fj.html",
+          "url": "https://vidtube.one/embed-46af86wnw1v2.html",
           "quality": "متعدد الجودات",
           "type": "iframe",
           "width": "100%",
@@ -5290,7 +5290,7 @@
       "downloadServers": [
         {
           "name": "VidTube",
-          "url": "https://vidtube.one/d/i7rtur6fq3fj.html",
+          "url": "https://vidtube.one/d/46af86wnw1v2.html",
           "quality": "متعدد الجودات",
           "type": "pro_server",
           "icon": "fas fa-rocket",
@@ -5298,7 +5298,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://updown.cam/gol55qpdu5hq",
+          "url": "https://updown.cam/lzoaj4x7uopl",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5306,7 +5306,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://down.mdiaload.com/fzkpch7x7obb",
+          "url": "https://down.mdiaload.com/cieq7s5v6u87",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5314,7 +5314,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://ddownload.com/h1gi882jlc5i",
+          "url": "https://ddownload.com/eb9eajhfydte",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5322,7 +5322,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://nitroflare.com/view/6625F00B6F169D2",
+          "url": "https://nitroflare.com/view/C5E1A23A8E2540C",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5330,7 +5330,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://rapidgator.net/file/c2c5445e66892de0fde0c5acadd38e66",
+          "url": "https://1fichier.com/?em333c4uvlndx3m32m1q",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5338,7 +5338,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://frdl.io/g7awa72nx08b",
+          "url": "https://rapidgator.net/file/328eb9ed87090ff698917d9a289e9af9",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5346,7 +5346,23 @@
         },
         {
           "name": "1080p",
-          "url": "https://1cloudfile.com/6eF4B",
+          "url": "https://frdl.io/ar5u3b5fzkcn",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/a8eh",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/2b2u3",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -5355,12 +5371,12 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-send-help-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 60,
+      "position": 2,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-11T19:50:24.939Z",
+      "scrapedAt": "2026-04-15T15:45:43.968Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 8,
+        "downloadServersCount": 10,
         "genresCount": 0
       }
     },
@@ -9129,9 +9145,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-silent-night-deadly-night-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 53,
+      "position": 55,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-15T14:29:42.870Z",
+      "scrapedAt": "2026-04-15T15:47:26.390Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -13877,9 +13893,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-song-sung-blue-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 52,
+      "position": 54,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-15T14:29:40.579Z",
+      "scrapedAt": "2026-04-15T15:47:24.326Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -15879,9 +15895,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-avatar-fire-and-ash-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 50,
+      "position": 52,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-15T14:29:36.449Z",
+      "scrapedAt": "2026-04-15T15:47:20.078Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 13,
@@ -33172,9 +33188,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-die-my-love-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 25,
+      "position": 27,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-15T14:28:49.519Z",
+      "scrapedAt": "2026-04-15T15:46:31.387Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -39786,9 +39802,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-marty-supreme-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 23,
+      "position": 25,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-15T14:28:45.823Z",
+      "scrapedAt": "2026-04-15T15:46:27.607Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
