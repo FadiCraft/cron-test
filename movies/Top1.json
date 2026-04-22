@@ -3,7 +3,7 @@
   "fileNumber": 2,
   "totalMovies": 500,
   "created": "2026-02-09T11:04:59.433Z",
-  "lastUpdated": "2026-04-22T20:08:29.859Z",
+  "lastUpdated": "2026-04-22T21:10:31.246Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -3023,7 +3023,7 @@
       "page": 1,
       "position": 16,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:07:22.451Z",
+      "scrapedAt": "2026-04-22T21:09:24.993Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 18,
@@ -3616,8 +3616,8 @@
           "دراما"
         ],
         "جودة الفيلم": [
-          "1080p WEB-DL",
-          "720p WEB-DL"
+          "1080p BluRay",
+          "720p BluRay"
         ],
         "توقيت الفيلم": "2 ساعة و 11 دقيقة",
         "موعد الصدور": [
@@ -3648,7 +3648,7 @@
         },
         {
           "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-6xuqnwqjg8y7.html",
+          "url": "https://vidtube.one/embed-0epilvj6o2v7.html",
           "quality": "متعدد الجودات",
           "type": "iframe",
           "width": "100%",
@@ -3659,7 +3659,7 @@
       "downloadServers": [
         {
           "name": "VidTube",
-          "url": "https://vidtube.one/d/6xuqnwqjg8y7.html",
+          "url": "https://vidtube.one/d/0epilvj6o2v7.html",
           "quality": "متعدد الجودات",
           "type": "pro_server",
           "icon": "fas fa-rocket",
@@ -3667,7 +3667,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://updown.cam/o8995wexw721",
+          "url": "https://updown.cam/i1ubgouxdcpm",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3675,7 +3675,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://down.mdiaload.com/2frksxschpsd",
+          "url": "https://down.mdiaload.com/inzj5nfidf83",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3683,7 +3683,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://ddownload.com/gor8j15v9b13",
+          "url": "https://ddownload.com/i069yd1dfmfn",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3691,7 +3691,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://nitroflare.com/view/4321D5D642B59A4",
+          "url": "https://nitroflare.com/view/CED12BB08E2BB64",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3699,7 +3699,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://1fichier.com/?vxnu09coh968jvlsnssf",
+          "url": "https://1fichier.com/?yh98rlcn16yxzqb43jnd",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3707,7 +3707,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://rapidgator.net/file/ad3f6c3ff57668f9a89d409d090bffee",
+          "url": "https://rapidgator.net/file/d138ab2912cc02b4564e84a1fc1d52c4",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3715,7 +3715,7 @@
         },
         {
           "name": "1080p",
-          "url": "https://frdl.io/ndbfd642w9vt",
+          "url": "https://frdl.io/0iomp2mmlpkl",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
@@ -3723,72 +3723,16 @@
         },
         {
           "name": "1080p",
-          "url": "https://1cloudfile.com/4cvbm",
+          "url": "https://koramaup.com/eleG",
           "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
           "label": "سيرفر تحميل"
         },
         {
-          "name": "720p",
-          "url": "https://updown.cam/5f57iiua2z8r",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://down.mdiaload.com/imvjzhcvfxc0",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://ddownload.com/mdp9krc7p9ak",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://nitroflare.com/view/9D78B86C6F0544C",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://1fichier.com/?ycri31zlznnrh76wybcb",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://rapidgator.net/file/366ed6bd84569373afd31b21103bf39e",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://frdl.io/adxyu7rzfu2s",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://1cloudfile.com/4cvbu",
-          "quality": "720p",
+          "name": "1080p",
+          "url": "https://1cloudfile.com/2R2y1",
+          "quality": "1080p",
           "type": "download_server",
           "icon": "fas fa-download",
           "label": "سيرفر تحميل"
@@ -3798,10 +3742,10 @@
       "page": 1,
       "position": 1,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:06:53.507Z",
+      "scrapedAt": "2026-04-22T21:08:56.938Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 17,
+        "downloadServersCount": 10,
         "genresCount": 0
       }
     },
@@ -5397,7 +5341,7 @@
       "page": 1,
       "position": 27,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:07:44.012Z",
+      "scrapedAt": "2026-04-22T21:09:45.515Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -12568,7 +12512,7 @@
       "page": 1,
       "position": 11,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:07:12.938Z",
+      "scrapedAt": "2026-04-22T21:09:15.705Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -33189,7 +33133,7 @@
       "page": 1,
       "position": 51,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:08:29.843Z",
+      "scrapedAt": "2026-04-22T21:10:31.227Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -33331,7 +33275,7 @@
       "page": 1,
       "position": 2,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:06:55.400Z",
+      "scrapedAt": "2026-04-22T21:08:58.850Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -39289,7 +39233,7 @@
       "page": 1,
       "position": 9,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:07:09.081Z",
+      "scrapedAt": "2026-04-22T21:09:11.968Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -39827,7 +39771,7 @@
       "page": 1,
       "position": 49,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-22T20:08:26.137Z",
+      "scrapedAt": "2026-04-22T21:10:27.519Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
