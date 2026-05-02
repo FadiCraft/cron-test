@@ -3,7 +3,7 @@
   "fileNumber": 7,
   "totalMovies": 500,
   "created": "2026-02-09T15:00:37.345Z",
-  "lastUpdated": "2026-05-02T15:49:50.656Z",
+  "lastUpdated": "2026-05-02T16:00:47.878Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -60057,15 +60057,152 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-luther-the-fallen-sun-2023-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/h19i3425d4md.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server",
+          "icon": "fas fa-rocket",
+          "label": "سيرفر سريع"
+        },
+        {
+          "name": "1080p",
+          "url": "https://updown.cam/n9ty3fj6j162",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://down.mdiaload.com/jxfck9qaldfk",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://ddownload.com/manxpnzpfazo",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://nitroflare.com/view/71BA686C7E28F96",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1fichier.com/?owf857xxhz7sp8an8tkt",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://rapidgator.net/file/63edd97da462d8c122404aa2e2671179",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/ix9T",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/2R1I0",
+          "quality": "1080p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://updown.cam/ipcafq56dvcx",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://down.mdiaload.com/7pdguo4l76ah",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://ddownload.com/zbwo1ogbjyqy",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://nitroflare.com/view/E45A627E664D9D2",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://1fichier.com/?6shkpc5z2zuvr67gltxu",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://rapidgator.net/file/188aaf476d96151ab02b18c54f3a8c18",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://koramaup.com/el1e",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        },
+        {
+          "name": "720p",
+          "url": "https://1cloudfile.com/2b4ga",
+          "quality": "720p",
+          "type": "download_server",
+          "icon": "fas fa-download",
+          "label": "سيرفر تحميل"
+        }
+      ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-luther-the-fallen-sun-2023-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 17,
+      "position": 28,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T15:49:50.499Z",
+      "scrapedAt": "2026-05-02T16:00:47.720Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 0,
+        "downloadServersCount": 17,
         "genresCount": 0
       }
     },
