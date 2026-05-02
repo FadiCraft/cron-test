@@ -3,7 +3,7 @@
   "fileNumber": 2,
   "totalMovies": 500,
   "created": "2026-02-09T11:04:59.433Z",
-  "lastUpdated": "2026-05-02T14:06:44.990Z",
+  "lastUpdated": "2026-05-02T15:52:08.235Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -3021,9 +3021,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%81%d9%8a%d9%84%d9%85-shelter-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 38,
+      "position": 27,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:18.738Z",
+      "scrapedAt": "2026-05-02T15:50:26.328Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 18,
@@ -3804,9 +3804,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-housemaid-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 23,
+      "position": 12,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:42.855Z",
+      "scrapedAt": "2026-05-02T15:49:35.226Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 18,
@@ -5403,9 +5403,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-send-help-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 49,
+      "position": 38,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:44.976Z",
+      "scrapedAt": "2026-05-02T15:51:01.116Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -12574,9 +12574,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-28-years-later-the-bone-temple-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 33,
+      "position": 22,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:06.762Z",
+      "scrapedAt": "2026-05-02T15:50:04.440Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -33243,23 +33243,7 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-christy-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-rarsq27pf5d0.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-christy-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
       "downloadServers": [
         {
@@ -33337,11 +33321,11 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-christy-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 24,
+      "position": 13,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:45.346Z",
+      "scrapedAt": "2026-05-02T15:49:39.067Z",
       "stats": {
-        "watchServersCount": 2,
+        "watchServersCount": 0,
         "downloadServersCount": 9,
         "genresCount": 0
       }
@@ -39736,7 +39720,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-29",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -39757,88 +39741,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-marty-supreme-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/1q4w3mc9dzll.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/r3a94jaamwgk",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/5p0a6l8gy572",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/0oix4t8qpdqj",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/4DD8E5A69CB5199",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?qtrdu174u3gegzn14x8s",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/557ede93bf47bf33ca89f9fcf6963cca",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/6g2j7zh301os",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3bz",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-marty-supreme-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
       "position": 60,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-29T00:15:57.160Z",
+      "scrapedAt": "2026-05-02T15:52:08.221Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -57906,9 +57817,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-no-other-choice-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 13,
+      "position": 2,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:18.860Z",
+      "scrapedAt": "2026-05-02T15:49:09.279Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,

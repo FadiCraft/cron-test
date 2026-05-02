@@ -3,7 +3,7 @@
   "fileNumber": 14,
   "totalMovies": 413,
   "created": "2026-02-09T21:15:30.475Z",
-  "lastUpdated": "2026-05-02T14:07:11.278Z",
+  "lastUpdated": "2026-05-02T15:52:08.323Z",
   "moviesPerFileLimit": 250,
   "movies": [
     {
@@ -40106,7 +40106,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-29",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -40127,88 +40127,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-marty-supreme-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/1q4w3mc9dzll.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/r3a94jaamwgk",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/5p0a6l8gy572",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/0oix4t8qpdqj",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/4DD8E5A69CB5199",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?qtrdu174u3gegzn14x8s",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/557ede93bf47bf33ca89f9fcf6963cca",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/6g2j7zh301os",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3bz",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-marty-supreme-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
       "position": 60,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-29T00:15:57.160Z",
+      "scrapedAt": "2026-05-02T15:52:08.221Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -50632,9 +50559,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-reminders-of-him-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 55,
+      "position": 44,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:59.320Z",
+      "scrapedAt": "2026-05-02T15:51:19.036Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -50677,26 +50604,10 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-05-01",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-project-hail-mary-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-clpex62ph4ss.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-project-hail-mary-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
       "downloadServers": [
         {
@@ -50782,11 +50693,11 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-project-hail-mary-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 59,
+      "position": 51,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-01T23:38:01.272Z",
+      "scrapedAt": "2026-05-02T15:51:40.547Z",
       "stats": {
-        "watchServersCount": 2,
+        "watchServersCount": 0,
         "downloadServersCount": 10,
         "genresCount": 0
       }
@@ -54565,9 +54476,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-ready-or-not-2-here-i-come-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 58,
+      "position": 47,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:07:06.507Z",
+      "scrapedAt": "2026-05-02T15:51:30.509Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -55616,9 +55527,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-super-mario-galaxy-movie-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 51,
+      "position": 40,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:49.673Z",
+      "scrapedAt": "2026-05-02T15:51:06.241Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -56200,7 +56111,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-30",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -56221,152 +56132,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-outcome-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86-1/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/njsrryp0vtlp.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/cdxuoqll86v8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/3r0rdeglqshz",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/7pwuavbainho",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/AEBD229196E5B0B",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?uhzs84aa7nw2jxjj3lws",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/3f1c135f7bcc4f4e840d37d6fde4b304",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/o1ul8mqo8ykm",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3il",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://updown.cam/uxjjx8nv9ztd",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://down.mdiaload.com/ysygte2wwiiw",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://ddownload.com/ijpwvryzyrau",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://nitroflare.com/view/0567E767C340219",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://1fichier.com/?w4rtraap49vg9tiszz52",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://rapidgator.net/file/e5de91094f8664a6e82757006e79f5b0",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://frdl.io/qj1pwtereuor",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "720p",
-          "url": "https://1cloudfile.com/5yO2P",
-          "quality": "720p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-outcome-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86-1/download/",
       "page": 1,
-      "position": 60,
+      "position": 57,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-30T19:14:27.363Z",
+      "scrapedAt": "2026-05-02T15:52:01.897Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 17,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -56404,7 +56178,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-30",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -56493,9 +56267,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-thrash-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 60,
+      "position": 58,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-30T13:03:41.174Z",
+      "scrapedAt": "2026-05-02T15:52:04.454Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 8,
@@ -56538,117 +56312,20 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-30",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-out-standing-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-703ahiczygi0.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-out-standing-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/703ahiczygi0.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/u3ytwhlxw4ei",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/9pf3ri8jc09z",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/vexg2t09k1iq",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/273BAB6117A3471",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?aeekprl26ttwhidp3ad7",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/499cdf0a3173933c2dd2f39bfaae4fbc",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/hf1i2sbo9z0y",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/qUcP",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3uj",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-out-standing-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 60,
+      "position": 54,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-30T23:30:00.308Z",
+      "scrapedAt": "2026-05-02T15:51:52.047Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -56685,7 +56362,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-30",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -56706,96 +56383,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-infiltrate-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/on74stgs9qkv.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/a72nuzrivb1w",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/bt88q8xf5ab0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/anid0ltmb2c8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/48423E9B4D13B2C",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?uwbyrmlaz2e5ujypy8u8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/71dc08b8b2e099a11d46413597a9121f",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/gkzwzarfn88z",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/qUcO",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3ui",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-infiltrate-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 58,
+      "position": 55,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-30T19:14:22.862Z",
+      "scrapedAt": "2026-05-02T15:51:55.610Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -56832,7 +56428,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-04-30",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -56853,96 +56449,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-concrete-market-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/cd53diah8opu.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/bzorlajutxxd",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/cx1pnhuufbsk",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/d9wgio67jkb0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/9212E8E77C94471",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?q707ppmj5cffdj9zr18u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/cd62afd3ec7f34c576d42f9ef187dd6f",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/x2xhidwhmyzp",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/qUcN",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3ug",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-concrete-market-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 59,
+      "position": 56,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-04-30T19:14:25.179Z",
+      "scrapedAt": "2026-05-02T15:51:59.407Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -56981,7 +56496,7 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-05-01",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
       "watchServers": [
@@ -57086,9 +56601,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-rescued-by-faith-the-connie-and-larry-van-oosten-story-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 60,
+      "position": 52,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-01T23:38:03.833Z",
+      "scrapedAt": "2026-05-02T15:51:47.189Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -57129,117 +56644,20 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-05-01",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-yeti-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-c23k6doscu2u.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-yeti-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/c23k6doscu2u.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/gobgwurrvs0f",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/3rrgmlxqp6r1",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/bbfsw466hik4",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/9D666C5C649E4EC",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?ese5p00ibznfbtnp7nis",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/db3c198e39297637276dc394073b0956",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/6vqlc8dazeu8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/qUcR",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v3un",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-yeti-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 60,
+      "position": 53,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-01T11:24:45.767Z",
+      "scrapedAt": "2026-05-02T15:51:49.785Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -57376,9 +56794,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-protector-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 26,
+      "position": 15,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:50.044Z",
+      "scrapedAt": "2026-05-02T15:49:45.430Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -57442,88 +56860,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-containment-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/uiho16hrc7b4.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/tprawr43atnb",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/f5gmkskunixn",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/pne4o79jpctb",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/54998CF6328442D",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?cspq9hjjveeubwlt0fgb",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/b4d1a2e9fdba0fcaa9ca22076cfb19ca",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iw0x",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/5yOxw",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-containment-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 57,
+      "position": 46,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:07:04.163Z",
+      "scrapedAt": "2026-05-02T15:51:26.275Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -57564,106 +56909,17 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-pinecone-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-q4iyil4z7e1w.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-pinecone-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/q4iyil4z7e1w.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/hnygb5t3y37u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/4mp38hg5sw1e",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/fndv7bdecsre",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/6105783BF663148",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?dtutpb7mlh2ozs8dgr07",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/af9b998523386abe49844142b98cc0a1",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iw0u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/P6lc",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-pinecone-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 59,
+      "position": 48,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:07:08.848Z",
+      "scrapedAt": "2026-05-02T15:51:33.275Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -57719,88 +56975,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-capture-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/d1lbwsua81n8.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/nsv10fb2e5k7",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/fna4y04swjqz",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/puz95uk644ih",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/0E15022A5199D90",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?2q0koxnj7vrut2cqk54c",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/5ea71ccbd80d857f0e4e62fd92bc2751",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iw0r",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/4SR56",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-capture-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 60,
+      "position": 49,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:07:11.186Z",
+      "scrapedAt": "2026-05-02T15:51:35.744Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -57836,117 +57019,20 @@
       },
       "year": null,
       "quality": null,
-      "runtime": "2026-05-01",
+      "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-calle-malaga-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-kbl9rx0qiaqp.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-calle-malaga-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/kbl9rx0qiaqp.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/y6iyt0xvh81h",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/ssgxe5znmrs2",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/f2uei1ahgumj",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/D0F75D263D9B471",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?89vepa7q69qep5sqfciw",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/7a5600a8dbee44d95aac31377af0c793",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/2dzhspdcq3mp",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iw0o",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/P6l8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-calle-malaga-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 58,
+      "position": 50,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-01T23:37:58.836Z",
+      "scrapedAt": "2026-05-02T15:51:38.051Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -58006,96 +57092,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-flavia-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/n5a7edri82zh.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/huz7muw8pftn",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/kvrqya8c2a8u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/xy4eqpv6y4qe",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/8D37398279E00E2",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?yvp2bst724vwd9z1kizm",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/4fbb532d83243a5fcc2b46d90d74fa3b",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/8r8h7u3uhdeo",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/ek5p",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v4k9",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-flavia-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 56,
+      "position": 45,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:07:01.669Z",
+      "scrapedAt": "2026-05-02T15:51:22.812Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -58154,96 +57159,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-gates-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/72mxoqkx777t.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/zcy7fwwi2zbw",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/sxs9wqr9vt4y",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/7yawdft1pnn8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/6F7570D15841755",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?wjem42dwqjbu7jg4c2ha",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/ac62b0b3ac0a44655e1966112e8d7ee4",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/qwcqdagqh506",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/a85u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2b26z",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-gates-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 54,
+      "position": 43,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:56.831Z",
+      "scrapedAt": "2026-05-02T15:51:16.468Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -58283,23 +57207,7 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-undertone-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-7yutlvcb4oco.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-undertone-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
       "downloadServers": [
         {
@@ -58377,11 +57285,11 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-undertone-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 52,
+      "position": 41,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:52.145Z",
+      "scrapedAt": "2026-05-02T15:51:10.332Z",
       "stats": {
-        "watchServersCount": 2,
+        "watchServersCount": 0,
         "downloadServersCount": 9,
         "genresCount": 0
       }
@@ -58527,9 +57435,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-legend-of-aang-the-last-airbender-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 53,
+      "position": 42,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:54.489Z",
+      "scrapedAt": "2026-05-02T15:51:12.896Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -58750,9 +57658,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-balls-up-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 50,
+      "position": 39,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:47.331Z",
+      "scrapedAt": "2026-05-02T15:51:03.672Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 19,
@@ -58793,114 +57701,17 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-highest-stakes-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-k8symfof32l4.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-highest-stakes-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/k8symfof32l4.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/kxxh8p55qy8r",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/zai3iy8etpm3",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/x6498twtby6e",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/5E4A70939F124AF",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?qa9onsj7lxtxp8qo9z5c",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/95412d33c0b9748b12d09c2b1371b633",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/4kfe2ef1mayq",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/a8ek",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2b2u9",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-highest-stakes-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 48,
+      "position": 37,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:42.636Z",
+      "scrapedAt": "2026-05-02T15:50:56.877Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -58961,88 +57772,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-slanted-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/c7ka8t4842n0.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/53fewibzdfhc",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/1ysu8tsm6oh3",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/3420223A592113C",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?fc2q5qwslsvy0u5itua1",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/7b1515046f0052d24a5b9bce63f63b49",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/obl2epma1y3m",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/ekp0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v55j",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-slanted-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 47,
+      "position": 36,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:40.294Z",
+      "scrapedAt": "2026-05-02T15:50:54.064Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -59317,9 +58055,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-love-on-the-amazon-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 45,
+      "position": 34,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:35.453Z",
+      "scrapedAt": "2026-05-02T15:50:46.629Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -59459,9 +58197,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-drama-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 46,
+      "position": 35,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:37.799Z",
+      "scrapedAt": "2026-05-02T15:50:49.034Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -59526,96 +58264,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-charlie-the-wonderdog-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/fwuu4a5qdgbu.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/64s9qxki19zc",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/j0ega70z5myz",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/d459zckdx51u",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/38FA5FADF9AE76A",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?tfvg3e91f7hxac55wvbe",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/48a77373a727691ef185a4e532dc612b",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/wzwxfckn57l8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/a8ot",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v5sf",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-charlie-the-wonderdog-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 43,
+      "position": 32,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:30.753Z",
+      "scrapedAt": "2026-05-02T15:50:41.475Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -59676,96 +58333,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-180-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/7v2760mlfprd.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/5jpkd58h0k4m",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/svhj5ubmuk5o",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/yhv7buytcv4a",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/76A19D97F35D83B",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?sg9grtlz3q9g65bl53r4",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/12708330245ef85b80e324eb3d8b26ea",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/gi5nzflob7lo",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iwM0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/P8d8",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-180-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 39,
+      "position": 28,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:21.206Z",
+      "scrapedAt": "2026-05-02T15:50:28.654Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -60046,9 +58622,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-trail-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 41,
+      "position": 30,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:25.886Z",
+      "scrapedAt": "2026-05-02T15:50:35.312Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -60192,9 +58768,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-revenge-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 42,
+      "position": 31,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:28.231Z",
+      "scrapedAt": "2026-05-02T15:50:37.846Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -60250,96 +58826,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-home-behind-bars-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/jcma1xijs51r.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/y95h32rt01pf",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/j6hymr023utk",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/cyy33f3wa6w5",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/BA37267D9C7BDC3",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?6bvzcsocboon6rn3qjnz",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/492a2543d0be1f0f1185cfdf84135e3e",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/z1h5hplgof74",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iwQF",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2R0L1",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-home-behind-bars-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 34,
+      "position": 23,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:09.333Z",
+      "scrapedAt": "2026-05-02T15:50:10.310Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -60482,9 +58977,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-hive-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 35,
+      "position": 24,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:11.673Z",
+      "scrapedAt": "2026-05-02T15:50:14.578Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -60529,114 +59024,17 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-whistler-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-57fbdnmtnsio.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-whistler-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/57fbdnmtnsio.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/dkvfi367dq3b",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/hmcnarn5de6m",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/8hgilvmsi99w",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/EC0A7DFB34BA724",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?jr89c0woldhqezyjq0if",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/9bb4ff2ecfee00e0396e1e0c9aa97413",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/xlpb0686s5w0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/a8yj",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2b3in",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-whistler-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 36,
+      "position": 25,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:14.031Z",
+      "scrapedAt": "2026-05-02T15:50:21.290Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -60676,23 +59074,7 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-ballistic-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-1u8noracp0g9.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-ballistic-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
       "downloadServers": [
         {
@@ -60778,11 +59160,11 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-ballistic-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 37,
+      "position": 26,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:16.382Z",
+      "scrapedAt": "2026-05-02T15:50:23.776Z",
       "stats": {
-        "watchServersCount": 2,
+        "watchServersCount": 0,
         "downloadServersCount": 10,
         "genresCount": 0
       }
@@ -60988,96 +59370,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-he-kills-at-night-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/ag7bbkqz689e.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/fo8wffo40o25",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/2v5fvil2myse",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/b1tdy6ibsgu1",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/9EFAE21B42D1F50",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?9xnrc834vgyffao9rsec",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/5372aa3e057e4d57c8407b4740d93b05",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/vnh0gvx5ux3b",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/iwWx",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v672",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-he-kills-at-night-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 30,
+      "position": 19,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:59.716Z",
+      "scrapedAt": "2026-05-02T15:49:54.259Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -61217,9 +59518,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-bone-keeper-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 32,
+      "position": 21,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:06:04.413Z",
+      "scrapedAt": "2026-05-02T15:49:59.438Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -61367,9 +59668,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-brothers-under-fire-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 27,
+      "position": 16,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:52.391Z",
+      "scrapedAt": "2026-05-02T15:49:47.973Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -61432,88 +59733,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-moses-the-black-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/vv0atvpv42uh.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/slg0suniokhj",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/m1lr0q9gr0mx",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/406AD6E87715B86",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?9o131wqjm6ryqwkzvl2i",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/16fb9fbfd3cc7e254345c5cec765ec75",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/zdmvizzs73bt",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/el6k",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v71n",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-moses-the-black-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 25,
+      "position": 14,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:47.695Z",
+      "scrapedAt": "2026-05-02T15:49:42.878Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -61553,114 +59781,17 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-favor-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-0da8llgu8vbl.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-favor-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/0da8llgu8vbl.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/rv3zfzqi6oh5",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/y4zna2to3d8g",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/aogtllhyh6o7",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/92D7852356682AF",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?377u4vqhbfvxmzmbvna4",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/a81223922afda9cf879bfe748e44d8cf",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/78row6w4eufv",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/elnD",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2b5wh",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-favor-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 22,
+      "position": 11,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:40.501Z",
+      "scrapedAt": "2026-05-02T15:49:32.675Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -61795,9 +59926,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-apex-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 21,
+      "position": 10,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:38.159Z",
+      "scrapedAt": "2026-05-02T15:49:29.973Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -61939,9 +60070,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-immortal-combat-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 19,
+      "position": 8,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:32.966Z",
+      "scrapedAt": "2026-05-02T15:49:25.122Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -62005,88 +60136,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-primavera-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/49bo1prwlidh.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/pvj9t2dtqzl9",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/w4zcjhm846ah",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/19EB570BCB6C3EB",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?mwj98tsqtsuwnmwnngdi",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/6cdd6af2f10aa25d24a35d4eea42e30d",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/ncnhpeqgmfcg",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/elwH",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2R3jC",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-primavera-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 20,
+      "position": 9,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:35.817Z",
+      "scrapedAt": "2026-05-02T15:49:27.595Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 9,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -62128,114 +60186,17 @@
       "runtime": "2026-05-02",
       "genres": [],
       "countries": [],
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-wolf-and-the-lamb-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "source": "og:video:secure_url"
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-jb09pdma032j.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "width": "100%",
-          "height": "100%"
-        }
-      ],
+      "watchServers": [],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-wolf-and-the-lamb-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/jb09pdma032j.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/oljoizlfg5q6",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/aat8pxmmrqbk",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/apuf8q8xcm6e",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/1A3CA8DFC861F2A",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?hjphntn5unm8no3rpxld",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/e6363d56f918a29951f486f1108b7513",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/sfo4ahilq07r",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/a9o3",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1v8s0",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-wolf-and-the-lamb-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 18,
+      "position": 7,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:30.622Z",
+      "scrapedAt": "2026-05-02T15:49:22.732Z",
       "stats": {
-        "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "watchServersCount": 0,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -62371,9 +60332,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-dirty-hands-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 17,
+      "position": 6,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:28.279Z",
+      "scrapedAt": "2026-05-02T15:49:19.963Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 9,
@@ -62437,96 +60398,15 @@
         }
       ],
       "watchPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-within-the-pines-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/watch/",
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/fcexsae5fp25.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server",
-          "icon": "fas fa-rocket",
-          "label": "سيرفر سريع"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/u0qbuxui28wx",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/124iv90nfrid",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/jt404lrddvnu",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/EB27860CA21E081",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?ufle4fidqb7dyaw08wmf",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/3fdfa2f2fe875c56dbacb52857206039",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/e5oeq11gwcyh",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/a9s9",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/Pbgy",
-          "quality": "1080p",
-          "type": "download_server",
-          "icon": "fas fa-download",
-          "label": "سيرفر تحميل"
-        }
-      ],
+      "downloadServers": [],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-within-the-pines-2024-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 16,
+      "position": 5,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:25.929Z",
+      "scrapedAt": "2026-05-02T15:49:17.602Z",
       "stats": {
         "watchServersCount": 2,
-        "downloadServersCount": 10,
+        "downloadServersCount": 0,
         "genresCount": 0
       }
     },
@@ -62671,9 +60551,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-they-will-kill-you-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 14,
+      "position": 3,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:21.237Z",
+      "scrapedAt": "2026-05-02T15:49:11.693Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -62821,9 +60701,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-rise-of-the-conqueror-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 15,
+      "position": 4,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:23.582Z",
+      "scrapedAt": "2026-05-02T15:49:14.069Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
@@ -62970,9 +60850,9 @@
       ],
       "downloadPage": "https://topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-forbidden-fruits-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/download/",
       "page": 1,
-      "position": 12,
+      "position": 1,
       "currentFile": "Top14.json",
-      "scrapedAt": "2026-05-02T14:05:16.515Z",
+      "scrapedAt": "2026-05-02T15:49:06.539Z",
       "stats": {
         "watchServersCount": 2,
         "downloadServersCount": 10,
