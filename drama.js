@@ -1,210 +1,183 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import { performance } from "perf_hooks";
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const { parse } = require('node-html-parser');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// ==================== إعدادات المسارات ====================
-const DAILYMOTION_DIR = path.join(__dirname, "Dailymotion");
-const VIDEOS_DIR = path.join(DAILYMOTION_DIR, "Videos");
-const CACHE_DIR = path.join(DAILYMOTION_DIR, "Cache");
-const PROGRESS_FILE = path.join(DAILYMOTION_DIR, "progress.json");
-const HOME_FILE = path.join(VIDEOS_DIR, "Home.json");
-const CHANNEL_INFO_FILE = path.join(DAILYMOTION_DIR, "ArcadiaZone_info.json");
-
-const createDirectories = async () => {
-    const dirs = [DAILYMOTION_DIR, VIDEOS_DIR, CACHE_DIR];
-    for (const dir of dirs) {
-        if (!fs.existsSync(dir)) await fs.promises.mkdir(dir, { recursive: true });
-    }
-};
-
-await createDirectories();
-
-// ==================== إعدادات النظام ====================
-const CONFIG = {
-    itemsPerFile: 200,
-    homeItemsCount: 30,
-    requestDelay: 2000,
-    maxRetries: 3,
-    concurrentRequests: 1,
-    cacheTTL: 3600000,
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-};
-
-const TARGET_CHANNEL = {
-    name: "Film.Arena",
-    displayName: "Arena",
-    category: "Drama",
-    language: "ar"
-};
-
-function generateRandomStats(originalValue) {
-    if (originalValue < 1000) {
-        return Math.floor(Math.random() * (50000 - 1000 + 1)) + 1000;
-    }
-    return originalValue;
-}
-
-// ==================== نظام التخزين المؤقت ====================
-class CacheManager {
-    constructor(cacheDir, ttl = CONFIG.cacheTTL) {
-        this.cacheDir = cacheDir;
-        this.ttl = ttl;
-        this.memoryCache = new Map();
+class LaroozaPagedExtractor {
+    constructor() {
+        this.episodesPerFile = 500;
+        this.outputDir = 'Ramadan';
+        this.allEpisodes = [];
+        this.episodesMap = new Map();
+        
+        this.baseUrls = [
+            'https://larozza.mom',
+            'https://larozza.makeup',
+            'https://m.laroza-tv.net'
+        ];
+        this.baseUrl = this.baseUrls[0];
+        
+        if (!fs.existsSync(this.outputDir)) {
+            fs.mkdirSync(this.outputDir, { recursive: true });
+        }
+        
+        this.loadExistingEpisodes();
+        
+        this.userAgents = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36'
+        ];
+        
+        this.proxies = ['', 'https://corsproxy.io/?'];
+        this.maxPages = 100;
     }
 
-    getCacheKey(endpoint, params) {
-        const key = `${endpoint}_${JSON.stringify(params)}`;
-        return Buffer.from(key).toString('base64').replace(/[/+=]/g, '_');
+    // --- فحص صارم للغة العربية ---
+    hasArabic(text) {
+        if (!text) return false;
+        // النطاق العربي الأساسي
+        const arabicPattern = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/;
+        return arabicPattern.test(text);
     }
 
-    async get(endpoint, params) {
-        const key = this.getCacheKey(endpoint, params);
-        if (this.memoryCache.has(key)) return this.memoryCache.get(key).data;
-        return null;
-    }
-
-    async set(endpoint, params, data) {
-        const key = this.getCacheKey(endpoint, params);
-        this.memoryCache.set(key, { data, timestamp: Date.now() });
-    }
-}
-
-// ==================== نظام طلبات Dailymotion API ====================
-class DailymotionClient {
-    constructor(cacheManager) {
-        this.cacheManager = cacheManager;
-        this.baseUrl = "https://api.dailymotion.com";
-    }
-
-    // دالة جديدة لاستخراج رابط m3u8
-    async getM3U8Url(videoId) {
+    loadExistingEpisodes() {
         try {
-            // محاكاة طلب الميتا داتا التي يستخدمها المشغل
-            const response = await fetch(`https://www.dailymotion.com/player/metadata/video/${videoId}`, {
-                headers: { 'User-Agent': CONFIG.userAgent }
-            });
-            const data = await response.json();
+            const files = fs.readdirSync(this.outputDir).filter(f => f.match(/^page\d+\.json$/));
+            for (const file of files) {
+                const content = fs.readFileSync(path.join(this.outputDir, file), 'utf8');
+                const parsed = JSON.parse(content);
+                const episodes = parsed.episodes || (Array.isArray(parsed) ? parsed : []);
+                for (const ep of episodes) {
+                    if (ep && ep.id) this.episodesMap.set(ep.id, ep);
+                }
+                this.allEpisodes.push(...episodes);
+            }
+        } catch (e) { console.log('ℹ️ بدء من الصفر'); }
+    }
+
+    async start() {
+        console.log('🚀 بدء الاستخراج (فلترة عربية صارمة مفعلة)');
+        let page = 1;
+        let consecutiveEmptyPages = 0;
+
+        while (page <= this.maxPages && consecutiveEmptyPages < 3) {
+            const pageUrl = `${this.baseUrl}/category.php?cat=ramadan-2026&page=${page}&order=DESC`;
+            let html = await this.fetchWithProxy(pageUrl).catch(() => null);
             
-            // استخراج رابط البث من الحقل المناسب
-            return data.qualities?.auto?.[0]?.url || null;
-        } catch (error) {
-            console.log(`⚠️ فشل استخراج m3u8 للفيديو ${videoId}`);
-            return null;
+            if (!html || html.length < 500) {
+                consecutiveEmptyPages++;
+                page++;
+                continue;
+            }
+
+            const pageEpisodes = await this.extractEpisodesFromPage(html, page);
+            
+            if (pageEpisodes.length === 0) {
+                console.log(`⚠️ صفحة ${page}: لم ينجح أي فيلم في فحص اللغة العربية (تخطي)`);
+                consecutiveEmptyPages++;
+            } else {
+                consecutiveEmptyPages = 0;
+                for (const ep of pageEpisodes) {
+                    if (!this.episodesMap.has(ep.id)) {
+                        this.episodesMap.set(ep.id, ep);
+                        console.log(`✅ حفظ حلقة عربية: ${ep.title}`);
+                    }
+                }
+            }
+            
+            if (page % 5 === 0) {
+                this.allEpisodes = Array.from(this.episodesMap.values());
+                await this.savePaginatedFiles(true);
+            }
+            page++;
+            await this.sleep(2000);
         }
-    }
-
-    async request(endpoint, params = {}) {
-        const queryString = new URLSearchParams(params).toString();
-        const url = `${this.baseUrl}${endpoint}?${queryString}`;
         
-        const response = await fetch(url, {
-            headers: { 'User-Agent': CONFIG.userAgent }
-        });
-        return await response.json();
+        this.allEpisodes = Array.from(this.episodesMap.values());
+        await this.savePaginatedFiles(false);
+        console.log('✨ انتهى الاستخراج بنجاح.');
     }
 
-    async getUserInfo(username) {
-        return this.request(`/user/${username}`, {
-            fields: 'username,screenname,description,avatar_360_url,videos_total'
-        });
-    }
-
-    async getUserVideos(username, page = 1, limit = 100) {
-        return this.request(`/user/${username}/videos`, {
-            fields: 'id,title,description,thumbnail_url,url,duration,created_time,views_total,likes_total',
-            limit: limit,
-            page: page,
-            sort: 'recent'
-        });
-    }
-}
-
-// ==================== نظام تتبع التقدم والحفظ ====================
-class ProgressTracker {
-    constructor() {
-        this.processedVideoIds = new Set();
-        this.videoFileNumber = 1;
-        this.startTime = performance.now();
-    }
-    isVideoProcessed(id) { return this.processedVideoIds.has(id); }
-    markVideoProcessed(id) { this.processedVideoIds.add(id); }
-}
-
-class StorageManager {
-    constructor(progress) {
-        this.progress = progress;
-        this.homeVideos = [];
-    }
-
-    async saveVideo(videoData) {
-        this.homeVideos.push(videoData);
-        this.progress.markVideoProcessed(videoData.id);
+    async extractEpisodesFromPage(html, pageNumber) {
+        const root = parse(html);
+        const episodes = [];
+        // المحددات الشائعة للأفلام والحلقات
+        const items = root.querySelectorAll('li.col-xs-6, li.col-sm-4, div.video-item, article');
         
-        // حفظ في ملفات الـ Parts بشكل مبسط
-        const fileName = `Part${this.progress.videoFileNumber}.json`;
-        const filePath = path.join(VIDEOS_DIR, fileName);
-        // (تم اختصار منطق التقسيم هنا للتركيز على طلبك الأساسي)
+        for (const item of items) {
+            const episode = await this.extractBasicInfo(item, pageNumber);
+            // الكود لا يضيف الفيلم إلا إذا كان "عربي" (يرجع كائن وليس null)
+            if (episode) {
+                episodes.push(episode);
+            }
+        }
+        return episodes;
     }
 
-    async finalize() {
-        const homeData = {
-            info: { lastUpdated: new Date().toISOString(), total: this.homeVideos.length },
-            videos: this.homeVideos.slice(0, CONFIG.homeItemsCount)
+    async extractBasicInfo(element, pageNumber) {
+        let linkElement = element.querySelector('a');
+        if (!linkElement) return null;
+        
+        const href = linkElement.getAttribute('href');
+        if (!href) return null;
+        
+        // استخراج العنوان بدقة
+        let title = '';
+        const titleSelectors = ['.ellipsis', 'h3', 'h4', '.title', 'img[alt]', 'a[title]'];
+        for (const s of titleSelectors) {
+            const el = element.querySelector(s);
+            if (el) {
+                title = el.textContent || el.getAttribute('alt') || el.getAttribute('title') || '';
+                if (title.trim()) break;
+            }
+        }
+        
+        title = this.cleanText(title);
+
+        // --- الفحص النهائي: إذا لم يكن عربي، نحذفه من النتائج فوراً ---
+        if (!this.hasArabic(title)) {
+            return null; // حذف الفيلم (تجاهله)
+        }
+
+        // استخراج الـ ID
+        const match = href.match(/vid=([a-zA-Z0-9_-]+)/) || href.match(/\/([a-zA-Z0-9_-]{8,})\.html/);
+        const id = match ? match[1] : null;
+        if (!id) return null;
+
+        return {
+            id: id,
+            title: title,
+            image: element.querySelector('img')?.getAttribute('src') || '',
+            videoUrl: `${this.baseUrl}/embed.php?vid=${id}`,
+            page: pageNumber,
+            extractedAt: new Date().toISOString()
         };
-        await fs.promises.writeFile(HOME_FILE, JSON.stringify(homeData, null, 2));
-        console.log(`✅ تم حفظ Home.json مع روابط m3u8`);
     }
+
+    cleanText(text) {
+        return text ? text.replace(/[\n\r\t]/g, ' ').replace(/\s+/g, ' ').trim() : '';
+    }
+
+    async fetchWithProxy(url) {
+        return new Promise((resolve, reject) => {
+            const proxy = this.proxies[Math.floor(Math.random() * this.proxies.length)];
+            const finalUrl = proxy ? proxy + encodeURIComponent(url) : url;
+            https.get(finalUrl, { timeout: 10000, rejectUnauthorized: false }, (res) => {
+                let d = '';
+                res.on('data', (c) => d += c);
+                res.on('end', () => resolve(d));
+            }).on('error', reject);
+        });
+    }
+
+    async savePaginatedFiles(isTemp = false) {
+        if (this.allEpisodes.length === 0) return;
+        const filePath = path.join(this.outputDir, isTemp ? 'temp.json' : 'page1.json');
+        fs.writeFileSync(filePath, JSON.stringify({ episodes: this.allEpisodes }, null, 2));
+    }
+
+    sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 }
 
-// ==================== المعالج الرئيسي ====================
-class NitWexScraper {
-    constructor() {
-        this.cache = new CacheManager(CACHE_DIR);
-        this.dailymotion = new DailymotionClient(this.cache);
-        this.progress = new ProgressTracker();
-        this.storage = new StorageManager(this.progress);
-    }
-
-    async processChannel() {
-        console.log(`🚀 بدء العمل على: ${TARGET_CHANNEL.displayName}`);
-        
-        const videosData = await this.dailymotion.getUserVideos(TARGET_CHANNEL.name, 1, CONFIG.homeItemsCount);
-        
-        if (!videosData.list) return;
-
-        for (const video of videosData.list) {
-            console.log(`🔍 جلب m3u8 لـ: ${video.title.substring(0, 30)}...`);
-            
-            // جلب رابط m3u8 بشكل حيوي
-            const m3u8Link = await this.dailymotion.getM3U8Url(video.id);
-
-            const videoInfo = {
-                id: video.id,
-                title: video.title,
-                thumbnail: video.thumbnail_url,
-                m3u8Url: m3u8Link, // الحقل الجديد
-                embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
-                duration: video.duration,
-                views: generateRandomStats(video.views_total),
-                uploadedAt: new Date(video.created_time * 1000).toISOString()
-            };
-
-            await this.storage.saveVideo(videoInfo);
-            
-            // تأخير بسيط لتجنب الحظر
-            await new Promise(r => setTimeout(r, 500));
-        }
-    }
-
-    async run() {
-        await this.processChannel();
-        await this.storage.finalize();
-    }
+if (require.main === module) {
+    new LaroozaPagedExtractor().start();
 }
-
-const scraper = new NitWexScraper();
-scraper.run();
