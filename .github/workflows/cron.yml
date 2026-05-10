@@ -26,16 +26,22 @@ jobs:
         node-version: '20'
         cache: 'npm'
     
-    # تحسين تثبيت المكتبات لتشمل Puppeteer
+    - name: Cache node modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    
     - name: Install dependencies
       run: |
-        npm init -y
-        npm install jsdom puppeteer
+        if [ -f "package-lock.json" ]; then
+          npm ci
+        else
+          npm install jsdom
+        fi
     
-    # خطوة حاسمة: تثبيت المتصفح الذي يحتاجه Puppeteer للعمل
-    - name: Install Puppeteer Browsers
-      run: npx puppeteer browsers install chrome
-
     - name: Ensure movies directory exists
       run: mkdir -p movies
     
@@ -49,7 +55,7 @@ jobs:
         
     - name: Run movie scraper
       run: |
-        echo "🎬 بدء استخراج الأفلام مع Network Interception..."
+        echo "🎬 بدء استخراج الأفلام..."
         node fetch.js --daily-update
       continue-on-error: true
     
