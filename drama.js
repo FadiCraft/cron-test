@@ -44,10 +44,10 @@ const CONFIG = {
 
 // ==================== القناة المستهدفة ====================
 const TARGET_CHANNEL = {
-    name: "Arcadia.Zone",
-    displayName: "Arcadia Zone",
-    category: "gaming",
-    language: "en"
+    name: "Film.Arena",
+    displayName: "Arena",
+    category: "Drama",
+    language: "ar"
 };
 
 console.log(`\n🎯 القناة المستهدفة: ${TARGET_CHANNEL.displayName} (${TARGET_CHANNEL.category})`);
