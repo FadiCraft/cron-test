@@ -80,16 +80,12 @@ class DailymotionClient {
         this.baseUrl = "https://api.dailymotion.com";
     }
 
-    // دالة جديدة لاستخراج رابط m3u8
     async getM3U8Url(videoId) {
         try {
-            // محاكاة طلب الميتا داتا التي يستخدمها المشغل
             const response = await fetch(`https://www.dailymotion.com/player/metadata/video/${videoId}`, {
                 headers: { 'User-Agent': CONFIG.userAgent }
             });
             const data = await response.json();
-            
-            // استخراج رابط البث من الحقل المناسب
             return data.qualities?.auto?.[0]?.url || null;
         } catch (error) {
             console.log(`⚠️ فشل استخراج m3u8 للفيديو ${videoId}`);
@@ -144,10 +140,8 @@ class StorageManager {
         this.homeVideos.push(videoData);
         this.progress.markVideoProcessed(videoData.id);
         
-        // حفظ في ملفات الـ Parts بشكل مبسط
         const fileName = `Part${this.progress.videoFileNumber}.json`;
         const filePath = path.join(VIDEOS_DIR, fileName);
-        // (تم اختصار منطق التقسيم هنا للتركيز على طلبك الأساسي)
     }
 
     async finalize() {
@@ -156,7 +150,7 @@ class StorageManager {
             videos: this.homeVideos.slice(0, CONFIG.homeItemsCount)
         };
         await fs.promises.writeFile(HOME_FILE, JSON.stringify(homeData, null, 2));
-        console.log(`✅ تم حفظ Home.json مع روابط m3u8`);
+        console.log(`✅ تم حفظ Home.json مع روابط m3u8 بنجاح.`);
     }
 }
 
@@ -172,21 +166,34 @@ class NitWexScraper {
     async processChannel() {
         console.log(`🚀 بدء العمل على: ${TARGET_CHANNEL.displayName}`);
         
-        const videosData = await this.dailymotion.getUserVideos(TARGET_CHANNEL.name, 1, CONFIG.homeItemsCount);
+        // جلب عدد أكبر قليلاً لتعويض الفيديوهات التي سيتم تخطيها
+        const videosData = await this.dailymotion.getUserVideos(TARGET_CHANNEL.name, 1, 100);
         
         if (!videosData.list) return;
 
+        // التعبير النمطي لفحص وجود حروف عربية
+        const arabicRegex = /[\u0600-\u06FF]/;
+        let savedCount = 0;
+
         for (const video of videosData.list) {
+            // التوقف إذا وصلنا للعدد المطلوب في الصفحة الرئيسية
+            if (savedCount >= CONFIG.homeItemsCount) break;
+
+            // التحقق من عنوان الفيديو
+            if (!arabicRegex.test(video.title)) {
+                console.log(`⏩ تخطي: "${video.title}" (ليس عربياً)`);
+                continue; // تخطي هذا الفيديو والانتقال للتالي
+            }
+
             console.log(`🔍 جلب m3u8 لـ: ${video.title.substring(0, 30)}...`);
             
-            // جلب رابط m3u8 بشكل حيوي
             const m3u8Link = await this.dailymotion.getM3U8Url(video.id);
 
             const videoInfo = {
                 id: video.id,
                 title: video.title,
                 thumbnail: video.thumbnail_url,
-                m3u8Url: m3u8Link, // الحقل الجديد
+                m3u8Url: m3u8Link,
                 embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
                 duration: video.duration,
                 views: generateRandomStats(video.views_total),
@@ -194,8 +201,8 @@ class NitWexScraper {
             };
 
             await this.storage.saveVideo(videoInfo);
+            savedCount++;
             
-            // تأخير بسيط لتجنب الحظر
             await new Promise(r => setTimeout(r, 500));
         }
     }
