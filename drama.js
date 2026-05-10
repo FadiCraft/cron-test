@@ -1,7 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const { parse } = require('node-html-parser');
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+import { parse } from 'node-html-parser';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 class LaroozaPagedExtractor {
     constructor() {
@@ -31,10 +35,8 @@ class LaroozaPagedExtractor {
         this.maxPages = 100;
     }
 
-    // --- فحص صارم للغة العربية ---
     hasArabic(text) {
         if (!text) return false;
-        // النطاق العربي الأساسي
         const arabicPattern = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/;
         return arabicPattern.test(text);
     }
@@ -55,7 +57,7 @@ class LaroozaPagedExtractor {
     }
 
     async start() {
-        console.log('🚀 بدء الاستخراج (فلترة عربية صارمة مفعلة)');
+        console.log('🚀 بدء الاستخراج (نظام ESM + فلترة عربية صارمة)');
         let page = 1;
         let consecutiveEmptyPages = 0;
 
@@ -72,14 +74,14 @@ class LaroozaPagedExtractor {
             const pageEpisodes = await this.extractEpisodesFromPage(html, page);
             
             if (pageEpisodes.length === 0) {
-                console.log(`⚠️ صفحة ${page}: لم ينجح أي فيلم في فحص اللغة العربية (تخطي)`);
+                console.log(`⚠️ صفحة ${page}: العناوين ليست عربية (تم التخطّي)`);
                 consecutiveEmptyPages++;
             } else {
                 consecutiveEmptyPages = 0;
                 for (const ep of pageEpisodes) {
                     if (!this.episodesMap.has(ep.id)) {
                         this.episodesMap.set(ep.id, ep);
-                        console.log(`✅ حفظ حلقة عربية: ${ep.title}`);
+                        console.log(`✅ تم الحفظ: ${ep.title}`);
                     }
                 }
             }
@@ -94,21 +96,17 @@ class LaroozaPagedExtractor {
         
         this.allEpisodes = Array.from(this.episodesMap.values());
         await this.savePaginatedFiles(false);
-        console.log('✨ انتهى الاستخراج بنجاح.');
+        console.log('✨ انتهى العمل.');
     }
 
     async extractEpisodesFromPage(html, pageNumber) {
         const root = parse(html);
         const episodes = [];
-        // المحددات الشائعة للأفلام والحلقات
         const items = root.querySelectorAll('li.col-xs-6, li.col-sm-4, div.video-item, article');
         
         for (const item of items) {
             const episode = await this.extractBasicInfo(item, pageNumber);
-            // الكود لا يضيف الفيلم إلا إذا كان "عربي" (يرجع كائن وليس null)
-            if (episode) {
-                episodes.push(episode);
-            }
+            if (episode) episodes.push(episode);
         }
         return episodes;
     }
@@ -120,7 +118,6 @@ class LaroozaPagedExtractor {
         const href = linkElement.getAttribute('href');
         if (!href) return null;
         
-        // استخراج العنوان بدقة
         let title = '';
         const titleSelectors = ['.ellipsis', 'h3', 'h4', '.title', 'img[alt]', 'a[title]'];
         for (const s of titleSelectors) {
@@ -131,14 +128,11 @@ class LaroozaPagedExtractor {
             }
         }
         
-        title = this.cleanText(title);
+        title = title.replace(/[\n\r\t]/g, ' ').replace(/\s+/g, ' ').trim();
 
-        // --- الفحص النهائي: إذا لم يكن عربي، نحذفه من النتائج فوراً ---
-        if (!this.hasArabic(title)) {
-            return null; // حذف الفيلم (تجاهله)
-        }
+        // الفلترة: إذا لم يكن العنوان عربياً، نرجع null لحذف الفيلم من النتائج
+        if (!this.hasArabic(title)) return null;
 
-        // استخراج الـ ID
         const match = href.match(/vid=([a-zA-Z0-9_-]+)/) || href.match(/\/([a-zA-Z0-9_-]{8,})\.html/);
         const id = match ? match[1] : null;
         if (!id) return null;
@@ -151,10 +145,6 @@ class LaroozaPagedExtractor {
             page: pageNumber,
             extractedAt: new Date().toISOString()
         };
-    }
-
-    cleanText(text) {
-        return text ? text.replace(/[\n\r\t]/g, ' ').replace(/\s+/g, ' ').trim() : '';
     }
 
     async fetchWithProxy(url) {
@@ -178,6 +168,5 @@ class LaroozaPagedExtractor {
     sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 }
 
-if (require.main === module) {
-    new LaroozaPagedExtractor().start();
-}
+const extractor = new LaroozaPagedExtractor();
+extractor.start();
