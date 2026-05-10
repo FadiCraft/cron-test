@@ -145,11 +145,9 @@ class StorageManager {
     }
 
     async finalize() {
-        const homeData = {
-            info: { lastUpdated: new Date().toISOString(), total: this.homeVideos.length },
-            videos: this.homeVideos.slice(0, CONFIG.homeItemsCount)
-        };
-        await fs.promises.writeFile(HOME_FILE, JSON.stringify(homeData, null, 2));
+        // التعديل هنا: حفظ المصفوفة مباشرة بدون الكائن المغلف
+        const videosArray = this.homeVideos.slice(0, CONFIG.homeItemsCount);
+        await fs.promises.writeFile(HOME_FILE, JSON.stringify(videosArray, null, 2));
         console.log(`✅ تم حفظ Home.json مع روابط m3u8 بنجاح.`);
     }
 }
