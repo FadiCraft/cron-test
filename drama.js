@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { performance } from "perf_hooks";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,26 +8,21 @@ const __dirname = path.dirname(__filename);
 // ==================== إعدادات المسارات ====================
 const DAILYMOTION_DIR = path.join(__dirname, "Dailymotion");
 const VIDEOS_DIR = path.join(DAILYMOTION_DIR, "Videos");
-const CACHE_DIR = path.join(DAILYMOTION_DIR, "Cache");
 
 const createDirectories = async () => {
-    const dirs = [DAILYMOTION_DIR, VIDEOS_DIR, CACHE_DIR];
-    for (const dir of dirs) {
-        if (!fs.existsSync(dir)) await fs.promises.mkdir(dir, { recursive: true });
-    }
+    if (!fs.existsSync(VIDEOS_DIR)) await fs.promises.mkdir(VIDEOS_DIR, { recursive: true });
 };
 
 await createDirectories();
 
 // ==================== إعدادات النظام ====================
 const CONFIG = {
-    videosPerFile: 35, // المطلوب: 35 فيديو لكل ملف
-    maxVideosTotal: 70, // إجمالي الفيديوهات لملفين (p1, p2)
-    requestDelay: 1000,
+    homeItemsCount: 30,    // أحدث 30 فيديو للرئيسية
+    videosPerFile: 35,     // 35 فيديو لكل ملف p
+    requestDelay: 700,     // تأخير بسيط لتجنب الحظر
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 };
 
-// قائمة القنوات المطلوبة
 const CHANNELS = [
     "Film.Arena",
     "Chnese-drama",
@@ -38,10 +32,7 @@ const CHANNELS = [
 ];
 
 function generateRandomStats(originalValue) {
-    if (originalValue < 1000) {
-        return Math.floor(Math.random() * (50000 - 1000 + 1)) + 1000;
-    }
-    return originalValue;
+    return originalValue < 1000 ? Math.floor(Math.random() * 49000) + 1000 : originalValue;
 }
 
 // ==================== نظام طلبات Dailymotion API ====================
@@ -57,94 +48,90 @@ class DailymotionClient {
             });
             const data = await response.json();
             return data.qualities?.auto?.[0]?.url || "";
-        } catch (error) {
-            return "";
-        }
+        } catch { return ""; }
     }
 
-    async request(endpoint, params = {}) {
-        const queryString = new URLSearchParams(params).toString();
-        const url = `${this.baseUrl}${endpoint}?${queryString}`;
+    async getUserVideos(username) {
+        console.log(`📡 جلب بيانات القناة: ${username}...`);
+        // جلب 100 فيديو من كل قناة (يمكنك زيادة الليميت إذا أردت المزيد)
+        const url = `${this.baseUrl}/user/${username}/videos?fields=id,title,thumbnail_url,duration,created_time,views_total&limit=100&sort=recent`;
         const response = await fetch(url, { headers: { 'User-Agent': CONFIG.userAgent } });
         return await response.json();
-    }
-
-    async getUserVideos(username, limit = 100) {
-        console.log(`📡 جلب فيديوهات القناة: ${username}...`);
-        return this.request(`/user/${username}/videos`, {
-            fields: 'id,title,thumbnail_url,duration,created_time,views_total',
-            limit: limit,
-            sort: 'recent'
-        });
     }
 }
 
 // ==================== المعالج الرئيسي ====================
-class MultiChannelScraper {
+class ChronologicalScraper {
     constructor() {
-        this.dailymotion = new DailymotionClient();
-        this.allArabicVideos = [];
-        this.arabicRegex = /[\u0600-\u06FF]/; // تصفية العربي فقط
+        this.client = new DailymotionClient();
+        this.masterList = []; // القائمة الكبيرة لكل القنوات
+        this.arabicRegex = /[\u0600-\u06FF]/;
     }
 
     async run() {
-        console.log("🚀 بدء عملية الاستخراج من جميع القنوات...");
+        console.log("🚀 جاري جمع الفيديوهات العربية من كافة القنوات...");
 
-        for (const channelName of CHANNELS) {
-            try {
-                const data = await this.dailymotion.getUserVideos(channelName);
-                if (!data.list) continue;
+        for (const channel of CHANNELS) {
+            const data = await this.client.getUserVideos(channel);
+            if (!data.list) continue;
 
-                for (const video of data.list) {
-                    // التوقف إذا جمعنا ما يكفي لملفين (35 * 2)
-                    if (this.allArabicVideos.length >= CONFIG.maxVideosTotal) break;
-
-                    // فحص هل العنوان عربي؟
-                    if (this.arabicRegex.test(video.title)) {
-                        console.log(`✅ فيديو عربي مكتشف: ${video.title.substring(0, 40)}`);
-                        
-                        const m3u8Link = await this.dailymotion.getM3U8Url(video.id);
-
-                        this.allArabicVideos.push({
-                            id: video.id,
-                            title: video.title,
-                            thumbnail: video.thumbnail_url,
-                            m3u8Url: m3u8Link,
-                            embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
-                            duration: video.duration,
-                            views: generateRandomStats(video.views_total),
-                            uploadedAt: new Date(video.created_time * 1000).toISOString()
-                        });
-
-                        // تأخير بسيط لتجنب الحظر
-                        await new Promise(r => setTimeout(r, CONFIG.requestDelay));
-                    }
+            for (const video of data.list) {
+                if (this.arabicRegex.test(video.title)) {
+                    this.masterList.push(video);
                 }
-            } catch (err) {
-                console.error(`❌ خطأ في القناة ${channelName}:`, err.message);
             }
-
-            if (this.allArabicVideos.length >= CONFIG.maxVideosTotal) break;
         }
 
-        await this.saveInChunks();
+        // --- الخطوة السحرية: الترتيب الزمني من الأحدث للأقدم ---
+        console.log("⚖️ جاري ترتيب الفيديوهات حسب تاريخ النشر...");
+        this.masterList.sort((a, b) => b.created_time - a.created_time);
+
+        console.log(`✅ إجمالي الفيديوهات المكتشفة: ${this.masterList.length}. جاري استخراج روابط m3u8...`);
+
+        const finalizedVideos = [];
+        // سنبدأ الآن باستخراج الروابط بالترتيب الجديد
+        for (const video of this.masterList) {
+            console.log(`🔗 معالجة: ${video.title.substring(0, 40)}...`);
+            const m3u8Link = await this.client.getM3U8Url(video.id);
+
+            finalizedVideos.push({
+                id: video.id,
+                title: video.title,
+                thumbnail: video.thumbnail_url,
+                m3u8Url: m3u8Link,
+                embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
+                duration: video.duration,
+                views: generateRandomStats(video.views_total),
+                uploadedAt: new Date(video.created_time * 1000).toISOString(),
+                timestamp: video.created_time // للتحقق فقط
+            });
+
+            await new Promise(r => setTimeout(r, CONFIG.requestDelay));
+        }
+
+        await this.distributeFiles(finalizedVideos);
     }
 
-    async saveInChunks() {
-        console.log(`📦 إجمالي الفيديوهات العربية المستخرجة: ${this.allArabicVideos.length}`);
-        
-        // تقسيم المصفوفة إلى أجزاء كل جزء 35
-        for (let i = 0; i < this.allArabicVideos.length; i += CONFIG.videosPerFile) {
-            const chunk = this.allArabicVideos.slice(i, i + CONFIG.videosPerFile);
-            const fileNumber = (i / CONFIG.videosPerFile) + 1;
-            const fileName = `p${fileNumber}.json`;
-            const filePath = path.join(VIDEOS_DIR, fileName);
+    async distributeFiles(videos) {
+        // 1. ملف Home.json (أحدث 30)
+        const homeChunk = videos.slice(0, CONFIG.homeItemsCount);
+        await fs.promises.writeFile(path.join(VIDEOS_DIR, "Home.json"), JSON.stringify(homeChunk, null, 2));
+        console.log(`🏠 تم إنشاء Home.json بأحدث 30 فيديو.`);
 
-            await fs.promises.writeFile(filePath, JSON.stringify(chunk, null, 2));
-            console.log(`💾 تم إنشاء الملف: ${fileName} ويحتوي على ${chunk.length} فيديو.`);
+        // 2. ملفات p1, p2... (البقية مقسمة كل 35)
+        const remaining = videos.slice(CONFIG.homeItemsCount);
+        for (let i = 0; i < remaining.length; i += CONFIG.videosPerFile) {
+            const chunk = remaining.slice(i, i + CONFIG.videosPerFile);
+            const fileNumber = Math.floor(i / CONFIG.videosPerFile) + 1;
+            const fileName = `p${fileNumber}.json`;
+            
+            await fs.promises.writeFile(path.join(VIDEOS_DIR, fileName), JSON.stringify(chunk, null, 2));
+            console.log(`📄 تم إنشاء ${fileName} بـ ${chunk.length} فيديو (ترتيب أقدم).`);
         }
+
+        console.log("\n✨ تمت المهمة بنجاح وفيديوهاتك الآن مرتبة زمنياً!");
     }
 }
 
-const scraper = new MultiChannelScraper();
+const scraper = new ChronologicalScraper();
 scraper.run();
