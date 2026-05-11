@@ -145,7 +145,7 @@ class StorageManager {
     }
 
     async finalize() {
-        // التعديل هنا: حفظ المصفوفة مباشرة بدون الكائن المغلف
+        // حفظ المصفوفة مباشرة مع الهيكل الثابت
         const videosArray = this.homeVideos.slice(0, CONFIG.homeItemsCount);
         await fs.promises.writeFile(HOME_FILE, JSON.stringify(videosArray, null, 2));
         console.log(`✅ تم حفظ Home.json مع روابط m3u8 بنجاح.`);
@@ -187,11 +187,12 @@ class NitWexScraper {
             
             const m3u8Link = await this.dailymotion.getM3U8Url(video.id);
 
+            // التعديل الأساسي هنا: استخدام سلسلة فارغة بدلاً من null
             const videoInfo = {
                 id: video.id,
                 title: video.title,
                 thumbnail: video.thumbnail_url,
-                m3u8Url: m3u8Link,
+                m3u8Url: m3u8Link || "",  // إذا كان m3u8Link null أو undefined، استخدم سلسلة فارغة
                 embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
                 duration: video.duration,
                 views: generateRandomStats(video.views_total),
