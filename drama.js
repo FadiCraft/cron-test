@@ -188,16 +188,16 @@ class NitWexScraper {
             const m3u8Link = await this.dailymotion.getM3U8Url(video.id);
 
             // التعديل الأساسي هنا: استخدام سلسلة فارغة بدلاً من null
-       const videoInfo = {
-    id: video.id,
-    title: video.title,
-    thumbnail: video.thumbnail_url,
-    m3u8Url: m3u8Link || "",
-    embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
-    duration: Number(video.duration),      // تحويل إلى رقم صحيح
-    views: Number(generateRandomStats(video.views_total)),  // تحويل إلى رقم صحيح
-    uploadedAt: new Date(video.created_time * 1000).toISOString()
-};
+            const videoInfo = {
+                id: video.id,
+                title: video.title,
+                thumbnail: video.thumbnail_url,
+                m3u8Url: m3u8Link || "",  // إذا كان m3u8Link null أو undefined، استخدم سلسلة فارغة
+                embedUrl: `https://www.dailymotion.com/embed/video/${video.id}`,
+                duration: video.duration,
+                views: generateRandomStats(video.views_total),
+                uploadedAt: new Date(video.created_time * 1000).toISOString()
+            };
 
             await this.storage.saveVideo(videoInfo);
             savedCount++;
