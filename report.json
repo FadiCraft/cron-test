@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-05-11T00:08:54.405Z",
+  "timestamp": "2026-05-11T04:25:04.385Z",
   "phase": "phase2_home_scraping",
   "systemStats": {
-    "totalMovies": 3599,
+    "totalMovies": 3600,
     "totalPages": 56,
-    "uniqueMovies": 3599,
+    "uniqueMovies": 3600,
     "allPagesScraped": true
   },
   "progress": {
     "currentPage": 1,
     "currentFile": "Top14.json",
-    "moviesInCurrentFile": 196,
+    "moviesInCurrentFile": 197,
     "allPagesScraped": true
   },
   "results": {
     "phase1": null,
     "phase2": {
-      "newMoviesCount": 6,
-      "updatedMoviesCount": 54,
+      "newMoviesCount": 1,
+      "updatedMoviesCount": 59,
       "totalHomeMovies": 60,
-      "executionTime": 149768
+      "executionTime": 144570
     }
   },
   "nextRun": {
