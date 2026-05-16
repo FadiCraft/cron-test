@@ -1,56 +1,11 @@
 {
-  "total_ads": 3,
-  "ads_list": [
-    {
-      "ad_id": "AD-001",
-      "ad_name": "حملة الأحذية الرياضية",
-      "ad_type": "صوره",
-      "content": {
-        "text": "احصل على حذائك الرياضي الجديد الآن بخصم مميز!",
-        "image_url": "https://example.com/ads/shoes_banner.jpg",
-        "video_url": null
-      },
-      "target_url": "https://example.com/products/shoes",
-      "schedule": {
-        "start_date": "2026-05-20",
-        "end_date": "2026-06-20",
-        "display_hours": ["09:00", "10:00", "11:00", "18:00", "19:00"]
-      },
-      "target_devices": ["هاتف", "تابلت"]
-    },
-    {
-      "ad_id": "AD-002",
-      "ad_name": "إعلان تطبيق الهاتف الجديد",
-      "ad_type": "فيديو",
-      "content": {
-        "text": "شاهد كيف يمكن لتطبيقنا أن يسهل حياتك اليومية. حمله الآن!",
-        "image_url": "https://example.com/ads/app_thumbnail.jpg",
-        "video_url": "https://example.com/ads/app_promo_video.mp4"
-      },
-      "target_url": "https://example.com/download-app",
-      "schedule": {
-        "start_date": "2026-06-01",
-        "end_date": "2026-07-01",
-        "display_hours": ["14:00", "15:00", "21:00", "22:00", "23:00"]
-      },
-      "target_devices": ["هاتف", "تابلت", "موقع الويب"]
-    },
-    {
-      "ad_id": "AD-003",
-      "ad_name": "نصيحة برمجية سريعة",
-      "ad_type": "نص",
-      "content": {
-        "text": "هل تبحث عن خدمات استضافة سريعة وآمنة لموقعك؟ زرق موقعنا اليوم واستمتع بدعم فني على مدار الساعة.",
-        "image_url": null,
-        "video_url": null
-      },
-      "target_url": "https://example.com/hosting-services",
-      "schedule": {
-        "start_date": "2026-05-15",
-        "end_date": "2026-05-30",
-        "display_hours": ["08:00", "12:00", "16:00", "20:00"]
-      },
-      "target_devices": ["موقع الويب", "شاشه تلفاز"]
-    }
-  ]
+  "type": "video",
+  "text": "استمتع بخصومات تصل إلى 50% على جميع المنتجات!",
+  "image": "https://example.com/image.jpg",
+  "video": "https://example.com/video.mp4",
+  "url": "https://example.com/shop",
+  "start_date": "2026-06-01",
+  "end_date": "2026-06-30",
+  "hours": ["18:00", "19:00", "20:00"],
+  "devices": ["هاتف", "تابلت", "شاشه تلفاز", "موقع الويب"]
 }
