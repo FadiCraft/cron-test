@@ -1,30 +1,12 @@
 {
-  "scrapedAt": "٢٦‏/٥‏/٢٠٢٦، ٧:٣٠:١١ م",
+  "scrapedAt": "٢٦‏/٥‏/٢٠٢٦، ١٠:٠٢:٠٤ م",
   "totalMatches": 2,
   "matches": [
     {
-      "url": "https://www.kooora-lives1.info/",
-      "status": "لم تبدأ بعد",
-      "league": "دولي, مباريات ودية دولية",
-      "time": "08:00 PM",
-      "channel": "غير معروف",
-      "score": "0 - 0",
-      "team1": {
-        "name": "المغرب",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5093.png"
-      },
-      "team2": {
-        "name": "بورندي",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2026/03/5600.png"
-      },
-      "id": 766912,
-      "watchServers": null
-    },
-    {
-      "url": "https://www.kooora-lives1.info/",
-      "status": "لم تبدأ بعد",
+      "url": "https://kora24.site88.one/read/441/%D8%AC%D8%A7%D9%81%D9%8A-%D9%88%D9%83%D8%A7%D8%B1%D9%81%D8%A7%D8%AE%D8%A7%D9%84-%D9%8A%D9%83%D8%B4%D9%81%D8%A7%D9%86-%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D9%82%D8%A9",
+      "status": "جارية الان",
       "league": "فرنسا, الدوري الفرنسي - الهبوط/الصعود",
-      "time": "09:45 PM",
+      "time": "",
       "channel": "غير معروف",
       "score": "0 - 0",
       "team1": {
@@ -35,7 +17,41 @@
         "name": "نيس",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/08/470.png"
       },
-      "id": 848491,
+      "id": 885148,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://kora24.site88.one/embed/441"
+        },
+        {
+          "id": "server_2",
+          "name": "سيرفر رئيسي",
+          "url": "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=kora24.site88.one&gdpr=0&gdpr_consent=#{%22bundle%22:{%22origin%22:0},%22optout%22:{%22value%22:false,%22origin%22:0},%22tld%22:%22site88.one%22,%22topUrl%22:%22kora24.site88.one%22,%22version%22:106908,%22origin%22:%22publishertagids%22,%22requestId%22:%220.5990040547120914%22}"
+        },
+        {
+          "id": "server_3",
+          "name": "سيرفر رئيسي",
+          "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fkora24.site88.one%2Fread%2F441%2F%25D8%25AC%25D8%25A7%25D9%2581%25D9%258A-%25D9%2588%25D9%2583%25D8%25A7%25D8%25B1%25D9%2581%25D8%25A7%25D8%25AE%25D8%25A7%25D9%2584-%25D9%258A%25D9%2583%25D8%25B4%25D9%2581%25D8%25A7%25D9%2586-%25D8%25A7%25D9%2584%25D8%25AD%25D9%2582%25D9%258A%25D9%2582%25D8%25A9"
+        }
+      ]
+    },
+    {
+      "url": "https://www.kooora-lives1.info/",
+      "status": "انتهت",
+      "league": "دولي, مباريات ودية دولية",
+      "time": "",
+      "channel": "غير معروف",
+      "score": "5 - 0",
+      "team1": {
+        "name": "المغرب",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5093.png"
+      },
+      "team2": {
+        "name": "بورندي",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2026/03/5600.png"
+      },
+      "id": 641454,
       "watchServers": null
     }
   ]
