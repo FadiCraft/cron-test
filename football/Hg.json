@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "٢٨‏/٥‏/٢٠٢٦، ١:٥٧:٤٠ ص",
+  "scrapedAt": "٢٨‏/٥‏/٢٠٢٦، ٣:٠٠:٣٩ ص",
   "totalMatches": 7,
   "matches": [
     {
@@ -17,7 +17,7 @@
         "name": "الجونة",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/05/617.png"
       },
-      "id": 649803,
+      "id": 886984,
       "watchServers": null
     },
     {
@@ -35,8 +35,14 @@
         "name": "تنزانيا تحت 17",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2026/05/87547.png"
       },
-      "id": 435857,
-      "watchServers": null
+      "id": 257585,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://pxdrop.lijit.com/a/t_.htm?ver=1.2063.1155&cid=c026&cls=sync#cls=sync&dmn=bein-matchs.blog&GDPR_v2=&us_privacy=&pubid=dt_scout&gpp=&gpp_sid=&tt=t.dhj&cid=c026&lbl=lijit&flbl=pxcel&ll=d&ver=1.2063.1155&ell=d&cck=ljt_reader&pn=%2F&qs=na&rdn=bein-matchs.blog&rpn=%2F&rqs=na&ipaddr=NTIuMTYxLjE3OC45Nw%3D%3D&cc=US&cont=NA&rc=WY"
+        }
+      ]
     },
     {
       "url": "https://www.kooora-lives1.info/",
@@ -53,7 +59,7 @@
         "name": "وادي دجلة",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/08/8311.png"
       },
-      "id": 564114,
+      "id": 460956,
       "watchServers": null
     },
     {
@@ -71,7 +77,7 @@
         "name": "فاركو",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/05/1880.png"
       },
-      "id": 477056,
+      "id": 444903,
       "watchServers": null
     },
     {
@@ -89,8 +95,14 @@
         "name": "روسيا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/09/5044.png"
       },
-      "id": 206811,
-      "watchServers": null
+      "id": 937110,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://pxdrop.lijit.com/a/t_.htm?ver=1.2063.1155&cid=c026&cls=sync#cls=sync&dmn=bein-matchs.blog&GDPR_v2=&us_privacy=&pubid=dt_scout&gpp=&gpp_sid=&tt=t.dhj&cid=c026&lbl=lijit&flbl=pxcel&ll=d&ver=1.2063.1155&ell=d&cck=ljt_reader&pn=%2F&qs=na&rdn=bein-matchs.blog&rpn=%2F&rqs=na&ipaddr=NTIuMTYxLjE3OC45Nw%3D%3D&cc=US&cont=NA&rc=WY"
+        }
+      ]
     },
     {
       "url": "https://www.kooora-lives1.info/",
@@ -107,7 +119,7 @@
         "name": "قطر",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5079.png"
       },
-      "id": 927962,
+      "id": 491017,
       "watchServers": null
     },
     {
@@ -125,7 +137,7 @@
         "name": "السنغال تحت 17",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/11/2332.png"
       },
-      "id": 893712,
+      "id": 229925,
       "watchServers": null
     }
   ]
