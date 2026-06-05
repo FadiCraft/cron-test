@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "٥‏/٦‏/٢٠٢٦، ٢:١٩:٢٤ ص",
+  "scrapedAt": "٥‏/٦‏/٢٠٢٦، ٤:٣٤:١٩ ص",
   "totalMatches": 8,
   "matches": [
     {
@@ -17,7 +17,7 @@
         "name": "الكويت",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5092.png"
       },
-      "id": 406847,
+      "id": 798756,
       "watchServers": null
     },
     {
@@ -35,11 +35,11 @@
         "name": "عمان",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5081.png"
       },
-      "id": 484142,
+      "id": 791951,
       "watchServers": null
     },
     {
-      "url": "https://www.kooora-lives1.info/",
+      "url": "https://kora24.site88.one/read/484/%D8%AF%D9%88%D8%B1-%D9%83%D8%A8%D9%8A%D8%B1-%D9%84%D8%B1%D8%A7%D9%81%D9%8A%D9%86%D9%8A%D8%A7-%D9%81%D9%8A-%D8%B5%D9%81%D9%82%D8%A9-%D8%BA%D9%88%D8%B1%D8%AF%D9%88%D9%86",
       "status": "لم تبدأ بعد",
       "league": "دولي, مباريات ودية دولية",
       "time": "05:00 AM",
@@ -53,8 +53,24 @@
         "name": "صربيا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2374.png"
       },
-      "id": 476969,
-      "watchServers": null
+      "id": 629374,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://kora24.site88.one/embed/484"
+        },
+        {
+          "id": "server_2",
+          "name": "سيرفر رئيسي",
+          "url": "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=kora24.site88.one&gdpr=0&gdpr_consent=#{%22bundle%22:{%22origin%22:0},%22optout%22:{%22value%22:false,%22origin%22:0},%22tld%22:%22site88.one%22,%22topUrl%22:%22kora24.site88.one%22,%22version%22:107044,%22origin%22:%22publishertagids%22,%22requestId%22:%220.3609037095920802%22}"
+        },
+        {
+          "id": "server_3",
+          "name": "سيرفر رئيسي",
+          "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fkora24.site88.one%2Fread%2F484%2F%25D8%25AF%25D9%2588%25D8%25B1-%25D9%2583%25D8%25A8%25D9%258A%25D8%25B1-%25D9%2584%25D8%25B1%25D8%25A7%25D9%2581%25D9%258A%25D9%2586%25D9%258A%25D8%25A7-%25D9%2581%25D9%258A-%25D8%25B5%25D9%2581%25D9%2582%25D8%25A9-%25D8%25BA%25D9%2588%25D8%25B1%25D8%25AF%25D9%2588%25D9%2586"
+        }
+      ]
     },
     {
       "url": "https://www.kooora-lives1.info/",
@@ -71,7 +87,7 @@
         "name": "سوريا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/09/5090.png"
       },
-      "id": 922982,
+      "id": 228839,
       "watchServers": null
     },
     {
@@ -89,7 +105,7 @@
         "name": "البحرين",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5080.png"
       },
-      "id": 772375,
+      "id": 830312,
       "watchServers": null
     },
     {
@@ -107,7 +123,7 @@
         "name": "مونتينيغرو",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5063.png"
       },
-      "id": 521053,
+      "id": 603758,
       "watchServers": null
     },
     {
@@ -125,7 +141,7 @@
         "name": "فنلندا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5045.png"
       },
-      "id": 281689,
+      "id": 560637,
       "watchServers": null
     },
     {
@@ -143,7 +159,7 @@
         "name": "مالطا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5035.png"
       },
-      "id": 170551,
+      "id": 233993,
       "watchServers": null
     }
   ]
