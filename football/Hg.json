@@ -1,25 +1,7 @@
 {
-  "scrapedAt": "١٣‏/٦‏/٢٠٢٦، ١٢:٣٢:٣٣ م",
+  "scrapedAt": "١٣‏/٦‏/٢٠٢٦، ٢:٣٠:٤٦ م",
   "totalMatches": 2,
   "matches": [
-    {
-      "url": "https://koora24.space/read/63/%D8%B1%D9%8A%D8%A7%D9%86-%D8%B4%D8%B1%D9%82%D9%8A-%D9%85%D9%81%D8%AA%D8%A7%D8%AD-%D8%BA%D9%88%D8%A7%D8%B1%D8%AF%D9%8A%D9%88%D9%84%D8%A7-%D9%84%D8%AD%D8%B3%D9%85-%D9%84%D9%82%D8%A8",
-      "status": "جارية الان",
-      "league": "دولي, كأس العالم - المجموعة د",
-      "time": "",
-      "channel": "beIN SPORTS MAX 1",
-      "score": "0 - 0",
-      "team1": {
-        "name": "الولايات المتحدة",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2389.png"
-      },
-      "team2": {
-        "name": "باراغواي",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5070.png"
-      },
-      "id": 686399,
-      "watchServers": null
-    },
     {
       "url": "https://www.kooora-lives1.info/",
       "status": "لم تبدأ بعد",
@@ -35,7 +17,31 @@
         "name": "سويسرا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/09/5032.png"
       },
-      "id": 257698,
+      "id": 119063,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://pxdrop.lijit.com/a/t_.htm?ver=1.2063.1155&cid=c026&cls=sync#cls=sync&dmn=www.kooora-lives1.info&GDPR_v2=&us_privacy=&pubid=dt_scout&gpp=&gpp_sid=&tt=t.dhj&cid=c026&lbl=lijit&flbl=pxcel&ll=d&ver=1.2063.1155&ell=d&cck=ljt_reader&pn=%2Fballa-tnj%2F&qs=na&rdn=www.kooora-lives1.info&rpn=%2Fballa-tnj%2F&rqs=na&ipaddr=NjQuMjM2LjE0MS4xOTQ%3D&cc=US&cont=NA&rc=IL"
+        }
+      ]
+    },
+    {
+      "url": "https://www.kooora-lives1.info/",
+      "status": "انتهت",
+      "league": "دولي, كأس العالم - المجموعة د",
+      "time": "",
+      "channel": "beIN SPORTS MAX 1",
+      "score": "4 - 1",
+      "team1": {
+        "name": "الولايات المتحدة",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2389.png"
+      },
+      "team2": {
+        "name": "باراغواي",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5070.png"
+      },
+      "id": 200489,
       "watchServers": null
     }
   ]
