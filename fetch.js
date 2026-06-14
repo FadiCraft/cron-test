@@ -277,7 +277,7 @@ async function fetchMovieDetails(movie, position, total) {
 // ==================== الدالة الأساسية للتشغيل ====================
 async function startScraping() {
     console.log("🚀 بدء استخراج الصفحة الأولى فقط...");
-    const url = `${BASE_URL}/movies/`;
+    const url = `${BASE_URL}/category/مسلسلات-اجنبي/?key=episodes`;
     
     const html = await fetchPage(url);
     if (!html) {
