@@ -2,8 +2,708 @@
   "fileName": "Home.json",
   "description": "أفلام الصفحة الأولى مع روابط البث المباشر m3u8 المستخرجة من الشبكة",
   "totalMovies": 60,
-  "lastUpdated": "2026-06-18T23:20:24.809Z",
+  "lastUpdated": "2026-06-19T02:14:28.775Z",
   "movies": [
+    {
+      "id": "217631",
+      "title": "فيلم Panda Plan 2: The Magical Tribe 2026 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-panda-plan-2-the-magical-tribe-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=217631",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/05/MV5BNTdhNDcwNWQtN2E4OS00MTg1LWIxNzctNGZhZTZhZmMzZTAwXkEyXkFqcGc@-440x650.jpg",
+      "imdbRating": "4.6",
+      "story": "تستهدف عصابة إجرامية دولية الباندا هوهو مجددًا، مما يفرض على جاكي وفريقه أن يتحدوا مرة أخرى لخوض مغامرة جديدة لحماية الباندا.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اسيوي"
+        ],
+        "نوع الفيلم": [
+          "اكشن",
+          "عائلي",
+          "كوميدي"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "100 دقيقة",
+        "موعد الصدور": [
+          "2026"
+        ],
+        "دولة الفيلم": [
+          "الصين"
+        ],
+        "بطولة": [
+          "Binlong Pan",
+          "Chengsi Wang",
+          "Da Ke",
+          "Jackie Chan"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-panda-plan-2-the-magical-tribe-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-iob5ptj8l6rm.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/iob5ptj8l6rm.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://updown.cam/qxbxq8qjwz04",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://down.mdiaload.com/zxzbq9la5xlq",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://ddownload.com/u8zn4xksyitn",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://nitroflare.com/view/FEAE652999D6E68",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://rapidgator.net/file/f6f03411dddf15a8daebd33e2d99348c",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/64bu",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/1vtol",
+          "quality": "1080p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:07.188Z"
+    },
+    {
+      "id": "212887",
+      "title": "فيلم The Super Mario Galaxy Movie 2026 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-super-mario-galaxy-movie-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=212887",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/04/MV5BMDg5MjRkNWEtYmU1Mi00MTExLTk5MDQtY2RiMWVkZWNiOThjXkEyXkFqcGc@-411x650.jpg",
+      "imdbRating": "6.5",
+      "story": "يتبع العمل قصة (ماريو)، (لويجي)، (تود)، و(بيتش) في مغامرة جديدة إلى الفضاء لمواجهة (باوزر جونيور) الذي يسعى لإنقاذ والده بعد أن سُجن وتقلص حجمه.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي",
+          "افلام انمي"
+        ],
+        "نوع الفيلم": [
+          "كرتون",
+          "كوميدي",
+          "مغامرة"
+        ],
+        "جودة الفيلم": [
+          "1080p BluRay"
+        ],
+        "توقيت الفيلم": "98 دقيقة",
+        "موعد الصدور": [
+          "2026"
+        ],
+        "دولة الفيلم": [
+          "الولايات المتحدة الامريكية"
+        ],
+        "بطولة": [
+          "Anya Taylor-Joy",
+          "Benny Safdie",
+          "Brie Larson",
+          "Charlie Day"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-super-mario-galaxy-movie-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-6xb1zs71w1xo.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/6xb1zs71w1xo.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://updown.cam/k3z9qxulug3k",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://down.mdiaload.com/ba62plynmusb",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://ddownload.com/5ck5u7v0sryc",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://nitroflare.com/view/9D9F77618E1BFFA",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://rapidgator.net/file/caf8ec892b6584c10e6f319886ef1582",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/agjV",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/2Roii",
+          "quality": "1080p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:09.537Z"
+    },
+    {
+      "id": "228311",
+      "title": "فيلم The Furious 2025 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-furious-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=228311",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BODUyZjg2YzctNGE3Yi00YjhhLTkyZTItZTAwZTNhNDA1ODQzXkEyXkFqcGc@-scaled-433x650.jpg",
+      "imdbRating": "7.9",
+      "story": "تدور الأحداث حول تاجر عادي تُختطف ابنته على يد شبكة إجرامية، ولا يتلقى أي مساعدة من الشرطة الفاسدة، فينطلق في حالة هياج للعثور عليها بنفسه. ويصبح حليفه الوحيد صحفي اختفت زوجته في ظروف غامضة، فيقاتل الثنائي بلا رحمة ضد الخاطفين.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اسيوي"
+        ],
+        "نوع الفيلم": [
+          "اثارة",
+          "اكشن",
+          "جريمة"
+        ],
+        "جودة الفيلم": [
+          "720p HDTS"
+        ],
+        "توقيت الفيلم": "113 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "دولة الفيلم": [
+          "هونغ كونغ"
+        ],
+        "بطولة": [
+          "Brian Le",
+          "Enyou Yang",
+          "Guo Junqing",
+          "JeeJa Yanin"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-furious-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-px9dikw8wabc.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/px9dikw8wabc.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://updown.cam/jqgal8bziixd",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://down.mdiaload.com/lqcsvi39qssg",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://ddownload.com/lvrwpxzq3jhd",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://nitroflare.com/view/740F455DDFD3BBD",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://rapidgator.net/file/3c14b23da1e8606684bcfec8b372208e",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://koramaup.com/agjT",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://1cloudfile.com/2Roih",
+          "quality": "720p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:11.899Z"
+    },
+    {
+      "id": "228288",
+      "title": "فيلم Hell in Paradise 2025 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-hell-in-paradise-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=228288",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BMmM3NTgwMDYtOTZiNy00NDgxLWFiYTgtZjU0ZDljNDc2MGMwXkEyXkFqcGc@-479x650.jpg",
+      "imdbRating": "5.8",
+      "story": "تتولى المهاجرة (نينا) وظيفة في فندق بجزر المالديف، لكن جنتها في الجزيرة تتحول إلى كابوس بعد حادثة ما. وبعد أن تُوجَّه إليها تهمة زورًا، عليها أن تتجنب الفخاخ لتنجو من حكم بالسجن المؤبد ظلماً.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "اثارة",
+          "اكشن",
+          "دراما"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "102 دقيقة",
+        "موعد الصدور": [
+          "2025"
+        ],
+        "بطولة": [
+          "Akeira Hadden",
+          "Alyy Khan",
+          "Jim Fischer",
+          "Joséphine de La Baume"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-hell-in-paradise-2025-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-4glx0zsapjib.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/4glx0zsapjib.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://updown.cam/44q7nkqi2u3b",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://down.mdiaload.com/gakwv89vuqnw",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://ddownload.com/bcy506m1pg1t",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://nitroflare.com/view/2FEEC785CED1558",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://rapidgator.net/file/2acd62c05de4a71768a0ef765a2ef413",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/64a2",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/2bqN3",
+          "quality": "1080p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:14.244Z"
+    },
+    {
+      "id": "228285",
+      "title": "فيلم Extreme Makeover: Homer Edition 2026 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-extreme-makeover-homer-edition-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=228285",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/vim76mMXig00YRxN2iGYJASoGkP-433x650.jpg",
+      "imdbRating": null,
+      "story": "تتحول ليلة هومر ومارج الرومانسية إلى كابوس عندما تكتشف مارج أن هومر ترك الأطفال دون رقابة، معتمدًا فقط على كاميرا جرس الباب. تشعر مارج بالإحباط من زوجها غير المثالي، فتبدأ، وهي ثملة، في تخيل ثلاثة أحلام عن هومر مختلف.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي",
+          "افلام انمي"
+        ],
+        "نوع الفيلم": [
+          "كرتون",
+          "كوميدي"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "موعد الصدور": [
+          "2026"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-extreme-makeover-homer-edition-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-fegkhmia2rjw.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/fegkhmia2rjw.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://updown.cam/mnwabybd90vq",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://down.mdiaload.com/jtdxoaq7zgb3",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://ddownload.com/rqxvsiupk78w",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://nitroflare.com/view/1753FE4481BB1D1",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://rapidgator.net/file/6b56740c3b1d4e4fd35f5dd8e735a630",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/64a0",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/1vtkh",
+          "quality": "1080p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:16.550Z"
+    },
+    {
+      "id": "228280",
+      "title": "فيلم Disclosure Day 2026 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-disclosure-day-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=228280",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/_640x_dfcf69a508c3e85dad13f40c5bb405eb32ec26f4777317399dcbe88cd19cd08b-411x650.jpg",
+      "imdbRating": "6.8",
+      "story": "في إطار من الخيال العلمي، يتبع العمل قصة مذيعة أحوال جوية ومختص في نظريات المؤامرة يُدعى (دانيال كيلنر) ينطلقان في مهمة لكشف وجود حياة فضائية أمام العالم.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "اكشن",
+          "دراما",
+          "غموض"
+        ],
+        "جودة الفيلم": [
+          "720p HDTS"
+        ],
+        "توقيت الفيلم": "145 دقيقة",
+        "موعد الصدور": [
+          "2026"
+        ],
+        "دولة الفيلم": [
+          "الولايات المتحدة الامريكية"
+        ],
+        "بطولة": [
+          "Aaron Costa Ganis",
+          "Brian Cage",
+          "Chavo Guerrero Jr",
+          "Chris Silcox"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-disclosure-day-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-s3fk64ndnynn.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/s3fk64ndnynn.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://updown.cam/x2ct8ect3ha8",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://down.mdiaload.com/5od4mfjtnefe",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://ddownload.com/3has5zqxqj52",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://nitroflare.com/view/4B06F796F71532A",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://rapidgator.net/file/5838b8fc3996e43efdf5c0adc9d7240b",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://koramaup.com/agj1",
+          "quality": "720p",
+          "type": "download_server"
+        },
+        {
+          "name": "720p",
+          "url": "https://1cloudfile.com/2RoeD",
+          "quality": "720p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:18.906Z"
+    },
+    {
+      "id": "228276",
+      "title": "فيلم Busboys 2026 مترجم اون لاين",
+      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-busboys-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
+      "shortLink": "https://web.topcinemaa.com/?p=228276",
+      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BZTNiNzA4YWYtMjgxMy00NzJhLWJkMjQtMGMxZjA4N2VlNGU3XkEyXkFqcGc@-439x650.jpg",
+      "imdbRating": "4.8",
+      "story": "يعتقد صديقان ساذجان أنهما إذا أصبحا نادلين، فستُحل جميع مشاكلهما. ليسا مخطئين تمامًا، لكنهما ليسا على صواب تمامًا.",
+      "details": {
+        "قسم الفيلم": [
+          "افلام اجنبي"
+        ],
+        "نوع الفيلم": [
+          "كوميدي"
+        ],
+        "جودة الفيلم": [
+          "1080p WEB-DL"
+        ],
+        "توقيت الفيلم": "97 دقيقة",
+        "موعد الصدور": [
+          "2026"
+        ],
+        "دولة الفيلم": [
+          "الولايات المتحدة الامريكية"
+        ],
+        "بطولة": [
+          "Adrian Dev",
+          "Arturo Del Puerto",
+          "Bobby Lee",
+          "Casey Rocket"
+        ]
+      },
+      "watchServers": [
+        {
+          "name": "مشاهدة مباشرة",
+          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-busboys-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
+          "quality": "متعدد الجودات",
+          "type": "meta_stream",
+          "m3u8Url": null
+        },
+        {
+          "name": "مشاهدة Iframe 1",
+          "url": "https://vidtube.one/embed-9naef7jbsjvc.html",
+          "quality": "متعدد الجودات",
+          "type": "iframe",
+          "m3u8Url": null
+        }
+      ],
+      "downloadServers": [
+        {
+          "name": "VidTube",
+          "url": "https://vidtube.one/d/9naef7jbsjvc.html",
+          "quality": "متعدد الجودات",
+          "type": "pro_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://updown.cam/eqbkjakyu006",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://down.mdiaload.com/4enka69zlaja",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://ddownload.com/bl77esukerpz",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://nitroflare.com/view/B122E3245FD8574",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://rapidgator.net/file/1867295c32c2b3e93b77cb264606a6d3",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://koramaup.com/agiW",
+          "quality": "1080p",
+          "type": "download_server"
+        },
+        {
+          "name": "1080p",
+          "url": "https://1cloudfile.com/2Roej",
+          "quality": "1080p",
+          "type": "download_server"
+        }
+      ],
+      "scrapedAt": "2026-06-19T02:12:21.222Z"
+    },
     {
       "id": "228266",
       "title": "فيلم Obsession 2025 مترجم اون لاين",
@@ -101,7 +801,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:05.697Z"
+      "scrapedAt": "2026-06-19T02:12:23.544Z"
     },
     {
       "id": "227890",
@@ -201,7 +901,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:08.214Z"
+      "scrapedAt": "2026-06-19T02:12:25.889Z"
     },
     {
       "id": "227886",
@@ -298,7 +998,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:10.678Z"
+      "scrapedAt": "2026-06-19T02:12:28.207Z"
     },
     {
       "id": "227786",
@@ -406,7 +1106,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:12.910Z"
+      "scrapedAt": "2026-06-19T02:12:30.528Z"
     },
     {
       "id": "227782",
@@ -514,7 +1214,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:15.113Z"
+      "scrapedAt": "2026-06-19T02:12:32.863Z"
     },
     {
       "id": "227699",
@@ -616,7 +1316,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:17.596Z"
+      "scrapedAt": "2026-06-19T02:12:35.178Z"
     },
     {
       "id": "227385",
@@ -716,7 +1416,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:19.823Z"
+      "scrapedAt": "2026-06-19T02:12:37.514Z"
     },
     {
       "id": "227381",
@@ -814,7 +1514,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:22.294Z"
+      "scrapedAt": "2026-06-19T02:12:39.856Z"
     },
     {
       "id": "227204",
@@ -907,7 +1607,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:24.532Z"
+      "scrapedAt": "2026-06-19T02:12:42.156Z"
     },
     {
       "id": "227233",
@@ -1012,7 +1712,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:26.740Z"
+      "scrapedAt": "2026-06-19T02:12:44.477Z"
     },
     {
       "id": "227229",
@@ -1120,7 +1820,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:29.340Z"
+      "scrapedAt": "2026-06-19T02:12:46.795Z"
     },
     {
       "id": "227225",
@@ -1227,7 +1927,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:31.981Z"
+      "scrapedAt": "2026-06-19T02:12:49.105Z"
     },
     {
       "id": "227220",
@@ -1334,7 +2034,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:34.441Z"
+      "scrapedAt": "2026-06-19T02:12:51.424Z"
     },
     {
       "id": "227216",
@@ -1441,7 +2141,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:36.888Z"
+      "scrapedAt": "2026-06-19T02:12:53.747Z"
     },
     {
       "id": "227212",
@@ -1546,7 +2246,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:39.128Z"
+      "scrapedAt": "2026-06-19T02:12:56.064Z"
     },
     {
       "id": "227208",
@@ -1652,7 +2352,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:41.355Z"
+      "scrapedAt": "2026-06-19T02:12:58.375Z"
     },
     {
       "id": "227043",
@@ -1748,7 +2448,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:44.021Z"
+      "scrapedAt": "2026-06-19T02:13:00.672Z"
     },
     {
       "id": "226991",
@@ -1834,7 +2534,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:46.633Z"
+      "scrapedAt": "2026-06-19T02:13:03.000Z"
     },
     {
       "id": "226992",
@@ -1924,7 +2624,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:48.828Z"
+      "scrapedAt": "2026-06-19T02:13:05.315Z"
     },
     {
       "id": "206389",
@@ -2019,7 +2719,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:51.364Z"
+      "scrapedAt": "2026-06-19T02:13:07.749Z"
     },
     {
       "id": "226961",
@@ -2112,7 +2812,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:53.577Z"
+      "scrapedAt": "2026-06-19T02:13:10.061Z"
     },
     {
       "id": "226558",
@@ -2214,7 +2914,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:55.946Z"
+      "scrapedAt": "2026-06-19T02:13:12.532Z"
     },
     {
       "id": "226575",
@@ -2311,7 +3011,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:18:58.304Z"
+      "scrapedAt": "2026-06-19T02:13:14.851Z"
     },
     {
       "id": "226571",
@@ -2413,7 +3113,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:00.807Z"
+      "scrapedAt": "2026-06-19T02:13:17.168Z"
     },
     {
       "id": "222857",
@@ -2512,7 +3212,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:03.057Z"
+      "scrapedAt": "2026-06-19T02:13:19.503Z"
     },
     {
       "id": "226440",
@@ -2611,7 +3311,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:05.535Z"
+      "scrapedAt": "2026-06-19T02:13:21.806Z"
     },
     {
       "id": "210599",
@@ -2713,7 +3413,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:08.139Z"
+      "scrapedAt": "2026-06-19T02:13:24.121Z"
     },
     {
       "id": "226428",
@@ -2815,7 +3515,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:10.375Z"
+      "scrapedAt": "2026-06-19T02:13:26.417Z"
     },
     {
       "id": "226430",
@@ -2910,7 +3610,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:12.593Z"
+      "scrapedAt": "2026-06-19T02:13:28.727Z"
     },
     {
       "id": "218186",
@@ -3012,7 +3712,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:14.801Z"
+      "scrapedAt": "2026-06-19T02:13:30.877Z"
     },
     {
       "id": "220007",
@@ -3108,7 +3808,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:17.279Z"
+      "scrapedAt": "2026-06-19T02:13:33.199Z"
     },
     {
       "id": "226010",
@@ -3210,7 +3910,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:19.775Z"
+      "scrapedAt": "2026-06-19T02:13:35.522Z"
     },
     {
       "id": "225803",
@@ -3318,7 +4018,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:22.445Z"
+      "scrapedAt": "2026-06-19T02:13:38.398Z"
     },
     {
       "id": "225670",
@@ -3410,7 +4110,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:25.037Z"
+      "scrapedAt": "2026-06-19T02:13:40.974Z"
     },
     {
       "id": "225463",
@@ -3498,7 +4198,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:27.369Z"
+      "scrapedAt": "2026-06-19T02:13:43.294Z"
     },
     {
       "id": "225470",
@@ -3590,7 +4290,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:29.617Z"
+      "scrapedAt": "2026-06-19T02:13:45.587Z"
     },
     {
       "id": "225466",
@@ -3682,7 +4382,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:31.799Z"
+      "scrapedAt": "2026-06-19T02:13:47.889Z"
     },
     {
       "id": "225459",
@@ -3784,7 +4484,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:34.001Z"
+      "scrapedAt": "2026-06-19T02:13:50.392Z"
     },
     {
       "id": "225455",
@@ -3883,7 +4583,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:36.201Z"
+      "scrapedAt": "2026-06-19T02:13:52.690Z"
     },
     {
       "id": "225451",
@@ -3984,7 +4684,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:38.753Z"
+      "scrapedAt": "2026-06-19T02:13:55.134Z"
     },
     {
       "id": "225447",
@@ -4084,7 +4784,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:41.225Z"
+      "scrapedAt": "2026-06-19T02:13:57.453Z"
     },
     {
       "id": "225438",
@@ -4180,7 +4880,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:43.358Z"
+      "scrapedAt": "2026-06-19T02:13:59.925Z"
     },
     {
       "id": "220011",
@@ -4279,7 +4979,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:45.717Z"
+      "scrapedAt": "2026-06-19T02:14:02.390Z"
     },
     {
       "id": "225065",
@@ -4380,7 +5080,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:48.093Z"
+      "scrapedAt": "2026-06-19T02:14:04.710Z"
     },
     {
       "id": "225040",
@@ -4477,7 +5177,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:50.220Z"
+      "scrapedAt": "2026-06-19T02:14:07.008Z"
     },
     {
       "id": "225044",
@@ -4576,7 +5276,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:52.671Z"
+      "scrapedAt": "2026-06-19T02:14:09.746Z"
     },
     {
       "id": "225123",
@@ -4678,7 +5378,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:54.799Z"
+      "scrapedAt": "2026-06-19T02:14:12.193Z"
     },
     {
       "id": "225126",
@@ -4777,7 +5477,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:57.072Z"
+      "scrapedAt": "2026-06-19T02:14:14.938Z"
     },
     {
       "id": "225130",
@@ -4877,7 +5577,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:19:59.352Z"
+      "scrapedAt": "2026-06-19T02:14:17.393Z"
     },
     {
       "id": "225134",
@@ -4979,7 +5679,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:20:01.495Z"
+      "scrapedAt": "2026-06-19T02:14:19.813Z"
     },
     {
       "id": "225138",
@@ -5085,7 +5785,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:20:03.766Z"
+      "scrapedAt": "2026-06-19T02:14:22.113Z"
     },
     {
       "id": "179771",
@@ -5185,7 +5885,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:20:06.191Z"
+      "scrapedAt": "2026-06-19T02:14:24.972Z"
     },
     {
       "id": "205880",
@@ -5285,812 +5985,7 @@
           "type": "download_server"
         }
       ],
-      "scrapedAt": "2026-06-18T23:20:08.331Z"
-    },
-    {
-      "id": "224668",
-      "title": "فيلم The Murder of Rachel Nickell 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-murder-of-rachel-nickell-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://web.topcinemaa.com/?p=224668",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BYTZjMjE0OGItYWI1Yy00NWI2LTg5NDYtZTRmODQ5MTgyMGJjXkEyXkFqcGc@._V1_-520x650.jpg",
-      "imdbRating": null,
-      "story": "تتعرض أمّ شابة للقتل في منتزه \"ويمبلدون\" بـ\"لندن\" في وضح النهار، وأمام طفلها الصغير. هذا الوثائقي يضع قضية القتل التي امتدت لسنوات تحت المجهر.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "جريمة",
-          "وثائقي"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "95 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-murder-of-rachel-nickell-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-yuuiuho04nu8.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/yuuiuho04nu8.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/c5hfudcszn4v",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/56ir2heavr17",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/E7B2B4A73949D11",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?4mby31ufrj68kirv6rz5",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/dac84c02eacf816707b32030b04e674b",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/62v1",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/Pqcr",
-          "quality": "1080p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:10.469Z"
-    },
-    {
-      "id": "224490",
-      "title": "فيلم Casa Grande 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-casa-grande-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://web.topcinemaa.com/?p=224490",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BMDkwNmIxN2EtY2ZmOC00ZmIwLWI2YjktMzE3NzNlMjVhMGM3XkEyXkFqcGc@-scaled-439x650.jpg",
-      "imdbRating": "6.8",
-      "story": "تعود ابنة ضالة إلى عائلتها في مزرعتهم خلال فترة عصيبة، حيث يواجه والدها المريض تشخيصًا بمرض عضال وضغوطًا متزايدة من المنافسين. وتطفو على السطح جراح الماضي وهم يتصارعون مع ما يخبئه لهم المستقبل.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "دراما"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "113 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "دولة الفيلم": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Blake Hyer",
-          "Bruce Davison",
-          "Christina Moore",
-          "Daniel Mora"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-casa-grande-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-80hhajb12dm5.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/80hhajb12dm5.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/ejleojg9of92",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/iwi3h4488exw",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/arrrrnaqlfpk",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/5E0277B0DD74C31",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?ef2vq5vc3c3phee7v086",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/1e7400b5f86793d9d2cbc78596c27e95",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/62kz",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/1vne4",
-          "quality": "1080p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:12.610Z"
-    },
-    {
-      "id": "224214",
-      "title": "فيلم Is God Is 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-is-god-is-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://web.topcinemaa.com/?p=224214",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BMmI0ODU5MjUtYWY1OC00ZTNmLWE0ZDAtZTdkOTZhNzI4ZDllXkEyXkFqcGc@-scaled-439x650.jpg",
-      "imdbRating": "7.3",
-      "story": "تنطلق شقيقتان في رحلة انتقام ملحمية، تواجهان خلالها تاريخًا عائليًا مثقلًا بالألم، يدفعهما إلى تجاوز كل الحدود والسير نحو أقصى ما يمكن أن تبلغه الرغبة في الثأر.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "اثارة",
-          "دراما",
-          "غموض"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "100 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "دولة الفيلم": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Alisha LeeLah Moore",
-          "Christina Spencer",
-          "Erika Alexander",
-          "Janelle Monáe"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-is-god-is-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-wybe7r9ngby1.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/wybe7r9ngby1.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/xefxtxx48kxw",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/hl9dk9e1cdyz",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/zqmrl28yp7u1",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/5D369BDC41B5D3A",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?elhbtspd41vx9o0urdkd",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/02d6f03b00c6140eb26df0d177a2b7bb",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/t6fip4ysx366",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/aemK",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/Ppra",
-          "quality": "1080p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:15.080Z"
-    },
-    {
-      "id": "224209",
-      "title": "فيلم In the Grey 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-in-the-grey-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86-1/",
-      "shortLink": "https://web.topcinemaa.com/?p=224209",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BMTZkMTIzMTItMTQwZS00MTg4LWE0MTEtM2NiNmUzYjRmMGUxXkEyXkFqcGc@-439x650.jpg",
-      "imdbRating": "6.6",
-      "story": "تدور الأحداث حول اثنين من العملاء يتعين عليهما مساعدة مفاوِضة كبيرة، حيث يعمل الثلاثي على تحديد الطريق الأمثل لهروبها، بعد تمكنها من الحصول على ملايين الدولارات المسروقة.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "اثارة",
-          "اكشن",
-          "دراما"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL",
-          "720p WEB-DL"
-        ],
-        "توقيت الفيلم": "97 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "دولة الفيلم": [
-          "المملكة المتحدة"
-        ],
-        "بطولة": [
-          "Carlos Bardem",
-          "Christian Ochoa Lavernia",
-          "Cory Douglas Campbell",
-          "Darrell DSilva"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-in-the-grey-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86-1/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-f691d1g2dkdz.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/f691d1g2dkdz.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/w07rxr7vj06y",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/dgffksoyf1t2",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/16owmdir96vv",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/E3734E009F45748",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?l9pzq5lfen2c13nn4zwf",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/9e3bbb313279e18539293c9a2af472d8",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/bdle8fhezwrp",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/aemJ",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/Ppr4",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://updown.cam/97napbmnndro",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://down.mdiaload.com/js7vwtsrqg7s",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://nitroflare.com/view/84B9B1622AF43CC",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://1fichier.com/?tplim2qjagch87manm9u",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://rapidgator.net/file/cfd30408e92a6435000985f323172f83",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://frdl.io/6zfqo0l2s819",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://koramaup.com/aemT",
-          "quality": "720p",
-          "type": "download_server"
-        },
-        {
-          "name": "720p",
-          "url": "https://1cloudfile.com/Pprt",
-          "quality": "720p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:17.446Z"
-    },
-    {
-      "id": "221116",
-      "title": "فيلم Hokum 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-hokum-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://web.topcinemaa.com/?p=221116",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/05/MV5BZjA1ZjFlZGItNTVjZC00NTFhLTg2YTEtODMzODRmNGFiNTdmXkEyXkFqcGc@-scaled-439x650.jpg",
-      "imdbRating": "7.3",
-      "story": "يتبع العمل قصة الروائي (أوم باومان) الذي يلجأ إلى نُزُل معزول لتأبين ذكرى والديه، فيجد نفسه مأخوذًا بحكايات ساحرة، ومع رؤى مقلقة واختفاء صادم، يُجبر على مواجهة زوايا مظلمة من ماضيه.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "رعب"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "107 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "بطولة": [
-          "Adam Scott",
-          "Austin Amelio",
-          "Brendan Conroy",
-          "David Wilmot"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-hokum-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-zd17a8j72o24.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/zd17a8j72o24.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/p8tha2jjp1v6",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/umjnxmdlozzp",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/sv86xl56xctt",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/9D5EA2076277E68",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?o9sxe0pr6bjlq70tf48c",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/8bda0eaff0b866f28430c03f0be32cd9",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/fyb9shmx4s84",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/aemG",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2bklB",
-          "quality": "1080p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:19.555Z"
-    },
-    {
-      "id": "224223",
-      "title": "فيلم The Box in the Attic 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-box-in-the-attic-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://web.topcinemaa.com/?p=224223",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BYmFmZWE0NjYtOWNkMS00YTdmLTliYWItNjM4ZWQ2ODdlODM2XkEyXkFqcGc@-433x650.jpg",
-      "imdbRating": null,
-      "story": "بعد وفاة والدتها التي كانت على خلاف معها، تعود امرأة مضطربة إلى منزل طفولتها وتكتشف صندوقًا. عندما تكسر ختمه، تطلق العنان لكيانات شريرة مرتبطة بإرث عائلي مظلم وسر قاتل خاص بها.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "رعب"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "75 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "بطولة": [
-          "Jana Henry",
-          "Jann Van Dyke",
-          "Jason Henne",
-          "Kamryn Emory"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-the-box-in-the-attic-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-jvu2f98hdp4k.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/jvu2f98hdp4k.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/0nkeps75nxd6",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/77tvajcl486w",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/gmkc09bt7gc0",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/E258CE728045734",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?792wq9iccrj6kix54140",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/4155e598bedc16f5e48b01c5c5c1c0d1",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/etjnuukv1no0",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/62cp",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/Ppn4",
-          "quality": "1080p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:21.669Z"
-    },
-    {
-      "id": "224220",
-      "title": "فيلم Still Hope 2026 مترجم اون لاين",
-      "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-still-hope-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/",
-      "shortLink": "https://web.topcinemaa.com/?p=224220",
-      "image": "https://web.topcinemaa.com/wp-content/uploads/2026/06/MV5BNjg4ZGYyZTktZTE2Ny00YTY5LWIzYWYtYWFhNmUyYTI2NzE2XkEyXkFqcGc@-scaled-439x650.jpg",
-      "imdbRating": "7.7",
-      "story": "تُختطف مراهقة وتُجبر على الاتجار بالبشر، ولكن بعد سنوات من الأسر، تعود الفتاة إلى منزل عائلتها بعد تلقيها المساعدة من شخص غريب.",
-      "details": {
-        "قسم الفيلم": [
-          "افلام اجنبي"
-        ],
-        "نوع الفيلم": [
-          "دراما"
-        ],
-        "جودة الفيلم": [
-          "1080p WEB-DL"
-        ],
-        "توقيت الفيلم": "113 دقيقة",
-        "موعد الصدور": [
-          "2026"
-        ],
-        "دولة الفيلم": [
-          "الولايات المتحدة الامريكية"
-        ],
-        "بطولة": [
-          "Alex Veadov",
-          "Andrea Mitchell",
-          "Daniel Reed Ferrell",
-          "James Liddell"
-        ]
-      },
-      "watchServers": [
-        {
-          "name": "مشاهدة مباشرة",
-          "url": "https://web.topcinemaa.com/%d9%81%d9%8a%d9%84%d9%85-still-hope-2026-%d9%85%d8%aa%d8%b1%d8%ac%d9%85-%d8%a7%d9%88%d9%86-%d9%84%d8%a7%d9%8a%d9%86/?embedScreen=true",
-          "quality": "متعدد الجودات",
-          "type": "meta_stream",
-          "m3u8Url": null
-        },
-        {
-          "name": "مشاهدة Iframe 1",
-          "url": "https://vidtube.one/embed-d879ef4ajo77.html",
-          "quality": "متعدد الجودات",
-          "type": "iframe",
-          "m3u8Url": null
-        }
-      ],
-      "downloadServers": [
-        {
-          "name": "VidTube",
-          "url": "https://vidtube.one/d/d879ef4ajo77.html",
-          "quality": "متعدد الجودات",
-          "type": "pro_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://updown.cam/owvfvqjysqh5",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://down.mdiaload.com/7hmq8fik6frp",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://ddownload.com/l25ippguggrj",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://nitroflare.com/view/A0FF2ECCACFACE4",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1fichier.com/?ec1dq35b4zp0mh6961b5",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://rapidgator.net/file/6ffb78a61e18493735c08e7f00ef76ff",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://frdl.io/9tck20s9wd10",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://koramaup.com/62cm",
-          "quality": "1080p",
-          "type": "download_server"
-        },
-        {
-          "name": "1080p",
-          "url": "https://1cloudfile.com/2bkhz",
-          "quality": "1080p",
-          "type": "download_server"
-        }
-      ],
-      "scrapedAt": "2026-06-18T23:20:23.809Z"
+      "scrapedAt": "2026-06-19T02:14:27.775Z"
     }
   ]
 }
