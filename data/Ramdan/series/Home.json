@@ -1,7 +1,15 @@
 {
-  "last_update": "2026-06-24T10:17:50.089Z",
+  "last_update": "2026-06-24T15:32:48.260Z",
   "total_series": 81,
   "series": [
+    {
+      "id": "94d42abbd",
+      "title": "الخطيفة",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
     {
       "id": "ed65be9eb",
       "title": "السرايا الصفرا",
@@ -13,6 +21,22 @@
     {
       "id": "587d197ca",
       "title": "السوريون الأعداء",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "4272ec7e2",
+      "title": "الضربة",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "79130bbdd",
+      "title": "العمة",
       "image": "",
       "seasons": 1,
       "last_season": 1,
@@ -43,6 +67,22 @@
       "episodes_count": 0
     },
     {
+      "id": "3f613e778",
+      "title": "دكان سليمان",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "f84dc0645",
+      "title": "شاكر عودة البطل",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
       "id": "bca38b652",
       "title": "شباب البومب ج14",
       "image": "",
@@ -59,8 +99,32 @@
       "episodes_count": 0
     },
     {
+      "id": "0ed21e78f",
+      "title": "عايلة مايلة",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "157b245c0",
+      "title": "عرش الشيطان",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
       "id": "ec3",
       "title": "عرض وطلب",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
+    },
+    {
+      "id": "249d68f38",
+      "title": "عمارة السعادة",
       "image": "",
       "seasons": 1,
       "last_season": 1,
@@ -147,14 +211,6 @@
       "episodes_count": 30
     },
     {
-      "id": "94d42abbd",
-      "title": "مسلسل الخطيفة",
-      "image": "",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 20
-    },
-    {
       "id": "ae583760b",
       "title": "مسلسل الست موناليزا",
       "image": "https://laroza.baby/uploads/thumbs/cfee36307-1.jpg",
@@ -169,22 +225,6 @@
       "seasons": 1,
       "last_season": 1,
       "episodes_count": 30
-    },
-    {
-      "id": "4272ec7e2",
-      "title": "مسلسل الضربة",
-      "image": "https://laroza.baby/uploads/thumbs/ae570d8ad-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 15
-    },
-    {
-      "id": "79130bbdd",
-      "title": "مسلسل العمة",
-      "image": "https://laroza.baby/uploads/thumbs/d7f1cff68-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 10
     },
     {
       "id": "9f5220386",
@@ -229,7 +269,7 @@
     {
       "id": "70efa0e07",
       "title": "مسلسل المحافظة 15",
-      "image": "https://laroza.baby/uploads/thumbs/52fca8afd-1.jpg",
+      "image": "https://laroza.casa/uploads/thumbs/52fca8afd-1.jpg",
       "seasons": 1,
       "last_season": 1,
       "episodes_count": 30
@@ -355,14 +395,6 @@
       "episodes_count": 30
     },
     {
-      "id": "3f613e778",
-      "title": "مسلسل دكان سليمان",
-      "image": "https://laroza.baby/uploads/thumbs/ee62ede1e-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 10
-    },
-    {
       "id": "fd55e6ca6",
       "title": "مسلسل رامز ليفل الوحش",
       "image": "https://laroza.baby/uploads/thumbs/5a8ef2596-1.jpg",
@@ -405,7 +437,7 @@
     {
       "id": "f6ba66438",
       "title": "مسلسل سموم القيظ",
-      "image": "https://laroza.baby/uploads/thumbs/8a5e68a1d-1.jpg",
+      "image": "https://laroza.casa/uploads/thumbs/8a5e68a1d-1.jpg",
       "seasons": 1,
       "last_season": 1,
       "episodes_count": 30
@@ -427,17 +459,9 @@
       "episodes_count": 28
     },
     {
-      "id": "f84dc0645",
-      "title": "مسلسل شاكر عودة البطل",
-      "image": "",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 13
-    },
-    {
       "id": "5307002ab",
       "title": "مسلسل شاي خانة",
-      "image": "https://laroza.baby/uploads/thumbs/b9f790fd0-1.jpg",
+      "image": "https://laroza.casa/uploads/thumbs/b9f790fd0-1.jpg",
       "seasons": 1,
       "last_season": 1,
       "episodes_count": 10
@@ -453,34 +477,10 @@
     {
       "id": "c8023b120",
       "title": "مسلسل صبر أم أيوب",
-      "image": "https://laroza.baby/uploads/thumbs/81e550563-1.jpg",
+      "image": "https://laroza.casa/uploads/thumbs/81e550563-1.jpg",
       "seasons": 1,
       "last_season": 1,
       "episodes_count": 10
-    },
-    {
-      "id": "0ed21e78f",
-      "title": "مسلسل عايلة مايلة",
-      "image": "https://laroza.baby/uploads/thumbs/d1c4e8a1c-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 30
-    },
-    {
-      "id": "157b245c0",
-      "title": "مسلسل عرش الشيطان",
-      "image": "https://laroza.baby/uploads/thumbs/4542cf943-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 30
-    },
-    {
-      "id": "249d68f38",
-      "title": "مسلسل عمارة السعادة",
-      "image": "https://laroza.baby/uploads/thumbs/408ac47a6-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 30
     },
     {
       "id": "1bcbf8b34",
@@ -603,14 +603,6 @@
       "episodes_count": 13
     },
     {
-      "id": "27f70fd79",
-      "title": "مسلسل نورية نصيب",
-      "image": "https://laroza.baby/uploads/thumbs/0e712d981-1.jpg",
-      "seasons": 1,
-      "last_season": 1,
-      "episodes_count": 10
-    },
-    {
       "id": "b382bebdb",
       "title": "مسلسل هي كيميا",
       "image": "",
@@ -641,6 +633,14 @@
       "seasons": 1,
       "last_season": 1,
       "episodes_count": 30
+    },
+    {
+      "id": "27f70fd79",
+      "title": "نورية نصيب",
+      "image": "",
+      "seasons": 1,
+      "last_season": 1,
+      "episodes_count": 0
     },
     {
       "id": "3",
