@@ -1,43 +1,7 @@
 {
-  "scrapedAt": "٢٦‏/٦‏/٢٠٢٦، ١١:٢٣:٤٦ ص",
+  "scrapedAt": "٢٦‏/٦‏/٢٠٢٦، ٢:٢١:٥٤ م",
   "totalMatches": 6,
   "matches": [
-    {
-      "url": "https://a1.koora24.sbs/read/85/%D8%A7%D9%84%D8%AA%D8%B4%D9%83%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9-%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8-%D9%83%D9%88%D8%B1%D8%A7%D8%B3%D8%A7%D9%88-%D8%B6%D8%AF-%D9%83%D9%88%D8%AA-%D8%AF%D9%8A%D9%81%D9%88%D8%A7%D8%B1",
-      "status": "لم تبدأ بعد",
-      "league": "دولي, كأس العالم - المجموعة د",
-      "time": "05:00 AM",
-      "channel": "beIN SPORTS MAX 2",
-      "score": "0 - 0",
-      "team1": {
-        "name": "باراغواي",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5070.png"
-      },
-      "team2": {
-        "name": "أستراليا",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2380.png"
-      },
-      "id": 507569,
-      "watchServers": null
-    },
-    {
-      "url": "https://a1.koora24.sbs/read/84/%D8%A7%D9%84%D8%B9%D9%82%D8%A8%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9-%D8%A7%D9%85%D8%A7%D9%85-%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B1-%D9%81%D9%8A-%D8%B5%D9%81%D9%82%D8%A9-%D9%86%D9%8A%D9%83%D9%88-%D8%A8%D8%A7%D8%B2",
-      "status": "لم تبدأ بعد",
-      "league": "دولي, كأس العالم - المجموعة د",
-      "time": "05:00 AM",
-      "channel": "beIN SPORTS MAX 1",
-      "score": "0 - 0",
-      "team1": {
-        "name": "تركيا",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/09/5047.png"
-      },
-      "team2": {
-        "name": "الولايات المتحدة",
-        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2389.png"
-      },
-      "id": 639275,
-      "watchServers": null
-    },
     {
       "url": "https://globalarticlewarehouse.com/",
       "status": "لم تبدأ بعد",
@@ -53,8 +17,14 @@
         "name": "فرنسا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/download.png"
       },
-      "id": 167520,
-      "watchServers": null
+      "id": 391504,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://pxdrop.lijit.com/a/t_.htm?ver=1.2063.1155&cid=c026&cls=sync#cls=sync&dmn=martinchavez98.org&GDPR_v2=&us_privacy=&pubid=dt_scout&gpp=&gpp_sid=&tt=t.dhj&cid=c026&lbl=lijit&flbl=pxcel&ll=d&ver=1.2063.1155&ell=d&cck=ljt_reader&pn=%2F&qs=na&rdn=martinchavez98.org&rpn=%2F&rqs=na&ipaddr=NjQuMjM2LjE3Ni4xNDY%3D&cc=US&cont=NA&rc=IL"
+        }
+      ]
     },
     {
       "url": "https://globalarticlewarehouse.com/",
@@ -71,8 +41,14 @@
         "name": "العراق",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5078.png"
       },
-      "id": 641417,
-      "watchServers": null
+      "id": 385534,
+      "watchServers": [
+        {
+          "id": "server_1",
+          "name": "سيرفر رئيسي",
+          "url": "https://pxdrop.lijit.com/a/t_.htm?ver=1.2063.1155&cid=c026&cls=sync#cls=sync&dmn=martinchavez98.org&GDPR_v2=&us_privacy=&pubid=dt_scout&gpp=&gpp_sid=&tt=t.dhj&cid=c026&lbl=lijit&flbl=pxcel&ll=d&ver=1.2063.1155&ell=d&cck=ljt_reader&pn=%2F&qs=na&rdn=martinchavez98.org&rpn=%2F&rqs=na&ipaddr=NjQuMjM2LjE3Ni4xNDY%3D&cc=US&cont=NA&rc=IL"
+        }
+      ]
     },
     {
       "url": "https://www.kooora-lives1.info/",
@@ -89,7 +65,7 @@
         "name": "هولندا",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2377.png"
       },
-      "id": 363405,
+      "id": 229472,
       "watchServers": null
     },
     {
@@ -107,7 +83,43 @@
         "name": "السويد",
         "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2371.png"
       },
-      "id": 937811,
+      "id": 656562,
+      "watchServers": null
+    },
+    {
+      "url": "https://www.kooora-lives1.info/",
+      "status": "انتهت",
+      "league": "دولي, كأس العالم - المجموعة د",
+      "time": "",
+      "channel": "beIN SPORTS MAX 2",
+      "score": "0 - 0",
+      "team1": {
+        "name": "باراغواي",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/5070.png"
+      },
+      "team2": {
+        "name": "أستراليا",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2380.png"
+      },
+      "id": 387526,
+      "watchServers": null
+    },
+    {
+      "url": "https://www.kooora-lives1.info/",
+      "status": "انتهت",
+      "league": "دولي, كأس العالم - المجموعة د",
+      "time": "",
+      "channel": "beIN SPORTS MAX 1",
+      "score": "3 - 2",
+      "team1": {
+        "name": "تركيا",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/09/5047.png"
+      },
+      "team2": {
+        "name": "الولايات المتحدة",
+        "logo": "https://www.kooora-lives1.info/wp-content/uploads/2025/06/2389.png"
+      },
+      "id": 481976,
       "watchServers": null
     }
   ]
